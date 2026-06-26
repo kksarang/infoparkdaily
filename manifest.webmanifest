@@ -2,13 +2,13 @@
   "name": "Infopark Daily",
   "short_name": "InfoparkDaily",
   "description": "Kerala's Largest Tech & Business Community",
-  "start_url": "/",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#0b0b0f",
   "theme_color": "#ffc107",
   "icons": [
     {
-      "src": "/assets/logo-infoparkdaily.png",
+      "src": "assets/logo-infoparkdaily.png",
       "sizes": "any",
       "type": "image/png",
       "purpose": "any maskable"

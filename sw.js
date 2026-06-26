@@ -1,5 +1,12 @@
-const CACHE_NAME = "infoparkdaily-v4";
-const PRELOAD_ASSETS = ["/", "/index.html", "/styles.css?v=20260626c", "/script.js?v=20260626c", "/manifest.webmanifest", "/assets/logo-infoparkdaily.png"];
+const CACHE_NAME = "infoparkdaily-v5";
+const PRELOAD_ASSETS = [
+  "./",
+  "./index.html",
+  "./styles.css?v=20260626d",
+  "./script.js?v=20260626d",
+  "./manifest.webmanifest",
+  "./assets/logo-infoparkdaily.png"
+];
 
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_NAME);
