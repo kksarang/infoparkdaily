@@ -1,9 +1,9 @@
-const CACHE_NAME = "infoparkdaily-v5";
+const CACHE_NAME = "infoparkdaily-v6";
 const PRELOAD_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=20260626d",
-  "./script.js?v=20260626d",
+  "./styles.css?v=20260626e",
+  "./script.js?v=20260626e",
   "./manifest.webmanifest",
   "./assets/logo-infoparkdaily.png"
 ];

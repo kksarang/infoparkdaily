@@ -3087,3 +3087,35 @@ footer[id] {
     text-align: center;
   }
 }
+
+/* Reel mobile fix - enforce row flow and no clipping */
+#stories .reels-track {
+  grid-auto-flow: row;
+  grid-auto-columns: minmax(0, 1fr);
+  scroll-snap-type: none;
+  align-items: start;
+}
+
+#stories .premium-reel-card {
+  align-self: start;
+}
+
+@media (max-width: 760px) {
+  #stories .reels-track {
+    grid-template-columns: 1fr;
+    overflow-x: hidden;
+  }
+
+  #stories .premium-reel-media {
+    min-height: 280px;
+  }
+
+  #stories .premium-reel-content {
+    padding: 0.95rem;
+  }
+
+  #stories .premium-reel-content p {
+    min-height: 0;
+    margin-bottom: 0;
+  }
+}
