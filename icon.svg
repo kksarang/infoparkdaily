@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Infopark Daily icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B0B0F" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFC107" />
+      <stop offset="100%" stop-color="#FFE082" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)" />
+  <circle cx="70" cy="128" r="28" fill="url(#accent)" />
+  <path d="M122 72h20v112h-20zM162 72h20v112h-20z" fill="#55B1FF" />
+  <path d="M122 72h60v20h-60zM122 164h60v20h-60z" fill="#f5f7fb" opacity="0.9" />
+</svg>
