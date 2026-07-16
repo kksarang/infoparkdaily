@@ -132,7 +132,7 @@ if (newsletterForm && newsletterMessage) {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./sw.js?v=20260626f")
+      .register("./sw.js?v=20260716g")
       .then((registration) => registration.update())
       .catch(() => {
         // Service worker registration should not block core rendering.

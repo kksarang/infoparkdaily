@@ -1,11 +1,17 @@
-const CACHE_NAME = "infoparkdaily-v7";
+const CACHE_NAME = "infoparkdaily-v14";
 const PRELOAD_ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=20260626f",
-  "./script.js?v=20260626f",
+  "./jobs.html",
+  "./job.html",
+  "./styles.css?v=20260716g",
+  "./script.js?v=20260716g",
+  "./jobs-data.js?v=20260716g",
+  "./jobs.js?v=20260716g",
+  "./job.js?v=20260716g",
   "./manifest.webmanifest",
-  "./assets/logo-infoparkdaily.png"
+  "./assets/logo-infoparkdaily.png",
+  "./assets/logos/placeholder.svg"
 ];
 
 async function networkFirst(request) {
@@ -27,7 +33,6 @@ async function staleWhileRevalidate(request) {
   const networkPromise = fetch(request)
     .then((response) => {
       cache.put(request, response.clone());
-      return response;
     })
     .catch(() => null);
   return cached || networkPromise;
