@@ -3,7 +3,12 @@
   const emptyState = document.getElementById("jobs-empty");
   const searchInput = document.getElementById("jobs-search");
   const filterBar = document.getElementById("jobs-filters");
+  const tagBar = document.getElementById("jobs-tags");
+  const sortSelect = document.getElementById("jobs-sort");
   const countEl = document.getElementById("jobs-count");
+  const loadMoreBtn = document.getElementById("jobs-load-more");
+  const stickyBar = document.getElementById("jobs-sticky-cta");
+  const stickyDismiss = document.getElementById("jobs-sticky-dismiss");
   const statCompanies = document.getElementById("stat-companies");
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
@@ -16,12 +21,19 @@
     both: "Fresher + Exp"
   };
 
+  const PAGE_SIZE = 12;
+  const NEW_DAYS = 5;
+  const STICKY_KEY = "jobsStickyDismissed";
   const MAX_ROLES_ON_CARD = 3;
+
   let activeFilter = "all";
+  let activeTag = "all";
   let searchQuery = "";
+  let sortMode = "newest";
+  let visibleCount = PAGE_SIZE;
 
   function formatDate(iso) {
-    if (!iso) return "";
+    if (!iso || iso === "Rolling") return iso || "";
     const date = new Date(`${iso}T00:00:00`);
     if (Number.isNaN(date.getTime())) return iso;
     return date.toLocaleDateString("en-IN", {
@@ -40,9 +52,43 @@
       .join("");
   }
 
+  function escapeHtml(value) {
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function escapeAttr(value) {
+    return escapeHtml(value).replace(/'/g, "&#39;");
+  }
+
+  function isNew(job) {
+    if (!job.postedDate) return false;
+    const posted = new Date(`${job.postedDate}T00:00:00`);
+    if (Number.isNaN(posted.getTime())) return false;
+    const ageMs = Date.now() - posted.getTime();
+    return ageMs >= 0 && ageMs <= NEW_DAYS * 24 * 60 * 60 * 1000;
+  }
+
+  function employmentType(job) {
+    return String(job.employmentType || job.workStatus || "").toLowerCase();
+  }
+
   function matchesFilter(job) {
     if (activeFilter === "all") return true;
+    if (activeFilter === "walkin") return Boolean(job.isWalkIn);
+    if (activeFilter === "internship") {
+      const type = employmentType(job);
+      return type.includes("internship") || type.includes("apprenticeship");
+    }
     return job.experience === activeFilter;
+  }
+
+  function matchesTag(job) {
+    if (activeTag === "all") return true;
+    return (job.tags || []).some((tag) => String(tag).toLowerCase() === activeTag);
   }
 
   function matchesSearch(job) {
@@ -54,8 +100,11 @@
       job.address,
       job.workDetails,
       job.companyDetails,
+      job.companyBlurb,
       job.industry,
+      job.employmentType,
       ...(job.roles || []),
+      ...(job.tags || []),
       job.description || ""
     ]
       .join(" ")
@@ -63,20 +112,24 @@
     return haystack.includes(searchQuery);
   }
 
+  function deadlineSortValue(job) {
+    const raw = job.applyDeadline;
+    if (!raw || raw === "Rolling") return Number.POSITIVE_INFINITY;
+    const date = new Date(`${raw}T00:00:00`);
+    return Number.isNaN(date.getTime()) ? Number.POSITIVE_INFINITY : date.getTime();
+  }
+
   function filteredJobs() {
-    return JOBS.filter((job) => matchesFilter(job) && matchesSearch(job));
-  }
+    const list = JOBS.filter((job) => matchesFilter(job) && matchesTag(job) && matchesSearch(job));
 
-  function escapeHtml(value) {
-    return String(value ?? "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
+    list.sort((a, b) => {
+      if (sortMode === "deadline") {
+        return deadlineSortValue(a) - deadlineSortValue(b);
+      }
+      return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+    });
 
-  function escapeAttr(value) {
-    return escapeHtml(value).replace(/'/g, "&#39;");
+    return list;
   }
 
   function jobHref(job) {
@@ -124,25 +177,74 @@
     if (statFreshers) statFreshers.textContent = String(fresherFriendly);
   }
 
+  function buildTagChips() {
+    if (!tagBar) return;
+    const tags = new Set();
+    JOBS.forEach((job) => (job.tags || []).forEach((tag) => tags.add(String(tag))));
+    const sorted = [...tags].sort((a, b) => a.localeCompare(b));
+
+    tagBar.innerHTML = [
+      `<button type="button" class="jobs-tag-chip is-active" data-tag="all" aria-pressed="true">All tags</button>`,
+      ...sorted.map(
+        (tag) =>
+          `<button type="button" class="jobs-tag-chip" data-tag="${escapeAttr(
+            tag.toLowerCase()
+          )}" aria-pressed="false">${escapeHtml(tag)}</button>`
+      )
+    ].join("");
+  }
+
   function renderCard(job, index) {
     const exp = job.experience || "both";
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
-    const dateLine = job.startingDate
-      ? `Starting ${formatDate(job.startingDate)}`
-      : job.postedDate
-        ? `Posted ${formatDate(job.postedDate)}`
-        : "";
+    const dateLine = job.isWalkIn && job.walkInDate
+      ? job.walkInDate
+      : job.startingDate
+        ? `Starting ${formatDate(job.startingDate)}`
+        : job.postedDate
+          ? `Posted ${formatDate(job.postedDate)}`
+          : "";
     const source = job.source
       ? `<span class="job-source">${escapeHtml(job.source)}</span>`
       : "";
-    const description = job.description
-      ? `<p class="job-desc">${escapeHtml(job.description)}</p>`
+    const blurb = job.companyBlurb || job.description
+      ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
       : "";
     const roleCount = (job.roles || []).length;
+    const deadline =
+      job.applyDeadline
+        ? `<span class="job-deadline">Deadline: ${escapeHtml(
+            job.applyDeadline === "Rolling" ? "Rolling" : formatDate(job.applyDeadline)
+          )}</span>`
+        : "";
+
+    const badges = [
+      `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
+      isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
+      job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
+      job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : "",
+      job.employmentType
+        ? `<span class="job-status-chip">${escapeHtml(job.employmentType)}</span>`
+        : job.workStatus
+          ? `<span class="job-status-chip">${escapeHtml(job.workStatus)}</span>`
+          : ""
+    ]
+      .filter(Boolean)
+      .join("");
+
+    const tagChips = (job.tags || [])
+      .slice(0, 3)
+      .map((tag) => `<span class="job-tag-pill">${escapeHtml(tag)}</span>`)
+      .join("");
 
     return `
       <article class="job-card" data-experience="${escapeHtml(exp)}" style="--delay: ${Math.min(index, 8) * 40}ms">
         <div class="job-card-accent" aria-hidden="true"></div>
+        ${
+          job.isWalkIn && job.walkInDate
+            ? `<p class="job-walkin-banner">${escapeHtml(job.walkInDate)}</p>`
+            : ""
+        }
         <header class="job-card-head">
           ${logoBlock(job)}
           <div class="job-card-meta">
@@ -150,18 +252,17 @@
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
         </header>
-        <div class="job-card-tags">
-          <span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>
-          ${job.workStatus ? `<span class="job-status-chip">${escapeHtml(job.workStatus)}</span>` : ""}
-        </div>
+        <div class="job-card-tags">${badges}</div>
+        ${tagChips ? `<div class="job-tag-row">${tagChips}</div>` : ""}
         <div class="job-card-body">
           <p class="job-roles-label">${roleCount} open role${roleCount === 1 ? "" : "s"}</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
-          ${description}
+          ${blurb}
         </div>
         <footer class="job-card-foot">
           <div class="job-meta-row">
             ${dateLine ? `<span class="job-date">${escapeHtml(dateLine)}</span>` : ""}
+            ${deadline}
             ${source}
           </div>
           <a class="btn btn-primary job-details-btn" href="${escapeAttr(jobHref(job))}">
@@ -174,16 +275,30 @@
 
   function render() {
     const jobs = filteredJobs();
-    grid.innerHTML = jobs.map((job, i) => renderCard(job, i)).join("");
+    const visible = jobs.slice(0, visibleCount);
+    grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
 
     if (countEl) {
       countEl.textContent =
-        jobs.length === 1 ? "1 company shown" : `${jobs.length} companies shown`;
+        jobs.length === 1 ? "1 company shown" : `${jobs.length} companies match`;
     }
 
     if (emptyState) {
       emptyState.hidden = jobs.length > 0;
     }
+
+    if (loadMoreBtn) {
+      const hasMore = jobs.length > visibleCount;
+      loadMoreBtn.hidden = !hasMore;
+      loadMoreBtn.textContent = hasMore
+        ? `Load more (${jobs.length - visibleCount} remaining)`
+        : "Load more";
+    }
+  }
+
+  function resetVisibleAndRender() {
+    visibleCount = PAGE_SIZE;
+    render();
   }
 
   if (filterBar) {
@@ -196,17 +311,65 @@
         btn.classList.toggle("is-active", isActive);
         btn.setAttribute("aria-pressed", isActive ? "true" : "false");
       });
-      render();
+      resetVisibleAndRender();
+    });
+  }
+
+  if (tagBar) {
+    tagBar.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-tag]");
+      if (!button) return;
+      activeTag = button.dataset.tag;
+      tagBar.querySelectorAll("[data-tag]").forEach((btn) => {
+        const isActive = btn === button;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      resetVisibleAndRender();
     });
   }
 
   if (searchInput) {
     searchInput.addEventListener("input", () => {
       searchQuery = searchInput.value.trim().toLowerCase();
+      resetVisibleAndRender();
+    });
+  }
+
+  if (sortSelect) {
+    sortSelect.addEventListener("change", () => {
+      sortMode = sortSelect.value || "newest";
+      resetVisibleAndRender();
+    });
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += PAGE_SIZE;
       render();
     });
   }
 
+  if (stickyBar) {
+    const dismissed = localStorage.getItem(STICKY_KEY) === "1";
+    if (!dismissed) {
+      const onScroll = () => {
+        stickyBar.classList.toggle("is-visible", window.scrollY > 320);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+
+    if (stickyDismiss) {
+      stickyDismiss.addEventListener("click", () => {
+        localStorage.setItem(STICKY_KEY, "1");
+        stickyBar.classList.remove("is-visible");
+        stickyBar.hidden = true;
+      });
+    }
+  }
+
   updateHeroStats();
+  buildTagChips();
   render();
 })();

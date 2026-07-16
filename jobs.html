@@ -32,14 +32,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="styles.css?v=20260716g" />
+    <link rel="stylesheet" href="styles.css?v=20260716j" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
+          else document.documentElement.classList.add("theme-dark");
+        } catch (_e) {
+          document.documentElement.classList.add("theme-dark");
+        }
+      })();
+    </script>
   </head>
-  <body class="jobs-body">
+  <body class="jobs-body dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="index.html" aria-label="Infopark Daily home">
@@ -53,11 +63,10 @@
         <a href="index.html#about">About</a>
         <a href="index.html#services">Services</a>
         <a href="index.html#stories">Stories</a>
-        <a href="index.html#careers">Careers</a>
         <a href="jobs.html" aria-current="page">Jobs</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle dark mode">Theme</button>
+      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
     </header>
 
     <main id="main-content" class="jobs-page">
@@ -91,8 +100,8 @@
           <p class="jobs-panel-label">How it works</p>
           <ol class="jobs-panel-steps">
             <li>Browse openings by company</li>
-            <li>Filter Freshers or Experienced</li>
-            <li>Tap <strong>View Details</strong> for email, address &amp; work info</li>
+            <li>Filter Freshers, Walk-ins, or Internships</li>
+            <li>Tap <strong>View Details</strong> for apply info</li>
           </ol>
           <p class="jobs-panel-note">Free community board · Never a recruitment fee</p>
         </aside>
@@ -109,18 +118,30 @@
             <button type="button" class="jobs-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
             <button type="button" class="jobs-filter-btn" data-filter="fresher" aria-pressed="false">Freshers</button>
             <button type="button" class="jobs-filter-btn" data-filter="experienced" aria-pressed="false">Experienced</button>
-            <button type="button" class="jobs-filter-btn" data-filter="both" aria-pressed="false">Fresher + Exp</button>
+            <button type="button" class="jobs-filter-btn" data-filter="both" aria-pressed="false">Both</button>
+            <button type="button" class="jobs-filter-btn" data-filter="walkin" aria-pressed="false">Walk-ins</button>
+            <button type="button" class="jobs-filter-btn" data-filter="internship" aria-pressed="false">Internships</button>
           </div>
-          <label class="jobs-search-label">
-            <span class="visually-hidden">Search jobs</span>
-            <input
-              id="jobs-search"
-              class="jobs-search"
-              type="search"
-              placeholder="Search company or role…"
-              autocomplete="off"
-            />
-          </label>
+          <div id="jobs-tags" class="jobs-tags" role="group" aria-label="Filter by category"></div>
+          <div class="jobs-toolbar-row">
+            <label class="jobs-search-label">
+              <span class="visually-hidden">Search jobs</span>
+              <input
+                id="jobs-search"
+                class="jobs-search"
+                type="search"
+                placeholder="Search company or role…"
+                autocomplete="off"
+              />
+            </label>
+            <label class="jobs-sort-label">
+              <span class="visually-hidden">Sort jobs</span>
+              <select id="jobs-sort" class="jobs-sort">
+                <option value="newest" selected>Newest first</option>
+                <option value="deadline">Deadline soonest</option>
+              </select>
+            </label>
+          </div>
           <p id="jobs-count" class="jobs-count" aria-live="polite"></p>
         </div>
       </section>
@@ -128,8 +149,13 @@
       <section class="content-section jobs-listings-section" aria-label="Job listings">
         <div id="jobs-grid" class="jobs-grid"></div>
         <p id="jobs-empty" class="jobs-empty glass" hidden>
-          No openings match your filters. Try “All” or clear the search.
+          No listings match — check back soon or follow our
+          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+          for live updates.
         </p>
+        <div class="jobs-load-more-wrap">
+          <button type="button" id="jobs-load-more" class="btn btn-secondary" hidden>Load more</button>
+        </div>
       </section>
 
       <section class="content-section jobs-cta-banner">
@@ -150,11 +176,19 @@
             </a>
             <a
               class="btn btn-secondary"
-              href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB"
+              href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22"
               target="_blank"
               rel="noopener noreferrer"
             >
               WhatsApp Channel
+            </a>
+            <a
+              class="btn btn-ghost"
+              href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram Broadcast
             </a>
           </div>
         </div>
@@ -167,7 +201,22 @@
       </p>
     </main>
 
-    <footer id="contact" class="site-footer">
+    <aside id="jobs-sticky-cta" class="jobs-sticky-cta" aria-label="Job alerts">
+      <p>Get instant job alerts on WhatsApp</p>
+      <a
+        class="btn btn-primary"
+        href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Join channel
+      </a>
+      <button type="button" id="jobs-sticky-dismiss" class="jobs-sticky-dismiss" aria-label="Dismiss alert bar">
+        ×
+      </button>
+    </aside>
+
+    <footer class="site-footer">
       <section class="footer-contact">
         <h2>Contact</h2>
         <p>
@@ -176,12 +225,16 @@
         </p>
         <p><a href="tel:+919995254290">+91 99952 54290</a></p>
         <p><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a></p>
+        <p><a href="contact.html">Open full contact page →</a></p>
         <p>Thapasya Rd, Infopark Campus, Infopark, Kochi, Kakkanad, Kerala</p>
       </section>
       <nav class="footer-links" aria-label="Social links">
         <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs Instagram</a>
-        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="https://www.instagram.com/infoparkdaily.media/" target="_blank" rel="noopener noreferrer">Media Instagram</a>
+        <a href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/" target="_blank" rel="noopener noreferrer">Instagram Broadcast</a>
+        <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
@@ -192,8 +245,8 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260716g" defer></script>
-    <script src="jobs-data.js?v=20260716g" defer></script>
-    <script src="jobs.js?v=20260716g" defer></script>
+    <script src="script.js?v=20260716j" defer></script>
+    <script src="jobs-data.js?v=20260716j" defer></script>
+    <script src="jobs.js?v=20260716j" defer></script>
   </body>
 </html>

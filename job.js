@@ -139,15 +139,12 @@
       infoItem("Work mode", escapeHtml(job.workMode)),
       infoItem("Industry", escapeHtml(job.industry)),
       infoItem("Posted", job.postedDate ? escapeHtml(formatDate(job.postedDate)) : ""),
+      infoItem("Deadline", job.applyDeadline ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling" : formatDate(job.applyDeadline)) : ""),
       infoItem("Starting", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : ""),
+      infoItem("Walk-in", job.isWalkIn ? escapeHtml(job.walkInDate || "Yes") : ""),
       infoItem("Source", escapeHtml(job.source))
     ].join("");
 
-    const primaryAction = job.email
-      ? `<a class="btn btn-primary" href="mailto:${escapeAttr(job.email)}">Email to Apply</a>`
-      : job.website
-        ? `<a class="btn btn-primary" href="${escapeAttr(job.website)}" target="_blank" rel="noopener noreferrer">Open Apply Portal</a>`
-        : `<a class="btn btn-primary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Check Instagram Jobs</a>`;
 
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
@@ -170,6 +167,9 @@
             <p class="job-location">${escapeHtml(job.location || "")}</p>
             <div class="job-card-tags">
               <span class="job-badge job-badge--${escapeAttr(exp)}">${escapeHtml(badgeLabel)}</span>
+              ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
+              ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
+              ${job.employmentType ? `<span class="job-status-chip">${escapeHtml(job.employmentType)}</span>` : ""}
               ${job.workStatus ? `<span class="job-status-chip">${escapeHtml(job.workStatus)}</span>` : ""}
               ${job.workMode ? `<span class="job-status-chip">${escapeHtml(job.workMode)}</span>` : ""}
               ${job.industry ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
@@ -177,7 +177,6 @@
           </div>
         </div>
         <div class="job-detail-hero-actions">
-          ${primaryAction}
           <a class="btn btn-secondary" href="jobs.html">All Openings</a>
         </div>
       </section>
@@ -216,7 +215,7 @@
             <p class="job-detail-text">New Infopark openings are shared daily on our channels.</p>
             <div class="job-side-actions">
               <a class="btn btn-primary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Instagram Jobs</a>
-              <a class="btn btn-secondary" href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="btn btn-secondary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
             </div>
           </section>
         </aside>

@@ -1,24 +1,27 @@
-const CACHE_NAME = "infoparkdaily-v14";
+const CACHE_NAME = "infoparkdaily-v17";
 const PRELOAD_ASSETS = [
   "./",
   "./index.html",
   "./jobs.html",
   "./job.html",
-  "./styles.css?v=20260716g",
-  "./script.js?v=20260716g",
-  "./jobs-data.js?v=20260716g",
-  "./jobs.js?v=20260716g",
-  "./job.js?v=20260716g",
+  "./contact.html",
+  "./styles.css?v=20260716j",
+  "./script.js?v=20260716j",
+  "./jobs-data.js?v=20260716j",
+  "./jobs.js?v=20260716j",
+  "./job.js?v=20260716j",
+  "./contact.js?v=20260716j",
   "./manifest.webmanifest",
-  "./assets/logo-infoparkdaily.png",
-  "./assets/logos/placeholder.svg"
+  "./assets/logo-infoparkdaily.png"
 ];
 
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
     const response = await fetch(request);
-    cache.put(request, response.clone());
+    if (response && response.ok) {
+      cache.put(request, response.clone());
+    }
     return response;
   } catch (_error) {
     const cached = await cache.match(request);
@@ -32,7 +35,10 @@ async function staleWhileRevalidate(request) {
   const cached = await cache.match(request);
   const networkPromise = fetch(request)
     .then((response) => {
-      cache.put(request, response.clone());
+      if (response && response.ok) {
+        cache.put(request, response.clone());
+      }
+      return response;
     })
     .catch(() => null);
   return cached || networkPromise;

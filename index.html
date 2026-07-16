@@ -32,12 +32,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="styles.css?v=20260716f" />
+    <link rel="stylesheet" href="styles.css?v=20260716j" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
+          else document.documentElement.classList.add("theme-dark");
+        } catch (_e) {
+          document.documentElement.classList.add("theme-dark");
+        }
+      })();
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -49,6 +59,10 @@
         "telephone": "+919995254290",
         "sameAs": [
           "https://www.instagram.com/infoparkdaily/",
+          "https://www.instagram.com/infoparkdaily.jobs/",
+          "https://www.instagram.com/infoparkdaily.media/",
+          "https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/",
+          "https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22",
           "https://www.facebook.com/profile.php?id=61590569168309",
           "https://www.linkedin.com/",
           "https://www.youtube.com/",
@@ -70,10 +84,10 @@
       }
     </script>
   </head>
-  <body>
+  <body class="dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
-      <a class="brand" href="#main-content" aria-label="Infopark Daily home">
+      <a class="brand" href="index.html" aria-label="Infopark Daily home">
         <img class="brand-logo" src="assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
         <div>
           <p class="brand-name">INFOPARKDAILY</p>
@@ -83,12 +97,11 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#stories">Stories</a>
-        <a href="#careers">Careers</a>
         <a href="jobs.html">Jobs</a>
-        <a href="#contact">Contact</a>
+        <a href="#stories">Stories</a>
+        <a href="contact.html">Contact</a>
       </nav>
-      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle dark mode">Theme</button>
+      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
     </header>
 
     <main id="main-content">
@@ -101,12 +114,12 @@
             distribution across Kerala's strongest tech audience.
           </p>
           <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Connect</a>
-            <a href="https://www.instagram.com/infoparkdaily/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Open Instagram</a>
-            <a href="tel:+919995254290" class="btn btn-ghost">Call</a>
+            <a href="contact.html" class="btn btn-primary">Connect</a>
+            <a href="jobs.html" class="btn btn-secondary">View Jobs</a>
+            <a href="https://www.instagram.com/infoparkdaily/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Open Instagram</a>
           </div>
           <ul class="hero-proof">
-            <li>23K+ Followers</li>
+            <li>35K+ Followers</li>
             <li>100M+ Social Reach</li>
             <li>1 Cr+ Monthly Views</li>
           </ul>
@@ -141,40 +154,75 @@
         </aside>
       </section>
 
-      <section class="counter-section" aria-label="Infopark Daily impact">
-        <article class="counter-card glass">
-          <h2 class="counter" data-target="100000">0</h2>
+      <section class="counter-section counter-bento" aria-label="Infopark Daily impact">
+        <article class="counter-card glass counter-card--wide reveal">
+          <h2 class="counter" data-target="100000">100K+</h2>
           <p>Tech Professionals Reached</p>
         </article>
-        <article class="counter-card glass">
-          <h2 class="counter" data-target="1000">0</h2>
+        <article class="counter-card glass reveal">
+          <h2 class="counter" data-target="1000">1K+</h2>
           <p>Partner Companies</p>
         </article>
-        <article class="counter-card glass">
-          <h2 class="counter" data-target="23000">0</h2>
+        <article class="counter-card glass reveal">
+          <h2 class="counter" data-target="35000">35K+</h2>
           <p>Instagram Followers</p>
         </article>
-        <article class="counter-card glass">
-          <h2 class="counter" data-target="100">0</h2>
+        <article class="counter-card glass counter-card--accent reveal">
+          <h2 class="counter" data-target="100">100+</h2>
           <p>Million+ Social Reach</p>
         </article>
       </section>
 
-      <section id="about" class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow">About Platform</p>
-          <h2>Kerala's most trusted digital growth ecosystem around Infopark Kochi.</h2>
+      <section class="partners-section content-section" aria-label="Trusted by companies">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Trusted by</p>
+          <h2>Companies hiring and collaborating with InfoparkDaily.</h2>
         </div>
-        <div class="about-grid">
-          <article class="feature-card glass">
+        <div class="partners-marquee" aria-hidden="false">
+          <div class="partners-track">
+            <img src="assets/logos/wordmarks/2base.svg" alt="2Base Technologies" loading="lazy" />
+            <img src="assets/logos/wordmarks/feathersoft.svg" alt="Feathersoft" loading="lazy" />
+            <img src="assets/logos/wordmarks/ss-consulting.svg" alt="SS Consulting" loading="lazy" />
+            <img src="assets/logos/wordmarks/edstem.svg" alt="Edstem" loading="lazy" />
+            <img src="assets/logos/wordmarks/nesa.svg" alt="Nesa Software" loading="lazy" />
+            <img src="assets/logos/wordmarks/techwarelab.svg" alt="Techware Lab" loading="lazy" />
+            <img src="assets/logos/wordmarks/inspite.svg" alt="Inspite" loading="lazy" />
+            <img src="assets/logos/wordmarks/jachoos.svg" alt="Jachoos" loading="lazy" />
+            <img src="assets/logos/wordmarks/difinity.svg" alt="Difinity Digital" loading="lazy" />
+            <img src="assets/logos/wordmarks/2base.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/feathersoft.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/ss-consulting.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/edstem.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/nesa.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/techwarelab.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/inspite.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/jachoos.svg" alt="" loading="lazy" aria-hidden="true" />
+            <img src="assets/logos/wordmarks/difinity.svg" alt="" loading="lazy" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="content-section about-split">
+        <div class="about-split-copy reveal">
+          <div class="section-heading">
+            <p class="eyebrow">About Platform</p>
+            <h2>Kerala's most trusted digital growth ecosystem around Infopark Kochi.</h2>
+          </div>
+          <p>
+            We combine tech-community relevance with local market context — so campaigns don't just get views, they get
+            hiring interest, footfall, and brand trust.
+          </p>
+        </div>
+        <div class="about-grid about-stack">
+          <article class="feature-card glass reveal">
             <h3>Audience-first strategy</h3>
             <p>We combine tech-community relevance with local market context to build campaigns that perform.</p>
           </article>
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>Content that drives action</h3>
             <p>From reels to founder stories, every piece is designed to generate leads, hiring interest, or footfall.</p>
           </article>
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>Community + business impact</h3>
             <p>We connect startups, companies, students, and local brands through high-visibility digital storytelling.</p>
           </article>
@@ -182,44 +230,56 @@
       </section>
 
       <section id="services" class="content-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <p class="eyebrow">Core Services</p>
           <h2>Everything you need to scale visibility, leads, and revenue.</h2>
         </div>
         <div class="service-grid">
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Brand Campaigns</h3>
             <p>Premium social campaigns for startups, IT companies, and local businesses.</p>
           </article>
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Hiring Promotions</h3>
             <p id="jobs">Reach relevant tech talent with targeted walk-in and job announcement content.</p>
           </article>
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Restaurant &amp; Cafe Features</h3>
             <p>Story-led promotions that convert audience attention into real footfall.</p>
           </article>
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Startup Spotlight</h3>
             <p>Product launch stories, founder interviews, and high-engagement visibility plans.</p>
           </article>
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Event Coverage</h3>
             <p>Complete digital coverage for conferences, meetups, product launches, and community events.</p>
           </article>
-          <article class="service-card glass">
+          <article class="service-card glass reveal">
             <h3>Digital Marketing Execution</h3>
             <p>Creative strategy, content production, social growth, and performance optimization.</p>
           </article>
         </div>
       </section>
 
+      <section id="featured-jobs" class="content-section featured-jobs-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured Openings</p>
+          <h2>Fresh hiring updates from Infopark Kochi.</h2>
+        </div>
+        <div id="featured-jobs-grid" class="jobs-grid featured-jobs-grid"></div>
+        <div class="featured-jobs-cta reveal">
+          <a class="btn btn-primary" href="jobs.html">View All Jobs →</a>
+          <a class="btn btn-ghost" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp alerts</a>
+        </div>
+      </section>
+
       <section id="it-support" class="content-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <p class="eyebrow">IT Software Support</p>
           <h2>Infopark Daily also provides IT software solutions.</h2>
         </div>
-        <div class="it-support-shell glass">
+        <div class="it-support-shell glass reveal">
           <div class="it-support-intro">
             <p>
               Along with media reach and community growth, Infopark Daily delivers practical IT software support for operations, customer experience, and
@@ -259,18 +319,19 @@
 
           <div class="it-support-process">
             <a class="btn btn-primary" href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">View Hexenity</a>
+            <a class="btn btn-secondary" href="contact.html">Request support</a>
           </div>
         </div>
       </section>
 
       <section id="stories" class="content-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <p class="eyebrow">Recent Reels</p>
           <h2>Premium reel storytelling designed for visibility, trust, and conversions.</h2>
         </div>
         <div class="reels-track" aria-label="Featured reels">
           <a
-            class="premium-reel-card"
+            class="premium-reel-card reveal"
             href="https://www.instagram.com/reel/DZdMxNLBxcK/?utm_source=ig_web_copy_link"
             target="_blank"
             rel="noopener noreferrer"
@@ -295,7 +356,7 @@
           </a>
 
           <a
-            class="premium-reel-card"
+            class="premium-reel-card reveal"
             href="https://www.instagram.com/reel/DZuMiXmhZpJ/?utm_source=ig_web_copy_link"
             target="_blank"
             rel="noopener noreferrer"
@@ -304,7 +365,7 @@
             <div class="premium-reel-media media-two">
               <img
                 class="premium-reel-thumb"
-                src="https://scontent.cdninstagram.com/v/t51.82787-15/726948751_17906179077428825_3113546849634626401_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&amp;_nc_cat=106&amp;ccb=7-5&amp;_nc_sid=18de74&amp;efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&amp;_nc_ohc=IRc7bZYVhJwQ7kNvwHrh_Q8&amp;_nc_oc=AdqQiIjnGSnXFo1fD0oHe_gd3z13pM1jdfIr4hKcbecMCcUbLiy5sTR15L9ykei13AI&amp;_nc_zt=23&amp;_nc_ht=scontent.cdninstagram.com&amp;_nc_gid=Er1iaB79KFusGzb-aj6WXA&amp;_nc_ss=7f60f&amp;oh=00_Af8zvHZRk4dvmUV6gE7HQgXrRWrZNXjlN6EJ0B3qJOngRw&amp;oe=6A440E5E"
+                src="https://scontent.cdninstagram.com/v/t51.82787-15/726948751_17906179077428825_3113546849634626401_n.jpg?stp=cmp1_dst-jpg_e35_s640x640_tt6&amp;_nc_cat=106&amp;ccb=7-5&amp;_nc_sid=18de74&amp;efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&amp;_nc_ohc=IRc7bZYVhJwQ7kNvwHrh_Q8&amp;_nc_oc=AdqQiIjnGSnXFo1fD0oHe_gd3z13pM1jdfIr4hKcbecMCcUbLiy5sTR15L9ykei13AI&amp;_nc_zt=23&amp;_nc_ht=scontent.cdninstagram.com&amp;_nc_gid=Er1iaB79KFusGzb-aj6WXA&amp;_nc_ss=7f60f&amp;oh=00_Af8zvHZRk4dvmUV6gE7HQgZrRWrZNXjlN6EJ0B3qJOngRw&amp;oe=6A440E5E"
                 alt=""
                 loading="lazy"
                 onerror="this.remove()"
@@ -320,7 +381,7 @@
           </a>
 
           <a
-            class="premium-reel-card"
+            class="premium-reel-card reveal"
             href="https://www.instagram.com/reel/DZdPXxthAqE/?utm_source=ig_web_copy_link"
             target="_blank"
             rel="noopener noreferrer"
@@ -347,25 +408,25 @@
       </section>
 
       <section id="results" class="content-section highlight">
-        <div class="section-heading">
-          <p class="eyebrow">Results</p>
+        <div class="section-heading reveal">
+          <p class="eyebrow">Results + Proof</p>
           <h2>Measured campaigns. Premium execution. Real business growth.</h2>
         </div>
         <div class="result-grid">
-          <article class="result-card">
+          <article class="result-card reveal">
             <h3>100M+</h3>
             <p>Total social impressions across campaigns and community content.</p>
           </article>
-          <article class="result-card">
-            <h3>23K+</h3>
+          <article class="result-card reveal">
+            <h3>35K+</h3>
             <p>Audience built with consistent quality storytelling and local relevance.</p>
           </article>
-          <article class="result-card">
+          <article class="result-card reveal">
             <h3>1,000+</h3>
             <p>Companies and brands reached through collaborations and promotions.</p>
           </article>
         </div>
-        <div class="testimonial-slider glass" aria-live="polite">
+        <div class="testimonial-slider glass reveal" aria-live="polite">
           <p class="testimonial-quote" id="testimonial-quote"></p>
           <p class="testimonial-author" id="testimonial-author"></p>
           <div class="slider-controls">
@@ -376,29 +437,29 @@
       </section>
 
       <section id="careers" class="content-section">
-        <div class="section-heading">
+        <div class="section-heading reveal">
           <p class="eyebrow">Careers + Community</p>
           <h2>Build careers, hire faster, and connect with the Kerala tech network.</h2>
         </div>
         <div class="career-grid">
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>For Students</h3>
             <p>Internships, fresher opportunities, and skill-building events from the ecosystem.</p>
           </article>
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>For Professionals</h3>
             <p>Role updates, walk-ins, networking opportunities, and industry news.</p>
           </article>
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>For Recruiters</h3>
             <p>Hiring campaigns designed to reach relevant candidates quickly.</p>
           </article>
-          <article class="feature-card glass">
+          <article class="feature-card glass reveal">
             <h3>For Startups</h3>
             <p>Visibility, talent access, and launch momentum through targeted storytelling.</p>
           </article>
         </div>
-        <article class="jobs-community glass">
+        <article class="jobs-community glass reveal">
           <p class="eyebrow">Infoparkdaily Jobs</p>
           <h3>A growing jobs community for companies, students, and professionals.</h3>
           <p>
@@ -409,25 +470,27 @@
             <a class="btn btn-secondary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">
               Follow Instagram Jobs Page
             </a>
-            <a class="btn btn-ghost" href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">
-              WhatsApp
+            <a class="btn btn-ghost" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">
+              WhatsApp Channel
             </a>
           </div>
         </article>
       </section>
 
-      <section class="content-section cta">
+      <section class="content-section cta cta-fullbleed reveal">
         <div>
           <p class="eyebrow">Let's Collaborate</p>
           <h2>Ready to grow with a premium content engine?</h2>
           <p>From strategy to execution, we help you launch and scale campaigns that consistently perform.</p>
         </div>
-        <a href="tel:+919995254290" class="btn btn-secondary">Call Now</a>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-primary">Contact us</a>
+          <a href="tel:+919995254290" class="btn btn-secondary">Call Now</a>
+        </div>
       </section>
-
     </main>
 
-    <footer id="contact" class="site-footer">
+    <footer class="site-footer">
       <section class="footer-contact">
         <h2>Contact</h2>
         <p>
@@ -436,6 +499,7 @@
         </p>
         <p><a href="tel:+919995254290">+91 99952 54290</a></p>
         <p><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a></p>
+        <p><a href="contact.html">Open full contact page →</a></p>
         <div class="contact-map" aria-label="Infopark location map">
           <iframe
             title="Infopark Location Map"
@@ -460,9 +524,13 @@
       </section>
       <nav class="footer-links" aria-label="Social links">
         <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs Instagram</a>
+        <a href="https://www.instagram.com/infoparkdaily.media/" target="_blank" rel="noopener noreferrer">Media Instagram</a>
+        <a href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/" target="_blank" rel="noopener noreferrer">Instagram Broadcast</a>
+        <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
         <a href="https://www.facebook.com/profile.php?id=61590569168309" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://www.threads.com/@infoparkdaily?xmt=AQG0aYegSoxHpGC0TH1CGPfl10rG8Z2i_3_m0DlrFvlGbUU" target="_blank" rel="noopener noreferrer">Threads</a>
-        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
@@ -473,6 +541,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260716f" defer></script>
+    <script src="jobs-data.js?v=20260716j" defer></script>
+    <script src="script.js?v=20260716j" defer></script>
   </body>
 </html>
