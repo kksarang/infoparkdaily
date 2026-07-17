@@ -26,7 +26,7 @@
     />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="styles.css?v=20260716j" />
+    <link rel="stylesheet" href="styles.css?v=20260717d" />
     <script>
       (function () {
         try {
@@ -48,14 +48,28 @@
           <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
         </div>
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="index.html#about">About</a>
         <a href="index.html#services">Services</a>
         <a href="index.html#stories">Stories</a>
         <a href="jobs.html" aria-current="page">Jobs</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <button
+          id="nav-toggle"
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main id="main-content" class="jobs-page job-detail-page">
@@ -93,8 +107,8 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260716j" defer></script>
-    <script src="jobs-data.js?v=20260716j" defer></script>
-    <script src="job.js?v=20260716j" defer></script>
+    <script src="script.js?v=20260717d" defer></script>
+    <script src="jobs-data.js?v=20260717d" defer></script>
+    <script src="job.js?v=20260717d" defer></script>
   </body>
 </html>

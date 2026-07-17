@@ -208,10 +208,10 @@ img {
   top: 12px;
   z-index: 50;
   margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.75rem 1rem;
   padding: 0.7rem 1rem;
   border-radius: 999px;
   background: rgba(15, 15, 21, 0.78);
@@ -231,7 +231,12 @@ body.light .site-header {
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
+  flex: 1 1 auto;
   text-decoration: none;
+}
+
+.brand > div {
+  min-width: 0;
 }
 
 .brand-logo {
@@ -240,6 +245,7 @@ body.light .site-header {
   object-fit: cover;
   border-radius: 50%;
   border: 2px solid var(--accent);
+  flex-shrink: 0;
 }
 
 .brand-name {
@@ -248,6 +254,9 @@ body.light .site-header {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-tagline {
@@ -256,9 +265,20 @@ body.light .site-header {
   font-size: 0.72rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+  margin-left: auto;
+  order: 3;
+}
+
 .site-nav {
   display: flex;
+  flex: 0 1 auto;
   gap: 0.35rem;
+  order: 2;
 }
 
 .site-nav a {
@@ -301,6 +321,60 @@ body.light .site-header {
 .theme-toggle:hover {
   border-color: var(--accent);
   transform: translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.nav-toggle:hover {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+
+.nav-toggle-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 16px;
+}
+
+.nav-toggle-bars span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.site-header.nav-open .nav-toggle-bars span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.nav-open .nav-toggle-bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.nav-open .nav-toggle-bars span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-backdrop {
+  display: none;
 }
 
 /* ---------- Buttons ---------- */
@@ -2230,21 +2304,139 @@ body.light .jobs-sticky-cta {
 }
 
 @media (max-width: 940px) {
-  .site-header {
-    grid-template-columns: 1fr auto;
-    border-radius: 24px;
+  .site-header,
+  .hero,
+  .counter-section,
+  .content-section,
+  .site-footer,
+  .jobs-page,
+  .contact-page {
+    width: min(1180px, 94vw);
   }
 
-  .site-nav {
-    order: 3;
-    grid-column: 1 / -1;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 0.3rem;
+  .site-header {
+    border-radius: 22px;
+    gap: 0.45rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .brand {
+    flex: 1 1 0;
+    gap: 0.5rem;
+    min-width: 0;
+    max-width: calc(100% - 96px);
+  }
+
+  .brand-name {
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
   }
 
   .brand-tagline {
     display: none;
+  }
+
+  .header-actions {
+    order: 2;
+    margin-left: 0;
+    flex: 0 0 auto;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0;
+    line-height: 0;
+    letter-spacing: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .theme-toggle::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  html.theme-light body .theme-toggle::before,
+  body.light .theme-toggle::before {
+    margin: -7px 0 0 -3px;
+    background: transparent;
+    box-shadow: inset -3px -2px 0 0 var(--text);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .site-nav {
+    order: 3;
+    flex: 1 0 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.55rem 0 0.1rem;
+    border-top: 1px solid var(--line);
+    margin-top: 0.1rem;
+  }
+
+  .site-header.nav-open {
+    border-radius: 20px;
+  }
+
+  .site-header.nav-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    background: rgba(255, 193, 7, 0.16);
+    color: var(--text);
+  }
+
+  .site-nav a[aria-current="page"] {
+    color: var(--accent-ink);
+    background: var(--accent);
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(5, 5, 8, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  body.nav-locked {
+    overflow: hidden;
   }
 
   .hero {
@@ -2310,18 +2502,32 @@ body.light .jobs-sticky-cta {
 }
 
 @media (max-width: 640px) {
-  .site-nav {
-    gap: 0.2rem;
+  .site-header {
+    top: 8px;
+    margin-top: 10px;
+    width: min(1180px, 96vw);
+    padding: 0.5rem 0.55rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-name {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .theme-toggle,
+  .nav-toggle {
+    width: 38px;
+    height: 38px;
   }
 
   .site-nav a {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.72rem;
-  }
-
-  .theme-toggle {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.72rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.88rem;
   }
 
   .jobs-grid,

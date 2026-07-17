@@ -89,6 +89,7 @@ function applyTheme(isLight) {
   document.body.classList.toggle("light", isLight);
   if (themeToggle) {
     themeToggle.textContent = isLight ? "Dark" : "Light";
+    themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
   }
 }
 
@@ -182,9 +183,52 @@ function initRevealAnimations() {
   items.forEach((item) => observer.observe(item));
 }
 
+function initMobileNav() {
+  const header = document.querySelector(".site-header");
+  const toggle = document.getElementById("nav-toggle");
+  const nav = document.getElementById("site-nav");
+  if (!header || !toggle || !nav) return;
+
+  let backdrop = document.querySelector(".nav-backdrop");
+  if (!backdrop) {
+    backdrop = document.createElement("div");
+    backdrop.className = "nav-backdrop";
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.appendChild(backdrop);
+  }
+
+  const setOpen = (open) => {
+    header.classList.toggle("nav-open", open);
+    document.body.classList.toggle("nav-locked", open);
+    backdrop.classList.toggle("is-visible", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!header.classList.contains("nav-open"));
+  });
+
+  backdrop.addEventListener("click", () => setOpen(false));
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 940) setOpen(false);
+  });
+}
+
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
+
+initMobileNav();
 
 if (themeToggle) {
   // Fresh storage key: old "theme" values from the light-default era are ignored.
@@ -261,7 +305,7 @@ initRevealAnimations();
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./sw.js?v=20260716j")
+      .register("./sw.js?v=20260717d")
       .then((registration) => registration.update())
       .catch(() => {
         // Service worker registration should not block core rendering.
