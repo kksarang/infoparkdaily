@@ -3,15 +3,19 @@
   const emptyState = document.getElementById("jobs-empty");
   const searchInput = document.getElementById("jobs-search");
   const filterBar = document.getElementById("jobs-filters");
+  const statusBar = document.getElementById("jobs-status");
   const tagBar = document.getElementById("jobs-tags");
   const sortSelect = document.getElementById("jobs-sort");
+  const locationSelect = document.getElementById("jobs-location");
   const countEl = document.getElementById("jobs-count");
+  const clearBtn = document.getElementById("jobs-clear");
   const loadMoreBtn = document.getElementById("jobs-load-more");
   const stickyBar = document.getElementById("jobs-sticky-cta");
   const stickyDismiss = document.getElementById("jobs-sticky-dismiss");
   const statCompanies = document.getElementById("stat-companies");
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
+  const statClosing = document.getElementById("stat-closing");
 
   if (!grid || typeof JOBS === "undefined") return;
 
@@ -23,25 +27,80 @@
 
   const PAGE_SIZE = 12;
   const NEW_DAYS = 5;
+  const CLOSING_DAYS = 4;
   const STICKY_KEY = "jobsStickyDismissed";
   const MAX_ROLES_ON_CARD = 3;
+  const DAY_MS = 24 * 60 * 60 * 1000;
 
   let activeFilter = "all";
+  let activeStatus = "open";
   let activeTag = "all";
+  let activeLocation = "all";
   let searchQuery = "";
   let sortMode = "newest";
   let visibleCount = PAGE_SIZE;
 
+  /* ---------- date helpers ---------- */
+
+  function todayStart() {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  }
+
+  function parseIso(iso) {
+    if (!iso || iso === "Rolling") return null;
+    const date = new Date(`${iso}T00:00:00`);
+    return Number.isNaN(date.getTime()) ? null : date.getTime();
+  }
+
   function formatDate(iso) {
     if (!iso || iso === "Rolling") return iso || "";
-    const date = new Date(`${iso}T00:00:00`);
-    if (Number.isNaN(date.getTime())) return iso;
-    return date.toLocaleDateString("en-IN", {
+    const ts = parseIso(iso);
+    if (ts === null) return iso;
+    return new Date(ts).toLocaleDateString("en-IN", {
       day: "numeric",
       month: "short",
       year: "numeric"
     });
   }
+
+  /**
+   * Days from today until deadline. 0 = last day today,
+   * negative = already expired, null = rolling / no deadline.
+   */
+  function daysLeft(job) {
+    const ts = parseIso(job.applyDeadline);
+    if (ts === null) return null;
+    return Math.round((ts - todayStart()) / DAY_MS);
+  }
+
+  function deadlineStatus(job) {
+    const left = daysLeft(job);
+    if (left === null) return "open";
+    if (left < 0) return "expired";
+    if (left <= CLOSING_DAYS) return "closing";
+    return "open";
+  }
+
+  function deadlineLabel(job) {
+    const left = daysLeft(job);
+    if (left === null) return job.applyDeadline === "Rolling" ? "Rolling deadline" : "";
+    if (left < -1) return `Expired ${Math.abs(left)} days ago`;
+    if (left === -1) return "Expired yesterday";
+    if (left === 0) return "Last day to apply";
+    if (left === 1) return "1 day left";
+    if (left <= CLOSING_DAYS) return `${left} days left`;
+    return `Apply by ${formatDate(job.applyDeadline)}`;
+  }
+
+  function isNew(job) {
+    const posted = parseIso(job.postedDate);
+    if (posted === null) return false;
+    const ageMs = Date.now() - posted;
+    return ageMs >= 0 && ageMs <= NEW_DAYS * DAY_MS;
+  }
+
+  /* ---------- misc helpers ---------- */
 
   function initials(name) {
     return String(name || "?")
@@ -64,21 +123,28 @@
     return escapeHtml(value).replace(/'/g, "&#39;");
   }
 
-  function isNew(job) {
-    if (!job.postedDate) return false;
-    const posted = new Date(`${job.postedDate}T00:00:00`);
-    if (Number.isNaN(posted.getTime())) return false;
-    const ageMs = Date.now() - posted.getTime();
-    return ageMs >= 0 && ageMs <= NEW_DAYS * 24 * 60 * 60 * 1000;
-  }
-
   function employmentType(job) {
     return String(job.employmentType || job.workStatus || "").toLowerCase();
   }
 
+  function jobRegion(job) {
+    const loc = String(job.location || "").toLowerCase();
+    if (loc.includes("infopark")) return "Infopark, Kochi";
+    if (loc.includes("technopark")) return "Technopark, Trivandrum";
+    if (loc.includes("kochi")) return "Kochi";
+    if (loc.includes("trivandrum")) return "Trivandrum";
+    if (loc.includes("calicut")) return "Calicut";
+    if (loc.includes("malappuram") || loc.includes("kottakkal")) return "Malappuram";
+    if (loc.includes("alappuzha")) return "Alappuzha";
+    return "Other Kerala";
+  }
+
+  /* ---------- filtering ---------- */
+
   function matchesFilter(job) {
     if (activeFilter === "all") return true;
     if (activeFilter === "walkin") return Boolean(job.isWalkIn);
+    if (activeFilter === "verified") return Boolean(job.verified);
     if (activeFilter === "internship") {
       const type = employmentType(job);
       return type.includes("internship") || type.includes("apprenticeship");
@@ -86,9 +152,21 @@
     return job.experience === activeFilter;
   }
 
+  function matchesStatus(job) {
+    const status = deadlineStatus(job);
+    if (activeStatus === "all") return true;
+    if (activeStatus === "open") return status !== "expired";
+    return status === activeStatus;
+  }
+
   function matchesTag(job) {
     if (activeTag === "all") return true;
     return (job.tags || []).some((tag) => String(tag).toLowerCase() === activeTag);
+  }
+
+  function matchesLocation(job) {
+    if (activeLocation === "all") return true;
+    return jobRegion(job) === activeLocation;
   }
 
   function matchesSearch(job) {
@@ -103,8 +181,11 @@
       job.companyBlurb,
       job.industry,
       job.employmentType,
+      job.experienceRange,
+      job.workMode,
       ...(job.roles || []),
       ...(job.tags || []),
+      ...(job.requirements || []),
       job.description || ""
     ]
       .join(" ")
@@ -113,24 +194,55 @@
   }
 
   function deadlineSortValue(job) {
-    const raw = job.applyDeadline;
-    if (!raw || raw === "Rolling") return Number.POSITIVE_INFINITY;
-    const date = new Date(`${raw}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? Number.POSITIVE_INFINITY : date.getTime();
+    const ts = parseIso(job.applyDeadline);
+    return ts === null ? Number.POSITIVE_INFINITY : ts;
   }
 
   function filteredJobs() {
-    const list = JOBS.filter((job) => matchesFilter(job) && matchesTag(job) && matchesSearch(job));
+    const list = JOBS.filter(
+      (job) =>
+        matchesFilter(job) &&
+        matchesStatus(job) &&
+        matchesTag(job) &&
+        matchesLocation(job) &&
+        matchesSearch(job)
+    );
+
+    const expiredWeight = (job) =>
+      activeStatus === "expired" || activeStatus === "all"
+        ? 0
+        : deadlineStatus(job) === "expired"
+          ? 1
+          : 0;
 
     list.sort((a, b) => {
+      const sink = expiredWeight(a) - expiredWeight(b);
+      if (sink !== 0) return sink;
+
       if (sortMode === "deadline") {
         return deadlineSortValue(a) - deadlineSortValue(b);
+      }
+      if (sortMode === "closing") {
+        const la = daysLeft(a);
+        const lb = daysLeft(b);
+        const va = la === null || la < 0 ? Number.POSITIVE_INFINITY : la;
+        const vb = lb === null || lb < 0 ? Number.POSITIVE_INFINITY : lb;
+        if (va !== vb) return va - vb;
+        return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+      }
+      if (sortMode === "company") {
+        return String(a.company || "").localeCompare(String(b.company || ""));
+      }
+      if (sortMode === "roles") {
+        return (b.roles || []).length - (a.roles || []).length;
       }
       return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
     });
 
     return list;
   }
+
+  /* ---------- rendering ---------- */
 
   function jobHref(job) {
     const id = job.id || String(job.company || "").toLowerCase().replace(/\s+/g, "-");
@@ -166,44 +278,28 @@
     return `<ul class="job-roles">${items}${more}</ul>`;
   }
 
-  function updateHeroStats() {
-    const roleCount = JOBS.reduce((sum, job) => sum + (job.roles || []).length, 0);
-    const fresherFriendly = JOBS.filter(
-      (job) => job.experience === "fresher" || job.experience === "both"
-    ).length;
-
-    if (statCompanies) statCompanies.textContent = String(JOBS.length);
-    if (statRoles) statRoles.textContent = String(roleCount);
-    if (statFreshers) statFreshers.textContent = String(fresherFriendly);
+  function deadlinePill(job) {
+    const status = deadlineStatus(job);
+    const label = deadlineLabel(job);
+    if (!label) return "";
+    return `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(label)}</span>`;
   }
 
-  function buildTagChips() {
-    if (!tagBar) return;
-    const tags = new Set();
-    JOBS.forEach((job) => (job.tags || []).forEach((tag) => tags.add(String(tag))));
-    const sorted = [...tags].sort((a, b) => a.localeCompare(b));
-
-    tagBar.innerHTML = [
-      `<button type="button" class="jobs-tag-chip is-active" data-tag="all" aria-pressed="true">All tags</button>`,
-      ...sorted.map(
-        (tag) =>
-          `<button type="button" class="jobs-tag-chip" data-tag="${escapeAttr(
-            tag.toLowerCase()
-          )}" aria-pressed="false">${escapeHtml(tag)}</button>`
-      )
-    ].join("");
+  function factChip(label, value) {
+    if (!value) return "";
+    return `
+      <span class="job-fact">
+        <span class="job-fact-label">${escapeHtml(label)}</span>
+        <span class="job-fact-value">${escapeHtml(value)}</span>
+      </span>
+    `;
   }
 
   function renderCard(job, index) {
     const exp = job.experience || "both";
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
-    const dateLine = job.isWalkIn && job.walkInDate
-      ? job.walkInDate
-      : job.startingDate
-        ? `Starting ${formatDate(job.startingDate)}`
-        : job.postedDate
-          ? `Posted ${formatDate(job.postedDate)}`
-          : "";
+    const status = deadlineStatus(job);
+    const expired = status === "expired";
     const source = job.source
       ? `<span class="job-source">${escapeHtml(job.source)}</span>`
       : "";
@@ -211,23 +307,25 @@
       ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
       : "";
     const roleCount = (job.roles || []).length;
-    const deadline =
-      job.applyDeadline
-        ? `<span class="job-deadline">Deadline: ${escapeHtml(
-            job.applyDeadline === "Rolling" ? "Rolling" : formatDate(job.applyDeadline)
-          )}</span>`
-        : "";
 
     const badges = [
+      expired ? `<span class="job-badge job-badge--expired">Expired</span>` : "",
+      !expired && status === "closing"
+        ? `<span class="job-badge job-badge--closing">Closing soon</span>`
+        : "",
+      !expired && isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
       `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
-      isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
       job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
-      job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : "",
-      job.employmentType
-        ? `<span class="job-status-chip">${escapeHtml(job.employmentType)}</span>`
-        : job.workStatus
-          ? `<span class="job-status-chip">${escapeHtml(job.workStatus)}</span>`
-          : ""
+      job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""
+    ]
+      .filter(Boolean)
+      .join("");
+
+    const facts = [
+      factChip("Type", job.employmentType || job.workStatus),
+      factChip("Mode", job.workMode ? String(job.workMode).split("(")[0].trim() : ""),
+      factChip("Exp", job.experienceRange || job.experienceYears),
+      factChip("Posted", job.postedDate ? formatDate(job.postedDate) : "")
     ]
       .filter(Boolean)
       .join("");
@@ -238,7 +336,11 @@
       .join("");
 
     return `
-      <article class="job-card" data-experience="${escapeHtml(exp)}" style="--delay: ${Math.min(index, 8) * 40}ms">
+      <article
+        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}"
+        data-experience="${escapeHtml(exp)}"
+        style="--delay: ${Math.min(index, 8) * 40}ms"
+      >
         <div class="job-card-accent" aria-hidden="true"></div>
         ${
           job.isWalkIn && job.walkInDate
@@ -251,26 +353,37 @@
             <h3>${escapeHtml(job.company)}</h3>
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
+          ${deadlinePill(job)}
         </header>
         <div class="job-card-tags">${badges}</div>
-        ${tagChips ? `<div class="job-tag-row">${tagChips}</div>` : ""}
+        ${facts ? `<div class="job-fact-row">${facts}</div>` : ""}
         <div class="job-card-body">
           <p class="job-roles-label">${roleCount} open role${roleCount === 1 ? "" : "s"}</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
           ${blurb}
         </div>
+        ${tagChips ? `<div class="job-tag-row">${tagChips}</div>` : ""}
         <footer class="job-card-foot">
           <div class="job-meta-row">
-            ${dateLine ? `<span class="job-date">${escapeHtml(dateLine)}</span>` : ""}
-            ${deadline}
             ${source}
           </div>
-          <a class="btn btn-primary job-details-btn" href="${escapeAttr(jobHref(job))}">
-            View Details
+          <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
+            ${expired ? "View (Expired)" : "View Details"}
           </a>
         </footer>
       </article>
     `;
+  }
+
+  function hasActiveFilters() {
+    return (
+      activeFilter !== "all" ||
+      activeStatus !== "open" ||
+      activeTag !== "all" ||
+      activeLocation !== "all" ||
+      searchQuery !== "" ||
+      sortMode !== "newest"
+    );
   }
 
   function render() {
@@ -279,8 +392,19 @@
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
 
     if (countEl) {
-      countEl.textContent =
-        jobs.length === 1 ? "1 company shown" : `${jobs.length} companies match`;
+      const closingCount = jobs.filter((job) => deadlineStatus(job) === "closing").length;
+      const parts = [
+        jobs.length === 1 ? "1 company" : `${jobs.length} companies`,
+        `${jobs.reduce((sum, job) => sum + (job.roles || []).length, 0)} roles`
+      ];
+      if (closingCount > 0 && activeStatus !== "expired") {
+        parts.push(`${closingCount} closing soon`);
+      }
+      countEl.textContent = parts.join(" · ");
+    }
+
+    if (clearBtn) {
+      clearBtn.hidden = !hasActiveFilters();
     }
 
     if (emptyState) {
@@ -301,12 +425,95 @@
     render();
   }
 
-  if (filterBar) {
-    filterBar.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-filter]");
+  /* ---------- hero stats + dynamic controls ---------- */
+
+  function updateHeroStats() {
+    const active = JOBS.filter((job) => deadlineStatus(job) !== "expired");
+    const roleCount = active.reduce((sum, job) => sum + (job.roles || []).length, 0);
+    const fresherFriendly = active.filter(
+      (job) => job.experience === "fresher" || job.experience === "both"
+    ).length;
+    const closingWeek = JOBS.filter((job) => {
+      const left = daysLeft(job);
+      return left !== null && left >= 0 && left <= 7;
+    }).length;
+
+    if (statCompanies) statCompanies.textContent = String(active.length);
+    if (statRoles) statRoles.textContent = String(roleCount);
+    if (statFreshers) statFreshers.textContent = String(fresherFriendly);
+    if (statClosing) statClosing.textContent = String(closingWeek);
+  }
+
+  function buildTagChips() {
+    if (!tagBar) return;
+    const tags = new Set();
+    JOBS.forEach((job) => (job.tags || []).forEach((tag) => tags.add(String(tag))));
+    const sorted = [...tags].sort((a, b) => a.localeCompare(b));
+
+    tagBar.innerHTML = [
+      `<button type="button" class="jobs-tag-chip is-active" data-tag="all" aria-pressed="true">All categories</button>`,
+      ...sorted.map(
+        (tag) =>
+          `<button type="button" class="jobs-tag-chip" data-tag="${escapeAttr(
+            tag.toLowerCase()
+          )}" aria-pressed="false">${escapeHtml(tag)}</button>`
+      )
+    ].join("");
+  }
+
+  function buildLocationOptions() {
+    if (!locationSelect) return;
+    const counts = new Map();
+    JOBS.forEach((job) => {
+      const region = jobRegion(job);
+      counts.set(region, (counts.get(region) || 0) + 1);
+    });
+    const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+    locationSelect.innerHTML = [
+      `<option value="all" selected>All locations</option>`,
+      ...sorted.map(
+        ([region, count]) =>
+          `<option value="${escapeAttr(region)}">${escapeHtml(region)} (${count})</option>`
+      )
+    ].join("");
+  }
+
+  function clearAllFilters() {
+    activeFilter = "all";
+    activeStatus = "open";
+    activeTag = "all";
+    activeLocation = "all";
+    searchQuery = "";
+    sortMode = "newest";
+
+    if (searchInput) searchInput.value = "";
+    if (sortSelect) sortSelect.value = "newest";
+    if (locationSelect) locationSelect.value = "all";
+
+    const syncGroup = (bar, attr, value) => {
+      if (!bar) return;
+      bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
+        const isActive = btn.dataset[attr] === value;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+    syncGroup(filterBar, "filter", "all");
+    syncGroup(statusBar, "status", "open");
+    syncGroup(tagBar, "tag", "all");
+
+    resetVisibleAndRender();
+  }
+
+  /* ---------- events ---------- */
+
+  function bindChipGroup(bar, attr, onChange) {
+    if (!bar) return;
+    bar.addEventListener("click", (event) => {
+      const button = event.target.closest(`[data-${attr}]`);
       if (!button) return;
-      activeFilter = button.dataset.filter;
-      filterBar.querySelectorAll("[data-filter]").forEach((btn) => {
+      onChange(button.dataset[attr]);
+      bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
         const isActive = btn === button;
         btn.classList.toggle("is-active", isActive);
         btn.setAttribute("aria-pressed", isActive ? "true" : "false");
@@ -315,19 +522,9 @@
     });
   }
 
-  if (tagBar) {
-    tagBar.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-tag]");
-      if (!button) return;
-      activeTag = button.dataset.tag;
-      tagBar.querySelectorAll("[data-tag]").forEach((btn) => {
-        const isActive = btn === button;
-        btn.classList.toggle("is-active", isActive);
-        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
-      resetVisibleAndRender();
-    });
-  }
+  bindChipGroup(filterBar, "filter", (value) => (activeFilter = value));
+  bindChipGroup(statusBar, "status", (value) => (activeStatus = value));
+  bindChipGroup(tagBar, "tag", (value) => (activeTag = value));
 
   if (searchInput) {
     searchInput.addEventListener("input", () => {
@@ -341,6 +538,17 @@
       sortMode = sortSelect.value || "newest";
       resetVisibleAndRender();
     });
+  }
+
+  if (locationSelect) {
+    locationSelect.addEventListener("change", () => {
+      activeLocation = locationSelect.value || "all";
+      resetVisibleAndRender();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", clearAllFilters);
   }
 
   if (loadMoreBtn) {
@@ -371,5 +579,6 @@
 
   updateHeroStats();
   buildTagChips();
+  buildLocationOptions();
   render();
 })();
