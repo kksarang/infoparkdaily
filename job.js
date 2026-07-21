@@ -364,23 +364,26 @@
     const contactBlock = [
       infoItem("HR Email", emailHtml(job.email)),
       infoItem("Phone", phoneHtml(job.phone)),
-      infoItem("Website / portal", linkHtml(job.website)),
+      infoItem("Official careers", linkHtml(job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "", "Open careers page")),
+      infoItem("Website", linkHtml(job.website)),
       infoItem("Address", escapeHtml(job.address || job.location))
     ].join("");
 
     const snapshotBlock = [
       infoItem("Company", escapeHtml(job.company)),
       infoItem("Industry", escapeHtml(job.industry)),
+      infoItem("Company size", escapeHtml(job.companySize)),
       infoItem("Location", escapeHtml(job.location)),
       infoItem("Experience", escapeHtml(badgeLabel)),
       infoItem("Experience years", escapeHtml(job.experienceYears || job.experienceRange)),
+      infoItem("Expected salary", escapeHtml(job.salaryRange)),
       infoItem("Work status", escapeHtml(job.workStatus)),
       infoItem("Work mode", escapeHtml(job.workMode)),
       infoItem("Posted", job.postedDate ? escapeHtml(formatDate(job.postedDate)) : ""),
       infoItem(
         "Apply deadline",
         job.applyDeadline
-          ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling" : formatDate(job.applyDeadline))
+          ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling / Open until filled" : formatDate(job.applyDeadline))
           : ""
       ),
       infoItem("Starting", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : ""),
@@ -388,6 +391,9 @@
       infoItem("Source", escapeHtml(job.source)),
       infoItem("Listing ID", escapeHtml(job.id))
     ].join("");
+
+    const skillsBlock = listBlock(job.skills || job.requiredSkills);
+    const tipsBlock = listBlock(job.interviewTips);
 
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
@@ -453,9 +459,11 @@
             "Open roles",
             roles ? `<ul class="job-role-grid">${roles}</ul>` : ""
           )}
-          ${section("Requirements", listBlock(job.requirements))}
+          ${section("Requirements / eligibility", listBlock(job.requirements))}
+          ${section("Required skills", skillsBlock)}
           ${section("Responsibilities", listBlock(job.responsibilities))}
           ${section("Benefits & perks", listBlock(job.benefits))}
+          ${section("Interview tips", tipsBlock)}
           ${section(
             "Hiring notes",
             job.hiringNotes ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : ""

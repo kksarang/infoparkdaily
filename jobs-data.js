@@ -33,6 +33,7 @@
  * companyBlurb / description  string   One-line card blurb
  * email, phone, website, address, industry
  * companyDetails, workDetails, workStatus, workMode
+ * companySize, salaryRange, skills[], interviewTips[]
  * requirements[], responsibilities[], benefits[]
  * howToApply, hiringNotes, startingDate
  *
@@ -78,15 +79,15 @@
 var JOBS = [
   {
     id: "urolime-hr-recruiter",
-    company: "Urolime",
+    company: "Urolime Technologies",
     logo: "assets/logos/urolime.svg",
-    companyBlurb: "HR Recruiter (1–3 years) at Infopark Kochi — apply by 28 July 2026.",
+    companyBlurb: "HR Recruiter (1–3 years) · Infopark Kochi · Apply by 28 July 2026 via Urolime Careers.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["HR Recruiter"],
     experience: "experienced",
     experienceRange: "1–3 Years",
     employmentType: "Full-time",
-    applyLink: "https://www.urolime.com/careers.html",
+    applyLink: "https://www.urolime.com/in/careers.html",
     applyDeadline: "2026-07-28",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -95,41 +96,63 @@ var JOBS = [
     isWalkIn: false,
     walkInDate: "",
     email: "careers@urolime.com",
-    phone: "",
+    phone: "+91 484 2984589",
     website: "https://www.urolime.com/",
-    address: "Jyothirmaya Building, Infopark Phase II, Kakkanad / Puthencruz, Kochi, Kerala",
+    address: "6th Floor, Office No.6A-2, Wing 1, Jyothirmaya Building, Infopark Phase II, Puthencruz / Kakkanad, Ernakulam, Kerala 682303",
     industry: "DevOps / Cloud Consulting / IT Services",
+    companySize: "Global team · India hub at Infopark Kochi (also UAE, USA, UK)",
+    salaryRange: "Not publicly listed — confirm with Urolime HR during process",
     companyDetails:
-      "Urolime is a DevOps & AWS consulting company with offices in India, UAE, USA, and UK. The Kochi team operates from Infopark Phase II and is actively hiring HR and engineering talent.",
+      "Urolime Technologies is a DevOps, AWS, and cloud consulting company with product engineering and managed services offerings. The Kochi delivery hub sits in Jyothirmaya, Infopark Phase II. Official careers: https://www.urolime.com/in/careers.html — applications also accepted at careers@urolime.com.",
     workDetails:
-      "HR Recruiter role (1–3 years) supporting end-to-end recruitment for technical and non-technical openings at Infopark Kochi. Last date to apply: 28 July 2026.",
+      "HR Recruiter (1–3 years) for Infopark Kochi hiring across DevOps, cloud, and engineering roles. Work mode: on-site. Last date: 28 July 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Infopark Kochi",
     experienceYears: "1–3 years",
     requirements: [
-      "1–3 years of recruitment / HR experience",
-      "Strong sourcing and candidate coordination skills",
-      "Good communication and stakeholder management",
-      "Willingness to work on-site at Infopark, Kakkanad"
+      "1–3 years recruitment / talent acquisition experience",
+      "Graduate / postgraduate in HR, Business, or related field preferred",
+      "Strong English communication for technical hiring coordination",
+      "Hands-on with LinkedIn, Naukri, and campus / referral sourcing",
+      "Must work on-site at Infopark Phase II, Kakkanad"
+    ],
+    skills: [
+      "Full-cycle recruitment",
+      "Technical hiring coordination",
+      "ATS / tracker hygiene",
+      "Stakeholder management",
+      "Screening & interview scheduling"
     ],
     responsibilities: [
-      "End-to-end recruitment for open roles",
-      "Screen, schedule, and coordinate interview loops",
-      "Partner with hiring managers on role requirements",
-      "Maintain candidate pipelines and hiring reports"
+      "Source and screen candidates for Urolime openings",
+      "Coordinate interviews with hiring managers",
+      "Own candidate experience from outreach to offer support",
+      "Maintain pipeline reports and hiring SLAs"
     ],
-    benefits: ["Infopark Kochi campus", "Global DevOps / cloud company", "Official careers portal"],
+    benefits: [
+      "Infopark Kochi campus role",
+      "Global DevOps / cloud company exposure",
+      "Supportive high-energy engineering culture (per Urolime careers page)",
+      "Direct apply via official careers + careers@urolime.com"
+    ],
+    interviewTips: [
+      "Keep a PDF resume with measurable hiring metrics (time-to-hire, roles closed)",
+      "Highlight any DevOps / IT / cloud hiring experience",
+      "Apply only via Urolime Careers or careers@urolime.com — avoid unofficial agents",
+      "Be ready to discuss Infopark on-site availability"
+    ],
     howToApply:
-      "Apply via Urolime careers: https://www.urolime.com/careers.html or email your resume (PDF) to careers@urolime.com with subject “HR Recruiter – Infopark Kochi”.",
-    hiringNotes: "Category: HR · Last date 28 July 2026 · Verify details on the official Urolime careers page before applying.",
-    description: "HR Recruiter · 1–3 Yrs · Infopark Kakkanad · Apply by 28 Jul 2026",
+      "Apply on Urolime Careers: https://www.urolime.com/in/careers.html or email PDF resume to careers@urolime.com with subject “HR Recruiter – Infopark Kochi”.",
+    hiringNotes:
+      "Category: HR · Last date 28 July 2026 · Official careers https://www.urolime.com/in/careers.html · Map: Jyothirmaya, Infopark Phase II. Verify live openings on the careers page before applying.",
+    description: "HR Recruiter · 1–3 Yrs · Infopark · Apply by 28 Jul 2026",
     startingDate: ""
   },
   {
     id: "alphasky-hr-admin",
     company: "Alphasky Ventures Pvt. Ltd.",
     logo: "assets/logos/alphasky.svg",
-    companyBlurb: "HR & Admin Executive (1–3 years) at Infopark Kochi — apply by 31 July 2026.",
+    companyBlurb: "HR & Admin Executive (1–3 years) · Infopark Kochi · Apply via company website / HR contact by 31 July 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["HR & Admin Executive"],
     experience: "experienced",
@@ -148,43 +171,62 @@ var JOBS = [
     website: "https://www.alphasky.in",
     address: "Infopark, Kakkanad, Kochi, Kerala",
     industry: "Business / Ventures",
+    companySize: "Growing Infopark Kochi team (exact headcount not public)",
+    salaryRange: "Not publicly listed — ask HR during process",
     companyDetails:
-      "Alphasky Ventures Pvt. Ltd. is hiring an HR & Admin Executive for its Infopark Kochi operations.",
+      "Alphasky Ventures Pvt. Ltd. operates from Infopark Kochi and is hiring an HR & Admin Executive. Official website: https://www.alphasky.in — no separate public careers microsite was listed, so apply via the company website or official HR contact.",
     workDetails:
-      "Combined HR and administration role (1–3 years). Supports people operations and office admin at Infopark, Kakkanad. Last date: 31 July 2026.",
+      "Combined people-ops + office admin role (1–3 years), on-site at Infopark Kakkanad. Last date: 31 July 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Infopark Kochi",
     experienceYears: "1–3 years",
     requirements: [
-      "1–3 years HR and/or admin experience",
-      "Knowledge of recruitment, onboarding, and office coordination",
-      "Strong organisation and communication skills",
-      "On-site at Infopark, Kakkanad"
+      "1–3 years HR and/or administration experience",
+      "Graduate / MBA (HR) / BBA preferred",
+      "Knowledge of recruitment support, attendance, and office coordination",
+      "Strong organisation and written communication"
+    ],
+    skills: [
+      "HR operations",
+      "Office administration",
+      "Recruitment coordination",
+      "Vendor / facility coordination",
+      "MS Office / Google Workspace"
     ],
     responsibilities: [
-      "Handle HR operations and employee coordination",
-      "Manage admin processes and vendor / facility support",
-      "Assist with recruitment and documentation",
-      "Maintain HR records and compliance checklists"
+      "Run day-to-day HR processes and employee coordination",
+      "Support recruitment documentation and onboarding",
+      "Handle office admin, vendors, and facility follow-ups",
+      "Maintain compliance and HR record hygiene"
     ],
-    benefits: ["Infopark Kochi location", "HR + Admin exposure", "Official company careers apply"],
+    benefits: [
+      "Infopark Kochi location",
+      "Cross-functional HR + Admin exposure",
+      "Direct company website / HR apply path"
+    ],
+    interviewTips: [
+      "Prepare examples of HR + admin ownership in prior roles",
+      "Carry PDF resume and ID proofs for Infopark on-site interviews",
+      "Confirm apply channel on alphasky.in — no fee should be charged"
+    ],
     howToApply:
-      "Apply through the official Alphasky careers / company page: https://www.alphasky.in (also see https://alphaskyventures.com). Submit a PDF resume tailored to HR & Admin.",
-    hiringNotes: "Category: HR · Last date 31 July 2026 · Prefer official Alphasky careers page.",
-    description: "HR & Admin Executive · 1–3 Yrs · Infopark Kakkanad · Apply by 31 Jul 2026",
+      "Apply via the Alphasky company website https://www.alphasky.in or the official HR contact listed there. Prefer PDF resume titled “HR & Admin Executive – Infopark”.",
+    hiringNotes:
+      "Category: HR · Last date 31 July 2026 · Official site https://www.alphasky.in · alphaskyventures.com may not be an active careers host — use alphasky.in / official HR only.",
+    description: "HR & Admin Executive · 1–3 Yrs · Infopark · Apply by 31 Jul 2026",
     startingDate: ""
   },
   {
     id: "cascade-senior-hr-recruiter",
     company: "Cascade Revenue Management Pvt. Ltd.",
     logo: "assets/logos/cascade.svg",
-    companyBlurb: "Senior HR Recruiter (3–6 years) at Infopark Kochi — apply by 31 Aug 2026.",
+    companyBlurb: "Senior HR Recruiter (3–6 years) · Infopark Kochi · Apply via cascaderevenue.com by 31 Aug 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Senior HR Recruiter"],
     experience: "experienced",
     experienceRange: "3–6 Years",
     employmentType: "Full-time",
-    applyLink: "https://cascaderevenue.com",
+    applyLink: "https://www.cascaderevenue.com",
     applyDeadline: "2026-08-31",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -194,46 +236,65 @@ var JOBS = [
     walkInDate: "",
     email: "",
     phone: "",
-    website: "https://cascaderevenue.com",
+    website: "https://www.cascaderevenue.com",
     address: "Infopark, Kakkanad, Kochi, Kerala",
-    industry: "Revenue Cycle / Healthcare Business Services",
+    industry: "Revenue Cycle Management / Healthcare Business Services",
+    companySize: "Mid-size RCM / healthcare operations employer (confirm on company site)",
+    salaryRange: "Not publicly listed — senior recruiter band; confirm with HR",
     companyDetails:
-      "Cascade Revenue Management Pvt. Ltd. is hiring a Senior HR Recruiter for Infopark Kochi with 3–6 years of recruitment experience.",
+      "Cascade Revenue Management Pvt. Ltd. focuses on revenue-cycle / healthcare business operations and is hiring a Senior HR Recruiter at Infopark Kochi. Official website: https://www.cascaderevenue.com — check Careers / Contact for live openings.",
     workDetails:
-      "Senior-level recruiting ownership across volume and specialised hiring. Last date to apply: 31 August 2026.",
+      "Senior recruiting ownership (3–6 years) for volume and specialised hiring. On-site Infopark. Last date: 31 August 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Infopark Kochi",
     experienceYears: "3–6 years",
     requirements: [
-      "3–6 years of hands-on recruitment experience",
-      "Proven sourcing across job portals, LinkedIn, and networks",
-      "Strong interview coordination and stakeholder handling",
-      "Experience hiring for process / healthcare / IT-enabled roles preferred"
+      "3–6 years full-cycle recruitment experience",
+      "Proven sourcing via LinkedIn, job portals, and employee referrals",
+      "Experience hiring for process / healthcare / ITeS roles preferred",
+      "Strong stakeholder and offer-negotiation skills"
+    ],
+    skills: [
+      "Talent acquisition leadership",
+      "Boolean / LinkedIn sourcing",
+      "Pipeline & funnel reporting",
+      "Interview panel coordination",
+      "Employer branding basics"
     ],
     responsibilities: [
-      "Own full-cycle recruitment for priority roles",
-      "Build pipelines and improve time-to-hire metrics",
-      "Partner with business leaders on workforce planning",
-      "Coach junior recruiters where applicable"
+      "Own priority requisitions end-to-end",
+      "Improve time-to-hire and quality-of-hire metrics",
+      "Partner with business leaders on hiring plans",
+      "Mentor junior recruiters when needed"
     ],
-    benefits: ["Infopark Kochi campus", "Senior recruiter track", "Official company careers apply"],
+    benefits: [
+      "Infopark Kochi campus",
+      "Senior TA ownership",
+      "Healthcare / RCM domain exposure"
+    ],
+    interviewTips: [
+      "Quantify past hiring (roles closed, channels used, SLAs hit)",
+      "Prepare healthcare / process hiring examples if you have them",
+      "Apply only via cascaderevenue.com Careers/Contact"
+    ],
     howToApply:
-      "Apply via the official Cascade Revenue Management careers / company website: https://cascaderevenue.com. Use a PDF resume highlighting recruitment metrics and domain experience.",
-    hiringNotes: "Category: HR · Last date 31 August 2026 · Verify openings on the official company page.",
-    description: "Senior HR Recruiter · 3–6 Yrs · Infopark Kakkanad · Apply by 31 Aug 2026",
+      "Apply via https://www.cascaderevenue.com — use Careers or Contact channels listed on the official site. PDF resume recommended.",
+    hiringNotes:
+      "Category: HR · Last date 31 August 2026 · Official site https://www.cascaderevenue.com · Verify openings on Careers/Contact before applying.",
+    description: "Senior HR Recruiter · 3–6 Yrs · Infopark · Apply by 31 Aug 2026",
     startingDate: ""
   },
   {
     id: "newagesys-recruitment-coordinator",
     company: "NewAgeSys Solutions Pvt. Ltd.",
     logo: "assets/logos/newagesys.svg",
-    companyBlurb: "Associate Recruitment Coordinator (0–2 years) at Infopark Kochi — apply by 20 July 2026.",
+    companyBlurb: "Associate Recruitment Coordinator (0–2 years) · Carnival Infopark · Apply via NewAgeSys Careers.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Associate Recruitment Coordinator"],
     experience: "both",
     experienceRange: "0–2 Years",
     employmentType: "Full-time",
-    applyLink: "https://www.newagesys.com",
+    applyLink: "https://newagesyssolutions.com/careers-newagesys/",
     applyDeadline: "2026-07-20",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -241,49 +302,68 @@ var JOBS = [
     tags: ["HR"],
     isWalkIn: false,
     walkInDate: "",
-    email: "",
+    email: "info@newagesysindia.com",
     phone: "",
-    website: "https://www.newagesys.com",
-    address: "Infopark, Kakkanad, Kochi, Kerala",
-    industry: "IT Services / Software Development",
+    website: "https://newagesyssolutions.com/",
+    address: "7th Floor, Phase II, Carnival Infopark, Kakkanad, Ernakulam, Kochi, Kerala",
+    industry: "IT Services / Mobile & Web Development (US parent since 1994)",
+    companySize: "India delivery centre at Carnival Infopark Phase 2 · serves NA, UK, EU, ME, APAC clients",
+    salaryRange: "Not publicly listed — early-career HR band; confirm with NewAgeSys",
     companyDetails:
-      "NewAgeSys Solutions Pvt. Ltd. is hiring an Associate Recruitment Coordinator (0–2 years) at Infopark Kochi — a fresher-friendly to early-career HR coordination role.",
+      "NewAgeSys Solutions (NewAgeSys IT / NewAgeSys India) is a US-founded (1994) mobile and web development firm with its Kochi centre at Carnival Infopark Phase 2. Official careers: https://newagesyssolutions.com/careers-newagesys/ · support email: info@newagesysindia.com.",
     workDetails:
-      "Supports recruitment coordination, scheduling, and candidate follow-ups. Listed last date: 20 July 2026 — confirm status on the official careers page before applying.",
+      "Associate Recruitment Coordinator (0–2 years) supporting hiring coordination for Infopark delivery teams. Typical campus shift noted on careers pages: ~11 AM–8 PM onsite. Listed last date: 20 July 2026 — reconfirm on careers page.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Carnival Infopark Phase 2",
     experienceYears: "0–2 years",
     requirements: [
-      "0–2 years experience in recruitment coordination / HR support",
-      "Fresher or early-career candidates welcome",
-      "Strong communication and organisation skills",
-      "Comfortable with Excel / ATS basics"
+      "0–2 years recruitment coordination / HR support experience (freshers welcome)",
+      "Graduate / MBA (HR) / BBA preferred",
+      "Excellent English communication for international delivery environment",
+      "Comfort with Excel trackers / basic ATS workflows",
+      "On-site at Carnival Infopark, Kakkanad"
+    ],
+    skills: [
+      "Interview scheduling",
+      "Candidate communication",
+      "Recruitment trackers",
+      "Screening follow-ups",
+      "Onboarding coordination support"
     ],
     responsibilities: [
-      "Coordinate interviews and candidate communication",
-      "Update recruitment trackers and status reports",
-      "Support sourcing and screening follow-ups",
-      "Assist HR team with onboarding coordination"
+      "Coordinate interviews and candidate updates",
+      "Maintain recruitment trackers and status reports",
+      "Support sourcing follow-ups for open roles",
+      "Assist HR with documentation and onboarding tasks"
     ],
-    benefits: ["Infopark Kochi location", "Early HR career path", "Official NewAgeSys careers apply"],
+    benefits: [
+      "Carnival Infopark Phase 2 campus",
+      "Exposure to US / global client delivery culture",
+      "Official NewAgeSys careers portal"
+    ],
+    interviewTips: [
+      "Apply only on https://newagesyssolutions.com/careers-newagesys/",
+      "Mention Infopark on-site availability and shift comfort",
+      "Keep PDF resume + any internship / campus recruitment proof ready"
+    ],
     howToApply:
-      "Apply through the official NewAgeSys careers / company page: https://www.newagesys.com. Submit a PDF resume for Associate Recruitment Coordinator.",
+      "Apply via NewAgeSys Careers: https://newagesyssolutions.com/careers-newagesys/ . For queries: info@newagesysindia.com. Prefer PDF resume for Associate Recruitment Coordinator.",
     hiringNotes:
-      "Category: HR · Listed last date 20 July 2026 — may close soon or already closed; always reconfirm on the official careers page.",
-    description: "Associate Recruitment Coordinator · 0–2 Yrs · Infopark Kakkanad",
+      "Category: HR · Listed last date 20 July 2026 (may show as expired) · Careers https://newagesyssolutions.com/careers-newagesys/ · Map: Carnival Infopark Phase II, Kakkanad.",
+    description: "Associate Recruitment Coordinator · 0–2 Yrs · Carnival Infopark",
     startingDate: ""
   },
   {
     id: "edstem-business-analyst",
     company: "Edstem Technologies",
     logo: "assets/logos/edstem.svg",
-    companyBlurb: "Business Analyst opening at Infopark Kochi — relevant experience · apply by 20 July 2026.",
+    companyBlurb: "Business Analyst · Infopark Phase II · Apply via Edstem Careers (edstem.com/careers).",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Business Analyst"],
     experience: "experienced",
     experienceRange: "Relevant Experience",
     employmentType: "Full-time",
-    applyLink: "https://www.edstem.com",
+    applyLink: "https://www.edstem.com/careers/",
     applyDeadline: "2026-07-20",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -291,49 +371,68 @@ var JOBS = [
     tags: ["IT", "Business"],
     isWalkIn: false,
     walkInDate: "",
-    email: "",
-    phone: "",
-    website: "https://www.edstem.com",
-    address: "Infopark, Kakkanad, Kochi, Kerala",
-    industry: "Product / IT Services",
+    email: "info@edstem.com",
+    phone: "+91 224 618 3018",
+    website: "https://www.edstem.com/",
+    address: "Office No-2B-1, Second Floor, Jyothirmaya, Infopark Phase II, Ernakulam, Kerala 682303",
+    industry: "Product Engineering / IT Services · AWS Partner · ISO 27001 & ISO 9001",
+    companySize: "Product & engineering teams in India (Infopark) + USA (Delaware)",
+    salaryRange: "Not publicly listed — confirm with Edstem recruiting",
     companyDetails:
-      "Edstem Technologies is hiring a Business Analyst for Infopark Kochi. Ideal for candidates with relevant BA experience in product or delivery environments.",
+      "Edstem Technologies builds product engineering solutions with offices in Infopark Phase II (Jyothirmaya) and Delaware, USA. ISO 27001:2022 & ISO 9001:2015 certified AWS Partner. Official careers: https://www.edstem.com/careers/ · info@edstem.com.",
     workDetails:
-      "Business analysis across requirements, stakeholder communication, and delivery support. Listed last date: 20 July 2026 — confirm status on official channels.",
+      "Business Analyst role for Infopark Kochi with relevant BA experience. On-site at Jyothirmaya, Infopark Phase II. Listed last date: 20 July 2026 — reconfirm on Edstem Careers.",
     workStatus: "Full-time",
-    workMode: "On-site",
-    experienceYears: "Relevant experience",
+    workMode: "On-site · Infopark Phase II",
+    experienceYears: "Relevant BA experience",
     requirements: [
-      "Relevant Business Analyst experience",
-      "Strong documentation and requirement-gathering skills",
-      "Ability to work with technical and business stakeholders",
-      "On-site at Infopark, Kakkanad"
+      "Relevant Business Analyst experience in product / IT delivery",
+      "Strong requirement gathering and documentation skills",
+      "Ability to work with engineering and business stakeholders",
+      "On-site at Infopark Phase II, Kochi"
+    ],
+    skills: [
+      "Requirements analysis",
+      "User stories / acceptance criteria",
+      "Process mapping",
+      "Stakeholder workshops",
+      "UAT coordination"
     ],
     responsibilities: [
-      "Gather and document business / product requirements",
-      "Map processes and clarify acceptance criteria",
-      "Coordinate with engineering and stakeholders",
-      "Support UAT and delivery readiness"
+      "Elicit and document product / business requirements",
+      "Clarify scope with engineering and stakeholders",
+      "Support backlog readiness and UAT",
+      "Maintain clear specs and change communication"
     ],
-    benefits: ["Infopark Kochi campus", "Product / delivery BA track", "Official Edstem careers apply"],
+    benefits: [
+      "Jyothirmaya Infopark Phase II campus",
+      "AWS Partner / ISO-certified organisation",
+      "India–USA delivery exposure",
+      "Official Edstem Careers apply path"
+    ],
+    interviewTips: [
+      "Apply only via https://www.edstem.com/careers/",
+      "Bring BA artefacts examples (sanitised PRDs / user stories)",
+      "Highlight domain + stakeholder communication strengths"
+    ],
     howToApply:
-      "Apply via Edstem’s official website / careers: https://www.edstem.com. You may also check Infopark company job listings for Edstem.",
+      "Apply on Edstem Careers: https://www.edstem.com/careers/ . Contact: info@edstem.com | India +91 224 618 3018.",
     hiringNotes:
-      "Category: IT · Listed last date 20 July 2026 — reconfirm on the official careers page before applying.",
-    description: "Business Analyst · Relevant Exp · Infopark Kakkanad",
+      "Category: IT · Listed last date 20 July 2026 · Careers https://www.edstem.com/careers/ · Map: Jyothirmaya, Infopark Phase II.",
+    description: "Business Analyst · Relevant Exp · Infopark Phase II",
     startingDate: ""
   },
   {
     id: "thomson-ba-implementation",
     company: "Thomson Infocare LLP",
     logo: "assets/logos/thomson.svg",
-    companyBlurb: "Business Analyst / Implementation Engineer at Infopark Kochi — apply by 10 Aug 2026.",
+    companyBlurb: "Business Analyst / Implementation Engineer · Infopark Kochi · Apply via company Careers by 10 Aug 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Business Analyst / Implementation Engineer"],
     experience: "experienced",
     experienceRange: "Relevant Experience",
     employmentType: "Full-time",
-    applyLink: "https://www.infopark.in/companies-job",
+    applyLink: "https://thomsuninfo.com/careers",
     applyDeadline: "2026-08-10",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -343,50 +442,69 @@ var JOBS = [
     walkInDate: "",
     email: "",
     phone: "",
-    website: "https://www.infopark.in/companies-job",
+    website: "https://thomsuninfo.com/careers",
     address: "Infopark, Kakkanad, Kochi, Kerala",
-    industry: "IT Services / Implementation",
+    industry: "IT Services / Implementation Consulting",
+    companySize: "Infopark Kochi delivery team (exact headcount not public)",
+    salaryRange: "Not publicly listed — confirm during hiring process",
     companyDetails:
-      "Thomson Infocare LLP is hiring a Business Analyst / Implementation Engineer at Infopark Kochi for candidates with relevant domain experience.",
+      "Thomson Infocare LLP (listed careers host: thomsuninfo.com) is hiring a Business Analyst / Implementation Engineer at Infopark Kochi. Official careers: https://thomsuninfo.com/careers — apply via the company careers page.",
     workDetails:
-      "Hybrid BA + implementation role supporting solution rollout and client configuration. Last date: 10 August 2026.",
+      "Hybrid BA + implementation role for solution rollout and client configuration. On-site Infopark. Last date: 10 August 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
-    experienceYears: "Relevant experience",
+    workMode: "On-site · Infopark Kochi",
+    experienceYears: "Relevant BA / implementation experience",
     requirements: [
-      "Relevant BA or implementation experience",
-      "Ability to translate requirements into configurations / workflows",
+      "Relevant Business Analyst or implementation experience",
+      "Ability to translate requirements into workflows / configurations",
       "Strong client communication and documentation",
-      "Willingness to work from Infopark, Kakkanad"
+      "Willingness to work on-site at Infopark, Kakkanad"
+    ],
+    skills: [
+      "Requirements analysis",
+      "Solution configuration / implementation",
+      "Client workshops",
+      "UAT & go-live support",
+      "Process documentation"
     ],
     responsibilities: [
       "Analyse client requirements and map to product capabilities",
-      "Support implementation, configuration, and go-live readiness",
-      "Train users and document processes",
+      "Configure / implement solutions and support go-live",
+      "Train users and maintain process docs",
       "Coordinate with delivery and support teams"
     ],
-    benefits: ["Infopark Kochi location", "BA + Implementation exposure", "Official careers apply path"],
+    benefits: [
+      "Infopark Kochi campus",
+      "BA + Implementation dual exposure",
+      "Official company careers apply path"
+    ],
+    interviewTips: [
+      "Apply via https://thomsuninfo.com/careers",
+      "Prepare implementation / BA case examples",
+      "If the careers page is temporarily unreachable, recheck later or use Infopark company job listings — never pay agents"
+    ],
     howToApply:
-      "Apply through the official company careers page / Infopark companies job portal: https://www.infopark.in/companies-job. Search for Thomson Infocare LLP.",
-    hiringNotes: "Category: IT · Last date 10 August 2026 · Prefer official careers / Infopark job portal apply links.",
-    description: "BA / Implementation Engineer · Infopark Kakkanad · Apply by 10 Aug 2026",
+      "Apply via Thomson Infocare / Thomsun careers: https://thomsuninfo.com/careers . Fallback discovery: Infopark companies job portal.",
+    hiringNotes:
+      "Category: IT · Last date 10 August 2026 · Official careers https://thomsuninfo.com/careers · Always verify on the company careers page before sharing personal documents.",
+    description: "BA / Implementation Engineer · Infopark · Apply by 10 Aug 2026",
     startingDate: ""
   },
   {
     id: "urolime-devops-hiring",
-    company: "Urolime",
+    company: "Urolime Technologies",
     logo: "assets/logos/urolime.svg",
-    companyBlurb: "DevOps hiring wave — Solution Architect, DevOps Engineer & System Engineer · apply by 28 July 2026.",
+    companyBlurb: "Solution Architect – DevOps · DevOps Engineer · System Engineer · Apply via Urolime Careers by 28 July 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: [
       "Solution Architect – DevOps",
       "DevOps Engineer",
-      "System Engineer"
+      "System Engineer (L2/L3)"
     ],
     experience: "experienced",
-    experienceRange: "Experienced (2–6+ years by role)",
+    experienceRange: "2–6+ Years (role-wise)",
     employmentType: "Full-time",
-    applyLink: "https://www.urolime.com/careers.html",
+    applyLink: "https://www.urolime.com/in/careers.html",
     applyDeadline: "2026-07-28",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -395,53 +513,72 @@ var JOBS = [
     isWalkIn: false,
     walkInDate: "",
     email: "careers@urolime.com",
-    phone: "",
+    phone: "+91 484 2984589",
     website: "https://www.urolime.com/",
-    address: "Jyothirmaya Building, Infopark Phase II, Kakkanad / Puthencruz, Kochi, Kerala",
-    industry: "DevOps / Cloud Consulting / IT Services",
+    address: "6th Floor, Office No.6A-2, Wing 1, Jyothirmaya Building, Infopark Phase II, Puthencruz / Kakkanad, Ernakulam, Kerala 682303",
+    industry: "DevOps / Cloud Consulting / Platform Engineering",
+    companySize: "Global DevOps & cloud consulting firm · Kochi Infopark delivery hub",
+    salaryRange: "Not publicly listed — experienced DevOps bands; confirm with Urolime",
     companyDetails:
-      "Urolime is hiring experienced DevOps and systems talent at Infopark Kochi — Solution Architect (DevOps), DevOps Engineer, and System Engineer roles under one campus hiring wave.",
+      "Urolime Technologies specialises in DevOps consulting, AWS/Azure/GCP, Kubernetes, CI/CD, and managed services. Kochi office: Jyothirmaya, Infopark Phase II. Official India careers: https://www.urolime.com/in/careers.html · Email: careers@urolime.com.",
     workDetails:
-      "Multiple experienced openings. Typical bars shared publicly: DevOps Engineer ~4+ years, System Engineer ~2+ years, Solution Architect (Cloud & DevOps) ~6+ years. Last date: 28 July 2026.",
+      "Three experienced openings from Urolime Careers — Solution Architect – DevOps (6+ years), DevOps Engineer (3–4 years), System Engineer L2/L3 (2+ years). On-site Infopark. Last date: 28 July 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
-    experienceYears: "Experienced — role-dependent",
+    workMode: "On-site · Infopark Phase II",
+    experienceYears: "Solution Architect 6+ · DevOps 3–4 · System Engineer 2+",
     requirements: [
-      "Hands-on DevOps, cloud, or systems engineering experience matching the role",
-      "Solution Architect – DevOps: senior cloud / DevOps architecture experience",
-      "DevOps Engineer: CI/CD, cloud platforms, automation tooling",
-      "System Engineer: Linux / infrastructure operations experience (L2/L3 preferred)",
-      "On-site at Infopark, Kakkanad"
+      "Solution Architect – DevOps: 5–7 years DevOps / open-source; 3+ years Docker & Kubernetes; advanced IaC (Terraform/Ansible/CloudFormation); deep AWS/Azure/GCP (EKS/AKS/GKE)",
+      "DevOps Engineer: 3–4 years DevOps/CI-CD; 2–3 years Docker & Kubernetes; strong Linux; IaC + cloud + monitoring (ELK/Prometheus/Grafana)",
+      "System Engineer L2/L3: 2+ years Linux/Windows/cloud support; incident troubleshooting; patching; Bash/Python/Ansible exposure",
+      "Strong Git workflows and scripting (Bash/Python/Go as applicable)",
+      "On-site at Infopark Kochi"
+    ],
+    skills: [
+      "CI/CD pipelines",
+      "Docker & Kubernetes",
+      "Terraform / Ansible / CloudFormation",
+      "AWS · Azure · GCP",
+      "Linux administration",
+      "ELK · Prometheus · Grafana",
+      "MySQL / MongoDB / PostgreSQL familiarity"
     ],
     responsibilities: [
-      "Design and operate cloud / DevOps platforms (role-dependent)",
-      "Build and improve CI/CD, monitoring, and automation",
-      "Support production reliability and incident response",
-      "Collaborate with client and internal engineering teams"
+      "Architect / build CI/CD and cloud platforms (role-dependent)",
+      "Lead containerised microservices deployments",
+      "Operate monitoring, logging, and reliability tooling",
+      "Provide L2/L3 production support and automation (System Engineer)",
+      "Collaborate with delivery, SRE, and client stakeholders"
     ],
     benefits: [
-      "Infopark Kochi campus",
-      "Multiple DevOps career tracks in one hiring wave",
-      "Official Urolime careers + careers@urolime.com"
+      "Infopark Phase II campus (Jyothirmaya)",
+      "Global cloud / DevOps project exposure",
+      "Clear senior tracks across Architect / Engineer / Systems",
+      "Official careers + careers@urolime.com"
+    ],
+    interviewTips: [
+      "Match your resume to the exact role JD on Urolime Careers",
+      "Be ready for hands-on questions on Kubernetes, IaC, and Linux",
+      "Email careers@urolime.com with the role name in the subject line",
+      "No recruitment fee — apply only via official Urolime channels"
     ],
     howToApply:
-      "Apply at https://www.urolime.com/careers.html or email PDF resume to careers@urolime.com. Mention the exact role in the subject (Solution Architect – DevOps / DevOps Engineer / System Engineer).",
+      "Apply on Urolime Careers: https://www.urolime.com/in/careers.html or email PDF resume to careers@urolime.com mentioning Solution Architect – DevOps / DevOps Engineer / System Engineer.",
     hiringNotes:
-      "Category: IT · Last date 28 July 2026 · Official careers: https://www.urolime.com/careers.html · Confirm openings and experience bars on Urolime’s careers page.",
-    description: "DevOps / Systems hiring · Experienced · Infopark · Apply by 28 Jul 2026",
+      "Category: IT · Last date 28 July 2026 · Official careers https://www.urolime.com/in/careers.html · Map: Jyothirmaya Infopark Phase II. Experience bars taken from Urolime’s published careers JD.",
+    description: "DevOps hiring wave · 2–6+ Yrs · Infopark · Apply by 28 Jul 2026",
     startingDate: ""
   },
   {
     id: "dynamed-azure-architect",
     company: "Dynamed Healthcare Solutions",
     logo: "assets/logos/dynamed.svg",
-    companyBlurb: "Azure Infrastructure Architect (senior) at Infopark Kochi — apply by 31 July 2026.",
+    companyBlurb: "Azure Infrastructure Architect (senior) · Infopark Kochi · Apply via dynamedhealthcare.com / LinkedIn by 31 July 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Azure Infrastructure Architect"],
     experience: "experienced",
     experienceRange: "Senior Level",
     employmentType: "Full-time",
-    applyLink: "https://www.infopark.in/companies-job",
+    applyLink: "https://dynamedhealthcare.com",
     applyDeadline: "2026-07-31",
     postedDate: "2026-07-21",
     source: "WhatsApp",
@@ -451,32 +588,52 @@ var JOBS = [
     walkInDate: "",
     email: "",
     phone: "",
-    website: "https://www.linkedin.com/company/dynamed-healthcare-solutions-pvt-ltd",
+    website: "https://dynamedhealthcare.com",
     address: "Infopark, Kakkanad, Kochi, Kerala",
     industry: "Healthcare / Health-tech Services",
+    companySize: "~60+ employees reported publicly · Infopark Kochi presence",
+    salaryRange: "Not publicly listed — senior Azure architect band; confirm with employer",
     companyDetails:
-      "Dynamed Healthcare Solutions is hiring a senior Azure Infrastructure Architect for Infopark Kochi — architecture ownership across Microsoft Azure environments supporting healthcare operations.",
+      "Dynamed Healthcare Solutions is a healthcare services / health-tech employer hiring a senior Azure Infrastructure Architect for Infopark Kochi. Official website: https://dynamedhealthcare.com — careers also shared via Contact / LinkedIn Jobs.",
     workDetails:
-      "Senior Azure architecture role. Last date to apply: 31 July 2026.",
+      "Senior Azure architecture ownership for healthcare-related infrastructure. On-site Infopark. Last date: 31 July 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Infopark Kochi",
     experienceYears: "Senior level",
     requirements: [
-      "Senior-level Azure infrastructure / cloud architecture experience",
-      "Strong knowledge of Azure networking, identity, compute, and security",
-      "Experience designing scalable, compliant cloud environments",
-      "Healthcare or regulated-domain experience is a plus"
+      "Senior Azure infrastructure / cloud architecture experience",
+      "Deep Azure networking, identity, compute, storage, and security knowledge",
+      "Experience designing scalable, governed cloud landing zones",
+      "Healthcare or regulated-industry cloud experience is a plus"
+    ],
+    skills: [
+      "Azure architecture",
+      "Landing zones & governance",
+      "Identity & access (Entra ID / IAM)",
+      "Networking & security baselines",
+      "IaC (Bicep / Terraform) preferred",
+      "Cost & reliability design"
     ],
     responsibilities: [
-      "Architect and govern Azure infrastructure",
-      "Define landing zones, security baselines, and cost controls",
-      "Partner with application and operations teams",
-      "Lead migrations / modernisation initiatives"
+      "Architect and govern Azure environments",
+      "Define security, networking, and cost controls",
+      "Lead migrations / modernisation with app teams",
+      "Document standards and mentor engineers"
     ],
-    benefits: ["Infopark Kochi campus", "Senior Azure architecture track", "Healthcare technology domain"],
+    benefits: [
+      "Infopark Kochi campus",
+      "Senior Azure ownership in healthcare domain",
+      "Apply via official website / LinkedIn Jobs"
+    ],
+    interviewTips: [
+      "Apply via https://dynamedhealthcare.com Careers/Contact or LinkedIn Jobs",
+      "Prepare Azure architecture diagrams and governance examples",
+      "Highlight any healthcare / compliance cloud work"
+    ],
     howToApply:
-      "Apply through the official Dynamed / Infopark companies job portal: https://www.infopark.in/companies-job. Search Dynamed Healthcare Solutions — Azure Infrastructure Architect.",
-    hiringNotes: "Category: IT · Last date 31 July 2026 · Prefer official careers / Infopark portal links.",
+      "Apply via https://dynamedhealthcare.com (Careers / Get in Touch) or the company’s LinkedIn Jobs posts for Azure Infrastructure Architect.",
+    hiringNotes:
+      "Category: IT · Last date 31 July 2026 · Official site https://dynamedhealthcare.com · Prefer company website or LinkedIn Jobs — never unofficial fee agents.",
     description: "Azure Infrastructure Architect · Senior · Infopark · Apply by 31 Jul 2026",
     startingDate: ""
   },
@@ -484,7 +641,7 @@ var JOBS = [
     id: "ss-consulting-dynamics365",
     company: "SS Consulting",
     logo: "assets/logos/ss-consulting.svg",
-    companyBlurb: "Senior Consultant – Microsoft Dynamics 365 CRM at Infopark Kochi — apply by 31 July 2026.",
+    companyBlurb: "Senior Consultant – Microsoft Dynamics 365 CRM · Infopark Kochi · Apply via ssconsulting.in / LinkedIn by 31 July 2026.",
     location: "Infopark, Kakkanad, Kochi",
     roles: ["Senior Consultant – Microsoft Dynamics 365 CRM"],
     experience: "experienced",
@@ -502,30 +659,49 @@ var JOBS = [
     phone: "",
     website: "https://ssconsulting.co.in",
     address: "Infopark, Kakkanad, Kochi, Kerala",
-    industry: "IT Consulting / Microsoft Dynamics",
+    industry: "IT Consulting / Microsoft Dynamics 365",
+    companySize: "Consulting practice with Infopark Kochi presence (branch careers may vary)",
+    salaryRange: "Not publicly listed — senior Dynamics CRM band; confirm with SS Consulting",
     companyDetails:
-      "SS Consulting is hiring a Senior Consultant for Microsoft Dynamics 365 CRM at Infopark Kochi — senior consulting delivery across CRM implementations.",
+      "SS Consulting delivers Microsoft Dynamics and related consulting services and is hiring a Senior Consultant – Microsoft Dynamics 365 CRM at Infopark Kochi. Official site (active): https://ssconsulting.co.in — careers section may vary by branch; LinkedIn Jobs is also used.",
     workDetails:
-      "Senior Dynamics 365 CRM consulting role. Last date: 31 July 2026.",
+      "Senior Dynamics 365 CRM functional consulting. On-site Infopark. Last date: 31 July 2026.",
     workStatus: "Full-time",
-    workMode: "On-site",
+    workMode: "On-site · Infopark Kochi",
     experienceYears: "Senior level",
     requirements: [
-      "Senior-level Microsoft Dynamics 365 CRM consulting experience",
-      "Strong functional consulting and client workshop skills",
-      "Experience with CRM configuration, customisation, and delivery",
-      "Ability to lead solution design and stakeholder alignment"
+      "Senior Microsoft Dynamics 365 CRM consulting experience",
+      "Strong functional workshops, process design, and client handling",
+      "Hands-on CRM configuration / customisation delivery experience",
+      "Ability to lead solution design and mentor juniors"
+    ],
+    skills: [
+      "Dynamics 365 CRM / CE",
+      "Functional consulting",
+      "Requirements & process design",
+      "Configuration & UAT leadership",
+      "Stakeholder management"
     ],
     responsibilities: [
-      "Lead Dynamics 365 CRM solution consulting engagements",
-      "Gather requirements and design CRM processes",
+      "Lead Dynamics 365 CRM consulting engagements",
+      "Run discovery workshops and design CRM processes",
       "Guide configuration, UAT, and go-live",
-      "Mentor junior consultants and coordinate with technical teams"
+      "Coordinate with technical teams and mentor juniors"
     ],
-    benefits: ["Infopark Kochi campus", "Senior Dynamics 365 CRM track", "Official SS Consulting careers apply"],
+    benefits: [
+      "Infopark Kochi campus",
+      "Senior Dynamics 365 CRM consulting track",
+      "Official website / LinkedIn Jobs apply paths"
+    ],
+    interviewTips: [
+      "Apply via https://ssconsulting.co.in or SS Consulting LinkedIn Jobs",
+      "Prepare CRM project case studies (modules, outcomes, your role)",
+      "Confirm branch / Infopark location during HR screening"
+    ],
     howToApply:
-      "Apply via SS Consulting official site: https://ssconsulting.co.in or Infopark companies job portal listings for SS Consulting.",
-    hiringNotes: "Category: IT · Last date 31 July 2026 · Verify role details on the official careers page.",
+      "Apply via https://ssconsulting.co.in (Careers / Contact) or the company’s LinkedIn Jobs listing for Senior Consultant – Microsoft Dynamics 365 CRM.",
+    hiringNotes:
+      "Category: IT · Last date 31 July 2026 · Prefer https://ssconsulting.co.in or LinkedIn Jobs · ssconsulting.in may vary by DNS/branch — use the working official site.",
     description: "Senior Consultant – Dynamics 365 CRM · Senior · Infopark · Apply by 31 Jul 2026",
     startingDate: ""
   },
