@@ -2202,6 +2202,10 @@ body.light .jobs-sticky-cta {
   border-top: 1px solid var(--line);
 }
 
+.job-hero-stats--sheet {
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+}
+
 .job-hero-stat {
   display: grid;
   gap: 0.1rem;

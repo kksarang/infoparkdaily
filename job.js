@@ -152,17 +152,26 @@
   /* ---------- premium blocks ---------- */
 
   function heroStatStrip(job) {
+    const deadline =
+      job.applyDeadline === "Rolling"
+        ? "Open until filled"
+        : job.applyDeadline
+          ? formatDate(job.applyDeadline)
+          : "";
     const stats = [
-      ["Open roles", String((job.roles || []).length)],
+      ["Location", job.location || ""],
       ["Experience", job.experienceRange || job.experienceYears || EXP_LABELS[job.experience] || ""],
       ["Type", job.employmentType || job.workStatus || ""],
       ["Mode", job.workMode ? String(job.workMode).split("(")[0].trim() : ""],
-      ["Posted", job.postedDate ? formatDate(job.postedDate) : ""]
+      ["Apply before", deadline],
+      ["Published", job.postedDate ? formatDate(job.postedDate) : ""],
+      ["Apply email", job.email || ""],
+      ["Open roles", String((job.roles || []).length)]
     ].filter(([, value]) => value);
 
     if (!stats.length) return "";
     return `
-      <div class="job-hero-stats" role="list">
+      <div class="job-hero-stats job-hero-stats--sheet" role="list">
         ${stats
           .map(
             ([label, value]) => `
@@ -185,21 +194,34 @@
         <a class="job-apply-method" href="mailto:${escapeAttr(job.email)}">
           <span class="job-apply-method-icon job-apply-method-icon--mail" aria-hidden="true">@</span>
           <span class="job-apply-method-body">
-            <strong>Email HR</strong>
+            <strong>HR / Apply email</strong>
             <span>${escapeHtml(job.email)}</span>
           </span>
         </a>
       `);
     }
 
-    const link = job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : job.website;
-    if (link) {
+    const careers =
+      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
+    if (careers) {
       methods.push(`
-        <a class="job-apply-method" href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">
+        <a class="job-apply-method" href="${escapeAttr(careers)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">↗</span>
           <span class="job-apply-method-body">
-            <strong>Company link</strong>
-            <span>${escapeHtml(String(link).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
+            <strong>Official careers page</strong>
+            <span>${escapeHtml(String(careers).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
+          </span>
+        </a>
+      `);
+    }
+
+    if (job.website && job.website !== careers) {
+      methods.push(`
+        <a class="job-apply-method" href="${escapeAttr(job.website)}" target="_blank" rel="noopener noreferrer">
+          <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">◉</span>
+          <span class="job-apply-method-body">
+            <strong>Company website</strong>
+            <span>${escapeHtml(String(job.website).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
           </span>
         </a>
       `);

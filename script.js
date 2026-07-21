@@ -305,7 +305,7 @@ initRevealAnimations();
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./sw.js?v=20260717n")
+      .register("./sw.js?v=20260717o")
       .then((registration) => registration.update())
       .catch(() => {
         // Service worker registration should not block core rendering.

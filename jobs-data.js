@@ -77,6 +77,347 @@
 
 var JOBS = [
   {
+    id: "woxro-hr-trainee",
+    company: "Woxro Technologies",
+    logo: "assets/logos/woxro.svg",
+    companyBlurb: "HR Trainee opening for freshers at Infopark Kochi — 0–1 year experience.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["HR Trainee"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://woxro.com/careers",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["HR", "Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "jobs@woxro.com",
+    phone: "",
+    website: "https://woxro.com/",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "IT Services / Software Product",
+    companyDetails:
+      "Woxro Technologies is hiring an HR Trainee at Infopark Kochi for freshers and early-career candidates (0–1 year). Part of the July 2026 Infopark fresher hiring wave covering HR and IT roles across campus companies.",
+    workDetails:
+      "Entry-level HR role supporting recruitment, onboarding, and people operations. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "MBA (HR) / BBA preferred for HR track",
+      "BE / B.Tech, BCA / MCA, B.Sc (CS / IT) also accepted as per company requirements",
+      "2025 & 2026 pass-outs welcome",
+      "Fresher or up to 1 year experience",
+      "Good communication and people skills",
+      "Willingness to work on-site at Infopark Kochi, Kakkanad"
+    ],
+    responsibilities: [
+      "Support day-to-day HR and recruitment operations",
+      "Assist with candidate coordination and onboarding",
+      "Maintain HR records and process documentation",
+      "Collaborate with hiring managers on fresher / junior hiring"
+    ],
+    benefits: [
+      "Infopark Kochi campus role",
+      "Fresher-friendly HR career start",
+      "Official careers portal + Infopark Jobs listing",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply via the official Woxro careers page (https://woxro.com/careers) or email your resume (PDF) to jobs@woxro.com. You can also check the Infopark Jobs listing: https://infopark.in/jobs/woxro. Keep LinkedIn updated and tailor your resume for HR / recruitment.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Always verify details on the official Woxro careers page before applying. Tip: PDF resume with projects, internships, and LinkedIn link.",
+    description: "HR Trainee · Fresher / 0–1 Yr · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
+    id: "newagesys-graduate-trainee",
+    company: "NewAgeSys Solutions",
+    logo: "assets/logos/newagesys.svg",
+    companyBlurb: "Graduate Trainee / Junior Developer roles for freshers at Infopark Kochi.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["Graduate Trainee", "Junior Developer"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://www.newagesys.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.newagesys.com",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "IT Services / Software Development",
+    companyDetails:
+      "NewAgeSys Solutions is hiring Graduate Trainees and Junior Developers at Infopark Kochi. Ideal for 2025 & 2026 pass-outs looking for an entry-level software development start.",
+    workDetails:
+      "Fresher / 0–1 year software trainee track. Apply through the official company careers page. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "BE / B.Tech (All Streams)",
+      "BCA / MCA or B.Sc (CS / IT)",
+      "2025 & 2026 pass-outs preferred",
+      "Fresher or up to 1 year experience",
+      "Basic programming / problem-solving aptitude",
+      "Willingness to work from Infopark Kochi, Kakkanad"
+    ],
+    responsibilities: [
+      "Learn and contribute to software development projects",
+      "Write, test, and maintain application code under guidance",
+      "Collaborate with seniors on feature delivery",
+      "Follow coding standards, reviews, and documentation practices"
+    ],
+    benefits: [
+      "Infopark Kochi campus opportunity",
+      "Graduate trainee / junior developer career path",
+      "Official company careers portal apply flow",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply through the official NewAgeSys careers / company website: https://www.newagesys.com. Prepare a PDF resume with projects, internships, and GitHub / LinkedIn if available. Prefer official careers page over unofficial job boards.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Confirm role, batch eligibility, and apply steps on the official NewAgeSys site before sending your resume.",
+    description: "Graduate Trainee / Junior Developer · Fresher · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
+    id: "hashroot-devops-fresher",
+    company: "HashRoot",
+    logo: "assets/logos/hashroot.svg",
+    companyBlurb: "Cloud / DevOps fresher opportunities at Infopark Kochi — 0–1 year.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["Cloud / DevOps Fresher", "Junior Cloud Engineer (Fresher track)"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://hashroot.com/careers",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "DevOps", "Cloud"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://hashroot.com",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "Cloud / DevOps / Managed Services",
+    companyDetails:
+      "HashRoot is hiring freshers for Cloud / DevOps opportunities at Infopark Kochi. Strong fit for graduates interested in Linux, cloud platforms, automation, and infrastructure careers.",
+    workDetails:
+      "Fresher Cloud / DevOps track. Apply via the HashRoot careers portal. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "BE / B.Tech (All Streams), BCA / MCA, or B.Sc (CS / IT)",
+      "2025 & 2026 pass-outs welcome",
+      "Fresher or up to 1 year experience",
+      "Interest in Linux, cloud (AWS / Azure / GCP), CI/CD, or scripting",
+      "Willingness to learn DevOps tooling and on-call practices",
+      "On-site at Infopark Kochi, Kakkanad"
+    ],
+    responsibilities: [
+      "Support cloud infrastructure and DevOps workflows",
+      "Assist with monitoring, deployments, and automation tasks",
+      "Learn Linux administration and CI/CD pipelines",
+      "Collaborate with senior engineers on production operations"
+    ],
+    benefits: [
+      "Infopark Kochi Cloud / DevOps career start",
+      "Hands-on exposure to modern infrastructure stack",
+      "Official HashRoot careers portal",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply via the official HashRoot careers portal: https://hashroot.com/careers. Company site: https://hashroot.com. Use a PDF resume highlighting any cloud labs, Linux projects, certifications, or GitHub work.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Always apply through hashroot.com/careers and verify role details there before submitting.",
+    description: "Cloud / DevOps Fresher · 0–1 Yr · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
+    id: "nestsoft-software-trainee",
+    company: "Nestsoft",
+    logo: "assets/logos/nestsoft.svg",
+    companyBlurb: "Software Trainee / Junior Developer openings for freshers at Infopark Kochi.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["Software Trainee", "Junior Developer"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://www.nestsoft.com/careers",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.nestsoft.com",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "Software Product / IT Services",
+    companyDetails:
+      "Nestsoft is hiring Software Trainees and Junior Developers at Infopark Kochi for fresher and early-career candidates (0–1 year).",
+    workDetails:
+      "Entry-level software development roles. Apply through the Nestsoft careers page. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "BE / B.Tech (All Streams)",
+      "BCA / MCA or B.Sc (CS / IT)",
+      "2025 & 2026 pass-outs preferred",
+      "Fresher or up to 1 year experience",
+      "Basic programming fundamentals and willingness to learn",
+      "Work from Infopark Kochi, Kakkanad"
+    ],
+    responsibilities: [
+      "Train on Nestsoft product / project stack",
+      "Contribute to feature development under mentorship",
+      "Fix bugs, write tests, and document changes",
+      "Participate in team standups and code reviews"
+    ],
+    benefits: [
+      "Infopark Kochi software career start",
+      "Trainee-to-junior developer growth path",
+      "Official Nestsoft careers apply link",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply through Nestsoft careers: https://www.nestsoft.com/careers (company site: https://www.nestsoft.com). Submit a PDF resume tailored to software / junior developer roles with projects and GitHub if available.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Prefer the official Nestsoft careers page for applications.",
+    description: "Software Trainee / Junior Developer · Fresher · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
+    id: "infintor-junior-developer",
+    company: "Infintor Solutions",
+    logo: "assets/logos/infintor.svg",
+    companyBlurb: "Junior Software Developer role for freshers at Infopark Kochi — 0–1 year.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["Junior Software Developer"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://people.infintor.com/jobs",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.infintor.com",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "IT Services / Software Solutions",
+    companyDetails:
+      "Infintor Solutions is hiring Junior Software Developers at Infopark Kochi. Apply through the official Infintor careers / people portal for verified openings.",
+    workDetails:
+      "Junior software developer track for freshers and 0–1 year candidates. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "BE / B.Tech (All Streams), BCA / MCA, or B.Sc (CS / IT)",
+      "2025 & 2026 pass-outs welcome",
+      "Fresher or up to 1 year experience",
+      "Strong interest in software engineering and continuous learning",
+      "Good communication and teamwork",
+      "On-site at Infopark Kochi, Kakkanad"
+    ],
+    responsibilities: [
+      "Develop and maintain software features",
+      "Collaborate with product and engineering teams",
+      "Debug issues and improve application quality",
+      "Follow Infintor coding and delivery practices"
+    ],
+    benefits: [
+      "Infopark Kochi junior developer role",
+      "Official Infintor careers / people portal",
+      "Career growth in software solutions",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply through the official Infintor careers portal: https://www.infintor.com/career/ or jobs board: https://people.infintor.com/jobs. Use a PDF resume with projects, internships, and GitHub / LinkedIn links.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Always use Infintor’s official careers / people portal — avoid unofficial apply links.",
+    description: "Junior Software Developer · Fresher / 0–1 Yr · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
+    id: "worksent-entry-level",
+    company: "WorkSent Technologies",
+    logo: "assets/logos/worksent.svg",
+    companyBlurb: "Entry-level IT roles for freshers at Infopark Kochi — 0–1 year experience.",
+    location: "Infopark Kochi, Kakkanad",
+    roles: ["Entry-Level IT Roles", "Junior IT Associate (Fresher track)"],
+    experience: "fresher",
+    experienceRange: "Fresher / 0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "https://worksent.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-21",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://worksent.com",
+    address: "Infopark Kochi, Kakkanad, Kochi, Kerala",
+    industry: "IT Services / Technology Consulting",
+    companyDetails:
+      "WorkSent Technologies is hiring for entry-level IT roles at Infopark Kochi. Suitable for freshers and early-career candidates looking to start in IT services.",
+    workDetails:
+      "Entry-level IT openings. Apply via company careers page or LinkedIn. Immediate joiners preferred. Open until filled.",
+    workStatus: "Full-time · Open until filled",
+    workMode: "On-site",
+    experienceYears: "Fresher / 0–1 year",
+    requirements: [
+      "BE / B.Tech (All Streams), BCA / MCA, or B.Sc (CS / IT)",
+      "MBA (HR) / BBA also relevant for certain entry tracks as per company need",
+      "2025 & 2026 pass-outs welcome",
+      "Fresher or up to 1 year experience",
+      "Willingness to learn and work on-site at Infopark Kochi"
+    ],
+    responsibilities: [
+      "Support entry-level IT delivery and operations tasks",
+      "Learn company tools, processes, and client workflows",
+      "Assist seniors on projects and tickets",
+      "Maintain documentation and communication standards"
+    ],
+    benefits: [
+      "Infopark Kochi entry-level IT start",
+      "Company careers / LinkedIn apply options",
+      "Exposure to IT services environment",
+      "Immediate joiner preference"
+    ],
+    howToApply:
+      "Apply via the WorkSent company website / careers: https://worksent.com, or through the company’s LinkedIn careers posts. Keep a PDF resume ready with projects, internships, and LinkedIn profile link.",
+    hiringNotes:
+      "Part of InfoparkDaily fresher digest — Updated 21 July 2026. Prefer official WorkSent careers or LinkedIn company posts. You may also browse Infopark Jobs Portal: https://infopark.in/careers for related campus listings.",
+    description: "Entry-Level IT Roles · Fresher / 0–1 Yr · Infopark Kochi",
+    startingDate: "Immediate joiners preferred"
+  },
+  {
     id: "vdart",
     company: "VDart",
     logo: "assets/logos/vdart.svg",
