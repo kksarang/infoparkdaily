@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80">
+  <rect width="240" height="80" rx="16" fill="#0f1117"/>
+  <rect x="14" y="14" width="52" height="52" rx="14" fill="#10b981"/>
+  <text x="40" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0b0b0f">TI</text>
+  <text x="80" y="48" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#f5f6fa">Thomson</text>
+</svg>
