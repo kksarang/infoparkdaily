@@ -78,6 +78,733 @@
 
 var JOBS = [
   {
+    id: "toonz-hr-intern",
+    company: "Toonz Animation India (P) Ltd",
+    logo: "assets/logos/toonz.svg",
+    companyBlurb: "HR Intern · Technopark Trivandrum · Apply by 24 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["HR Intern"],
+    experience: "fresher",
+    experienceRange: "Internship / Freshers",
+    employmentType: "Internship",
+    applyLink: "https://toonz.co/career/",
+    applyDeadline: "2026-07-24",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["HR", "Internship"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@toonzanimationindia.com",
+    phone: "",
+    website: "https://toonz.co/",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "Animation / Media / Entertainment",
+    companySize: "Toonz Media Group · Animation & content studio at Technopark",
+    salaryRange: "Internship stipend — confirm with Toonz HR",
+    companyDetails:
+      "Toonz Animation India (P) Ltd (Toonz Media Group) is a Technopark-based animation and media company. Careers: https://toonz.co/career/ — applications via hr@toonzanimationindia.com.",
+    workDetails:
+      "HR Intern opening at Technopark, Trivandrum. Part of Daily Job Alert: Technopark (21 July 2026). Closing: 24 July 2026. Posted: 17 July 2026.",
+    workStatus: "Internship",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / Internship",
+    requirements: [
+      "MBA (HR) / BBA / graduates interested in HR preferred",
+      "Strong communication and organisation skills",
+      "Willingness to work on-site at Technopark, Trivandrum",
+      "Freshers / final-year students eligible as per company criteria"
+    ],
+    skills: ["HR operations basics", "Recruitment coordination", "MS Office", "Communication"],
+    responsibilities: [
+      "Support HR day-to-day operations and documentation",
+      "Assist recruitment coordination and candidate follow-ups",
+      "Help with onboarding and people-ops tasks"
+    ],
+    benefits: ["Technopark campus experience", "Animation / media industry exposure", "Internship pathway"],
+    interviewTips: [
+      "Send an updated PDF resume to hr@toonzanimationindia.com",
+      "Mention HR Intern + Technopark in the subject line",
+      "Highlight any HR internship, campus placement, or people-ops experience"
+    ],
+    howToApply:
+      "Apply via https://toonz.co/career/ or email your resume (PDF) to hr@toonzanimationindia.com. Always verify the live posting on the official Toonz careers page.",
+    hiringNotes:
+      "Category: Internships & Fellowships · Technopark Daily Alert · Closing 24 July 2026 · Posted 17 July 2026 · Apply on company careers pages.",
+    description: "HR Intern · Technopark TVM · Apply by 24 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "toonz-head-of-finance",
+    company: "Toonz Animation India (P) Ltd",
+    logo: "assets/logos/toonz.svg",
+    companyBlurb: "Head of Finance · Technopark Trivandrum · Apply by 24 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Head of Finance"],
+    experience: "experienced",
+    experienceRange: "Senior / Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://toonz.co/career/",
+    applyDeadline: "2026-07-24",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Business", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@toonzanimationindia.com",
+    phone: "",
+    website: "https://toonz.co/",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "Animation / Media / Entertainment",
+    companySize: "Toonz Media Group · Animation & content studio at Technopark",
+    salaryRange: "Not publicly listed — confirm with Toonz HR",
+    companyDetails:
+      "Toonz Animation India (P) Ltd is hiring a Head of Finance for its Technopark Trivandrum operations. Official careers: https://toonz.co/career/.",
+    workDetails:
+      "Senior finance leadership role. Closing: 24 July 2026. Posted: 17 July 2026. On-site at Technopark, Trivandrum.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Senior / experienced finance leadership",
+    requirements: [
+      "Strong finance / accounting leadership background (CA / CMA / MBA Finance preferred)",
+      "Experience leading finance teams and reporting for mid-to-large organisations",
+      "Hands-on with budgeting, statutory compliance, and stakeholder reporting",
+      "Must work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["Financial planning", "Statutory compliance", "Budgeting & forecasting", "Team leadership", "ERP / accounting systems"],
+    responsibilities: [
+      "Lead finance function and reporting for the Technopark entity",
+      "Own budgeting, audits, and compliance calendars",
+      "Partner with leadership on commercial and investment decisions"
+    ],
+    benefits: ["Leadership role at Technopark", "Animation / media group exposure"],
+    interviewTips: [
+      "Lead with finance leadership outcomes (team size, P&L, audits)",
+      "Email hr@toonzanimationindia.com with Head of Finance in the subject",
+      "Be ready to discuss Kerala / India statutory compliance experience"
+    ],
+    howToApply:
+      "Apply via https://toonz.co/career/ or email your resume to hr@toonzanimationindia.com. Confirm role details on the official careers page before applying.",
+    hiringNotes:
+      "Category: Internships & Fellowships section on poster (senior finance opening) · Closing 24 July 2026 · Posted 17 July 2026.",
+    description: "Head of Finance · Technopark TVM · Apply by 24 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "toonz-marketing-coordinator",
+    company: "Toonz Animation India (P) Ltd",
+    logo: "assets/logos/toonz.svg",
+    companyBlurb: "Marketing Coordinator · Technopark Trivandrum · Apply by 24 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Marketing Coordinator"],
+    experience: "both",
+    experienceRange: "Fresher + Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://toonz.co/career/",
+    applyDeadline: "2026-07-24",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@toonzanimationindia.com",
+    phone: "",
+    website: "https://toonz.co/",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "Animation / Media / Entertainment",
+    companySize: "Toonz Media Group · Animation & content studio at Technopark",
+    salaryRange: "Not publicly listed — confirm with Toonz HR",
+    companyDetails:
+      "Toonz Animation India (P) Ltd is hiring a Marketing Coordinator at Technopark, Trivandrum. Careers: https://toonz.co/career/.",
+    workDetails:
+      "Marketing coordination for brand, campaigns, and studio outreach. Closing: 24 July 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per company criteria",
+    requirements: [
+      "Degree in Marketing, Mass Communication, Business, or related field",
+      "Strong written English and social / content coordination skills",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["Campaign coordination", "Social media", "Content calendar", "Stakeholder communication"],
+    responsibilities: [
+      "Coordinate marketing campaigns and content calendars",
+      "Support brand and studio outreach activities",
+      "Track campaign metrics and vendor / agency follow-ups"
+    ],
+    benefits: ["Technopark media / animation brand exposure", "Cross-functional marketing experience"],
+    interviewTips: [
+      "Share a sample campaign calendar or social content portfolio",
+      "Apply via toonz.co/career or hr@toonzanimationindia.com"
+    ],
+    howToApply:
+      "Apply via https://toonz.co/career/ or email your resume to hr@toonzanimationindia.com.",
+    hiringNotes:
+      "Technopark Daily Alert · Closing 24 July 2026 · Posted 17 July 2026 · Apply on company careers pages.",
+    description: "Marketing Coordinator · Technopark TVM · Apply by 24 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "pickyassist-bd-executive",
+    company: "Picky Assist (P) Ltd",
+    logo: "assets/logos/pickyassist.svg",
+    companyBlurb: "Business Development Executive · Technopark Trivandrum · Apply by 25 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Business Development Executive"],
+    experience: "both",
+    experienceRange: "Fresher + Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://pickyassist.com/en",
+    applyDeadline: "2026-07-25",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Sales", "Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://pickyassist.com/en",
+    address: "Technopark / Trivandrum, Kerala",
+    industry: "SaaS / Conversational CRM / Business Automation",
+    companySize: "Product company · Global customers · India hub in Trivandrum",
+    salaryRange: "Not publicly listed — confirm during hiring",
+    companyDetails:
+      "Picky Assist is a product-based SaaS company offering no/low-code conversational CRM, chatbots, and business automation. Website: https://pickyassist.com/en",
+    workDetails:
+      "Business Development Executive to drive outbound / inbound sales for the platform. Closing: 25 July 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark / Trivandrum",
+    experienceYears: "As per company criteria",
+    requirements: [
+      "Strong English communication for B2B SaaS conversations",
+      "Interest in CRM / automation product sales",
+      "Willingness to work from Trivandrum / Technopark region"
+    ],
+    skills: ["B2B sales", "Lead follow-up", "CRM basics", "Demo coordination"],
+    responsibilities: [
+      "Generate and nurture business development leads",
+      "Coordinate demos and follow-ups with prospects",
+      "Maintain pipeline hygiene in the company CRM"
+    ],
+    benefits: ["SaaS product sales exposure", "Global customer base learning"],
+    interviewTips: [
+      "Research Picky Assist conversational CRM offerings before the interview",
+      "Apply via the official company website / careers channel listed on pickyassist.com"
+    ],
+    howToApply:
+      "Apply directly via the company website / careers channel at https://pickyassist.com/en. Verify the live BD Executive posting before sending your resume.",
+    hiringNotes:
+      "Category: Internships & Fellowships section on poster · Closing 25 July 2026 · Posted 17 July 2026 · Apply on company careers pages.",
+    description: "BD Executive · Technopark TVM · Apply by 25 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "inometrics-sales-digital-marketing",
+    company: "Inometrics Technology Systems (P) Ltd",
+    logo: "assets/logos/inometrics.svg",
+    companyBlurb: "Sales & Digital Marketing Executive · Technopark Trivandrum · Apply by 26 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Sales & Digital Marketing Executive"],
+    experience: "experienced",
+    experienceRange: "Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://www.inometrics.com",
+    applyDeadline: "2026-07-26",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Sales", "Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.inometrics.com",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "IT Services / Technology Systems",
+    companySize: "Technopark IT company",
+    salaryRange: "Not publicly listed — confirm with company HR",
+    companyDetails:
+      "Inometrics Technology Systems (P) Ltd is hiring a Sales & Digital Marketing Executive for Technopark, Trivandrum operations.",
+    workDetails:
+      "Experienced sales + digital marketing dual-track role. Closing: 26 July 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (as per company)",
+    requirements: [
+      "Prior sales and/or digital marketing experience preferred",
+      "Comfortable with lead generation, campaigns, and client follow-ups",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["Digital marketing", "Lead generation", "Social ads basics", "B2B sales"],
+    responsibilities: [
+      "Drive sales pipeline and digital marketing campaigns",
+      "Coordinate lead follow-ups and campaign reporting",
+      "Support brand visibility for Technopark offerings"
+    ],
+    benefits: ["Technopark role", "Sales + marketing dual exposure"],
+    interviewTips: [
+      "Prepare examples of campaigns or sales targets you owned",
+      "Apply via the company website / official careers channel"
+    ],
+    howToApply:
+      "Apply directly on the company careers / contact channel (verify live posting on the Inometrics website). Keep resume as PDF.",
+    hiringNotes:
+      "Category: Experienced Professionals · Closing 26 July 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "Sales & Digital Marketing Exec · Technopark · Apply by 26 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "gnx-technical-ba-pm",
+    company: "GNX Digital Solutions (P) Ltd",
+    logo: "assets/logos/gnx.svg",
+    companyBlurb: "Technical Business Analyst cum Project Manager · Technopark Trivandrum · Apply by 28 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Technical Business Analyst CUM Project Manager"],
+    experience: "experienced",
+    experienceRange: "Experienced",
+    employmentType: "Full-time",
+    applyLink: "mailto:sumi.h@gnxsolutions.in",
+    applyDeadline: "2026-07-28",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "sumi.h@gnxsolutions.in",
+    phone: "",
+    website: "https://www.gnxsolutions.in",
+    address: "Nila, Technopark, Thiruvananthapuram, Kerala",
+    industry: "IT Services / Digital Solutions",
+    companySize: "Growing Technopark IT firm · Nila campus",
+    salaryRange: "Not publicly listed — confirm with GNX HR",
+    companyDetails:
+      "GNX Digital Solutions (P) Ltd operates from Nila, Technopark, Trivandrum. Hiring for Technical BA + Project Manager combined track.",
+    workDetails:
+      "Technical Business Analyst cum Project Manager. Closing: 28 July 2026. Posted: 17 July 2026. On-site Technopark.",
+    workStatus: "Full-time",
+    workMode: "On-site · Nila, Technopark Trivandrum",
+    experienceYears: "Experienced (BA + PM track)",
+    requirements: [
+      "Hands-on business analysis and project coordination experience",
+      "Ability to gather requirements and drive delivery with engineering teams",
+      "Strong documentation (BRD / SRS / process flows) skills",
+      "Agile / Scrum familiarity preferred",
+      "On-site at Technopark, Trivandrum"
+    ],
+    skills: ["Business analysis", "Project management", "Requirement gathering", "Agile / Scrum", "Stakeholder management"],
+    responsibilities: [
+      "Gather and document business / technical requirements",
+      "Coordinate delivery timelines with engineering and stakeholders",
+      "Track project risks, status, and acceptance criteria"
+    ],
+    benefits: ["Technopark Nila campus", "BA + PM dual-track growth"],
+    interviewTips: [
+      "Email resume to sumi.h@gnxsolutions.in with role title in subject",
+      "Bring sample BRD / SRS / process-flow examples if available",
+      "Be ready to discuss Agile delivery and stakeholder management"
+    ],
+    howToApply:
+      "Email your resume to sumi.h@gnxsolutions.in or apply via the company’s official hiring channel. Mention Technical BA cum Project Manager.",
+    hiringNotes:
+      "Category: Experienced Professionals · Closing 28 July 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "Technical BA cum PM · Technopark · Apply by 28 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "zestybeanz-odoo-developer",
+    company: "Zesty Beanz Technologies (P) Ltd",
+    logo: "assets/logos/zestybeanz.svg",
+    companyBlurb: "Odoo Developer (1–2 years) · Technopark Trivandrum · Apply by 31 Aug 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Odoo Developer"],
+    experience: "experienced",
+    experienceRange: "1–2 Years",
+    employmentType: "Full-time",
+    applyLink: "https://zbeanztech.com/jobs",
+    applyDeadline: "2026-08-31",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "contact@zbeanztech.com",
+    phone: "+91 9895834246",
+    website: "https://zbeanztech.com/",
+    address: "Technopark / Thiruvananthapuram, Kerala",
+    industry: "Odoo ERP / Digital Transformation",
+    companySize: "100+ experts · Official Odoo Partner · India / UAE / Germany",
+    salaryRange: "Not publicly listed — confirm with Zesty Beanz HR",
+    companyDetails:
+      "Zesty Beanz Technologies is an Official Odoo Partner delivering ERP, e-commerce, DevOps, and mobile solutions. Careers: https://zbeanztech.com/jobs — contact@zbeanztech.com.",
+    workDetails:
+      "Odoo Developer with 1–2 years experience. Closing: 31 Aug 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark / Trivandrum",
+    experienceYears: "1–2 years",
+    requirements: [
+      "1–2 years Odoo / Python development experience",
+      "Understanding of Odoo modules, ORM, and customisation",
+      "BE / B.Tech / MCA or equivalent preferred",
+      "Willingness to work from Technopark / Trivandrum"
+    ],
+    skills: ["Odoo", "Python", "PostgreSQL", "XML / QWeb", "ERP customisation"],
+    responsibilities: [
+      "Develop and customise Odoo modules",
+      "Support ERP implementations and client change requests",
+      "Debug, test, and document Odoo customisations"
+    ],
+    benefits: ["Official Odoo Partner environment", "Global delivery exposure"],
+    interviewTips: [
+      "Highlight Odoo version experience and sample custom modules",
+      "Email contact@zbeanztech.com or apply via https://zbeanztech.com/jobs",
+      "Be ready for Python + Odoo technical screening"
+    ],
+    howToApply:
+      "Apply via https://zbeanztech.com/jobs or email contact@zbeanztech.com. Phone: +91 9895834246. Verify the live Odoo Developer posting before applying.",
+    hiringNotes:
+      "Category: Experienced Professionals · Closing 31 Aug 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "Odoo Developer · 1–2 Yrs · Technopark · Apply by 31 Aug 2026",
+    startingDate: ""
+  },
+  {
+    id: "prompttech-insurance-team-lead",
+    company: "PromptTech",
+    logo: "assets/logos/prompttech.svg",
+    companyBlurb: "Insurance – Team Lead · Technopark Trivandrum · Apply by 17 Aug 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Insurance - Team Lead"],
+    experience: "experienced",
+    experienceRange: "Team Lead / Experienced",
+    employmentType: "Full-time",
+    applyLink: "",
+    applyDeadline: "2026-08-17",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Business", "Insurance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "Insurance / BPO / IT-enabled services",
+    companySize: "Technopark operations",
+    salaryRange: "Not publicly listed — confirm with PromptTech HR",
+    companyDetails:
+      "PromptTech is hiring an Insurance Team Lead for Technopark, Trivandrum. Apply via the company’s official careers / HR channel listed on the Technopark job alert.",
+    workDetails:
+      "Insurance Team Lead role. Closing: 17 Aug 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Team lead / experienced (insurance domain)",
+    requirements: [
+      "Prior insurance process / BPO leadership experience preferred",
+      "Strong people management and quality ownership",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["Team leadership", "Insurance operations", "Quality monitoring", "Workforce management"],
+    responsibilities: [
+      "Lead insurance operations team and daily SLAs",
+      "Coach agents and monitor quality / productivity",
+      "Escalate process risks and drive continuous improvement"
+    ],
+    benefits: ["Team leadership track", "Technopark campus role"],
+    interviewTips: [
+      "Prepare metrics from previous team lead roles (AHT, quality, attrition)",
+      "Apply via the official PromptTech careers / HR channel shown on the company posting"
+    ],
+    howToApply:
+      "Apply directly on the company careers page / HR contact published with the Technopark job alert. Verify role details with PromptTech before applying.",
+    hiringNotes:
+      "Category: Experienced Professionals · Closing 17 Aug 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "Insurance Team Lead · Technopark · Apply by 17 Aug 2026",
+    startingDate: ""
+  },
+  {
+    id: "softnotions-operations-trainee",
+    company: "Softnotions Technologies (P) Ltd",
+    logo: "assets/logos/softnotions.svg",
+    companyBlurb: "Operations Trainee · Technopark Trivandrum · Apply by 24 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Operations Trainee"],
+    experience: "fresher",
+    experienceRange: "Trainee / Freshers",
+    employmentType: "Full-time",
+    applyLink: "https://softnotions-team.freshteam.com/jobs",
+    applyDeadline: "2026-07-24",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["Business", "Operations"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://softnotions.com/",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "IT Services / Software Product",
+    companySize: "Technopark software company · Trivandrum + Kochi presence",
+    salaryRange: "Trainee package — confirm with Softnotions HR",
+    companyDetails:
+      "Softnotions Technologies is an innovative software company in Technopark, Trivandrum. Careers portal: https://softnotions-team.freshteam.com/jobs — also https://softnotions.com/who-we-are/job-openings/",
+    workDetails:
+      "Operations Trainee role. Closing: 24 July 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time · Trainee",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / Trainee",
+    requirements: [
+      "Graduate / postgraduate willing to start in operations",
+      "Good communication and process discipline",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["Operations coordination", "MS Office", "Process documentation", "Communication"],
+    responsibilities: [
+      "Support day-to-day operations workflows",
+      "Coordinate internal process follow-ups",
+      "Maintain operational trackers and documentation"
+    ],
+    benefits: ["Technopark trainee start", "Softnotions learning culture"],
+    interviewTips: [
+      "Apply via Freshteam: https://softnotions-team.freshteam.com/jobs",
+      "Keep resume as PDF and tailor for operations / coordination"
+    ],
+    howToApply:
+      "Apply via https://softnotions-team.freshteam.com/jobs or Softnotions job openings page. Prefer official Softnotions careers portal over third-party forwards.",
+    hiringNotes:
+      "Category: Experienced Professionals section on poster (trainee track) · Closing 24 July 2026 · Posted 17 July 2026.",
+    description: "Operations Trainee · Technopark · Apply by 24 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "relaxplzz-react-training",
+    company: "Relaxplzz Technologies",
+    logo: "assets/logos/relaxplzz.svg",
+    companyBlurb: "React JS Training — Freshers Welcome · Technopark Trivandrum · Apply by 31 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["React JS Training - Freshers Welcome"],
+    experience: "fresher",
+    experienceRange: "Fresher / Training",
+    employmentType: "Internship",
+    applyLink: "",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development", "Internship"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Technopark / Trivandrum, Kerala",
+    industry: "IT Training / Software Development",
+    companySize: "Technopark / Trivandrum tech training & services",
+    salaryRange: "Training programme — confirm stipend / fee terms with company",
+    companyDetails:
+      "Relaxplzz Technologies is inviting freshers for React JS training at Technopark / Trivandrum. Confirm programme terms directly with the company before enrolling or applying.",
+    workDetails:
+      "React JS Training — Freshers Welcome. Closing: 31 July 2026. Posted: 17 July 2026.",
+    workStatus: "Training / Fresher programme",
+    workMode: "On-site · Technopark / Trivandrum",
+    experienceYears: "Fresher",
+    requirements: [
+      "Freshers welcome — BE / B.Tech / BCA / MCA / B.Sc (CS / IT) preferred",
+      "Basic programming interest; React beginners accepted as per company criteria",
+      "Willingness to attend on-site at Technopark / Trivandrum"
+    ],
+    skills: ["JavaScript basics", "HTML / CSS", "Willingness to learn React", "Git basics"],
+    responsibilities: [
+      "Complete React JS training modules",
+      "Build practice projects as assigned",
+      "Follow programme schedule and assessments"
+    ],
+    benefits: ["Fresher-friendly React pathway", "Technopark training environment"],
+    interviewTips: [
+      "Clarify whether the programme is paid training, stipend internship, or placement-linked",
+      "Ask for official offer / joining letter terms in writing",
+      "Never pay recruitment fees — InfoparkDaily never charges candidates"
+    ],
+    howToApply:
+      "Apply directly via the Relaxplzz company careers / contact channel published with the Technopark alert. Verify training vs employment terms before joining.",
+    hiringNotes:
+      "Category: Freshers & Trainee Roles · Closing 31 July 2026 · Posted 17 July 2026 · Disclaimer: confirm fee/stipend terms with company. InfoparkDaily never charges candidates.",
+    description: "React JS Training · Freshers · Technopark · Apply by 31 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "sementor-data-engineer",
+    company: "SE-Mentor Solutions (P) Ltd",
+    logo: "assets/logos/sementor.svg",
+    companyBlurb: "Data Engineer · Technopark Trivandrum · Apply by 24 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["Data Engineer"],
+    experience: "fresher",
+    experienceRange: "Fresher / Entry-level",
+    employmentType: "Full-time",
+    applyLink: "",
+    applyDeadline: "2026-07-24",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Data"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "IT Services / Data Engineering",
+    companySize: "Technopark IT services",
+    salaryRange: "Not publicly listed — confirm with SE-Mentor HR",
+    companyDetails:
+      "SE-Mentor Solutions (P) Ltd is hiring a Data Engineer at Technopark, Trivandrum as part of the July 2026 Technopark daily job alert.",
+    workDetails:
+      "Data Engineer role. Closing: 24 July 2026. Posted: 17 July 2026. Location: Technopark, Trivandrum.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / entry-level as per company",
+    requirements: [
+      "BE / B.Tech / MCA / B.Sc (CS / IT) preferred",
+      "Interest in data pipelines, SQL, and ETL concepts",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["SQL", "ETL basics", "Python preferred", "Data warehousing concepts"],
+    responsibilities: [
+      "Support data pipeline development and maintenance",
+      "Write and optimise SQL / data transformations",
+      "Collaborate with analytics and engineering teams"
+    ],
+    benefits: ["Technopark data engineering start", "Hands-on ETL / pipeline exposure"],
+    interviewTips: [
+      "Revise SQL joins, ETL concepts, and basic Python",
+      "Apply via SE-Mentor official careers / HR channel from the Technopark posting"
+    ],
+    howToApply:
+      "Apply directly on the SE-Mentor company careers page / HR email published with the Technopark job alert.",
+    hiringNotes:
+      "Category: Freshers & Trainee Roles · Closing 24 July 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "Data Engineer · Technopark TVM · Apply by 24 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "sementor-etl-tester",
+    company: "SE-Mentor Solutions (P) Ltd",
+    logo: "assets/logos/sementor.svg",
+    companyBlurb: "ETL Tester · Technopark Trivandrum · Apply by 31 July 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["ETL Tester"],
+    experience: "fresher",
+    experienceRange: "Fresher / Entry-level",
+    employmentType: "Full-time",
+    applyLink: "",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "QA", "Data"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Technopark Campus, Thiruvananthapuram, Kerala",
+    industry: "IT Services / Data QA",
+    companySize: "Technopark IT services",
+    salaryRange: "Not publicly listed — confirm with SE-Mentor HR",
+    companyDetails:
+      "SE-Mentor Solutions (P) Ltd is hiring an ETL Tester at Technopark, Trivandrum.",
+    workDetails:
+      "ETL Tester role. Closing: 31 July 2026. Posted: 17 July 2026. Location: Technopark, Trivandrum.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / entry-level as per company",
+    requirements: [
+      "BE / B.Tech / MCA / B.Sc (CS / IT) preferred",
+      "Interest in testing, SQL, and data validation",
+      "Willingness to work on-site at Technopark, Trivandrum"
+    ],
+    skills: ["ETL testing", "SQL", "Test case design", "Defect tracking"],
+    responsibilities: [
+      "Validate ETL mappings and data transformations",
+      "Write test cases and log defects",
+      "Compare source vs target data quality"
+    ],
+    benefits: ["Technopark QA / data testing start", "Hands-on ETL validation experience"],
+    interviewTips: [
+      "Revise SQL and basic ETL testing scenarios",
+      "Apply via SE-Mentor official careers / HR channel"
+    ],
+    howToApply:
+      "Apply directly on the SE-Mentor company careers page / HR email published with the Technopark job alert.",
+    hiringNotes:
+      "Category: Freshers & Trainee Roles · Closing 31 July 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "ETL Tester · Technopark TVM · Apply by 31 Jul 2026",
+    startingDate: ""
+  },
+  {
+    id: "gescis-php-developer",
+    company: "Gescis Technologies",
+    logo: "assets/logos/gescis.svg",
+    companyBlurb: "PHP Developer (0–1 Yr) · Technopark Trivandrum · Apply by 07 Aug 2026.",
+    location: "Technopark, Trivandrum",
+    roles: ["PHP Developer"],
+    experience: "fresher",
+    experienceRange: "0–1 Year",
+    employmentType: "Full-time",
+    applyLink: "",
+    applyDeadline: "2026-08-07",
+    postedDate: "2026-07-17",
+    source: "WhatsApp",
+    verified: true,
+    tags: ["IT", "Development"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Technopark / Trivandrum, Kerala",
+    industry: "IT Services / Web Development",
+    companySize: "Technopark / Trivandrum tech company",
+    salaryRange: "Not publicly listed — confirm with Gescis HR",
+    companyDetails:
+      "Gescis Technologies is hiring a PHP Developer (0–1 year experience) for Technopark / Trivandrum operations.",
+    workDetails:
+      "PHP Developer with 0–1 year experience. Closing: 07 Aug 2026. Posted: 17 July 2026.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark / Trivandrum",
+    experienceYears: "0–1 year",
+    requirements: [
+      "0–1 year PHP development experience (freshers with projects welcome)",
+      "BE / B.Tech / BCA / MCA / B.Sc (CS / IT) preferred",
+      "Basic MySQL and web fundamentals",
+      "Willingness to work on-site at Technopark / Trivandrum"
+    ],
+    skills: ["PHP", "MySQL", "HTML / CSS / JavaScript", "Laravel / CodeIgniter familiarity preferred"],
+    responsibilities: [
+      "Build and maintain PHP web applications",
+      "Write and optimise MySQL queries",
+      "Fix bugs and ship incremental features"
+    ],
+    benefits: ["Entry-level PHP role", "Technopark / Trivandrum location"],
+    interviewTips: [
+      "Prepare a GitHub / project demo of PHP work",
+      "Revise PHP basics, MySQL, and one framework if listed",
+      "Apply via Gescis official careers / HR channel from the Technopark posting"
+    ],
+    howToApply:
+      "Apply directly on the Gescis Technologies careers page / HR contact published with the Technopark job alert.",
+    hiringNotes:
+      "Category: Freshers & Trainee Roles · Closing 07 Aug 2026 · Posted 17 July 2026 · Technopark Daily Alert.",
+    description: "PHP Developer · 0–1 Yr · Technopark · Apply by 07 Aug 2026",
+    startingDate: ""
+  },
+  {
     id: "urolime-hr-recruiter",
     company: "Urolime Technologies",
     logo: "assets/logos/urolime.svg",
