@@ -4848,3 +4848,51 @@ html.theme-light .svcx-hero-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+
+.privacy-updated {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.privacy-toc {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.privacy-toc a {
+  display: inline-flex;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.privacy-toc a:hover {
+  border-color: rgba(255, 193, 7, 0.45);
+  color: var(--accent);
+}
+
+.privacy-panel a {
+  color: var(--accent);
+}
+
+.privacy-legal-note {
+  margin: 1.25rem auto 0;
+  max-width: 46rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+.privacy-legal-note a {
+  color: var(--accent);
+}
