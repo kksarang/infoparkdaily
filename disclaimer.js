@@ -1,6 +1,7 @@
 /**
- * InfoparkDaily — shared disclaimer + privacy footer helper
- * Injects into any element with [data-ipd-disclaimer]
+ * InfoparkDaily — shared disclaimer helper
+ * Use: data-ipd-disclaimer="full" | "limited"
+ * Shown on Jobs, Job detail (limited), and Contact only.
  */
 (function () {
   var FULL_DISCLAIMER_HTML = [
@@ -45,11 +46,36 @@
     "</aside>"
   ].join("\n");
 
+  var LIMITED_DISCLAIMER_HTML = [
+    '<aside class="ipd-disclaimer ipd-disclaimer--limited" id="disclaimer" role="note" aria-label="InfoparkDaily disclaimer">',
+    '  <header class="ipd-disclaimer-head">',
+    '    <p class="ipd-disclaimer-kicker">InfoparkDaily Disclaimer</p>',
+    "    <h2>Independent Instagram community — please verify before applying</h2>",
+    "  </header>",
+    '  <ul class="ipd-disclaimer-limited-list">',
+    "    <li>InfoparkDaily is an <strong>independent Instagram / social community</strong>, not an official Infopark, company, or government page.</li>",
+    "    <li>Job details are shared from public / official sources. We cannot guarantee accuracy — <strong>always verify on the company careers page</strong>.</li>",
+    "    <li>This is a <strong>free community</strong>. We never charge fees. Ignore anyone asking for money in our name.</li>",
+    "    <li>You are responsible for your own applications. Apply only through official company links.</li>",
+    "  </ul>",
+    '  <p class="ipd-disclaimer-footer-links">',
+    '    <a href="privacy.html">Full Privacy Policy &amp; Disclaimer</a>',
+    '    <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">@infoparkdaily.jobs</a>',
+    "  </p>",
+    "</aside>"
+  ].join("\n");
+
   window.IPD_DISCLAIMER_HTML = FULL_DISCLAIMER_HTML;
+  window.IPD_DISCLAIMER_LIMITED_HTML = LIMITED_DISCLAIMER_HTML;
+
+  function htmlFor(mode) {
+    return mode === "limited" ? LIMITED_DISCLAIMER_HTML : FULL_DISCLAIMER_HTML;
+  }
 
   function inject() {
     document.querySelectorAll("[data-ipd-disclaimer]").forEach(function (el) {
-      el.innerHTML = FULL_DISCLAIMER_HTML;
+      var mode = (el.getAttribute("data-ipd-disclaimer") || "full").toLowerCase();
+      el.innerHTML = htmlFor(mode);
     });
   }
 

@@ -161,9 +161,7 @@
 
       ${attachments}
       ${relatedBlock(article)}
-
-      <div class="ipd-disclaimer-mount" data-ipd-disclaimer></div>
-    `;
+`;
 
     const copyBtn = document.getElementById("news-copy-link");
     if (copyBtn) {

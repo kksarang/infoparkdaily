@@ -351,13 +351,6 @@
     `;
   }
 
-  function disclaimerBlock() {
-    if (window.IPD_DISCLAIMER_HTML) {
-      return `<div class="ipd-disclaimer-mount">${window.IPD_DISCLAIMER_HTML}</div>`;
-    }
-    return `<div class="ipd-disclaimer-mount" data-ipd-disclaimer></div>`;
-  }
-
   function alertSheetBlock(job) {
     if (!job.alertSheet) return "";
 
