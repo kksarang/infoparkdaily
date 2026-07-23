@@ -162,10 +162,7 @@
       ${attachments}
       ${relatedBlock(article)}
 
-      <p class="jobs-disclaimer">
-        InfoparkDaily News is a community-curated digest of publicly reported updates about Kerala's
-        tech parks. Please verify details with official announcements before acting on them.
-      </p>
+      <div class="ipd-disclaimer-mount" data-ipd-disclaimer></div>
     `;
 
     const copyBtn = document.getElementById("news-copy-link");

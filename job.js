@@ -352,18 +352,10 @@
   }
 
   function disclaimerBlock() {
-    return `
-      <aside class="job-sheet-disclaimer" role="note">
-        <strong>Disclaimer</strong>
-        <p>
-          InfoparkDaily is an independent IT Jobs &amp; Career Community. We share publicly available
-          job opportunities and company submissions. We are <em>not</em> a recruitment agency and
-          <em>never charge any fee</em>. Apply only through the official company careers portal.
-          Meeting eligibility does not guarantee selection. Please verify all details directly with
-          the hiring company before applying.
-        </p>
-      </aside>
-    `;
+    if (window.IPD_DISCLAIMER_HTML) {
+      return `<div class="ipd-disclaimer-mount">${window.IPD_DISCLAIMER_HTML}</div>`;
+    }
+    return `<div class="ipd-disclaimer-mount" data-ipd-disclaimer></div>`;
   }
 
   function alertSheetBlock(job) {
@@ -747,7 +739,6 @@
       ${isSheet ? shareBlock(job) : ""}
       ${isSheet ? channelsBlock() : ""}
       ${relatedJobsBlock(job)}
-      ${disclaimerBlock()}
     `;
 
     const copyBtn = document.getElementById("job-copy-link");
