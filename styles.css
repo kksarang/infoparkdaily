@@ -4602,10 +4602,30 @@ html.theme-light .svcx-hero-grid {
   }
 
   .site-header {
+    position: fixed;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1180px, 94vw);
+    margin-top: 0;
     border-radius: 22px;
     gap: 0.45rem;
     padding: 0.5rem 0.6rem;
     justify-content: flex-start;
+    z-index: 80;
+  }
+
+  /* Keep page content clear of the fixed mobile header */
+  body {
+    padding-top: 4.25rem;
+  }
+
+  body.nav-locked {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow: hidden;
   }
 
   .brand-name {
@@ -4714,10 +4734,6 @@ html.theme-light .svcx-hero-grid {
   .nav-backdrop.is-visible {
     opacity: 1;
     pointer-events: auto;
-  }
-
-  body.nav-locked {
-    overflow: hidden;
   }
 
   .hero {
@@ -4838,10 +4854,13 @@ html.theme-light .svcx-hero-grid {
 
   .site-header {
     top: 8px;
-    margin-top: 10px;
     width: min(1180px, 96vw);
     padding: 0.5rem 0.55rem;
     justify-content: flex-start;
+  }
+
+  body {
+    padding-top: 4rem;
   }
 
   .brand {

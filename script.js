@@ -197,12 +197,25 @@ function initMobileNav() {
     document.body.appendChild(backdrop);
   }
 
+  let lockedScrollY = 0;
+
   const setOpen = (open) => {
-    header.classList.toggle("nav-open", open);
-    document.body.classList.toggle("nav-locked", open);
-    backdrop.classList.toggle("is-visible", open);
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    const isOpen = Boolean(open);
+    header.classList.toggle("nav-open", isOpen);
+    backdrop.classList.toggle("is-visible", isOpen);
+    backdrop.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+
+    if (isOpen) {
+      lockedScrollY = window.scrollY || window.pageYOffset || 0;
+      document.body.classList.add("nav-locked");
+      document.body.style.top = `-${lockedScrollY}px`;
+    } else if (document.body.classList.contains("nav-locked")) {
+      document.body.classList.remove("nav-locked");
+      document.body.style.top = "";
+      window.scrollTo(0, lockedScrollY);
+    }
   };
 
   toggle.addEventListener("click", () => {
