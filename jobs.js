@@ -12,6 +12,7 @@
   const loadMoreBtn = document.getElementById("jobs-load-more");
   const stickyBar = document.getElementById("jobs-sticky-cta");
   const stickyDismiss = document.getElementById("jobs-sticky-dismiss");
+  const expiredBanner = document.getElementById("jobs-expired-banner");
   const statCompanies = document.getElementById("stat-companies");
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
@@ -130,11 +131,16 @@
   function jobRegion(job) {
     const loc = String(job.location || "").toLowerCase();
     if (loc.includes("pan india") || loc.includes("pan-india") || job.alertSheet) return "Pan India";
+    if (loc.includes("bangalore") || loc.includes("bengaluru")) return "Bangalore";
+    if (loc.includes("infopark") && loc.includes("thrissur")) return "Infopark, Thrissur";
     if (loc.includes("infopark")) return "Infopark, Kochi";
     if (loc.includes("technopark")) return "Technopark, Trivandrum";
+    if (loc.includes("cyberpark")) return "Cyberpark, Calicut";
     if (loc.includes("kochi")) return "Kochi";
     if (loc.includes("trivandrum")) return "Trivandrum";
-    if (loc.includes("calicut")) return "Calicut";
+    if (loc.includes("calicut") || loc.includes("kozhikode")) return "Calicut";
+    if (loc.includes("angamaly")) return "Angamaly";
+    if (loc.includes("thrissur")) return "Thrissur";
     if (loc.includes("malappuram") || loc.includes("kottakkal")) return "Malappuram";
     if (loc.includes("alappuzha")) return "Alappuzha";
     return "Other Kerala";
@@ -210,7 +216,7 @@
     );
 
     const expiredWeight = (job) =>
-      activeStatus === "expired" || activeStatus === "all"
+      activeStatus === "expired"
         ? 0
         : deadlineStatus(job) === "expired"
           ? 1
@@ -310,7 +316,9 @@
     const roleCount = (job.roles || []).length;
 
     const badges = [
-      expired ? `<span class="job-badge job-badge--expired">Expired</span>` : "",
+      expired
+        ? `<span class="job-badge job-badge--expired" title="Apply deadline has passed">EXPIRED</span>`
+        : "",
       !expired && status === "closing"
         ? `<span class="job-badge job-badge--closing">Closing soon</span>`
         : "",
@@ -373,7 +381,7 @@
             ${source}
           </div>
           <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
-            ${expired ? "View (Expired)" : "View Details"}
+            ${expired ? "View expired listing" : "View Details"}
           </a>
         </footer>
       </article>
@@ -391,19 +399,64 @@
     );
   }
 
+  function updateStatusFilterLabels() {
+    if (!statusBar) return;
+    const openCount = JOBS.filter((job) => deadlineStatus(job) !== "expired").length;
+    const closingCount = JOBS.filter((job) => deadlineStatus(job) === "closing").length;
+    const expiredCount = JOBS.filter((job) => deadlineStatus(job) === "expired").length;
+    const labels = {
+      open: `Open jobs (${openCount})`,
+      closing: `Closing soon (${closingCount})`,
+      expired: `Expired only (${expiredCount})`,
+      all: `Open + Expired (${JOBS.length})`
+    };
+    statusBar.querySelectorAll("[data-status]").forEach((btn) => {
+      const key = btn.dataset.status;
+      if (labels[key]) btn.textContent = labels[key];
+    });
+  }
+
   function render() {
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
 
+    if (expiredBanner) {
+      expiredBanner.hidden = activeStatus !== "expired" && activeStatus !== "all";
+      if (activeStatus === "all") {
+        expiredBanner.innerHTML = `
+          <strong>Mixed view: Open + Expired</strong>
+          <p>
+            Cards marked <span class="job-badge job-badge--expired">EXPIRED</span> have passed their deadline.
+            Prefer the <strong>Open jobs</strong> filter for current hiring. Always verify with the company.
+          </p>`;
+      } else if (activeStatus === "expired") {
+        expiredBanner.innerHTML = `
+          <strong>You are viewing expired listings only</strong>
+          <p>
+            These openings have passed their apply / walk-in date. Do <em>not</em> travel or apply unless the
+            company confirms the role is still open. Switch back to <strong>Open jobs</strong> for current hiring.
+          </p>`;
+      }
+    }
+
     if (countEl) {
+      const expiredInView = jobs.filter((job) => deadlineStatus(job) === "expired").length;
       const closingCount = jobs.filter((job) => deadlineStatus(job) === "closing").length;
       const parts = [
         jobs.length === 1 ? "1 company" : `${jobs.length} companies`,
         `${jobs.reduce((sum, job) => sum + (job.roles || []).length, 0)} roles`
       ];
+      if (activeStatus === "expired") {
+        parts.unshift("Expired archive");
+      } else if (activeStatus === "open") {
+        parts.unshift("Open hiring");
+      }
       if (closingCount > 0 && activeStatus !== "expired") {
         parts.push(`${closingCount} closing soon`);
+      }
+      if (expiredInView > 0 && activeStatus === "all") {
+        parts.push(`${expiredInView} expired`);
       }
       countEl.textContent = parts.join(" · ");
     }
@@ -414,6 +467,11 @@
 
     if (emptyState) {
       emptyState.hidden = jobs.length > 0;
+      if (jobs.length === 0 && activeStatus === "expired") {
+        emptyState.innerHTML = `No expired listings in this filter — great news. Switch to <strong>Open jobs</strong> to browse current openings, or follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>.`;
+      } else if (jobs.length === 0) {
+        emptyState.innerHTML = `No listings match — check back soon or follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a> for live updates.`;
+      }
     }
 
     if (loadMoreBtn) {
@@ -585,5 +643,6 @@
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
+  updateStatusFilterLabels();
   render();
 })();

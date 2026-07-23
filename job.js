@@ -683,8 +683,13 @@
       ${
         expired
           ? `<div class="job-expired-banner" role="status">
-              <strong>This listing has expired.</strong>
-              The apply deadline was ${escapeHtml(formatDate(job.applyDeadline))}. Details are kept for reference — check current openings instead.
+              <span class="job-badge job-badge--expired">EXPIRED</span>
+              <strong>Do not apply or travel for this role unless the company confirms it is still open.</strong>
+              <p>
+                Deadline was ${escapeHtml(formatDate(job.applyDeadline))}.
+                This page is kept for reference only.
+                <a href="jobs.html">Browse open jobs →</a>
+              </p>
             </div>`
           : ""
       }
@@ -706,6 +711,7 @@
               <p class="job-hero-role">${escapeHtml((job.roles || [])[0] || "")}${job.referenceId ? ` · Ref ${escapeHtml(job.referenceId)}` : ""}</p>
               <p class="job-location">${escapeHtml(job.location || "")}</p>
               <div class="job-card-tags">
+                ${expired ? `<span class="job-badge job-badge--expired">EXPIRED</span>` : ""}
                 ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
                 <span class="job-badge job-badge--${escapeAttr(exp)}">${escapeHtml(badgeLabel)}</span>
                 ${job.employmentType ? `<span class="job-badge job-badge--intern">${escapeHtml(job.employmentType)}</span>` : ""}
@@ -718,11 +724,11 @@
           </div>
           <div class="job-detail-hero-actions">
             ${
-              applyUrl
+              !expired && applyUrl
                 ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
                 : ""
             }
-            <a class="btn btn-secondary" href="jobs.html">All Openings</a>
+            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="jobs.html">${expired ? "See open jobs" : "All Openings"}</a>
           </div>
         </div>
         ${heroStatStrip(job)}

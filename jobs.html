@@ -37,7 +37,7 @@
     />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="styles.css?v=20260724c" />
+    <link rel="stylesheet" href="styles.css?v=20260724h" />
     <script>
       (function () {
         try {
@@ -61,6 +61,7 @@
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="services.html">Services</a>
+        <a href="build.html">Build</a>
         <a href="jobs.html" aria-current="page">Jobs</a>
         <a href="news.html">News</a>
         <a href="media.html">Social</a>
@@ -118,11 +119,11 @@
         <aside class="jobs-hero-panel glass" aria-label="How to use">
           <p class="jobs-panel-label">How it works</p>
           <ol class="jobs-panel-steps">
-            <li>Browse openings by company</li>
-            <li>Filter Freshers, Walk-ins, or Internships</li>
+            <li>Default view shows <strong>Open</strong> jobs only</li>
+            <li>Use <strong>Expired</strong> filter only for reference</li>
             <li>Tap <strong>View Details</strong> for apply info</li>
           </ol>
-          <p class="jobs-panel-note">Free community board · Never a recruitment fee</p>
+          <p class="jobs-panel-note">Expired listings stay visible for reference — always verify with the company before applying. Free community · Never a recruitment fee.</p>
         </aside>
       </section>
 
@@ -180,17 +181,17 @@
           </div>
 
           <div class="jobs-filter-group">
-            <p class="jobs-filter-caption">Deadline status</p>
+            <p class="jobs-filter-caption">Deadline status <span class="jobs-filter-hint">(default = Open only)</span></p>
             <div
               id="jobs-status"
               class="jobs-filters"
               role="group"
               aria-label="Filter by deadline status"
             >
-              <button type="button" class="jobs-filter-btn is-active" data-status="open" aria-pressed="true">Open</button>
+              <button type="button" class="jobs-filter-btn is-active" data-status="open" aria-pressed="true">Open jobs</button>
               <button type="button" class="jobs-filter-btn jobs-filter-btn--urgent" data-status="closing" aria-pressed="false">Closing soon</button>
-              <button type="button" class="jobs-filter-btn" data-status="expired" aria-pressed="false">Expired</button>
-              <button type="button" class="jobs-filter-btn" data-status="all" aria-pressed="false">Everything</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--expired" data-status="expired" aria-pressed="false">Expired only</button>
+              <button type="button" class="jobs-filter-btn" data-status="all" aria-pressed="false">Open + Expired</button>
             </div>
           </div>
 
@@ -207,6 +208,13 @@
       </section>
 
       <section class="content-section jobs-listings-section" aria-label="Job listings">
+        <div id="jobs-expired-banner" class="jobs-expired-mode-banner" hidden role="status">
+          <strong>You are viewing expired listings</strong>
+          <p>
+            These openings have passed their apply / walk-in date. Do <em>not</em> travel or apply unless the
+            company confirms the role is still open. Switch back to <strong>Open jobs</strong> for current hiring.
+          </p>
+        </div>
         <div id="jobs-grid" class="jobs-grid"></div>
         <p id="jobs-empty" class="jobs-empty glass" hidden>
           No listings match — check back soon or follow our
@@ -347,9 +355,9 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20260724c" defer></script>
-    <script src="disclaimer.js?v=20260724c" defer></script>
-    <script src="jobs-data.js?v=20260724c" defer></script>
-    <script src="jobs.js?v=20260724c" defer></script>
+    <script src="script.js?v=20260724f" defer></script>
+    <script src="disclaimer.js?v=20260724f" defer></script>
+    <script src="jobs-data.js?v=20260724f" defer></script>
+    <script src="jobs.js?v=20260724f" defer></script>
   </body>
 </html>

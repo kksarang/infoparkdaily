@@ -34,12 +34,42 @@
       messageLabel: "Project needs",
       placeholder: "Website, app, portal, or ops tool — what do you need built or fixed?"
     },
+    "Startup / Build Together": {
+      showCompany: true,
+      messageLabel: "Your idea & what you need",
+      placeholder: "Describe your startup idea, stage, and whether you need partners, ERP/SaaS/web build, marketing, or all of the above…"
+    },
     "General Inquiry": {
       showCompany: false,
       messageLabel: "Message",
       placeholder: "How can we help?"
     }
   };
+
+  const reasonQueryMap = {
+    build: "Startup / Build Together",
+    startup: "Startup / Build Together",
+    job: "Post a Job",
+    campaign: "Partner for a Campaign",
+    hexenity: "Get IT/Software Support (Hexenity)",
+    it: "Get IT/Software Support (Hexenity)"
+  };
+
+  function applyReasonFromQuery() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const key = String(params.get("reason") || "").toLowerCase().trim();
+      if (!key) return;
+      const value = reasonQueryMap[key] || Object.keys(reasonHints).find((r) => r.toLowerCase() === key);
+      if (!value) return;
+      const input = Array.from(form.querySelectorAll('input[name="reason"]')).find((el) => el.value === value);
+      if (input) {
+        input.checked = true;
+      }
+    } catch (_e) {
+      /* ignore */
+    }
+  }
 
   function selectedReason() {
     const checked = form.querySelector('input[name="reason"]:checked');
@@ -56,6 +86,7 @@
   }
 
   reasonInputs.forEach((input) => input.addEventListener("change", syncReasonUI));
+  applyReasonFromQuery();
   syncReasonUI();
 
   function setStatus(message, isError) {

@@ -1111,7 +1111,7 @@ body.hx {
 @media (max-width: 720px) {
   .hx-hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hx-services-grid { grid-template-columns: 1fr; }
-  .hx-why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hx-why-grid { grid-template-columns: 1fr; }
   .hx-process,
   .hx-process--six { grid-template-columns: 1fr; }
   .hx-stack-grid { grid-template-columns: 1fr; }
@@ -1120,4 +1120,47 @@ body.hx {
   .hx-contact-card { grid-template-columns: 1fr; }
   .hx-footer { flex-direction: column; text-align: center; }
   .hx-regions { grid-template-columns: 1fr; }
+  .hx-outcomes { grid-template-columns: 1fr; }
+  .hx-partner-grid { grid-template-columns: 1fr; }
+
+  .hx-hero-ctas,
+  .hx-cta-actions,
+  .hx-lead-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hx-hero-ctas a,
+  .hx-hero-ctas .btn,
+  .hx-cta-actions a,
+  .hx-cta-actions .btn,
+  .hx-lead-actions a,
+  .hx-lead-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hx-hero h1,
+  .hx-section h2 {
+    overflow-wrap: anywhere;
+  }
+
+  img,
+  svg,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hx-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hx-why-grid {
+    grid-template-columns: 1fr;
+  }
 }
