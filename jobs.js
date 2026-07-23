@@ -129,6 +129,7 @@
 
   function jobRegion(job) {
     const loc = String(job.location || "").toLowerCase();
+    if (loc.includes("pan india") || loc.includes("pan-india") || job.alertSheet) return "Pan India";
     if (loc.includes("infopark")) return "Infopark, Kochi";
     if (loc.includes("technopark")) return "Technopark, Trivandrum";
     if (loc.includes("kochi")) return "Kochi";
@@ -314,6 +315,10 @@
         ? `<span class="job-badge job-badge--closing">Closing soon</span>`
         : "",
       !expired && isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
+      job.alertSheet ? `<span class="job-badge job-badge--alert">Intern Alert</span>` : "",
+      job.employmentType === "Internship"
+        ? `<span class="job-badge job-badge--intern">Internship</span>`
+        : "",
       `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
       job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
       job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""

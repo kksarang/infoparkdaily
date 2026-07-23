@@ -78,6 +78,165 @@
 
 var JOBS = [
   {
+    id: "wipro-intern-l1",
+    company: "Wipro Limited",
+    logo: "assets/logos/wipro.svg",
+    companyBlurb: "Intern L1 · Pan-India internship · Kochi + major metros · Official Wipro Careers · Ref 181899.",
+    location: "Pan India · Kochi, Bengaluru, Chennai, Hyderabad, Pune, Mumbai, Delhi / New Delhi",
+    workLocations: [
+      "Kochi",
+      "Bengaluru",
+      "Chennai",
+      "Hyderabad",
+      "Pune",
+      "Mumbai",
+      "Delhi",
+      "New Delhi"
+    ],
+    roles: ["Intern L1"],
+    experience: "fresher",
+    experienceRange: "Freshers / Students · 2026 & 2027 batches",
+    employmentType: "Internship",
+    applyLink: "https://careers.wipro.com/job/INTERN-L1/181899-en_US/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-07-23",
+    source: "Wipro Careers",
+    verified: true,
+    tags: ["IT", "Internship", "Fresher"],
+    isWalkIn: false,
+    walkInDate: "",
+    alertSheet: true,
+    alertLabel: "INTERNSHIP JOB ALERT · PAN INDIA",
+    referenceId: "181899",
+    email: "",
+    phone: "",
+    website: "https://careers.wipro.com/",
+    address: "Wipro offices across India — final location based on business requirements",
+    industry: "IT Services / Consulting / Early Careers",
+    companySize: "Global IT major · Early Careers & Intern programmes across India",
+    salaryRange: "Internship stipend — as per Wipro Early Careers offer letter",
+    companyDetails:
+      "Wipro Limited is hiring Intern L1 through the official Wipro Careers portal (Reference ID: 181899). This is an Early Careers internship / co-op track where interns work with experienced Wipro professionals on technology and business transformation projects. Final work location depends on business requirements and team allocation.",
+    workDetails:
+      "Intern L1 — pan-India internship alert. Preferred: B.E. / B.Tech / MBA (also M.E. / M.Tech / MCA / BCA for some tracks). Freshers and students from 2026 & 2027 graduating batches may apply. No prior work experience required. Apply only via official Wipro Careers — no application fee.",
+    workStatus: "Internship / Co-op",
+    workMode: "On-site · Assigned Wipro office (business requirement)",
+    experienceYears: "Freshers / Students · No prior work experience required",
+    whoCanApply: [
+      "B.E. / B.Tech students",
+      "MBA students",
+      "2026 and 2027 graduating batches (as per current hiring information)",
+      "Freshers and students currently pursuing or recently completed eligible degrees",
+      "M.E. / M.Tech / MCA / BCA candidates for some internship tracks"
+    ],
+    requirements: [
+      "Preferred degrees: B.E., B.Tech, MBA (also M.E., M.Tech, MCA, BCA for some tracks)",
+      "2026 & 2027 graduating batches indicated in current hiring information",
+      "Freshers / students — no prior work experience required",
+      "Relevant academic background; meet any extra criteria shown during application",
+      "Willingness to join any eligible Wipro location based on business needs",
+      "Internships, academic projects, hackathons, and certifications are an added advantage"
+    ],
+    skills: [
+      "Programming fundamentals",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "SQL basics",
+      "Git basics",
+      "Software Development Life Cycle",
+      "Testing fundamentals",
+      "Good communication",
+      "Problem solving",
+      "Analytical thinking",
+      "Team collaboration",
+      "Adaptability & learning mindset"
+    ],
+    technicalSkills: [
+      "Programming fundamentals",
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "SQL basics",
+      "Git basics",
+      "SDLC",
+      "Testing fundamentals"
+    ],
+    softSkills: [
+      "Good communication",
+      "Problem solving",
+      "Analytical thinking",
+      "Team collaboration",
+      "Adaptability",
+      "Learning mindset"
+    ],
+    responsibilities: [
+      "Work with experienced Wipro professionals on live client or internal projects",
+      "Support technology and business transformation initiatives",
+      "Develop software modules, debug applications, and perform testing",
+      "Write documentation, create reports, and build proof-of-concepts (POCs)",
+      "Participate in Agile ceremonies and collaborate with global / cross-functional teams",
+      "Research emerging technologies and assist automation initiatives",
+      "Present findings to managers and stakeholders",
+      "Receive mentoring from experienced engineers and business leaders"
+    ],
+    selectionProcess: [
+      "1. Online application on Wipro Careers",
+      "2. Resume shortlisting",
+      "3. Online assessment (if applicable)",
+      "4. Technical / functional interview",
+      "5. HR interview",
+      "6. Offer letter",
+      "7. Background verification",
+      "8. Onboarding"
+    ],
+    documentsRequired: [
+      "Updated resume (PDF preferred)",
+      "Passport-size photograph (if requested)",
+      "Government ID",
+      "Academic mark sheets",
+      "Degree / provisional certificate (if graduated)",
+      "Internship / project certificates (if any)",
+      "Project portfolio",
+      "GitHub / LinkedIn profile (optional but recommended)"
+    ],
+    resumeTips: [
+      "Highlight final-year projects",
+      "Mention Flutter / React / Java / Python / C++ if relevant",
+      "Add web development, AI/ML projects, cloud certifications",
+      "List hackathons, open-source contributions, GitHub repos",
+      "Include prior internships clearly"
+    ],
+    benefits: [
+      "Live project experience with a global IT major",
+      "Mentoring from experienced engineers and leaders",
+      "Exposure to emerging technologies and industry trends",
+      "Possible Pre-Placement Offer (PPO) pathway",
+      "Pathway to full-time Graduate Engineer / Early Career programmes (performance & business dependent)",
+      "Internal upskilling and certifications opportunities"
+    ],
+    interviewTips: [
+      "Apply only on https://careers.wipro.com/job/INTERN-L1/181899-en_US/",
+      "Read eligibility and JD carefully before submitting",
+      "Upload your latest PDF resume with projects + GitHub/LinkedIn",
+      "There is NO application fee — ignore anyone asking for money",
+      "Meeting eligibility does not guarantee interview or selection"
+    ],
+    importantNotes: [
+      "This is an official Wipro Careers opening (Ref ID: 181899).",
+      "There is no application fee.",
+      "Apply only through the official Wipro Careers portal.",
+      "Meeting eligibility criteria does not guarantee an interview or selection.",
+      "Final shortlisting follows Wipro's recruitment process.",
+      "Wipro may modify the hiring process at any stage.",
+      "Candidates may be assigned to any eligible Wipro location based on business needs."
+    ],
+    howToApply:
+      "1) Visit official Wipro Careers. 2) Open Intern L1 posting (Ref 181899). 3) Read eligibility + JD. 4) Fill personal & academic details. 5) Upload latest resume. 6) Submit. Official link: https://careers.wipro.com/job/INTERN-L1/181899-en_US/",
+    hiringNotes:
+      "INTERNSHIP JOB ALERT · Pan-India · Intern L1 · Ref 181899 · Prefer B.E./B.Tech/MBA · 2026 & 2027 batches · Locations: Kochi, Bengaluru, Chennai, Hyderabad, Pune, Mumbai, Delhi/New Delhi · Apply free on official Wipro Careers only.",
+    description: "Wipro Intern L1 · Pan India · Freshers/Students · Official Careers Ref 181899",
+    startingDate: ""
+  },
+  {
     id: "toonz-hr-intern",
     company: "Toonz Animation India (P) Ltd",
     logo: "assets/logos/toonz.svg",

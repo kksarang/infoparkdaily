@@ -295,6 +295,184 @@
     `;
   }
 
+  function chipsRow(items, className) {
+    if (!items || !items.length) return "";
+    return `<div class="${className}">${items
+      .map((item) => `<span class="job-sheet-chip">${escapeHtml(item)}</span>`)
+      .join("")}</div>`;
+  }
+
+  function numberedList(items) {
+    if (!items || !items.length) return "";
+    return `<ol class="job-sheet-steps">${items
+      .map((item) => `<li>${escapeHtml(String(item).replace(/^\d+\.\s*/, ""))}</li>`)
+      .join("")}</ol>`;
+  }
+
+  function sheetSection(num, title, bodyHtml) {
+    if (!bodyHtml) return "";
+    return `
+      <section class="job-sheet-block">
+        <header class="job-sheet-block-head">
+          <span class="job-sheet-num" aria-hidden="true">${escapeHtml(num)}</span>
+          <h2>${escapeHtml(title)}</h2>
+        </header>
+        <div class="job-sheet-block-body">${bodyHtml}</div>
+      </section>
+    `;
+  }
+
+  function channelsBlock() {
+    const channels = [
+      ["Instagram", "https://www.instagram.com/infoparkdaily/", "@infoparkdaily"],
+      ["Jobs Instagram", "https://www.instagram.com/infoparkdaily.jobs/", "@infoparkdaily.jobs"],
+      ["Media Instagram", "https://www.instagram.com/infoparkdaily.media/", "@infoparkdaily.media"],
+      ["Instagram Broadcast", "https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/", "Broadcast channel"],
+      ["WhatsApp Channel", "https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22", "Daily job alerts"],
+      ["WhatsApp Group", "https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB", "Community group"]
+    ];
+    return `
+      <section class="job-sheet-channels glass">
+        <p class="eyebrow">Follow InfoparkDaily</p>
+        <h2>Get the next internship &amp; job alert first</h2>
+        <p class="job-detail-text">Fresh openings from Infopark, Technopark, and pan-India IT hiring — shared daily on our channels.</p>
+        <div class="job-sheet-channel-grid">
+          ${channels
+            .map(
+              ([label, href, note]) => `
+            <a class="job-sheet-channel" href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">
+              <strong>${escapeHtml(label)}</strong>
+              <span>${escapeHtml(note)}</span>
+            </a>`
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function disclaimerBlock() {
+    return `
+      <aside class="job-sheet-disclaimer" role="note">
+        <strong>Disclaimer</strong>
+        <p>
+          InfoparkDaily is an independent IT Jobs &amp; Career Community. We share publicly available
+          job opportunities and company submissions. We are <em>not</em> a recruitment agency and
+          <em>never charge any fee</em>. Apply only through the official company careers portal.
+          Meeting eligibility does not guarantee selection. Please verify all details directly with
+          the hiring company before applying.
+        </p>
+      </aside>
+    `;
+  }
+
+  function alertSheetBlock(job) {
+    if (!job.alertSheet) return "";
+
+    const locations = job.workLocations || [];
+    const who = job.whoCanApply || job.requirements || [];
+    const tech = job.technicalSkills || [];
+    const soft = job.softSkills || [];
+    const selection = job.selectionProcess || [];
+    const docs = job.documentsRequired || [];
+    const notes = job.importantNotes || [];
+    const tips = job.resumeTips || [];
+    const applyUrl =
+      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : job.website || "";
+
+    const factRows = [
+      ["Job title", (job.roles || [])[0] || "Intern"],
+      ["Company", job.company],
+      ["Reference ID", job.referenceId || ""],
+      ["Job type", job.employmentType || job.workStatus || "Internship"],
+      ["Experience", job.experienceRange || "Freshers / Students"],
+      ["Work mode", job.workMode || ""],
+      ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""]
+    ].filter(([, v]) => v);
+
+    return `
+      <section class="job-alert-banner" aria-label="Internship job alert">
+        <p class="job-alert-banner-label">${escapeHtml(job.alertLabel || "INTERNSHIP JOB ALERT")}</p>
+        <h2>${escapeHtml((job.roles || [])[0] || "Intern")} — hiring sheet</h2>
+        <p>Scan the sheet below in under a minute. Apply only on the official careers link.</p>
+        ${
+          applyUrl
+            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Apply on Wipro Careers ↗</a>`
+            : ""
+        }
+      </section>
+
+      <section class="job-sheet glass">
+        <div class="job-sheet-facts">
+          ${factRows
+            .map(
+              ([label, value]) => `
+            <div class="job-sheet-fact">
+              <span class="job-sheet-fact-label">${escapeHtml(label)}</span>
+              <strong class="job-sheet-fact-value">${escapeHtml(value)}</strong>
+            </div>`
+            )
+            .join("")}
+        </div>
+
+        ${sheetSection(
+          "01",
+          "Work locations (Pan India)",
+          `${chipsRow(locations, "job-sheet-chips")}<p class="job-sheet-note">Exact location depends on business requirements and team allocation.</p>`
+        )}
+
+        ${sheetSection("02", "Who can apply?", listBlock(who))}
+
+        ${sheetSection(
+          "03",
+          "Internship overview",
+          job.companyDetails || job.workDetails
+            ? `<p class="job-detail-text">${escapeHtml(job.companyDetails || job.workDetails)}</p>${listBlock(job.responsibilities)}`
+            : listBlock(job.responsibilities)
+        )}
+
+        ${sheetSection(
+          "04",
+          "Skills preferred",
+          `
+            ${tech.length ? `<p class="job-sheet-subhead">Technical</p>${chipsRow(tech, "job-sheet-chips job-sheet-chips--tech")}` : ""}
+            ${soft.length ? `<p class="job-sheet-subhead">Soft skills</p>${chipsRow(soft, "job-sheet-chips job-sheet-chips--soft")}` : ""}
+            ${!tech.length && !soft.length ? listBlock(job.skills) : ""}
+          `
+        )}
+
+        ${sheetSection("05", "Selection process", numberedList(selection))}
+
+        ${sheetSection(
+          "06",
+          "How to apply",
+          `
+            ${job.howToApply ? `<p class="job-detail-text">${escapeHtml(job.howToApply)}</p>` : ""}
+            ${
+              applyUrl
+                ? `<a class="job-sheet-link" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer"><strong>Official application link</strong><span>${escapeHtml(applyUrl)}</span></a>`
+                : ""
+            }
+          `
+        )}
+
+        ${sheetSection("07", "Documents to keep ready", listBlock(docs))}
+
+        ${sheetSection("08", "Resume tips", listBlock(tips))}
+
+        ${sheetSection("09", "Career growth", listBlock(job.benefits))}
+
+        ${sheetSection(
+          "10",
+          "Important notes",
+          `<ul class="job-detail-bullets job-sheet-notes">${(notes || [])
+            .map((n) => `<li>${escapeHtml(n)}</li>`)
+            .join("")}</ul>`
+        )}
+      </section>
+    `;
+  }
+
   function relatedJobsBlock(job) {
     const tags = new Set((job.tags || []).map((t) => String(t).toLowerCase()));
     const related = JOBS.filter((other) => {
@@ -352,7 +530,7 @@
       .map((role, i) => `<li><span class="job-role-num">${String(i + 1).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`)
       .join("");
 
-    document.title = `${job.company} Hiring | InfoparkDaily`;
+    document.title = `${job.company} — ${(job.roles || [])[0] || "Hiring"} | InfoparkDaily`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
@@ -361,11 +539,16 @@
       );
     }
 
+    const applyUrl =
+      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
+    const isSheet = Boolean(job.alertSheet);
+
     const contactBlock = [
       infoItem("HR Email", emailHtml(job.email)),
       infoItem("Phone", phoneHtml(job.phone)),
-      infoItem("Official careers", linkHtml(job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "", "Open careers page")),
+      infoItem("Official careers", linkHtml(applyUrl, "Open careers page")),
       infoItem("Website", linkHtml(job.website)),
+      infoItem("Reference ID", escapeHtml(job.referenceId || "")),
       infoItem("Address", escapeHtml(job.address || job.location))
     ].join("");
 
@@ -395,6 +578,45 @@
     const skillsBlock = listBlock(job.skills || job.requiredSkills);
     const tipsBlock = listBlock(job.interviewTips);
 
+    const standardLayout = `
+      <div class="job-detail-layout">
+        <div class="job-detail-main">
+          ${section("How to apply", applyMethodsBlock(job), "job-apply-panel")}
+          ${walkInBlock(job)}
+          ${section("About the company", job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : "")}
+          ${section(
+            "Hiring overview",
+            job.workDetails || job.description
+              ? `<p class="job-detail-text">${escapeHtml(job.workDetails || job.description)}</p>`
+              : ""
+          )}
+          ${section("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : "")}
+          ${section("Requirements / eligibility", listBlock(job.requirements))}
+          ${section("Required skills", skillsBlock)}
+          ${section("Responsibilities", listBlock(job.responsibilities))}
+          ${section("Benefits & perks", listBlock(job.benefits))}
+          ${section("Interview tips", tipsBlock)}
+          ${section("Hiring notes", job.hiringNotes ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : "")}
+        </div>
+        <aside class="job-detail-side">
+          ${section(
+            "Contact & location",
+            contactBlock ? `<dl class="job-info-list">${contactBlock}</dl>${mapBlock(job)}` : ""
+          )}
+          ${section("Company snapshot", snapshotBlock ? `<dl class="job-info-list job-info-list--grid">${snapshotBlock}</dl>` : "")}
+          ${shareBlock(job)}
+          <section class="job-panel glass job-side-cta">
+            <h2>Stay updated</h2>
+            <p class="job-detail-text">New openings are shared daily on our channels.</p>
+            <div class="job-side-actions">
+              <a class="btn btn-primary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Instagram Jobs</a>
+              <a class="btn btn-secondary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    `;
+
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
         <a href="jobs.html">← Job Openings</a>
@@ -409,7 +631,7 @@
           : ""
       }
 
-      <section class="job-detail-hero glass${expired ? " job-detail-hero--expired" : ""}">
+      <section class="job-detail-hero glass${expired ? " job-detail-hero--expired" : ""}${isSheet ? " job-detail-hero--alert" : ""}">
         <div class="job-detail-hero-top">
           <div class="job-detail-hero-main">
             <div class="job-logo-wrap job-logo-wrap--lg" data-initials="${escapeAttr(mark)}">
@@ -421,82 +643,38 @@
               }
             </div>
             <div class="job-detail-hero-copy">
-              <p class="jobs-kicker">Company hiring page</p>
+              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Company hiring page"}</p>
               <h1>${escapeHtml(job.company)}</h1>
+              <p class="job-hero-role">${escapeHtml((job.roles || [])[0] || "")}${job.referenceId ? ` · Ref ${escapeHtml(job.referenceId)}` : ""}</p>
               <p class="job-location">${escapeHtml(job.location || "")}</p>
               <div class="job-card-tags">
                 ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
                 <span class="job-badge job-badge--${escapeAttr(exp)}">${escapeHtml(badgeLabel)}</span>
+                ${job.employmentType ? `<span class="job-badge job-badge--intern">${escapeHtml(job.employmentType)}</span>` : ""}
                 ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
                 ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
+                ${isSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
                 ${job.industry ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
               </div>
             </div>
           </div>
           <div class="job-detail-hero-actions">
+            ${
+              applyUrl
+                ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
+                : ""
+            }
             <a class="btn btn-secondary" href="jobs.html">All Openings</a>
           </div>
         </div>
         ${heroStatStrip(job)}
       </section>
 
-      <div class="job-detail-layout">
-        <div class="job-detail-main">
-          ${section(
-            "How to apply",
-            applyMethodsBlock(job),
-            "job-apply-panel"
-          )}
-          ${walkInBlock(job)}
-          ${section("About the company", job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : "")}
-          ${section(
-            "Hiring overview",
-            job.workDetails || job.description
-              ? `<p class="job-detail-text">${escapeHtml(job.workDetails || job.description)}</p>`
-              : ""
-          )}
-          ${section(
-            "Open roles",
-            roles ? `<ul class="job-role-grid">${roles}</ul>` : ""
-          )}
-          ${section("Requirements / eligibility", listBlock(job.requirements))}
-          ${section("Required skills", skillsBlock)}
-          ${section("Responsibilities", listBlock(job.responsibilities))}
-          ${section("Benefits & perks", listBlock(job.benefits))}
-          ${section("Interview tips", tipsBlock)}
-          ${section(
-            "Hiring notes",
-            job.hiringNotes ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : ""
-          )}
-        </div>
-
-        <aside class="job-detail-side">
-          ${section(
-            "Contact & location",
-            contactBlock
-              ? `<dl class="job-info-list">${contactBlock}</dl>${mapBlock(job)}`
-              : ""
-          )}
-          ${section("Company snapshot", snapshotBlock ? `<dl class="job-info-list job-info-list--grid">${snapshotBlock}</dl>` : "")}
-          ${shareBlock(job)}
-          <section class="job-panel glass job-side-cta">
-            <h2>Stay updated</h2>
-            <p class="job-detail-text">New Infopark openings are shared daily on our channels.</p>
-            <div class="job-side-actions">
-              <a class="btn btn-primary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Instagram Jobs</a>
-              <a class="btn btn-secondary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
-            </div>
-          </section>
-        </aside>
-      </div>
-
+      ${isSheet ? alertSheetBlock(job) : standardLayout}
+      ${isSheet ? shareBlock(job) : ""}
+      ${isSheet ? channelsBlock() : ""}
       ${relatedJobsBlock(job)}
-
-      <p class="jobs-disclaimer">
-        InfoparkDaily is an independent IT Jobs &amp; Career Community. We share publicly available job
-        opportunities and company submissions. We are not a recruitment agency and never charge any fee.
-        Please verify job details directly with the hiring company before applying.
-      </p>
+      ${disclaimerBlock()}
     `;
 
     const copyBtn = document.getElementById("job-copy-link");
