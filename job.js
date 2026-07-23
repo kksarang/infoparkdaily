@@ -370,13 +370,19 @@
     if (!job.alertSheet) return "";
 
     const locations = job.workLocations || [];
+    const states = job.workStates || [];
     const who = job.whoCanApply || job.requirements || [];
+    const edu = job.educationalQualification || [];
     const tech = job.technicalSkills || [];
     const soft = job.softSkills || [];
     const selection = job.selectionProcess || [];
+    const applySteps = job.applySteps || [];
     const docs = job.documentsRequired || [];
     const notes = job.importantNotes || [];
     const tips = job.resumeTips || [];
+    const checklist = job.applyChecklist || [];
+    const faqs = job.faqs || [];
+    const safety = job.safetyNotes || [];
     const applyUrl =
       job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : job.website || "";
 
@@ -385,16 +391,22 @@
       ["Company", job.company],
       ["Reference ID", job.referenceId || ""],
       ["Job type", job.employmentType || job.workStatus || "Internship"],
+      ["Team / track", job.teamName || ""],
       ["Experience", job.experienceRange || "Freshers / Students"],
       ["Work mode", job.workMode || ""],
-      ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""]
+      ["Posting start", job.postingStartDate ? formatDate(job.postingStartDate) : ""],
+      ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""],
+      ["Stipend", job.salaryRange || ""]
     ].filter(([, v]) => v);
+
+    let sectionNo = 0;
+    const nextNum = () => String(++sectionNo).padStart(2, "0");
 
     return `
       <section class="job-alert-banner" aria-label="Internship job alert">
         <p class="job-alert-banner-label">${escapeHtml(job.alertLabel || "INTERNSHIP JOB ALERT")}</p>
-        <h2>${escapeHtml((job.roles || [])[0] || "Intern")} — hiring sheet</h2>
-        <p>Scan the sheet below in under a minute. Apply only on the official careers link.</p>
+        <h2>${escapeHtml((job.roles || [])[0] || "Intern")} — full hiring sheet</h2>
+        <p>Everything you need in one clear sheet. Scan fast → apply only on the official Wipro Careers link.</p>
         ${
           applyUrl
             ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Apply on Wipro Careers ↗</a>`
@@ -416,23 +428,31 @@
         </div>
 
         ${sheetSection(
-          "01",
+          nextNum(),
           "Work locations (Pan India)",
-          `${chipsRow(locations, "job-sheet-chips")}<p class="job-sheet-note">Exact location depends on business requirements and team allocation.</p>`
+          `
+            ${chipsRow(locations, "job-sheet-chips")}
+            ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
+            <p class="job-sheet-note">Exact city depends on business requirements and team allocation. Kochi (Kerala) is included on the official listing.</p>
+          `
         )}
 
-        ${sheetSection("02", "Who can apply?", listBlock(who))}
+        ${sheetSection(nextNum(), "Who can apply?", listBlock(who))}
+
+        ${sheetSection(nextNum(), "Educational qualification", listBlock(edu))}
 
         ${sheetSection(
-          "03",
-          "Internship overview",
-          job.companyDetails || job.workDetails
-            ? `<p class="job-detail-text">${escapeHtml(job.companyDetails || job.workDetails)}</p>${listBlock(job.responsibilities)}`
-            : listBlock(job.responsibilities)
+          nextNum(),
+          "Internship overview (official JD)",
+          `
+            ${job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : ""}
+            ${job.teamName ? `<p class="job-sheet-note"><strong>Track:</strong> ${escapeHtml(job.teamName)}</p>` : ""}
+            ${listBlock(job.responsibilities)}
+          `
         )}
 
         ${sheetSection(
-          "04",
+          nextNum(),
           "Skills preferred",
           `
             ${tech.length ? `<p class="job-sheet-subhead">Technical</p>${chipsRow(tech, "job-sheet-chips job-sheet-chips--tech")}` : ""}
@@ -441,13 +461,13 @@
           `
         )}
 
-        ${sheetSection("05", "Selection process", numberedList(selection))}
+        ${sheetSection(nextNum(), "Selection process", numberedList(selection))}
 
         ${sheetSection(
-          "06",
+          nextNum(),
           "How to apply",
           `
-            ${job.howToApply ? `<p class="job-detail-text">${escapeHtml(job.howToApply)}</p>` : ""}
+            ${applySteps.length ? numberedList(applySteps) : job.howToApply ? `<p class="job-detail-text">${escapeHtml(job.howToApply)}</p>` : ""}
             ${
               applyUrl
                 ? `<a class="job-sheet-link" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer"><strong>Official application link</strong><span>${escapeHtml(applyUrl)}</span></a>`
@@ -456,18 +476,54 @@
           `
         )}
 
-        ${sheetSection("07", "Documents to keep ready", listBlock(docs))}
+        ${sheetSection(
+          nextNum(),
+          "Before you apply — checklist",
+          checklist.length
+            ? `<ul class="job-detail-bullets job-sheet-checklist">${checklist
+                .map((item) => `<li>${escapeHtml(item)}</li>`)
+                .join("")}</ul>`
+            : ""
+        )}
 
-        ${sheetSection("08", "Resume tips", listBlock(tips))}
+        ${sheetSection(nextNum(), "Documents to keep ready", listBlock(docs))}
 
-        ${sheetSection("09", "Career growth", listBlock(job.benefits))}
+        ${sheetSection(nextNum(), "Resume tips", listBlock(tips))}
+
+        ${sheetSection(nextNum(), "Interview / prep tips", listBlock(job.interviewTips))}
+
+        ${sheetSection(nextNum(), "Career growth after internship", listBlock(job.benefits))}
 
         ${sheetSection(
-          "10",
+          nextNum(),
+          "Quick FAQs",
+          faqs.length
+            ? `<div class="job-sheet-faqs">${faqs
+                .map((item) => {
+                  const parts = String(item).split("?");
+                  if (parts.length < 2) return `<p class="job-detail-text">${escapeHtml(item)}</p>`;
+                  const q = `${parts[0]}?`;
+                  const a = parts.slice(1).join("?").trim();
+                  return `<div class="job-sheet-faq"><strong>${escapeHtml(q)}</strong><span>${escapeHtml(a)}</span></div>`;
+                })
+                .join("")}</div>`
+            : ""
+        )}
+
+        ${sheetSection(
+          nextNum(),
           "Important notes",
           `<ul class="job-detail-bullets job-sheet-notes">${(notes || [])
             .map((n) => `<li>${escapeHtml(n)}</li>`)
             .join("")}</ul>`
+        )}
+
+        ${sheetSection(
+          nextNum(),
+          "Safety · fraud alert",
+          safety.length
+            ? `<div class="job-sheet-safety">${listBlock(safety)}<p class="job-sheet-note">InfoparkDaily is not Wipro HR. Always verify on careers.wipro.com before sharing documents.</p></div>`
+            : ""
         )}
       </section>
     `;

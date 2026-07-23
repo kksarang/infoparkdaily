@@ -2819,6 +2819,42 @@ body.light .job-hero-stat {
   font-weight: 550;
 }
 
+.job-sheet-checklist li {
+  font-weight: 550;
+}
+
+.job-sheet-faqs {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.job-sheet-faq {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.job-sheet-faq strong {
+  font-size: 0.95rem;
+}
+
+.job-sheet-faq span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.job-sheet-safety {
+  padding: 0.2rem 0;
+}
+
+.job-sheet-safety .job-detail-bullets {
+  margin-bottom: 0.55rem;
+}
+
 .job-sheet-channels {
   margin-top: 1.1rem;
   padding: clamp(1.15rem, 3vw, 1.7rem);
