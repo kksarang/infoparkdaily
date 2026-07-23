@@ -43,6 +43,149 @@
 
 var NEWS = [
   {
+    id: "naviq-technology-inauguration",
+    title: "Kerala CM inaugurates Naviq Technology — IBS Group’s AI travel campus at Infopark Kochi",
+    category: "Business",
+    park: "Infopark Kochi",
+    date: "2026-07-23",
+    image: "assets/news/naviq.svg",
+    imageAlt: "Naviq Technology AI travel campus at Infopark Kochi",
+    summary:
+      "Kerala CM inaugurated Naviq Technology, an AI-focused travel tech company by IBS Group, at Infopark Kochi on 23 July 2026 — with growth potential of up to 5,000 professionals.",
+    body: [
+      "Kerala’s Chief Minister inaugurated Naviq Technology, an AI-focused travel tech company promoted by IBS Group, at Infopark Kochi on 23 July 2026 — marking a major new campus announcement for the Kakkanad IT corridor.",
+      "Naviq is positioned as a specialised AI company for the global travel sector. Industry updates around the launch indicate the campus could grow toward a workforce of up to 5,000 professionals as operations scale.",
+      "The inauguration reinforces Infopark’s push to attract next-generation product and AI engineering teams alongside traditional IT services and Global Capability Centres (GCCs).",
+      "For job seekers in Kochi, Naviq and similar AI-led campuses signal fresh demand across software engineering, data/AI, travel domain, and product roles — always verify openings on official company careers pages before applying."
+    ],
+    highlights: [
+      "Inaugurated on 23 July 2026 at Infopark Kochi",
+      "IBS Group’s AI-focused travel technology company",
+      "Expected growth potential of up to 5,000 professionals",
+      "Strengthens Infopark’s AI + product engineering footprint"
+    ],
+    attachments: [
+      { label: "Infopark official website", url: "https://infopark.in/" },
+      { label: "Infopark news & updates", url: "https://infopark.in/news" }
+    ],
+    source: "Infopark / media reports around the inauguration",
+    sourceUrl: "https://infopark.in/",
+    featured: true
+  },
+  {
+    id: "infopark-government-company",
+    title: "Infopark becomes a government company — tax flexibility for the next growth phase",
+    category: "Business",
+    park: "Infopark Kochi",
+    date: "2026-03-15",
+    image: "assets/news/govco.svg",
+    imageAlt: "Infopark status change to government company",
+    summary:
+      "In March 2026, Infopark transitioned from a charitable society to a government company under the Companies Act — aimed at tax benefits and more flexible expansion.",
+    body: [
+      "In March 2026, Infopark successfully transitioned from a charitable society structure to a government company under the Companies Act — a strategic governance shift for Kerala’s flagship IT park.",
+      "Officials have described the change as a move to unlock tax benefits and improve operational flexibility for land leasing, co-developer partnerships, and long-term campus expansion.",
+      "The new structure is expected to support faster decision-making as Infopark scales Phase 3 AI township plans, GCC attraction programmes, and campus infrastructure upgrades.",
+      "For companies and co-developers watching Kochi, the status change is a signal that Infopark is preparing for a larger, more commercial growth cycle while remaining under government ownership."
+    ],
+    highlights: [
+      "Transition completed in March 2026",
+      "From charitable society → government company (Companies Act)",
+      "Aimed at tax benefits and expansion flexibility",
+      "Supports Phase 3, GCC pitch, and infra upgrades"
+    ],
+    attachments: [{ label: "Infopark official website", url: "https://infopark.in/" }],
+    source: "Infopark / Government of Kerala related updates",
+    sourceUrl: "https://infopark.in/",
+    featured: false
+  },
+  {
+    id: "infopark-phase-3-ai-township",
+    title: "Infopark Phase 3 AI Township advances — 300 acres with GCDA at Kizhakkambalam",
+    category: "AI City",
+    park: "Infopark Kochi",
+    date: "2026-07-20",
+    image: "assets/news/phase3.svg",
+    imageAlt: "Infopark Phase 3 Integrated AI Township",
+    summary:
+      "Infopark and GCDA are advancing the 300-acre Phase 3 Integrated AI Township in Kizhakkambalam — targeting 20 million sq. ft. of IT space and over 2 lakh direct IT/GCC jobs.",
+    body: [
+      "Infopark and the Greater Cochin Development Authority (GCDA) are pushing ahead with the massive Phase 3 Integrated AI Township planned over about 300 acres in Kizhakkambalam — described as Kerala’s first integrated AI township scale campus.",
+      "Plans cited in public updates include around 20 million sq. ft. of IT space and an ambition to create over 2 lakh direct IT / GCC jobs as the township builds out over multiple phases.",
+      "Infopark has also publicly referenced Phase 3 and Phase 4 expansion ambitions, with Phase 3 framed as a futuristic AI-enabled tech city adjoining the Kochi IT growth corridor.",
+      "An MoU between Infopark and GCDA for Phase 3 was highlighted as a historic step in late September 2025, and progress updates continue through 2026 as master-planning and partnership work advance.",
+      "For Kochi’s talent market, Phase 3 is the long-term capacity story: more campuses, more GCCs, and a multi-year hiring pipeline across engineering, product, AI, and shared services."
+    ],
+    highlights: [
+      "≈300-acre Integrated AI Township at Kizhakkambalam",
+      "Infopark + GCDA partnership (MoU highlighted Sept 2025)",
+      "Target: ~20 million sq. ft. IT space",
+      "Ambition: 2 lakh+ direct IT / GCC jobs",
+      "Part of Infopark Phase 3 & Phase 4 expansion narrative"
+    ],
+    attachments: [
+      { label: "Infopark news — Phase 3 & Phase 4", url: "https://infopark.in/" },
+      { label: "Infopark & GCDA MoU updates", url: "https://infopark.in/news" }
+    ],
+    source: "Infopark official news & updates / public reports",
+    sourceUrl: "https://infopark.in/news",
+    featured: false
+  },
+  {
+    id: "infopark-gcc-hub-push",
+    title: "Infopark pitches itself as South India’s next GCC hub",
+    category: "Business",
+    park: "Infopark Kochi",
+    date: "2026-07-18",
+    image: "assets/news/gcc-hub.svg",
+    imageAlt: "Infopark GCC hub pitch",
+    summary:
+      "Infopark is aggressively positioning Kochi as a Global Capability Centre hub for South India, partnering with consultants such as Inductus Group to attract multinational companies.",
+    body: [
+      "Infopark is aggressively pitching itself as South India’s hub for Global Capability Centres (GCCs), competing for multinational captive and shared-services investments that prefer tier-1 talent with lower operating friction.",
+      "Public updates note partnerships with consultants such as Inductus Group to attract multinational companies evaluating Kochi for engineering, finance, analytics, and AI-enabled GCC operations.",
+      "Kochi already hosts a dense campus ecosystem at Infopark, and the GCC pitch pairs with Phase 3 AI township capacity, metro connectivity progress, and campus infrastructure upgrades.",
+      "For professionals, GCC growth usually means roles in software engineering, cloud, cybersecurity, finance & accounting, HR ops, analytics, and domain centres — verify each employer’s official careers page before applying."
+    ],
+    highlights: [
+      "Positioning Infopark as a South India GCC hub",
+      "Consultant partnerships including Inductus Group cited",
+      "Targets multinational captive / shared-services centres",
+      "Complements Phase 3 AI township capacity"
+    ],
+    attachments: [{ label: "Infopark official website", url: "https://infopark.in/" }],
+    source: "Infopark updates / industry reports",
+    sourceUrl: "https://infopark.in/",
+    featured: false
+  },
+  {
+    id: "infopark-land-infra-upgrades",
+    title: "Infopark restores 20 acres after SilverLine freeze — parking & food courts next",
+    category: "Infrastructure",
+    park: "Infopark Kochi",
+    date: "2026-07-16",
+    image: "assets/news/land-restore.svg",
+    imageAlt: "Infopark campus infrastructure upgrades",
+    summary:
+      "After SilverLine project cancellation, Infopark restored about 20 acres of previously frozen land for IT co-developers — with funds earmarked for parking and food-court upgrades.",
+    body: [
+      "Following the cancellation of the SilverLine project, Infopark restored around 20 acres of previously frozen land that can now be leased to prospective IT co-developers.",
+      "Authorities are actively using restored land and newly available funds to address day-to-day campus deficits — including additional parking facilities and expanded food courts for the growing workforce.",
+      "The infrastructure push sits alongside Infopark’s larger growth agenda: government-company status, GCC attraction, and Phase 3 AI township planning.",
+      "For employees and companies on campus, better parking and food amenities are practical quality-of-life upgrades as headcount continues to rise across Kakkanad."
+    ],
+    highlights: [
+      "≈20 acres restored after SilverLine land freeze ended",
+      "Land available to lease for IT co-developers",
+      "Focus on parking facilities and food-court expansion",
+      "Supports daily campus life as Infopark scales"
+    ],
+    attachments: [{ label: "Infopark official website", url: "https://infopark.in/" }],
+    source: "Infopark / local infrastructure updates",
+    sourceUrl: "https://infopark.in/",
+    featured: false
+  },
+  {
     id: "infopark-phase-3",
     title: "Infopark Phase 3 takes off — mega expansion planned near Kunnathunad",
     category: "Infrastructure",
@@ -67,7 +210,7 @@ var NEWS = [
     attachments: [{ label: "Infopark official website", url: "https://infopark.in/" }],
     source: "Infopark updates / media reports",
     sourceUrl: "https://infopark.in/",
-    featured: true
+    featured: false
   },
   {
     id: "kochi-ai-city",
