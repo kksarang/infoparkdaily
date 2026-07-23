@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v39";
+const CACHE_NAME = "infoparkdaily-v40";
 const PRELOAD_ASSETS = [
   "./",
   "./index.html",
@@ -10,19 +10,19 @@ const PRELOAD_ASSETS = [
   "./news-article.html",
   "./hexenity.html",
   "./services.html",
-  "./hexenity.css?v=20260723x",
-  "./hexenity.js?v=20260723x",
-  "./styles.css?v=20260723x",
-  "./script.js?v=20260723x",
-  "./jobs-data.js?v=20260723x",
-  "./jobs.js?v=20260723x",
-  "./job.js?v=20260723x",
-  "./contact.js?v=20260723x",
-  "./media-data.js?v=20260723x",
-  "./media.js?v=20260723x",
-  "./news-data.js?v=20260723x",
-  "./news.js?v=20260723x",
-  "./news-article.js?v=20260723x",
+  "./hexenity.css?v=20260723y",
+  "./hexenity.js?v=20260723y",
+  "./styles.css?v=20260723y",
+  "./script.js?v=20260723y",
+  "./jobs-data.js?v=20260723y",
+  "./jobs.js?v=20260723y",
+  "./job.js?v=20260723y",
+  "./contact.js?v=20260723y",
+  "./media-data.js?v=20260723y",
+  "./media.js?v=20260723y",
+  "./news-data.js?v=20260723y",
+  "./news.js?v=20260723y",
+  "./news-article.js?v=20260723y",
   "./manifest.webmanifest",
   "./assets/logo-infoparkdaily.png"
 ];

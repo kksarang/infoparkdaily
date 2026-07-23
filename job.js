@@ -391,12 +391,29 @@
       ["Company", job.company],
       ["Reference ID", job.referenceId || ""],
       ["Job type", job.employmentType || job.workStatus || "Internship"],
-      ["Team / track", job.teamName || ""],
+      [
+        "Team / track",
+        job.teamName
+          ? String(job.teamName).split("(")[0].trim()
+          : ""
+      ],
       ["Experience", job.experienceRange || "Freshers / Students"],
-      ["Work mode", job.workMode || ""],
+      [
+        "Work mode",
+        job.workMode
+          ? String(job.workMode).replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim()
+          : ""
+      ],
       ["Posting start", job.postingStartDate ? formatDate(job.postingStartDate) : ""],
       ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""],
-      ["Stipend", job.salaryRange || ""]
+      [
+        "Stipend",
+        job.salaryRange
+          ? String(job.salaryRange).includes("offer letter")
+            ? "As per Wipro offer letter"
+            : job.salaryRange
+          : ""
+      ]
     ].filter(([, v]) => v);
 
     let sectionNo = 0;
