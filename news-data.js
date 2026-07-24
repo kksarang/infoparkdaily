@@ -43,6 +43,68 @@
 
 var NEWS = [
   {
+    id: "kerala-it-highlights-naviq-gcc-polaris",
+    title: "Kerala IT highlights — Naviq launch, GCC roadmap, Polaris tower & AI hub push",
+    category: "Business",
+    park: "Kerala",
+    date: "2026-07-24",
+    image: "assets/news/gcc-hub.svg",
+    imageAlt: "Kerala IT sector AI, GCC and Infopark growth highlights",
+    summary:
+      "Kerala’s IT sector is advancing with Naviq Technology’s launch, a GCC roadmap targeting 150 centres and 2 lakh jobs by 2031, Caspian’s Polaris tower at Infopark Phase 2, and a statewide AI hub vision.",
+    body: [
+      "Kerala’s IT sector is advancing rapidly with major artificial intelligence initiatives, infrastructure expansions, and new global investments. Key updates include the launch of Naviq Technology, the rollout of a Global Capability Centre (GCC) roadmap, and new tower developments at Infopark.",
+      "Naviq Technology launch: Kerala’s Chief Minister inaugurated Naviq Technology at IBS Tower in Infopark Phase I, Kochi — a new AI-focused travel tech company by IBS Software.",
+      "New IT tower at Kochi: Caspian Techparks received land allocation to build a new IT tower named Polaris in Infopark Kochi Phase 2 — expanding campus built-up capacity for growing companies.",
+      "GCC investment roadmap: Kerala released a comprehensive feasibility report aiming to scale the state to 150 operational Global Capability Centres and 2 lakh jobs by 2031.",
+      "AI hub vision: State leaders announced strategic efforts to position Kerala as a premier national hub for artificial intelligence and emerging technologies.",
+      "Together, these moves signal stronger hiring pipelines across AI, product engineering, GCCs, and campus infrastructure — always verify company careers pages and official Infopark updates before applying or investing decisions."
+    ],
+    highlights: [
+      "Naviq Technology inaugurated at IBS Tower, Infopark Phase I",
+      "Caspian Techparks allotted land for Polaris tower in Infopark Phase 2",
+      "GCC roadmap: 150 centres & 2 lakh jobs by 2031",
+      "State push to position Kerala as a national AI hub"
+    ],
+    attachments: [
+      { label: "Infopark official website", url: "https://infopark.in/" },
+      { label: "Infopark news & updates", url: "https://infopark.in/news" }
+    ],
+    source: "Infopark / Kerala IT updates curated by InfoparkDaily",
+    sourceUrl: "https://infopark.in/",
+    featured: true
+  },
+  {
+    id: "caspian-polaris-tower-infopark-phase-2",
+    title: "Caspian Techparks allotted land for Polaris IT tower at Infopark Phase 2",
+    category: "Infrastructure",
+    park: "Infopark Kochi",
+    date: "2026-07-24",
+    image: "assets/news/land-restore.svg",
+    imageAlt: "New Polaris IT tower planned at Infopark Kochi Phase 2",
+    summary:
+      "Caspian Techparks has received land allocation to build Polaris, a new IT tower in Infopark Kochi Phase 2 — adding fresh office capacity to the Kakkanad campus.",
+    body: [
+      "Caspian Techparks has received land allocation to develop a new IT tower named Polaris in Infopark Kochi Phase 2 — a fresh infrastructure addition for Kochi’s IT corridor.",
+      "New towers typically expand ready-to-occupy and built-to-suit options for IT/ITES companies, product teams, and GCCs looking to scale teams in Kakkanad.",
+      "The allotment sits alongside Infopark’s broader growth story: AI-led campuses, GCC attraction, and Phase 3 township planning.",
+      "Companies and job seekers should treat timelines as subject to official clearances and construction progress — confirm updates via Infopark and developer announcements."
+    ],
+    highlights: [
+      "Developer: Caspian Techparks",
+      "Project: Polaris IT tower",
+      "Location: Infopark Kochi Phase 2",
+      "Adds new office capacity for campus growth"
+    ],
+    attachments: [
+      { label: "Infopark official website", url: "https://infopark.in/" },
+      { label: "Infopark news & updates", url: "https://infopark.in/news" }
+    ],
+    source: "Infopark / media reports on Phase 2 allotments",
+    sourceUrl: "https://infopark.in/",
+    featured: false
+  },
+  {
     id: "naviq-ai-talent-opportunities",
     title: "Naviq Technology opens AI & engineering opportunities — shaping the future of global travel",
     category: "Business",
@@ -70,7 +132,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily community update",
     sourceUrl: "https://infopark.in/",
-    featured: true
+    featured: false
   },
   {
     id: "naviq-technology-inauguration",
