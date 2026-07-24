@@ -43,6 +43,36 @@
 
 var NEWS = [
   {
+    id: "naviq-ai-talent-opportunities",
+    title: "Naviq Technology opens AI & engineering opportunities — shaping the future of global travel",
+    category: "Business",
+    park: "Infopark Kochi",
+    date: "2026-07-24",
+    image: "assets/news/naviq.svg",
+    imageAlt: "Naviq Technology AI travel and talent opportunities",
+    summary:
+      "Naviq Technology is creating roles for AI researchers, data scientists, software engineers, and tech specialists — building next-gen solutions that redefine how the world travels.",
+    body: [
+      "Naviq Technology is creating exciting opportunities for AI researchers, data scientists, software engineers, and technology specialists to shape the future of the global travel ecosystem.",
+      "By bringing together artificial intelligence, data, and innovation, the company is building next-generation solutions that redefine how the world travels.",
+      "As Kerala’s technology ecosystem continues to grow, initiatives like these further strengthen the state’s IT parks — including Infopark Kochi and the wider Kerala tech corridor — as hubs for cutting-edge innovation and global talent.",
+      "For professionals and students watching Kerala’s AI and product engineering wave, Naviq signals demand across AI research, data science, software engineering, and travel-domain technology roles. Always verify openings on the company’s official careers channels before applying."
+    ],
+    highlights: [
+      "Opportunities for AI researchers, data scientists & software engineers",
+      "Focus on AI + data innovation for the global travel ecosystem",
+      "Next-generation travel technology solutions",
+      "Strengthens Kerala’s tech parks as hubs for global talent"
+    ],
+    attachments: [
+      { label: "Infopark official website", url: "https://infopark.in/" },
+      { label: "Infopark news & updates", url: "https://infopark.in/news" }
+    ],
+    source: "InfoparkDaily community update",
+    sourceUrl: "https://infopark.in/",
+    featured: true
+  },
+  {
     id: "naviq-technology-inauguration",
     title: "Kerala CM inaugurates Naviq Technology — IBS Group’s AI travel campus at Infopark Kochi",
     category: "Business",
@@ -70,7 +100,7 @@ var NEWS = [
     ],
     source: "Infopark / media reports around the inauguration",
     sourceUrl: "https://infopark.in/",
-    featured: true
+    featured: false
   },
   {
     id: "infopark-government-company",
