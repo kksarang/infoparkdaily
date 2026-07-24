@@ -12,7 +12,7 @@
  * category    string   "Infrastructure" | "AI City" | "Metro" | "Events" | "Business" | "Community"
  * park        string   "Infopark Kochi" | "Technopark TVM" | "Kerala"
  * date        string   ISO "YYYY-MM-DD" — drives sorting + New badge
- * image       string   Path to cover image (poster/photo). Put files in assets/news/
+ * image       string   Root path to cover image, e.g. "/assets/news/story.jpg"
  * imageAlt    string   Short description of the image
  * summary     string   1-2 line card summary
  * body        string[] Full article paragraphs (each string = one paragraph)
@@ -29,7 +29,7 @@
  *   category: "Infrastructure",
  *   park: "Infopark Kochi",
  *   date: "2026-07-17",
- *   image: "assets/news/story.svg",
+ *   image: "/assets/news/story.svg",
  *   imageAlt: "What the image shows",
  *   summary: "One or two line summary for the card.",
  *   body: ["Paragraph 1.", "Paragraph 2."],
@@ -48,7 +48,7 @@ var NEWS = [
     category: "Business",
     park: "Kerala",
     date: "2026-07-24",
-    image: "assets/news/gcc-hub.svg",
+    image: "/assets/news/gcc-hub.svg",
     imageAlt: "Kerala IT sector AI, GCC and Infopark growth highlights",
     summary:
       "Kerala’s IT sector is advancing with Naviq Technology’s launch, a GCC roadmap targeting 150 centres and 2 lakh jobs by 2031, Caspian’s Polaris tower at Infopark Phase 2, and a statewide AI hub vision.",
@@ -80,7 +80,7 @@ var NEWS = [
     category: "Infrastructure",
     park: "Infopark Kochi",
     date: "2026-07-24",
-    image: "assets/news/land-restore.svg",
+    image: "/assets/news/land-restore.svg",
     imageAlt: "New Polaris IT tower planned at Infopark Kochi Phase 2",
     summary:
       "Caspian Techparks has received land allocation to build Polaris, a new IT tower in Infopark Kochi Phase 2 — adding fresh office capacity to the Kakkanad campus.",
@@ -110,7 +110,7 @@ var NEWS = [
     category: "Business",
     park: "Infopark Kochi",
     date: "2026-07-24",
-    image: "assets/news/naviq-opens-kochi.jpg",
+    image: "/assets/news/naviq-opens-kochi.jpg",
     imageAlt: "Naviq Technology opens doors in Kochi — InfoparkDaily announcement graphic",
     summary:
       "IBS Software has launched Naviq Technology in Kochi — an AI venture creating opportunities for AI researchers, data scientists, software engineers, and technology specialists in global travel tech.",
@@ -141,7 +141,7 @@ var NEWS = [
     category: "Business",
     park: "Infopark Kochi",
     date: "2026-07-23",
-    image: "assets/news/naviq-ibs-inauguration.jpg",
+    image: "/assets/news/naviq-ibs-inauguration.jpg",
     imageAlt: "IBS Software Naviq Technology inauguration event in Kochi",
     summary:
       "Kerala CM inaugurated Naviq Technology, an AI-focused travel tech company by IBS Group, at Infopark Kochi on 23 July 2026 — with growth potential of up to 5,000 professionals.",
@@ -171,7 +171,7 @@ var NEWS = [
     category: "Business",
     park: "Infopark Kochi",
     date: "2026-03-15",
-    image: "assets/news/govco.svg",
+    image: "/assets/news/govco.svg",
     imageAlt: "Infopark status change to government company",
     summary:
       "In March 2026, Infopark transitioned from a charitable society to a government company under the Companies Act — aimed at tax benefits and more flexible expansion.",
@@ -198,7 +198,7 @@ var NEWS = [
     category: "AI City",
     park: "Infopark Kochi",
     date: "2026-07-20",
-    image: "assets/news/phase3.svg",
+    image: "/assets/news/phase3.svg",
     imageAlt: "Infopark Phase 3 Integrated AI Township",
     summary:
       "Infopark and GCDA are advancing the 300-acre Phase 3 Integrated AI Township in Kizhakkambalam — targeting 20 million sq. ft. of IT space and over 2 lakh direct IT/GCC jobs.",
@@ -230,7 +230,7 @@ var NEWS = [
     category: "Business",
     park: "Infopark Kochi",
     date: "2026-07-18",
-    image: "assets/news/gcc-hub.svg",
+    image: "/assets/news/gcc-hub.svg",
     imageAlt: "Infopark GCC hub pitch",
     summary:
       "Infopark is aggressively positioning Kochi as a Global Capability Centre hub for South India, partnering with consultants such as Inductus Group to attract multinational companies.",
@@ -257,7 +257,7 @@ var NEWS = [
     category: "Infrastructure",
     park: "Infopark Kochi",
     date: "2026-07-16",
-    image: "assets/news/land-restore.svg",
+    image: "/assets/news/land-restore.svg",
     imageAlt: "Infopark campus infrastructure upgrades",
     summary:
       "After SilverLine project cancellation, Infopark restored about 20 acres of previously frozen land for IT co-developers — with funds earmarked for parking and food-court upgrades.",
@@ -284,7 +284,7 @@ var NEWS = [
     category: "Infrastructure",
     park: "Infopark Kochi",
     date: "2026-07-15",
-    image: "assets/news/phase3.svg",
+    image: "/assets/news/phase3.svg",
     imageAlt: "Infopark Phase 3 expansion concept",
     summary:
       "Land identification and master-planning work for Infopark's third phase is moving forward, aimed at doubling IT office space and jobs in Kochi.",
@@ -311,7 +311,7 @@ var NEWS = [
     category: "AI City",
     park: "Kerala",
     date: "2026-07-12",
-    image: "assets/news/aicity.svg",
+    image: "/assets/news/aicity.svg",
     imageAlt: "AI City Kochi concept",
     summary:
       "The state's ambitious AI City initiative has moved from announcement to action, positioning Kochi as a dedicated hub for AI companies, research labs, and skilled talent.",
@@ -338,7 +338,7 @@ var NEWS = [
     category: "Metro",
     park: "Infopark Kochi",
     date: "2026-07-10",
-    image: "assets/news/metro.svg",
+    image: "/assets/news/metro.svg",
     imageAlt: "Kochi Metro Kakkanad extension",
     summary:
       "Pillar work on the Kochi Metro Phase 2 extension toward Kakkanad and Infopark is visibly progressing along the Seaport–Airport Road corridor.",
@@ -365,7 +365,7 @@ var NEWS = [
     category: "Events",
     park: "Infopark Kochi",
     date: "2026-07-08",
-    image: "assets/news/onam.svg",
+    image: "/assets/news/onam.svg",
     imageAlt: "Infopark Onam celebration",
     summary:
       "Companies across Infopark are planning this year's Onam celebrations — pookalams, sadhya, games, and campus-wide cultural programs expected through the season.",
@@ -392,7 +392,7 @@ var NEWS = [
     category: "Business",
     park: "Technopark TVM",
     date: "2026-07-05",
-    image: "assets/news/technopark.svg",
+    image: "/assets/news/technopark.svg",
     imageAlt: "Technopark Trivandrum campus",
     summary:
       "Technopark Trivandrum continues its expansion run with new office towers coming up and employment touching record levels across its four campuses.",
@@ -419,7 +419,7 @@ var NEWS = [
     category: "Community",
     park: "Infopark Kochi",
     date: "2026-07-02",
-    image: "assets/news/milestone.svg",
+    image: "/assets/news/milestone.svg",
     imageAlt: "Infopark employment growth",
     summary:
       "Infopark Kochi's workforce continues to expand, with fresh hiring across IT services, GCCs, and startups pushing campus employment to new highs.",
