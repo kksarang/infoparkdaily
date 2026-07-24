@@ -1,6 +1,6 @@
 (function () {
   const root = document.getElementById("job-detail-root");
-  if (!root || typeof JOBS === "undefined") return;
+  if (!root) return;
 
   const EXP_LABELS = {
     fresher: "Fresher",
@@ -81,9 +81,31 @@
       .join("");
   }
 
+  function assetUrl(path) {
+    if (!path) return "";
+    const value = String(path);
+    if (/^(https?:|data:|mailto:|tel:|\/\/)/i.test(value)) return value;
+    return `/${value.replace(/^\.?\//, "")}`;
+  }
+
   function getJobId() {
     const params = new URLSearchParams(window.location.search);
-    return (params.get("id") || "").trim().toLowerCase();
+    const fromQuery = (params.get("id") || "").trim();
+    if (fromQuery) return fromQuery.toLowerCase();
+
+    const match = String(window.location.pathname || "").match(/\/job\/([^\/]+)\/?$/i);
+    if (match && match[1]) {
+      try {
+        return decodeURIComponent(match[1]).trim().toLowerCase();
+      } catch (_e) {
+        return match[1].trim().toLowerCase();
+      }
+    }
+    return "";
+  }
+
+  function jobPath(id) {
+    return `/job/${encodeURIComponent(String(id || "").trim().toLowerCase())}`;
   }
 
   function findJob(id) {
@@ -138,13 +160,32 @@
   }
 
   function renderMissing() {
-    document.title = "Job not found | InfoparkDaily";
+    const isJobRoute = window.__IPD_IS_JOB_ROUTE__ !== false;
+    document.title = isJobRoute ? "Job not found | InfoparkDaily" : "Page not found | InfoparkDaily";
     root.innerHTML = `
       <section class="job-missing glass">
-        <p class="jobs-kicker">Hiring digest</p>
-        <h1>Opening not found</h1>
-        <p>This job may have been removed or the link is incomplete.</p>
-        <a class="btn btn-primary" href="jobs.html">Back to Job Openings</a>
+        <p class="jobs-kicker">${isJobRoute ? "Hiring digest" : "404"}</p>
+        <h1>${isJobRoute ? "Opening not found" : "Page not found"}</h1>
+        <p>${
+          isJobRoute
+            ? "This job may have been removed or the link is incomplete."
+            : "The page you requested doesn’t exist on InfoparkDaily."
+        }</p>
+        <a class="btn btn-primary" href="/jobs.html">Back to Job Openings</a>
+        <a class="btn btn-secondary" href="/index.html">Home</a>
+      </section>
+    `;
+  }
+
+  function renderDataError() {
+    document.title = "Couldn’t load job | InfoparkDaily";
+    root.innerHTML = `
+      <section class="job-missing glass">
+        <p class="jobs-kicker">Temporary issue</p>
+        <h1>Couldn’t load job data</h1>
+        <p>Please refresh the page. If it keeps happening, open Jobs and try again.</p>
+        <a class="btn btn-primary" href="/jobs.html">View Jobs</a>
+        <button class="btn btn-secondary" type="button" onclick="window.location.reload()">Refresh</button>
       </section>
     `;
   }
@@ -549,10 +590,10 @@
         const status = deadlineStatus(other);
         const pill = deadlineLabel(other);
         return `
-          <a class="job-related-card glass" href="job.html?id=${encodeURIComponent(other.id)}">
+          <a class="job-related-card glass" href="${jobPath(other.id)}">
             <div class="job-logo-wrap" data-initials="${escapeAttr(initials(other.company))}">
               <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(initials(other.company))}</span>
-              ${other.logo ? `<img class="job-logo" src="${escapeAttr(other.logo)}" alt="" loading="lazy" onerror="this.remove()" />` : ""}
+              ${other.logo ? `<img class="job-logo" src="${escapeAttr(assetUrl(other.logo))}" alt="" loading="lazy" onerror="this.remove()" />` : ""}
             </div>
             <div class="job-related-copy">
               <strong>${escapeHtml(other.company)}</strong>
@@ -677,7 +718,7 @@
 
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
-        <a href="jobs.html">← Job Openings</a>
+        <a href="/jobs.html">← Job Openings</a>
       </nav>
 
       ${
@@ -688,7 +729,7 @@
               <p>
                 Deadline was ${escapeHtml(formatDate(job.applyDeadline))}.
                 This page is kept for reference only.
-                <a href="jobs.html">Browse open jobs →</a>
+                <a href="/jobs.html">Browse open jobs →</a>
               </p>
             </div>`
           : ""
@@ -701,7 +742,7 @@
               <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(mark)}</span>
               ${
                 job.logo
-                  ? `<img class="job-logo" src="${escapeAttr(job.logo)}" alt="" loading="lazy" onerror="this.remove()" />`
+                  ? `<img class="job-logo" src="${escapeAttr(assetUrl(job.logo))}" alt="" loading="lazy" onerror="this.remove()" />`
                   : ""
               }
             </div>
@@ -728,7 +769,7 @@
                 ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
                 : ""
             }
-            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="jobs.html">${expired ? "See open jobs" : "All Openings"}</a>
+            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="/jobs.html">${expired ? "See open jobs" : "All Openings"}</a>
           </div>
         </div>
         ${heroStatStrip(job)}
@@ -754,10 +795,37 @@
     }
   }
 
-  const job = findJob(getJobId());
+  if (typeof JOBS === "undefined") {
+    renderDataError();
+    return;
+  }
+
+  const jobId = getJobId();
+  if (!jobId && window.__IPD_IS_JOB_ROUTE__ === false) {
+    renderMissing();
+    return;
+  }
+
+  const job = findJob(jobId);
   if (!job) {
     renderMissing();
     return;
   }
+
+  // Keep shareable clean URL in the address bar.
+  const cleanPath = jobPath(job.id);
+  if (window.location.pathname.replace(/\/$/, "") !== cleanPath) {
+    try {
+      window.history.replaceState({}, "", cleanPath);
+    } catch (_e) {
+      /* ignore */
+    }
+  }
+
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (canonical) canonical.setAttribute("href", `https://infoparkdaily.online${cleanPath}`);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute("content", `https://infoparkdaily.online${cleanPath}`);
+
   renderJob(job);
 })();

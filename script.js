@@ -130,7 +130,7 @@ function renderFeaturedJobs() {
         : "";
       const roles = (job.roles || []).slice(0, 2).map((role) => `<li>${escapeHtml(role)}</li>`).join("");
       const extra = Math.max(0, (job.roles || []).length - 2);
-      const href = `job.html?id=${encodeURIComponent(job.id || "")}`;
+      const href = `/job/${encodeURIComponent(job.id || "")}`;
 
       return `
         <article class="job-card featured-job-card reveal" style="--delay: ${index * 60}ms">

@@ -253,7 +253,14 @@
 
   function jobHref(job) {
     const id = job.id || String(job.company || "").toLowerCase().replace(/\s+/g, "-");
-    return `job.html?id=${encodeURIComponent(id)}`;
+    return `/job/${encodeURIComponent(id)}`;
+  }
+
+  function assetUrl(path) {
+    if (!path) return "";
+    const value = String(path);
+    if (/^(https?:|data:|mailto:|tel:|\/\/)/i.test(value)) return value;
+    return `/${value.replace(/^\.?\//, "")}`;
   }
 
   function logoBlock(job) {
@@ -261,7 +268,7 @@
     const image = job.logo
       ? `<img
           class="job-logo"
-          src="${escapeAttr(job.logo)}"
+          src="${escapeAttr(assetUrl(job.logo))}"
           alt=""
           loading="lazy"
           onerror="this.remove()"

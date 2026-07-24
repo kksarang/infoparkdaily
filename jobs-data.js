@@ -8,7 +8,7 @@
  *
  * REQUIRED
  * --------
- * id              string   Unique slug used in URL: job.html?id=aceware
+ * id              string   Unique slug used in URL: /job/aceware
  * company         string   Company name
  * logo            string   Path to logo, e.g. "assets/logos/2base.svg"
  * location        string   Short location, e.g. "Kakkanad, Infopark"
