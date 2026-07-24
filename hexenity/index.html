@@ -8,7 +8,7 @@
       name="description"
       content="Hexenity is a modern software development & digital agency — mobile apps (Flutter, React Native, native iOS/Android), websites, UI/UX design, branding, and digital marketing for startups and businesses."
     />
-    <meta name="theme-color" content="#f6f7fd" />
+    <meta name="theme-color" content="#09090b" />
     <meta property="og:title" content="Hexenity — Digital & Software Solutions Company" />
     <meta
       property="og:description"
@@ -20,11 +20,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/hexenity.css?v=20260724m" />
+    <link rel="stylesheet" href="/hexenity.css?v=20260724rev1" />
   </head>
   <body class="hx">
     <a class="hx-skip" href="#hx-main">Skip to main content</a>
@@ -32,7 +32,7 @@
     <header class="hx-header" id="hx-header">
       <a class="hx-brand" href="#top" aria-label="Hexenity home">
         <span class="hx-brand-mark" aria-hidden="true">hx</span>
-        <span class="hx-brand-text">hexenity<em>digital &amp; software solutions</em></span>
+        <span class="hx-brand-text">hexenity<em>digital studio</em></span>
       </a>
       <nav class="hx-nav" id="hx-nav" aria-label="Hexenity sections">
         <a href="#hx-services">Services</a>
@@ -52,32 +52,25 @@
     </header>
 
     <main id="hx-main">
-      <!-- ============ HERO ============ -->
-      <section class="hx-hero" id="top">
+      <section class="hx-hero hx-hero-anim" id="top">
         <div class="hx-hero-bg" aria-hidden="true">
-          <span class="hx-blob hx-blob-1"></span>
-          <span class="hx-blob hx-blob-2"></span>
-          <span class="hx-blob hx-blob-3"></span>
-          <span class="hx-grid-lines"></span>
+          <span class="hx-hero-grid"></span>
+          <span class="hx-hero-glow"></span>
         </div>
         <div class="hx-hero-inner">
-          <p class="hx-pill hx-reveal">Digital &amp; Software Solutions Company · Kerala, India</p>
-          <h1 class="hx-reveal" style="--d: 80ms">
-            Building powerful
-            <span class="hx-gradient-text">digital experiences</span>
-            that grow businesses.
-          </h1>
-          <p class="hx-lede hx-reveal" style="--d: 160ms">
-            Hexenity partners with businesses to deliver scalable digital solutions — app
-            development, web platforms, branding, UI/UX, AI integrations, automation, and growth
-            systems — acting as an extended technology and innovation team for companies that
-            want to scale efficiently.
+          <p class="hx-kicker">Digital &amp; Software Solutions · Kerala, India</p>
+          <p class="hx-brand-hero">HEXENITY<span>.</span></p>
+          <h1>Building powerful digital experiences that grow businesses.</h1>
+          <p class="hx-hero-lede">
+            An extended technology and innovation team for companies that want to scale — apps, web
+            platforms, branding, UI/UX, AI integrations, automation, and growth systems.
           </p>
-          <div class="hx-hero-ctas hx-reveal" style="--d: 240ms">
+          <div class="hx-hero-ctas">
             <a class="hx-btn hx-btn-primary" href="#hx-contact">Let's build together</a>
             <a class="hx-btn hx-btn-outline" href="#hx-services">Explore services</a>
+            <a class="hx-btn hx-btn-ghost" href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Official site ↗</a>
           </div>
-          <dl class="hx-hero-stats hx-reveal" style="--d: 320ms">
+          <dl class="hx-hero-stats">
             <div><dt data-count="5" data-suffix="+">0</dt><dd>Years of engineering</dd></div>
             <div><dt data-count="11" data-suffix="">0</dt><dd>Service lines</dd></div>
             <div><dt data-count="3" data-suffix="x">0</dt><dd>Faster development</dd></div>
@@ -86,166 +79,131 @@
         </div>
       </section>
 
-      <!-- ============ TECH MARQUEE ============ -->
       <div class="hx-marquee" aria-hidden="true">
         <div class="hx-marquee-track">
           <span>Flutter</span><span>React Native</span><span>Android · Kotlin</span><span>iOS · Swift</span>
           <span>React.js</span><span>Firebase</span><span>Node.js</span><span>REST APIs</span>
-          <span>HTML5 / CSS3</span><span>JavaScript ES6+</span><span>UI/UX</span><span>SEO</span>
+          <span>UI/UX</span><span>SEO</span><span>AI Integrations</span><span>SaaS</span>
           <span>Flutter</span><span>React Native</span><span>Android · Kotlin</span><span>iOS · Swift</span>
           <span>React.js</span><span>Firebase</span><span>Node.js</span><span>REST APIs</span>
-          <span>HTML5 / CSS3</span><span>JavaScript ES6+</span><span>UI/UX</span><span>SEO</span>
+          <span>UI/UX</span><span>SEO</span><span>AI Integrations</span><span>SaaS</span>
         </div>
       </div>
 
-      <!-- ============ SERVICES ============ -->
       <section class="hx-section" id="hx-services">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">01 — What we do</p>
           <h2>Full-stack digital solutions, end to end</h2>
           <p>From the first wireframe to launch day and beyond — one team, every discipline.</p>
         </header>
-        <div class="hx-services-grid">
-          <article class="hx-service hx-reveal hx-tilt">
+        <div class="hx-service-list">
+          <article class="hx-service-row hx-reveal">
             <span class="hx-service-num">01</span>
-            <div class="hx-service-icon" aria-hidden="true">📱</div>
-            <h3>Mobile App Development</h3>
-            <p>
-              Custom Android and iOS applications built with native technologies, Flutter, and
-              React Native — engineered for performance and scale.
-            </p>
+            <div class="hx-service-main">
+              <h3>Mobile App Development</h3>
+              <p>Custom Android and iOS applications with native, Flutter, and React Native — engineered for performance and scale.</p>
+            </div>
             <ul>
               <li>Native Android (Java / Kotlin) &amp; iOS (Swift)</li>
               <li>Cross-platform apps with Flutter &amp; React Native</li>
-              <li>Fintech-grade dashboards, tracking &amp; analytics flows</li>
-              <li>State management with Provider / Riverpod</li>
-              <li>Light &amp; dark themes, offline-first architecture</li>
+              <li>Fintech-grade dashboards, tracking &amp; analytics</li>
               <li>Play Store &amp; App Store release management</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 60ms">
+          <article class="hx-service-row hx-reveal" style="--d: 40ms">
             <span class="hx-service-num">02</span>
-            <div class="hx-service-icon" aria-hidden="true">🌐</div>
-            <h3>Website Development</h3>
-            <p>
-              Responsive, SEO-optimized, high-performance websites — from landing pages to full
-              business platforms.
-            </p>
+            <div class="hx-service-main">
+              <h3>Website Development</h3>
+              <p>Responsive, SEO-optimized, high-performance websites — from landing pages to full business platforms.</p>
+            </div>
             <ul>
               <li>Business websites &amp; landing pages</li>
               <li>React.js single-page applications</li>
               <li>E-commerce &amp; booking platforms</li>
-              <li>Core Web Vitals &amp; speed optimization</li>
-              <li>On-page SEO, sitemaps &amp; schema markup</li>
-              <li>Hosting, domains &amp; deployment handled</li>
+              <li>Core Web Vitals, hosting &amp; deployment</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 120ms">
+          <article class="hx-service-row hx-reveal" style="--d: 80ms">
             <span class="hx-service-num">03</span>
-            <div class="hx-service-icon" aria-hidden="true">🎨</div>
-            <h3>UI / UX Design</h3>
-            <p>
-              Elegant, user-centered interface design that improves engagement and makes products
-              a joy to use.
-            </p>
+            <div class="hx-service-main">
+              <h3>UI / UX Design</h3>
+              <p>Elegant, user-centered interface design that improves engagement and makes products a joy to use.</p>
+            </div>
             <ul>
               <li>User research &amp; journey mapping</li>
               <li>Wireframes &amp; interactive prototypes</li>
               <li>Design systems &amp; component libraries</li>
               <li>Mobile-first, accessible interfaces</li>
-              <li>Micro-interactions &amp; motion design</li>
-              <li>Usability reviews of existing products</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 180ms">
+          <article class="hx-service-row hx-reveal" style="--d: 120ms">
             <span class="hx-service-num">04</span>
-            <div class="hx-service-icon" aria-hidden="true">✦</div>
-            <h3>Logo &amp; Brand Identity</h3>
-            <p>
-              Professional identity design that positions your brand clearly and memorably in a
-              crowded market.
-            </p>
+            <div class="hx-service-main">
+              <h3>Logo &amp; Brand Identity</h3>
+              <p>Professional identity design that positions your brand clearly and memorably in a crowded market.</p>
+            </div>
             <ul>
               <li>Logo design &amp; brand marks</li>
               <li>Color, typography &amp; visual language</li>
               <li>Brand guidelines &amp; asset kits</li>
-              <li>Stationery, decks &amp; collateral</li>
-              <li>Social media profile branding</li>
               <li>Rebrands &amp; brand refreshes</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 240ms">
+          <article class="hx-service-row hx-reveal" style="--d: 160ms">
             <span class="hx-service-num">05</span>
-            <div class="hx-service-icon" aria-hidden="true">📈</div>
-            <h3>Digital &amp; Social Media Marketing</h3>
-            <p>
-              Data-driven, conversion-focused campaigns that turn attention into customers —
-              backed by real analytics.
-            </p>
+            <div class="hx-service-main">
+              <h3>Digital &amp; Social Media Marketing</h3>
+              <p>Data-driven, conversion-focused campaigns that turn attention into customers — backed by real analytics.</p>
+            </div>
             <ul>
-              <li>Social media strategy &amp; management</li>
-              <li>Creative design for reels, posts &amp; ads</li>
+              <li>Social strategy &amp; management</li>
+              <li>Creative for reels, posts &amp; ads</li>
               <li>Performance campaigns &amp; funnels</li>
-              <li>Content calendars &amp; community growth</li>
-              <li>SEO &amp; local discovery optimization</li>
-              <li>Performance analytics &amp; reporting</li>
+              <li>SEO &amp; local discovery</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 300ms">
+          <article class="hx-service-row hx-reveal" style="--d: 200ms">
             <span class="hx-service-num">06</span>
-            <div class="hx-service-icon" aria-hidden="true">🛠</div>
-            <h3>Maintenance &amp; Technical Support</h3>
-            <p>
-              We don't disappear after launch — long-term technical partnership keeps your product
-              fast, secure, and evolving.
-            </p>
+            <div class="hx-service-main">
+              <h3>Maintenance &amp; Technical Support</h3>
+              <p>Long-term technical partnership that keeps your product fast, secure, and evolving after launch.</p>
+            </div>
             <ul>
               <li>App &amp; website maintenance plans</li>
               <li>Feature roadmaps &amp; iteration cycles</li>
               <li>Performance monitoring &amp; fixes</li>
-              <li>OS / dependency upgrade management</li>
               <li>Backups, security &amp; uptime care</li>
-              <li>Priority support channels</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 360ms">
+          <article class="hx-service-row hx-reveal" style="--d: 240ms">
             <span class="hx-service-num">07</span>
-            <div class="hx-service-icon" aria-hidden="true">🤖</div>
-            <h3>AI Integrations &amp; Automation</h3>
-            <p>
-              AI copilots and automation systems integrated directly into your business workflows —
-              so your team ships more with less.
-            </p>
+            <div class="hx-service-main">
+              <h3>AI Integrations &amp; Automation</h3>
+              <p>AI copilots and automation systems integrated into your workflows — so your team ships more with less.</p>
+            </div>
             <ul>
-              <li>AI copilots inside your business workflows</li>
-              <li>Process &amp; operations automation systems</li>
+              <li>AI copilots inside business workflows</li>
+              <li>Process &amp; operations automation</li>
               <li>Chat, support &amp; lead-response automation</li>
-              <li>Real-time behavior &amp; performance analytics</li>
-              <li>Intelligence-first architecture decisions</li>
-              <li>Cloud + security layer for safe scale</li>
+              <li>Cloud + security for safe scale</li>
             </ul>
           </article>
-          <article class="hx-service hx-reveal hx-tilt" style="--d: 420ms">
+          <article class="hx-service-row hx-reveal" style="--d: 280ms">
             <span class="hx-service-num">08</span>
-            <div class="hx-service-icon" aria-hidden="true">📊</div>
-            <h3>SaaS Platforms &amp; Business Systems</h3>
-            <p>
-              Dashboards, ERPs, and operational platforms that run your business — engineered for
-              enterprise-scale control.
-            </p>
+            <div class="hx-service-main">
+              <h3>SaaS Platforms &amp; Business Systems</h3>
+              <p>Dashboards, ERPs, and operational platforms engineered for enterprise-scale control.</p>
+            </div>
             <ul>
               <li>SaaS platform design &amp; engineering</li>
               <li>Business dashboards &amp; internal tools</li>
-              <li>Customer, project &amp; operations management</li>
               <li>E-commerce &amp; booking systems</li>
-              <li>Lead &amp; enquiry pipeline structuring</li>
               <li>Legacy product rescue &amp; modernization</li>
             </ul>
           </article>
         </div>
       </section>
 
-      <!-- ============ EXECUTION PARTNER ============ -->
       <section class="hx-section" id="hx-partner">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">02 — Execution partner</p>
@@ -278,61 +236,59 @@
         </dl>
       </section>
 
-      <!-- ============ WHY US ============ -->
-      <section class="hx-section hx-section-dark" id="hx-why">
+      <section class="hx-section" id="hx-why">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">03 — Why Hexenity</p>
           <h2>Ten reasons teams choose us</h2>
           <p>Every engagement runs on the same principles — quality, clarity, and measurable results.</p>
         </header>
-        <div class="hx-why-grid">
-          <div class="hx-why hx-reveal"><span>01</span>Modern &amp; clean development</div>
-          <div class="hx-why hx-reveal" style="--d: 40ms"><span>02</span>Performance-focused apps</div>
-          <div class="hx-why hx-reveal" style="--d: 80ms"><span>03</span>SEO-optimized websites</div>
-          <div class="hx-why hx-reveal" style="--d: 120ms"><span>04</span>Scalable architecture</div>
-          <div class="hx-why hx-reveal" style="--d: 160ms"><span>05</span>Creative brand positioning</div>
-          <div class="hx-why hx-reveal" style="--d: 200ms"><span>06</span>Data-driven digital marketing</div>
-          <div class="hx-why hx-reveal" style="--d: 240ms"><span>07</span>Conversion-focused campaigns</div>
-          <div class="hx-why hx-reveal" style="--d: 280ms"><span>08</span>Performance analytics &amp; reporting</div>
-          <div class="hx-why hx-reveal" style="--d: 320ms"><span>09</span>Long-term technical support</div>
-          <div class="hx-why hx-reveal" style="--d: 360ms"><span>10</span>Affordable &amp; transparent pricing</div>
+        <div class="hx-why-panel hx-reveal">
+          <div class="hx-why"><span>01</span>Modern &amp; clean development</div>
+          <div class="hx-why"><span>02</span>Performance-focused apps</div>
+          <div class="hx-why"><span>03</span>SEO-optimized websites</div>
+          <div class="hx-why"><span>04</span>Scalable architecture</div>
+          <div class="hx-why"><span>05</span>Creative brand positioning</div>
+          <div class="hx-why"><span>06</span>Data-driven digital marketing</div>
+          <div class="hx-why"><span>07</span>Conversion-focused campaigns</div>
+          <div class="hx-why"><span>08</span>Performance analytics &amp; reporting</div>
+          <div class="hx-why"><span>09</span>Long-term technical support</div>
+          <div class="hx-why"><span>10</span>Affordable &amp; transparent pricing</div>
         </div>
       </section>
 
-      <!-- ============ PROCESS ============ -->
       <section class="hx-section" id="hx-process">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">04 — How we work with you</p>
           <h2>A process built for clarity</h2>
           <p>No vague promises — you get milestones, delivery dates, and ownership clarity at every stage.</p>
         </header>
-        <ol class="hx-process hx-process--six">
+        <ol class="hx-process">
           <li class="hx-reveal">
             <span class="hx-step">1</span>
             <h3>Idea</h3>
             <p>Discovery call to clarify your objective, users, and what success looks like for the business.</p>
           </li>
-          <li class="hx-reveal" style="--d: 60ms">
+          <li class="hx-reveal" style="--d: 50ms">
             <span class="hx-step">2</span>
             <h3>Strategy</h3>
             <p>Technical proposal with roadmap, scope, timeline, and a transparent quote — before any commitment.</p>
           </li>
-          <li class="hx-reveal" style="--d: 120ms">
+          <li class="hx-reveal" style="--d: 100ms">
             <span class="hx-step">3</span>
             <h3>Design</h3>
             <p>UX strategy and pixel-perfect interface prototypes you approve before a line of code is written.</p>
           </li>
-          <li class="hx-reveal" style="--d: 180ms">
+          <li class="hx-reveal" style="--d: 150ms">
             <span class="hx-step">4</span>
             <h3>Development</h3>
             <p>Clean, scalable engineering with sprint reviews, QA checkpoints, and transparent status updates.</p>
           </li>
-          <li class="hx-reveal" style="--d: 240ms">
+          <li class="hx-reveal" style="--d: 200ms">
             <span class="hx-step">5</span>
             <h3>Launch</h3>
-            <p>Store submissions, hosting, domains, and analytics — we run the go-live checklist end to end, safely.</p>
+            <p>Store submissions, hosting, domains, and analytics — we run the go-live checklist end to end.</p>
           </li>
-          <li class="hx-reveal" style="--d: 300ms">
+          <li class="hx-reveal" style="--d: 250ms">
             <span class="hx-step">6</span>
             <h3>Growth</h3>
             <p>Post-launch support, analytics review, optimization, and roadmap guidance to scale revenue.</p>
@@ -340,8 +296,7 @@
         </ol>
       </section>
 
-      <!-- ============ INDUSTRIES & GLOBAL COVERAGE ============ -->
-      <section class="hx-section hx-section-tint" id="hx-industries">
+      <section class="hx-section" id="hx-industries">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">05 — Industries &amp; reach</p>
           <h2>Trusted across industries and markets</h2>
@@ -361,25 +316,24 @@
         </div>
         <div class="hx-regions">
           <article class="hx-region hx-reveal">
-            <h3>🇮🇳 India</h3>
+            <h3>India</h3>
             <p>Product engineering and strategic execution base.</p>
           </article>
-          <article class="hx-region hx-reveal" style="--d: 60ms">
-            <h3>🌍 Middle East</h3>
+          <article class="hx-region hx-reveal" style="--d: 50ms">
+            <h3>Middle East</h3>
             <p>Enterprise modernization and digital transformation support.</p>
           </article>
-          <article class="hx-region hx-reveal" style="--d: 120ms">
-            <h3>🇨🇦 Canada</h3>
+          <article class="hx-region hx-reveal" style="--d: 100ms">
+            <h3>Canada</h3>
             <p>Scalable platform delivery for growth-stage businesses.</p>
           </article>
-          <article class="hx-region hx-reveal" style="--d: 180ms">
-            <h3>🇺🇸 United States</h3>
+          <article class="hx-region hx-reveal" style="--d: 150ms">
+            <h3>United States</h3>
             <p>High-velocity product launches and operational systems.</p>
           </article>
         </div>
       </section>
 
-      <!-- ============ TECH STACK ============ -->
       <section class="hx-section" id="hx-stack">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">06 — Technology</p>
@@ -396,7 +350,7 @@
               <li>iOS · Swift / Objective-C</li>
             </ul>
           </div>
-          <div class="hx-stack-col hx-reveal" style="--d: 60ms">
+          <div class="hx-stack-col hx-reveal" style="--d: 50ms">
             <h3>Frontend &amp; Web</h3>
             <ul>
               <li>React.js</li>
@@ -405,7 +359,7 @@
               <li>Responsive &amp; PWA builds</li>
             </ul>
           </div>
-          <div class="hx-stack-col hx-reveal" style="--d: 120ms">
+          <div class="hx-stack-col hx-reveal" style="--d: 100ms">
             <h3>Backend &amp; Services</h3>
             <ul>
               <li>Firebase</li>
@@ -414,7 +368,7 @@
               <li>Cloud storage &amp; auth</li>
             </ul>
           </div>
-          <div class="hx-stack-col hx-reveal" style="--d: 180ms">
+          <div class="hx-stack-col hx-reveal" style="--d: 150ms">
             <h3>Tools &amp; Workflow</h3>
             <ul>
               <li>Android Studio · Xcode</li>
@@ -426,7 +380,6 @@
         </div>
       </section>
 
-      <!-- ============ LEADERSHIP ============ -->
       <section class="hx-section" id="hx-lead">
         <div class="hx-lead hx-reveal">
           <div class="hx-lead-copy">
@@ -464,7 +417,6 @@
         </div>
       </section>
 
-      <!-- ============ TESTIMONIALS ============ -->
       <section class="hx-section" id="hx-testimonials">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">08 — Client trust</p>
@@ -479,14 +431,14 @@
             </blockquote>
             <figcaption><span class="hx-quote-avatar">R</span> Rahul — Director, Automotive Brand</figcaption>
           </figure>
-          <figure class="hx-quote hx-reveal" style="--d: 80ms">
+          <figure class="hx-quote hx-reveal" style="--d: 60ms">
             <blockquote>
               "From UX redesign to engineering and launch, they helped us improve lead conversion
               and customer confidence."
             </blockquote>
             <figcaption><span class="hx-quote-avatar">N</span> Neha — Marketing Lead, Healthcare Group</figcaption>
           </figure>
-          <figure class="hx-quote hx-reveal" style="--d: 160ms">
+          <figure class="hx-quote hx-reveal" style="--d: 120ms">
             <blockquote>
               "Their communication cadence gave our team enterprise-level visibility without hiring
               a large in-house tech department."
@@ -496,7 +448,6 @@
         </div>
       </section>
 
-      <!-- ============ FAQ ============ -->
       <section class="hx-section" id="hx-faq">
         <header class="hx-section-head hx-reveal">
           <p class="hx-eyebrow">09 — FAQ</p>
@@ -531,19 +482,18 @@
         </div>
       </section>
 
-      <!-- ============ CTA / CONTACT ============ -->
-      <section class="hx-section hx-contact" id="hx-contact">
+      <section class="hx-section" id="hx-contact">
         <div class="hx-contact-card hx-reveal">
           <div class="hx-contact-copy">
-            <p class="hx-eyebrow hx-eyebrow-light">10 — Start a project</p>
+            <p class="hx-eyebrow">10 — Start a project</p>
             <h2>Let's build something exceptional together.</h2>
             <p>
               Tell us about your app, website, or brand — we'll reply with a clear plan and a
               transparent quote. No jargon, no hidden costs.
             </p>
             <div class="hx-contact-actions">
-              <a class="hx-btn hx-btn-light" href="mailto:info.hexenity@gmail.com?subject=Project%20enquiry%20—%20Hexenity">info.hexenity@gmail.com</a>
-              <a class="hx-btn hx-btn-ghost-light" href="mailto:kksarangrajan@gmail.com?subject=Project%20enquiry%20—%20Hexenity">kksarangrajan@gmail.com</a>
+              <a class="hx-btn hx-btn-primary" href="mailto:info.hexenity@gmail.com?subject=Project%20enquiry%20—%20Hexenity">info.hexenity@gmail.com</a>
+              <a class="hx-btn hx-btn-outline" href="mailto:kksarangrajan@gmail.com?subject=Project%20enquiry%20—%20Hexenity">kksarangrajan@gmail.com</a>
             </div>
           </div>
           <ul class="hx-contact-meta">
@@ -566,6 +516,6 @@
       <p class="hx-footer-copy">&copy; <span id="hx-year"></span> Hexenity. All rights reserved.</p>
     </footer>
 
-    <script src="/hexenity.js?v=20260717q" defer></script>
+    <script src="/hexenity.js?v=20260724rev1" defer></script>
   </body>
 </html>
