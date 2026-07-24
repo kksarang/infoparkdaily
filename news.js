@@ -9,6 +9,13 @@
   const DAY_MS = 24 * 60 * 60 * 1000;
   let activeCategory = "all";
 
+  function assetUrl(path) {
+    if (!path) return "";
+    const value = String(path);
+    if (/^(https?:|data:|\/\/)/i.test(value)) return value;
+    return `/${value.replace(/^\.?\//, "")}`;
+  }
+
   function escapeHtml(value) {
     return String(value ?? "")
       .replace(/&/g, "&amp;")
@@ -63,7 +70,7 @@
     featuredWrap.innerHTML = `
       <a class="news-featured glass" href="${escapeAttr(articleHref(item))}">
         <div class="news-featured-media">
-          <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
+          <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-featured-copy">
           <p class="eyebrow">Top story</p>
@@ -80,7 +87,7 @@
     return `
       <a class="news-card glass" href="${escapeAttr(articleHref(item))}" style="--delay: ${Math.min(index, 8) * 40}ms">
         <div class="news-card-media">
-          <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
+          <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-card-body">
           <h3>${escapeHtml(item.title)}</h3>

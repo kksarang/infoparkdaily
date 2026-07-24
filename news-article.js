@@ -2,6 +2,13 @@
   const root = document.getElementById("news-article-root");
   if (!root || typeof NEWS === "undefined") return;
 
+  function assetUrl(path) {
+    if (!path) return "";
+    const value = String(path);
+    if (/^(https?:|data:|\/\/)/i.test(value)) return value;
+    return `/${value.replace(/^\.?\//, "")}`;
+  }
+
   function escapeHtml(value) {
     return String(value ?? "")
       .replace(/&/g, "&amp;")
@@ -61,7 +68,7 @@
               (item) => `
                 <a class="news-card glass" href="/news-article/?id=${encodeURIComponent(item.id)}">
                   <div class="news-card-media">
-                    <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
+                    <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
                   </div>
                   <div class="news-card-body">
                     <h3>${escapeHtml(item.title)}</h3>
@@ -142,7 +149,7 @@
           <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
         </header>
         <figure class="news-article-media">
-          <img src="${escapeAttr(article.image)}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
+          <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
           ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
         </figure>
         ${highlights}
