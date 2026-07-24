@@ -13,11 +13,11 @@
           window.location.replace("/job/" + encodeURIComponent(id) + window.location.hash);
           return;
         }
-        window.location.replace("/jobs.html");
+        window.location.replace("/jobs/" + window.location.hash);
       })();
     </script>
   </head>
   <body>
-    <p>Redirecting to job page… <a href="/jobs.html">View all jobs</a></p>
+    <p>Redirecting to job page… <a href="/jobs/">View all jobs</a></p>
   </body>
 </html>

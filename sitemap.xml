@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.infoparkdaily.in/</loc>
+    <loc>https://infoparkdaily.online/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/jobs.html</loc>
+    <loc>https://infoparkdaily.online/jobs/</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/job.html</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.infoparkdaily.in/contact.html</loc>
+    <loc>https://infoparkdaily.online/build/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/media.html</loc>
+    <loc>https://infoparkdaily.online/contact/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/media/</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/news.html</loc>
+    <loc>https://infoparkdaily.online/news/</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/news-article.html</loc>
+    <loc>https://infoparkdaily.online/news-article/</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/hexenity.html</loc>
+    <loc>https://infoparkdaily.online/hexenity/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/services.html</loc>
+    <loc>https://infoparkdaily.online/services/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/privacy.html</loc>
+    <loc>https://infoparkdaily.online/privacy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.infoparkdaily.in/terms.html</loc>
+    <loc>https://infoparkdaily.online/terms/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

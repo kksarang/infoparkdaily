@@ -3,21 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Details | InfoparkDaily</title>
+    <title>Tech Park News | InfoparkDaily</title>
     <meta
       name="description"
-      content="Company hiring details, open roles, requirements, and apply information curated by InfoparkDaily."
+      content="Kerala tech park news story — Infopark, Technopark, AI City, and Kochi Metro updates curated by InfoparkDaily."
     />
     <meta name="theme-color" content="#0b0b0f" />
-    <meta property="og:title" content="Job Details | InfoparkDaily" />
-    <meta
-      property="og:description"
-      content="Full hiring details from Infopark Kochi companies — curated by InfoparkDaily."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://infoparkdaily.online/" />
-    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
-    <link rel="canonical" href="https://infoparkdaily.online/" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://infoparkdaily.online/news-article/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,18 +30,8 @@
         }
       })();
     </script>
-    <script>
-      (function () {
-        var path = window.location.pathname || "";
-        var isJob = /^\/job\/[^\/]+\/?$/i.test(path);
-        if (!isJob) {
-          document.title = "Page not found | InfoparkDaily";
-        }
-        window.__IPD_IS_JOB_ROUTE__ = isJob;
-      })();
-    </script>
   </head>
-  <body class="jobs-body dark">
+  <body class="jobs-body news-body dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -61,8 +44,8 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/services/">Services</a>
         <a href="/build/">Build</a>
-        <a href="/jobs/" aria-current="page">Jobs</a>
-        <a href="/news/">News</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/news/" aria-current="page">News</a>
         <a href="/media/">Social</a>
         <a href="/contact/">Contact</a>
         <a href="/hexenity/" class="nav-hexenity">Hexenity</a>
@@ -84,14 +67,13 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page job-detail-page">
-      <div id="job-detail-root">
-        <p class="job-detail-loading glass">Loading hiring details…</p>
+    <main id="main-content" class="jobs-page news-page news-article-page">
+      <div id="news-article-root">
+        <p class="job-detail-loading glass">Loading story…</p>
       </div>
-      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="limited"></div>
     </main>
 
-    <footer id="contact" class="site-footer">
+    <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand-col">
           <div class="footer-brand">
@@ -147,13 +129,6 @@
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
-        <p class="footer-legal">
-          <a href="/privacy/">Privacy Policy</a>
-          <span aria-hidden="true">·</span>
-          <a href="/terms/">Terms &amp; Conditions</a>
-          <span aria-hidden="true">·</span>
-          <a href="/privacy/#disclaimer">Disclaimer</a>
-        </p>
         <p class="footer-credit">
           Made with <span aria-hidden="true">&#10084;</span>
           <a href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Hexenity</a> - Digital &amp; Software Solutions Company
@@ -162,8 +137,7 @@
     </footer>
 
     <script src="/script.js?v=20260724m" defer></script>
-    <script src="/jobs-data.js?v=20260724m" defer></script>
-    <script src="/disclaimer.js?v=20260724m" defer></script>
-    <script src="/job.js?v=20260724m" defer></script>
+    <script src="/news-data.js?v=20260724m" defer></script>
+    <script src="/news-article.js?v=20260724m" defer></script>
   </body>
 </html>

@@ -7,7 +7,7 @@
  *
  * FIELDS
  * ------
- * id          string   Unique slug — used in URL: news-article.html?id=my-story
+ * id          string   Unique slug — used in URL: /news-article/?id=my-story
  * title       string   Headline
  * category    string   "Infrastructure" | "AI City" | "Metro" | "Events" | "Business" | "Community"
  * park        string   "Infopark Kochi" | "Technopark TVM" | "Kerala"

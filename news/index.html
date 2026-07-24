@@ -3,21 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Job Details | InfoparkDaily</title>
+    <title>Kerala Tech Park News — Infopark &amp; Technopark Updates | InfoparkDaily</title>
     <meta
       name="description"
-      content="Company hiring details, open roles, requirements, and apply information curated by InfoparkDaily."
+      content="Latest Kerala tech park news — Infopark Phase 3, AI City, Kochi Metro progress, Onam events, and Technopark updates, curated by InfoparkDaily."
     />
     <meta name="theme-color" content="#0b0b0f" />
-    <meta property="og:title" content="Job Details | InfoparkDaily" />
+    <meta property="og:title" content="Kerala Tech Park News | InfoparkDaily" />
     <meta
       property="og:description"
-      content="Full hiring details from Infopark Kochi companies — curated by InfoparkDaily."
+      content="Infopark Phase 3, AI City, Kochi Metro progress, campus events, and Technopark updates — curated daily."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://infoparkdaily.online/" />
+    <meta property="og:url" content="https://infoparkdaily.online/news/" />
     <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
-    <link rel="canonical" href="https://infoparkdaily.online/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kerala Tech Park News | InfoparkDaily" />
+    <meta
+      name="twitter:description"
+      content="Infopark Phase 3, AI City, Metro progress, events & Technopark updates."
+    />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/news/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,18 +44,8 @@
         }
       })();
     </script>
-    <script>
-      (function () {
-        var path = window.location.pathname || "";
-        var isJob = /^\/job\/[^\/]+\/?$/i.test(path);
-        if (!isJob) {
-          document.title = "Page not found | InfoparkDaily";
-        }
-        window.__IPD_IS_JOB_ROUTE__ = isJob;
-      })();
-    </script>
   </head>
-  <body class="jobs-body dark">
+  <body class="jobs-body news-body dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -61,8 +58,8 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/services/">Services</a>
         <a href="/build/">Build</a>
-        <a href="/jobs/" aria-current="page">Jobs</a>
-        <a href="/news/">News</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/news/" aria-current="page">News</a>
         <a href="/media/">Social</a>
         <a href="/contact/">Contact</a>
         <a href="/hexenity/" class="nav-hexenity">Hexenity</a>
@@ -84,14 +81,51 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page job-detail-page">
-      <div id="job-detail-root">
-        <p class="job-detail-loading glass">Loading hiring details…</p>
-      </div>
-      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="limited"></div>
+    <main id="main-content" class="jobs-page news-page">
+      <section class="jobs-hero" aria-labelledby="news-hero-title">
+        <div class="jobs-hero-glow" aria-hidden="true"></div>
+        <div class="jobs-hero-copy">
+          <p class="jobs-kicker">News Desk · Kerala Tech Parks</p>
+          <h1 id="news-hero-title">
+            Tech Park News
+            <span class="jobs-hero-accent">Infopark &amp; Beyond</span>
+          </h1>
+          <p class="jobs-intro">
+            Infopark Phase 3, AI City, Kochi Metro progress, campus events, and Technopark updates —
+            the stories shaping Kerala's tech corridors, curated by InfoparkDaily.
+          </p>
+        </div>
+        <aside class="jobs-hero-panel glass" aria-label="News alerts">
+          <p class="jobs-panel-label">Breaking updates first</p>
+          <div class="media-hero-actions">
+            <a class="btn btn-primary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+          <p class="jobs-panel-note">Community-curated · Verify with official sources</p>
+        </aside>
+      </section>
+
+      <section class="content-section news-controls-section" aria-label="News filters">
+        <div id="news-filters" class="jobs-filters news-filters" role="group" aria-label="Filter by category">
+          <button type="button" class="jobs-filter-btn is-active" data-category="all" aria-pressed="true">All news</button>
+        </div>
+      </section>
+
+      <section class="content-section" aria-label="Featured story">
+        <div id="news-featured"></div>
+      </section>
+
+      <section class="content-section" aria-label="Latest stories">
+        <div id="news-grid" class="news-grid"></div>
+        <p id="news-empty" class="jobs-empty glass" hidden>
+          No stories in this category yet — follow our
+          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+          for instant updates.
+        </p>
+      </section>
     </main>
 
-    <footer id="contact" class="site-footer">
+    <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand-col">
           <div class="footer-brand">
@@ -147,13 +181,6 @@
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
-        <p class="footer-legal">
-          <a href="/privacy/">Privacy Policy</a>
-          <span aria-hidden="true">·</span>
-          <a href="/terms/">Terms &amp; Conditions</a>
-          <span aria-hidden="true">·</span>
-          <a href="/privacy/#disclaimer">Disclaimer</a>
-        </p>
         <p class="footer-credit">
           Made with <span aria-hidden="true">&#10084;</span>
           <a href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Hexenity</a> - Digital &amp; Software Solutions Company
@@ -162,8 +189,7 @@
     </footer>
 
     <script src="/script.js?v=20260724m" defer></script>
-    <script src="/jobs-data.js?v=20260724m" defer></script>
-    <script src="/disclaimer.js?v=20260724m" defer></script>
-    <script src="/job.js?v=20260724m" defer></script>
+    <script src="/news-data.js?v=20260724m" defer></script>
+    <script src="/news.js?v=20260724m" defer></script>
   </body>
 </html>

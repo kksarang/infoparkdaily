@@ -171,8 +171,8 @@
             ? "This job may have been removed or the link is incomplete."
             : "The page you requested doesn’t exist on InfoparkDaily."
         }</p>
-        <a class="btn btn-primary" href="/jobs.html">Back to Job Openings</a>
-        <a class="btn btn-secondary" href="/index.html">Home</a>
+        <a class="btn btn-primary" href="/jobs/">Back to Job Openings</a>
+        <a class="btn btn-secondary" href="/">Home</a>
       </section>
     `;
   }
@@ -184,7 +184,7 @@
         <p class="jobs-kicker">Temporary issue</p>
         <h1>Couldn’t load job data</h1>
         <p>Please refresh the page. If it keeps happening, open Jobs and try again.</p>
-        <a class="btn btn-primary" href="/jobs.html">View Jobs</a>
+        <a class="btn btn-primary" href="/jobs/">View Jobs</a>
         <button class="btn btn-secondary" type="button" onclick="window.location.reload()">Refresh</button>
       </section>
     `;
@@ -718,7 +718,7 @@
 
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
-        <a href="/jobs.html">← Job Openings</a>
+        <a href="/jobs/">← Job Openings</a>
       </nav>
 
       ${
@@ -729,7 +729,7 @@
               <p>
                 Deadline was ${escapeHtml(formatDate(job.applyDeadline))}.
                 This page is kept for reference only.
-                <a href="/jobs.html">Browse open jobs →</a>
+                <a href="/jobs/">Browse open jobs →</a>
               </p>
             </div>`
           : ""
@@ -769,7 +769,7 @@
                 ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
                 : ""
             }
-            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="/jobs.html">${expired ? "See open jobs" : "All Openings"}</a>
+            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="/jobs/">${expired ? "See open jobs" : "All Openings"}</a>
           </div>
         </div>
         ${heroStatStrip(job)}

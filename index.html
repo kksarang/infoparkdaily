@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>INFOPARKDAILY.in | Kerala's Largest Tech &amp; Business Community</title>
+    <title>INFOPARKDAILY | Kerala's Largest Tech &amp; Business Community</title>
     <meta
       name="description"
       content="Infopark Daily is Kerala's largest tech and business community connecting professionals, startups, companies, recruiters, and local businesses across Infopark Kochi."
@@ -19,16 +19,16 @@
       content="The digital ecosystem of Infopark Kochi for media, careers, business collaborations, and technology growth."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.infoparkdaily.in/" />
-    <meta property="og:image" content="https://www.infoparkdaily.in/preview.jpg" />
+    <meta property="og:url" content="https://infoparkdaily.online/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Infopark Daily | Kerala's Largest Tech & Business Community" />
     <meta
       name="twitter:description"
       content="Connecting 100,000+ professionals, 1,000+ companies, startups, brands, and communities in and around Infopark Kochi."
     />
-    <meta name="twitter:image" content="https://www.infoparkdaily.in/preview.jpg" />
-    <link rel="canonical" href="https://www.infoparkdaily.in/" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,9 +37,14 @@
     />
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" type="image/png" href="assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="styles.css?v=20260724k" />
+    <link rel="stylesheet" href="styles.css?v=20260724m" />
     <script>
       (function () {
+        // Prefer clean root URL instead of /index.html
+        if (/\/index\.html$/i.test(window.location.pathname)) {
+          window.location.replace("/" + window.location.search + window.location.hash);
+          return;
+        }
         try {
           if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
           else document.documentElement.classList.add("theme-dark");
@@ -53,8 +58,8 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Infopark Daily",
-        "url": "https://www.infoparkdaily.in/",
-        "logo": "https://www.infoparkdaily.in/assets/logo-infoparkdaily.png",
+        "url": "https://infoparkdaily.online/",
+        "logo": "https://infoparkdaily.online/assets/logo-infoparkdaily.png",
         "email": "infoparkstorieskochi@gmail.com",
         "telephone": "+919995254290",
         "sameAs": [
@@ -75,10 +80,10 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Infopark Daily",
-        "url": "https://www.infoparkdaily.in/",
+        "url": "https://infoparkdaily.online/",
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://www.infoparkdaily.in/search?q={query}",
+          "target": "https://infoparkdaily.online/search?q={query}",
           "query-input": "required name=query"
         }
       }
@@ -87,7 +92,7 @@
   <body class="dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
-      <a class="brand" href="index.html" aria-label="Infopark Daily home">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
         <img class="brand-logo" src="assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
         <div>
           <p class="brand-name">INFOPARKDAILY</p>
@@ -95,13 +100,13 @@
         </div>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="services.html">Services</a>
-        <a href="build.html">Build</a>
-        <a href="jobs.html">Jobs</a>
-        <a href="news.html">News</a>
-        <a href="media.html">Social</a>
-        <a href="contact.html">Contact</a>
-        <a href="hexenity.html" class="nav-hexenity">Hexenity</a>
+        <a href="/services/">Services</a>
+        <a href="/build/">Build</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/news/">News</a>
+        <a href="/media/">Social</a>
+        <a href="/contact/">Contact</a>
+        <a href="/hexenity/" class="nav-hexenity">Hexenity</a>
       </nav>
       <div class="header-actions">
         <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
@@ -130,8 +135,8 @@
             distribution across Kerala's strongest tech audience.
           </p>
           <div class="hero-cta">
-            <a href="contact.html" class="btn btn-primary">Connect</a>
-            <a href="jobs.html" class="btn btn-secondary">View Jobs</a>
+            <a href="/contact/" class="btn btn-primary">Connect</a>
+            <a href="/jobs/" class="btn btn-secondary">View Jobs</a>
             <a href="https://www.instagram.com/infoparkdaily/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Open Instagram</a>
           </div>
           <ul class="hero-proof">
@@ -289,8 +294,8 @@
             </p>
           </div>
           <div class="bt-home-teaser-actions">
-            <a class="btn btn-primary" href="build.html">Explore Build Together</a>
-            <a class="btn btn-ghost" href="contact.html?reason=build">Share your idea</a>
+            <a class="btn btn-primary" href="/build/">Explore Build Together</a>
+            <a class="btn btn-ghost" href="/contact/?reason=build">Share your idea</a>
           </div>
         </div>
       </section>
@@ -302,7 +307,7 @@
         </div>
         <div id="featured-jobs-grid" class="jobs-grid featured-jobs-grid"></div>
         <div class="featured-jobs-cta reveal">
-          <a class="btn btn-primary" href="jobs.html">View All Jobs →</a>
+          <a class="btn btn-primary" href="/jobs/">View All Jobs →</a>
           <a class="btn btn-ghost" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp alerts</a>
         </div>
       </section>
@@ -499,7 +504,7 @@
             Join Infoparkdaily Jobs to discover openings, hiring updates, internships, and networking opportunities across Kerala's growing tech ecosystem.
           </p>
           <div class="jobs-links">
-            <a class="btn btn-primary" href="jobs.html">View All Openings →</a>
+            <a class="btn btn-primary" href="/jobs/">View All Openings →</a>
             <a class="btn btn-secondary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">
               Follow Instagram Jobs Page
             </a>
@@ -517,7 +522,7 @@
           <p>From strategy to execution, we help you launch and scale campaigns that consistently perform.</p>
         </div>
         <div class="cta-actions">
-          <a href="contact.html" class="btn btn-primary">Contact us</a>
+          <a href="/contact/" class="btn btn-primary">Contact us</a>
           <a href="tel:+919995254290" class="btn btn-secondary">Call Now</a>
         </div>
       </section>
@@ -535,8 +540,8 @@
             campaigns from Infopark Kochi.
           </p>
           <div class="footer-cta-row">
-            <a class="btn btn-primary" href="jobs.html">View Jobs</a>
-            <a class="btn btn-secondary" href="contact.html">Contact us</a>
+            <a class="btn btn-primary" href="/jobs/">View Jobs</a>
+            <a class="btn btn-secondary" href="/contact/">Contact us</a>
           </div>
         </div>
         <div class="footer-contact-col">
@@ -555,7 +560,7 @@
           </p>
           <p class="footer-contact-item">
             <span>More</span>
-            <a href="contact.html">Open full contact page →</a>
+            <a href="/contact/">Open full contact page →</a>
           </p>
         </div>
         <div class="contact-map footer-map" aria-label="Infopark location map">
@@ -586,7 +591,7 @@
       </div>
     </footer>
 
-    <script src="jobs-data.js?v=20260724k" defer></script>
-    <script src="script.js?v=20260724k" defer></script>
+    <script src="jobs-data.js?v=20260724m" defer></script>
+    <script src="script.js?v=20260724m" defer></script>
   </body>
 </html>

@@ -40,7 +40,7 @@
   }
 
   function articleHref(item) {
-    return `news-article.html?id=${encodeURIComponent(item.id)}`;
+    return `/news-article/?id=${encodeURIComponent(item.id)}`;
   }
 
   function metaRow(item) {

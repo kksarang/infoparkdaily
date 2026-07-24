@@ -33,7 +33,7 @@
         <p class="jobs-kicker">News desk</p>
         <h1>Story not found</h1>
         <p>This story may have been removed or the link is incomplete.</p>
-        <a class="btn btn-primary" href="news.html">Back to News</a>
+        <a class="btn btn-primary" href="/news/">Back to News</a>
       </section>
     `;
   }
@@ -59,7 +59,7 @@
           ${related
             .map(
               (item) => `
-                <a class="news-card glass" href="news-article.html?id=${encodeURIComponent(item.id)}">
+                <a class="news-card glass" href="/news-article/?id=${encodeURIComponent(item.id)}">
                   <div class="news-card-media">
                     <img src="${escapeAttr(item.image)}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
                   </div>
@@ -128,7 +128,7 @@
 
     root.innerHTML = `
       <nav class="job-breadcrumb" aria-label="Breadcrumb">
-        <a href="news.html">← Tech Park News</a>
+        <a href="/news/">← Tech Park News</a>
       </nav>
 
       <article class="news-article glass">
