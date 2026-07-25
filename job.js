@@ -227,6 +227,97 @@
     `;
   }
 
+  function naText(value) {
+    const text = String(value ?? "").trim();
+    return text || "Not officially available.";
+  }
+
+  function numberedFromArray(items) {
+    if (!items || !items.length) return "";
+    return `<ol class="job-detail-steps">${items
+      .map((item) => `<li>${escapeHtml(item)}</li>`)
+      .join("")}</ol>`;
+  }
+
+  function faqBlock(faqs) {
+    if (!faqs || !faqs.length) return "";
+    return `<div class="job-sheet-faqs">${faqs
+      .map((item) => {
+        if (typeof item === "string") {
+          const parts = item.split("?");
+          if (parts.length < 2) return `<p class="job-detail-text">${escapeHtml(item)}</p>`;
+          return `<div class="job-sheet-faq"><strong>${escapeHtml(`${parts[0]}?`)}</strong><span>${escapeHtml(parts.slice(1).join("?").trim())}</span></div>`;
+        }
+        return `<div class="job-sheet-faq"><strong>${escapeHtml(item.q || "")}</strong><span>${escapeHtml(item.a || "")}</span></div>`;
+      })
+      .join("")}</div>`;
+  }
+
+  function officialLinksBlock(job) {
+    const links = job.officialLinks || {};
+    const rows = [
+      links.website ? infoItem("Official website", linkHtml(links.website)) : "",
+      links.careers ? infoItem("Official apply / careers", linkHtml(links.careers, "Open apply page")) : "",
+      links.infoparkProfile
+        ? infoItem("Infopark company profile", linkHtml(links.infoparkProfile, "View Infopark profile"))
+        : "",
+      links.infoparkJobs
+        ? infoItem("Infopark Jobs portal", linkHtml(links.infoparkJobs, "infopark.in/companies-job"))
+        : "",
+      links.linkedin ? infoItem("Official LinkedIn", linkHtml(links.linkedin)) : infoItem("Official LinkedIn", escapeHtml("Not officially available.")),
+      links.contactPage ? infoItem("Contact page", linkHtml(links.contactPage)) : ""
+    ].join("");
+    return rows ? `<dl class="job-info-list">${rows}</dl>` : "";
+  }
+
+  function verificationNoticeBlock(job) {
+    const notice =
+      job.verificationNotice ||
+      "InfoparkDaily Verification Notice: Apply only through official company or Infopark Jobs channels. InfoparkDaily never charges any fee for jobs.";
+    const warnings = job.fraudWarning || [];
+    return `
+      <section class="job-panel glass job-verify-panel">
+        <h2>InfoparkDaily Verification Notice</h2>
+        <p class="job-detail-text">${escapeHtml(notice)}</p>
+        ${listBlock(warnings)}
+      </section>
+    `;
+  }
+
+  function verificationReportBlock(job) {
+    const report = job.verificationReport;
+    if (!report) return "";
+    const flags = [
+      ["Company exists", report.companyExists],
+      ["Website verified", report.websiteVerified],
+      ["Infopark profile verified", report.infoparkProfileVerified],
+      ["Email verified", report.emailVerified],
+      ["Phone verified", report.phoneVerified],
+      ["Address verified", report.addressVerified],
+      ["Apply link verified", report.applyLinkVerified]
+    ];
+    return `
+      <ul class="job-verify-checklist">
+        ${flags
+          .map(
+            ([label, ok]) =>
+              `<li class="${ok ? "is-yes" : "is-no"}"><span>${ok ? "Verified" : "Not officially available"}</span><strong>${escapeHtml(label)}</strong></li>`
+          )
+          .join("")}
+      </ul>
+      ${
+        report.sources && report.sources.length
+          ? `<p class="job-detail-text"><strong>Sources used:</strong> ${escapeHtml(report.sources.join(" · "))}</p>`
+          : ""
+      }
+      ${
+        report.unverifiedFields && report.unverifiedFields.length
+          ? `<p class="job-detail-text"><strong>Marked unavailable:</strong> ${escapeHtml(report.unverifiedFields.join(", "))}</p>`
+          : ""
+      }
+    `;
+  }
+
   function applyMethodsBlock(job) {
     const methods = [];
 
@@ -235,7 +326,7 @@
         <a class="job-apply-method" href="mailto:${escapeAttr(job.email)}">
           <span class="job-apply-method-icon job-apply-method-icon--mail" aria-hidden="true">@</span>
           <span class="job-apply-method-body">
-            <strong>HR / Apply email</strong>
+            <strong>Verified apply email</strong>
             <span>${escapeHtml(job.email)}</span>
           </span>
         </a>
@@ -249,14 +340,14 @@
         <a class="job-apply-method" href="${escapeAttr(careers)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">↗</span>
           <span class="job-apply-method-body">
-            <strong>Official careers page</strong>
+            <strong>Official apply / careers</strong>
             <span>${escapeHtml(String(careers).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
           </span>
         </a>
       `);
     }
 
-    if (job.website && job.website !== careers) {
+    if (job.website && job.website !== careers && !/infopark\.in\/companies-job/.test(job.website)) {
       methods.push(`
         <a class="job-apply-method" href="${escapeAttr(job.website)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">◉</span>
@@ -273,18 +364,22 @@
         <a class="job-apply-method" href="tel:${escapeAttr(String(job.phone).replace(/\s+/g, ""))}">
           <span class="job-apply-method-icon job-apply-method-icon--phone" aria-hidden="true">✆</span>
           <span class="job-apply-method-body">
-            <strong>Call / WhatsApp</strong>
+            <strong>Verified phone</strong>
             <span>${escapeHtml(job.phone)}</span>
           </span>
         </a>
       `);
     }
 
-    const steps = job.howToApply
-      ? `<p class="job-detail-text job-apply-steps">${escapeHtml(job.howToApply)}</p>`
-      : "";
+    const steps = job.applySteps && job.applySteps.length
+      ? numberedFromArray(job.applySteps)
+      : job.howToApply
+        ? `<p class="job-detail-text job-apply-steps">${escapeHtml(job.howToApply)}</p>`
+        : "";
 
-    if (!methods.length && !steps) return "";
+    if (!methods.length && !steps) {
+      return `<p class="job-detail-text">Not officially available.</p>`;
+    }
     return `
       ${steps}
       ${methods.length ? `<div class="job-apply-methods">${methods.join("")}</div>` : ""}
@@ -629,80 +724,119 @@
       .map((role, i) => `<li><span class="job-role-num">${String(i + 1).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`)
       .join("");
 
-    document.title = `${job.company} — ${(job.roles || [])[0] || "Hiring"} | InfoparkDaily`;
+    document.title = job.seoTitle || `${job.company} — ${(job.roles || [])[0] || "Hiring"} | InfoparkDaily`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
         "content",
-        `${job.company} hiring in ${job.location || "Kerala"} — roles, requirements, and apply details curated by InfoparkDaily.`
+        job.seoDescription ||
+          `${job.company} hiring in ${job.location || "Kerala"} — verified roles, requirements, and apply details on InfoparkDaily.`
       );
     }
 
     const applyUrl =
       job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
     const isSheet = Boolean(job.alertSheet);
+    const cv = job.contactVerification || {};
 
     const contactBlock = [
-      infoItem("HR Email", emailHtml(job.email)),
-      infoItem("Phone", phoneHtml(job.phone)),
-      infoItem("Official careers", linkHtml(applyUrl, "Open careers page")),
-      infoItem("Website", linkHtml(job.website)),
-      infoItem("Reference ID", escapeHtml(job.referenceId || "")),
-      infoItem("Address", escapeHtml(job.address || job.location))
+      infoItem("Verified email", emailHtml(job.email) || escapeHtml("Not officially available.")),
+      infoItem("Verified phone", phoneHtml(job.phone) || escapeHtml("Not officially available.")),
+      infoItem("Official careers", linkHtml(applyUrl, "Open careers page") || escapeHtml(naText(cv.careersPage))),
+      infoItem("Website", linkHtml(job.website && !/infopark\.in\/companies-job/.test(job.website) ? job.website : "") || escapeHtml("Not officially available.")),
+      infoItem("Legal company name", escapeHtml(job.companyLegalName || job.company)),
+      infoItem("Address", escapeHtml(job.address || "Not officially available.")),
+      infoItem("Email source", escapeHtml(cv.email || "")),
+      infoItem("Phone source", escapeHtml(cv.phone || ""))
     ].join("");
 
     const snapshotBlock = [
-      infoItem("Company", escapeHtml(job.company)),
-      infoItem("Industry", escapeHtml(job.industry)),
-      infoItem("Company size", escapeHtml(job.companySize)),
-      infoItem("Location", escapeHtml(job.location)),
+      infoItem("Company", escapeHtml(job.companyLegalName || job.company)),
+      infoItem("Industry", escapeHtml(job.industry || "Not officially available.")),
+      infoItem("Company size", escapeHtml(job.companySize || "Not officially available.")),
+      infoItem("Founded", escapeHtml("Not officially available.")),
+      infoItem("Department", escapeHtml(job.department || "Not officially available.")),
+      infoItem("Location", escapeHtml(job.location || "Not officially available.")),
       infoItem("Experience", escapeHtml(badgeLabel)),
-      infoItem("Experience years", escapeHtml(job.experienceYears || job.experienceRange)),
-      infoItem("Expected salary", escapeHtml(job.salaryRange)),
-      infoItem("Work status", escapeHtml(job.workStatus)),
-      infoItem("Work mode", escapeHtml(job.workMode)),
-      infoItem("Posted", job.postedDate ? escapeHtml(formatDate(job.postedDate)) : ""),
+      infoItem("Experience years", escapeHtml(job.experienceYears || job.experienceRange || "Not officially available.")),
+      infoItem("Salary", escapeHtml(job.salaryRange || "Not officially available.")),
+      infoItem("Employment type", escapeHtml(job.employmentType || job.workStatus || "Not officially available.")),
+      infoItem("Work mode", escapeHtml(job.workMode || "Not officially available.")),
+      infoItem("Working days", escapeHtml("Not officially available.")),
+      infoItem("Working hours", escapeHtml("Not officially available.")),
+      infoItem("Shift", escapeHtml("Not officially available.")),
+      infoItem("Notice period", escapeHtml("Not officially available.")),
+      infoItem("Open positions", escapeHtml("Not officially available.")),
+      infoItem("Reporting manager", escapeHtml("Not officially available.")),
+      infoItem("Posted", job.postedDate ? escapeHtml(formatDate(job.postedDate)) : escapeHtml("Not officially available.")),
       infoItem(
-        "Apply deadline",
+        "Application deadline",
         job.applyDeadline
-          ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling / Open until filled" : formatDate(job.applyDeadline))
-          : ""
+          ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling applications" : formatDate(job.applyDeadline))
+          : escapeHtml("Not specified.")
       ),
-      infoItem("Starting", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : ""),
-      infoItem("Walk-in", job.isWalkIn ? escapeHtml(job.walkInDate || "Yes") : ""),
-      infoItem("Source", escapeHtml(job.source)),
+      infoItem("Joining date", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : escapeHtml("Not officially available.")),
+      infoItem("Walk-in", job.isWalkIn ? escapeHtml(job.walkInDate || "Yes") : escapeHtml("No")),
+      infoItem("Source", escapeHtml(job.source || "Not officially available.")),
       infoItem("Listing ID", escapeHtml(job.id))
     ].join("");
 
-    const skillsBlock = listBlock(job.skills || job.requiredSkills);
+    const techSkills = listBlock(job.technicalSkills || job.skills || job.requiredSkills);
+    const softSkills = listBlock(job.softSkills);
+    const preferredSkills = listBlock(job.preferredSkills);
+    const skillsBlock = [
+      techSkills ? `<p class="job-sheet-subhead">Technical skills</p>${techSkills}` : "",
+      softSkills ? `<p class="job-sheet-subhead">Soft skills</p>${softSkills}` : "",
+      preferredSkills ? `<p class="job-sheet-subhead">Preferred skills</p>${preferredSkills}` : "",
+      !techSkills && !softSkills && !preferredSkills
+        ? `<p class="job-detail-text">Not officially available.</p>`
+        : ""
+    ].join("");
+
     const tipsBlock = listBlock(job.interviewTips);
+    const internalLinks = (job.internalLinks || [])
+      .map((item) => `<li><a href="${escapeAttr(item.href)}">${escapeHtml(item.label)}</a></li>`)
+      .join("");
 
     const standardLayout = `
       <div class="job-detail-layout">
         <div class="job-detail-main">
-          ${section("How to apply", applyMethodsBlock(job), "job-apply-panel")}
-          ${walkInBlock(job)}
-          ${section("About the company", job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : "")}
+          ${verificationNoticeBlock(job)}
+          ${section("Job summary", job.jobSummary ? `<p class="job-detail-text">${escapeHtml(job.jobSummary)}</p>` : "")}
+          ${section("About the company", job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : `<p class="job-detail-text">Not officially available.</p>`)}
           ${section(
             "Hiring overview",
             job.workDetails || job.description
               ? `<p class="job-detail-text">${escapeHtml(job.workDetails || job.description)}</p>`
-              : ""
+              : `<p class="job-detail-text">Not officially available.</p>`
           )}
-          ${section("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : "")}
-          ${section("Requirements / eligibility", listBlock(job.requirements))}
+          ${section("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Responsibilities", listBlock(job.responsibilities) || `<p class="job-detail-text">Not officially available.</p>`)}
           ${section("Required skills", skillsBlock)}
-          ${section("Responsibilities", listBlock(job.responsibilities))}
-          ${section("Benefits & perks", listBlock(job.benefits))}
+          ${section("Eligibility", listBlock(job.eligibility) || listBlock(job.requirements) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Benefits", listBlock(job.benefits) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Salary", `<p class="job-detail-text">${escapeHtml(job.salaryRange || "Not officially available.")}</p>`)}
+          ${section("Hiring process", numberedFromArray(job.hiringProcess) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("How to apply", applyMethodsBlock(job), "job-apply-panel")}
+          ${section("Required documents", listBlock(job.requiredDocuments) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${walkInBlock(job)}
           ${section("Interview tips", tipsBlock)}
+          ${section("Structured FAQ", faqBlock(job.faq))}
+          ${section("Official links", officialLinksBlock(job))}
+          ${section("Final verification report", verificationReportBlock(job))}
           ${section("Hiring notes", job.hiringNotes ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : "")}
+          ${
+            internalLinks
+              ? section("Explore more on InfoparkDaily", `<ul class="job-detail-bullets">${internalLinks}</ul>`)
+              : ""
+          }
         </div>
         <aside class="job-detail-side">
           ${section(
-            "Contact & location",
+            "Official contact details",
             contactBlock ? `<dl class="job-info-list">${contactBlock}</dl>${mapBlock(job)}` : ""
           )}
-          ${section("Company snapshot", snapshotBlock ? `<dl class="job-info-list job-info-list--grid">${snapshotBlock}</dl>` : "")}
+          ${section("Job details", snapshotBlock ? `<dl class="job-info-list job-info-list--grid">${snapshotBlock}</dl>` : "")}
           ${shareBlock(job)}
           <section class="job-panel glass job-side-cta">
             <h2>Stay updated</h2>
@@ -747,8 +881,13 @@
               }
             </div>
             <div class="job-detail-hero-copy">
-              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Company hiring page"}</p>
-              <h1>${escapeHtml(job.company)}</h1>
+              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Verified company hiring page"}</p>
+              <h1>${escapeHtml(job.companyLegalName || job.company)}</h1>
+              ${
+                job.companyLegalName && job.companyLegalName !== job.company
+                  ? `<p class="job-legal-aka">Listed as ${escapeHtml(job.company)}</p>`
+                  : ""
+              }
               <p class="job-hero-role">${escapeHtml((job.roles || [])[0] || "")}${job.referenceId ? ` · Ref ${escapeHtml(job.referenceId)}` : ""}</p>
               <p class="job-location">${escapeHtml(job.location || "")}</p>
               <div class="job-card-tags">
@@ -757,6 +896,7 @@
                 <span class="job-badge job-badge--${escapeAttr(exp)}">${escapeHtml(badgeLabel)}</span>
                 ${job.employmentType ? `<span class="job-badge job-badge--intern">${escapeHtml(job.employmentType)}</span>` : ""}
                 ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
+                ${job.verificationLevel === "infopark-profile" ? `<span class="job-badge job-badge--verified">Infopark profile</span>` : ""}
                 ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
                 ${isSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
                 ${job.industry ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
