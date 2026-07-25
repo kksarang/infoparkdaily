@@ -7,9 +7,18 @@ body.onam-body .site-footer {
   margin-top: 1.25rem;
 }
 
-body.onam-body .footer-grid {
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 1.25rem;
+@media (min-width: 941px) {
+  body.onam-body .footer-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 940px) {
+  body.onam-body .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .onam-page {
