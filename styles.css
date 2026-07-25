@@ -2164,9 +2164,38 @@ html.theme-light body .job-badge--pan {
 
 /* Jobs CTA banner */
 .jobs-cta-banner {
-  margin-top: 2.4rem;
+  margin-top: 1.5rem;
 }
 
+.jobs-notice-card {
+  width: 100%;
+  border-radius: 18px;
+  padding: 1.05rem 1.2rem;
+  background:
+    linear-gradient(120deg, rgba(255, 193, 7, 0.12), transparent 55%),
+    var(--bg-elev);
+  border: 1px solid var(--line);
+}
+
+.jobs-notice-card .eyebrow {
+  margin: 0 0 0.35rem;
+}
+
+.jobs-notice-card h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height: 1.25;
+}
+
+.jobs-notice-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 48rem;
+}
+
+/* legacy CTA actions (homepage / other pages may still use) */
 .jobs-cta-inner {
   border-radius: 28px;
   padding: clamp(1.4rem, 3vw, 2.2rem);
