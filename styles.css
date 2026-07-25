@@ -2175,30 +2175,202 @@ html.theme-light body .job-badge--pan {
 
 .jobs-notice-card {
   width: 100%;
-  border-radius: 18px;
-  padding: 1.05rem 1.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(160px, 0.75fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  border-radius: 22px;
+  padding: clamp(1.15rem, 2.5vw, 1.55rem) clamp(1.2rem, 2.8vw, 1.8rem);
+  text-align: left;
+  overflow: hidden;
+  position: relative;
   background:
-    linear-gradient(120deg, rgba(255, 193, 7, 0.12), transparent 55%),
+    radial-gradient(circle at 92% 20%, rgba(255, 193, 7, 0.18), transparent 34%),
+    linear-gradient(120deg, rgba(255, 193, 7, 0.1), transparent 52%),
     var(--bg-elev);
   border: 1px solid var(--line);
 }
 
+.jobs-notice-copy {
+  text-align: left;
+  min-width: 0;
+}
+
 .jobs-notice-card .eyebrow {
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.45rem;
+  justify-content: flex-start;
 }
 
 .jobs-notice-card h2 {
-  margin: 0 0 0.4rem;
-  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
-  line-height: 1.25;
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  line-height: 1.2;
+  text-align: left;
 }
 
 .jobs-notice-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.5;
-  max-width: 48rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 38rem;
+  text-align: left;
+}
+
+.jobs-notice-points {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.jobs-notice-points li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.jobs-notice-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.jobs-notice-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.95rem;
+}
+
+.jobs-notice-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+html.theme-dark .jobs-notice-chips span,
+body:not(.light) .jobs-notice-chips span {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.jobs-notice-visual {
+  position: relative;
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  justify-self: end;
+  width: min(100%, 210px);
+}
+
+.jobs-notice-lottie {
+  width: min(100%, 180px);
+  height: min(100%, 180px);
+  position: relative;
+  z-index: 1;
+}
+
+.jobs-notice-orbit {
+  position: absolute;
+  inset: 12% 8%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 193, 7, 0.45);
+  animation: jobs-notice-spin 18s linear infinite;
+}
+
+.jobs-notice-orbit--2 {
+  inset: 22% 18%;
+  border-style: solid;
+  border-color: rgba(255, 193, 7, 0.18);
+  animation-direction: reverse;
+  animation-duration: 12s;
+}
+
+.jobs-notice-float {
+  position: absolute;
+  z-index: 2;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  animation: jobs-notice-float 3.4s ease-in-out infinite;
+}
+
+.jobs-notice-float--a {
+  top: 12%;
+  left: 0;
+}
+
+.jobs-notice-float--b {
+  right: 0;
+  bottom: 14%;
+  animation-delay: 0.8s;
+  color: #7a5a00;
+  background: rgba(255, 193, 7, 0.22);
+}
+
+@keyframes jobs-notice-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes jobs-notice-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jobs-notice-orbit,
+  .jobs-notice-float {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .jobs-notice-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .jobs-notice-visual {
+    justify-self: center;
+    width: min(100%, 200px);
+    min-height: 140px;
+    order: -1;
+  }
+
+  .jobs-notice-lottie {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 /* legacy CTA actions (homepage / other pages may still use) */

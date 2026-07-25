@@ -58,7 +58,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/styles.css?v=20260725v4" />
+    <link rel="stylesheet" href="/styles.css?v=20260725v5" />
     <script>
       (function () {
         try {
@@ -250,12 +250,38 @@
 
       <section class="content-section jobs-cta-banner" aria-label="Upcoming job request feature">
         <div class="jobs-notice-card glass">
-          <p class="eyebrow">Coming soon</p>
-          <h2>Job request launch — upcoming days</h2>
-          <p>
-            InfoparkDaily is planning a job-request feature so entrepreneurs can share their company
-            vacancies with us. We’re building this now — launch in the upcoming days.
-          </p>
+          <div class="jobs-notice-copy">
+            <p class="eyebrow">Coming soon</p>
+            <h2>Job request launch — upcoming days</h2>
+            <p>
+              InfoparkDaily is planning a job-request feature so entrepreneurs can share their company
+              vacancies with us. We’re building this now — launch in the upcoming days.
+            </p>
+            <ul class="jobs-notice-points" aria-label="What’s coming">
+              <li>Entrepreneurs can submit company vacancies</li>
+              <li>Simple job-request form for founders</li>
+              <li>Listed for Kerala IT community reach</li>
+            </ul>
+            <div class="jobs-notice-chips">
+              <span>For founders</span>
+              <span>Share openings</span>
+              <span>Launching soon</span>
+            </div>
+          </div>
+          <div class="jobs-notice-visual" aria-hidden="true">
+            <div class="jobs-notice-orbit"></div>
+            <div class="jobs-notice-orbit jobs-notice-orbit--2"></div>
+            <lottie-player
+              class="jobs-notice-lottie"
+              src="/assets/lottie/job-request.json"
+              background="transparent"
+              speed="1"
+              loop
+              autoplay
+            ></lottie-player>
+            <span class="jobs-notice-float jobs-notice-float--a">Vacancy</span>
+            <span class="jobs-notice-float jobs-notice-float--b">Hiring</span>
+          </div>
         </div>
       </section>
 
@@ -352,7 +378,8 @@
       </div>
     </footer>
 
-    <script src="/script.js?v=20260725v4" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
+    <script src="/script.js?v=20260725v5" defer></script>
     <script src="/disclaimer.js?v=20260725i" defer></script>
     <script src="/jobs-data.js?v=20260725v2" defer></script>
     <script src="/jobs.js?v=20260725v4" defer></script>
