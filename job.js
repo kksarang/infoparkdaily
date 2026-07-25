@@ -387,13 +387,20 @@
   function verificationNoticeBlock(job) {
     const notice =
       job.verificationNotice ||
-      "InfoparkDaily Verification Notice: Apply only through official company or Infopark Jobs channels. InfoparkDaily never charges any fee for jobs.";
+      "InfoparkDaily Job Verification: Listings come from public online sources. We are not the employer and cannot guarantee genuineness. Verify officially before you proceed. Never pay for a job. Report fee / fraud issues to our team via /contact/.";
     const warnings = job.fraudWarning || [];
     return `
       <section class="job-panel glass job-verify-panel">
         <h2>InfoparkDaily Verification Notice</h2>
         <p class="job-detail-text">${escapeHtml(notice)}</p>
         ${listBlock(warnings)}
+        <p class="job-detail-text">
+          Need help checking a suspicious fee request or false statement?
+          <a href="/contact/">Contact our team</a> ·
+          <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a> ·
+          <a href="/terms/#report">Terms — Report issues</a> ·
+          <a href="/privacy/#job-data">Privacy — Job data sources</a>
+        </p>
       </section>
     `;
   }
