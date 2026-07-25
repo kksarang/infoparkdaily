@@ -28,7 +28,7 @@
 
   const PAGE_SIZE = 12;
   const NEW_DAYS = 5;
-  const CLOSING_DAYS = 4;
+  const CLOSING_DAYS = 7;
   const STICKY_KEY = "jobsStickyDismissed";
   const MAX_ROLES_ON_CARD = 3;
   const DAY_MS = 24 * 60 * 60 * 1000;
@@ -503,10 +503,7 @@
     const fresherFriendly = active.filter(
       (job) => job.experience === "fresher" || job.experience === "both"
     ).length;
-    const closingWeek = JOBS.filter((job) => {
-      const left = daysLeft(job);
-      return left !== null && left >= 0 && left <= 7;
-    }).length;
+    const closingWeek = JOBS.filter((job) => deadlineStatus(job) === "closing").length;
 
     if (statCompanies) statCompanies.textContent = String(active.length);
     if (statRoles) statRoles.textContent = String(roleCount);

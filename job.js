@@ -8,7 +8,7 @@
     both: "Fresher + Exp"
   };
 
-  const CLOSING_DAYS = 4;
+  const CLOSING_DAYS = 7;
   const DAY_MS = 24 * 60 * 60 * 1000;
 
   /* ---------- helpers ---------- */
@@ -905,8 +905,13 @@
       );
     }
 
-    const applyUrl =
-      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
+    const applyUrl = (() => {
+      const link = String(job.applyLink || "").trim();
+      if (link && !link.toLowerCase().startsWith("mailto:")) return link;
+      const web = String(job.website || "").trim();
+      if (/^https?:\/\//i.test(web)) return web;
+      return "";
+    })();
     const isSheet = Boolean(job.alertSheet);
     const loc = job.locationDetails || {};
 

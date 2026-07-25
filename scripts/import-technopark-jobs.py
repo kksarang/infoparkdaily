@@ -233,6 +233,10 @@ def main() -> None:
 
     existing_text = JOBS_DATA.read_text()
     existing_ids = set(re.findall(r'^\s*id:\s*"([^"]+)"', existing_text, flags=re.M))
+    existing_companies = {
+        m.group(1).strip().lower()
+        for m in re.finditer(r'^\s*company:\s*"([^"]+)"', existing_text, flags=re.M)
+    }
 
     entries: list[str] = []
     for company, items in sorted(
@@ -244,9 +248,8 @@ def main() -> None:
         if slug in existing_ids:
             print("skip existing id", slug)
             continue
-        # avoid re-adding known open Technopark companies already curated
-        if "trainonex" in company.lower() and "trainonex" in existing_text.lower():
-            print("skip curated", company)
+        if company.strip().lower() in existing_companies:
+            print("skip existing company", company)
             continue
         entries.append(build_entry(company, items))
 
