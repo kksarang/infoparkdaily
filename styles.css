@@ -6502,7 +6502,8 @@ body.light .bt-legend-solo i {
   .content-section,
   .site-footer,
   .jobs-page,
-  .contact-page {
+  .contact-page,
+  .onam-page {
     width: min(1180px, 97vw);
   }
 
