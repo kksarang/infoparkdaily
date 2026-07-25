@@ -101,15 +101,8 @@ body.onam-body .footer-grid {
   border-top: 1px solid var(--line);
 }
 
-.onam-note {
-  margin: 0 0 0.65rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
 .onam-reach {
-  margin: 0;
+  margin: 0 0 0.55rem;
   padding: 0;
   list-style: none;
   display: grid;
@@ -125,6 +118,10 @@ body.onam-body .footer-grid {
   border-radius: 10px;
   border: 1px solid var(--line);
   background: var(--bg-elev);
+}
+
+.onam-reach-wide li {
+  grid-template-columns: 3.4rem 1fr;
 }
 
 .onam-reach strong {
