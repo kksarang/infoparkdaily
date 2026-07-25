@@ -662,6 +662,35 @@ a.logo-card:hover {
     var(--surface);
 }
 
+a.counter-card {
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+a.counter-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.counter-card--jobs {
+  background:
+    linear-gradient(150deg, rgba(255, 193, 7, 0.16), transparent 55%),
+    var(--surface);
+}
+
+.counter-card-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.55rem;
+  border: 1px solid rgba(255, 193, 7, 0.35);
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+
 .counter {
   margin: 0;
   font-size: clamp(2rem, 4.5vw, 3.2rem);

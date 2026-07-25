@@ -31,7 +31,10 @@ const testimonials = [
 let testimonialIndex = 0;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function formatCounter(value) {
+function formatCounter(value, el) {
+  if (el?.dataset.format === "full") {
+    return `${Math.floor(value)}+`;
+  }
   if (value >= 1000000) {
     return `${Math.floor(value / 1000000)}M+`;
   }
@@ -44,7 +47,7 @@ function formatCounter(value) {
 function setCounterFinal(counter) {
   const target = Number(counter.dataset.target);
   if (!Number.isFinite(target)) return;
-  counter.textContent = formatCounter(target);
+  counter.textContent = formatCounter(target, counter);
   counter.dataset.animated = "true";
 }
 
@@ -59,13 +62,13 @@ function animateCounter(counter) {
 
   const duration = 1200;
   const start = performance.now();
-  counter.textContent = formatCounter(0);
+  counter.textContent = formatCounter(0, counter);
 
   function tick(timestamp) {
     const progress = Math.min((timestamp - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     const current = Math.floor(target * eased);
-    counter.textContent = formatCounter(current);
+    counter.textContent = formatCounter(current, counter);
 
     if (progress < 1) {
       requestAnimationFrame(tick);
