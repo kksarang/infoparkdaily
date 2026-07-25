@@ -3855,6 +3855,15 @@ html.theme-light body .job-alert-banner-label {
   color: #f5f6fa;
 }
 
+.onam-hero-present {
+  margin: 0 0 0.85rem;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 193, 7, 0.9);
+}
+
 .onam-hero-brand {
   display: flex;
   align-items: center;
@@ -6517,3 +6526,521 @@ body.light .bt-legend-solo i {
   }
 }
 
+
+/* ============================================================
+   TECH ONAM 2K26 DETAILS
+   ============================================================ */
+.onam-page {
+  --tonam-maroon: #7a1f2e;
+  --tonam-maroon-deep: #5c1622;
+  --tonam-ink: #141218;
+  --tonam-muted: #5c5866;
+  --tonam-line: rgba(20, 18, 24, 0.12);
+  --tonam-paper: #f7f4ef;
+  --tonam-gold: #c9a227;
+  padding-bottom: 2.5rem;
+}
+
+.onam-page {
+  margin-top: 0.5rem;
+}
+
+.tonam-hero {
+  margin: 1.1rem 0 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.6rem);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 92% 8%, rgba(201, 162, 39, 0.18), transparent 40%),
+    linear-gradient(160deg, #fffdf9 0%, var(--tonam-paper) 55%, #efe8dc 100%);
+  color: var(--tonam-ink);
+  border: 1px solid var(--tonam-line);
+}
+
+.tonam-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.tonam-present,
+.tonam-doc {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tonam-muted);
+}
+
+.tonam-hero h1 {
+  margin: 0 0 0.45rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--tonam-maroon);
+}
+
+.tonam-tagline {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  color: var(--tonam-ink);
+  max-width: 34rem;
+}
+
+.tonam-powered {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  color: var(--tonam-muted);
+}
+
+.tonam-powered strong {
+  color: var(--tonam-maroon);
+  font-weight: 700;
+}
+
+.tonam-hero-facts {
+  margin: 0 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.tonam-hero-facts > div {
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--tonam-line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.tonam-hero-facts dt {
+  margin: 0 0 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tonam-muted);
+}
+
+.tonam-hero-facts dd {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--tonam-ink);
+}
+
+.tonam-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.tonam-btn-ghost {
+  color: var(--tonam-ink) !important;
+  border: 1px solid var(--tonam-line) !important;
+  background: transparent !important;
+}
+
+.tonam-btn-ghost:hover {
+  border-color: var(--tonam-maroon) !important;
+  color: var(--tonam-maroon) !important;
+}
+
+.tonam-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.7fr);
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.tonam-intro-copy,
+.tonam-ladder,
+.tonam-gains,
+.tonam-tiers,
+.tonam-collab,
+.tonam-stats {
+  border: 1px solid var(--tonam-line);
+  border-radius: 22px;
+  background: #fffdf9;
+  color: var(--tonam-ink);
+}
+
+.tonam-intro-copy {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.tonam-intro-copy h2 {
+  margin: 0 0 0.9rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--tonam-ink);
+}
+
+.tonam-intro-copy h2 em {
+  font-style: italic;
+  color: var(--tonam-maroon);
+}
+
+.tonam-intro-copy p {
+  margin: 0 0 0.85rem;
+  color: var(--tonam-muted);
+  line-height: 1.7;
+}
+
+.tonam-intro-note {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--tonam-line);
+  font-size: 0.92rem;
+}
+
+.tonam-ladder {
+  padding: 1.25rem 1.3rem;
+}
+
+.tonam-ladder-label,
+.tonam-section-kicker,
+.tonam-card-kicker,
+.tonam-tier-badge,
+.tonam-collab-card-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tonam-maroon);
+}
+
+.tonam-ladder ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.tonam-ladder li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--tonam-line);
+  font-weight: 650;
+}
+
+.tonam-ladder li:last-child {
+  border-bottom: 0;
+}
+
+.tonam-ladder span {
+  font-size: 0.72rem;
+  color: var(--tonam-muted);
+  font-weight: 750;
+}
+
+.tonam-ladder em {
+  margin-left: auto;
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--tonam-gold);
+  font-weight: 700;
+}
+
+.tonam-stats {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  margin-bottom: 1.4rem;
+}
+
+.tonam-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.tonam-stats-grid article {
+  padding: 1rem 0.2rem 0.2rem;
+  border-top: 1px solid var(--tonam-line);
+}
+
+.tonam-stats-grid strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1;
+  color: var(--tonam-maroon);
+}
+
+.tonam-stat-accent {
+  color: var(--tonam-gold) !important;
+}
+
+.tonam-stats-grid span {
+  color: var(--tonam-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.tonam-gains {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  margin-bottom: 1.4rem;
+}
+
+.tonam-gains h2,
+.tonam-tiers h2,
+.tonam-collab h2 {
+  margin: 0 0 1.1rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  color: var(--tonam-ink);
+}
+
+.tonam-gains-grid {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.25rem;
+}
+
+.tonam-gains-grid li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--tonam-line);
+}
+
+.tonam-gains-grid span {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--tonam-maroon);
+}
+
+.tonam-gains-grid strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.98rem;
+}
+
+.tonam-gains-grid p {
+  margin: 0;
+  color: var(--tonam-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.tonam-tiers {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  margin-bottom: 1.4rem;
+}
+
+.tonam-tiers-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+}
+
+.tonam-tiers-head h2 {
+  margin: 0;
+}
+
+.tonam-tier-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tonam-tier-tabs button {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--tonam-line);
+  background: transparent;
+  color: var(--tonam-muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tonam-tier-tabs button.is-active {
+  background: var(--tonam-maroon);
+  border-color: var(--tonam-maroon);
+  color: #fffdf9;
+}
+
+.tonam-tier-panel {
+  display: none;
+  grid-template-columns: minmax(0, 1.4fr) minmax(180px, 0.7fr);
+  gap: 1rem;
+  padding: 1.2rem 0 0.4rem;
+  border-top: 1px solid var(--tonam-line);
+}
+
+.tonam-tier-panel.is-active {
+  display: grid;
+}
+
+.tonam-tier-panel h3 {
+  margin: 0 0 0.75rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.45rem;
+  color: var(--tonam-maroon);
+}
+
+.tonam-tier-panel ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--tonam-muted);
+  display: grid;
+  gap: 0.4rem;
+}
+
+.tonam-tier-panel aside {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(122, 31, 46, 0.06);
+  border: 1px solid rgba(122, 31, 46, 0.15);
+  color: var(--tonam-maroon-deep);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.tonam-tier-cards {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.tonam-tier-cards article {
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--tonam-line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tonam-tier-cards h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.tonam-tier-cards p {
+  margin: 0;
+  color: var(--tonam-muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.tonam-collab {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.8fr);
+  gap: 0;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+}
+
+.tonam-collab-copy {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.tonam-collab-copy p {
+  color: var(--tonam-muted);
+  line-height: 1.65;
+}
+
+.tonam-collab-copy ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--tonam-ink);
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 550;
+}
+
+.tonam-collab-card {
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  background: linear-gradient(160deg, var(--tonam-maroon) 0%, var(--tonam-maroon-deep) 100%);
+  color: #fffdf9;
+  display: grid;
+  gap: 0.65rem;
+  align-content: start;
+}
+
+.tonam-collab-card-label {
+  color: rgba(255, 253, 249, 0.7);
+}
+
+.tonam-collab-card h3 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.55rem;
+}
+
+.tonam-collab-card p {
+  margin: 0 0 0.4rem;
+  color: rgba(255, 253, 249, 0.82);
+  line-height: 1.55;
+}
+
+.tonam-collab-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.tonam-collab-card .tonam-btn-ghost {
+  color: #fffdf9 !important;
+  border-color: rgba(255, 253, 249, 0.35) !important;
+}
+
+.tonam-footer-credit {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+html.theme-light body .tonam-footer-credit {
+  color: #6b6570;
+}
+
+@media (max-width: 900px) {
+  .tonam-intro,
+  .tonam-collab,
+  .tonam-tier-panel.is-active {
+    grid-template-columns: 1fr;
+  }
+
+  .tonam-stats-grid,
+  .tonam-gains-grid,
+  .tonam-tier-cards,
+  .tonam-hero-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .tonam-hero,
+  .tonam-intro-copy,
+  .tonam-ladder,
+  .tonam-stats,
+  .tonam-gains,
+  .tonam-tiers {
+    border-radius: 20px;
+  }
+
+  .tonam-hero-actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
