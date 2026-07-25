@@ -2618,10 +2618,10 @@ var JOBS = [
     email: "careers@2basetechnologies.com",
     phone: "",
     website: "https://www.2basetechnologies.com",
-    address: "Technopark, Trivandrum, Kerala",
+    address: "Role location: Technopark, Trivandrum · Company: TransAsia Cyber Park, Infopark Phase II, Kochi 682303",
     industry: "IT / Digital Solutions",
     companyDetails:
-      "2Base Technologies (Way 2 Digital) is hiring a Business Development Manager for Technopark, Trivandrum to drive B2B sales for web, mobile, and enterprise software services.",
+      "2Base Technologies (Way 2 Digital) is hiring a Business Development Manager for Technopark, Trivandrum to drive B2B sales for web, mobile, and enterprise software services. Official contact: careers@2basetechnologies.com / info@2basetechnologies.com — no public phone on their contact page.",
     workDetails:
       "Senior BD role owning the full sales cycle — lead generation through closure, key accounts, and strategic revenue plans. Immediate joiners preferred.",
     workStatus: "Full-time",
@@ -2643,8 +2643,9 @@ var JOBS = [
       "Identify upsell & cross-sell opportunities within existing accounts"
     ],
     benefits: ["Technopark Trivandrum location", "Immediate joiners preferred"],
-    howToApply: "Email your resume to careers@2basetechnologies.com with subject “Business Development Manager”.",
-    hiringNotes: "Published 15 July 2026. Apply before 31 July 2026.",
+    howToApply: "Email your resume to careers@2basetechnologies.com with subject “Business Development Manager”. Do not use phone numbers from third-party posts — 2Base publishes email/form contact only.",
+    hiringNotes:
+      "Published 15 July 2026. Apply before 31 July 2026. Contact verified against https://www.2basetechnologies.com/contact-us.",
     description: "BDM · 5–10 years · Technopark TVM · Apply by 31 Jul."
   },
   {
@@ -3184,8 +3185,8 @@ var JOBS = [
     id: "2base",
     company: "2Base Technologies",
     logo: "assets/logos/2base.svg",
-    companyBlurb: "Walk-in drive at Infopark Phase 1 — 8 roles across engineering, design & growth.",
-    location: "Infopark Phase 1, Kochi",
+    companyBlurb: "Hiring drive at Infopark Phase II — 8 roles across engineering, design & growth.",
+    location: "Infopark Phase II, Kochi",
     roles: [
       "Associate System Engineer",
       "Software Engineer – Web",
@@ -3199,7 +3200,7 @@ var JOBS = [
     experience: "experienced",
     experienceRange: "Experienced (role-dependent)",
     employmentType: "Full-time",
-    applyLink: "tel:+918590888400",
+    applyLink: "mailto:careers@2basetechnologies.com",
     applyDeadline: "Rolling",
     postedDate: "2026-07-13",
     source: "WhatsApp",
@@ -3207,22 +3208,22 @@ var JOBS = [
     tags: ["IT", "Design", "Marketing", "Sales"],
     isWalkIn: true,
     walkInDate: "Starting 13 July 2026 · Mon–Sat 9:30 AM – 4:00 PM",
-    email: "",
-    phone: "8590888400",
-    website: "https://www.infopark.in/companies-job",
-    address: "2Base Technologies, Ground Floor, Athulya Building, Infopark Phase 1, Kochi",
+    email: "careers@2basetechnologies.com",
+    phone: "",
+    website: "https://www.2basetechnologies.com",
+    address: "2Base Technologies, TransAsia Cyber Park, Infopark Phase II, Kochi 682303",
     industry: "IT / Product Engineering",
     companyDetails:
-      "2Base Technologies is running a walk-in hiring drive at Infopark Phase 1, Kochi for multiple experienced roles across engineering, design, QA, analysis, marketing/growth, and business development.",
+      "2Base Technologies is hiring for multiple experienced roles across engineering, design, QA, analysis, marketing/growth, and business development at its Infopark Phase II campus in Kochi.",
     workDetails:
-      "Walk-in from 13 July 2026 onwards, Monday–Saturday, 9:30 AM – 4:00 PM. Bring an updated resume. Contact HR: 8590888400.",
+      "Hiring updates from 13 July 2026 onwards (Mon–Sat, 9:30 AM – 4:00 PM). Bring an updated resume. Official contact is email only — no public phone is listed on 2basetechnologies.com/contact-us.",
     workStatus: "Full-time",
     workMode: "On-site",
     experienceYears: "Experienced (role-dependent)",
     requirements: [
       "Relevant experience matching the applied role",
-      "Updated resume required for walk-in",
-      "Ready to work from Infopark Phase 1, Kochi"
+      "Updated resume required",
+      "Ready to work from Infopark Phase II, Kochi"
     ],
     responsibilities: [
       "Contribute to product, engineering, design, or growth goals based on role",
@@ -3231,14 +3232,15 @@ var JOBS = [
     ],
     benefits: [
       "Multiple role tracks in one company",
-      "Infopark Phase 1 walk-in access",
+      "Infopark Phase II Kochi campus",
       "Also listed on Infopark companies job portal"
     ],
     howToApply:
-      "Walk in to 2Base Technologies, Ground Floor, Athulya Building, Infopark Phase 1, Kochi (Mon–Sat, 9:30 AM – 4:00 PM) with an updated resume. Contact: 8590888400. You can also apply via https://www.infopark.in/companies-job.",
-    hiringNotes: "Walk-in starting 13 July 2026. Verify timings with HR before visiting.",
+      "Email your resume to careers@2basetechnologies.com with the role in the subject line, or apply via https://www.infopark.in/companies-job. Office: TransAsia Cyber Park, Infopark Phase II, Kochi 682303. For general enquiries use info@2basetechnologies.com (official contact page — no phone published).",
+    hiringNotes:
+      "Contact verified against https://www.2basetechnologies.com/contact-us — email/form only; phone numbers from secondary posts were removed. Confirm walk-in timings with the company by email before visiting.",
     startingDate: "2026-07-13",
-    description: "Walk-in · 8 roles · Infopark Phase 1 · From 13 Jul · Call 8590888400."
+    description: "8 roles · Infopark Phase II · From 13 Jul · Apply careers@2basetechnologies.com."
   },
   {
     id: "feathersoft",
@@ -3306,13 +3308,15 @@ var JOBS = [
     tags: ["IT"],
     isWalkIn: true,
     walkInDate: "Starting 13 July 2026",
-    website: "https://www.infopark.in/companies-job",
-    address: "Kakkanad Infopark, Kochi, Kerala",
+    email: "",
+    phone: "",
+    website: "https://ssconsulting.co.in",
+    address: "Infopark, Kakkanad, Kochi, Kerala",
     industry: "AI / Consulting",
     companyDetails:
       "SS Consulting is hiring an AI Engineer as part of Infopark Kochi Smart Space openings.",
     workDetails:
-      "Experienced AI Engineer role focused on building and delivering AI solutions. Apply through the Infopark companies job portal.",
+      "Experienced AI Engineer role focused on building and delivering AI solutions. Apply through the Infopark companies job portal or check ssconsulting.co.in.",
     workStatus: "Full-time",
     workMode: "On-site",
     experienceYears: "Experienced",
@@ -3349,8 +3353,10 @@ var JOBS = [
     tags: ["IT", "Business"],
     isWalkIn: true,
     walkInDate: "Starting 13 July 2026",
-    website: "https://www.infopark.in/companies-job",
-    address: "Kakkanad Infopark, Kochi, Kerala",
+    email: "info@edstem.com",
+    phone: "+91 224 618 3018",
+    website: "https://www.edstem.com/",
+    address: "Office No-2B-1, Second Floor, Jyothirmaya, Infopark Phase II, Ernakulam, Kerala 682303",
     industry: "Product / IT Services",
     companyDetails:
       "Edstem Technologies is hiring experienced Business Analyst and Technical Project Manager / Lead talent from Infopark Kochi.",
@@ -3370,8 +3376,10 @@ var JOBS = [
       "Drive timelines, quality, and stakeholder alignment"
     ],
     benefits: ["Infopark Kochi role", "Leadership / analysis career track"],
-    howToApply: "Apply via https://www.infopark.in/companies-job — Edstem Technologies.",
-    hiringNotes: "Infopark Smart Space openings starting 13 Jul 2026.",
+    howToApply:
+      "Prefer Edstem Careers https://www.edstem.com/careers/ or email info@edstem.com. Also listed on https://www.infopark.in/companies-job.",
+    hiringNotes:
+      "Infopark Smart Space openings starting 13 Jul 2026. Contact aligned with edstem.com (email + published India phone).",
     startingDate: "2026-07-13"
   },
   {
