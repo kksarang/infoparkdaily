@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post a Job | InfoparkDaily Hiring Portal</title>
+    <meta
+      name="description"
+      content="Submit a verified job opening to InfoparkDaily. Companies, startups, HRs, and founders can request listings for Infopark Kochi and Kerala IT hiring."
+    />
+    <meta name="theme-color" content="#0b0b0f" />
+    <meta property="og:title" content="Post a Job | InfoparkDaily Hiring Portal" />
+    <meta
+      property="og:description"
+      content="Premium job submission portal for companies, startups, HRs, and founders. Manual verification before publish."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/post-job/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Post a Job | InfoparkDaily" />
+    <meta
+      name="twitter:description"
+      content="Submit hiring requests for InfoparkDaily. Verified before publish."
+    />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/post-job/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
+    <link rel="stylesheet" href="/styles.css?v=20260725j" />
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
+          else document.documentElement.classList.add("theme-dark");
+        } catch (_e) {
+          document.documentElement.classList.add("theme-dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="post-job-body dark">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header glass">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
+        </div>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="/services/">Services</a>
+        <a href="/build/">Build</a>
+        <a href="/jobs/" aria-current="page">Jobs</a>
+        <a href="/news/">News</a>
+        <a href="/media/">Social</a>
+        <a href="/contact/">Contact</a>
+        <a href="/hexenity/" class="nav-hexenity">Hexenity</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <button
+          id="nav-toggle"
+          type="button"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle-bars" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="post-job-page">
+      <section class="post-job-hero" aria-labelledby="post-job-title">
+        <div class="post-job-hero-glow" aria-hidden="true"></div>
+        <p class="jobs-kicker">Employer portal · InfoparkDaily</p>
+        <h1 id="post-job-title">Post a Job</h1>
+        <p class="post-job-lead">
+          Submit a structured hiring request. Our team verifies every listing before it goes live — no candidate fees, ever.
+        </p>
+        <div class="post-job-hero-actions">
+          <a class="btn btn-primary" href="#post-job-wizard">Start submission</a>
+          <a class="btn btn-secondary" href="/jobs/">Find Jobs</a>
+        </div>
+      </section>
+
+      <section id="post-job-wizard" class="post-job-wizard-section" aria-label="Job submission wizard">
+        <div class="post-job-layout">
+          <div class="post-job-main">
+            <nav id="post-job-progress" class="post-job-progress glass" aria-label="Submission steps"></nav>
+
+            <form id="post-job-form" class="post-job-form glass" novalidate>
+              <div id="post-job-step-host" class="post-job-step-host" tabindex="-1"></div>
+              <p id="post-job-status" class="post-job-status" role="status" aria-live="polite"></p>
+              <div class="post-job-nav">
+                <button type="button" id="post-job-back" class="btn btn-ghost">Back</button>
+                <button type="button" id="post-job-next" class="btn btn-primary">Next</button>
+                <button type="submit" id="post-job-submit" class="btn btn-primary" hidden>Send via WhatsApp</button>
+              </div>
+            </form>
+
+            <div id="post-job-success" class="post-job-success glass" hidden>
+              <p class="jobs-kicker">Request received</p>
+              <h2>Thanks — our team will verify before publishing</h2>
+              <p>
+                Your hiring request summary opened in WhatsApp. We review company details, contacts, and apply channels
+                before any listing goes live on InfoparkDaily.
+              </p>
+              <div class="post-job-hero-actions">
+                <a class="btn btn-primary" href="/jobs/">Browse open jobs</a>
+                <button type="button" id="post-job-again" class="btn btn-secondary">Submit another role</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="post-job-preview-wrap">
+            <button type="button" id="post-job-preview-toggle" class="post-job-preview-toggle btn btn-ghost">
+              Show live preview
+            </button>
+            <div id="post-job-preview" class="post-job-preview glass" aria-live="polite">
+              <p class="post-job-preview-label">Live preview</p>
+              <p class="post-job-preview-badge">Pending verification</p>
+              <div id="post-job-preview-body" class="post-job-preview-body"></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="limited"></div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily logo" />
+            <p class="footer-brand-name">INFOPARKDAILY</p>
+          </div>
+          <p class="footer-tagline">
+            Kerala's largest tech &amp; business community — daily jobs, walk-ins, stories, and growth campaigns from
+            Infopark Kochi.
+          </p>
+          <div class="footer-cta-row">
+            <a class="btn btn-primary" href="/jobs/">Find Jobs</a>
+            <a class="btn btn-secondary" href="/contact/">Contact us</a>
+          </div>
+        </div>
+        <div class="footer-contact-col">
+          <h2>Get in touch</h2>
+          <p class="footer-contact-item">
+            <span>Call</span>
+            <a href="tel:+919995254290">+91 99952 54290</a>
+          </p>
+          <p class="footer-contact-item">
+            <span>Email</span>
+            <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>
+          </p>
+          <p class="footer-contact-item">
+            <span>Visit</span>
+            Thapasya Rd, Infopark Campus, Kakkanad, Kochi, Kerala
+          </p>
+        </div>
+        <div class="contact-map footer-map" aria-label="Infopark location map">
+          <iframe
+            title="Infopark Location Map"
+            src="https://www.google.com/maps?q=Thapasya+Rd,+Infopark+Campus,+Infopark,+Kochi,+Kakkanad,+Kerala+682042&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+      <nav class="footer-links" aria-label="Social links">
+        <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs Instagram</a>
+        <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
+        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
+      </nav>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="/privacy/">Privacy Policy</a>
+          <span aria-hidden="true">·</span>
+          <a href="/terms/">Terms &amp; Conditions</a>
+          <span aria-hidden="true">·</span>
+          <a href="/privacy/#disclaimer">Disclaimer</a>
+        </p>
+        <p class="footer-credit">
+          Made with <span aria-hidden="true">&#10084;</span>
+          <a href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Hexenity</a> - Digital &amp;
+          Software Solutions Company
+        </p>
+      </div>
+    </footer>
+
+    <script src="/script.js?v=20260724m" defer></script>
+    <script src="/disclaimer.js?v=20260725i" defer></script>
+    <script src="/post-job.js?v=20260725j" defer></script>
+  </body>
+</html>
