@@ -227,9 +227,120 @@
     `;
   }
 
+  const ND = "Not officially disclosed by the company.";
+
   function naText(value) {
     const text = String(value ?? "").trim();
-    return text || "Not officially available.";
+    if (!text || /^not officially available\.?$/i.test(text)) return ND;
+    return text;
+  }
+
+  function plainOrNd(value) {
+    return escapeHtml(naText(value));
+  }
+
+  function listOrNd(items) {
+    return listBlock(items) || `<p class="job-detail-text">${escapeHtml(ND)}</p>`;
+  }
+
+  function kvGrid(pairs) {
+    const rows = pairs
+      .map(([label, value]) => infoItem(label, typeof value === "string" ? plainOrNd(value) : value || escapeHtml(ND)))
+      .join("");
+    return rows ? `<dl class="job-info-list job-info-list--grid">${rows}</dl>` : "";
+  }
+
+  function quickFactsBlock(job) {
+    const qf = job.quickFacts || {};
+    return `
+      <div class="job-quick-facts" role="list">
+        ${[
+          ["Company", qf.company || job.companyLegalName || job.company],
+          ["Roles", qf.roles || (job.roles || []).join(", ")],
+          ["Location", qf.location || job.location],
+          ["Type", qf.employmentType || job.employmentType],
+          ["Experience", qf.experience || job.experienceRange],
+          ["Work mode", qf.workMode || job.workMode],
+          ["Salary", qf.salary || job.salaryRange],
+          ["Deadline", qf.deadline || job.applyDeadline],
+          ["Email", qf.email || job.email || ND],
+          ["Phone", qf.phone || job.phone || ND]
+        ]
+          .map(
+            ([label, value]) => `
+          <div class="job-quick-fact" role="listitem">
+            <span>${escapeHtml(label)}</span>
+            <strong>${escapeHtml(naText(value))}</strong>
+          </div>`
+          )
+          .join("")}
+      </div>
+    `;
+  }
+
+  function injectJobPostingSchema(job) {
+    const old = document.getElementById("job-posting-schema");
+    if (old) old.remove();
+    const s = job.schema || {};
+    const apply =
+      job.applyLink && !String(job.applyLink).startsWith("mailto:")
+        ? job.applyLink
+        : job.email
+          ? `mailto:${job.email}`
+          : job.canonicalUrl || window.location.href;
+    const empMap = {
+      "Full-time": "FULL_TIME",
+      "Full Time": "FULL_TIME",
+      Internship: "INTERN",
+      Contract: "CONTRACTOR",
+      Temporary: "TEMPORARY",
+      Apprenticeship: "INTERN"
+    };
+    const employmentType = empMap[job.employmentType] || empMap[s.employmentType] || "FULL_TIME";
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title: s.title || (job.roles || [])[0] || job.company,
+      description: job.jobSummary || job.seoDescription || job.companyDetails || "",
+      datePosted: s.datePosted || job.postedDate || undefined,
+      validThrough: s.validThrough || (job.applyDeadline && job.applyDeadline !== "Rolling" ? job.applyDeadline : undefined),
+      employmentType,
+      hiringOrganization: {
+        "@type": "Organization",
+        name: s.hiringOrganization || job.companyLegalName || job.company,
+        sameAs: s.sameAs || job.website || undefined,
+        logo: job.logo ? `https://infoparkdaily.online/${String(job.logo).replace(/^\//, "")}` : undefined
+      },
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: s.streetAddress || job.address || undefined,
+          addressLocality: s.addressLocality || "Kochi",
+          addressRegion: s.addressRegion || "Kerala",
+          postalCode: s.postalCode || undefined,
+          addressCountry: s.addressCountry || "IN"
+        }
+      },
+      identifier: {
+        "@type": "PropertyValue",
+        name: "InfoparkDaily",
+        value: s.identifier || job.id
+      },
+      directApply: Boolean(apply),
+      url: job.canonicalUrl || window.location.href,
+      applicantLocationRequirements: {
+        "@type": "Country",
+        name: "India"
+      }
+    };
+    // Strip undefined keys recursively-ish
+    const clean = JSON.parse(JSON.stringify(data));
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "job-posting-schema";
+    el.textContent = JSON.stringify(clean);
+    document.head.appendChild(el);
   }
 
   function numberedFromArray(items) {
@@ -264,8 +375,11 @@
       links.infoparkJobs
         ? infoItem("Infopark Jobs portal", linkHtml(links.infoparkJobs, "infopark.in/companies-job"))
         : "",
-      links.linkedin ? infoItem("Official LinkedIn", linkHtml(links.linkedin)) : infoItem("Official LinkedIn", escapeHtml("Not officially available.")),
-      links.contactPage ? infoItem("Contact page", linkHtml(links.contactPage)) : ""
+      links.linkedin ? infoItem("Official LinkedIn", linkHtml(links.linkedin)) : infoItem("Official LinkedIn", escapeHtml(ND)),
+      links.contactPage ? infoItem("Official contact page", linkHtml(links.contactPage)) : infoItem("Official contact page", escapeHtml(ND)),
+      links.aboutPage ? infoItem("Official about page", linkHtml(links.aboutPage)) : infoItem("Official about page", escapeHtml(ND)),
+      links.privacyPolicy ? infoItem("Privacy policy", linkHtml(links.privacyPolicy)) : infoItem("Privacy policy", escapeHtml(ND)),
+      links.terms ? infoItem("Terms", linkHtml(links.terms)) : infoItem("Terms", escapeHtml(ND))
     ].join("");
     return rows ? `<dl class="job-info-list">${rows}</dl>` : "";
   }
@@ -288,20 +402,28 @@
     const report = job.verificationReport;
     if (!report) return "";
     const flags = [
-      ["Company exists", report.companyExists],
-      ["Website verified", report.websiteVerified],
+      ["Company legally exists / listed", report.companyExists],
+      ["Official website verified", report.websiteVerified],
+      ["Careers / apply page verified", report.careersPageVerified || report.applyLinkVerified],
+      ["LinkedIn verified", report.linkedinVerified],
       ["Infopark profile verified", report.infoparkProfileVerified],
+      ["Office address verified", report.addressVerified],
       ["Email verified", report.emailVerified],
       ["Phone verified", report.phoneVerified],
-      ["Address verified", report.addressVerified],
-      ["Apply link verified", report.applyLinkVerified]
+      ["Job title verified", report.jobTitleVerified],
+      ["Experience verified", report.experienceVerified],
+      ["Skills verified", report.skillsVerified],
+      ["Salary verified", report.salaryVerified],
+      ["Eligibility verified", report.eligibilityVerified],
+      ["Hiring process verified", report.hiringProcessVerified],
+      ["Application link verified", report.applyLinkVerified]
     ];
     return `
       <ul class="job-verify-checklist">
         ${flags
           .map(
             ([label, ok]) =>
-              `<li class="${ok ? "is-yes" : "is-no"}"><span>${ok ? "Verified" : "Not officially available"}</span><strong>${escapeHtml(label)}</strong></li>`
+              `<li class="${ok ? "is-yes" : "is-no"}"><span>${ok ? "Verified" : "Not disclosed"}</span><strong>${escapeHtml(label)}</strong></li>`
           )
           .join("")}
       </ul>
@@ -312,9 +434,10 @@
       }
       ${
         report.unverifiedFields && report.unverifiedFields.length
-          ? `<p class="job-detail-text"><strong>Marked unavailable:</strong> ${escapeHtml(report.unverifiedFields.join(", "))}</p>`
+          ? `<p class="job-detail-text"><strong>Not officially disclosed:</strong> ${escapeHtml(report.unverifiedFields.join(", "))}</p>`
           : ""
       }
+      <p class="job-detail-text">Accuracy takes priority over completeness. InfoparkDaily does not invent salaries, contacts, or eligibility rules.</p>
     `;
   }
 
@@ -378,7 +501,7 @@
         : "";
 
     if (!methods.length && !steps) {
-      return `<p class="job-detail-text">Not officially available.</p>`;
+      return `<p class="job-detail-text">${escapeHtml(ND)}</p>`;
     }
     return `
       ${steps}
@@ -403,8 +526,9 @@
   }
 
   function mapBlock(job) {
-    const query = job.address || job.location;
-    if (!query) return "";
+    const query =
+      (job.locationDetails && job.locationDetails.googleMapsQuery) || job.address || job.location;
+    if (!query || query === ND) return "";
     return `
       <div class="job-map-embed" aria-label="Company location map">
         <iframe
@@ -738,92 +862,233 @@
       job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
     const isSheet = Boolean(job.alertSheet);
     const cv = job.contactVerification || {};
+    const loc = job.locationDetails || {};
+    const dates = job.importantDates || {};
+    const stack = job.techStack || {};
+    const prep = job.interviewPreparation || {};
 
     const contactBlock = [
-      infoItem("Verified email", emailHtml(job.email) || escapeHtml("Not officially available.")),
-      infoItem("Verified phone", phoneHtml(job.phone) || escapeHtml("Not officially available.")),
-      infoItem("Official careers", linkHtml(applyUrl, "Open careers page") || escapeHtml(naText(cv.careersPage))),
-      infoItem("Website", linkHtml(job.website && !/infopark\.in\/companies-job/.test(job.website) ? job.website : "") || escapeHtml("Not officially available.")),
+      infoItem("Official HR / apply email", emailHtml(job.email) || escapeHtml(ND)),
+      infoItem("Official phone", phoneHtml(job.phone) || escapeHtml(ND)),
+      infoItem("Official careers / apply", linkHtml(applyUrl, "Open official apply page") || escapeHtml(ND)),
+      infoItem(
+        "Official website",
+        linkHtml(job.website && !/infopark\.in\/companies-job/.test(job.website) ? job.website : "") ||
+          escapeHtml(ND)
+      ),
       infoItem("Legal company name", escapeHtml(job.companyLegalName || job.company)),
-      infoItem("Address", escapeHtml(job.address || "Not officially available.")),
-      infoItem("Email source", escapeHtml(cv.email || "")),
-      infoItem("Phone source", escapeHtml(cv.phone || ""))
+      infoItem("Brand name", escapeHtml(job.brandName || job.company)),
+      infoItem("Office address", escapeHtml(naText(job.address))),
+      infoItem("Email verification", escapeHtml(naText(cv.email))),
+      infoItem("Phone verification", escapeHtml(naText(cv.phone)))
     ].join("");
 
-    const snapshotBlock = [
-      infoItem("Company", escapeHtml(job.companyLegalName || job.company)),
-      infoItem("Industry", escapeHtml(job.industry || "Not officially available.")),
-      infoItem("Company size", escapeHtml(job.companySize || "Not officially available.")),
-      infoItem("Founded", escapeHtml("Not officially available.")),
-      infoItem("Department", escapeHtml(job.department || "Not officially available.")),
-      infoItem("Location", escapeHtml(job.location || "Not officially available.")),
-      infoItem("Experience", escapeHtml(badgeLabel)),
-      infoItem("Experience years", escapeHtml(job.experienceYears || job.experienceRange || "Not officially available.")),
-      infoItem("Salary", escapeHtml(job.salaryRange || "Not officially available.")),
-      infoItem("Employment type", escapeHtml(job.employmentType || job.workStatus || "Not officially available.")),
-      infoItem("Work mode", escapeHtml(job.workMode || "Not officially available.")),
-      infoItem("Working days", escapeHtml("Not officially available.")),
-      infoItem("Working hours", escapeHtml("Not officially available.")),
-      infoItem("Shift", escapeHtml("Not officially available.")),
-      infoItem("Notice period", escapeHtml("Not officially available.")),
-      infoItem("Open positions", escapeHtml("Not officially available.")),
-      infoItem("Reporting manager", escapeHtml("Not officially available.")),
-      infoItem("Posted", job.postedDate ? escapeHtml(formatDate(job.postedDate)) : escapeHtml("Not officially available.")),
-      infoItem(
+    const companyOverviewBlock = kvGrid([
+      ["Official company name", job.companyLegalName || job.company],
+      ["Brand name", job.brandName || job.company],
+      ["Parent company", job.parentCompany],
+      ["Industry", job.industry || job.businessCategory],
+      ["Company size", job.companySize || job.employeeCount],
+      ["Year founded", job.foundedYear],
+      ["Founders", job.founders],
+      ["CEO", job.ceo],
+      ["CTO", job.cto],
+      ["Headquarters", job.headquarters],
+      ["India / Kochi presence", job.indiaHeadquarters],
+      ["Products", job.products],
+      ["Services", job.services],
+      ["Major clients", job.majorClients],
+      ["Awards", job.awards],
+      ["Certifications", job.certifications],
+      ["Funding", job.funding],
+      ["Revenue", job.revenue],
+      ["Glassdoor rating", job.glassdoorRating],
+      ["AmbitionBox rating", job.ambitionBoxRating],
+      ["Google rating", job.googleRating],
+      ["Official LinkedIn", job.linkedinUrl],
+      ["Official Instagram", job.instagramUrl],
+      ["Official Facebook", job.facebookUrl],
+      ["Official X (Twitter)", job.twitterUrl]
+    ]);
+
+    const jobDetailsBlock = kvGrid([
+      ["Job title(s)", (job.roles || []).join(", ")],
+      ["Department", job.department],
+      ["Team", job.team],
+      ["Job code / ID", job.jobCode !== ND ? job.jobCode : job.jobIdOfficial],
+      ["Vacancy count", job.vacancyCount],
+      ["Hiring urgency", job.hiringUrgency],
+      ["Employment type", job.employmentType || job.workStatus],
+      ["Work mode", job.workMode],
+      ["Shift", job.shift],
+      ["Working hours", job.workingHours],
+      ["Working days", job.workingDays],
+      ["Weekend policy", job.weekendPolicy],
+      ["Notice period", job.noticePeriod],
+      ["Joining timeline", job.joiningTimeline],
+      ["Experience", job.experienceRange || job.experienceYears || badgeLabel],
+      ["Listing source", job.source],
+      ["InfoparkDaily listing ID", job.id]
+    ]);
+
+    const locationBlock = kvGrid([
+      ["Office address", loc.officeAddress || job.address],
+      ["Infopark campus", loc.campus],
+      ["Building", loc.building],
+      ["Floor", loc.floor],
+      ["City", loc.city],
+      ["District", loc.district],
+      ["State", loc.state],
+      ["Country", loc.country],
+      ["PIN code", loc.pin],
+      ["Nearest metro", loc.nearestMetro],
+      ["Nearest bus stop", loc.nearestBusStop],
+      ["Nearest railway", loc.nearestRailway],
+      ["Landmarks", loc.landmarks],
+      ["Parking", loc.parking]
+    ]);
+
+    const salaryBlock = kvGrid([
+      ["Salary (as disclosed)", job.salaryRange],
+      ["Minimum salary", job.salaryMin],
+      ["Maximum salary", job.salaryMax],
+      ["Annual CTC", job.salaryAnnualCtc],
+      ["Monthly salary", job.salaryMonthly],
+      ["Bonus", job.bonus],
+      ["Variable pay", job.variablePay],
+      ["Joining bonus", job.joiningBonus],
+      ["Stock options", job.stockOptions],
+      ["Performance bonus", job.performanceBonus]
+    ]);
+
+    const datesBlock = kvGrid([
+      ["Date posted", dates.datePosted ? formatDate(dates.datePosted) : ND],
+      [
         "Application deadline",
-        job.applyDeadline
-          ? escapeHtml(job.applyDeadline === "Rolling" ? "Rolling applications" : formatDate(job.applyDeadline))
-          : escapeHtml("Not specified.")
-      ),
-      infoItem("Joining date", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : escapeHtml("Not officially available.")),
-      infoItem("Walk-in", job.isWalkIn ? escapeHtml(job.walkInDate || "Yes") : escapeHtml("No")),
-      infoItem("Source", escapeHtml(job.source || "Not officially available.")),
-      infoItem("Listing ID", escapeHtml(job.id))
-    ].join("");
+        dates.applicationDeadline === "Rolling applications" || job.applyDeadline === "Rolling"
+          ? "Rolling applications"
+          : dates.applicationDeadline && dates.applicationDeadline !== ND
+            ? formatDate(dates.applicationDeadline)
+            : ND
+      ],
+      ["Interview date", dates.interviewDate],
+      ["Joining date", dates.joiningDate && dates.joiningDate !== ND ? formatDate(dates.joiningDate) : ND],
+      ["Expected hiring timeline", dates.expectedHiringTimeline]
+    ]);
+
+    const techStackBlock = kvGrid([
+      ["Frontend", stack.frontend],
+      ["Backend", stack.backend],
+      ["Mobile", stack.mobile],
+      ["Cloud", stack.cloud],
+      ["DevOps", stack.devops],
+      ["Databases", stack.databases],
+      ["AI / ML", stack.aiMl],
+      ["Security", stack.security],
+      ["Automation", stack.automation],
+      ["Testing", stack.testing]
+    ]);
 
     const techSkills = listBlock(job.technicalSkills || job.skills || job.requiredSkills);
     const softSkills = listBlock(job.softSkills);
     const preferredSkills = listBlock(job.preferredSkills);
     const skillsBlock = [
-      techSkills ? `<p class="job-sheet-subhead">Technical skills</p>${techSkills}` : "",
+      techSkills ? `<p class="job-sheet-subhead">Technical / role skills</p>${techSkills}` : "",
       softSkills ? `<p class="job-sheet-subhead">Soft skills</p>${softSkills}` : "",
-      preferredSkills ? `<p class="job-sheet-subhead">Preferred skills</p>${preferredSkills}` : "",
-      !techSkills && !softSkills && !preferredSkills
-        ? `<p class="job-detail-text">Not officially available.</p>`
-        : ""
+      preferredSkills ? `<p class="job-sheet-subhead">Preferred / good-to-have</p>${preferredSkills}` : "",
+      !techSkills && !softSkills && !preferredSkills ? `<p class="job-detail-text">${escapeHtml(ND)}</p>` : ""
     ].join("");
 
-    const tipsBlock = listBlock(job.interviewTips);
+    const interviewBlock = `
+      ${kvGrid([
+        ["Interview pattern", prep.interviewPattern],
+        ["System design", prep.systemDesign]
+      ])}
+      <p class="job-sheet-subhead">Technical topics</p>
+      ${listOrNd(prep.technicalTopics)}
+      <p class="job-sheet-subhead">HR / behavioural</p>
+      ${listOrNd([].concat(prep.hrQuestions || [], prep.behaviouralQuestions || []))}
+      <p class="job-sheet-subhead">Coding topics</p>
+      ${listOrNd(prep.codingTopics)}
+      <p class="job-sheet-subhead">Preparation resources</p>
+      ${listOrNd(prep.preparationResources)}
+    `;
+
+    const seoBlock = kvGrid([
+      ["SEO title", job.seoTitle],
+      ["SEO description", job.seoDescription],
+      ["Slug", job.seoSlug || job.id],
+      ["Canonical URL", job.canonicalUrl],
+      ["Open Graph title", job.ogTitle || job.seoTitle],
+      ["Twitter title", job.twitterTitle || job.seoTitle],
+      ["Image ALT", job.imageAlt],
+      ["Keywords", (job.keywords || []).join(", ")]
+    ]);
+
     const internalLinks = (job.internalLinks || [])
       .map((item) => `<li><a href="${escapeAttr(item.href)}">${escapeHtml(item.label)}</a></li>`)
       .join("");
 
     const standardLayout = `
-      <div class="job-detail-layout">
+      <div class="job-detail-layout job-detail-layout--premium">
         <div class="job-detail-main">
           ${verificationNoticeBlock(job)}
-          ${section("Job summary", job.jobSummary ? `<p class="job-detail-text">${escapeHtml(job.jobSummary)}</p>` : "")}
-          ${section("About the company", job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Job summary", `<p class="job-detail-text">${plainOrNd(job.jobSummary)}</p>`)}
+          ${section("Quick facts", quickFactsBlock(job))}
+          ${section("Company overview", companyOverviewBlock)}
+          ${section(
+            "About the company",
+            job.companyDetails
+              ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>`
+              : `<p class="job-detail-text">${escapeHtml(ND)}</p>`
+          )}
+          ${section("Why join this company", listOrNd(job.whyJoin))}
+          ${section("Career growth", `<p class="job-detail-text">${plainOrNd(job.careerGrowth)}</p>`)}
+          ${section("Work culture", `<p class="job-detail-text">${plainOrNd(job.workCulture)}</p>`)}
+          ${section("Work environment", `<p class="job-detail-text">${plainOrNd(job.workEnvironment)}</p>`)}
+          ${section("Global presence", `<p class="job-detail-text">${plainOrNd(job.globalPresence)}</p>`)}
+          ${section("Hiring trends", `<p class="job-detail-text">${plainOrNd(job.hiringTrends)}</p>`)}
+          ${section("Job details", jobDetailsBlock)}
+          ${section("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : `<p class="job-detail-text">${escapeHtml(ND)}</p>`)}
           ${section(
             "Hiring overview",
             job.workDetails || job.description
               ? `<p class="job-detail-text">${escapeHtml(job.workDetails || job.description)}</p>`
-              : `<p class="job-detail-text">Not officially available.</p>`
+              : `<p class="job-detail-text">${escapeHtml(ND)}</p>`
           )}
-          ${section("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : `<p class="job-detail-text">Not officially available.</p>`)}
-          ${section("Responsibilities", listBlock(job.responsibilities) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Responsibilities", listOrNd(job.responsibilities))}
           ${section("Required skills", skillsBlock)}
-          ${section("Eligibility", listBlock(job.eligibility) || listBlock(job.requirements) || `<p class="job-detail-text">Not officially available.</p>`)}
-          ${section("Benefits", listBlock(job.benefits) || `<p class="job-detail-text">Not officially available.</p>`)}
-          ${section("Salary", `<p class="job-detail-text">${escapeHtml(job.salaryRange || "Not officially available.")}</p>`)}
-          ${section("Hiring process", numberedFromArray(job.hiringProcess) || `<p class="job-detail-text">Not officially available.</p>`)}
-          ${section("How to apply", applyMethodsBlock(job), "job-apply-panel")}
-          ${section("Required documents", listBlock(job.requiredDocuments) || `<p class="job-detail-text">Not officially available.</p>`)}
+          ${section("Preferred skills", listOrNd(job.preferredSkills))}
+          ${section("Company technology stack", techStackBlock)}
+          ${section("Eligibility criteria", listOrNd(job.eligibility))}
+          ${section("Who should apply", listOrNd(job.whoShouldApply))}
+          ${section("Who should not apply", listOrNd(job.whoShouldNotApply))}
+          ${section("Salary & compensation", salaryBlock)}
+          ${section("Employee benefits", listOrNd(job.benefitsDetailed || job.benefits))}
+          ${section("Office location", `${locationBlock}${mapBlock(job)}`)}
+          ${
+            /infopark/i.test(String(job.address || "") + String(job.location || ""))
+              ? section(
+                  "About Infopark office",
+                  `<p class="job-detail-text">This employer is listed with an Infopark campus address on the official Infopark company directory. Campus amenities, shuttle timings, and entry rules are managed by Infopark / the company and are ${escapeHtml(ND)} on this page. Confirm visit instructions with the employer before travelling.</p>`
+                )
+              : ""
+          }
+          ${section("Hiring process", numberedFromArray(job.hiringProcess) || `<p class="job-detail-text">${escapeHtml(ND)}</p>`)}
+          ${section("Required documents", listOrNd(job.requiredDocuments))}
+          ${section("How to apply (step-by-step)", applyMethodsBlock(job), "job-apply-panel")}
           ${walkInBlock(job)}
-          ${section("Interview tips", tipsBlock)}
-          ${section("Structured FAQ", faqBlock(job.faq))}
-          ${section("Official links", officialLinksBlock(job))}
+          ${section("Interview preparation", interviewBlock)}
+          ${section("Important dates", datesBlock)}
+          ${section("Frequently asked questions", faqBlock(job.faq))}
+          ${section("Official company links", officialLinksBlock(job))}
+          ${section("SEO & discoverability metadata", seoBlock)}
           ${section("Final verification report", verificationReportBlock(job))}
+          ${section(
+            "Fraud warning",
+            listBlock(job.fraudWarning) ||
+              `<p class="job-detail-text">Never pay anyone for a job. Apply only through official channels.</p>`
+          )}
           ${section("Hiring notes", job.hiringNotes ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : "")}
           ${
             internalLinks
@@ -833,10 +1098,11 @@
         </div>
         <aside class="job-detail-side">
           ${section(
-            "Official contact details",
-            contactBlock ? `<dl class="job-info-list">${contactBlock}</dl>${mapBlock(job)}` : ""
+            "Official contact information",
+            contactBlock ? `<dl class="job-info-list">${contactBlock}</dl>` : ""
           )}
-          ${section("Job details", snapshotBlock ? `<dl class="job-info-list job-info-list--grid">${snapshotBlock}</dl>` : "")}
+          ${section("Quick facts", quickFactsBlock(job))}
+          ${section("Important dates", datesBlock)}
           ${shareBlock(job)}
           <section class="job-panel glass job-side-cta">
             <h2>Stay updated</h2>
@@ -876,12 +1142,12 @@
               <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(mark)}</span>
               ${
                 job.logo
-                  ? `<img class="job-logo" src="${escapeAttr(assetUrl(job.logo))}" alt="" loading="lazy" onerror="this.remove()" />`
+                  ? `<img class="job-logo" src="${escapeAttr(assetUrl(job.logo))}" alt="${escapeAttr(job.imageAlt || job.company + " logo")}" loading="lazy" onerror="this.remove()" />`
                   : ""
               }
             </div>
             <div class="job-detail-hero-copy">
-              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Verified company hiring page"}</p>
+              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Premium verified hiring brief"}</p>
               <h1>${escapeHtml(job.companyLegalName || job.company)}</h1>
               ${
                 job.companyLegalName && job.companyLegalName !== job.company
@@ -920,6 +1186,16 @@
       ${isSheet ? channelsBlock() : ""}
       ${relatedJobsBlock(job)}
     `;
+
+    if (job.canonicalUrl) {
+      const canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute("href", job.canonicalUrl);
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute("content", job.canonicalUrl);
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute("content", job.ogTitle || job.seoTitle || document.title);
+    }
+    injectJobPostingSchema(job);
 
     const copyBtn = document.getElementById("job-copy-link");
     if (copyBtn) {
