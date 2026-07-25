@@ -83,39 +83,11 @@
     if (companyField) companyField.hidden = !hint.showCompany;
     if (messageLabel) messageLabel.textContent = hint.messageLabel;
     if (messageInput) messageInput.placeholder = hint.placeholder;
-
-    let portalNote = document.getElementById("post-job-portal-note");
-    if (reason === "Post a Job") {
-      if (!portalNote) {
-        portalNote = document.createElement("p");
-        portalNote.id = "post-job-portal-note";
-        portalNote.className = "contact-portal-note";
-        portalNote.innerHTML =
-          'Prefer the full hiring form? <a href="/post-job/">Open the Post a Job portal →</a>';
-        const reasons = document.getElementById("contact-reasons");
-        if (reasons && reasons.parentNode) {
-          reasons.parentNode.insertBefore(portalNote, reasons.nextSibling);
-        }
-      }
-      portalNote.hidden = false;
-    } else if (portalNote) {
-      portalNote.hidden = true;
-    }
   }
 
   reasonInputs.forEach((input) => input.addEventListener("change", syncReasonUI));
   applyReasonFromQuery();
   syncReasonUI();
-
-  // Deep-link: /contact/?reason=job → offer portal (keep form usable too)
-  try {
-    const params = new URLSearchParams(window.location.search);
-    if (String(params.get("portal") || "").toLowerCase() === "post-job") {
-      window.location.replace("/post-job/");
-    }
-  } catch (_e) {
-    /* ignore */
-  }
 
   function setStatus(message, isError) {
     if (!statusEl) return;
