@@ -3809,11 +3809,11 @@ html.theme-light body .job-alert-banner-label {
 
 /* ---------- Social wall (media page) ---------- */
 
-/* Onam celebration hero */
+/* Onam celebration hero — theme-aware wall */
 .onam-hero {
   position: relative;
   margin: 1.1rem 0 1.6rem;
-  min-height: min(68vh, 520px);
+  min-height: min(54vh, 440px);
   border-radius: 28px;
   overflow: hidden;
   isolation: isolate;
@@ -3835,8 +3835,12 @@ html.theme-light body .job-alert-banner-label {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 72% center;
+  object-position: 78% center;
   display: block;
+}
+
+.onam-hero-img--light {
+  display: none;
 }
 
 .onam-hero-panel {
@@ -4014,16 +4018,96 @@ html.theme-light body .job-alert-banner-label {
   font-weight: 700;
 }
 
+/* Light theme: warm Onam wall (not the same dark slab) */
 html.theme-light body .onam-hero,
-html.theme-light body .onam-hero-panel,
-html.theme-light body .onam-hero h1,
-html.theme-light body .onam-hero-brand-name,
-html.theme-light body .onam-hero-meta dd {
-  color: #f5f6fa;
+body.light .onam-hero {
+  background: #fff6e4;
+  border-color: rgba(180, 83, 9, 0.22);
+  color: #1a1610;
 }
 
-html.theme-light body .onam-hero-panel {
-  background: rgba(11, 11, 15, 0.92);
+html.theme-light body .onam-hero-img--dark,
+body.light .onam-hero-img--dark {
+  display: none;
+}
+
+html.theme-light body .onam-hero-img--light,
+body.light .onam-hero-img--light {
+  display: block;
+}
+
+html.theme-light body .onam-hero-panel,
+body.light .onam-hero-panel {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(180, 83, 9, 0.16);
+  box-shadow: 0 16px 40px rgba(120, 70, 10, 0.1);
+  color: #1a1610;
+}
+
+html.theme-light body .onam-hero-present,
+body.light .onam-hero-present {
+  color: #b45309;
+}
+
+html.theme-light body .onam-hero-brand-name,
+html.theme-light body .onam-hero h1,
+html.theme-light body .onam-hero-meta dd,
+body.light .onam-hero-brand-name,
+body.light .onam-hero h1,
+body.light .onam-hero-meta dd {
+  color: #1a1610;
+}
+
+html.theme-light body .onam-hero-brand-tag,
+body.light .onam-hero-brand-tag {
+  color: #c2410c;
+}
+
+html.theme-light body .onam-hero-kicker,
+html.theme-light body .onam-hero-lead,
+html.theme-light body .onam-hero-meta dt,
+html.theme-light body .onam-hero-powered,
+body.light .onam-hero-kicker,
+body.light .onam-hero-lead,
+body.light .onam-hero-meta dt,
+body.light .onam-hero-powered {
+  color: rgba(26, 22, 16, 0.68);
+}
+
+html.theme-light body .onam-hero-logo,
+body.light .onam-hero-logo {
+  background: #fff8eb;
+  border-color: rgba(180, 83, 9, 0.35);
+  box-shadow: 0 8px 20px rgba(120, 70, 10, 0.12);
+}
+
+html.theme-light body .onam-hero-meta-item,
+body.light .onam-hero-meta-item {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(180, 83, 9, 0.14);
+}
+
+html.theme-light body .onam-hero-btn-secondary,
+body.light .onam-hero-btn-secondary {
+  color: #1a1610 !important;
+  border-color: rgba(26, 22, 16, 0.22) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+}
+
+html.theme-light body .onam-hero-btn-secondary:hover,
+body.light .onam-hero-btn-secondary:hover {
+  border-color: rgba(180, 83, 9, 0.5) !important;
+  color: #b45309 !important;
+}
+
+html.theme-light body .onam-hero-powered,
+body.light .onam-hero-powered {
+  border-top-color: rgba(180, 83, 9, 0.16);
+}
+
+html.theme-light body .onam-hero-powered strong,
+body.light .onam-hero-powered strong {
+  color: #b45309;
 }
 
 @media (max-width: 820px) {

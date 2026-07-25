@@ -23,8 +23,17 @@ body.onam-body .footer-grid {
   border-radius: 22px;
   border: 1px solid rgba(255, 193, 7, 0.22);
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 193, 7, 0.1), transparent 40%),
-    var(--surface);
+    radial-gradient(circle at 100% 0%, rgba(255, 193, 7, 0.12), transparent 42%),
+    var(--bg-elev);
+}
+
+html.theme-light body .onam-panel,
+body.light .onam-panel {
+  border-color: rgba(180, 83, 9, 0.2);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 193, 7, 0.18), transparent 45%),
+    #fffaf0;
+  box-shadow: 0 12px 32px rgba(120, 70, 10, 0.06);
 }
 
 .onam-kicker,
