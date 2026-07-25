@@ -60,6 +60,7 @@ body.light {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 html,
@@ -5714,6 +5715,63 @@ html.theme-light .svcx-hero-grid {
 
   .contact-social-row {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Mobile QA fixes from iPhone audit */
+  .partners-marquee {
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+
+  .partners-track {
+    gap: 1.6rem;
+    padding-inline: 1.4rem;
+  }
+
+  .partners-track img {
+    height: 22px;
+  }
+
+  .job-hero-stat-value,
+  .job-sheet-facts dd,
+  .job-fact-row dd {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    line-height: 1.35;
+    word-break: break-word;
+  }
+
+  .job-detail-hero {
+    padding: 1.15rem 1rem;
+    border-radius: 20px;
+  }
+
+  .job-hero-stats,
+  .job-hero-stats--sheet {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .jobs-toolbar {
+    padding: 1rem 0.95rem;
+  }
+
+  .jobs-select-caption {
+    font-size: 0.7rem;
+  }
+
+  .jobs-tag-chip {
+    min-height: 40px;
+  }
+
+  .hero-proof {
+    gap: 0.45rem;
+  }
+
+  .jobs-page,
+  .job-detail-page {
+    scroll-margin-top: 5.5rem;
   }
 }
 
