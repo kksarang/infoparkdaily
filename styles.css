@@ -585,6 +585,15 @@ html.theme-light .site-nav a.nav-hexenity {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+a.logo-card:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
 }
 
 .logo-card img {
@@ -592,11 +601,13 @@ html.theme-light .site-nav a.nav-hexenity {
   height: 44px;
   border-radius: 12px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 .logo-card strong {
   display: block;
   font-family: var(--display);
+  color: var(--text);
 }
 
 .logo-card span {
