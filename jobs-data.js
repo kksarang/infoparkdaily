@@ -235,13 +235,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -589,13 +588,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -935,13 +933,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -1279,13 +1276,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -1624,13 +1620,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -1968,13 +1963,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -2312,13 +2306,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -2659,13 +2652,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -3003,13 +2995,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -3353,13 +3344,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -3697,13 +3687,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -4046,13 +4035,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -4392,13 +4380,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -4736,13 +4723,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -5085,13 +5071,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -5434,13 +5419,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -5782,13 +5766,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -6127,13 +6110,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -6471,13 +6453,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -6815,13 +6796,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -7159,13 +7139,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -7503,13 +7482,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -7849,13 +7827,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -8193,13 +8170,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -8537,13 +8513,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -8882,13 +8857,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -9225,13 +9199,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -9573,13 +9546,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -9921,13 +9893,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -10266,13 +10237,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -10617,13 +10587,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -10962,13 +10931,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -11334,13 +11302,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -11701,13 +11668,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -12069,13 +12035,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -12443,13 +12408,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -12812,13 +12776,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -13177,13 +13140,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -13544,13 +13506,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -13895,13 +13856,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -14400,13 +14360,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -14766,13 +14725,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -15128,13 +15086,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -15494,13 +15451,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -15864,13 +15820,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -16222,13 +16177,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -16582,13 +16536,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -16942,13 +16895,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -17301,13 +17253,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -17674,13 +17625,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -18043,13 +17993,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -18410,13 +18359,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -18780,13 +18728,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -19167,13 +19114,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -19544,13 +19490,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -19912,13 +19857,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -20267,13 +20211,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -20629,13 +20572,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -20987,13 +20929,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -21342,13 +21283,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -21702,13 +21642,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -22056,13 +21995,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -22408,13 +22346,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -22761,13 +22698,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -23112,13 +23048,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -23456,13 +23391,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -23803,13 +23737,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -24152,13 +24085,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -24500,13 +24432,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -24845,13 +24776,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -25194,13 +25124,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -25539,13 +25468,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -25880,13 +25808,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,
@@ -26224,13 +26151,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: true,
@@ -26570,13 +26496,12 @@ var JOBS = [
       {"label":"Contact InfoparkDaily","href":"/contact/"}
     ],
     fraudWarning: [
-      "Job data on InfoparkDaily is taken from public online sources. We are not the hiring company and cannot guarantee genuineness of every listing.",
-      "Do a detailed personal check on the official company website / careers page before you proceed.",
-      "InfoparkDaily does not charge any fee for recruitment. Never pay anyone for a job.",
-      "If anyone asks for money, OTP, registration fees, or you face a false statement / financial issue linked to a listing, contact our team immediately via the Contact page, infoparkstorieskochi@gmail.com, or +91 99952 54290. We can check the issue.",
-      "Report suspicious recruiters. Apply only through official company or Infopark Jobs channels."
+      "Never pay anyone for a job, registration, or interview.",
+      "Do not share OTP, passwords, or bank details with recruiters.",
+      "Apply only through official company or Infopark Jobs channels.",
+      "Report fee requests via /contact/ or infoparkstorieskochi@gmail.com."
     ],
-    verificationNotice: "InfoparkDaily Job Verification: Listings are researched from public online sources (company sites / Infopark profiles / Infopark Jobs). We are not the employer and cannot guarantee genuineness of every opportunity. Do a detailed official check before you apply, travel, or share documents. InfoparkDaily never charges candidates. If anyone asks for money, or you see a false / financial issue, contact our team via /contact/ or infoparkstorieskochi@gmail.com — we can review.",
+    verificationNotice: "Listings come from public sources. We are not the employer and cannot guarantee every role is genuine. Check the official company site before you apply. Never pay for a job.",
     verificationReport: {
       companyExists: true,
       websiteVerified: false,

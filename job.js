@@ -203,11 +203,8 @@
       ["Location", job.location || ""],
       ["Experience", job.experienceRange || job.experienceYears || EXP_LABELS[job.experience] || ""],
       ["Type", job.employmentType || job.workStatus || ""],
-      ["Mode", job.workMode ? String(job.workMode).split("(")[0].trim() : ""],
-      ["Apply before", deadline],
-      ["Published", job.postedDate ? formatDate(job.postedDate) : ""],
-      ["Apply email", job.email || ""],
-      ["Open roles", String((job.roles || []).length)]
+      ["Mode", isKnown(job.workMode) ? String(job.workMode).split("(")[0].trim() : ""],
+      ["Apply before", deadline]
     ].filter(([, value]) => value);
 
     if (!stats.length) return "";
@@ -418,25 +415,37 @@
     return rows ? `<dl class="job-info-list">${rows}</dl>` : "";
   }
 
-  function verificationNoticeBlock(job) {
-    const notice =
-      job.verificationNotice ||
-      "InfoparkDaily Job Verification: Listings come from public online sources. We are not the employer and cannot guarantee genuineness. Verify officially before you proceed. Never pay for a job. Report fee / fraud issues to our team via /contact/.";
-    const warnings = job.fraudWarning || [];
+  function verificationNoticeBlock(_job) {
+    // Keep this short and single-purpose — do not repeat fraudWarning bullets here.
     return `
-      <section class="job-panel glass job-verify-panel">
-        <h2>InfoparkDaily Verification Notice</h2>
-        <p class="job-detail-text">${escapeHtml(notice)}</p>
-        ${listBlock(warnings)}
+      <aside class="job-panel glass job-verify-panel job-verify-panel--compact" role="note">
+        <h2>Verification note</h2>
         <p class="job-detail-text">
-          Need help checking a suspicious fee request or false statement?
-          <a href="/contact/">Contact our team</a> ·
-          <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a> ·
-          <a href="/terms/#report">Terms — Report issues</a> ·
-          <a href="/privacy/#job-data">Privacy — Job data sources</a>
+          Listings come from public sources. We are not the employer and cannot guarantee every role is genuine.
+          Check the official company site before you apply. Never pay for a job.
+          <a href="/contact/">Report an issue</a>
+          · <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>
         </p>
-      </section>
+      </aside>
     `;
+  }
+
+  function shortPlainText(value, max = 280) {
+    const text = String(value || "")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!text) return "";
+    if (text.length <= max) return text;
+    return `${text.slice(0, max).replace(/\s+\S*$/, "")}…`;
+  }
+
+  function usefulItems(items) {
+    return (items || []).filter((item) => {
+      const text = String(item || "").trim();
+      if (!isKnown(text)) return false;
+      if (/not officially disclosed/i.test(text)) return false;
+      return true;
+    });
   }
 
   function verificationReportBlock(job) {
@@ -490,7 +499,7 @@
         <a class="job-apply-method" href="mailto:${escapeAttr(job.email)}">
           <span class="job-apply-method-icon job-apply-method-icon--mail" aria-hidden="true">@</span>
           <span class="job-apply-method-body">
-            <strong>Verified apply email</strong>
+            <strong>Apply email</strong>
             <span>${escapeHtml(job.email)}</span>
           </span>
         </a>
@@ -528,26 +537,15 @@
         <a class="job-apply-method" href="tel:${escapeAttr(String(job.phone).replace(/\s+/g, ""))}">
           <span class="job-apply-method-icon job-apply-method-icon--phone" aria-hidden="true">✆</span>
           <span class="job-apply-method-body">
-            <strong>Verified phone</strong>
+            <strong>Phone</strong>
             <span>${escapeHtml(job.phone)}</span>
           </span>
         </a>
       `);
     }
 
-    const steps = job.applySteps && job.applySteps.length
-      ? numberedFromArray(job.applySteps)
-      : job.howToApply
-        ? `<p class="job-detail-text job-apply-steps">${escapeHtml(job.howToApply)}</p>`
-        : "";
-
-    if (!methods.length && !steps) {
-      return `<p class="job-detail-text">${escapeHtml(ND)}</p>`;
-    }
-    return `
-      ${steps}
-      ${methods.length ? `<div class="job-apply-methods">${methods.join("")}</div>` : ""}
-    `;
+    if (!methods.length) return "";
+    return `<div class="job-apply-methods">${methods.join("")}</div>`;
   }
 
   function walkInBlock(job) {
@@ -610,8 +608,16 @@
       .join("")}</ol>`;
   }
 
+  function hasSheetBody(bodyHtml) {
+    const html = String(bodyHtml || "").trim();
+    if (!html) return false;
+    // Keep sections that are mostly embeds / structured UI with little plain text.
+    if (/<(iframe|img|ul|ol|dl|a|button)\b/i.test(html)) return true;
+    return Boolean(html.replace(/<[^>]*>/g, "").replace(/\s+/g, "").length);
+  }
+
   function sheetSection(num, title, bodyHtml) {
-    if (!bodyHtml) return "";
+    if (!hasSheetBody(bodyHtml)) return "";
     return `
       <section class="job-sheet-block">
         <header class="job-sheet-block-head">
@@ -709,10 +715,10 @@
       <section class="job-alert-banner" aria-label="Internship job alert">
         <p class="job-alert-banner-label">${escapeHtml(job.alertLabel || "INTERNSHIP JOB ALERT")}</p>
         <h2>${escapeHtml((job.roles || [])[0] || "Intern")} — full hiring sheet</h2>
-        <p>Everything you need in one clear sheet. Scan fast → apply only on the official Wipro Careers link.</p>
+        <p>Everything you need in one clear sheet. Scan fast → apply only on the official careers / apply link.</p>
         ${
           applyUrl
-            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Apply on Wipro Careers ↗</a>`
+            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
             : ""
         }
       </section>
@@ -903,178 +909,200 @@
       job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
     const isSheet = Boolean(job.alertSheet);
     const loc = job.locationDetails || {};
-    const dates = job.importantDates || {};
-    const prep = job.interviewPreparation || {};
 
-    const contactBlock = [
-      job.email ? infoItem("Apply / HR email", emailHtml(job.email)) : "",
-      job.phone ? infoItem("Phone", phoneHtml(job.phone)) : "",
-      applyUrl ? infoItem("Official apply / careers", linkHtml(applyUrl, "Open apply page")) : "",
-      job.website && !/infopark\.in\/companies-job/.test(job.website)
-        ? infoItem("Website", linkHtml(job.website))
-        : "",
-      infoItem("Company", escapeHtml(job.companyLegalName || job.company)),
-      isKnown(job.address) ? infoItem("Office address", escapeHtml(job.address)) : ""
-    ].join("");
-
-    // Only real company facts — never fill the page with empty founder/CEO/rating rows.
-    const companyOverviewBlock = kvGrid([
-      ["Company name", job.companyLegalName || job.company],
-      ["Industry", isKnown(job.industry) ? job.industry : isKnown(job.businessCategory) ? job.businessCategory : ""],
-      ["Company size", job.companySize || job.employeeCount],
-      ["Year founded", job.foundedYear],
-      ["Headquarters", job.headquarters]
-    ]);
-
-    // Job facts candidates actually use. Hide noise like weekend policy when unknown.
-    const jobDetailsBlock = kvGrid([
-      ["Job title(s)", (job.roles || []).join(", ")],
-      ["Employment type", job.employmentType || job.workStatus],
-      ["Work mode", job.workMode],
-      ["Experience", job.experienceRange || job.experienceYears || badgeLabel],
-      ["Department", job.department],
-      ["Job code / ID", job.jobCode || job.jobIdOfficial || job.referenceId],
-      ["Vacancy count", job.vacancyCount],
-      ["Notice period", job.noticePeriod],
-      ["Joining timeline", job.joiningTimeline || (job.startingDate ? formatDate(job.startingDate) : "")],
-      ["Shift", job.shift],
-      ["Working hours", job.workingHours],
-      ["Working days", job.workingDays],
+    // Same clear “hiring sheet” style as /job/wipro-intern-l1 — only known, useful facts.
+    const factRows = [
+      ["Job title", (job.roles || [])[0] || ""],
+      ["Company", job.companyLegalName || job.company],
+      ["Reference / job ID", job.referenceId || job.jobCode || job.jobIdOfficial || ""],
+      ["Job type", job.employmentType || job.workStatus || ""],
+      ["Experience", job.experienceRange || job.experienceYears || badgeLabel || ""],
+      ["Work mode", isKnown(job.workMode) ? job.workMode : ""],
+      ["Location", job.location || ""],
+      ["Office / campus", isKnown(loc.campus) ? loc.campus : isKnown(job.address) ? job.address : ""],
+      ["Industry", isKnown(job.industry) ? job.industry : ""],
       ["Posted", job.postedDate ? formatDate(job.postedDate) : ""],
       [
-        "Apply deadline",
+        "Deadline",
         job.applyDeadline === "Rolling"
-          ? "Rolling applications"
-          : job.applyDeadline
-            ? formatDate(job.applyDeadline)
-            : ""
-      ]
-    ]);
-
-    const locationBlock = kvGrid([
-      ["Office address", loc.officeAddress || job.address],
-      ["Infopark campus", loc.campus],
-      ["Building", loc.building],
-      ["Floor", loc.floor],
-      ["City", loc.city],
-      ["PIN code", loc.pin],
-      ["State", loc.state],
-      ["Country", loc.country]
-    ]);
-
-    const salaryKnown = isKnown(job.salaryRange) || isKnown(job.salaryMin) || isKnown(job.salaryMax);
-    const salaryBlock = salaryKnown
-      ? kvGrid([
-          ["Salary", job.salaryRange],
-          ["Minimum", job.salaryMin],
-          ["Maximum", job.salaryMax],
-          ["Annual CTC", job.salaryAnnualCtc],
-          ["Monthly", job.salaryMonthly]
-        ])
-      : "";
-
-    const datesBlock = kvGrid([
-      ["Date posted", job.postedDate ? formatDate(job.postedDate) : ""],
-      [
-        "Application deadline",
-        job.applyDeadline === "Rolling"
-          ? "Rolling applications"
+          ? "Open / Rolling"
           : job.applyDeadline
             ? formatDate(job.applyDeadline)
             : ""
       ],
-      ["Interview date", dates.interviewDate],
-      ["Joining date", job.startingDate ? formatDate(job.startingDate) : ""]
-    ]);
+      ["Notice period", isKnown(job.noticePeriod) ? job.noticePeriod : ""],
+      ["Salary / stipend", isKnown(job.salaryRange) ? job.salaryRange : ""],
+      ["Apply email", job.email || ""],
+      ["Phone", job.phone || ""]
+    ].filter(([, v]) => isKnown(v));
 
-    const techSkills = knownList(job.technicalSkills || job.skills || job.requiredSkills);
-    const softSkills = knownList(job.softSkills);
-    const preferredSkills = knownList(job.preferredSkills);
-    const skillsBlock = [
-      techSkills ? `<p class="job-sheet-subhead">Technical / role skills</p>${techSkills}` : "",
-      softSkills ? `<p class="job-sheet-subhead">Soft skills</p>${softSkills}` : "",
-      preferredSkills ? `<p class="job-sheet-subhead">Preferred / good-to-have</p>${preferredSkills}` : ""
+    const who =
+      (job.whoCanApply && job.whoCanApply.length ? job.whoCanApply : null) ||
+      (job.whoShouldApply && job.whoShouldApply.length ? job.whoShouldApply : null) ||
+      job.requirements ||
+      [];
+    const edu = job.educationalQualification || [];
+    const tech = (job.technicalSkills || []).filter((x) => isKnown(x));
+    const soft = (job.softSkills || []).filter((x) => isKnown(x));
+    const skillFallback = (job.skills || []).filter((x) => isKnown(x));
+    const selection = usefulItems(job.selectionProcess || job.hiringProcess || []);
+    const applySteps = usefulItems(job.applySteps || []);
+    const docs = usefulItems(job.documentsRequired || []);
+    const notes = usefulItems(job.importantNotes || []);
+    const tips = usefulItems(job.resumeTips || job.interviewTips || []);
+    const checklist = usefulItems(job.applyChecklist || []);
+    const sheetFaqs = (job.faqs && job.faqs.length ? job.faqs : job.faq) || [];
+    const safety = usefulItems(job.safetyNotes || []).length
+      ? usefulItems(job.safetyNotes)
+      : [
+          "Never pay anyone for a job, registration, or interview.",
+          "Do not share OTP, passwords, or bank details with recruiters.",
+          "Apply only through the official email / website links on this page."
+        ];
+    const benefits = usefulItems(job.benefits || []);
+    const responsibilities = usefulItems(job.responsibilities || []);
+    const openRoles = (job.roles || []).filter((x) => isKnown(x));
+    const whoList = usefulItems(who);
+    const eduList = usefulItems(edu);
+
+    let sectionNo = 0;
+    const addSheet = (title, bodyHtml) => {
+      if (!hasSheetBody(bodyHtml)) return "";
+      const num = String(++sectionNo).padStart(2, "0");
+      return sheetSection(num, title, bodyHtml);
+    };
+
+    const applyCtaLabel = job.email && !applyUrl ? `Email ${job.email}` : "Official Apply ↗";
+    const applyCtaHref = applyUrl || (job.email ? `mailto:${job.email}` : "");
+
+    const aboutBody = [
+      isKnown(job.companyDetails)
+        ? `<p class="job-detail-text">${escapeHtml(shortPlainText(job.companyDetails, 320))}</p>`
+        : "",
+      isKnown(job.workDetails)
+        ? `<p class="job-detail-text">${escapeHtml(shortPlainText(job.workDetails, 220))}</p>`
+        : "",
+      !isKnown(job.companyDetails) && !isKnown(job.workDetails) && isKnown(job.jobSummary)
+        ? `<p class="job-detail-text">${escapeHtml(shortPlainText(job.jobSummary, 220))}</p>`
+        : ""
     ].join("");
 
-    const realInterviewTips = knownList(job.interviewTips || (prep.technicalTopics || []).filter(isKnown));
-    const benefitsBody = knownList(job.benefits);
-    const requirementsBody = knownList(job.requirements);
-    const whyJoinBody = knownList(job.whyJoin);
-    const whoApplyBody = knownList(job.whoShouldApply);
-    const whoNotBody = knownList(job.whoShouldNotApply);
+    const locationBody = `
+      ${kvGrid([
+        ["Listed location", job.location],
+        ["Office address", loc.officeAddress || job.address],
+        ["Infopark campus", loc.campus],
+        ["Building", loc.building],
+        ["City", loc.city],
+        ["PIN", loc.pin]
+      ])}
+      <div class="job-map-wrap">${mapBlock(job)}</div>
+    `;
 
-    const internalLinks = (job.internalLinks || [])
-      .map((item) => `<li><a href="${escapeAttr(item.href)}">${escapeHtml(item.label)}</a></li>`)
-      .join("");
+    const skillsBody = [
+      tech.length
+        ? `<p class="job-sheet-subhead">Technical</p>${chipsRow(tech, "job-sheet-chips job-sheet-chips--tech")}`
+        : "",
+      soft.length
+        ? `<p class="job-sheet-subhead">Soft skills</p>${chipsRow(soft, "job-sheet-chips job-sheet-chips--soft")}`
+        : "",
+      !tech.length && !soft.length
+        ? chipsRow(skillFallback, "job-sheet-chips") || listBlock(skillFallback)
+        : ""
+    ].join("");
+
+    const howToApplyBody = [
+      applySteps.length ? numberedList(applySteps) : "",
+      !applySteps.length && isKnown(job.howToApply)
+        ? `<p class="job-detail-text">${escapeHtml(job.howToApply)}</p>`
+        : "",
+      applyMethodsBlock(job),
+      applyUrl
+        ? `<a class="job-sheet-link" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer"><strong>Official application link</strong><span>${escapeHtml(applyUrl)}</span></a>`
+        : ""
+    ].join("");
+
+    const checklistBody = checklist.length
+      ? `<ul class="job-detail-bullets job-sheet-checklist">${checklist
+          .map((item) => `<li>${escapeHtml(item)}</li>`)
+          .join("")}</ul>`
+      : `<ul class="job-detail-bullets job-sheet-checklist">
+          <li>Open the official apply link or email on this page</li>
+          <li>Confirm role, location, and deadline on the company / Infopark listing</li>
+          <li>Resume PDF ready</li>
+          <li>No one asked for money — application should be free</li>
+        </ul>`;
+
+    const docsBody = docs.length
+      ? listBlock(docs)
+      : listBlock(["Updated resume (PDF preferred)", "Other documents only if the company asks"]);
+
+    const notesBody = notes.length
+      ? listBlock(notes)
+      : isKnown(job.hiringNotes)
+        ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>`
+        : "";
+
+    const safetyBody = `${listBlock(safety)}
+      <p class="job-sheet-note"><a href="/contact/">Report fee requests or false listings →</a></p>`;
 
     const standardLayout = `
-      <div class="job-detail-layout job-detail-layout--premium">
-        <div class="job-detail-main">
-          ${verificationNoticeBlock(job)}
-          ${sectionIf("Job summary", isKnown(job.jobSummary) ? `<p class="job-detail-text">${escapeHtml(job.jobSummary)}</p>` : "")}
-          ${sectionIf("Quick facts", quickFactsBlock(job))}
-          ${sectionIf("Company overview", companyOverviewBlock)}
-          ${sectionIf(
-            "About the company",
-            isKnown(job.companyDetails) ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : ""
-          )}
-          ${sectionIf("Why join", whyJoinBody)}
-          ${sectionIf("Job details", jobDetailsBlock)}
-          ${sectionIf("Open roles", roles ? `<ul class="job-role-grid">${roles}</ul>` : "")}
-          ${sectionIf(
-            "Hiring overview",
-            isKnown(job.workDetails) || isKnown(job.description)
-              ? `<p class="job-detail-text">${escapeHtml(job.workDetails || job.description)}</p>`
-              : ""
-          )}
-          ${sectionIf("Responsibilities", knownList(job.responsibilities))}
-          ${sectionIf("Required skills", skillsBlock)}
-          ${sectionIf("Eligibility / requirements", requirementsBody)}
-          ${sectionIf("Who should apply", whoApplyBody)}
-          ${sectionIf("Who should not apply", whoNotBody)}
-          ${sectionIf("Salary", salaryBlock)}
-          ${sectionIf("Benefits", benefitsBody)}
-          ${sectionIf("Office location", `${locationBlock}${mapBlock(job)}`)}
-          ${section("How to apply", applyMethodsBlock(job), "job-apply-panel")}
-          ${walkInBlock(job)}
-          ${sectionIf(
-            "Documents to keep ready",
-            `<p class="job-detail-text">Keep an updated resume ready (PDF preferred). Extra documents are only needed if the company asks for them.</p>`
-          )}
-          ${sectionIf("Interview tips", realInterviewTips)}
-          ${sectionIf("Important dates", datesBlock)}
-          ${sectionIf("FAQ", faqBlock(job.faq))}
-          ${sectionIf("Official links", officialLinksBlock(job))}
-          ${section(
-            "Stay safe",
-            `${listBlock(job.fraudWarning) || `<p class="job-detail-text">Never pay anyone for a job. Apply only through official channels.</p>`}
-            <p class="job-detail-text"><a href="/contact/">Report a fee request or false listing →</a></p>`
-          )}
-          ${sectionIf("Hiring notes", isKnown(job.hiringNotes) ? `<p class="job-detail-text">${escapeHtml(job.hiringNotes)}</p>` : "")}
-          ${
-            internalLinks
-              ? section("Explore more on InfoparkDaily", `<ul class="job-detail-bullets">${internalLinks}</ul>`)
-              : ""
-          }
+      <section class="job-alert-banner" aria-label="Job hiring sheet">
+        <p class="job-alert-banner-label">${escapeHtml(job.alertLabel || "JOB ALERT · INFOPARKDAILY")}</p>
+        <h2>${escapeHtml((job.roles || [])[0] || job.company)} — hiring sheet</h2>
+        <p>Clear facts only — scan fast, then apply on the official company channel.</p>
+        ${
+          applyCtaHref
+            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyCtaHref)}" ${
+                applyUrl ? 'target="_blank" rel="noopener noreferrer"' : ""
+              }>${escapeHtml(applyCtaLabel)}</a>`
+            : ""
+        }
+      </section>
+
+      <section class="job-sheet glass">
+        <div class="job-sheet-facts">
+          ${factRows
+            .map(
+              ([label, value]) => `
+            <div class="job-sheet-fact">
+              <span class="job-sheet-fact-label">${escapeHtml(label)}</span>
+              <strong class="job-sheet-fact-value">${escapeHtml(value)}</strong>
+            </div>`
+            )
+            .join("")}
         </div>
-        <aside class="job-detail-side">
-          ${sectionIf(
-            "Contact & apply",
-            contactBlock ? `<dl class="job-info-list">${contactBlock}</dl>` : ""
-          )}
-          ${sectionIf("Quick facts", quickFactsBlock(job))}
-          ${sectionIf("Important dates", datesBlock)}
-          ${shareBlock(job)}
-          <section class="job-panel glass job-side-cta">
-            <h2>Stay updated</h2>
-            <p class="job-detail-text">New openings are shared daily on our channels.</p>
-            <div class="job-side-actions">
-              <a class="btn btn-primary" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Instagram Jobs</a>
-              <a class="btn btn-secondary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
-            </div>
-          </section>
-        </aside>
-      </div>
+
+        ${addSheet("About this opening", aboutBody)}
+        ${addSheet(
+          openRoles.length > 1 ? "Open roles" : "Role",
+          openRoles.length > 1
+            ? `<ul class="job-role-grid">${roles}</ul>`
+            : openRoles.length
+              ? `<p class="job-detail-text">${escapeHtml(openRoles[0])}</p>`
+              : ""
+        )}
+        ${addSheet("Location / office", locationBody)}
+        ${addSheet("Who can apply?", listBlock(whoList))}
+        ${addSheet("Educational qualification", listBlock(eduList))}
+        ${addSheet("Role overview / responsibilities", listBlock(responsibilities))}
+        ${addSheet("Skills", skillsBody)}
+        ${addSheet("Selection process", numberedList(selection))}
+        ${addSheet("How to apply", howToApplyBody)}
+        ${walkInBlock(job)}
+        ${addSheet("Before you apply — checklist", checklistBody)}
+        ${addSheet("Documents to keep ready", docsBody)}
+        ${addSheet("Resume / interview tips", listBlock(tips))}
+        ${addSheet("Benefits", listBlock(benefits))}
+        ${addSheet("Quick FAQs", faqBlock(sheetFaqs))}
+        ${addSheet("Important notes", notesBody)}
+        ${addSheet("Safety", safetyBody)}
+        ${addSheet("Official links", officialLinksBlock(job))}
+      </section>
+
+      <div class="job-sheet-verify-wrap">${verificationNoticeBlock(job)}</div>
+      ${shareBlock(job)}
+      ${channelsBlock()}
     `;
 
     root.innerHTML = `
@@ -1096,7 +1124,7 @@
           : ""
       }
 
-      <section class="job-detail-hero glass${expired ? " job-detail-hero--expired" : ""}${isSheet ? " job-detail-hero--alert" : ""}">
+      <section class="job-detail-hero glass job-detail-hero--alert${expired ? " job-detail-hero--expired" : ""}">
         <div class="job-detail-hero-top">
           <div class="job-detail-hero-main">
             <div class="job-logo-wrap job-logo-wrap--lg" data-initials="${escapeAttr(mark)}">
@@ -1108,7 +1136,7 @@
               }
             </div>
             <div class="job-detail-hero-copy">
-              <p class="jobs-kicker">${isSheet ? escapeHtml(job.alertLabel || "Internship job alert") : "Premium verified hiring brief"}</p>
+              <p class="jobs-kicker">${escapeHtml(job.alertLabel || "Job hiring sheet")}</p>
               <h1>${escapeHtml(job.companyLegalName || job.company)}</h1>
               ${
                 job.companyLegalName && job.companyLegalName !== job.company
@@ -1125,8 +1153,8 @@
                 ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
                 ${job.verificationLevel === "infopark-profile" ? `<span class="job-badge job-badge--verified">Infopark profile</span>` : ""}
                 ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
-                ${isSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
-                ${job.industry ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
+                ${job.alertSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
+                ${job.industry && isKnown(job.industry) ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
               </div>
             </div>
           </div>
@@ -1134,7 +1162,9 @@
             ${
               !expired && applyUrl
                 ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
-                : ""
+                : !expired && job.email
+                  ? `<a class="btn btn-primary" href="mailto:${escapeAttr(job.email)}">Email to apply</a>`
+                  : ""
             }
             <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="/jobs/">${expired ? "See open jobs" : "All Openings"}</a>
           </div>
