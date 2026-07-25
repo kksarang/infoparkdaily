@@ -104,10 +104,37 @@
   /* ---------- misc helpers ---------- */
 
   function initials(name) {
-    return String(name || "?")
+    const skip = new Set([
+      "ltd",
+      "pvt",
+      "private",
+      "limited",
+      "llc",
+      "inc",
+      "opc",
+      "p",
+      "the",
+      "and",
+      "of",
+      "india",
+      "technologies",
+      "technology",
+      "solutions",
+      "systems",
+      "software",
+      "services"
+    ]);
+    const parts = String(name || "?")
+      .replace(/[().,&/]/g, " ")
       .split(/\s+/)
       .filter(Boolean)
-      .slice(0, 2)
+      .filter((part) => !skip.has(part.toLowerCase()) && !/^\d+$/.test(part));
+    if (!parts.length) return "?";
+    if (parts.length === 1) {
+      return parts[0].replace(/[^a-zA-Z0-9]/g, "").slice(0, 4).toUpperCase() || "?";
+    }
+    return parts
+      .slice(0, 4)
       .map((part) => part[0].toUpperCase())
       .join("");
   }
@@ -265,19 +292,9 @@
 
   function logoBlock(job) {
     const mark = initials(job.company);
-    const image = job.logo
-      ? `<img
-          class="job-logo"
-          src="${escapeAttr(assetUrl(job.logo))}"
-          alt=""
-          loading="lazy"
-          onerror="this.remove()"
-        />`
-      : "";
     return `
-      <div class="job-logo-wrap" data-initials="${escapeAttr(mark)}">
-        <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(mark)}</span>
-        ${image}
+      <div class="job-logo-wrap job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+        <span class="job-logo-fallback">${escapeHtml(mark)}</span>
       </div>
     `;
   }

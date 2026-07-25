@@ -73,12 +73,53 @@
   }
 
   function initials(name) {
-    return String(name || "?")
+    const skip = new Set([
+      "ltd",
+      "pvt",
+      "private",
+      "limited",
+      "llc",
+      "inc",
+      "opc",
+      "p",
+      "the",
+      "and",
+      "of",
+      "india",
+      "technologies",
+      "technology",
+      "solutions",
+      "systems",
+      "software",
+      "services"
+    ]);
+    const parts = String(name || "?")
+      .replace(/[().,&/]/g, " ")
       .split(/\s+/)
       .filter(Boolean)
-      .slice(0, 2)
+      .filter((part) => !skip.has(part.toLowerCase()) && !/^\d+$/.test(part));
+    if (!parts.length) return "?";
+    if (parts.length === 1) {
+      return parts[0].replace(/[^a-zA-Z0-9]/g, "").slice(0, 4).toUpperCase() || "?";
+    }
+    return parts
+      .slice(0, 4)
       .map((part) => part[0].toUpperCase())
       .join("");
+  }
+
+  /** Real dialable number only — hide empty / placeholder / verification notes. */
+  function usablePhone(phone) {
+    if (phone == null) return "";
+    const text = String(phone).trim();
+    if (!text) return "";
+    if (/not officially/i.test(text)) return "";
+    if (/verified from/i.test(text)) return "";
+    if (/not available/i.test(text)) return "";
+    if (/n\/?a\b/i.test(text)) return "";
+    const digits = text.replace(/\D/g, "");
+    if (digits.length < 6) return "";
+    return text;
   }
 
   function assetUrl(path) {
@@ -144,9 +185,10 @@
   }
 
   function phoneHtml(phone) {
-    if (!phone) return "";
-    const tel = String(phone).replace(/\s+/g, "");
-    return `<a href="tel:${escapeAttr(tel)}">${escapeHtml(phone)}</a>`;
+    const usable = usablePhone(phone);
+    if (!usable) return "";
+    const tel = usable.replace(/\s+/g, "");
+    return `<a href="tel:${escapeAttr(tel)}">${escapeHtml(usable)}</a>`;
   }
 
   function section(title, bodyHtml, extraClass) {
@@ -284,7 +326,7 @@
             : job.applyDeadline
       ],
       ["Email", qf.email || job.email],
-      ["Phone", qf.phone || job.phone]
+      ["Phone", usablePhone(qf.phone || job.phone)]
     ].filter(([, value]) => isKnown(value));
 
     if (!facts.length) return "";
@@ -532,13 +574,14 @@
       `);
     }
 
-    if (job.phone) {
+    const phone = usablePhone(job.phone);
+    if (phone) {
       methods.push(`
-        <a class="job-apply-method" href="tel:${escapeAttr(String(job.phone).replace(/\s+/g, ""))}">
+        <a class="job-apply-method" href="tel:${escapeAttr(phone.replace(/\s+/g, ""))}">
           <span class="job-apply-method-icon job-apply-method-icon--phone" aria-hidden="true">✆</span>
           <span class="job-apply-method-body">
             <strong>Phone</strong>
-            <span>${escapeHtml(job.phone)}</span>
+            <span>${escapeHtml(phone)}</span>
           </span>
         </a>
       `);
@@ -857,9 +900,8 @@
         const pill = deadlineLabel(other);
         return `
           <a class="job-related-card glass" href="${jobPath(other.id)}">
-            <div class="job-logo-wrap" data-initials="${escapeAttr(initials(other.company))}">
-              <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(initials(other.company))}</span>
-              ${other.logo ? `<img class="job-logo" src="${escapeAttr(assetUrl(other.logo))}" alt="" loading="lazy" onerror="this.remove()" />` : ""}
+            <div class="job-logo-wrap job-logo-wrap--text" data-initials="${escapeAttr(initials(other.company))}" aria-hidden="true">
+              <span class="job-logo-fallback">${escapeHtml(initials(other.company))}</span>
             </div>
             <div class="job-related-copy">
               <strong>${escapeHtml(other.company)}</strong>
@@ -938,7 +980,7 @@
       ["Notice period", isKnown(job.noticePeriod) ? job.noticePeriod : ""],
       ["Salary / stipend", isKnown(job.salaryRange) ? job.salaryRange : ""],
       ["Apply email", job.email || ""],
-      ["Phone", job.phone || ""]
+      ["Phone", usablePhone(job.phone)]
     ].filter(([, v]) => isKnown(v));
 
     const who =
@@ -1131,13 +1173,8 @@
       <section class="job-detail-hero glass job-detail-hero--alert${expired ? " job-detail-hero--expired" : ""}">
         <div class="job-detail-hero-top">
           <div class="job-detail-hero-main">
-            <div class="job-logo-wrap job-logo-wrap--lg" data-initials="${escapeAttr(mark)}">
-              <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(mark)}</span>
-              ${
-                job.logo
-                  ? `<img class="job-logo" src="${escapeAttr(assetUrl(job.logo))}" alt="${escapeAttr(job.imageAlt || job.company + " logo")}" loading="lazy" onerror="this.remove()" />`
-                  : ""
-              }
+            <div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+              <span class="job-logo-fallback">${escapeHtml(mark)}</span>
             </div>
             <div class="job-detail-hero-copy">
               <p class="jobs-kicker">${escapeHtml(job.alertLabel || "Job hiring sheet")}</p>

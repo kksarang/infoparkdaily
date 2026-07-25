@@ -109,10 +109,37 @@ function escapeAttr(value) {
 }
 
 function initials(name) {
-  return String(name || "?")
+  const skip = new Set([
+    "ltd",
+    "pvt",
+    "private",
+    "limited",
+    "llc",
+    "inc",
+    "opc",
+    "p",
+    "the",
+    "and",
+    "of",
+    "india",
+    "technologies",
+    "technology",
+    "solutions",
+    "systems",
+    "software",
+    "services"
+  ]);
+  const parts = String(name || "?")
+    .replace(/[().,&/]/g, " ")
     .split(/\s+/)
     .filter(Boolean)
-    .slice(0, 2)
+    .filter((part) => !skip.has(part.toLowerCase()) && !/^\d+$/.test(part));
+  if (!parts.length) return "?";
+  if (parts.length === 1) {
+    return parts[0].replace(/[^a-zA-Z0-9]/g, "").slice(0, 4).toUpperCase() || "?";
+  }
+  return parts
+    .slice(0, 4)
     .map((part) => part[0].toUpperCase())
     .join("");
 }
@@ -128,9 +155,6 @@ function renderFeaturedJobs() {
     .map((job, index) => {
       const exp = job.experience || "both";
       const mark = initials(job.company);
-      const logo = job.logo
-        ? `<img class="job-logo" src="${escapeAttr(job.logo)}" alt="" loading="lazy" onerror="this.remove()" />`
-        : "";
       const roles = (job.roles || []).slice(0, 2).map((role) => `<li>${escapeHtml(role)}</li>`).join("");
       const extra = Math.max(0, (job.roles || []).length - 2);
       const href = `/job/${encodeURIComponent(job.id || "")}`;
@@ -138,9 +162,8 @@ function renderFeaturedJobs() {
       return `
         <article class="job-card featured-job-card reveal" style="--delay: ${index * 60}ms">
           <header class="job-card-head">
-            <div class="job-logo-wrap" data-initials="${escapeAttr(mark)}">
-              <span class="job-logo-fallback" aria-hidden="true">${escapeHtml(mark)}</span>
-              ${logo}
+            <div class="job-logo-wrap job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+              <span class="job-logo-fallback">${escapeHtml(mark)}</span>
             </div>
             <div class="job-card-meta">
               <h3>${escapeHtml(job.company)}</h3>
