@@ -5708,8 +5708,16 @@ html.theme-light .svcx-hero-grid {
   color: var(--accent);
 }
 
-.privacy-panel a {
+.privacy-panel a:not(.btn) {
   color: var(--accent);
+}
+
+.privacy-panel a.btn-primary {
+  color: var(--accent-ink);
+}
+
+.privacy-actions .btn-primary {
+  color: var(--accent-ink);
 }
 
 .privacy-legal-note {
