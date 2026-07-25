@@ -1100,7 +1100,6 @@
         ${addSheet("Official links", officialLinksBlock(job))}
       </section>
 
-      <div class="job-sheet-verify-wrap">${verificationNoticeBlock(job)}</div>
       ${shareBlock(job)}
       ${channelsBlock()}
     `;
