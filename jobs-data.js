@@ -78,6 +78,2031 @@
 
 var JOBS = [
 {
+    id: "ainsurtech-tp-jul26",
+    company: "AInsurtech (P) Ltd",
+    logo: "https://technopark.in/storage/images/1365.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-10.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "DevOps Engineer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31746?job=DevOps%20Engineer",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["Cloud", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=AInsurtech%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "AInsurtech (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): DevOps Engineer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31746?job=DevOps%20Engineer. Browse company roles: https://technopark.in/job-search?search=AInsurtech%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-10. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-10.",
+    startingDate: ""
+  },
+{
+    id: "waib3-technologies-opc-tp-jul26",
+    company: "Waib3 Technologies (OPC) Pvt. Ltd",
+    logo: "https://technopark.in/storage/images/903.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-10.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Business Associate L1 ( IT Services & Operations)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31745?job=Business%20Associate%20L1%20%28%20IT%20Services%20%26%20Operations%29",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Waib3%20Technologies%20%28OPC%29%20Pvt.%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Waib3 Technologies (OPC) Pvt. Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Business Associate L1 ( IT Services & Operations). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31745?job=Business%20Associate%20L1%20%28%20IT%20Services%20%26%20Operations%29. Browse company roles: https://technopark.in/job-search?search=Waib3%20Technologies%20%28OPC%29%20Pvt.%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-10. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-10.",
+    startingDate: ""
+  },
+{
+    id: "quadance-technologies-tp-jul26",
+    company: "Quadance Technologies Pvt. Ltd.",
+    logo: "https://technopark.in/storage/company/15619546066005073242_Quadance.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-21.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Business Applications Engineer (General Insurance)"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31744?job=Business%20Applications%20Engineer%20%28General%20Insurance%29",
+    applyDeadline: "2026-08-21",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Quadance%20Technologies%20Pvt.%20Ltd.",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Quadance Technologies Pvt. Ltd. is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Business Applications Engineer (General Insurance). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31744?job=Business%20Applications%20Engineer%20%28General%20Insurance%29. Browse company roles: https://technopark.in/job-search?search=Quadance%20Technologies%20Pvt.%20Ltd..",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-21. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-21.",
+    startingDate: ""
+  },
+{
+    id: "reflections-info-systems-tp-jul26",
+    company: "Reflections Info Systems (P) Ltd",
+    logo: "https://technopark.in/storage/images/1782.png",
+    companyBlurb: "20 open roles on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Salesforce Automation QA",
+          "Business Analyst- (Retail /Fashion)",
+          "Vice President – Business Enablement",
+          "Executive - Presales",
+          "Senior Full Stack Developer -Python",
+          "Director – Data Services Delivery",
+          "Technical Architect",
+          "AI driven QA Automation Engineer",
+          "Senior .NET Developer – Azure",
+          "Lead (Full Stack - FE / BE / React) with Optimizely",
+          "Senior AI Security & Governance Engineer",
+          "Senior Performance Engineer",
+          "Enterprise Architect",
+          "Sharepoint Lead",
+          "Lead / Senior Cloud Engineer",
+          "Power BI Developer",
+          "Junior Project Manager",
+          "Solution Architect",
+          "Solution Architect (Python)",
+          "Cloud Infrastructure Architect"
+    ],
+    experience: "both",
+    experienceRange: "Fresher & experienced roles",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31743?job=Salesforce%20Automation%20QA",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["AI", "QA", "Cloud"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Reflections%20Info%20Systems%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Reflections Info Systems (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (20): Salesforce Automation QA; Business Analyst- (Retail /Fashion); Vice President – Business Enablement; Executive - Presales; Senior Full Stack Developer -Python; Director – Data Services Delivery; Technical Architect; AI driven QA Automation Engineer…. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher & experienced roles",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31743?job=Salesforce%20Automation%20QA. Browse company roles: https://technopark.in/job-search?search=Reflections%20Info%20Systems%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "20 open roles on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "marvelloux-apps-tp-jul26",
+    company: "Marvelloux Apps (P) Ltd",
+    logo: "https://technopark.in/storage/images/493.png",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Digital Marketing Mentor",
+          "Visual & Graphic Designer (3+ Years Experience)"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31723?job=Digital%20Marketing%20Mentor",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing", "Design"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Marvelloux%20Apps%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Marvelloux Apps (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Digital Marketing Mentor; Visual & Graphic Designer (3+ Years Experience). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31723?job=Digital%20Marketing%20Mentor. Browse company roles: https://technopark.in/job-search?search=Marvelloux%20Apps%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "timesworld-media-and-technology-solutions-tp-jul26",
+    company: "Timesworld Media and Technology Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/company/16482015165452190316_Timesworld_logo_centered_SQ1.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Senior Data & AI Platform Engineer - Immediate Hiring"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31722?job=Senior%20Data%20%26%20AI%20Platform%20Engineer%20-%20Immediate%20Hiring",
+    applyDeadline: "2026-08-08",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["AI", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Timesworld%20Media%20and%20Technology%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Timesworld Media and Technology Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Senior Data & AI Platform Engineer - Immediate Hiring. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31722?job=Senior%20Data%20%26%20AI%20Platform%20Engineer%20-%20Immediate%20Hiring. Browse company roles: https://technopark.in/job-search?search=Timesworld%20Media%20and%20Technology%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-08. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    startingDate: ""
+  },
+{
+    id: "softnotions-technologies-tp-jul26",
+    company: "Softnotions Technologies (P) Ltd",
+    logo: "https://technopark.in/storage/company/16594277636233042444_Softnotions Logo.jpg",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-07-29.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "MARKETING TRAINEE",
+          "MERN STACK DEVELOPER - Trainee"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31721?job=MARKETING%20TRAINEE",
+    applyDeadline: "2026-07-29",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Softnotions%20Technologies%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Softnotions Technologies (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): MARKETING TRAINEE; MERN STACK DEVELOPER - Trainee. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31721?job=MARKETING%20TRAINEE. Browse company roles: https://technopark.in/job-search?search=Softnotions%20Technologies%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-29. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-07-29.",
+    startingDate: ""
+  },
+{
+    id: "way-dot-com-tp-jul26",
+    company: "Way Dot Com (P) Ltd",
+    logo: "https://technopark.in/storage/company/15615433944139296731_Way.jpg",
+    companyBlurb: "6 open roles on Technopark Jobs · apply by 2026-07-26.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "JAVA Full Stack Developer",
+          "Full Stack Production Support Engineer",
+          "Senior DevOps/Cloud Engineer",
+          "Site Reliability Lead Engineer",
+          "Creative Director — Product Advertising",
+          "Senior Product Designer"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31720?job=JAVA%20Full%20Stack%20Developer",
+    applyDeadline: "2026-07-26",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["Cloud", "Design", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Way%20Dot%20Com%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Way Dot Com (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (6): JAVA Full Stack Developer; Full Stack Production Support Engineer; Senior DevOps/Cloud Engineer; Site Reliability Lead Engineer; Creative Director — Product Advertising; Senior Product Designer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31720?job=JAVA%20Full%20Stack%20Developer. Browse company roles: https://technopark.in/job-search?search=Way%20Dot%20Com%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-26. Always verify on the official portal.",
+    description: "6 open roles on Technopark Jobs · apply by 2026-07-26.",
+    startingDate: ""
+  },
+{
+    id: "xminds-infotech-tp-jul26",
+    company: "Xminds Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/company/1440407750184_xminds.png",
+    companyBlurb: "3 open roles on Technopark Jobs · apply by 2026-08-26.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Senior Cloud Operations Engineer (Azure)",
+          "Java Developer",
+          "Conversational AI Engineer"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31715?job=Senior%20Cloud%20Operations%20Engineer%20%28Azure%29",
+    applyDeadline: "2026-08-26",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["AI", "Cloud", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Xminds%20Infotech%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Xminds Infotech (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (3): Senior Cloud Operations Engineer (Azure); Java Developer; Conversational AI Engineer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31715?job=Senior%20Cloud%20Operations%20Engineer%20%28Azure%29. Browse company roles: https://technopark.in/job-search?search=Xminds%20Infotech%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-26. Always verify on the official portal.",
+    description: "3 open roles on Technopark Jobs · apply by 2026-08-26.",
+    startingDate: ""
+  },
+{
+    id: "zenturiotech-tp-jul26",
+    company: "ZenturioTech Pvt Ltd",
+    logo: "https://technopark.in/storage/images/3153.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "R & D Psychologist Trainee"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31713?job=R%20%26%20D%20Psychologist%20Trainee",
+    applyDeadline: "2026-08-08",
+    postedDate: "2026-07-24",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=ZenturioTech%20Pvt%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "ZenturioTech Pvt Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): R & D Psychologist Trainee. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31713?job=R%20%26%20D%20Psychologist%20Trainee. Browse company roles: https://technopark.in/job-search?search=ZenturioTech%20Pvt%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-08. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    startingDate: ""
+  },
+{
+    id: "zoondia-software-tp-jul26",
+    company: "Zoondia Software (P) Ltd",
+    logo: "https://technopark.in/storage/company/1436866236462_zoondia-icon.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-15.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Jr.System Administrator"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31712?job=Jr.System%20Administrator",
+    applyDeadline: "2026-08-15",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Admin"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Zoondia%20Software%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Zoondia Software (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Jr.System Administrator. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31712?job=Jr.System%20Administrator. Browse company roles: https://technopark.in/job-search?search=Zoondia%20Software%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-15. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-15.",
+    startingDate: ""
+  },
+{
+    id: "klystron-technologies-tp-jul26",
+    company: "Klystron Technologies",
+    logo: "https://technopark.in/storage/company/16393737540334182103_Klystron_brand identity.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-03.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Senior Dot Net Developer"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31711?job=Senior%20Dot%20Net%20Developer",
+    applyDeadline: "2026-08-03",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Klystron%20Technologies",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Klystron Technologies is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Senior Dot Net Developer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31711?job=Senior%20Dot%20Net%20Developer. Browse company roles: https://technopark.in/job-search?search=Klystron%20Technologies.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-03. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-03.",
+    startingDate: ""
+  },
+{
+    id: "kenland-it-solutions-tp-jul26",
+    company: "KENLAND IT SOLUTIONS (P) Ltd",
+    logo: "https://technopark.in/storage/images/490.jpg",
+    companyBlurb: "5 open roles on Technopark Jobs · apply by 2026-07-27.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "DIGITAL MARKETING EXECUTIVE",
+          "Finance and Accounts Executive",
+          "Dot Net Developer",
+          "Senior Magento developer",
+          "Video Editor/Videographer"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31710?job=DIGITAL%20MARKETING%20EXECUTIVE",
+    applyDeadline: "2026-07-27",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=KENLAND%20IT%20SOLUTIONS%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "KENLAND IT SOLUTIONS (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (5): DIGITAL MARKETING EXECUTIVE; Finance and Accounts Executive; Dot Net Developer; Senior Magento developer; Video Editor/Videographer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31710?job=DIGITAL%20MARKETING%20EXECUTIVE. Browse company roles: https://technopark.in/job-search?search=KENLAND%20IT%20SOLUTIONS%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-27. Always verify on the official portal.",
+    description: "5 open roles on Technopark Jobs · apply by 2026-07-27.",
+    startingDate: ""
+  },
+{
+    id: "genrobotic-innovations-tp-jul26",
+    company: "GENROBOTIC INNOVATIONS (P) Ltd",
+    logo: "https://technopark.in/storage/company/15329718828081642911_Genrobotics.JPG",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-20.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Investment Manager ( 5 -10 Years)"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31709?job=Investment%20Manager%20%28%205%20-10%20Years%29",
+    applyDeadline: "2026-08-20",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=GENROBOTIC%20INNOVATIONS%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "GENROBOTIC INNOVATIONS (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Investment Manager ( 5 -10 Years). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31709?job=Investment%20Manager%20%28%205%20-10%20Years%29. Browse company roles: https://technopark.in/job-search?search=GENROBOTIC%20INNOVATIONS%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-20. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-20.",
+    startingDate: ""
+  },
+{
+    id: "ars-traffic-transport-technology-india-tp-jul26",
+    company: "ARS Traffic & Transport Technology India (P) Ltd",
+    logo: "https://technopark.in/storage/images/2268.jpg",
+    companyBlurb: "3 open roles on Technopark Jobs · apply by 2026-08-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "IT Manager",
+          "Solution Architect - .Net",
+          "Delivery Manager"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31708?job=IT%20Manager",
+    applyDeadline: "2026-08-31",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=ARS%20Traffic%20%26%20Transport%20Technology%20India%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "ARS Traffic & Transport Technology India (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (3): IT Manager; Solution Architect - .Net; Delivery Manager. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31708?job=IT%20Manager. Browse company roles: https://technopark.in/job-search?search=ARS%20Traffic%20%26%20Transport%20Technology%20India%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-31. Always verify on the official portal.",
+    description: "3 open roles on Technopark Jobs · apply by 2026-08-31.",
+    startingDate: ""
+  },
+{
+    id: "akira-software-solutions-tp-jul26",
+    company: "Akira Software Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/company/1436786138291_akiralogo.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Digital Marketing & Growth Specialist"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31706?job=Digital%20Marketing%20%26%20Growth%20Specialist",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Akira%20Software%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Akira Software Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Digital Marketing & Growth Specialist. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31706?job=Digital%20Marketing%20%26%20Growth%20Specialist. Browse company roles: https://technopark.in/job-search?search=Akira%20Software%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "m-squared-software-services-tp-jul26",
+    company: "M Squared Software & Services (P) Ltd",
+    logo: "https://technopark.in/storage/company/1436852424185_M-Squared-Logo-2015.png",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-08-10.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Trainee Executive - Sales & Marketing",
+          "Installation Executives: Junior Positions & Freshers"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31705?job=Trainee%20Executive%20-%20Sales%20%26%20Marketing",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=M%20Squared%20Software%20%26%20Services%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "M Squared Software & Services (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Trainee Executive - Sales & Marketing; Installation Executives: Junior Positions & Freshers. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31705?job=Trainee%20Executive%20-%20Sales%20%26%20Marketing. Browse company roles: https://technopark.in/job-search?search=M%20Squared%20Software%20%26%20Services%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-10. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-08-10.",
+    startingDate: ""
+  },
+{
+    id: "electronics-technology-parks-kerala-technopark-tp-jul26",
+    company: "Electronics Technology Parks Kerala (Technopark)",
+    logo: "https://technopark.in/storage/company/16328288261975375199_logo-tp.JPG",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Graduate Apprentice – MEP"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31704?job=Graduate%20Apprentice%20%E2%80%93%20MEP",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Electronics%20Technology%20Parks%20Kerala%20%28Technopark%29",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Electronics Technology Parks Kerala (Technopark) is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Graduate Apprentice – MEP. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31704?job=Graduate%20Apprentice%20%E2%80%93%20MEP. Browse company roles: https://technopark.in/job-search?search=Electronics%20Technology%20Parks%20Kerala%20%28Technopark%29.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "enfin-technologies-india-tp-jul26",
+    company: "Enfin Technologies India (P) Ltd",
+    logo: "https://technopark.in/storage/images/569.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Fullstack Developer (MERN)- Immediate(7 to 10 years)"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31703?job=Fullstack%20Developer%20%28MERN%29-%20Immediate%287%20to%2010%20years%29",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Enfin%20Technologies%20India%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Enfin Technologies India (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Fullstack Developer (MERN)- Immediate(7 to 10 years). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31703?job=Fullstack%20Developer%20%28MERN%29-%20Immediate%287%20to%2010%20years%29. Browse company roles: https://technopark.in/job-search?search=Enfin%20Technologies%20India%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "qwy-software-tp-jul26",
+    company: "QWY Software (P) Ltd",
+    logo: "https://technopark.in/storage/images/2667.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "QA Engineer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31702?job=QA%20Engineer",
+    applyDeadline: "2026-08-08",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["QA", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=QWY%20Software%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "QWY Software (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): QA Engineer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31702?job=QA%20Engineer. Browse company roles: https://technopark.in/job-search?search=QWY%20Software%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-08. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
+    startingDate: ""
+  },
+{
+    id: "susopt-solutions-tp-jul26",
+    company: "SUSOPT SOLUTIONS (P) Ltd",
+    logo: "https://technopark.in/storage/company/1627452035337750192_Susopt_.JPG",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Associate Estimation - Sourcing and Proposal Responsibilities",
+          "Proposal Engineer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31701?job=Associate%20Estimation%20-%20Sourcing%20and%20Proposal%20Responsibilities",
+    applyDeadline: "2026-07-26",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=SUSOPT%20SOLUTIONS%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "SUSOPT SOLUTIONS (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Associate Estimation - Sourcing and Proposal Responsibilities; Proposal Engineer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31701?job=Associate%20Estimation%20-%20Sourcing%20and%20Proposal%20Responsibilities. Browse company roles: https://technopark.in/job-search?search=SUSOPT%20SOLUTIONS%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-26. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
+    startingDate: ""
+  },
+{
+    id: "flex-and-oncology-clinical-research-tp-jul26",
+    company: "Flex and Oncology Clinical Research (P) Ltd",
+    logo: "https://technopark.in/storage/images/3391.png",
+    companyBlurb: "13 open roles on Technopark Jobs · apply by 2026-08-29.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Senior Data Coding Specialist",
+          "Data Manager",
+          "Business Analyst - Data Intelligence",
+          "Data Engineer",
+          "Senior Network Architect",
+          "AI/ML Engineer",
+          "Business Analyst",
+          "Clinical Systems Validation Analyst",
+          "Clinical Programmer",
+          "Senior Clinical Data Coordinator",
+          "Clinical Payments Specialist",
+          "Data Product Engineer",
+          "Systems Administrator"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31699?job=Senior%20Data%20Coding%20Specialist",
+    applyDeadline: "2026-08-29",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["AI", "Admin", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Flex%20and%20Oncology%20Clinical%20Research%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Flex and Oncology Clinical Research (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (13): Senior Data Coding Specialist; Data Manager; Business Analyst - Data Intelligence; Data Engineer; Senior Network Architect; AI/ML Engineer; Business Analyst; Clinical Systems Validation Analyst…. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31699?job=Senior%20Data%20Coding%20Specialist. Browse company roles: https://technopark.in/job-search?search=Flex%20and%20Oncology%20Clinical%20Research%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-29. Always verify on the official portal.",
+    description: "13 open roles on Technopark Jobs · apply by 2026-08-29.",
+    startingDate: ""
+  },
+{
+    id: "icore-pioneer-business-solution-tp-jul26",
+    company: "iCore Pioneer Business Solution (P) Ltd",
+    logo: "https://technopark.in/storage/images/1984.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-30.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Sports Management Trainee (Fresher)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31697?job=Sports%20Management%20Trainee%20%28Fresher%29",
+    applyDeadline: "2026-07-30",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=iCore%20Pioneer%20Business%20Solution%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "iCore Pioneer Business Solution (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Sports Management Trainee (Fresher). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31697?job=Sports%20Management%20Trainee%20%28Fresher%29. Browse company roles: https://technopark.in/job-search?search=iCore%20Pioneer%20Business%20Solution%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-30. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-30.",
+    startingDate: ""
+  },
+{
+    id: "naga-info-solutions-tp-jul26",
+    company: "Naga Info Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/company/14794423567511260598_Naga logo RGB_300 Resolution.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Business Development Executive - Healthcare Solutions"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31696?job=Business%20Development%20Executive%20-%20Healthcare%20Solutions",
+    applyDeadline: "2026-08-31",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Naga%20Info%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Naga Info Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Business Development Executive - Healthcare Solutions. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31696?job=Business%20Development%20Executive%20-%20Healthcare%20Solutions. Browse company roles: https://technopark.in/job-search?search=Naga%20Info%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-31.",
+    startingDate: ""
+  },
+{
+    id: "itwagon-tp-jul26",
+    company: "ITWAGON (P) Ltd",
+    logo: "https://technopark.in/storage/images/2159.jpg",
+    companyBlurb: "4 open roles on Technopark Jobs · apply by 2026-07-30.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Procurement Executive",
+          "Operations Executive (Sales Order Processing, Logistics and eCommerce)",
+          "Sales Account Executive",
+          "Finance Executive"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31695?job=Procurement%20Executive",
+    applyDeadline: "2026-07-30",
+    postedDate: "2026-07-23",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=ITWAGON%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "ITWAGON (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (4): Procurement Executive; Operations Executive (Sales Order Processing, Logistics and eCommerce); Sales Account Executive; Finance Executive. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31695?job=Procurement%20Executive. Browse company roles: https://technopark.in/job-search?search=ITWAGON%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-30. Always verify on the official portal.",
+    description: "4 open roles on Technopark Jobs · apply by 2026-07-30.",
+    startingDate: ""
+  },
+{
+    id: "zybo-tech-lab-tp-jul26",
+    company: "Zybo Tech Lab (P) Ltd",
+    logo: "https://technopark.in/storage/images/3392.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-30.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Business Analyst"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31690?job=Business%20Analyst",
+    applyDeadline: "2026-07-30",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Zybo%20Tech%20Lab%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Zybo Tech Lab (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Business Analyst. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31690?job=Business%20Analyst. Browse company roles: https://technopark.in/job-search?search=Zybo%20Tech%20Lab%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-30. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-30.",
+    startingDate: ""
+  },
+{
+    id: "shellsquare-softwares-tp-jul26",
+    company: "ShellSquare Softwares (P) Ltd",
+    logo: "https://technopark.in/storage/company/15445250573265324120_Shell.JPG",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Software Developer Intern (C#)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31689?job=Software%20Developer%20Intern%20%28C%23%29",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=ShellSquare%20Softwares%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "ShellSquare Softwares (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Software Developer Intern (C#). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31689?job=Software%20Developer%20Intern%20%28C%23%29. Browse company roles: https://technopark.in/job-search?search=ShellSquare%20Softwares%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "srs-global-technologies-tp-jul26",
+    company: "SRS Global Technologies (P) Ltd",
+    logo: "https://technopark.in/storage/company/16475912564161770994_SRS Global (1).jpeg",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-08-04.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Product Marketing Specialist",
+          "Performance Marketer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31688?job=Product%20Marketing%20Specialist",
+    applyDeadline: "2026-08-04",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=SRS%20Global%20Technologies%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "SRS Global Technologies (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Product Marketing Specialist; Performance Marketer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31688?job=Product%20Marketing%20Specialist. Browse company roles: https://technopark.in/job-search?search=SRS%20Global%20Technologies%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-04. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-08-04.",
+    startingDate: ""
+  },
+{
+    id: "innure-infotech-tp-jul26",
+    company: "Innure Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/company/14646840401342461989_Innure.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-28.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Digital Marketing Executive"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31685?job=Digital%20Marketing%20Executive",
+    applyDeadline: "2026-08-28",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Innure%20Infotech%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Innure Infotech (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Digital Marketing Executive. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31685?job=Digital%20Marketing%20Executive. Browse company roles: https://technopark.in/job-search?search=Innure%20Infotech%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-28. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-28.",
+    startingDate: ""
+  },
+{
+    id: "lambdazen-india-tp-jul26",
+    company: "LambdaZen India (P) Ltd",
+    logo: "https://technopark.in/storage/images/2715.jpg",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-08-03.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Adobe Commerce Consultant",
+          "Data Engineer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31684?job=Adobe%20Commerce%20Consultant",
+    applyDeadline: "2026-08-03",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=LambdaZen%20India%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "LambdaZen India (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Adobe Commerce Consultant; Data Engineer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31684?job=Adobe%20Commerce%20Consultant. Browse company roles: https://technopark.in/job-search?search=LambdaZen%20India%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-03. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-08-03.",
+    startingDate: ""
+  },
+{
+    id: "hiworth-solutions-tp-jul26",
+    company: "Hiworth Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/company/1437644981859_hiworthlogo.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-22.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Graphic Designer & Digital Content Creator"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31682?job=Graphic%20Designer%20%26%20Digital%20Content%20Creator",
+    applyDeadline: "2026-08-22",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["Design"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Hiworth%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Hiworth Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Graphic Designer & Digital Content Creator. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31682?job=Graphic%20Designer%20%26%20Digital%20Content%20Creator. Browse company roles: https://technopark.in/job-search?search=Hiworth%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-22. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-22.",
+    startingDate: ""
+  },
+{
+    id: "aptara-learning-tp-jul26",
+    company: "Aptara Learning  (P) Ltd",
+    logo: "https://technopark.in/storage/company/14628690899514568996_Aptara.JPG",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-26.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Document specialist"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31681?job=Document%20specialist",
+    applyDeadline: "2026-07-26",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Aptara%20Learning%20%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Aptara Learning  (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Document specialist. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31681?job=Document%20specialist. Browse company roles: https://technopark.in/job-search?search=Aptara%20Learning%20%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-26. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-26.",
+    startingDate: ""
+  },
+{
+    id: "yarab-technologies-tp-jul26",
+    company: "Yarab Technologies (P) Ltd",
+    logo: "https://technopark.in/storage/images/592.png",
+    companyBlurb: "3 open roles on Technopark Jobs · apply by 2026-07-29.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Finance Manager",
+          "Claims Handler - Property Reinsurance",
+          "Underwriting Specialist"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31680?job=Finance%20Manager",
+    applyDeadline: "2026-07-29",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Yarab%20Technologies%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Yarab Technologies (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (3): Finance Manager; Claims Handler - Property Reinsurance; Underwriting Specialist. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31680?job=Finance%20Manager. Browse company roles: https://technopark.in/job-search?search=Yarab%20Technologies%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-29. Always verify on the official portal.",
+    description: "3 open roles on Technopark Jobs · apply by 2026-07-29.",
+    startingDate: ""
+  },
+{
+    id: "mobatia-technology-tp-jul26",
+    company: "Mobatia Technology (P) Ltd",
+    logo: "https://technopark.in/storage/company/1437547012431_mobatialogo180x150.jpg",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Odoo Developer",
+          "React Developer"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31677?job=Odoo%20Developer",
+    applyDeadline: "2026-07-26",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Mobatia%20Technology%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Mobatia Technology (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Odoo Developer; React Developer. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31677?job=Odoo%20Developer. Browse company roles: https://technopark.in/job-search?search=Mobatia%20Technology%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-26. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
+    startingDate: ""
+  },
+{
+    id: "ferns-it-solutions-tp-jul26",
+    company: "Ferns IT Solutions  (P) Ltd",
+    logo: "https://technopark.in/storage/company/16824222667203833044_Logo - Ferns IT 1.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-29.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Digital Marketing Intern (Walk-in Interview)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher / early career",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31672?job=Digital%20Marketing%20Intern%20%28Walk-in%20Interview%29",
+    applyDeadline: "2026-07-29",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing"],
+    isWalkIn: true,
+    walkInDate: "2026-07-29",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Ferns%20IT%20Solutions%20%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Ferns IT Solutions  (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Digital Marketing Intern (Walk-in Interview). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Fresher / early career",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31672?job=Digital%20Marketing%20Intern%20%28Walk-in%20Interview%29. Browse company roles: https://technopark.in/job-search?search=Ferns%20IT%20Solutions%20%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-29. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-29.",
+    startingDate: ""
+  },
+{
+    id: "gnx-digital-solutions-tp-jul26",
+    company: "GNX Digital Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/images/1980.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-28.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "AI Architect (5+ yrs. Exp)"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31658?job=AI%20Architect%20%285%2B%20yrs.%20Exp%29",
+    applyDeadline: "2026-07-28",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["AI", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=GNX%20Digital%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "GNX Digital Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): AI Architect (5+ yrs. Exp). Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31658?job=AI%20Architect%20%285%2B%20yrs.%20Exp%29. Browse company roles: https://technopark.in/job-search?search=GNX%20Digital%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-28. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-28.",
+    startingDate: ""
+  },
+{
+    id: "septa-milles-p-ltd-lifology-tp-jul26",
+    company: "SEPTA MILLES (P) Ltd (LIFOLOGY)",
+    logo: "https://technopark.in/storage/company/16081166005679506851_Lifology.JPG",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Finance & Accounting Executive"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31655?job=Finance%20%26%20Accounting%20Executive",
+    applyDeadline: "2026-07-31",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=SEPTA%20MILLES%20%28P%29%20Ltd%20%28LIFOLOGY%29",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "SEPTA MILLES (P) Ltd (LIFOLOGY) is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Finance & Accounting Executive. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31655?job=Finance%20%26%20Accounting%20Executive. Browse company roles: https://technopark.in/job-search?search=SEPTA%20MILLES%20%28P%29%20Ltd%20%28LIFOLOGY%29.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-31. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
+    startingDate: ""
+  },
+{
+    id: "acharya-panchakarma-and-traditional-kerala-ayurv-tp-jul26",
+    company: "ACHARYA PANCHAKARMA AND TRADITIONAL KERALA AYURVEDA PRIVATE LIMITED",
+    logo: "https://technopark.in/storage/images/476.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-20.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "We're Hiring – Director, Videographer & Video Editor"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (role-dependent)",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31654?job=We%27re%20Hiring%20%E2%80%93%20Director%2C%20Videographer%20%26%20Video%20Editor",
+    applyDeadline: "2026-08-20",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=ACHARYA%20PANCHAKARMA%20AND%20TRADITIONAL%20KERALA%20AYURVEDA%20PRIVATE%20LIMITED",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "ACHARYA PANCHAKARMA AND TRADITIONAL KERALA AYURVEDA PRIVATE LIMITED is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): We're Hiring – Director, Videographer & Video Editor. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "Experienced (role-dependent)",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31654?job=We%27re%20Hiring%20%E2%80%93%20Director%2C%20Videographer%20%26%20Video%20Editor. Browse company roles: https://technopark.in/job-search?search=ACHARYA%20PANCHAKARMA%20AND%20TRADITIONAL%20KERALA%20AYURVEDA%20PRIVATE%20LIMITED.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-20. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-20.",
+    startingDate: ""
+  },
+{
+    id: "polus-solutions-tp-jul26",
+    company: "Polus Solutions (P) Ltd",
+    logo: "https://technopark.in/storage/images/498.png",
+    companyBlurb: "2 open roles on Technopark Jobs · apply by 2026-07-27.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Business Development Executive",
+          "Business Analyst"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31653?job=Business%20Development%20Executive",
+    applyDeadline: "2026-07-27",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["Marketing", "IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Polus%20Solutions%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Polus Solutions (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (2): Business Development Executive; Business Analyst. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31653?job=Business%20Development%20Executive. Browse company roles: https://technopark.in/job-search?search=Polus%20Solutions%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-27. Always verify on the official portal.",
+    description: "2 open roles on Technopark Jobs · apply by 2026-07-27.",
+    startingDate: ""
+  },
+{
+    id: "spericorn-technology-tp-jul26",
+    company: "Spericorn Technology (P) Ltd",
+    logo: "https://technopark.in/storage/company/15984134156508078351_spericon_logo_big.png",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-12.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Customer Relationship Executive"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31651?job=Customer%20Relationship%20Executive",
+    applyDeadline: "2026-08-12",
+    postedDate: "2026-07-22",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Spericorn%20Technology%20%28P%29%20Ltd",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Spericorn Technology (P) Ltd is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Customer Relationship Executive. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31651?job=Customer%20Relationship%20Executive. Browse company roles: https://technopark.in/job-search?search=Spericorn%20Technology%20%28P%29%20Ltd.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-12. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-12.",
+    startingDate: ""
+  },
+{
+    id: "kerala-university-of-digital-sciences-innovation-tp-jul26",
+    company: "Kerala University of Digital Sciences, Innovation and Technology",
+    logo: "https://technopark.in/storage/company/16587349917657822078_DUK_New copy.jpg",
+    companyBlurb: "1 open role on Technopark Jobs · apply by 2026-08-05.",
+    location: "Technopark, Trivandrum",
+    roles: [
+          "Accountant / Finance Assistant"
+    ],
+    experience: "both",
+    experienceRange: "As per Technopark posting",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/31645?job=Accountant%20/%20Finance%20Assistant",
+    applyDeadline: "2026-08-05",
+    postedDate: "2026-07-21",
+    source: "Technopark",
+    verified: true,
+    tags: ["IT"],
+    isWalkIn: true,
+    walkInDate: "2026-08-05",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search?search=Kerala%20University%20of%20Digital%20Sciences%2C%20Innovation%20and%20Technology",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "IT / Technopark company",
+    companyDetails: "Kerala University of Digital Sciences, Innovation and Technology is hiring at Technopark, Trivandrum. Roles synced from the official Technopark job portal.",
+    workDetails: "Open roles (1): Accountant / Finance Assistant. Verify live posting on Technopark before applying.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark Trivandrum",
+    experienceYears: "As per Technopark posting",
+    requirements: [
+      "Match the experience stated on the Technopark job detail page for your role",
+      "Updated resume / portfolio as required by the company",
+      "Ready for Technopark Trivandrum based hiring process"
+    ],
+    responsibilities: [
+      "Deliver role-specific outcomes as listed by the company on Technopark Jobs",
+      "Collaborate with the team as per the official posting"
+    ],
+    benefits: [
+      "Technopark campus role",
+      "Official Technopark portal listing"
+    ],
+    howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31645?job=Accountant%20/%20Finance%20Assistant. Browse company roles: https://technopark.in/job-search?search=Kerala%20University%20of%20Digital%20Sciences%2C%20Innovation%20and%20Technology.",
+    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-21 · Deadline 2026-08-05. Always verify on the official portal.",
+    description: "1 open role on Technopark Jobs · apply by 2026-08-05.",
+    startingDate: ""
+  },
+{
     id: "jachoos-infopark-jul25",
     company: "Jachoos Technologies",
     logo: "assets/logos/jachoos.svg",

@@ -538,14 +538,36 @@
       const region = jobRegion(job);
       counts.set(region, (counts.get(region) || 0) + 1);
     });
-    const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1]);
+    const preferred = [
+      "Infopark, Kochi",
+      "Technopark, Trivandrum",
+      "Infopark, Thrissur",
+      "Cyberpark, Calicut",
+      "Kochi",
+      "Trivandrum",
+      "Calicut"
+    ];
+    const sorted = [...counts.entries()].sort((a, b) => {
+      const ai = preferred.indexOf(a[0]);
+      const bi = preferred.indexOf(b[0]);
+      if (ai !== -1 || bi !== -1) {
+        if (ai === -1) return 1;
+        if (bi === -1) return -1;
+        return ai - bi;
+      }
+      return b[1] - a[1] || a[0].localeCompare(b[0]);
+    });
+    const current = locationSelect.value || "all";
     locationSelect.innerHTML = [
-      `<option value="all" selected>All locations</option>`,
+      `<option value="all">All locations</option>`,
       ...sorted.map(
         ([region, count]) =>
           `<option value="${escapeAttr(region)}">${escapeHtml(region)} (${count})</option>`
       )
     ].join("");
+    locationSelect.value = [...locationSelect.options].some((opt) => opt.value === current)
+      ? current
+      : "all";
   }
 
   function clearAllFilters() {
