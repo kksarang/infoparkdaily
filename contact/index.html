@@ -33,7 +33,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/styles.css?v=20260725u" />
+    <link rel="stylesheet" href="/styles.css?v=20260725w" />
     <script>
       (function () {
         try {
@@ -82,7 +82,7 @@
     </header>
 
     <main id="main-content" class="contact-page">
-      <section class="contact-hero">
+      <section class="contact-hero glass">
         <div class="contact-hero-copy">
           <p class="eyebrow">Let's talk</p>
           <h1>Contact <span class="accent">InfoparkDaily</span></h1>
@@ -92,7 +92,7 @@
           </p>
           <p class="contact-hours"><strong>Business hours:</strong> Mon–Sat, 10:00 AM – 7:00 PM IST</p>
         </div>
-        <aside class="contact-hero-card glass">
+        <aside class="contact-hero-direct" aria-label="Direct lines">
           <p class="eyebrow">Direct lines</p>
           <p class="contact-person">
             <a href="https://sarangrajan.in/" target="_blank" rel="noopener noreferrer">Sarang R</a>
@@ -136,22 +136,24 @@
             </label>
           </fieldset>
 
-          <label class="contact-field">
-            <span>Name</span>
-            <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
-          </label>
+          <div class="contact-fields-row">
+            <label class="contact-field">
+              <span>Name</span>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+            </label>
 
-          <label class="contact-field">
-            <span id="contact-channel-label">Email or phone</span>
-            <input
-              id="contact-channel"
-              name="channel"
-              type="text"
-              autocomplete="email"
-              required
-              placeholder="you@company.com or +91…"
-            />
-          </label>
+            <label class="contact-field">
+              <span id="contact-channel-label">Email or phone</span>
+              <input
+                id="contact-channel"
+                name="channel"
+                type="text"
+                autocomplete="email"
+                required
+                placeholder="you@company.com or +91…"
+              />
+            </label>
+          </div>
 
           <label class="contact-field" id="company-field" hidden>
             <span>Company / brand</span>
@@ -178,14 +180,15 @@
             <a class="btn btn-secondary" href="tel:+919995254290">Call +91 99952 54290</a>
             <a class="btn btn-ghost" href="mailto:infoparkstorieskochi@gmail.com">Email instead</a>
           </div>
-          <p class="contact-form-note">By sending this form you agree to our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>. 
-            Form submissions use Formspree when configured. Until then, your mail app opens with a pre-filled message
-            (mailto fallback).
+          <p class="contact-form-note">
+            By sending this form you agree to our <a href="/privacy/">Privacy Policy</a> and
+            <a href="/terms/">Terms</a>. Form submissions use Formspree when configured. Until then, your mail
+            app opens with a pre-filled message (mailto fallback).
           </p>
         </form>
 
-        <aside class="contact-side">
-          <div class="contact-side-card glass">
+        <aside class="contact-side glass">
+          <div class="contact-side-block">
             <h2>Visit / map</h2>
             <p>Thapasya Rd, Infopark Campus, Infopark, Kochi, Kakkanad, Kerala</p>
             <div class="contact-map" aria-label="Infopark location map">
@@ -198,7 +201,7 @@
             </div>
           </div>
 
-          <div class="contact-side-card glass">
+          <div class="contact-side-block">
             <h2>Social</h2>
             <div class="contact-social-row" aria-label="Social links">
               <a class="contact-social-btn" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -212,14 +215,15 @@
             </div>
           </div>
 
-          <div class="contact-side-card glass">
+          <div class="contact-side-block contact-side-block--cta">
             <h2>Need software support?</h2>
             <p>IT implementation partner: Hexenity.</p>
             <a class="btn btn-secondary" href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">View Hexenity</a>
           </div>
         </aside>
       </section>
-          <div class="ipd-disclaimer-mount" data-ipd-disclaimer="full"></div>
+
+      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="full"></div>
     </main>
 
     <footer class="site-footer">

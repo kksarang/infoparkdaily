@@ -1208,13 +1208,6 @@ body.light .partners-track img {
   filter: saturate(0.85) contrast(1.02);
 }
 
-.contact-map iframe {
-  width: 100%;
-  height: 230px;
-  border: 0;
-  border-radius: var(--radius-sm);
-  filter: saturate(0.85) contrast(1.02);
-}
 
 .footer-map iframe {
   height: 100%;
@@ -3505,125 +3498,143 @@ html.theme-light body .job-alert-banner-label {
    CONTACT PAGE
    ============================================================ */
 .contact-page {
-  padding-bottom: 2rem;
+  --contact-gap: 0.9rem;
+  --contact-radius: 22px;
+  padding: 0.95rem 0 1.25rem;
+  display: grid;
+  gap: var(--contact-gap);
 }
 
 .contact-hero {
-  margin-top: 1.4rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
-  gap: 0.9rem;
-}
-
-.contact-hero-copy,
-.contact-hero-card {
-  border-radius: 28px;
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-}
-
-.contact-hero-copy {
+  grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.75fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  border-radius: var(--contact-radius);
+  padding: clamp(1.15rem, 2.6vw, 1.55rem);
   border: 1px solid var(--line);
   background:
-    radial-gradient(circle at 88% 8%, rgba(139, 92, 246, 0.16), transparent 45%),
-    linear-gradient(150deg, rgba(255, 193, 7, 0.08), transparent 50%),
-    var(--surface);
+    radial-gradient(circle at 92% 0%, rgba(255, 193, 7, 0.1), transparent 42%),
+    var(--bg-elev);
 }
 
 .contact-hero-copy h1 {
-  font-size: clamp(2rem, 4.4vw, 3rem);
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.75rem, 3.8vw, 2.45rem);
+  line-height: 1.12;
 }
 
-.contact-hero-copy p {
+.contact-hero-copy > p {
+  margin: 0;
   color: var(--muted);
-  max-width: 32rem;
+  max-width: 38rem;
+  font-size: 0.96rem;
+  line-height: 1.55;
 }
 
 .contact-hours {
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0 !important;
   color: var(--text) !important;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
-.contact-hero-card p {
-  margin: 0 0 0.5rem;
+.contact-hero-direct {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.contact-hero-direct .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.contact-hero-direct p {
+  margin: 0;
   color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
 }
 
-.contact-hero-card a {
+.contact-hero-direct a {
   color: var(--text);
   font-weight: 650;
   text-decoration: none;
 }
 
-.contact-hero-card a:hover {
+.contact-hero-direct a:hover {
   color: var(--accent);
 }
 
 .contact-person {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  margin-bottom: 0.75rem !important;
+  margin-bottom: 0.35rem !important;
 }
 
 .contact-person a {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-family: var(--display);
   color: var(--accent);
 }
 
 .contact-site-link {
-  margin-top: 0.35rem !important;
-  padding-top: 0.65rem;
+  margin-top: 0.45rem !important;
+  padding-top: 0.55rem;
   border-top: 1px solid var(--line);
 }
 
 .contact-site-link a {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--accent);
 }
 
 .contact-layout {
-  margin-top: 0.9rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.8fr);
-  gap: 0.9rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+  gap: var(--contact-gap);
   align-items: start;
 }
 
 .contact-form {
-  border-radius: 28px;
-  padding: clamp(1.3rem, 3vw, 2rem);
+  border-radius: var(--contact-radius);
+  padding: clamp(1.15rem, 2.5vw, 1.55rem);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
 }
 
 .contact-form .section-heading {
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .contact-form .section-heading h2 {
-  font-size: 1.4rem;
+  margin: 0;
+  font-size: 1.3rem;
 }
 
 .contact-reasons {
   border: 0;
-  margin: 0 0 1.2rem;
+  margin: 0 0 1rem;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
 .contact-reason {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.75rem 0.9rem;
-  border-radius: var(--radius-sm);
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
   border: 1px solid var(--line);
   cursor: pointer;
   font-weight: 650;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
+  background: var(--surface);
   transition: border-color 0.2s ease, background 0.2s ease;
 }
 
@@ -3633,6 +3644,7 @@ html.theme-light body .job-alert-banner-label {
 
 .contact-reason input {
   accent-color: var(--accent);
+  margin: 0;
 }
 
 .contact-reason:has(input:checked) {
@@ -3640,22 +3652,32 @@ html.theme-light body .job-alert-banner-label {
   background: var(--accent-soft);
 }
 
+.contact-fields-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
 .contact-field {
   display: grid;
-  gap: 0.35rem;
-  margin-bottom: 0.9rem;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
   font-weight: 650;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+}
+
+.contact-fields-row .contact-field {
+  margin-bottom: 0.75rem;
 }
 
 .contact-field input,
 .contact-field textarea {
   width: 100%;
-  border-radius: var(--radius-sm);
+  border-radius: 12px;
   border: 1px solid var(--line);
-  background: var(--bg-elev);
+  background: var(--surface);
   color: var(--text);
-  padding: 0.85rem 1rem;
+  padding: 0.75rem 0.9rem;
   font: inherit;
   font-weight: 500;
   resize: vertical;
@@ -3673,10 +3695,10 @@ html.theme-light body .job-alert-banner-label {
 }
 
 .contact-form-status {
-  min-height: 1.3rem;
-  margin: 0 0 0.6rem;
+  min-height: 1.15rem;
+  margin: 0 0 0.5rem;
   font-weight: 650;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--green);
 }
 
@@ -3687,59 +3709,117 @@ html.theme-light body .job-alert-banner-label {
 .contact-form-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.contact-form-actions .btn {
+  min-height: 2.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact-form-note {
-  margin: 0.9rem 0 0;
-  font-size: 0.8rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
   color: var(--muted);
 }
 
 .contact-side {
+  position: sticky;
+  top: 5.25rem;
   display: grid;
-  gap: 0.9rem;
+  gap: 0;
+  border-radius: var(--contact-radius);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  padding: 0;
+  overflow: hidden;
 }
 
-.contact-side-card {
-  border-radius: var(--radius);
-  padding: 1.3rem 1.4rem;
+.contact-side-block {
+  padding: 1.05rem 1.15rem;
 }
 
-.contact-side-card h2 {
-  font-size: 1.05rem;
+.contact-side-block + .contact-side-block {
+  border-top: 1px solid var(--line);
 }
 
-.contact-side-card p {
+.contact-side-block h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.contact-side-block p {
+  margin: 0 0 0.7rem;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.contact-side-block--cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-map {
+  margin-top: 0.15rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 180px;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  filter: saturate(0.85) contrast(1.02);
 }
 
 .contact-social-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
+  gap: 0.45rem;
 }
 
 .contact-social-btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.7rem 0.8rem;
-  border-radius: var(--radius-sm);
+  min-height: 2.35rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 10px;
   border: 1px solid var(--line);
+  background: var(--surface);
   text-decoration: none;
   color: var(--text);
   font-weight: 700;
-  font-size: 0.9rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  font-size: 0.82rem;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .contact-social-btn:hover {
-  transform: translateY(-2px);
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
+}
+
+.contact-page .ipd-disclaimer-mount {
+  margin: 0;
+  width: 100%;
+}
+
+html.theme-light body .contact-hero,
+html.theme-light body .contact-form,
+html.theme-light body .contact-side,
+body.light .contact-hero,
+body.light .contact-form,
+body.light .contact-side {
+  background: #fff;
 }
 
 /* ============================================================
@@ -5306,8 +5386,17 @@ html.theme-light .svcx-hero-grid {
 
   .job-detail-layout,
   .contact-hero,
-  .contact-layout {
+  .contact-layout,
+  .contact-fields-row {
     grid-template-columns: 1fr;
+  }
+
+  .contact-side {
+    position: static;
+  }
+
+  .contact-form-actions .btn {
+    flex: 1 1 auto;
   }
 
   .job-detail-hero-top {
@@ -5475,10 +5564,6 @@ html.theme-light .svcx-hero-grid {
 
   .svcx-hero {
     border-radius: 20px;
-  }
-
-  .contact-reasons {
-    grid-template-columns: 1fr;
   }
 
   .jobs-toolbar-row,
