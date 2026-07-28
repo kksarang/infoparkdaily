@@ -43,6 +43,37 @@
 
 var NEWS = [
   {
+    id: "aarathi-panikkar-arch-rally-2026",
+    title: "Aarathi Panikkar finishes 2nd in Women’s Category at ARCH Rally 2026",
+    category: "Community",
+    park: "Infopark Kochi",
+    date: "2026-07-28",
+    image: "/assets/news/aarathi-panikkar-arch-rally-2026.jpg",
+    imageAlt: "Aarathi Panikkar with ARCH Rally 2026 trophy — 2nd place, Women’s Category",
+    summary:
+      "Infopark employee Aarathi Panikkar secured 2nd place in the Women’s Category at ARCH Rally 2026 at Kari Motor Speedway, Coimbatore — a proud moment for the Infopark community.",
+    body: [
+      "A proud moment for the Infopark community. Huge congratulations to Aarathi Panikkar on securing an incredible 2nd Place in the Women’s Category at the ARCH Rally 2026 held at Kari Motor Speedway, Coimbatore.",
+      "As an Infopark employee, Aarathi has made the entire Infopark community proud with her passion, determination, and remarkable achievement in motorsport.",
+      "ARCH Rally 2026 was held on 25th & 26th July 2026 at Kari Motor Speedway, Coimbatore. Aarathi, a Season 1 competitor, made an impressive debut in stage rallying by finishing 2nd in the Women’s Category.",
+      "From the InfoparkDaily family, we proudly celebrate this inspiring milestone and wish Aarathi many more podium finishes, victories, and unforgettable moments ahead.",
+      "Her achievement is an inspiration to many aspiring women in motorsports. Keep racing, keep inspiring. Congratulations, Aarathi!"
+    ],
+    highlights: [
+      "2nd Place — Women’s Category, ARCH Rally 2026",
+      "Venue: Kari Motor Speedway, Coimbatore",
+      "Event dates: 25th & 26th July 2026",
+      "Infopark employee · Season 1 competitor · stage-rally debut"
+    ],
+    attachments: [
+      { label: "InfoparkDaily News", url: "https://infoparkdaily.online/news/" },
+      { label: "Infopark official website", url: "https://infopark.in/" }
+    ],
+    source: "InfoparkDaily community celebration",
+    sourceUrl: "https://infoparkdaily.online/news/",
+    featured: true
+  },
+  {
     id: "kerala-it-highlights-naviq-gcc-polaris",
     title: "Kerala IT highlights — Naviq launch, GCC roadmap, Polaris tower & AI hub push",
     category: "Business",
@@ -133,7 +164,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily community announcement",
     sourceUrl: "https://infoparkdaily.online/news/",
-    featured: true
+    featured: false
   },
   {
     id: "naviq-technology-inauguration",
