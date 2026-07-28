@@ -1392,6 +1392,35 @@ body.light .partners-track img {
   max-width: 32rem;
 }
 
+.jobs-park-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+}
+
+.jobs-park-cta--panel {
+  margin-top: 0.9rem;
+}
+
+.jobs-park-cta .btn {
+  text-decoration: none;
+}
+
+.tp-hero-meta {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.technopark-jobs-page .section-heading {
+  margin-bottom: 1rem;
+}
+
+.tp-verify-banner {
+  margin-top: 0.5rem;
+}
+
 .jobs-hero-stats {
   list-style: none;
   display: flex;
