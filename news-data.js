@@ -66,6 +66,7 @@ var NEWS = [
       "Infopark employee · Season 1 competitor · stage-rally debut"
     ],
     attachments: [
+      { label: "Aarathi Panikkar on Instagram", url: "https://www.instagram.com/aarathi_panikkar/" },
       { label: "InfoparkDaily News", url: "https://infoparkdaily.online/news/" },
       { label: "Infopark official website", url: "https://infopark.in/" }
     ],
