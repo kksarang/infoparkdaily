@@ -3858,6 +3858,13 @@ html.theme-light body .job-alert-banner-label {
 }
 
 @media (max-width: 640px) {
+  .job-detail-page.jobs-page {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0.85rem;
+    box-sizing: border-box;
+  }
+
   .job-sheet-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
