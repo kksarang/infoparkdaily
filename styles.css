@@ -1421,6 +1421,25 @@ body.light .partners-track img {
   margin-top: 0.5rem;
 }
 
+.tp-verify-banner .jobs-notice-card {
+  display: block;
+  grid-template-columns: none;
+}
+
+.tp-verify-banner .jobs-notice-copy {
+  max-width: none;
+}
+
+.tp-verify-banner .jobs-notice-card h2 {
+  max-width: none;
+}
+
+.tp-verify-banner .jobs-notice-card p {
+  max-width: none;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
 .jobs-hero-stats {
   list-style: none;
   display: flex;
