@@ -189,7 +189,4 @@
     `<p class="jobs-empty">No open experienced listings in this verified set.</p>`;
 
   if (countEl) countEl.textContent = String(JOBS.length);
-  if (noteEl && typeof TECHNOPARK_VERIFICATION_DISCLAIMER === "string") {
-    noteEl.textContent = TECHNOPARK_VERIFICATION_DISCLAIMER;
-  }
 })();
