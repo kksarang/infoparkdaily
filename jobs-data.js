@@ -93,7 +93,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -121,7 +121,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email recruitment@softnotions.com or apply via official Technopark listing: https://technopark.in/job-details/31707?job=MERN%20STACK%20DEVELOPER%20-%20Trainee",
-    hiringNotes: "Verified 31707 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31707 · Re-check with the employer before applying.",
     description: "Trainee MERN role verified from official Technopark listing. Closing date on portal: 29 July 2026 (not August).",
     startingDate: ""
   },
@@ -141,7 +141,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Marketing", "Sales"],
     isWalkIn: false,
     walkInDate: "",
@@ -169,7 +169,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@m2comsys.us or apply via official Technopark listing: https://technopark.in/job-details/31705?job=Trainee%20Executive%20-%20Sales%20%26%20Marketing",
-    hiringNotes: "Verified 31705 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31705 · Re-check with the employer before applying.",
     description: "Official Technopark portal lists Job Location: Kochi. Freshers can also apply.",
     startingDate: ""
   },
@@ -189,7 +189,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -217,7 +217,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email parvathy@genrobotics.com or apply via official Technopark listing: https://technopark.in/job-details/31055?job=Senior%20Mechanical%20Design%20Engineer%20%284%20-6%20Years%29",
-    hiringNotes: "Verified 31055 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31055 · Re-check with the employer before applying.",
     description: "Experienced mechanical design role for robotic systems \u2014 not an internship.",
     startingDate: ""
   },
@@ -237,7 +237,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -265,7 +265,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email career@genrobotics.org or apply via official Technopark listing: https://technopark.in/job-details/31057?job=Senior%20Embedded%20System%20engineer%20%283%20-4%20Years%29",
-    hiringNotes: "Verified 31057 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31057 · Re-check with the employer before applying.",
     description: "Embedded firmware/systems engineering for next-generation robotics.",
     startingDate: ""
   },
@@ -285,7 +285,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["QA", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -313,7 +313,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@qwysoft.com or apply via official Technopark listing: https://technopark.in/job-details/31702?job=QA%20Engineer",
-    hiringNotes: "Verified 31702 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31702 · Re-check with the employer before applying.",
     description: "Official listing requires 3\u20135 years \u2014 not a fresher role.",
     startingDate: ""
   },
@@ -333,7 +333,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["AI", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -361,7 +361,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@reizend.ai or apply via official Technopark listing: https://technopark.in/job-details/31748?job=Full%20Stack%20Developer%20%E2%80%93%20AI-Assisted%20Development%20%26%20Deployment",
-    hiringNotes: "Verified 31748 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31748 · Re-check with the employer before applying.",
     description: "Official title includes Development & Deployment. Salary band listed on portal: 10\u201320 LPA.",
     startingDate: ""
   },
@@ -381,7 +381,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["AI", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -409,7 +409,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@reizend.ai or apply via official Technopark listing: https://technopark.in/job-details/31500?job=Senior%20Full%20Stack%20Developer%20%E2%80%93%20AI%20Engineering%20%26%20Automation",
-    hiringNotes: "Verified 31500 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31500 · Re-check with the employer before applying.",
     description: "Senior AI engineering & automation full-stack role verified on Technopark.",
     startingDate: ""
   },
@@ -429,7 +429,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -457,7 +457,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@xminds.com or apply via official Technopark listing: https://technopark.in/job-details/31714?job=Java%20Developer",
-    hiringNotes: "Verified 31714 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31714 · Re-check with the employer before applying.",
     description: "4\u20136 years Java role \u2014 not fresher. Closing date confirmed on Technopark portal: 31 Aug 2026.",
     startingDate: ""
   },
@@ -477,7 +477,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Sales", "Admin"],
     isWalkIn: false,
     walkInDate: "",
@@ -505,7 +505,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email priya@itwagon.com or apply via official Technopark listing: https://technopark.in/job-details/31694?job=Operations%20Executive%20%28Sales%20Order%20Processing%2C%20Logistics%20and%20eCommerce%29",
-    hiringNotes: "Verified 31694 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31694 · Re-check with the employer before applying.",
     description: "Specific verified Operations Executive role (not a generic Freshers IT/Non-IT claim).",
     startingDate: ""
   },
@@ -525,7 +525,7 @@ var JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Cloud", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -553,7 +553,7 @@ var JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@way.com or apply via official Technopark listing: https://technopark.in/job-details/31804?job=Site%20Reliability%20Lead%20Engineer",
-    hiringNotes: "Verified 31804 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31804 · Re-check with the employer before applying.",
     description: "Lead/senior SRE role (10+ years) \u2014 not fresher. Closing 30 July 2026 on Technopark portal.",
     startingDate: ""
   },
@@ -602,7 +602,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31746?job=DevOps%20Engineer. Browse company roles: https://technopark.in/job-search?search=AInsurtech%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-10. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-10.",
     startingDate: ""
   },
@@ -650,7 +650,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31745?job=Business%20Associate%20L1%20%28%20IT%20Services%20%26%20Operations%29. Browse company roles: https://technopark.in/job-search?search=Waib3%20Technologies%20%28OPC%29%20Pvt.%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-10. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-10.",
     startingDate: ""
   },
@@ -698,7 +698,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31744?job=Business%20Applications%20Engineer%20%28General%20Insurance%29. Browse company roles: https://technopark.in/job-search?search=Quadance%20Technologies%20Pvt.%20Ltd..",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-21. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-21.",
     startingDate: ""
   },
@@ -765,7 +765,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31743?job=Salesforce%20Automation%20QA. Browse company roles: https://technopark.in/job-search?search=Reflections%20Info%20Systems%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "20 open roles on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -814,7 +814,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31723?job=Digital%20Marketing%20Mentor. Browse company roles: https://technopark.in/job-search?search=Marvelloux%20Apps%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -862,7 +862,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31722?job=Senior%20Data%20%26%20AI%20Platform%20Engineer%20-%20Immediate%20Hiring. Browse company roles: https://technopark.in/job-search?search=Timesworld%20Media%20and%20Technology%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-08. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
     startingDate: ""
   },
@@ -911,7 +911,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31721?job=MARKETING%20TRAINEE. Browse company roles: https://technopark.in/job-search?search=Softnotions%20Technologies%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-29. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-07-29.",
     startingDate: ""
   },
@@ -964,7 +964,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31720?job=JAVA%20Full%20Stack%20Developer. Browse company roles: https://technopark.in/job-search?search=Way%20Dot%20Com%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-07-26. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "6 open roles on Technopark Jobs · apply by 2026-07-26.",
     startingDate: ""
   },
@@ -1014,7 +1014,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31715?job=Senior%20Cloud%20Operations%20Engineer%20%28Azure%29. Browse company roles: https://technopark.in/job-search?search=Xminds%20Infotech%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-26. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "3 open roles on Technopark Jobs · apply by 2026-08-26.",
     startingDate: ""
   },
@@ -1062,7 +1062,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31713?job=R%20%26%20D%20Psychologist%20Trainee. Browse company roles: https://technopark.in/job-search?search=ZenturioTech%20Pvt%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-24 · Deadline 2026-08-08. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
     startingDate: ""
   },
@@ -1110,7 +1110,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31712?job=Jr.System%20Administrator. Browse company roles: https://technopark.in/job-search?search=Zoondia%20Software%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-15. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-15.",
     startingDate: ""
   },
@@ -1158,7 +1158,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31711?job=Senior%20Dot%20Net%20Developer. Browse company roles: https://technopark.in/job-search?search=Klystron%20Technologies.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-03. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-03.",
     startingDate: ""
   },
@@ -1210,7 +1210,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31710?job=DIGITAL%20MARKETING%20EXECUTIVE. Browse company roles: https://technopark.in/job-search?search=KENLAND%20IT%20SOLUTIONS%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-27. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "5 open roles on Technopark Jobs · apply by 2026-07-27.",
     startingDate: ""
   },
@@ -1258,7 +1258,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31709?job=Investment%20Manager%20%28%205%20-10%20Years%29. Browse company roles: https://technopark.in/job-search?search=GENROBOTIC%20INNOVATIONS%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-20. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-20.",
     startingDate: ""
   },
@@ -1308,7 +1308,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31708?job=IT%20Manager. Browse company roles: https://technopark.in/job-search?search=ARS%20Traffic%20%26%20Transport%20Technology%20India%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "3 open roles on Technopark Jobs · apply by 2026-08-31.",
     startingDate: ""
   },
@@ -1356,7 +1356,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31706?job=Digital%20Marketing%20%26%20Growth%20Specialist. Browse company roles: https://technopark.in/job-search?search=Akira%20Software%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -1405,7 +1405,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31705?job=Trainee%20Executive%20-%20Sales%20%26%20Marketing. Browse company roles: https://technopark.in/job-search?search=M%20Squared%20Software%20%26%20Services%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-10. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-08-10.",
     startingDate: ""
   },
@@ -1453,7 +1453,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31704?job=Graduate%20Apprentice%20%E2%80%93%20MEP. Browse company roles: https://technopark.in/job-search?search=Electronics%20Technology%20Parks%20Kerala%20%28Technopark%29.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -1501,7 +1501,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31703?job=Fullstack%20Developer%20%28MERN%29-%20Immediate%287%20to%2010%20years%29. Browse company roles: https://technopark.in/job-search?search=Enfin%20Technologies%20India%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -1549,7 +1549,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31702?job=QA%20Engineer. Browse company roles: https://technopark.in/job-search?search=QWY%20Software%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-08. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-08.",
     startingDate: ""
   },
@@ -1598,7 +1598,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31701?job=Associate%20Estimation%20-%20Sourcing%20and%20Proposal%20Responsibilities. Browse company roles: https://technopark.in/job-search?search=SUSOPT%20SOLUTIONS%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-26. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
     startingDate: ""
   },
@@ -1658,7 +1658,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31699?job=Senior%20Data%20Coding%20Specialist. Browse company roles: https://technopark.in/job-search?search=Flex%20and%20Oncology%20Clinical%20Research%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-29. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "13 open roles on Technopark Jobs · apply by 2026-08-29.",
     startingDate: ""
   },
@@ -1706,7 +1706,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31697?job=Sports%20Management%20Trainee%20%28Fresher%29. Browse company roles: https://technopark.in/job-search?search=iCore%20Pioneer%20Business%20Solution%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-30. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-30.",
     startingDate: ""
   },
@@ -1754,7 +1754,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31696?job=Business%20Development%20Executive%20-%20Healthcare%20Solutions. Browse company roles: https://technopark.in/job-search?search=Naga%20Info%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-08-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-31.",
     startingDate: ""
   },
@@ -1805,7 +1805,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31695?job=Procurement%20Executive. Browse company roles: https://technopark.in/job-search?search=ITWAGON%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-23 · Deadline 2026-07-30. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "4 open roles on Technopark Jobs · apply by 2026-07-30.",
     startingDate: ""
   },
@@ -1853,7 +1853,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31690?job=Business%20Analyst. Browse company roles: https://technopark.in/job-search?search=Zybo%20Tech%20Lab%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-30. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-30.",
     startingDate: ""
   },
@@ -1901,7 +1901,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31689?job=Software%20Developer%20Intern%20%28C%23%29. Browse company roles: https://technopark.in/job-search?search=ShellSquare%20Softwares%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -1950,7 +1950,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31688?job=Product%20Marketing%20Specialist. Browse company roles: https://technopark.in/job-search?search=SRS%20Global%20Technologies%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-04. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-08-04.",
     startingDate: ""
   },
@@ -1998,7 +1998,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31685?job=Digital%20Marketing%20Executive. Browse company roles: https://technopark.in/job-search?search=Innure%20Infotech%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-28. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-28.",
     startingDate: ""
   },
@@ -2047,7 +2047,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31684?job=Adobe%20Commerce%20Consultant. Browse company roles: https://technopark.in/job-search?search=LambdaZen%20India%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-03. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-08-03.",
     startingDate: ""
   },
@@ -2095,7 +2095,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31682?job=Graphic%20Designer%20%26%20Digital%20Content%20Creator. Browse company roles: https://technopark.in/job-search?search=Hiworth%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-22. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-22.",
     startingDate: ""
   },
@@ -2143,7 +2143,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31681?job=Document%20specialist. Browse company roles: https://technopark.in/job-search?search=Aptara%20Learning%20%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-26. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-26.",
     startingDate: ""
   },
@@ -2193,7 +2193,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31680?job=Finance%20Manager. Browse company roles: https://technopark.in/job-search?search=Yarab%20Technologies%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-29. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "3 open roles on Technopark Jobs · apply by 2026-07-29.",
     startingDate: ""
   },
@@ -2242,7 +2242,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31677?job=Odoo%20Developer. Browse company roles: https://technopark.in/job-search?search=Mobatia%20Technology%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-26. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-07-26.",
     startingDate: ""
   },
@@ -2290,7 +2290,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31672?job=Digital%20Marketing%20Intern%20%28Walk-in%20Interview%29. Browse company roles: https://technopark.in/job-search?search=Ferns%20IT%20Solutions%20%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-29. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-29.",
     startingDate: ""
   },
@@ -2338,7 +2338,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31658?job=AI%20Architect%20%285%2B%20yrs.%20Exp%29. Browse company roles: https://technopark.in/job-search?search=GNX%20Digital%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-28. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-28.",
     startingDate: ""
   },
@@ -2386,7 +2386,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31655?job=Finance%20%26%20Accounting%20Executive. Browse company roles: https://technopark.in/job-search?search=SEPTA%20MILLES%20%28P%29%20Ltd%20%28LIFOLOGY%29.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-31. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-07-31.",
     startingDate: ""
   },
@@ -2434,7 +2434,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31654?job=We%27re%20Hiring%20%E2%80%93%20Director%2C%20Videographer%20%26%20Video%20Editor. Browse company roles: https://technopark.in/job-search?search=ACHARYA%20PANCHAKARMA%20AND%20TRADITIONAL%20KERALA%20AYURVEDA%20PRIVATE%20LIMITED.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-20. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-20.",
     startingDate: ""
   },
@@ -2483,7 +2483,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31653?job=Business%20Development%20Executive. Browse company roles: https://technopark.in/job-search?search=Polus%20Solutions%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-07-27. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "2 open roles on Technopark Jobs · apply by 2026-07-27.",
     startingDate: ""
   },
@@ -2531,7 +2531,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31651?job=Customer%20Relationship%20Executive. Browse company roles: https://technopark.in/job-search?search=Spericorn%20Technology%20%28P%29%20Ltd.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-22 · Deadline 2026-08-12. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-12.",
     startingDate: ""
   },
@@ -2579,7 +2579,7 @@ var JOBS = [
       "Official Technopark portal listing"
     ],
     howToApply: "Apply via the official Technopark posting: https://technopark.in/job-details/31645?job=Accountant%20/%20Finance%20Assistant. Browse company roles: https://technopark.in/job-search?search=Kerala%20University%20of%20Digital%20Sciences%2C%20Innovation%20and%20Technology.",
-    hiringNotes: "Synced from https://technopark.in/job-search · Posted 2026-07-21 · Deadline 2026-08-05. Always verify on the official portal.",
+    hiringNotes: "Re-check with the employer before applying.",
     description: "1 open role on Technopark Jobs · apply by 2026-08-05.",
     startingDate: ""
   },

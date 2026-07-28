@@ -2,7 +2,6 @@
   const fresherGrid = document.getElementById("tp-fresher-grid");
   const experiencedGrid = document.getElementById("tp-experienced-grid");
   const countEl = document.getElementById("tp-count");
-  const noteEl = document.getElementById("tp-verify-note");
   if (!fresherGrid || !experiencedGrid || typeof TECHNOPARK_VERIFIED_JOBS === "undefined") return;
 
   const JOBS = TECHNOPARK_VERIFIED_JOBS.slice();

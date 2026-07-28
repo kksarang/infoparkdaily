@@ -21,7 +21,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -49,7 +49,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email recruitment@softnotions.com or apply via official Technopark listing: https://technopark.in/job-details/31707?job=MERN%20STACK%20DEVELOPER%20-%20Trainee",
-    hiringNotes: "Verified 31707 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31707 · Re-check with the employer before applying.",
     description: "Trainee MERN role verified from official Technopark listing. Closing date on portal: 29 July 2026 (not August).",
     startingDate: ""
   },
@@ -69,7 +69,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Marketing", "Sales"],
     isWalkIn: false,
     walkInDate: "",
@@ -97,7 +97,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@m2comsys.us or apply via official Technopark listing: https://technopark.in/job-details/31705?job=Trainee%20Executive%20-%20Sales%20%26%20Marketing",
-    hiringNotes: "Verified 31705 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31705 · Re-check with the employer before applying.",
     description: "Official Technopark portal lists Job Location: Kochi. Freshers can also apply.",
     startingDate: ""
   },
@@ -117,7 +117,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -145,7 +145,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email parvathy@genrobotics.com or apply via official Technopark listing: https://technopark.in/job-details/31055?job=Senior%20Mechanical%20Design%20Engineer%20%284%20-6%20Years%29",
-    hiringNotes: "Verified 31055 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31055 · Re-check with the employer before applying.",
     description: "Experienced mechanical design role for robotic systems \u2014 not an internship.",
     startingDate: ""
   },
@@ -165,7 +165,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -193,7 +193,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email career@genrobotics.org or apply via official Technopark listing: https://technopark.in/job-details/31057?job=Senior%20Embedded%20System%20engineer%20%283%20-4%20Years%29",
-    hiringNotes: "Verified 31057 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31057 · Re-check with the employer before applying.",
     description: "Embedded firmware/systems engineering for next-generation robotics.",
     startingDate: ""
   },
@@ -213,7 +213,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["QA", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -241,7 +241,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@qwysoft.com or apply via official Technopark listing: https://technopark.in/job-details/31702?job=QA%20Engineer",
-    hiringNotes: "Verified 31702 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31702 · Re-check with the employer before applying.",
     description: "Official listing requires 3\u20135 years \u2014 not a fresher role.",
     startingDate: ""
   },
@@ -261,7 +261,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["AI", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -289,7 +289,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@reizend.ai or apply via official Technopark listing: https://technopark.in/job-details/31748?job=Full%20Stack%20Developer%20%E2%80%93%20AI-Assisted%20Development%20%26%20Deployment",
-    hiringNotes: "Verified 31748 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31748 · Re-check with the employer before applying.",
     description: "Official title includes Development & Deployment. Salary band listed on portal: 10\u201320 LPA.",
     startingDate: ""
   },
@@ -309,7 +309,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["AI", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -337,7 +337,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@reizend.ai or apply via official Technopark listing: https://technopark.in/job-details/31500?job=Senior%20Full%20Stack%20Developer%20%E2%80%93%20AI%20Engineering%20%26%20Automation",
-    hiringNotes: "Verified 31500 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31500 · Re-check with the employer before applying.",
     description: "Senior AI engineering & automation full-stack role verified on Technopark.",
     startingDate: ""
   },
@@ -357,7 +357,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -385,7 +385,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@xminds.com or apply via official Technopark listing: https://technopark.in/job-details/31714?job=Java%20Developer",
-    hiringNotes: "Verified 31714 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31714 · Re-check with the employer before applying.",
     description: "4\u20136 years Java role \u2014 not fresher. Closing date confirmed on Technopark portal: 31 Aug 2026.",
     startingDate: ""
   },
@@ -405,7 +405,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Sales", "Admin"],
     isWalkIn: false,
     walkInDate: "",
@@ -433,7 +433,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email priya@itwagon.com or apply via official Technopark listing: https://technopark.in/job-details/31694?job=Operations%20Executive%20%28Sales%20Order%20Processing%2C%20Logistics%20and%20eCommerce%29",
-    hiringNotes: "Verified 31694 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31694 · Re-check with the employer before applying.",
     description: "Specific verified Operations Executive role (not a generic Freshers IT/Non-IT claim).",
     startingDate: ""
   },
@@ -453,7 +453,7 @@ var TECHNOPARK_VERIFIED_JOBS = [
     source: "Technopark",
     verified: true,
     technoparkVerified: true,
-    verificationNote: "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["Cloud", "IT"],
     isWalkIn: false,
     walkInDate: "",
@@ -481,10 +481,10 @@ var TECHNOPARK_VERIFIED_JOBS = [
       "Verified by InfoparkDaily against technopark.in"
     ],
     howToApply: "Email careers@way.com or apply via official Technopark listing: https://technopark.in/job-details/31804?job=Site%20Reliability%20Lead%20Engineer",
-    hiringNotes: "Verified 31804 \u00b7 Always re-check https://technopark.in/job-search before applying. Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Verified 31804 · Re-check with the employer before applying.",
     description: "Lead/senior SRE role (10+ years) \u2014 not fresher. Closing 30 July 2026 on Technopark portal.",
     startingDate: ""
   }
 ];
 
-var TECHNOPARK_VERIFICATION_DISCLAIMER = "Verification Note: Job information is compiled from the official Technopark job portal (technopark.in) at the time of publishing. Availability, eligibility and closing dates may change. Always verify on the employer\u2019s official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.";
+var TECHNOPARK_VERIFICATION_DISCLAIMER = "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.";
