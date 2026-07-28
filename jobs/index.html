@@ -58,7 +58,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/styles.css?v=20260728h" />
+    <link rel="stylesheet" href="/styles.css?v=20260728i" />
     <script>
       (function () {
         try {
@@ -184,7 +184,7 @@
             </label>
             <label class="jobs-select-label">
               <span class="jobs-select-caption">Company</span>
-              <select id="jobs-company" class="jobs-sort">
+              <select id="jobs-company" class="jobs-sort" aria-describedby="jobs-company-hint">
                 <option value="all" selected>All companies</option>
               </select>
             </label>
@@ -242,10 +242,14 @@
             <p id="jobs-count" class="jobs-count" aria-live="polite"></p>
             <button type="button" id="jobs-clear" class="jobs-clear-btn" hidden>Clear all filters</button>
           </div>
+          <p id="jobs-share-hint" class="jobs-share-hint" hidden>
+            Share this filtered view — the page URL updates when you pick a company.
+          </p>
         </div>
       </section>
 
       <section class="content-section jobs-listings-section" aria-label="Job listings">
+        <div id="jobs-company-banner" class="jobs-company-banner glass" hidden role="status"></div>
         <div id="jobs-expired-banner" class="jobs-expired-mode-banner" hidden role="status">
           <strong>You are viewing expired listings</strong>
           <p>
@@ -397,7 +401,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
     <script src="/script.js?v=20260725v5" defer></script>
     <script src="/disclaimer.js?v=20260725i" defer></script>
-    <script src="/jobs-data.js?v=20260728h" defer></script>
-    <script src="/jobs.js?v=20260728h" defer></script>
+    <script src="/jobs-data.js?v=20260728i" defer></script>
+    <script src="/jobs.js?v=20260728i" defer></script>
   </body>
 </html>

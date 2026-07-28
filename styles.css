@@ -1516,8 +1516,43 @@ body.light .partners-track img {
 .jobs-toolbar-row.jobs-toolbar-row--top {
   margin-top: 0;
   margin-bottom: 1rem;
-  grid-template-columns: minmax(0, 1fr) minmax(160px, 200px) minmax(170px, 210px);
+  grid-template-columns: minmax(0, 1.4fr) minmax(140px, 180px) minmax(160px, 220px) minmax(150px, 190px);
   align-items: end;
+}
+
+.jobs-share-hint {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.jobs-company-banner {
+  margin: 0 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem 1rem;
+}
+
+.jobs-company-banner strong {
+  color: var(--text);
+}
+
+.jobs-company-banner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.jobs-company-banner .jobs-company-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .jobs-search-label {

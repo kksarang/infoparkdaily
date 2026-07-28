@@ -8,6 +8,8 @@
   const sortSelect = document.getElementById("jobs-sort");
   const locationSelect = document.getElementById("jobs-location");
   const companySelect = document.getElementById("jobs-company");
+  const companyBanner = document.getElementById("jobs-company-banner");
+  const shareHint = document.getElementById("jobs-share-hint");
   const countEl = document.getElementById("jobs-count");
   const clearBtn = document.getElementById("jobs-clear");
   const loadMoreBtn = document.getElementById("jobs-load-more");
@@ -205,16 +207,130 @@
     return jobRegion(job) === activeLocation;
   }
 
-  function companyKey(job) {
-    return String(job.company || "")
+  function companySlug(name) {
+    return String(name || "")
       .trim()
       .toLowerCase()
-      .replace(/\s+/g, " ");
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function companyKey(job) {
+    return companySlug(job.company);
+  }
+
+  function companyLabelFromSlug(slug) {
+    if (!slug || slug === "all") return "";
+    if (!companySelect) return slug;
+    const opt = [...companySelect.options].find((item) => item.value === slug);
+    if (!opt) return slug;
+    return String(opt.textContent || "")
+      .replace(/\s*\(\d+\)\s*$/, "")
+      .trim();
   }
 
   function matchesCompany(job) {
     if (activeCompany === "all") return true;
     return companyKey(job) === activeCompany;
+  }
+
+  function locationSlug(region) {
+    return companySlug(region);
+  }
+
+  function locationFromSlug(slug) {
+    if (!slug || slug === "all" || !locationSelect) return "all";
+    const match = [...locationSelect.options].find((opt) => locationSlug(opt.value) === slug);
+    return match ? match.value : "all";
+  }
+
+  function syncUrlFromFilters() {
+    const params = new URLSearchParams();
+    if (activeCompany !== "all") params.set("company", activeCompany);
+    if (activeLocation !== "all") params.set("location", locationSlug(activeLocation));
+    if (activeStatus !== "open") params.set("status", activeStatus);
+    if (activeFilter !== "all") params.set("type", activeFilter);
+    if (activeTag !== "all") params.set("tag", activeTag);
+    if (sortMode !== "newest") params.set("sort", sortMode);
+    if (searchQuery) params.set("q", searchQuery);
+
+    const qs = params.toString();
+    const path = window.location.pathname || "/jobs/";
+    const next = qs ? `${path}?${qs}` : path;
+    const current = `${window.location.pathname}${window.location.search}`;
+    if (current !== next) {
+      window.history.replaceState({ jobsFilter: true }, "", next);
+    }
+    if (shareHint) {
+      shareHint.hidden = activeCompany === "all" && activeLocation === "all" && !searchQuery;
+    }
+  }
+
+  function applyFiltersFromUrl() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const companyParam = companySlug(params.get("company") || "");
+      const locationParam = companySlug(params.get("location") || "");
+      const statusParam = (params.get("status") || "").trim().toLowerCase();
+      const typeParam = (params.get("type") || "").trim().toLowerCase();
+      const tagParam = (params.get("tag") || "").trim().toLowerCase();
+      const sortParam = (params.get("sort") || "").trim().toLowerCase();
+      const qParam = (params.get("q") || "").trim();
+
+      if (companyParam && companySelect) {
+        const match = [...companySelect.options].find((opt) => {
+          const val = String(opt.value || "");
+          const label = companySlug(opt.textContent || "");
+          return (
+            val === companyParam ||
+            val.includes(companyParam) ||
+            label.includes(companyParam) ||
+            companyParam.includes(val)
+          );
+        });
+        if (match) {
+          companySelect.value = match.value;
+          activeCompany = match.value;
+        }
+      }
+
+      if (locationParam && locationSelect) {
+        const loc = locationFromSlug(locationParam);
+        if (loc !== "all") {
+          locationSelect.value = loc;
+          activeLocation = loc;
+        }
+      }
+
+      if (statusParam && ["open", "closing", "expired", "all"].includes(statusParam)) {
+        activeStatus = statusParam;
+      }
+      if (typeParam) activeFilter = typeParam;
+      if (tagParam) activeTag = tagParam;
+      if (sortParam) {
+        sortMode = sortParam;
+        if (sortSelect) sortSelect.value = sortParam;
+      }
+      if (qParam) {
+        searchQuery = qParam.toLowerCase();
+        if (searchInput) searchInput.value = qParam;
+      }
+
+      const syncGroup = (bar, attr, value) => {
+        if (!bar) return;
+        bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
+          const isActive = btn.dataset[attr] === value;
+          btn.classList.toggle("is-active", isActive);
+          btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+      };
+      syncGroup(filterBar, "filter", activeFilter);
+      syncGroup(statusBar, "status", activeStatus);
+      syncGroup(tagBar, "tag", activeTag);
+    } catch (_e) {
+      /* ignore bad query */
+    }
   }
 
   function matchesSearch(job) {
@@ -481,25 +597,82 @@
     }
 
     if (countEl) {
+      const roleCount = jobs.reduce((sum, job) => sum + (job.roles || []).length, 0);
       const expiredInView = jobs.filter((job) => deadlineStatus(job) === "expired").length;
       const closingCount = jobs.filter((job) => deadlineStatus(job) === "closing").length;
-      const parts = [
-        jobs.length === 1 ? "1 company" : `${jobs.length} companies`,
-        `${jobs.reduce((sum, job) => sum + (job.roles || []).length, 0)} roles`
-      ];
-      if (activeStatus === "expired") {
-        parts.unshift("Expired archive");
-      } else if (activeStatus === "open") {
-        parts.unshift("Open hiring");
+      const companyName = companyLabelFromSlug(activeCompany);
+      const parts = [];
+
+      if (companyName) {
+        parts.push(`Company: ${companyName}`);
+        parts.push(roleCount === 1 ? "1 open role shown" : `${roleCount} roles shown`);
+      } else {
+        parts.push(jobs.length === 1 ? "1 listing" : `${jobs.length} listings`);
+        parts.push(`${roleCount} roles`);
       }
-      if (closingCount > 0 && activeStatus !== "expired") {
-        parts.push(`${closingCount} closing soon`);
-      }
-      if (expiredInView > 0 && activeStatus === "all") {
-        parts.push(`${expiredInView} expired`);
-      }
+
+      if (activeStatus === "expired") parts.unshift("Expired archive");
+      else if (activeStatus === "open") parts.unshift("Open hiring");
+      else if (activeStatus === "closing") parts.unshift("Closing soon");
+
+      if (activeLocation !== "all") parts.push(activeLocation);
+      if (closingCount > 0 && activeStatus !== "expired") parts.push(`${closingCount} closing soon`);
+      if (expiredInView > 0 && activeStatus === "all") parts.push(`${expiredInView} expired`);
+
       countEl.textContent = parts.join(" · ");
     }
+
+    if (companyBanner) {
+      if (activeCompany !== "all") {
+        const companyName = companyLabelFromSlug(activeCompany);
+        const roleCount = jobs.reduce((sum, job) => sum + (job.roles || []).length, 0);
+        const sharePath = `${window.location.pathname}?company=${encodeURIComponent(activeCompany)}`;
+        companyBanner.hidden = false;
+        companyBanner.innerHTML = `
+          <div>
+            <strong>${escapeHtml(companyName)}</strong>
+            <p>
+              Showing ${roleCount} role${roleCount === 1 ? "" : "s"} for this company.
+              Shareable link updates in the address bar as
+              <code>${escapeHtml(sharePath)}</code>.
+              Expired roles appear under <strong>Expired only</strong>.
+            </p>
+          </div>
+          <div class="jobs-company-banner-actions">
+            <button type="button" class="btn btn-secondary" id="jobs-clear-company">Clear company</button>
+            <button type="button" class="btn btn-ghost" id="jobs-copy-company-link">Copy link</button>
+          </div>
+        `;
+        const clearCompanyBtn = document.getElementById("jobs-clear-company");
+        const copyLinkBtn = document.getElementById("jobs-copy-company-link");
+        if (clearCompanyBtn) {
+          clearCompanyBtn.addEventListener("click", () => {
+            activeCompany = "all";
+            if (companySelect) companySelect.value = "all";
+            resetVisibleAndRender();
+          });
+        }
+        if (copyLinkBtn) {
+          copyLinkBtn.addEventListener("click", async () => {
+            const url = `${window.location.origin}${sharePath}`;
+            try {
+              await navigator.clipboard.writeText(url);
+              copyLinkBtn.textContent = "Copied";
+              setTimeout(() => {
+                copyLinkBtn.textContent = "Copy link";
+              }, 1600);
+            } catch (_e) {
+              window.prompt("Copy this company jobs link:", url);
+            }
+          });
+        }
+      } else {
+        companyBanner.hidden = true;
+        companyBanner.innerHTML = "";
+      }
+    }
+
+    syncUrlFromFilters();
 
     if (clearBtn) {
       clearBtn.hidden = !hasActiveFilters();
@@ -739,26 +912,7 @@
   buildTagChips();
   buildLocationOptions();
   buildCompanyOptions();
-
-  // Deep-link: /jobs/?company=eurolink%20technologies
-  try {
-    const params = new URLSearchParams(window.location.search);
-    const companyParam = (params.get("company") || "").trim().toLowerCase().replace(/\s+/g, " ");
-    if (companyParam && companySelect) {
-      const match = [...companySelect.options].find((opt) => {
-        const val = String(opt.value || "").toLowerCase();
-        const label = String(opt.textContent || "").toLowerCase();
-        return val === companyParam || val.includes(companyParam) || label.includes(companyParam);
-      });
-      if (match) {
-        companySelect.value = match.value;
-        activeCompany = match.value;
-      }
-    }
-  } catch (_e) {
-    /* ignore */
-  }
-
+  applyFiltersFromUrl();
   updateStatusFilterLabels();
   render();
 })();
