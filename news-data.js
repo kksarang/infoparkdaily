@@ -71,7 +71,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily community celebration",
     sourceUrl: "https://infoparkdaily.online/news/",
-    featured: true
+    featured: false
   },
   {
     id: "kerala-it-highlights-naviq-gcc-polaris",
@@ -164,7 +164,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily community announcement",
     sourceUrl: "https://infoparkdaily.online/news/",
-    featured: false
+    featured: true
   },
   {
     id: "naviq-technology-inauguration",
