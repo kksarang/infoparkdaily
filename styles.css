@@ -166,6 +166,8 @@ img {
 .onam-page {
   width: var(--container);
   margin-inline: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .content-section {
@@ -2858,6 +2860,14 @@ body.jobs-body:has(#jobs-sticky-cta) {
    ============================================================ */
 .job-detail-page {
   padding-bottom: 2rem;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+#job-detail-root {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .job-detail-loading,
@@ -2892,6 +2902,9 @@ body.jobs-body:has(#jobs-sticky-cta) {
   border-radius: 28px;
   padding: clamp(1.5rem, 3vw, 2.4rem);
   display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 88% -10%, rgba(139, 92, 246, 0.18), transparent 45%),
     radial-gradient(circle at 6% 110%, rgba(255, 193, 7, 0.09), transparent 40%),
@@ -2931,15 +2944,17 @@ body.jobs-body:has(#jobs-sticky-cta) {
 /* Hero stat strip */
 .job-hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr));
   gap: 0.6rem;
   margin-top: 1.4rem;
   padding-top: 1.2rem;
   border-top: 1px solid var(--line);
+  min-width: 0;
+  width: 100%;
 }
 
 .job-hero-stats--sheet {
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(148px, 100%), 1fr));
 }
 
 .job-hero-stat {
@@ -2950,6 +2965,8 @@ body.jobs-body:has(#jobs-sticky-cta) {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.03);
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 html.theme-light body .job-hero-stat,
@@ -3500,17 +3517,24 @@ body.light .job-hero-stat {
   border-radius: 24px;
   display: grid;
   gap: 0.7rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .job-sheet-facts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
   gap: 0.55rem;
   align-items: stretch;
+  min-width: 0;
+  width: 100%;
 }
 
 .job-sheet-fact {
+  min-width: 0;
   min-height: 0;
+  max-width: 100%;
   padding: 0.75rem 0.85rem;
   border-radius: 14px;
   border: 1px solid var(--line);
@@ -3520,6 +3544,7 @@ body.light .job-hero-stat {
   gap: 0.3rem;
   justify-content: flex-start;
   height: 100%;
+  overflow: hidden;
 }
 
 .job-sheet-fact-label {
@@ -3536,7 +3561,10 @@ body.light .job-hero-stat {
   font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.35;
+  min-width: 0;
+  max-width: 100%;
   overflow-wrap: anywhere;
+  word-break: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -6008,7 +6036,23 @@ html.theme-light .svcx-hero-grid {
 
   .job-sheet-facts,
   .job-fact-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .job-sheet-fact,
+  .job-hero-stat,
+  .job-sheet-block,
+  .job-sheet-link,
+  .job-apply-method {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .job-sheet-link span,
+  .job-apply-method-body,
+  .job-hero-stat-value {
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .job-detail-hero-actions .btn {
@@ -6051,7 +6095,7 @@ html.theme-light .svcx-hero-grid {
 
   .job-hero-stats,
   .job-hero-stats--sheet {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.5rem;
   }
 
