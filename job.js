@@ -201,6 +201,16 @@
     `;
   }
 
+  function verifyBeforeApplyNote() {
+    return `
+      <aside class="job-verify-note" role="note" aria-label="Verify before you apply">
+        <strong>NOTE:</strong>
+        Verify this job on the company’s official website or email first — then only apply.
+        InfoparkDaily is not the employer. Never pay anyone for a job or interview.
+      </aside>
+    `;
+  }
+
   function renderMissing() {
     const isJobRoute = window.__IPD_IS_JOB_ROUTE__ !== false;
     document.title = isJobRoute ? "Job not found | InfoparkDaily" : "Page not found | InfoparkDaily";
@@ -1212,6 +1222,8 @@
         </div>
         ${heroStatStrip(job)}
       </section>
+
+      ${verifyBeforeApplyNote()}
 
       ${isSheet ? alertSheetBlock(job) : standardLayout}
       ${isSheet ? shareBlock(job) : ""}
