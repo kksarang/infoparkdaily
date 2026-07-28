@@ -7,6 +7,7 @@
   const tagBar = document.getElementById("jobs-tags");
   const sortSelect = document.getElementById("jobs-sort");
   const locationSelect = document.getElementById("jobs-location");
+  const companySelect = document.getElementById("jobs-company");
   const countEl = document.getElementById("jobs-count");
   const clearBtn = document.getElementById("jobs-clear");
   const loadMoreBtn = document.getElementById("jobs-load-more");
@@ -37,6 +38,7 @@
   let activeStatus = "open";
   let activeTag = "all";
   let activeLocation = "all";
+  let activeCompany = "all";
   let searchQuery = "";
   let sortMode = "newest";
   let visibleCount = PAGE_SIZE;
@@ -203,6 +205,18 @@
     return jobRegion(job) === activeLocation;
   }
 
+  function companyKey(job) {
+    return String(job.company || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, " ");
+  }
+
+  function matchesCompany(job) {
+    if (activeCompany === "all") return true;
+    return companyKey(job) === activeCompany;
+  }
+
   function matchesSearch(job) {
     if (!searchQuery) return true;
     const haystack = [
@@ -239,6 +253,7 @@
         matchesStatus(job) &&
         matchesTag(job) &&
         matchesLocation(job) &&
+        matchesCompany(job) &&
         matchesSearch(job)
     );
 
@@ -418,6 +433,7 @@
       activeStatus !== "open" ||
       activeTag !== "all" ||
       activeLocation !== "all" ||
+      activeCompany !== "all" ||
       searchQuery !== "" ||
       sortMode !== "newest"
     );
@@ -584,17 +600,46 @@
       : "all";
   }
 
+  function buildCompanyOptions() {
+    if (!companySelect) return;
+    const counts = new Map();
+    JOBS.forEach((job) => {
+      const name = String(job.company || "").trim();
+      if (!name) return;
+      const key = companyKey(job);
+      const prev = counts.get(key);
+      if (prev) prev.count += 1;
+      else counts.set(key, { label: name, count: 1 });
+    });
+    const sorted = [...counts.entries()].sort((a, b) =>
+      a[1].label.localeCompare(b[1].label, undefined, { sensitivity: "base" })
+    );
+    const current = companySelect.value || "all";
+    companySelect.innerHTML = [
+      `<option value="all">All companies</option>`,
+      ...sorted.map(
+        ([key, info]) =>
+          `<option value="${escapeAttr(key)}">${escapeHtml(info.label)} (${info.count})</option>`
+      )
+    ].join("");
+    companySelect.value = [...companySelect.options].some((opt) => opt.value === current)
+      ? current
+      : "all";
+  }
+
   function clearAllFilters() {
     activeFilter = "all";
     activeStatus = "open";
     activeTag = "all";
     activeLocation = "all";
+    activeCompany = "all";
     searchQuery = "";
     sortMode = "newest";
 
     if (searchInput) searchInput.value = "";
     if (sortSelect) sortSelect.value = "newest";
     if (locationSelect) locationSelect.value = "all";
+    if (companySelect) companySelect.value = "all";
 
     const syncGroup = (bar, attr, value) => {
       if (!bar) return;
@@ -653,6 +698,13 @@
     });
   }
 
+  if (companySelect) {
+    companySelect.addEventListener("change", () => {
+      activeCompany = companySelect.value || "all";
+      resetVisibleAndRender();
+    });
+  }
+
   if (clearBtn) {
     clearBtn.addEventListener("click", clearAllFilters);
   }
@@ -686,6 +738,27 @@
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
+  buildCompanyOptions();
+
+  // Deep-link: /jobs/?company=eurolink%20technologies
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const companyParam = (params.get("company") || "").trim().toLowerCase().replace(/\s+/g, " ");
+    if (companyParam && companySelect) {
+      const match = [...companySelect.options].find((opt) => {
+        const val = String(opt.value || "").toLowerCase();
+        const label = String(opt.textContent || "").toLowerCase();
+        return val === companyParam || val.includes(companyParam) || label.includes(companyParam);
+      });
+      if (match) {
+        companySelect.value = match.value;
+        activeCompany = match.value;
+      }
+    }
+  } catch (_e) {
+    /* ignore */
+  }
+
   updateStatusFilterLabels();
   render();
 })();
