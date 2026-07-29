@@ -36,9 +36,9 @@ const DEFAULT_DENIED = {
 };
 
 const GRANTED = {
-  ad_storage: "denied",
-  ad_user_data: "denied",
-  ad_personalization: "denied",
+  ad_storage: "granted",
+  ad_user_data: "granted",
+  ad_personalization: "granted",
   analytics_storage: "granted",
   functionality_storage: "granted",
   personalization_storage: "granted",
@@ -132,7 +132,7 @@ function showBanner() {
     '<div class="ipd-consent-inner glass">' +
     '<div class="ipd-consent-copy">' +
     '<p id="ipd-consent-title" class="ipd-consent-title">Manage Consent</p>' +
-    '<p class="ipd-consent-text">We use cookies and similar tech (Google Analytics, Microsoft Clarity) to understand traffic and improve InfoparkDaily. Essential preferences (like theme) always stay on-device. See our <a href="/privacy/#cookies">Privacy Policy</a>.</p>' +
+    '<p class="ipd-consent-text">We use cookies and similar tech (Google Analytics, Microsoft Clarity, Google AdSense) to understand traffic, show ads, and improve InfoparkDaily. Essential preferences (like theme) always stay on-device. See our <a href="/privacy/#cookies">Privacy Policy</a>.</p>' +
     "</div>" +
     '<div class="ipd-consent-actions">' +
     '<button type="button" class="btn btn-secondary ipd-consent-reject">Reject</button>' +

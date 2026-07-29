@@ -23,6 +23,9 @@ export const config = Object.freeze({
   gtmId: "",
   gaMeasurementId: "G-PWD80WZ7Q2",
   clarityId: "xtwgj04rm6",
+  /** Google AdSense publisher client (ca-pub-…) */
+  adsenseClientId: "ca-pub-4593359890362954",
+  adsenseEnabled: true,
 
   clarityEnabled: true,
   clarityConsent: true,

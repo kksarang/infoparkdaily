@@ -5,7 +5,7 @@ import { config } from "./config.js";
 import { EVENTS, STORAGE, SOCIAL } from "./events.js";
 import { track, captureUtmFromLocation, sessionGet, sessionSet, readJson } from "./track.js";
 import { initConsent, hasAnalyticsConsent, openConsentPreferences } from "./consent.js";
-import { loadRemoteTags, loadClarity, pushDataLayer } from "./loader.js";
+import { loadRemoteTags, loadClarity, loadAdSense, pushDataLayer } from "./loader.js";
 import { classify as classifyChannel } from "./acquisition.js";
 import { contentTypeFromPath, returningVisitFlag } from "./content.js";
 import { collectClientContext, networkSpeedLabel } from "./user-context.js";
@@ -417,6 +417,7 @@ export function init() {
   addEventListener("ipd:consent", (ev) => {
     if (ev.detail?.analytics) {
       loadClarity();
+      loadAdSense();
       if (config.autoPageView) trackPageView({ consent_update: true });
       import("./clarity-bridge.js")
         .then((Cl) => {

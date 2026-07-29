@@ -100,6 +100,30 @@ export function loadClarity() {
   log("Clarity loading", id);
 }
 
+/** Google AdSense — only after Accept (ad_storage granted). */
+export function loadAdSense() {
+  const client = config.adsenseClientId;
+  if (!client || config.adsenseEnabled === false) return;
+  if (globalThis.__IPD_ADSENSE_LOADED__) return;
+  if (document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
+    globalThis.__IPD_ADSENSE_LOADED__ = true;
+    return;
+  }
+  if (!remoteAllowed() || !hasAnalyticsConsent()) {
+    log("AdSense skipped / waiting consent");
+    return;
+  }
+  globalThis.__IPD_ADSENSE_LOADED__ = true;
+  const s = document.createElement("script");
+  s.async = true;
+  s.crossOrigin = "anonymous";
+  s.src =
+    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=" +
+    encodeURIComponent(client);
+  document.head.appendChild(s);
+  log("AdSense loading", client);
+}
+
 export function sendToGa(name, params) {
   if (!remoteAllowed() || !hasAnalyticsConsent()) return;
   if (config.gtmId) return; // GTM owns delivery
@@ -115,4 +139,5 @@ export function loadRemoteTags() {
   loadGtm();
   loadGaDirect();
   loadClarity();
+  loadAdSense();
 }
