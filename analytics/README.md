@@ -46,7 +46,6 @@ analytics/
     performance.js     # CWV + resources (lazy)
     seo.js             # on-page audit (lazy)
   looker-dashboards.js # Phase 15 blueprints (not runtime)
-  # Root *.js IIFEs are legacy — not loaded by pages
 ```
 
 ## Stack (all free tiers)
@@ -255,8 +254,8 @@ Create at [lookerstudio.google.com](https://lookerstudio.google.com) → connect
 
 ## Phase 16 — done
 
-Runtime is ESM-only via `main.js`. Legacy root IIFEs remain in the repo for reference but are **not** loaded.
+Runtime is ESM-only via `main.js`.
 
 ## Phase wiring (next)
 
-Call helpers from `jobs.js` / `job.js` / `contact.js` / `script.js` / `news-article.js` when product events fire (many auto-track already).
+Call helpers from `js/jobs.js` / `js/job.js` / `js/contact.js` / `js/site.js` / `js/news-article.js` when product events fire (many auto-track already).

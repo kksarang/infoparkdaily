@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
-JOBS_DATA = ROOT / "jobs-data.js"
+JOBS_DATA = ROOT / "data" / "jobs-data.js"
 UA = {"User-Agent": "Mozilla/5.0 (compatible; InfoparkDailyBot/1.0)"}
 TODAY = date(2026, 7, 25)
 POSTED_CUTOFF = TODAY - timedelta(days=14)
