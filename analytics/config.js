@@ -29,7 +29,7 @@
     gtmId: "",
 
     /** GA4 measurement ID, e.g. "G-XXXXXXXX". Prefer loading GA via GTM; keep for direct fallback. */
-    gaMeasurementId: "",
+    gaMeasurementId: "G-PWD80WZ7Q2",
 
     /** Microsoft Clarity project ID */
     clarityId: "xtwgj04rm6",
