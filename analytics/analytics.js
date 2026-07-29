@@ -9,7 +9,7 @@
  * Load order (defer):
  *   config.js → taxonomy.js → constants.js → events.js → tracker.js →
  *   user-metrics.js → acquisition.js → content-metrics.js → business-metrics.js →
- *   clarity-metrics.js → analytics.js
+ *   clarity-metrics.js → performance-metrics.js → seo-metrics.js → analytics.js
  *   (+ journeys.js / jobs-metrics.js optional)
  */
 (function (global) {
@@ -728,50 +728,182 @@
 
   function bindErrors() {
     if (!cfg().trackErrors) return;
-    global.addEventListener("error", function (ev) {
-      emitBuilder(
-        E().error &&
-          E().error({
-            message: ev.message,
-            source: ev.filename,
-            line: ev.lineno,
-            col: ev.colno
-          })
-      );
-      if (cfg().clarityId && T().clarityEvent) T().clarityEvent("js_error");
-    });
+
+    // Resource load failures (img/script/link) — capture phase
+    global.addEventListener(
+      "error",
+      function (ev) {
+        var t = ev && ev.target;
+        if (t && t !== global && t.tagName) {
+          var tag = String(t.tagName).toLowerCase();
+          var url = t.src || t.href || "";
+          if (tag === "img") {
+            if (cfg().trackBrokenImages !== false) {
+              emitBuilder(E().imageError && E().imageError(url, { tag: tag }));
+            }
+            return;
+          }
+          if (tag === "script" || tag === "link" || tag === "video" || tag === "source") {
+            emitBuilder(
+              E().resourceFail &&
+                E().resourceFail(url, 0, tag, { message: "resource_load_error" })
+            );
+            return;
+          }
+        }
+        if (!ev || ev.message === undefined) return;
+        emitBuilder(
+          E().error &&
+            E().error({
+              message: ev.message,
+              source: ev.filename,
+              line: ev.lineno,
+              col: ev.colno,
+              error_kind: "exception"
+            })
+        );
+        if (cfg().clarityId && T().clarityEvent) T().clarityEvent("js_error");
+      },
+      true
+    );
+
     global.addEventListener("unhandledrejection", function (ev) {
       var reason = ev && ev.reason;
       emitBuilder(
         E().error &&
           E().error({
             message: reason && reason.message ? reason.message : String(reason || "rejection"),
-            source: "unhandledrejection"
+            source: "unhandledrejection",
+            error_kind: "rejection"
           })
       );
       if (cfg().clarityId && T().clarityEvent) T().clarityEvent("js_error");
     });
+
+    if (cfg().trackConsoleErrors && typeof global.console !== "undefined" && global.console.error) {
+      var orig = global.console.error.bind(global.console);
+      var consoleBudget = 0;
+      global.console.error = function () {
+        try {
+          if (consoleBudget < 5) {
+            consoleBudget += 1;
+            var msg = [].slice.call(arguments).map(String).join(" ").slice(0, 250);
+            emitBuilder(
+              E().error &&
+                E().error({
+                  message: msg,
+                  source: "console.error",
+                  error_kind: "console"
+                })
+            );
+          }
+        } catch (_e) {
+          /* ignore */
+        }
+        return orig.apply(null, arguments);
+      };
+    }
+  }
+
+  function emitVital(name, value) {
+    var Perf = global.IPD_ANALYTICS_PERFORMANCE;
+    var rating = Perf && Perf.rate ? Perf.rate(name, value) : "";
+    emitBuilder(
+      E().performance &&
+        E().performance({
+          name: name,
+          value: value,
+          rating: rating
+        })
+    );
   }
 
   function bindPerformance() {
-    if (!cfg().trackPerformance || !global.performance || !global.performance.timing) return;
+    if (!cfg().trackPerformance) return;
     global.addEventListener("load", function () {
       setTimeout(function () {
         try {
-          var t = global.performance.timing;
-          var nav = t.loadEventEnd - t.navigationStart;
-          var dcl = t.domContentLoadedEventEnd - t.navigationStart;
-          var ttfb = t.responseStart - t.navigationStart;
-          emitBuilder(
-            E().performance &&
-              E().performance({
-                nav_ms: nav,
-                dcl_ms: dcl,
-                ttfb_ms: ttfb
-              })
-          );
-          if (cfg().slowPageMs && nav >= cfg().slowPageMs) {
-            emitBuilder(E().slowPage && E().slowPage(nav));
+          var Perf = global.IPD_ANALYTICS_PERFORMANCE;
+          var nav = Perf && Perf.readNavTiming ? Perf.readNavTiming() : null;
+          var fcp = Perf && Perf.readFcp ? Perf.readFcp() : null;
+
+          if (nav) {
+            emitBuilder(
+              E().performance &&
+                E().performance({
+                  name: "nav_timing",
+                  nav_ms: nav.nav_ms,
+                  dcl_ms: nav.dcl_ms,
+                  ttfb_ms: nav.ttfb_ms,
+                  fcp_ms: fcp,
+                  transfer_bytes: nav.transfer_bytes,
+                  value: nav.nav_ms
+                })
+            );
+            if (nav.ttfb_ms != null) emitVital("TTFB", nav.ttfb_ms);
+            if (cfg().slowPageMs && nav.nav_ms >= cfg().slowPageMs) {
+              emitBuilder(E().slowPage && E().slowPage(nav.nav_ms));
+            }
+          }
+          if (fcp != null) emitVital("FCP", fcp);
+
+          if (cfg().trackResources !== false && Perf && global.performance && global.performance.getEntriesByType) {
+            var resources = global.performance.getEntriesByType("resource") || [];
+            var summary = Perf.analyzeResources(resources, {
+              slowResourceMs: cfg().slowResourceMs,
+              slowImageMs: cfg().slowImageMs,
+              largeScriptBytes: cfg().largeScriptBytes
+            });
+            emitBuilder(
+              E().performance &&
+                E().performance({
+                  name: "resource_summary",
+                  value: summary.count,
+                  resource_count: summary.count,
+                  transfer_bytes: summary.transfer_bytes
+                })
+            );
+            summary.slow_images.slice(0, 5).forEach(function (img) {
+              emitBuilder(
+                E().performance &&
+                  E().performance({
+                    name: "slow_image",
+                    value: img.duration_ms,
+                    resource_url: img.url,
+                    resource_type: "image",
+                    rating: "poor"
+                  })
+              );
+            });
+            summary.large_scripts.slice(0, 5).forEach(function (sc) {
+              emitBuilder(
+                E().performance &&
+                  E().performance({
+                    name: "large_script",
+                    value: sc.bytes,
+                    resource_url: sc.url,
+                    resource_type: "script",
+                    rating: "poor"
+                  })
+              );
+            });
+            summary.slow.slice(0, 8).forEach(function (r) {
+              emitBuilder(
+                E().performance &&
+                  E().performance({
+                    name: "slow_resource",
+                    value: r.duration_ms,
+                    resource_url: r.url,
+                    resource_type: r.type,
+                    rating: "poor"
+                  })
+              );
+            });
+            summary.failed.slice(0, 8).forEach(function (f) {
+              emitBuilder(
+                E().resourceFail && E().resourceFail(f.url, f.status, f.type)
+              );
+            });
           }
         } catch (_e) {
           /* ignore */
@@ -782,15 +914,12 @@
 
   function bindWebVitals() {
     if (!cfg().trackWebVitals) return;
-    if (!T().remoteAllowed || !T().remoteAllowed()) {
-      T().log && T().log("Web Vitals skipped on local");
-      return;
-    }
-    // Lightweight: use PerformanceObserver for LCP / CLS / INP without extra dependency
+    // Always collect CWV into dataLayer (even on localhost); remote tags still gated separately
     try {
       if (typeof PerformanceObserver === "undefined") return;
+      var types = PerformanceObserver.supportedEntryTypes || [];
 
-      if (PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.indexOf("largest-contentful-paint") !== -1) {
+      if (types.indexOf("largest-contentful-paint") !== -1) {
         var lcp = 0;
         var poLcp = new PerformanceObserver(function (list) {
           var entries = list.getEntries();
@@ -800,13 +929,13 @@
         poLcp.observe({ type: "largest-contentful-paint", buffered: true });
         global.addEventListener("visibilitychange", function () {
           if (global.document.visibilityState === "hidden" && lcp) {
-            emitBuilder(E().performance && E().performance({ name: "LCP", value: Math.round(lcp), rating: lcp < 2500 ? "good" : lcp < 4000 ? "needs-improvement" : "poor" }));
+            emitVital("LCP", Math.round(lcp));
             lcp = 0;
           }
         });
       }
 
-      if (PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.indexOf("layout-shift") !== -1) {
+      if (types.indexOf("layout-shift") !== -1) {
         var cls = 0;
         var poCls = new PerformanceObserver(function (list) {
           list.getEntries().forEach(function (entry) {
@@ -816,19 +945,12 @@
         poCls.observe({ type: "layout-shift", buffered: true });
         global.addEventListener("visibilitychange", function () {
           if (global.document.visibilityState === "hidden") {
-            emitBuilder(
-              E().performance &&
-                E().performance({
-                  name: "CLS",
-                  value: Math.round(cls * 1000) / 1000,
-                  rating: cls < 0.1 ? "good" : cls < 0.25 ? "needs-improvement" : "poor"
-                })
-            );
+            emitVital("CLS", Math.round(cls * 1000) / 1000);
           }
         });
       }
 
-      if (PerformanceObserver.supportedEntryTypes && PerformanceObserver.supportedEntryTypes.indexOf("event") !== -1) {
+      if (types.indexOf("event") !== -1) {
         var inp = 0;
         var poInp = new PerformanceObserver(function (list) {
           list.getEntries().forEach(function (entry) {
@@ -842,20 +964,89 @@
         }
         global.addEventListener("visibilitychange", function () {
           if (global.document.visibilityState === "hidden" && inp) {
-            emitBuilder(
-              E().performance &&
-                E().performance({
-                  name: "INP",
-                  value: Math.round(inp),
-                  rating: inp < 200 ? "good" : inp < 500 ? "needs-improvement" : "poor"
-                })
-            );
+            emitVital("INP", Math.round(inp));
           }
         });
+      }
+
+      if (types.indexOf("paint") !== -1) {
+        var poPaint = new PerformanceObserver(function (list) {
+          list.getEntries().forEach(function (entry) {
+            if (entry.name === "first-contentful-paint") {
+              emitVital("FCP", Math.round(entry.startTime));
+            }
+          });
+        });
+        try {
+          poPaint.observe({ type: "paint", buffered: true });
+        } catch (_e2) {
+          /* ignore */
+        }
       }
     } catch (_e) {
       T().log && T().log("Web Vitals setup failed", _e);
     }
+  }
+
+  function bindApiFailures() {
+    if (!cfg().trackApiFailures) return;
+    if (typeof global.fetch !== "function") return;
+    if (global.__IPD_FETCH_WRAPPED__) return;
+    global.__IPD_FETCH_WRAPPED__ = true;
+    var nativeFetch = global.fetch.bind(global);
+    global.fetch = function (input, init) {
+      var method = (init && init.method) || "GET";
+      var url = typeof input === "string" ? input : (input && input.url) || "";
+      return nativeFetch(input, init).then(
+        function (res) {
+          if (!res.ok && res.status >= 400) {
+            emitBuilder(E().apiFail && E().apiFail(url, res.status, method));
+          }
+          return res;
+        },
+        function (err) {
+          emitBuilder(
+            E().apiFail &&
+              E().apiFail(url, 0, method, {
+                message: err && err.message ? err.message : "network_error"
+              })
+          );
+          throw err;
+        }
+      );
+    };
+  }
+
+  /**
+   * Phase 13 — on-page SEO audit once per page load.
+   * GSC owns indexed pages / queries / CTR / position.
+   */
+  function trackSeoAudit() {
+    if (!cfg().trackSeoAudit) return null;
+    var Seo = global.IPD_ANALYTICS_SEO;
+    if (!Seo || !Seo.auditPage) return null;
+
+    var result = Seo.auditPage();
+    emitBuilder(E().seoAudit && E().seoAudit(result.summary));
+
+    var issues = (result.issues || []).slice(0, 15);
+    issues.forEach(function (iss) {
+      emitBuilder(E().seoIssue && E().seoIssue(iss));
+    });
+
+    if (cfg().seoProbeInternalLinks && Seo.probeInternalLinks) {
+      try {
+        Seo.probeInternalLinks(null, null, cfg().seoProbeLinkLimit || 8).then(function (extra) {
+          (extra || []).slice(0, 8).forEach(function (iss) {
+            emitBuilder(E().seoIssue && E().seoIssue(iss));
+          });
+        });
+      } catch (_e) {
+        /* ignore */
+      }
+    }
+
+    return result;
   }
 
   function init(options) {
@@ -902,7 +1093,16 @@
     bindJobSession();
     bindPageExit();
     bindAds();
+    bindApiFailures();
     initClarityBridge();
+    // Defer SEO audit slightly so job/news scripts can inject JSON-LD first
+    setTimeout(function () {
+      try {
+        trackSeoAudit();
+      } catch (_e) {
+        /* ignore */
+      }
+    }, 1200);
 
     T().log && T().log("init complete");
     return api;
@@ -935,6 +1135,7 @@
     trackCompanyView: trackCompanyView,
     trackRevenue: trackRevenue,
     trackCtaClick: trackCtaClick,
+    trackSeoAudit: trackSeoAudit,
     trackPage404: trackPage404,
     trackUserContext: trackUserContext,
     trackSessionAttrib: trackSessionAttrib,
@@ -943,7 +1144,7 @@
     syncClarityTags: syncClarityTags,
     getConfig: cfg,
     getConstants: C,
-    version: "1.5.0"
+    version: "1.7.0"
   };
 
   var ns = cfg().namespace || "IPDAnalytics";

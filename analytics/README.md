@@ -30,6 +30,8 @@ analytics/
   content-metrics.js # Content KPIs + page/news helpers (Phase 9)
   business-metrics.js # Leads, ads, ROI, community attribution (Phase 10)
   clarity-metrics.js  # Clarity heatmap / recording bridge (Phase 11)
+  performance-metrics.js # CWV + resource / error thresholds (Phase 12)
+  seo-metrics.js      # GSC KPI map + on-page SEO audit (Phase 13)
 ```
 
 ## Load order (every HTML shell)
@@ -45,6 +47,8 @@ analytics/
 <script src="/analytics/content-metrics.js" defer></script>
 <script src="/analytics/business-metrics.js" defer></script>
 <script src="/analytics/clarity-metrics.js" defer></script>
+<script src="/analytics/performance-metrics.js" defer></script>
+<script src="/analytics/seo-metrics.js" defer></script>
 <script src="/analytics/analytics.js" defer></script>
 <!-- optional: journeys.js / jobs-metrics.js -->
 ```
@@ -192,6 +196,32 @@ We also: mask contact form fields, set tags (`channel`, `job_id`, `page_path`, �
 
 Verify in Clarity: Settings → Masking, and link GA4 under Settings → Setup.
 
+## Phase 12 — Performance
+
+| Metric | Event | Notes |
+|--------|-------|-------|
+| LCP / CLS / INP / FCP / TTFB | `performance` (`metric_name`) | CWV ratings good / needs-improvement / poor |
+| Resource Loading | `performance` `resource_summary` | count + transfer_bytes on load |
+| Slow Images | `performance` `slow_image` | duration ≥ 2.5s |
+| Large JavaScript | `performance` `large_script` | transfer ≥ 300KB |
+| API Failures | `api_fail` | fetch wrapper |
+| 404 Errors | `404_page` + `resource_fail` | router + asset status |
+| Broken Images | `image_error` | img error capture |
+| Console Errors | `error` `error_kind=console` | console.error bridge (max 5/page) |
+| Unhandled Exceptions | `error` `exception` / `rejection` | window + promise |
+
+Also complements Search Console CWV and Clarity recordings for field debugging.
+
+## Phase 13 — SEO analytics
+
+| KPI | Source |
+|-----|--------|
+| Indexed Pages, Top Keywords / Queries, CTR, Avg Position | **Google Search Console** |
+| Top Landing Pages | GSC Pages + `session_attrib` / `page_view.is_landing` |
+| Schema / Missing Meta / Canonical / Broken Links | Client `seo_audit` + `seo_issue` |
+
+Setup: Search Console → Add property `https://infoparkdaily.online` → verify DNS or HTML file → link GA4. On-page audit runs ~1.2s after load.
+
 ## Phase wiring (next)
 
-Call helpers from `jobs.js` / `job.js` / `contact.js` / `script.js` / `news-article.js` and inject script tags sitewide + privacy update.
+Call helpers from `jobs.js` / `job.js` / `contact.js` / `script.js` / `news-article.js` when product events fire (many auto-track already).

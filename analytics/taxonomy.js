@@ -44,8 +44,8 @@
     { name: "contact_submit", object: "contact", action: "submit", desc: "Contact form submit", params: ["reason", "success", "lead_type", "company"] },
     { name: "click_to_call", object: "click", action: "to_call", desc: "tel: link click", params: ["tel"] },
     { name: "404_page", object: "404", action: "page", desc: "Not-found (non-job) route", params: ["page_path"] },
-    { name: "error", object: "error", action: "log", desc: "JS exception / rejection", params: ["message", "source"] },
-    { name: "performance", object: "performance", action: "metric", desc: "CWV or nav timing", params: ["metric_name", "metric_value"] },
+    { name: "error", object: "error", action: "log", desc: "JS exception / rejection / console", params: ["message", "source", "error_kind"] },
+    { name: "performance", object: "performance", action: "metric", desc: "CWV or nav / resource timing", params: ["metric_name", "metric_value", "metric_rating"] },
     { name: "scroll", object: "scroll", action: "depth", desc: "Scroll depth milestone", params: ["percent"] },
     { name: "video_play", object: "video", action: "play", desc: "Video / reel embed play", params: ["video_id"] },
     { name: "download", object: "download", action: "file", desc: "File download", params: ["file_name", "link_url"] },
@@ -61,7 +61,12 @@
     { name: "sponsor_view", object: "sponsor", action: "view", desc: "Sponsored placement impression", params: ["sponsor_id", "placement", "campaign_id"] },
     { name: "sponsor_click", object: "sponsor", action: "click", desc: "Sponsored placement click", params: ["sponsor_id", "placement", "campaign_id"] },
     { name: "company_view", object: "company", action: "view", desc: "Company profile / filtered company page", params: ["company"] },
-    { name: "revenue_record", object: "revenue", action: "record", desc: "Closed deal / invoice value (ops)", params: ["value", "currency", "campaign_id", "company", "lead_id"] }
+    { name: "revenue_record", object: "revenue", action: "record", desc: "Closed deal / invoice value (ops)", params: ["value", "currency", "campaign_id", "company", "lead_id"] },
+    { name: "image_error", object: "image", action: "error", desc: "Broken / failed image load", params: ["image_url", "page_path"] },
+    { name: "api_fail", object: "api", action: "fail", desc: "fetch/XHR failure", params: ["api_url", "status", "method"] },
+    { name: "resource_fail", object: "resource", action: "fail", desc: "Asset 4xx/5xx or load fail", params: ["resource_url", "status", "resource_type"] },
+    { name: "seo_audit", object: "seo", action: "audit", desc: "On-page SEO audit summary", params: ["issue_count", "has_schema", "has_canonical", "page_path"] },
+    { name: "seo_issue", object: "seo", action: "issue", desc: "Single SEO problem found", params: ["issue_code", "severity", "detail"] }
   ];
 
   /** Legacy → canonical (Phase 3/4 aliases; do not use in new code) */

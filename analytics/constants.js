@@ -46,7 +46,12 @@
     SPONSOR_VIEW: "sponsor_view",
     SPONSOR_CLICK: "sponsor_click",
     COMPANY_VIEW: "company_view",
-    REVENUE_RECORD: "revenue_record"
+    REVENUE_RECORD: "revenue_record",
+    IMAGE_ERROR: "image_error",
+    API_FAIL: "api_fail",
+    RESOURCE_FAIL: "resource_fail",
+    SEO_AUDIT: "seo_audit",
+    SEO_ISSUE: "seo_issue"
   };
 
   /** GA4 conversions (Phase 2 P0/P1 + Phase 10 commercial) */

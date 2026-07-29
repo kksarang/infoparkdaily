@@ -438,7 +438,12 @@
         nav_ms: metric.nav_ms,
         dcl_ms: metric.dcl_ms,
         ttfb_ms: metric.ttfb_ms,
-        load_ms: metric.load_ms
+        fcp_ms: metric.fcp_ms,
+        load_ms: metric.load_ms,
+        resource_count: metric.resource_count,
+        transfer_bytes: metric.transfer_bytes,
+        resource_url: metric.resource_url || metric.url || "",
+        resource_type: metric.resource_type || ""
       });
     },
 
@@ -452,12 +457,80 @@
         message: String(err.message || "").slice(0, 250),
         source: String(err.source || "").slice(0, 200),
         line: err.line || 0,
-        col: err.col || 0
+        col: err.col || 0,
+        error_kind: err.error_kind || err.kind || "exception"
       });
     },
 
     jsError: function (err) {
       return Events.error(err);
+    },
+
+    imageError: function (url, extra) {
+      return build(
+        EVENTS.IMAGE_ERROR || "image_error",
+        Object.assign(
+          {
+            image_url: String(url || "").slice(0, 250),
+            page_path: (global.location && global.location.pathname) || ""
+          },
+          extra || {}
+        )
+      );
+    },
+
+    apiFail: function (url, status, method, extra) {
+      return build(
+        EVENTS.API_FAIL || "api_fail",
+        Object.assign(
+          {
+            api_url: String(url || "").slice(0, 250),
+            status: status != null ? Number(status) : 0,
+            method: method || "GET"
+          },
+          extra || {}
+        )
+      );
+    },
+
+    resourceFail: function (url, status, resourceType, extra) {
+      return build(
+        EVENTS.RESOURCE_FAIL || "resource_fail",
+        Object.assign(
+          {
+            resource_url: String(url || "").slice(0, 250),
+            status: status != null ? Number(status) : 0,
+            resource_type: resourceType || ""
+          },
+          extra || {}
+        )
+      );
+    },
+
+    seoAudit: function (summary) {
+      summary = summary || {};
+      return build(EVENTS.SEO_AUDIT || "seo_audit", {
+        page_path: summary.page_path || "",
+        issue_count: Number(summary.issue_count) || 0,
+        has_title: Boolean(summary.has_title),
+        has_description: Boolean(summary.has_description),
+        has_canonical: Boolean(summary.has_canonical),
+        has_schema: Boolean(summary.has_schema),
+        schema_types: Array.isArray(summary.schema_types)
+          ? summary.schema_types.slice(0, 8).join(",")
+          : String(summary.schema_types || ""),
+        link_soft_issues: Number(summary.link_soft_issues) || 0
+      });
+    },
+
+    seoIssue: function (issue) {
+      issue = issue || {};
+      return build(EVENTS.SEO_ISSUE || "seo_issue", {
+        issue_code: issue.code || issue.issue_code || "",
+        severity: issue.severity || "warning",
+        detail: String(issue.detail || "").slice(0, 200),
+        page_path: (global.location && global.location.pathname) || ""
+      });
     },
 
     perfTiming: function (timing) {

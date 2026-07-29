@@ -81,17 +81,31 @@
     /** Track tel: / mailto: clicks */
     trackContactLinks: true,
 
-    /** Core Web Vitals (LCP, CLS, INP) via web-vitals CDN when enabled */
+    /** Core Web Vitals (LCP, CLS, INP, FCP, TTFB) */
     trackWebVitals: true,
 
-    /** window.onerror + unhandledrejection */
+    /** window.onerror + unhandledrejection + console.error */
     trackErrors: true,
+    trackConsoleErrors: true,
 
-    /** Navigation Timing performance marks */
+    /** Navigation Timing + resource audit (Phase 12) */
     trackPerformance: true,
+    trackResources: true,
+    trackBrokenImages: true,
+    trackApiFailures: true,
 
     /** Slow page threshold (ms) for performance event */
     slowPageMs: 4000,
+
+    /** Resource Timing thresholds */
+    slowResourceMs: 2000,
+    slowImageMs: 2500,
+    largeScriptBytes: 307200,
+
+    /** Phase 13 — on-page SEO audit (meta / canonical / schema / links) */
+    trackSeoAudit: true,
+    seoProbeInternalLinks: true,
+    seoProbeLinkLimit: 8,
 
     /** dataLayer name */
     dataLayerName: "dataLayer",
