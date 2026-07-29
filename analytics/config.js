@@ -107,6 +107,10 @@
     seoProbeInternalLinks: true,
     seoProbeLinkLimit: 8,
 
+    /** Phase 14 — cookie banner + Consent Mode v2 */
+    requireConsent: true,
+    consentStorageKey: "ipd_consent_v1",
+
     /** dataLayer name */
     dataLayerName: "dataLayer",
 

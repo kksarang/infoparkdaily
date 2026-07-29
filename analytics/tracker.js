@@ -36,6 +36,16 @@
     return true;
   }
 
+  /** Phase 14 — analytics / Clarity only when consent granted (or consent disabled). */
+  function analyticsConsentAllowed() {
+    if (cfg().requireConsent === false) return true;
+    var Cons = global.IPD_ANALYTICS_CONSENT;
+    if (Cons && typeof Cons.hasAnalyticsConsent === "function") {
+      return Cons.hasAnalyticsConsent();
+    }
+    return false;
+  }
+
   function ensureDataLayer() {
     var name = cfg().dataLayerName || "dataLayer";
     global[name] = global[name] || [];
@@ -54,6 +64,10 @@
       log("GTM skipped (local or disabled)", id);
       return;
     }
+    if (!analyticsConsentAllowed()) {
+      log("GTM waiting for consent", id);
+      return;
+    }
     global.__IPD_GTM_LOADED__ = true;
     var dlName = cfg().dataLayerName || "dataLayer";
     ensureDataLayer();
@@ -66,7 +80,6 @@
     if (first && first.parentNode) first.parentNode.insertBefore(s, first);
     else (global.document.head || global.document.body).appendChild(s);
 
-    // noscript iframe for browsers without JS is HTML-only; skip here
     log("GTM loading", id);
   }
 
@@ -74,6 +87,10 @@
     if (!id || global.__IPD_CLARITY_LOADED__) return;
     if (!remoteAllowed()) {
       log("Clarity skipped (local or disabled)", id);
+      return;
+    }
+    if (!analyticsConsentAllowed()) {
+      log("Clarity waiting for consent", id);
       return;
     }
     global.__IPD_CLARITY_LOADED__ = true;
@@ -90,10 +107,8 @@
       y.parentNode.insertBefore(t, y);
     })(global, global.document, "clarity", "script", id);
 
-    // Queue project-level preferences (Clarity applies when ready)
     try {
-      if (cfg().clarityConsent !== false && typeof global.clarity === "function") {
-        // Signal consent for EU / consent-mode projects (no-op if unused)
+      if (typeof global.clarity === "function") {
         global.clarity("consent");
       }
     } catch (_e) {
@@ -167,6 +182,7 @@
       log("GA4 via GTM preferred; skip direct config tag from site");
       return;
     }
+    // Advanced Consent Mode: load with current consent (default denied until update)
     global.__IPD_GA_DIRECT__ = true;
     ensureGtag();
     var s = global.document.createElement("script");
@@ -182,8 +198,14 @@
     var payload = Object.assign({ event: name }, params || {});
     pushDataLayer(payload);
 
-    // Direct GA fallback when no GTM
-    if (!cfg().gtmId && cfg().gaMeasurementId && typeof global.gtag === "function" && remoteAllowed()) {
+    // Direct GA fallback when no GTM — only if analytics consent granted
+    if (
+      !cfg().gtmId &&
+      cfg().gaMeasurementId &&
+      typeof global.gtag === "function" &&
+      remoteAllowed() &&
+      analyticsConsentAllowed()
+    ) {
       try {
         global.gtag("event", name, params || {});
       } catch (_e) {
@@ -199,6 +221,7 @@
   global.IPD_ANALYTICS_TRACKER = {
     log: log,
     remoteAllowed: remoteAllowed,
+    analyticsConsentAllowed: analyticsConsentAllowed,
     ensureDataLayer: ensureDataLayer,
     pushDataLayer: pushDataLayer,
     loadGtm: loadGtm,

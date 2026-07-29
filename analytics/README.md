@@ -2,6 +2,53 @@
 
 Modular, reusable client analytics for the static GitHub Pages site.
 
+## Phase 16 — Code quality (current)
+
+ES modules under `analytics/src/`. Single entry, single send path, lazy-loaded heavy helpers.
+
+| Principle | How |
+|-----------|-----|
+| ES Modules | `import` / `export` — no `IPD_ANALYTICS_*` globals |
+| Reusable functions | Shared helpers in focused modules |
+| Single responsibility | `track.js` sends; `client.js` wires DOM; `consent.js` gates; `loader.js` loads tags |
+| Lazy loading | Dynamic `import()` for performance, SEO, Clarity bridge |
+| Tree-shake friendly | Named exports; side-effect-light modules |
+| No duplicate code | One catalog (`EVENTS` / `CATALOG`); one `track()` |
+| No globals (internals) | Sole public facade: `IPDAnalytics` (+ `trackEvent` alias) |
+| Event constants | `EVENTS` in `src/events.js` |
+| Central tracking | All events go through `track(name, params)` |
+
+### Load (every HTML shell)
+
+```html
+<script type="module" src="/analytics/main.js?v=…"></script>
+```
+
+**Must include on `404.html`** — all `/job/<id>` pages use it.
+
+### Layout
+
+```
+analytics/
+  main.js              # ESM entry → init + IPDAnalytics facade
+  src/
+    config.js          # IDs + feature flags
+    events.js          # EVENTS, CATALOG, STORAGE, aliases
+    track.js           # central track()
+    consent.js         # banner + Consent Mode v2
+    loader.js          # GTM / GA4 / Clarity
+    client.js          # DOM instrumentation + public helpers
+    acquisition.js     # channel / UTM
+    user-context.js    # device / OS / network snapshot
+    content.js         # content KPIs + helpers
+    business.js        # leads / ROI helpers
+    clarity-bridge.js  # Clarity tags / mirror / upgrade (lazy)
+    performance.js     # CWV + resources (lazy)
+    seo.js             # on-page audit (lazy)
+  looker-dashboards.js # Phase 15 blueprints (not runtime)
+  # Root *.js IIFEs are legacy — not loaded by pages
+```
+
 ## Stack (all free tiers)
 
 | Layer | Role |
@@ -13,56 +60,12 @@ Modular, reusable client analytics for the static GitHub Pages site.
 | **Looker Studio** | Dashboards from GA4 (no site code) |
 | **This module** | Custom event layer + CWV / errors / performance |
 
-## Files
-
-```
-analytics/
-  config.js      # IDs + feature flags
-  constants.js   # Event names, goals, social matchers, UTMs
-  events.js      # Payload builders (no side effects)
-  tracker.js     # dataLayer, GTM, Clarity, GA fallback
-  analytics.js   # Public API + auto instrumentation
-  journeys.js     # Funnel step defs + drop-off calculator (Phase 4)
-  taxonomy.js     # Naming rules + catalog (Phase 5)
-  jobs-metrics.js # Job KPI registry + rollup helpers (Phase 6)
-  user-metrics.js # User/session/geo/tech registry + client snapshot (Phase 7)
-  acquisition.js  # Channel classifier + UTM templates (Phase 8)
-  content-metrics.js # Content KPIs + page/news helpers (Phase 9)
-  business-metrics.js # Leads, ads, ROI, community attribution (Phase 10)
-  clarity-metrics.js  # Clarity heatmap / recording bridge (Phase 11)
-  performance-metrics.js # CWV + resource / error thresholds (Phase 12)
-  seo-metrics.js      # GSC KPI map + on-page SEO audit (Phase 13)
-```
-
-## Load order (every HTML shell)
-
-```html
-<script src="/analytics/config.js" defer></script>
-<script src="/analytics/taxonomy.js" defer></script>
-<script src="/analytics/constants.js" defer></script>
-<script src="/analytics/events.js" defer></script>
-<script src="/analytics/tracker.js" defer></script>
-<script src="/analytics/user-metrics.js" defer></script>
-<script src="/analytics/acquisition.js" defer></script>
-<script src="/analytics/content-metrics.js" defer></script>
-<script src="/analytics/business-metrics.js" defer></script>
-<script src="/analytics/clarity-metrics.js" defer></script>
-<script src="/analytics/performance-metrics.js" defer></script>
-<script src="/analytics/seo-metrics.js" defer></script>
-<script src="/analytics/analytics.js" defer></script>
-<!-- optional: journeys.js / jobs-metrics.js -->
-```
-
-Event names follow **`{object}_{action}`** — see `taxonomy.js` and Phase 5 catalog.
-
-**Must include on `404.html`** — all `/job/<id>` pages use it.
-
 ## Setup
 
 1. Create GA4 property → copy `G-XXXXXXXX`
 2. Create GTM web container → copy `GTM-XXXXXXX`
 3. Create Clarity project → copy project ID
-4. Paste IDs into `config.js`
+4. Paste IDs into `analytics/src/config.js`
 5. In GTM: GA4 Configuration tag + Clarity tag; triggers on Custom Event = `.*` or specific names
 6. Mark conversions in GA4: `job_apply`, `social_click`, `contact_submit`, …
 7. Link Search Console + optional Clarity↔GA4
@@ -132,7 +135,7 @@ UTM params (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term
 ?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_term=infopark+jobs
 ```
 
-Captured into `sessionStorage` and merged onto later events. Use `IPD_ANALYTICS_ACQUISITION.buildShareUrl(url, "instagram", { campaign, content })` when building share links.
+Captured into `sessionStorage` and merged onto later events. Use `buildShareUrl` from `src/acquisition.js` when building share links.
 
 ## Phase 9 — Content analytics
 
@@ -180,7 +183,7 @@ IPDAnalytics.trackRevenue(25000, { currency: "INR", campaign_id: "jobs_promo", c
 
 ## Phase 11 — Microsoft Clarity (heatmaps)
 
-Paste the Clarity project ID into `config.js` → `clarityId`. One snippet enables:
+Paste the Clarity project ID into `src/config.js` → `clarityId`. One snippet enables:
 
 | Feature | Where in Clarity |
 |---------|------------------|
@@ -221,6 +224,38 @@ Also complements Search Console CWV and Clarity recordings for field debugging.
 | Schema / Missing Meta / Canonical / Broken Links | Client `seo_audit` + `seo_issue` |
 
 Setup: Search Console → Add property `https://infoparkdaily.online` → verify DNS or HTML file → link GA4. On-page audit runs ~1.2s after load.
+
+## Phase 14 — Privacy & consent
+
+- Cookie banner: Accept / Reject
+- Google Consent Mode v2 defaults (`analytics_storage` denied until Accept)
+- Clarity loads only after Accept
+- GA4 events to gtag only when analytics consented
+- Privacy Policy §6 documents cookies + consent; Cookie settings via `[data-ipd-consent-open]`
+
+Choice stored in `localStorage` key `ipd_consent_v1`.
+
+## Phase 15 — Looker Studio dashboards
+
+Blueprint: `looker-dashboards.js` (no site runtime required).
+
+| Dashboard | Focus |
+|-----------|--------|
+| Executive | Users, applies, leads, channel |
+| Growth | New/returning, UTMs |
+| SEO | GSC queries/CTR + seo_issue |
+| Jobs | job_view/apply/search/company |
+| Marketing | Campaigns, ads, sponsors |
+| Social | IG/WA/Broadcast |
+| Performance | CWV, errors, slow assets |
+| Revenue | Leads + revenue_record + cost sheet |
+| Employer | company_view/click → enquiry |
+
+Create at [lookerstudio.google.com](https://lookerstudio.google.com) → connect GA4 + Search Console → one page per dashboard. Register custom dimensions in GA4 first.
+
+## Phase 16 — done
+
+Runtime is ESM-only via `main.js`. Legacy root IIFEs remain in the repo for reference but are **not** loaded.
 
 ## Phase wiring (next)
 

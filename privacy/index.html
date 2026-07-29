@@ -26,7 +26,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/styles.css?v=20260728p" />
+    <link rel="stylesheet" href="/styles.css?v=20260729x" />
     <script>
       (function () {
         try {
@@ -83,11 +83,11 @@
           website or contact us. InfoparkDaily is an <strong>independent Instagram / social community</strong>
           for Kerala IT jobs and career updates — <strong>not</strong> an official Infopark page or recruitment agency.
         </p>
-        <p class="privacy-updated">Last updated: 25 July 2026</p>
+        <p class="privacy-updated">Last updated: 29 July 2026</p>
         <div class="privacy-pill-row">
           <span>Not official Infopark</span>
           <span>We don’t sell your data</span>
-          <span>Job data from public sources</span>
+          <span>Cookie choices respected</span>
           <span>100% free for candidates</span>
         </div>
         <nav class="privacy-toc" aria-label="On this page">
@@ -96,6 +96,7 @@
           <a href="#collect">What we collect</a>
           <a href="#use">How we use it</a>
           <a href="#storage">Storage &amp; cookies</a>
+          <a href="#cookies">Analytics &amp; consent</a>
           <a href="#third-parties">Third parties</a>
           <a href="#report">Report issues</a>
           <a href="#rights">Your choices</a>
@@ -186,30 +187,61 @@
             site assets, not your private messages.
           </li>
           <li>
-            Theme and small UI preferences stay on your device until you clear site data.
+            Theme and small UI preferences stay on your device until you clear site data. These are treated as
+            essential / functional storage.
           </li>
           <li>
             Contact messages sent by email / Formspree (if enabled) or WhatsApp are processed only to respond to
             you.
           </li>
           <li>
-            When analytics is enabled, we may use <strong>Google Analytics 4</strong> (via Google Tag Manager)
-            and <strong>Microsoft Clarity</strong> to understand traffic and improve the site. Clarity records
-            anonymized session replays, click/scroll heatmaps, and interaction signals (such as dead or rage
-            clicks). Form fields on the contact page are masked in recordings. See
-            <a href="https://privacy.microsoft.com/privacystatement" rel="noopener noreferrer" target="_blank"
-              >Microsoft Privacy Statement</a
-            >
-            and
+            Your cookie / analytics choice is stored locally (for example <code>ipd_consent_v1</code>) so we
+            remember Accept or Reject on later visits.
+          </li>
+        </ul>
+      </section>
+
+      <section class="privacy-panel glass" id="cookies">
+        <h2>6. Analytics, cookies &amp; consent</h2>
+        <p>
+          If you <strong>Accept</strong> analytics cookies, we may load
+          <strong>Google Analytics 4</strong> and <strong>Microsoft Clarity</strong> to understand traffic,
+          improve pages, and (for Clarity) review anonymized session replays, click/scroll heatmaps, and
+          interaction signals such as dead or rage clicks. Contact form fields are masked in Clarity
+          recordings where possible.
+        </p>
+        <ul class="job-detail-bullets">
+          <li>
+            We use <strong>Google Consent Mode v2</strong>. Until you Accept, advertising and analytics storage
+            signals default to denied. After Accept, analytics storage may be granted. We do not use ads personalization
+            storage for paid ads on this community site.
+          </li>
+          <li>
+            If you <strong>Reject</strong>, we do not enable Microsoft Clarity, and Google Analytics remains
+            restricted under denied analytics storage (no analytics cookies for measurement as configured).
+          </li>
+          <li>
+            You can change your mind anytime via
+            <button type="button" class="btn btn-secondary" data-ipd-consent-open style="margin-left: 0.25rem">
+              Cookie settings
+            </button>
+            or by clearing site data in your browser.
+          </li>
+          <li>
+            Third-party privacy info:
             <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank"
               >Google Privacy Policy</a
+            >
+            ·
+            <a href="https://privacy.microsoft.com/privacystatement" rel="noopener noreferrer" target="_blank"
+              >Microsoft Privacy Statement</a
             >.
           </li>
         </ul>
       </section>
 
       <section class="privacy-panel glass" id="third-parties">
-        <h2>6. Third-party links</h2>
+        <h2>7. Third-party links</h2>
         <p>
           Job “Apply” links open employer websites. Maps, Instagram embeds, and WhatsApp are third-party
           services. Before you submit personal data on those sites, read their privacy policies. InfoparkDaily
@@ -218,7 +250,7 @@
       </section>
 
       <section class="privacy-panel glass" id="report">
-        <h2>7. Report fee requests, false information &amp; financial issues</h2>
+        <h2>8. Report fee requests, false information &amp; financial issues</h2>
         <p>
           If anyone asks for money for a job, shares a false statement, or causes a financial / document safety
           concern related to content you found on InfoparkDaily, please connect our team. We can check the issue
@@ -245,8 +277,9 @@
       </section>
 
       <section class="privacy-panel glass" id="rights">
-        <h2>8. Your choices</h2>
+        <h2>9. Your choices</h2>
         <ul class="job-detail-bullets">
+          <li>You can Accept or Reject analytics cookies via the site banner or Cookie settings.</li>
           <li>You can request correction or removal of community content you believe is wrong or harmful.</li>
           <li>You can ask us to delete contact-form correspondence we still hold, where practical.</li>
           <li>You can clear browser storage / site data anytime in your browser settings.</li>
@@ -259,7 +292,7 @@
       </section>
 
       <section class="privacy-panel glass" id="children">
-        <h2>9. Children</h2>
+        <h2>10. Children</h2>
         <p>
           Our content is aimed at students and working professionals seeking IT jobs and career updates. We do
           not knowingly collect personal information from children under 13. If you believe a child has sent us
@@ -268,7 +301,7 @@
       </section>
 
       <section class="privacy-panel glass" id="changes">
-        <h2>10. Updates to this policy</h2>
+        <h2>11. Updates to this policy</h2>
         <p>
           We may update this Privacy Policy from time to time. The “Last updated” date at the top will change
           when we do. Continued use of the site after updates means you accept the revised policy.
@@ -358,20 +391,8 @@
     </footer>
 
 
-    <!-- InfoparkDaily analytics: Clarity + event layer -->
-    <script src="/analytics/config.js?v=20260729g" defer></script>
-    <script src="/analytics/taxonomy.js?v=20260729g" defer></script>
-    <script src="/analytics/constants.js?v=20260729g" defer></script>
-    <script src="/analytics/events.js?v=20260729g" defer></script>
-    <script src="/analytics/tracker.js?v=20260729g" defer></script>
-    <script src="/analytics/user-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/acquisition.js?v=20260729g" defer></script>
-    <script src="/analytics/content-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/business-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/clarity-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/performance-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/seo-metrics.js?v=20260729g" defer></script>
-    <script src="/analytics/analytics.js?v=20260729g" defer></script>
+    <!-- InfoparkDaily analytics (Phase 16 ESM) -->
+    <script type="module" src="/analytics/main.js?v=20260729x"></script>
     <script src="/script.js?v=20260725x" defer></script>
     <script src="/disclaimer.js?v=20260725i" defer></script>
   </body>

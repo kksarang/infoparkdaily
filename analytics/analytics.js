@@ -7,10 +7,7 @@
  *   IPDAnalytics.trackJobView(job);
  *
  * Load order (defer):
- *   config.js → taxonomy.js → constants.js → events.js → tracker.js →
- *   user-metrics.js → acquisition.js → content-metrics.js → business-metrics.js →
- *   clarity-metrics.js → performance-metrics.js → seo-metrics.js → analytics.js
- *   (+ journeys.js / jobs-metrics.js optional)
+ *   config.js → consent.js → taxonomy.js → … → analytics.js
  */
 (function (global) {
   "use strict";
@@ -1070,9 +1067,28 @@
     var clarityId = cfg().clarityId;
     var gaId = cfg().gaMeasurementId;
 
-    if (T().loadGtm) T().loadGtm(gtmId);
-    if (cfg().clarityEnabled !== false && T().loadClarity) T().loadClarity(clarityId);
-    if (!gtmId && gaId && T().loadGaDirect) T().loadGaDirect(gaId);
+    function loadRemoteTags() {
+      if (T().loadGtm) T().loadGtm(gtmId);
+      // GA4 loads under Consent Mode defaults (denied until Accept)
+      if (!gtmId && gaId && T().loadGaDirect) T().loadGaDirect(gaId);
+      // Clarity only after analytics consent
+      if (cfg().clarityEnabled !== false && T().analyticsConsentAllowed && T().analyticsConsentAllowed()) {
+        if (T().loadClarity) T().loadClarity(clarityId);
+      }
+    }
+
+    loadRemoteTags();
+
+    // When user Accepts later, load Clarity (+ GTM if any) and re-send page_view to GA
+    global.addEventListener("ipd:consent", function (ev) {
+      var detail = (ev && ev.detail) || {};
+      if (detail.analytics) {
+        global.__IPD_GTM_LOADED__ = global.__IPD_GTM_LOADED__ || false;
+        if (!global.__IPD_CLARITY_LOADED__ && T().loadClarity) T().loadClarity(clarityId);
+        if (cfg().autoPageView) trackPageView({ consent_update: true });
+        initClarityBridge();
+      }
+    });
 
     T().pushDataLayer &&
       T().pushDataLayer({
@@ -1094,7 +1110,9 @@
     bindPageExit();
     bindAds();
     bindApiFailures();
-    initClarityBridge();
+    if (T().analyticsConsentAllowed && T().analyticsConsentAllowed()) {
+      initClarityBridge();
+    }
     // Defer SEO audit slightly so job/news scripts can inject JSON-LD first
     setTimeout(function () {
       try {
@@ -1144,7 +1162,7 @@
     syncClarityTags: syncClarityTags,
     getConfig: cfg,
     getConstants: C,
-    version: "1.7.0"
+    version: "1.8.0"
   };
 
   var ns = cfg().namespace || "IPDAnalytics";
