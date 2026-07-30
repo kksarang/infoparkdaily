@@ -464,8 +464,8 @@
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
     const status = deadlineStatus(job);
     const expired = status === "expired";
-    const source = job.source
-      ? `<span class="job-source">${escapeHtml(job.source)}</span>`
+    const source = job.company
+      ? `<span class="job-source">${escapeHtml(job.company)}</span>`
       : "";
     const blurb = job.companyBlurb || job.description
       ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
