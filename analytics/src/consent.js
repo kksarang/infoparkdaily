@@ -119,29 +119,46 @@ function hideBanner() {
   el?.parentNode?.removeChild(el);
 }
 
-function showBanner() {
+function showBanner(mode) {
   const doc = globalThis.document;
-  if (!doc || doc.getElementById("ipd-consent-banner")) return;
+  if (!doc) return;
+  hideBanner();
 
+  const settings = mode === "settings";
   const root = doc.createElement("div");
   root.id = "ipd-consent-banner";
   root.className = "ipd-consent";
   root.setAttribute("role", "dialog");
   root.setAttribute("aria-labelledby", "ipd-consent-title");
-  root.innerHTML =
-    '<div class="ipd-consent-inner glass">' +
-    '<div class="ipd-consent-copy">' +
-    '<p id="ipd-consent-title" class="ipd-consent-title">Manage Consent</p>' +
-    '<p class="ipd-consent-text">We use cookies and similar tech (Google Analytics, Microsoft Clarity, Google AdSense) to understand traffic, show ads, and improve InfoparkDaily. Essential preferences (like theme) always stay on-device. See our <a href="/privacy/#cookies">Privacy Policy</a>.</p>' +
-    "</div>" +
-    '<div class="ipd-consent-actions">' +
-    '<button type="button" class="btn btn-secondary ipd-consent-reject">Reject</button>' +
-    '<button type="button" class="btn btn-primary ipd-consent-accept">Accept</button>' +
-    "</div></div>";
+
+  if (settings) {
+    root.innerHTML =
+      '<div class="ipd-consent-inner glass">' +
+      '<div class="ipd-consent-copy">' +
+      '<p id="ipd-consent-title" class="ipd-consent-title">Cookie Settings</p>' +
+      '<p class="ipd-consent-text">Essential cookies (theme, preferences) always stay on. Choose whether to allow analytics and advertising cookies (Google Analytics, Clarity, AdSense). See our <a href="/privacy/#cookies">Privacy Policy</a>.</p>' +
+      "</div>" +
+      '<div class="ipd-consent-actions">' +
+      '<button type="button" class="btn btn-secondary ipd-consent-essential">Essential only</button>' +
+      '<button type="button" class="btn btn-primary ipd-consent-accept">Accept all</button>' +
+      "</div></div>";
+  } else {
+    root.innerHTML =
+      '<div class="ipd-consent-inner glass">' +
+      '<div class="ipd-consent-copy">' +
+      '<p id="ipd-consent-title" class="ipd-consent-title">Manage Consent</p>' +
+      '<p class="ipd-consent-text">We use cookies to improve your experience. Click <strong>Accept</strong> for all cookies, or use Cookie Settings for controlled consent. See our <a href="/privacy/#cookies">Privacy Policy</a>.</p>' +
+      "</div>" +
+      '<div class="ipd-consent-actions">' +
+      '<button type="button" class="btn btn-secondary ipd-consent-settings">Cookie Settings</button>' +
+      '<button type="button" class="btn btn-primary ipd-consent-accept">Accept</button>' +
+      "</div></div>";
+  }
 
   (doc.body || doc.documentElement).appendChild(root);
   root.querySelector(".ipd-consent-accept")?.addEventListener("click", () => setChoice("accepted"));
-  root.querySelector(".ipd-consent-reject")?.addEventListener("click", () => setChoice("rejected"));
+  root.querySelector(".ipd-consent-essential")?.addEventListener("click", () => setChoice("rejected"));
+  root.querySelector(".ipd-consent-settings")?.addEventListener("click", () => showBanner("settings"));
 }
 
 export function setChoice(choice) {
@@ -159,8 +176,7 @@ export function setChoice(choice) {
 }
 
 export function openConsentPreferences() {
-  hideBanner();
-  showBanner();
+  showBanner("settings");
 }
 
 function bindOpenTriggers() {
