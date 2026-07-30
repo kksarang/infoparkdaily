@@ -58,7 +58,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260730s" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260730d" />
     <script>
       (function () {
         try {
@@ -182,27 +182,21 @@
                 <option value="all" selected>All locations</option>
               </select>
             </label>
-            <label class="jobs-select-label jobs-company-field">
+            <label class="jobs-select-label jobs-company-combobox">
               <span class="jobs-select-caption">Company</span>
-              <div class="jobs-suggest">
-                <input
-                  id="jobs-company-input"
-                  class="jobs-sort jobs-company-input"
-                  type="search"
-                  placeholder="Type company name…"
-                  autocomplete="off"
-                  spellcheck="false"
-                  role="combobox"
-                  aria-autocomplete="list"
-                  aria-controls="jobs-company-suggestions"
-                  aria-expanded="false"
-                  aria-describedby="jobs-company-hint"
-                />
-                <ul id="jobs-company-suggestions" class="jobs-suggest-list" role="listbox" hidden></ul>
-                <select id="jobs-company" class="visually-hidden" tabindex="-1" aria-hidden="true">
-                  <option value="all" selected>All companies</option>
-                </select>
-              </div>
+              <input
+                id="jobs-company"
+                class="jobs-sort"
+                type="search"
+                placeholder="Type company name…"
+                autocomplete="off"
+                spellcheck="false"
+                aria-autocomplete="list"
+                aria-controls="jobs-company-suggest"
+                aria-expanded="false"
+                aria-describedby="jobs-company-hint"
+              />
+              <ul id="jobs-company-suggest" class="jobs-company-suggest" role="listbox" hidden></ul>
             </label>
             <label class="jobs-select-label">
               <span class="jobs-select-caption">Sort by</span>
@@ -421,6 +415,6 @@
     <script src="/js/site.js?v=20260725v5" defer></script>
     <script src="/js/disclaimer.js?v=20260725i" defer></script>
     <script src="/data/jobs-data.js?v=20260729t" defer></script>
-    <script src="/js/jobs.js?v=20260730t" defer></script>
+    <script src="/js/jobs.js?v=20260730e" defer></script>
   </body>
 </html>

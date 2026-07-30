@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Company Profile | InfoparkDaily</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var id = (params.get("company") || params.get("id") || "").trim().toLowerCase();
+        if (id) {
+          window.location.replace("/company/" + encodeURIComponent(id) + "/" + window.location.hash);
+          return;
+        }
+        window.location.replace("/jobs/" + window.location.hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting… <a href="/jobs/">View all jobs</a></p>
+  </body>
+</html>

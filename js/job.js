@@ -1,6 +1,7 @@
 (function () {
   const root = document.getElementById("job-detail-root");
   if (!root) return;
+  if (window.__IPD_IS_COMPANY_ROUTE__ === true) return;
 
   const EXP_LABELS = {
     fresher: "Fresher",
@@ -23,6 +24,20 @@
 
   function escapeAttr(value) {
     return escapeHtml(value).replace(/'/g, "&#39;");
+  }
+
+  function companySlug(name) {
+    return String(name || "")
+      .trim()
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function companyPath(name) {
+    const slug = companySlug(name);
+    return slug ? `/company/${encodeURIComponent(slug)}/` : "/jobs/";
   }
 
   function todayStart() {
@@ -779,13 +794,17 @@
       <section class="job-sheet glass">
         <div class="job-sheet-facts">
           ${factRows
-            .map(
-              ([label, value]) => `
+            .map(([label, value]) => {
+              const body =
+                label === "Company"
+                  ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(value)}</a>`
+                  : escapeHtml(value);
+              return `
             <div class="job-sheet-fact">
               <span class="job-sheet-fact-label">${escapeHtml(label)}</span>
-              <strong class="job-sheet-fact-value">${escapeHtml(value)}</strong>
-            </div>`
-            )
+              <strong class="job-sheet-fact-value">${body}</strong>
+            </div>`;
+            })
             .join("")}
         </div>
 
@@ -1120,13 +1139,17 @@
       <section class="job-sheet glass">
         <div class="job-sheet-facts">
           ${factRows
-            .map(
-              ([label, value]) => `
+            .map(([label, value]) => {
+              const body =
+                label === "Company"
+                  ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(value)}</a>`
+                  : escapeHtml(value);
+              return `
             <div class="job-sheet-fact">
               <span class="job-sheet-fact-label">${escapeHtml(label)}</span>
-              <strong class="job-sheet-fact-value">${escapeHtml(value)}</strong>
-            </div>`
-            )
+              <strong class="job-sheet-fact-value">${body}</strong>
+            </div>`;
+            })
             .join("")}
         </div>
 
@@ -1188,10 +1211,10 @@
             </div>
             <div class="job-detail-hero-copy">
               <p class="jobs-kicker">${escapeHtml(job.alertLabel || "Job hiring sheet")}</p>
-              <h1>${escapeHtml(job.companyLegalName || job.company)}</h1>
+              <h1><a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(job.companyLegalName || job.company)}</a></h1>
               ${
                 job.companyLegalName && job.companyLegalName !== job.company
-                  ? `<p class="job-legal-aka">Listed as ${escapeHtml(job.company)}</p>`
+                  ? `<p class="job-legal-aka">Listed as <a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(job.company)}</a></p>`
                   : ""
               }
               <p class="job-hero-role">${escapeHtml((job.roles || [])[0] || "")}${job.referenceId ? ` · Ref ${escapeHtml(job.referenceId)}` : ""}</p>
@@ -1217,7 +1240,8 @@
                   ? `<a class="btn btn-primary" href="mailto:${escapeAttr(job.email)}">Email to apply</a>`
                   : ""
             }
-            <a class="btn ${expired ? "btn-primary" : "btn-secondary"}" href="/jobs/">${expired ? "See open jobs" : "All Openings"}</a>
+            <a class="btn btn-secondary" href="${escapeAttr(companyPath(job.company))}">Company profile</a>
+            <a class="btn ${expired ? "btn-primary" : "btn-ghost"}" href="/jobs/">${expired ? "See open jobs" : "All Openings"}</a>
           </div>
         </div>
         ${heroStatStrip(job)}

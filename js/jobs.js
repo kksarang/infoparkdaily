@@ -7,9 +7,8 @@
   const tagBar = document.getElementById("jobs-tags");
   const sortSelect = document.getElementById("jobs-sort");
   const locationSelect = document.getElementById("jobs-location");
-  const companySelect = document.getElementById("jobs-company");
-  const companyInput = document.getElementById("jobs-company-input");
-  const companySuggestions = document.getElementById("jobs-company-suggestions");
+  const companyInput = document.getElementById("jobs-company");
+  const companySuggest = document.getElementById("jobs-company-suggest");
   const companyBanner = document.getElementById("jobs-company-banner");
   const shareHint = document.getElementById("jobs-share-hint");
   const countEl = document.getElementById("jobs-count");
@@ -43,9 +42,13 @@
   let activeTag = "all";
   let activeLocation = "all";
   let activeCompany = "all";
+  let companyQuery = "";
   let searchQuery = "";
   let sortMode = "newest";
   let visibleCount = PAGE_SIZE;
+  /** @type {{ key: string, label: string, count: number }[]} */
+  let companyCatalog = [];
+  let suggestIndex = -1;
 
   /* ---------- date helpers ---------- */
 
@@ -224,17 +227,14 @@
 
   function companyLabelFromSlug(slug) {
     if (!slug || slug === "all") return "";
-    if (!companySelect) return slug;
-    const opt = [...companySelect.options].find((item) => item.value === slug);
-    if (!opt) return slug;
-    return String(opt.textContent || "")
-      .replace(/\s*\(\d+\)\s*$/, "")
-      .trim();
+    const hit = companyCatalog.find((item) => item.key === slug);
+    return hit ? hit.label : slug;
   }
 
   function matchesCompany(job) {
-    if (activeCompany === "all") return true;
-    return companyKey(job) === activeCompany;
+    if (activeCompany !== "all") return companyKey(job) === activeCompany;
+    if (!companyQuery) return true;
+    return String(job.company || "").toLowerCase().includes(companyQuery);
   }
 
   function locationSlug(region) {
@@ -265,7 +265,8 @@
       window.history.replaceState({ jobsFilter: true }, "", next);
     }
     if (shareHint) {
-      shareHint.hidden = activeCompany === "all" && activeLocation === "all" && !searchQuery;
+      shareHint.hidden =
+        activeCompany === "all" && activeLocation === "all" && !searchQuery && !companyQuery;
     }
   }
 
@@ -280,10 +281,10 @@
       const sortParam = (params.get("sort") || "").trim().toLowerCase();
       const qParam = (params.get("q") || "").trim();
 
-      if (companyParam && companySelect) {
-        const match = [...companySelect.options].find((opt) => {
-          const val = String(opt.value || "");
-          const label = companySlug(opt.textContent || "");
+      if (companyParam) {
+        const match = companyCatalog.find((item) => {
+          const val = item.key;
+          const label = companySlug(item.label);
           return (
             val === companyParam ||
             val.includes(companyParam) ||
@@ -292,8 +293,7 @@
           );
         });
         if (match) {
-          companySelect.value = match.value;
-          activeCompany = match.value;
+          selectCompany(match.key, match.label, false);
         }
       }
 
@@ -464,8 +464,8 @@
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
     const status = deadlineStatus(job);
     const expired = status === "expired";
-    const source = job.company
-      ? `<span class="job-source">${escapeHtml(job.company)}</span>`
+    const companyFoot = job.company
+      ? `<a class="job-source job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a>`
       : "";
     const blurb = job.companyBlurb || job.description
       ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
@@ -520,7 +520,7 @@
         <header class="job-card-head">
           ${logoBlock(job)}
           <div class="job-card-meta">
-            <h3>${escapeHtml(job.company)}</h3>
+            <h3><a class="job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a></h3>
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
           ${deadlinePill(job)}
@@ -535,7 +535,7 @@
         ${tagChips ? `<div class="job-tag-row">${tagChips}</div>` : ""}
         <footer class="job-card-foot">
           <div class="job-meta-row">
-            ${source}
+            ${companyFoot}
           </div>
           <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
             ${expired ? "View expired listing" : "View Details"}
@@ -552,6 +552,7 @@
       activeTag !== "all" ||
       activeLocation !== "all" ||
       activeCompany !== "all" ||
+      companyQuery !== "" ||
       searchQuery !== "" ||
       sortMode !== "newest"
     );
@@ -641,6 +642,7 @@
             </p>
           </div>
           <div class="jobs-company-banner-actions">
+            <a class="btn btn-primary" href="${escapeAttr(`/company/${activeCompany}/`)}">Company profile</a>
             <button type="button" class="btn btn-secondary" id="jobs-clear-company">Clear company</button>
             <button type="button" class="btn btn-ghost" id="jobs-copy-company-link">Copy link</button>
           </div>
@@ -649,8 +651,7 @@
         const copyLinkBtn = document.getElementById("jobs-copy-company-link");
         if (clearCompanyBtn) {
           clearCompanyBtn.addEventListener("click", () => {
-            activeCompany = "all";
-            if (companySelect) companySelect.value = "all";
+            clearCompanyFilter();
             resetVisibleAndRender();
           });
         }
@@ -775,7 +776,82 @@
       : "all";
   }
 
-  function getCompanyEntries() {
+  function hideCompanySuggestions() {
+    if (!companySuggest || !companyInput) return;
+    companySuggest.hidden = true;
+    companySuggest.innerHTML = "";
+    companyInput.setAttribute("aria-expanded", "false");
+    suggestIndex = -1;
+  }
+
+  function filterCompanyMatches(query) {
+    const q = String(query || "").trim().toLowerCase();
+    if (!q) return [];
+    return companyCatalog
+      .filter((item) => {
+        const label = item.label.toLowerCase();
+        return label.includes(q) || item.key.includes(companySlug(q));
+      })
+      .slice(0, 8);
+  }
+
+  function renderCompanySuggestions(query) {
+    if (!companySuggest || !companyInput) return;
+    const matches = filterCompanyMatches(query);
+    if (!matches.length) {
+      hideCompanySuggestions();
+      return;
+    }
+    companySuggest.innerHTML = matches
+      .map(
+        (item, index) =>
+          `<li role="option" id="jobs-company-opt-${index}" class="jobs-company-suggest-item" data-key="${escapeAttr(
+            item.key
+          )}" data-label="${escapeAttr(item.label)}" aria-selected="false">` +
+          `<span class="jobs-company-suggest-name">${escapeHtml(item.label)}</span>` +
+          `<span class="jobs-company-suggest-count">${item.count}</span>` +
+          `</li>`
+      )
+      .join("");
+    companySuggest.hidden = false;
+    companyInput.setAttribute("aria-expanded", "true");
+    suggestIndex = -1;
+  }
+
+  function highlightSuggest(index) {
+    if (!companySuggest) return;
+    const items = [...companySuggest.querySelectorAll(".jobs-company-suggest-item")];
+    items.forEach((el, i) => {
+      const on = i === index;
+      el.classList.toggle("is-active", on);
+      el.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    suggestIndex = index;
+    if (index >= 0 && items[index]) {
+      companyInput?.setAttribute("aria-activedescendant", items[index].id);
+    } else {
+      companyInput?.removeAttribute("aria-activedescendant");
+    }
+  }
+
+  function selectCompany(key, label, shouldRender) {
+    activeCompany = key || "all";
+    companyQuery = "";
+    if (companyInput) {
+      companyInput.value = activeCompany === "all" ? "" : label || companyLabelFromSlug(key);
+    }
+    hideCompanySuggestions();
+    if (shouldRender !== false) resetVisibleAndRender();
+  }
+
+  function clearCompanyFilter() {
+    activeCompany = "all";
+    companyQuery = "";
+    if (companyInput) companyInput.value = "";
+    hideCompanySuggestions();
+  }
+
+  function buildCompanyOptions() {
     const counts = new Map();
     JOBS.forEach((job) => {
       const name = String(job.company || "").trim();
@@ -783,103 +859,11 @@
       const key = companyKey(job);
       const prev = counts.get(key);
       if (prev) prev.count += 1;
-      else counts.set(key, { key, label: name, count: 1 });
+      else counts.set(key, { label: name, count: 1 });
     });
-    return [...counts.values()].sort((a, b) =>
-      a.label.localeCompare(b.label, undefined, { sensitivity: "base" })
-    );
-  }
-
-  function syncCompanyInputFromSelect() {
-    if (!companyInput) return;
-    if (!activeCompany || activeCompany === "all") {
-      companyInput.value = "";
-      companyInput.placeholder = "Type company name…";
-      return;
-    }
-    companyInput.value = companyLabelFromSlug(activeCompany);
-  }
-
-  function hideCompanySuggestions() {
-    if (!companySuggestions || !companyInput) return;
-    companySuggestions.hidden = true;
-    companySuggestions.innerHTML = "";
-    companyInput.setAttribute("aria-expanded", "false");
-  }
-
-  function showCompanySuggestions(query) {
-    if (!companySuggestions || !companyInput) return;
-    const q = String(query || "").trim().toLowerCase();
-    const entries = getCompanyEntries();
-    let matches = entries;
-    if (q) {
-      matches = entries.filter((item) => {
-        const label = item.label.toLowerCase();
-        return label.startsWith(q) || label.includes(q) || item.key.includes(companySlug(q));
-      });
-      // Prefer prefix matches first (e.g. "w" → Wipro before companies with w in the middle)
-      matches.sort((a, b) => {
-        const aStarts = a.label.toLowerCase().startsWith(q) ? 0 : 1;
-        const bStarts = b.label.toLowerCase().startsWith(q) ? 0 : 1;
-        if (aStarts !== bStarts) return aStarts - bStarts;
-        return a.label.localeCompare(b.label, undefined, { sensitivity: "base" });
-      });
-    }
-    matches = matches.slice(0, 8);
-
-    if (!matches.length) {
-      companySuggestions.innerHTML = `<li class="jobs-suggest-empty" role="presentation">No companies match “${escapeHtml(query)}”</li>`;
-      companySuggestions.hidden = false;
-      companyInput.setAttribute("aria-expanded", "true");
-      return;
-    }
-
-    const allRow =
-      !q
-        ? `<li role="option">
-            <button type="button" class="jobs-suggest-option" data-company-key="all">All companies</button>
-          </li>`
-        : "";
-
-    companySuggestions.innerHTML =
-      allRow +
-      matches
-        .map(
-          (item) => `<li role="option">
-            <button type="button" class="jobs-suggest-option" data-company-key="${escapeAttr(item.key)}">
-              <span>${escapeHtml(item.label)}</span>
-              <span class="jobs-suggest-count">${item.count}</span>
-            </button>
-          </li>`
-        )
-        .join("");
-    companySuggestions.hidden = false;
-    companyInput.setAttribute("aria-expanded", "true");
-  }
-
-  function selectCompanySuggestion(key) {
-    activeCompany = key || "all";
-    if (companySelect) companySelect.value = activeCompany;
-    syncCompanyInputFromSelect();
-    hideCompanySuggestions();
-    resetVisibleAndRender();
-  }
-
-  function buildCompanyOptions() {
-    if (!companySelect) return;
-    const sorted = getCompanyEntries();
-    const current = companySelect.value || "all";
-    companySelect.innerHTML = [
-      `<option value="all">All companies</option>`,
-      ...sorted.map(
-        (info) =>
-          `<option value="${escapeAttr(info.key)}">${escapeHtml(info.label)} (${info.count})</option>`
-      )
-    ].join("");
-    companySelect.value = [...companySelect.options].some((opt) => opt.value === current)
-      ? current
-      : "all";
-    syncCompanyInputFromSelect();
+    companyCatalog = [...counts.entries()]
+      .sort((a, b) => a[1].label.localeCompare(b[1].label, undefined, { sensitivity: "base" }))
+      .map(([key, info]) => ({ key, label: info.label, count: info.count }));
   }
 
   function clearAllFilters() {
@@ -887,19 +871,13 @@
     activeStatus = "open";
     activeTag = "all";
     activeLocation = "all";
-    activeCompany = "all";
     searchQuery = "";
     sortMode = "newest";
+    clearCompanyFilter();
 
     if (searchInput) searchInput.value = "";
     if (sortSelect) sortSelect.value = "newest";
     if (locationSelect) locationSelect.value = "all";
-    if (companySelect) companySelect.value = "all";
-    if (companyInput) {
-      companyInput.value = "";
-      companyInput.placeholder = "Type company name…";
-    }
-    hideCompanySuggestions();
 
     const syncGroup = (bar, attr, value) => {
       if (!bar) return;
@@ -958,54 +936,53 @@
     });
   }
 
-  if (companySelect) {
-    companySelect.addEventListener("change", () => {
-      activeCompany = companySelect.value || "all";
-      syncCompanyInputFromSelect();
+  if (companyInput) {
+    companyInput.addEventListener("input", () => {
+      const raw = companyInput.value;
+      companyQuery = raw.trim().toLowerCase();
+      activeCompany = "all";
+      renderCompanySuggestions(raw);
       resetVisibleAndRender();
     });
-  }
 
-  if (companyInput) {
-    companyInput.addEventListener("focus", () => {
-      showCompanySuggestions(companyInput.value);
-    });
-    companyInput.addEventListener("input", () => {
-      const raw = companyInput.value.trim();
-      if (!raw) {
-        if (activeCompany !== "all") selectCompanySuggestion("all");
-        else showCompanySuggestions("");
+    companyInput.addEventListener("keydown", (event) => {
+      if (!companySuggest || companySuggest.hidden) {
+        if (event.key === "Escape") {
+          companyInput.blur();
+        }
         return;
       }
-      showCompanySuggestions(raw);
-    });
-    companyInput.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        hideCompanySuggestions();
-        companyInput.blur();
-      }
-      if (event.key === "Enter") {
+      const items = [...companySuggest.querySelectorAll(".jobs-company-suggest-item")];
+      if (!items.length) return;
+
+      if (event.key === "ArrowDown") {
         event.preventDefault();
-        const first = companySuggestions?.querySelector("[data-company-key]");
-        if (first) selectCompanySuggestion(first.getAttribute("data-company-key"));
+        highlightSuggest(Math.min(suggestIndex + 1, items.length - 1));
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        highlightSuggest(Math.max(suggestIndex - 1, 0));
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        const pick = items[suggestIndex >= 0 ? suggestIndex : 0];
+        if (pick) selectCompany(pick.dataset.key, pick.dataset.label);
+      } else if (event.key === "Escape") {
+        hideCompanySuggestions();
       }
     });
-  }
 
-  if (companySuggestions) {
-    companySuggestions.addEventListener("mousedown", (event) => {
-      const btn = event.target.closest("[data-company-key]");
-      if (!btn) return;
-      event.preventDefault();
-      selectCompanySuggestion(btn.getAttribute("data-company-key"));
+    companyInput.addEventListener("blur", () => {
+      setTimeout(() => hideCompanySuggestions(), 150);
     });
   }
 
-  document.addEventListener("click", (event) => {
-    if (!companyInput || !companySuggestions) return;
-    if (event.target.closest(".jobs-company-field")) return;
-    hideCompanySuggestions();
-  });
+  if (companySuggest) {
+    companySuggest.addEventListener("mousedown", (event) => {
+      const item = event.target.closest(".jobs-company-suggest-item");
+      if (!item) return;
+      event.preventDefault();
+      selectCompany(item.dataset.key, item.dataset.label);
+    });
+  }
 
   if (clearBtn) {
     clearBtn.addEventListener("click", clearAllFilters);
@@ -1042,7 +1019,6 @@
   buildLocationOptions();
   buildCompanyOptions();
   applyFiltersFromUrl();
-  syncCompanyInputFromSelect();
   updateStatusFilterLabels();
   render();
 })();

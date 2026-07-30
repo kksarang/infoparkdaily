@@ -108,6 +108,15 @@ function escapeAttr(value) {
   return escapeHtml(value).replace(/'/g, "&#39;");
 }
 
+function companySlug(name) {
+  return String(name || "")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function initials(name) {
   const skip = new Set([
     "ltd",
@@ -166,7 +175,7 @@ function renderFeaturedJobs() {
               <span class="job-logo-fallback">${escapeHtml(mark)}</span>
             </div>
             <div class="job-card-meta">
-              <h3>${escapeHtml(job.company)}</h3>
+              <h3><a class="job-company-link" href="${escapeAttr(`/company/${companySlug(job.company)}/`)}">${escapeHtml(job.company)}</a></h3>
               <p class="job-location">${escapeHtml(job.location || "")}</p>
             </div>
           </header>

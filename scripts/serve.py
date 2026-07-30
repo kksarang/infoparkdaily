@@ -12,24 +12,25 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 JOB_PATH = re.compile(r"^/job/[^/]+/?$", re.I)
+COMPANY_PATH = re.compile(r"^/company/[^/]+/?$", re.I)
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
-    def do_GET(self):
+    def _rewrite_spa(self):
         parsed = urlparse(self.path)
         path = unquote(parsed.path or "/")
-        if JOB_PATH.match(path):
+        if JOB_PATH.match(path) or COMPANY_PATH.match(path):
             self.path = "/404.html"
+
+    def do_GET(self):
+        self._rewrite_spa()
         return super().do_GET()
 
     def do_HEAD(self):
-        parsed = urlparse(self.path)
-        path = unquote(parsed.path or "/")
-        if JOB_PATH.match(path):
-            self.path = "/404.html"
+        self._rewrite_spa()
         return super().do_HEAD()
 
     def log_message(self, fmt, *args):
@@ -37,7 +38,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Serve InfoparkDaily with /job/<id> routes")
+    parser = argparse.ArgumentParser(description="Serve InfoparkDaily with /job/<id> and /company/<slug> routes")
     parser.add_argument("--port", "-p", type=int, default=8080)
     args = parser.parse_args()
 
@@ -48,6 +49,7 @@ def main():
     with ThreadingHTTPServer(("", args.port), Handler) as httpd:
         print(f"Serving {ROOT} at http://127.0.0.1:{args.port}/", flush=True)
         print("Job routes: http://127.0.0.1:%s/job/<id>" % args.port, flush=True)
+        print("Company routes: http://127.0.0.1:%s/company/<slug>" % args.port, flush=True)
         httpd.serve_forever()
 
 
