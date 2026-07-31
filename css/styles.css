@@ -1871,6 +1871,12 @@ html.theme-light .jobs-sort {
   margin-top: 1.4rem;
 }
 
+.jobs-ad {
+  margin: 0 0 1rem;
+  min-height: 0;
+  overflow: visible;
+}
+
 .jobs-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

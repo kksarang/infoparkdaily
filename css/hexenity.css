@@ -437,6 +437,14 @@ body.hx.nav-locked {
   padding: clamp(3.5rem, 8vw, 6rem) 0;
 }
 
+.hx-ad {
+  width: var(--hx-container);
+  margin: 0 auto;
+  padding: 0.5rem 0 1rem;
+  min-height: 0;
+  overflow: visible;
+}
+
 .hx-section-head {
   max-width: 40rem;
   margin-bottom: 2rem;
