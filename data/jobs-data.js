@@ -97,6 +97,80 @@
 
 var JOBS = [
   {
+    id: "sutherland-customer-support-virtual-kochi-jul31",
+    company: "Sutherland",
+    logo: "assets/logos/sutherland.svg",
+    companyBlurb:
+      "Sutherland · Customer Support Associates · Virtual Kochi Hiring Drive · 31 Jul & 1 Aug · 11:30 AM–4:00 PM · 10+2 + good English",
+    location: "Kochi (Virtual)",
+    roles: ["Customer Support Associate"],
+    experience: "fresher",
+    experienceRange: "10+2 pass · Freshers welcome",
+    employmentType: "Full-time",
+    applyLink: "https://www.jobs.sutherlandglobal.com/",
+    applyDeadline: "2026-08-01",
+    postedDate: "2026-07-31",
+    source: "WhatsApp",
+    verified: true,
+    verificationNote:
+      "Job details can change after publishing. Always verify with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: ["Support", "BPO", "Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    walkin: false,
+    walkinDates: "31 July 2026 & 1 August 2026",
+    walkinTime: "11:30 AM – 4:00 PM",
+    email: "",
+    phone: "",
+    website: "https://www.sutherlandglobal.com/",
+    address: "Virtual hiring drive · Kochi roles",
+    industry: "BPO / Customer Support",
+    companyDetails:
+      "Sutherland is running a Virtual Kochi Hiring Drive for Customer Support Associates on 31 July and 1 August 2026.",
+    workDetails:
+      "Virtual interviews on 31 July & 1 August 2026, 11:30 AM – 4:00 PM. Role: Customer Support Associates. Eligibility: 10+2 pass certificate and good spoken & written English. Scan the official flyer QR to join.",
+    workStatus: "Full-time",
+    workMode: "Virtual interview · Kochi",
+    experienceYears: "Entry-level / Freshers",
+    qualification: "10+2 pass certificate",
+    educationalQualification: ["10+2 pass certificate"],
+    skills: ["Customer support", "Spoken English", "Written English"],
+    requirements: [
+      "10+2 pass certificate",
+      "Good spoken and written English language skills",
+      "Join via the official flyer QR / Sutherland hiring channel"
+    ],
+    responsibilities: [
+      "Handle customer support as assigned after selection",
+      "Communicate clearly with customers in English",
+      "Follow process guidelines and quality standards"
+    ],
+    benefits: [
+      "Competitive pay plus benefits",
+      "Travel allowance",
+      "Insurance coverage",
+      "5-day work week"
+    ],
+    whyJoin: [
+      "Competitive pay plus benefits",
+      "Travel allowance",
+      "Insurance coverage",
+      "5-day work week"
+    ],
+    howToApply:
+      "Scan the official Sutherland flyer QR code to join the Virtual Kochi Hiring Drive on 31 July or 1 August 2026 (11:30 AM – 4:00 PM). You can also check openings on the Sutherland careers site. Never pay any fee to apply.",
+    hiringNotes:
+      "Virtual hiring drive dates: 31 July & 1 August 2026, 11:30 AM – 4:00 PM. After 1 August treat as expired unless Sutherland announces a new date. Verify any join link before sharing personal details.",
+    description:
+      "Sutherland Virtual Kochi Hiring — Customer Support Associates · 31 Jul & 1 Aug 2026 · 11:30 AM–4:00 PM.",
+    startingDate: "Immediate",
+    seoTitle:
+      "Sutherland Virtual Hiring Kochi | Customer Support Associates | 31 Jul–1 Aug 2026 | InfoparkDaily",
+    seoDescription:
+      "Sutherland is hiring Customer Support Associates via a Virtual Kochi Hiring Drive on 31 July and 1 August 2026 (11:30 AM–4:00 PM). 10+2 pass with good English can apply. Details on InfoparkDaily.",
+    alertBucket: "upcoming"
+  },
+  {
     id: "cee-cee-solutions-process-associate-jul30",
     company: "CEE CEE Solutions",
     logo: "",
