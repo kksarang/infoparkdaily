@@ -58,7 +58,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260731e" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260731f" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
@@ -293,8 +293,8 @@
             company confirms the role is still open. Switch back to <strong>Open jobs</strong> for current hiring.
           </p>
         </div>
-        <aside class="jobs-ad" aria-label="Advertisement">
-          <!-- AdSense: new -->
+        <aside class="jobs-ad" id="jobs-ad-slot" aria-label="Advertisement">
+          <!-- AdSense: new — shown only when filled -->
           <ins
             class="adsbygoogle"
             style="display: block"
@@ -305,6 +305,29 @@
           ></ins>
           <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
+            (function () {
+              var wrap = document.getElementById("jobs-ad-slot");
+              var ins = wrap && wrap.querySelector("ins.adsbygoogle");
+              if (!wrap || !ins) return;
+              function sync() {
+                var status = ins.getAttribute("data-ad-status");
+                if (status === "filled") {
+                  wrap.classList.add("is-filled");
+                  return;
+                }
+                if (status === "unfilled") {
+                  wrap.remove();
+                }
+              }
+              new MutationObserver(sync).observe(ins, {
+                attributes: true,
+                attributeFilter: ["data-ad-status"]
+              });
+              setTimeout(function () {
+                if (ins.getAttribute("data-ad-status") !== "filled") wrap.remove();
+              }, 8000);
+              sync();
+            })();
           </script>
         </aside>
         <div id="jobs-grid" class="jobs-grid"></div>
