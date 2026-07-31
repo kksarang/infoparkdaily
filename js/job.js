@@ -11,6 +11,7 @@
 
   const CLOSING_DAYS = 7;
   const DAY_MS = 24 * 60 * 60 * 1000;
+  const MASS_HIRING_MIN = 100;
 
   /* ---------- helpers ---------- */
 
@@ -85,6 +86,84 @@
     if (left === 1) return "1 day left";
     if (left <= CLOSING_DAYS) return `${left} days left`;
     return `Apply by ${formatDate(job.applyDeadline)}`;
+  }
+
+  function vacancyCount(job) {
+    const raw = job.vacancies;
+    if (typeof raw === "number" && Number.isFinite(raw)) return raw;
+    if (typeof raw === "string" && raw.trim()) {
+      const n = parseInt(raw.replace(/[^\d]/g, ""), 10);
+      return Number.isFinite(n) ? n : 0;
+    }
+    return 0;
+  }
+
+  function vacancyLabel(job) {
+    if (job.vacancyText) return String(job.vacancyText);
+    const n = vacancyCount(job);
+    if (n >= MASS_HIRING_MIN) return "100+";
+    if (n > 0) return String(n);
+    return "";
+  }
+
+  function isMassHiring(job) {
+    if (vacancyCount(job) >= MASS_HIRING_MIN) return true;
+    if (job.featured === true) return true;
+    const text = String(job.vacancyText || "").toLowerCase();
+    return text.includes("100+") || text.includes("100 +");
+  }
+
+  function isWalkInJob(job) {
+    return Boolean(job.isWalkIn || job.walkin);
+  }
+
+  function walkInDateText(job) {
+    return job.walkinDates || job.walkInDate || "";
+  }
+
+  function qualificationText(job) {
+    if (job.qualification) return String(job.qualification);
+    const edu = job.educationalQualification;
+    if (Array.isArray(edu) && edu.length) return edu.join(", ");
+    return "";
+  }
+
+  function massHiringBadgeHtml() {
+    return `
+      <span class="job-badge job-badge--mass-hiring" title="100 or more open positions">
+        <svg class="job-badge-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        100+ Vacancies
+      </span>
+    `;
+  }
+
+  function defaultMassSeo(job) {
+    const role = (job.roles || [])[0] || "Professionals";
+    const rolePlural =
+      vacancyCount(job) >= MASS_HIRING_MIN || isMassHiring(job)
+        ? `${role}${/s$/i.test(role) ? "" : "s"}`
+        : role;
+    const company = job.company || "Company";
+    const locHint = /kochi|infopark/i.test(String(job.location || ""))
+      ? "Freshers Jobs in Kochi"
+      : `Jobs in ${job.location || "Kerala"}`;
+    return {
+      title: `${company} Hiring 100+ ${rolePlural} | ${locHint} | InfoparkDaily`,
+      description: `${company} is hiring 100+ ${rolePlural} in ${
+        job.location || "Kerala"
+      }.${
+        qualificationText(job) ? ` ${qualificationText(job)} candidates can apply.` : ""
+      }${
+        isWalkInJob(job) && walkInDateText(job)
+          ? ` Walk-in interview from ${walkInDateText(job)}.`
+          : ""
+      } Apply through InfoparkDaily.`
+    };
   }
 
   function initials(name) {
@@ -617,17 +696,84 @@
   }
 
   function walkInBlock(job) {
-    if (!job.isWalkIn) return "";
-    const rows = [
-      infoItem("Drive", escapeHtml(job.walkInDate || "Walk-in drive")),
-      infoItem("Venue", escapeHtml(job.address || job.location || "")),
-      infoItem("Starting", job.startingDate ? escapeHtml(formatDate(job.startingDate)) : "")
-    ].join("");
+    if (!isWalkInJob(job)) return "";
+    const dates = walkInDateText(job) || "Walk-in drive";
+    const time = job.walkinTime || "";
+    const venue = job.walkinLocation || job.address || job.location || "";
+    const phone = usablePhone(job.phone);
     return `
-      <section class="job-panel glass job-walkin-panel">
-        <h2>Walk-in Drive</h2>
-        <dl class="job-info-list">${rows}</dl>
-        <p class="job-detail-text job-walkin-note">Carry an updated resume and a valid ID. Verify timings with the company before travelling.</p>
+      <details class="job-walkin-box" open>
+        <summary class="job-walkin-box-summary">
+          <span>Walk-in Interview</span>
+          <span class="job-walkin-box-toggle" aria-hidden="true"></span>
+        </summary>
+        <div class="job-walkin-box-body">
+          <ul class="job-walkin-lines">
+            <li><span aria-hidden="true">📅</span><span>${escapeHtml(dates)}</span></li>
+            ${time ? `<li><span aria-hidden="true">⏰</span><span>${escapeHtml(time)}</span></li>` : ""}
+            ${
+              venue
+                ? `<li><span aria-hidden="true">📍</span><span>${escapeHtml(venue)}</span></li>`
+                : ""
+            }
+            ${
+              phone
+                ? `<li><span aria-hidden="true">📞</span><a href="tel:${escapeAttr(
+                    phone.replace(/\s+/g, "")
+                  )}">${escapeHtml(phone)}</a></li>`
+                : ""
+            }
+          </ul>
+          <p class="job-walkin-note">Carry an updated resume and a valid ID. Verify timings with the company before travelling.</p>
+        </div>
+      </details>
+    `;
+  }
+
+  function whyJoinBlock(job) {
+    const items = usefulItems(job.whyJoin || job.benefits || []);
+    if (!items.length && !isMassHiring(job)) return "";
+    const list = items.length
+      ? items
+      : [
+          `${vacancyLabel(job) || "100+"} Immediate Openings`,
+          job.experience === "fresher" || job.experience === "both" ? "Freshers Preferred" : "",
+          job.location || "",
+          "Career Growth"
+        ].filter(Boolean);
+    return `
+      <section class="job-why-join">
+        <h2>Why Join?</h2>
+        <ul class="job-why-join-list">
+          ${list.map((item) => `<li>✅ ${escapeHtml(item)}</li>`).join("")}
+        </ul>
+      </section>
+    `;
+  }
+
+  function contactHighlightBlock(job) {
+    const email = job.email || "";
+    const phone = usablePhone(job.phone);
+    if (!email && !phone) return "";
+    return `
+      <section class="job-contact-highlight">
+        <h2>Contact</h2>
+        <ul class="job-walkin-lines">
+          ${
+            email
+              ? `<li><span aria-hidden="true">📧</span><a href="mailto:${escapeAttr(email)}">${escapeHtml(
+                  email
+                )}</a></li>`
+              : ""
+          }
+          ${
+            phone
+              ? `<li><span aria-hidden="true">📞</span><a href="tel:${escapeAttr(
+                  phone.replace(/\s+/g, "")
+                )}">${escapeHtml(phone)}</a></li>`
+              : ""
+          }
+        </ul>
       </section>
     `;
   }
@@ -966,12 +1112,17 @@
       .map((role, i) => `<li><span class="job-role-num">${String(i + 1).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`)
       .join("");
 
-    document.title = job.seoTitle || `${job.company} — ${(job.roles || [])[0] || "Hiring"} | InfoparkDaily`;
+    const massSeo = isMassHiring(job) ? defaultMassSeo(job) : null;
+    document.title =
+      job.seoTitle ||
+      (massSeo && massSeo.title) ||
+      `${job.company} — ${(job.roles || [])[0] || "Hiring"} | InfoparkDaily`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
         "content",
         job.seoDescription ||
+          (massSeo && massSeo.description) ||
           `${job.company} hiring in ${job.location || "Kerala"} — verified roles, requirements, and apply details on InfoparkDaily.`
       );
     }
@@ -1007,7 +1158,8 @@
             : ""
       ],
       ["Notice period", isKnown(job.noticePeriod) ? job.noticePeriod : ""],
-      ["Salary / stipend", isKnown(job.salaryRange) ? job.salaryRange : ""],
+      ["Vacancies", isMassHiring(job) ? `${vacancyLabel(job) || "100+"} openings` : vacancyCount(job) > 0 ? String(vacancyCount(job)) : ""],
+      ["Qualification", qualificationText(job)],
       ["Apply email", job.email || ""],
       ["Phone", usablePhone(job.phone)]
     ].filter(([, v]) => isKnown(v));
@@ -1048,7 +1200,13 @@
       return sheetSection(num, title, bodyHtml);
     };
 
-    const applyCtaLabel = job.email && !applyUrl ? `Email ${job.email}` : "Official Apply ↗";
+    const applyCtaLabel = isMassHiring(job)
+      ? job.email && !applyUrl
+        ? "📩 Send Resume"
+        : "🚀 Apply Now"
+      : job.email && !applyUrl
+        ? `Email ${job.email}`
+        : "Official Apply ↗";
     const applyCtaHref = applyUrl || (job.email ? `mailto:${job.email}` : "");
 
     const aboutBody = [
@@ -1169,11 +1327,13 @@
         ${addSheet("Skills", skillsBody)}
         ${addSheet("Selection process", numberedList(selection))}
         ${addSheet("How to apply", howToApplyBody)}
+        ${whyJoinBlock(job)}
         ${walkInBlock(job)}
+        ${contactHighlightBlock(job)}
         ${addSheet("Before you apply — checklist", checklistBody)}
         ${addSheet("Documents to keep ready", docsBody)}
         ${addSheet("Resume / interview tips", listBlock(tips))}
-        ${addSheet("Benefits", listBlock(benefits))}
+        ${isMassHiring(job) ? "" : addSheet("Benefits", listBlock(benefits))}
         ${addSheet("Quick FAQs", faqBlock(sheetFaqs))}
         ${addSheet("Important notes", notesBody)}
         ${addSheet("Safety", safetyBody)}
@@ -1203,30 +1363,55 @@
           : ""
       }
 
-      <section class="job-detail-hero glass job-detail-hero--alert${expired ? " job-detail-hero--expired" : ""}">
+      <section class="job-detail-hero glass job-detail-hero--alert${expired ? " job-detail-hero--expired" : ""}${
+        isMassHiring(job) && !expired ? " job-detail-hero--mass" : ""
+      }">
         <div class="job-detail-hero-top">
           <div class="job-detail-hero-main">
-            <div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
-              <span class="job-logo-fallback">${escapeHtml(mark)}</span>
-            </div>
+            ${
+              job.logo
+                ? `<div class="job-logo-wrap job-logo-wrap--lg" aria-hidden="true">
+                    <img class="job-logo-img" src="${escapeAttr(assetUrl(job.logo))}" alt="" width="64" height="64" loading="lazy" />
+                  </div>`
+                : `<div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+                    <span class="job-logo-fallback">${escapeHtml(mark)}</span>
+                  </div>`
+            }
             <div class="job-detail-hero-copy">
-              <p class="jobs-kicker">${escapeHtml(job.alertLabel || "Job hiring sheet")}</p>
-              <h1><a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(job.companyLegalName || job.company)}</a></h1>
+              <p class="jobs-kicker">${escapeHtml(
+                isMassHiring(job) ? "🔥 Mass Hiring · InfoparkDaily" : job.alertLabel || "Job hiring sheet"
+              )}</p>
+              <h1 class="job-hero-title">${escapeHtml((job.roles || [])[0] || "Hiring")}</h1>
+              <p class="job-hero-company">
+                🏢 <a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                  job.companyLegalName || job.company
+                )}</a>
+              </p>
               ${
                 job.companyLegalName && job.companyLegalName !== job.company
                   ? `<p class="job-legal-aka">Listed as <a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(job.company)}</a></p>`
                   : ""
               }
-              <p class="job-hero-role">${escapeHtml((job.roles || [])[0] || "")}${job.referenceId ? ` · Ref ${escapeHtml(job.referenceId)}` : ""}</p>
-              <p class="job-location">${escapeHtml(job.location || "")}</p>
+              <p class="job-location">📍 ${escapeHtml(job.location || "")}</p>
+              ${
+                qualificationText(job)
+                  ? `<p class="job-hero-qual">🎓 ${escapeHtml(qualificationText(job))}</p>`
+                  : ""
+              }
+              ${
+                job.experienceRange || job.experienceYears
+                  ? `<p class="job-hero-exp">👨‍💻 ${escapeHtml(job.experienceRange || job.experienceYears)}</p>`
+                  : ""
+              }
               <div class="job-card-tags">
                 ${expired ? `<span class="job-badge job-badge--expired">EXPIRED</span>` : ""}
+                ${!expired && isMassHiring(job) ? massHiringBadgeHtml() : ""}
                 ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
                 <span class="job-badge job-badge--${escapeAttr(exp)}">${escapeHtml(badgeLabel)}</span>
                 ${job.employmentType ? `<span class="job-badge job-badge--intern">${escapeHtml(job.employmentType)}</span>` : ""}
                 ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
                 ${job.verificationLevel === "infopark-profile" ? `<span class="job-badge job-badge--verified">Infopark profile</span>` : ""}
-                ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
+                ${isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
                 ${job.alertSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
                 ${job.industry && isKnown(job.industry) ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
               </div>
@@ -1235,9 +1420,13 @@
           <div class="job-detail-hero-actions">
             ${
               !expired && applyUrl
-                ? `<a class="btn btn-primary" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
+                ? `<a class="btn ${isMassHiring(job) ? "btn-mass-apply" : "btn-primary"}" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">${
+                    isMassHiring(job) ? "🚀 Apply Now" : "Official Apply ↗"
+                  }</a>`
                 : !expired && job.email
-                  ? `<a class="btn btn-primary" href="mailto:${escapeAttr(job.email)}">Email to apply</a>`
+                  ? `<a class="btn ${isMassHiring(job) ? "btn-mass-apply" : "btn-primary"}" href="mailto:${escapeAttr(job.email)}">${
+                      isMassHiring(job) ? "📩 Send Resume" : "Email to apply"
+                    }</a>`
                   : ""
             }
             <a class="btn btn-secondary" href="${escapeAttr(companyPath(job.company))}">Company profile</a>

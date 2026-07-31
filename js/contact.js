@@ -22,7 +22,8 @@
     "Post a Job": {
       showCompany: true,
       messageLabel: "Job details",
-      placeholder: "Company, roles, experience level, apply link or email, deadline…"
+      placeholder:
+        "Role, salary, experience, qualification, vacancy count (e.g. 100+), walk-in dates/time/location if any, apply email/phone, deadline… For mass hiring use our /admin/post-job/ composer."
     },
     "Partner for a Campaign": {
       showCompany: true,

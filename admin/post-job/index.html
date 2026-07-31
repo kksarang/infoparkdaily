@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Post a Job Composer | InfoparkDaily Admin</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260731a" />
+    <style>
+      .admin-page {
+        width: min(860px, 94vw);
+        margin: 1.5rem auto 4rem;
+      }
+      .admin-card {
+        padding: 1.4rem 1.35rem 1.5rem;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .admin-card h1 {
+        margin: 0.2rem 0 0.4rem;
+        font-family: var(--display);
+        font-size: clamp(1.5rem, 3vw, 2rem);
+      }
+      .admin-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem 1rem;
+        margin-top: 1.1rem;
+      }
+      .admin-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .admin-field--full {
+        grid-column: 1 / -1;
+      }
+      .admin-field label {
+        font-size: 0.78rem;
+        font-weight: 750;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .admin-field input,
+      .admin-field select,
+      .admin-field textarea {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--bg-elev);
+        color: var(--text);
+        padding: 0.7rem 0.8rem;
+        font: inherit;
+      }
+      .admin-field textarea {
+        min-height: 5.5rem;
+        resize: vertical;
+      }
+      .admin-checks {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem 1.2rem;
+        margin-top: 0.35rem;
+      }
+      .admin-checks label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.92rem;
+        font-weight: 650;
+        text-transform: none;
+        letter-spacing: 0;
+        color: var(--text);
+        cursor: pointer;
+      }
+      .admin-hint {
+        margin: 0.85rem 0 0;
+        padding: 0.75rem 0.9rem;
+        border-radius: 12px;
+        background: rgba(255, 212, 0, 0.12);
+        border: 1px solid rgba(255, 212, 0, 0.35);
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+      .admin-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.1rem;
+      }
+      .admin-output {
+        margin-top: 1.25rem;
+      }
+      .admin-output pre {
+        margin: 0.6rem 0 0;
+        padding: 1rem;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: #0a0a0e;
+        color: #e8e8ef;
+        overflow: auto;
+        font-size: 0.78rem;
+        line-height: 1.45;
+        max-height: 28rem;
+      }
+      html.theme-light .admin-output pre {
+        background: #111118;
+      }
+      @media (max-width: 720px) {
+        .admin-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
+          else document.documentElement.classList.add("theme-dark");
+        } catch (_e) {
+          document.documentElement.classList.add("theme-dark");
+        }
+      })();
+    </script>
+  </head>
+  <body class="dark">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header glass">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Job posting composer</p>
+        </div>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="/jobs/">Jobs</a>
+        <a href="/contact/?reason=job">Contact</a>
+        <a href="/admin/post-job/" aria-current="page">Post Job</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+      </div>
+    </header>
+
+    <main id="main-content" class="admin-page">
+      <section class="admin-card">
+        <p class="jobs-kicker">Internal tool · paste into jobs-data.js</p>
+        <h1>Post a Job</h1>
+        <p>
+          Fill the fields below to generate a ready-to-paste job object. Vacancies of
+          <strong>100+</strong> automatically enable the yellow badge, ribbon, and High Volume Hiring strip.
+        </p>
+
+        <form id="job-composer" class="admin-grid" autocomplete="off">
+          <div class="admin-field">
+            <label for="company">Company</label>
+            <input id="company" name="company" required placeholder="CEE CEE Solutions" />
+          </div>
+          <div class="admin-field">
+            <label for="position">Position</label>
+            <input id="position" name="position" required placeholder="Process Associate" />
+          </div>
+          <div class="admin-field">
+            <label for="location">Location</label>
+            <input id="location" name="location" required placeholder="Infopark, Kochi" />
+          </div>
+          <div class="admin-field">
+            <label for="experience">Experience</label>
+            <select id="experience" name="experience">
+              <option value="fresher">Freshers</option>
+              <option value="experienced">Experienced</option>
+              <option value="both">Both</option>
+            </select>
+          </div>
+          <div class="admin-field">
+            <label for="experienceRange">Experience label</label>
+            <input id="experienceRange" name="experienceRange" placeholder="Freshers Preferred" />
+          </div>
+          <div class="admin-field">
+            <label for="qualification">Degree required</label>
+            <input id="qualification" name="qualification" placeholder="Any Degree or Diploma" />
+          </div>
+          <div class="admin-field">
+            <label for="salary">Salary</label>
+            <input id="salary" name="salary" placeholder="₹10,000 – ₹12,000/month" />
+          </div>
+          <div class="admin-field">
+            <label for="vacancies">Vacancy count</label>
+            <input id="vacancies" name="vacancies" type="number" min="0" step="1" placeholder="100" />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label>Hiring flags</label>
+            <div class="admin-checks">
+              <label><input id="featured" name="featured" type="checkbox" /> Featured Hiring</label>
+              <label><input id="walkin" name="walkin" type="checkbox" /> Walk-in Interview</label>
+              <label><input id="verified" name="verified" type="checkbox" checked /> Verified</label>
+            </div>
+          </div>
+          <div class="admin-field">
+            <label for="walkinDates">Walk-in dates</label>
+            <input id="walkinDates" name="walkinDates" placeholder="30 July 2026 – 1 August 2026" />
+          </div>
+          <div class="admin-field">
+            <label for="walkinTime">Walk-in time</label>
+            <input id="walkinTime" name="walkinTime" placeholder="10:00 AM – 12:00 PM" />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="walkinLocation">Walk-in location</label>
+            <input
+              id="walkinLocation"
+              name="walkinLocation"
+              placeholder="Sunpaul Dezira Blueberry, Infopark Expressway, Rajagiri Valley, Kakkanad"
+            />
+          </div>
+          <div class="admin-field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="hr@company.com" />
+          </div>
+          <div class="admin-field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="+91 9037476725" />
+          </div>
+          <div class="admin-field">
+            <label for="applyDeadline">Apply deadline (YYYY-MM-DD or Rolling)</label>
+            <input id="applyDeadline" name="applyDeadline" placeholder="2026-08-01" />
+          </div>
+          <div class="admin-field">
+            <label for="postedDate">Posted date</label>
+            <input id="postedDate" name="postedDate" type="date" />
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="responsibilities">Responsibilities (one per line)</label>
+            <textarea id="responsibilities" name="responsibilities" placeholder="Annotate and label data…"></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="requirements">Requirements (one per line)</label>
+            <textarea id="requirements" name="requirements" placeholder="Good communication…"></textarea>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="whyJoin">Why Join? (one per line)</label>
+            <textarea id="whyJoin" name="whyJoin" placeholder="100+ Immediate Openings…"></textarea>
+          </div>
+        </form>
+
+        <p id="mass-hint" class="admin-hint" hidden>
+          🟡 Vacancy count is 100+ — this listing will show the <strong>100+ Vacancies</strong> badge,
+          ribbon, and appear in <strong>High Volume Hiring</strong>.
+        </p>
+
+        <div class="admin-actions">
+          <button type="button" id="generate-btn" class="btn btn-mass-apply">Generate job JSON</button>
+          <button type="button" id="copy-btn" class="btn btn-secondary">Copy JSON</button>
+          <a class="btn btn-ghost" href="/jobs/">View Jobs page</a>
+        </div>
+
+        <div class="admin-output">
+          <p class="jobs-kicker">Paste at the top of <code>data/jobs-data.js</code> → <code>JOBS</code> array</p>
+          <pre id="output" aria-live="polite">// Fill the form and click Generate</pre>
+        </div>
+      </section>
+    </main>
+
+    <script src="/js/site.js?v=20260725v5" defer></script>
+    <script>
+      (function () {
+        const form = document.getElementById("job-composer");
+        const output = document.getElementById("output");
+        const hint = document.getElementById("mass-hint");
+        const vacanciesInput = document.getElementById("vacancies");
+        const featuredInput = document.getElementById("featured");
+        const postedDate = document.getElementById("postedDate");
+
+        if (postedDate && !postedDate.value) {
+          postedDate.value = new Date().toISOString().slice(0, 10);
+        }
+
+        function lines(value) {
+          return String(value || "")
+            .split(/\r?\n/)
+            .map((s) => s.trim())
+            .filter(Boolean);
+        }
+
+        function slugify(value) {
+          return String(value || "")
+            .trim()
+            .toLowerCase()
+            .replace(/&/g, " and ")
+            .replace(/[^a-z0-9]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+        }
+
+        function syncMassHint() {
+          const n = Number(vacanciesInput.value || 0);
+          const mass = n >= 100;
+          hint.hidden = !mass;
+          if (mass) featuredInput.checked = true;
+        }
+
+        vacanciesInput.addEventListener("input", syncMassHint);
+        syncMassHint();
+
+        function buildJob() {
+          const data = Object.fromEntries(new FormData(form).entries());
+          const vacancies = Number(data.vacancies || 0) || 0;
+          const mass = vacancies >= 100;
+          const featured = form.featured.checked || mass;
+          const walkin = form.walkin.checked;
+          const company = String(data.company || "").trim();
+          const position = String(data.position || "").trim();
+          const posted = String(data.postedDate || new Date().toISOString().slice(0, 10));
+          const id = `${slugify(company)}-${slugify(position)}-${posted.replace(/-/g, "").slice(4)}`;
+          const email = String(data.email || "").trim();
+          const applyLink = email
+            ? `mailto:${email}?subject=${encodeURIComponent("Application - " + position)}`
+            : "";
+
+          const job = {
+            id,
+            company,
+            logo: "",
+            companyBlurb: [company, position, mass ? "100+ openings" : "", data.location]
+              .filter(Boolean)
+              .join(" · "),
+            location: String(data.location || "").trim(),
+            roles: [position],
+            experience: data.experience || "fresher",
+            experienceRange: String(data.experienceRange || "").trim(),
+            employmentType: "Full-time",
+            applyLink,
+            applyDeadline: String(data.applyDeadline || "Rolling").trim() || "Rolling",
+            postedDate: posted,
+            source: "Direct",
+            verified: form.verified.checked,
+            tags: ["IT"],
+            vacancies,
+            vacancyText: mass ? "100+" : vacancies > 0 ? String(vacancies) : "",
+            featured,
+            isWalkIn: walkin,
+            walkin,
+            walkInDate: String(data.walkinDates || "").trim(),
+            walkinDates: String(data.walkinDates || "").trim(),
+            walkinTime: String(data.walkinTime || "").trim(),
+            walkinLocation: String(data.walkinLocation || "").trim(),
+            email,
+            phone: String(data.phone || "").trim(),
+            address: String(data.walkinLocation || data.location || "").trim(),
+            salaryRange: String(data.salary || "").trim(),
+            salary: String(data.salary || "").trim(),
+            qualification: String(data.qualification || "").trim(),
+            educationalQualification: lines(data.qualification).length
+              ? [String(data.qualification).trim()]
+              : [],
+            requirements: lines(data.requirements),
+            responsibilities: lines(data.responsibilities),
+            benefits: lines(data.whyJoin),
+            whyJoin: lines(data.whyJoin),
+            workMode: "On-site",
+            workStatus: "Full-time",
+            howToApply: email
+              ? `Email your resume to ${email}${walkin ? " or attend the walk-in interview." : "."}`
+              : "",
+            description: `${position}${mass ? " — 100+ openings" : ""} at ${company}.`,
+            seoTitle: mass
+              ? `${company} Hiring 100+ ${position}s | Freshers Jobs in Kochi | InfoparkDaily`
+              : "",
+            seoDescription: mass
+              ? `${company} is hiring 100+ ${position}s in ${data.location || "Kochi"}.${
+                  data.qualification ? ` ${data.qualification} candidates can apply.` : ""
+                }${
+                  walkin && data.walkinDates
+                    ? ` Walk-in interview from ${data.walkinDates}.`
+                    : ""
+                } Apply through InfoparkDaily.`
+              : ""
+          };
+
+          return job;
+        }
+
+        function generate() {
+          if (!form.reportValidity()) return;
+          const job = buildJob();
+          output.textContent = JSON.stringify(job, null, 2) + ",";
+        }
+
+        document.getElementById("generate-btn").addEventListener("click", generate);
+        document.getElementById("copy-btn").addEventListener("click", async () => {
+          if (output.textContent.startsWith("//")) generate();
+          try {
+            await navigator.clipboard.writeText(output.textContent);
+            const btn = document.getElementById("copy-btn");
+            btn.textContent = "Copied";
+            setTimeout(() => (btn.textContent = "Copy JSON"), 1600);
+          } catch (_e) {
+            window.prompt("Copy this JSON:", output.textContent);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

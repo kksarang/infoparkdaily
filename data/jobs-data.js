@@ -24,9 +24,21 @@
  * applyDeadline   string   ISO "YYYY-MM-DD" or "Rolling"
  * tags            string[] e.g. ["IT", "Marketing", "Design", "Sales", "Business"]
  * verified        boolean  Shows "Verified by InfoparkDaily" badge
- * isWalkIn        boolean  Walk-in drive filter + badge
- * walkInDate      string   Human date text when isWalkIn is true
+ * isWalkIn        boolean  Walk-in drive filter + badge (alias: walkin)
+ * walkInDate      string   Human date text when isWalkIn is true (alias: walkinDates)
  * source          string   "WhatsApp" | "Instagram" | "Direct" | "Infopark"
+ *
+ * MASS HIRING / HIGH-VOLUME (100+ vacancies)
+ * -----------------------------------------
+ * vacancies       number   Headcount. If >= 100 → auto badge, ribbon, Featured Jobs strip
+ * vacancyText     string   Optional display override, e.g. "100+"
+ * featured        boolean  Force Featured Hiring placement (auto true when vacancies >= 100)
+ * walkin          boolean  Alias of isWalkIn
+ * walkinDates     string   Walk-in date range text
+ * walkinTime      string   Walk-in time window, e.g. "10:00 AM – 12:00 PM"
+ * walkinLocation  string   Walk-in venue (falls back to address)
+ * salary / salaryRange    string   Pay range shown on cards + detail
+ * qualification   string   Degree / diploma line (also educationalQualification[])
  *
  * COMPANY + HIRING DETAILS (shown on full job page)
  * -------------------------------------------------
@@ -36,6 +48,7 @@
  * companySize, salaryRange, skills[], interviewTips[]
  * requirements[], responsibilities[], benefits[]
  * howToApply, hiringNotes, startingDate
+ * seoTitle, seoDescription   Optional SEO overrides for /job/:id
  *
  * TEMPLATE:
  * {
@@ -54,8 +67,12 @@
  *   source: "WhatsApp",
  *   verified: true,
  *   tags: ["IT"],
+ *   vacancies: 0,
+ *   featured: false,
  *   isWalkIn: false,
  *   walkInDate: "",
+ *   walkinTime: "",
+ *   walkinLocation: "",
  *   email: "careers@company.com",
  *   phone: "",
  *   website: "https://www.company.com",
@@ -66,6 +83,8 @@
  *   workStatus: "Full-time",
  *   workMode: "On-site",
  *   experienceYears: "0–2 years",
+ *   salaryRange: "",
+ *   qualification: "",
  *   requirements: ["Requirement 1"],
  *   responsibilities: ["Responsibility 1"],
  *   benefits: ["Benefit 1"],
@@ -77,6 +96,95 @@
  */
 
 var JOBS = [
+  {
+    id: "cee-cee-solutions-process-associate-jul30",
+    company: "CEE CEE Solutions",
+    logo: "",
+    companyBlurb:
+      "CEE CEE Solutions · Process Associate · 100+ openings · Freshers preferred · Walk-in 30 Jul–1 Aug · Infopark Kochi",
+    location: "Infopark, Kochi",
+    roles: ["Process Associate"],
+    experience: "fresher",
+    experienceRange: "Freshers Preferred",
+    employmentType: "Full-time",
+    applyLink:
+      "mailto:ceeceesolutions.hr@gmail.com?subject=Application%20-%20Process%20Associate",
+    applyDeadline: "2026-08-01",
+    postedDate: "2026-07-30",
+    source: "WhatsApp",
+    verified: true,
+    infoparkVerified: true,
+    verificationNote:
+      "Job details can change after publishing. Always verify with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: ["IT", "BPO"],
+    vacancies: 100,
+    vacancyText: "100+",
+    featured: true,
+    isWalkIn: true,
+    walkin: true,
+    walkInDate: "30 July 2026 – 1 August 2026",
+    walkinDates: "30 July 2026 – 1 August 2026",
+    walkinTime: "10:00 AM – 12:00 PM",
+    walkinLocation:
+      "Sunpaul Dezira Blueberry, Infopark Expressway, Rajagiri Valley, Kakkanad",
+    email: "ceeceesolutions.hr@gmail.com",
+    phone: "+91 9037476725",
+    website: "",
+    address:
+      "Sunpaul Dezira Blueberry, Infopark Expressway, Rajagiri Valley, Kakkanad",
+    industry: "AI / Data Services",
+    companyDetails:
+      "CEE CEE Solutions is hiring Process Associates in Kochi for AI/ML data annotation projects.",
+    workDetails:
+      "Process Associate — annotate and label data for AI/ML projects. 100+ immediate openings. Freshers with any Degree or Diploma preferred.",
+    workStatus: "Full-time",
+    workMode: "On-site · Infopark Kochi",
+    experienceYears: "Freshers Preferred",
+    salaryRange: "₹10,000 – ₹12,000/month",
+    salary: "₹10,000 – ₹12,000/month",
+    qualification: "Any Degree or Diploma",
+    educationalQualification: ["Any Degree or Diploma"],
+    skills: ["Communication", "Basic computer knowledge", "Typing", "Attention to detail"],
+    requirements: [
+      "Good communication",
+      "Basic computer knowledge",
+      "Good typing speed",
+      "Attention to detail",
+      "Team player",
+      "Willing to work from office"
+    ],
+    responsibilities: [
+      "Annotate and label data for AI/ML projects",
+      "Maintain high-quality data",
+      "Follow project guidelines",
+      "Collaborate with team",
+      "Ensure confidentiality"
+    ],
+    benefits: [
+      "100+ Immediate Openings",
+      "Freshers Preferred",
+      "AI & Machine Learning Projects",
+      "Career Growth"
+    ],
+    whyJoin: [
+      "100+ Immediate Openings",
+      "Freshers Preferred",
+      "AI & Machine Learning Projects",
+      "Career Growth"
+    ],
+    howToApply:
+      "Attend the walk-in interview or email your resume to ceeceesolutions.hr@gmail.com. Carry an updated resume and a valid ID.",
+    hiringNotes:
+      "Walk-in interview from 30 July–1 August 2026, 10:00 AM – 12:00 PM at Sunpaul Dezira Blueberry, Infopark Expressway, Rajagiri Valley, Kakkanad. Re-check with CEE CEE Solutions before travelling.",
+    description:
+      "Process Associate — 100+ openings for freshers (any Degree/Diploma). Walk-in 30 Jul–1 Aug at Infopark Kochi.",
+    startingDate: "Immediate",
+    seoTitle:
+      "CEE CEE Solutions Hiring 100+ Process Associates | Freshers Jobs in Kochi | InfoparkDaily",
+    seoDescription:
+      "CEE CEE Solutions is hiring 100+ Process Associates in Kochi. Freshers with any Degree or Diploma can apply. Walk-in interview from 30 July–1 August 2026. Apply through InfoparkDaily.",
+    alertBucket: "upcoming"
+  },
   {
     id: "ipv-touchworld-full-stack-jul29",
     company: "Touchworld Technology LLC",

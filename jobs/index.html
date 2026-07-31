@@ -58,7 +58,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260730d" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260731d" />
     <script>
       (function () {
         try {
@@ -219,10 +219,12 @@
               aria-label="Filter by experience and type"
             >
               <button type="button" class="jobs-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--mass" data-filter="masshiring" aria-pressed="false">Mass Hiring</button>
+              <button type="button" class="jobs-filter-btn" data-filter="walkin" aria-pressed="false">Walk-in Interview</button>
               <button type="button" class="jobs-filter-btn" data-filter="fresher" aria-pressed="false">Freshers</button>
+              <button type="button" class="jobs-filter-btn" data-filter="remote" aria-pressed="false">Remote</button>
               <button type="button" class="jobs-filter-btn" data-filter="experienced" aria-pressed="false">Experienced</button>
               <button type="button" class="jobs-filter-btn" data-filter="both" aria-pressed="false">Both</button>
-              <button type="button" class="jobs-filter-btn" data-filter="walkin" aria-pressed="false">Walk-ins</button>
               <button type="button" class="jobs-filter-btn" data-filter="internship" aria-pressed="false">Internships</button>
               <button type="button" class="jobs-filter-btn" data-filter="verified" aria-pressed="false">Verified</button>
             </div>
@@ -256,6 +258,25 @@
             Share this filtered view — the page URL updates when you pick a company.
           </p>
         </div>
+      </section>
+
+      <section
+        id="jobs-mass-hiring"
+        class="content-section jobs-mass-hiring-section"
+        aria-labelledby="jobs-mass-hiring-title"
+        hidden
+      >
+        <div class="jobs-mass-hiring-head">
+          <div>
+            <p class="jobs-kicker">Premium placement</p>
+            <h2 id="jobs-mass-hiring-title">🔥 High Volume Hiring</h2>
+            <p class="jobs-mass-hiring-intro">
+              Companies hiring 100+ roles — swipe on mobile, apply fast.
+            </p>
+          </div>
+          <p id="jobs-mass-hiring-count" class="jobs-mass-hiring-count" aria-live="polite"></p>
+        </div>
+        <div id="jobs-mass-hiring-track" class="jobs-mass-hiring-track" tabindex="0"></div>
       </section>
 
       <section class="content-section jobs-listings-section" aria-label="Job listings">
@@ -414,7 +435,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
     <script src="/js/site.js?v=20260725v5" defer></script>
     <script src="/js/disclaimer.js?v=20260725i" defer></script>
-    <script src="/data/jobs-data.js?v=20260729t" defer></script>
-    <script src="/js/jobs.js?v=20260730e" defer></script>
+    <script src="/data/jobs-data.js?v=20260731a" defer></script>
+    <script src="/js/jobs.js?v=20260731e" defer></script>
   </body>
 </html>

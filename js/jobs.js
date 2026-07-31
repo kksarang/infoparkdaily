@@ -17,12 +17,17 @@
   const stickyBar = document.getElementById("jobs-sticky-cta");
   const stickyDismiss = document.getElementById("jobs-sticky-dismiss");
   const expiredBanner = document.getElementById("jobs-expired-banner");
+  const massHiringSection = document.getElementById("jobs-mass-hiring");
+  const massHiringTrack = document.getElementById("jobs-mass-hiring-track");
+  const massHiringCount = document.getElementById("jobs-mass-hiring-count");
   const statCompanies = document.getElementById("stat-companies");
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
   const statClosing = document.getElementById("stat-closing");
 
   if (!grid || typeof JOBS === "undefined") return;
+
+  const MASS_HIRING_MIN = 100;
 
   const EXP_LABELS = {
     fresher: "Fresher",
@@ -164,6 +169,45 @@
     return String(job.employmentType || job.workStatus || "").toLowerCase();
   }
 
+  function vacancyCount(job) {
+    const raw = job.vacancies;
+    if (typeof raw === "number" && Number.isFinite(raw)) return raw;
+    if (typeof raw === "string" && raw.trim()) {
+      const n = parseInt(raw.replace(/[^\d]/g, ""), 10);
+      return Number.isFinite(n) ? n : 0;
+    }
+    return 0;
+  }
+
+  function vacancyLabel(job) {
+    if (job.vacancyText) return String(job.vacancyText);
+    const n = vacancyCount(job);
+    if (n >= MASS_HIRING_MIN) return "100+";
+    if (n > 0) return String(n);
+    return "";
+  }
+
+  function isMassHiring(job) {
+    if (vacancyCount(job) >= MASS_HIRING_MIN) return true;
+    if (job.featured === true) return true;
+    const text = String(job.vacancyText || "").toLowerCase();
+    return text.includes("100+") || text.includes("100 +");
+  }
+
+  function isWalkInJob(job) {
+    return Boolean(job.isWalkIn || job.walkin);
+  }
+
+  function walkInDateText(job) {
+    return job.walkinDates || job.walkInDate || "";
+  }
+
+  function isRemoteJob(job) {
+    const mode = String(job.workMode || job.employmentType || "").toLowerCase();
+    const tags = (job.tags || []).map((t) => String(t).toLowerCase());
+    return mode.includes("remote") || tags.includes("remote");
+  }
+
   function jobRegion(job) {
     const loc = String(job.location || "").toLowerCase();
     if (loc.includes("pan india") || loc.includes("pan-india") || job.alertSheet) return "Pan India";
@@ -186,7 +230,9 @@
 
   function matchesFilter(job) {
     if (activeFilter === "all") return true;
-    if (activeFilter === "walkin") return Boolean(job.isWalkIn);
+    if (activeFilter === "masshiring") return isMassHiring(job);
+    if (activeFilter === "walkin") return isWalkInJob(job);
+    if (activeFilter === "remote") return isRemoteJob(job);
     if (activeFilter === "verified") return Boolean(job.verified);
     if (activeFilter === "internship") {
       const type = employmentType(job);
@@ -386,6 +432,12 @@
       const sink = expiredWeight(a) - expiredWeight(b);
       if (sink !== 0) return sink;
 
+      // Keep high-volume hiring near the top for default newest browsing.
+      if (sortMode === "newest") {
+        const massDelta = Number(isMassHiring(b)) - Number(isMassHiring(a));
+        if (massDelta !== 0) return massDelta;
+      }
+
       if (sortMode === "deadline") {
         return deadlineSortValue(a) - deadlineSortValue(b);
       }
@@ -423,13 +475,40 @@
     return `/${value.replace(/^\.?\//, "")}`;
   }
 
-  function logoBlock(job) {
+  function logoBlock(job, sizeClass) {
     const mark = initials(job.company);
+    const size = sizeClass ? ` ${sizeClass}` : "";
+    const src = assetUrl(job.logo);
+    if (src) {
+      return `
+        <div class="job-logo-wrap${size}" aria-hidden="true">
+          <img class="job-logo-img" src="${escapeAttr(src)}" alt="" loading="lazy" width="48" height="48" />
+        </div>
+      `;
+    }
     return `
-      <div class="job-logo-wrap job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+      <div class="job-logo-wrap job-logo-wrap--text${size}" data-initials="${escapeAttr(mark)}" aria-hidden="true">
         <span class="job-logo-fallback">${escapeHtml(mark)}</span>
       </div>
     `;
+  }
+
+  function massHiringBadgeHtml() {
+    return `
+      <span class="job-badge job-badge--mass-hiring" title="100 or more open positions">
+        <svg class="job-badge-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        100+ Vacancies
+      </span>
+    `;
+  }
+
+  function massHiringRibbonHtml() {
+    return `<span class="job-mass-ribbon" aria-label="Mass hiring">🔥 100+ Hiring</span>`;
   }
 
   function rolesListHtml(roles, limit) {
@@ -459,11 +538,81 @@
     `;
   }
 
+  function renderFeaturedCard(job) {
+    const exp = job.experience || "both";
+    const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
+    const role = (job.roles || [])[0] || "Hiring";
+    const walkDate = walkInDateText(job);
+    const openings = vacancyLabel(job) || "100+";
+    return `
+      <article class="job-featured-card">
+        <header class="job-featured-head">
+          ${logoBlock(job, "job-logo-wrap--lg")}
+          <div class="job-featured-meta">
+            <p class="job-featured-company">${escapeHtml(job.company || "")}</p>
+            <h3 class="job-featured-role">${escapeHtml(role)}</h3>
+            <p class="job-featured-location">${escapeHtml(job.location || "")}</p>
+          </div>
+          <span class="job-featured-flag">🔥 MASS HIRING</span>
+        </header>
+        <ul class="job-featured-facts">
+          ${
+            job.industry
+              ? `<li><span>Industry</span><strong>${escapeHtml(job.industry)}</strong></li>`
+              : ""
+          }
+          <li><span>Experience</span><strong>${escapeHtml(job.experienceRange || job.experienceYears || badgeLabel)}</strong></li>
+          <li><span>Openings</span><strong>${escapeHtml(openings)} Openings</strong></li>
+          ${
+            isWalkInJob(job)
+              ? `<li><span>Walk-in</span><strong>${escapeHtml(walkDate || "Available")}</strong></li>`
+              : ""
+          }
+        </ul>
+        <div class="job-featured-aside">
+          <div class="job-featured-badges">
+            ${massHiringBadgeHtml()}
+            ${isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-In Available</span>` : ""}
+          </div>
+          <footer class="job-featured-actions">
+            <a class="btn btn-secondary" href="${escapeAttr(jobHref(job))}">View Details</a>
+          </footer>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderMassHiringSection(jobs) {
+    if (!massHiringSection || !massHiringTrack) return;
+    const featured = jobs.filter(
+      (job) => isMassHiring(job) && deadlineStatus(job) !== "expired"
+    );
+    // Hide strip when Mass Hiring filter is on (grid already shows these) or when scoped search/company.
+    const showStrip =
+      featured.length > 0 &&
+      activeFilter !== "masshiring" &&
+      activeCompany === "all" &&
+      !searchQuery &&
+      !companyQuery;
+    massHiringSection.hidden = !showStrip;
+    if (!showStrip) {
+      massHiringTrack.innerHTML = "";
+      return;
+    }
+    if (massHiringCount) {
+      massHiringCount.textContent =
+        featured.length === 1 ? "1 campaign" : `${featured.length} campaigns`;
+    }
+    massHiringTrack.dataset.count = String(featured.length);
+    massHiringTrack.innerHTML = featured.map((job) => renderFeaturedCard(job)).join("");
+  }
+
   function renderCard(job, index) {
     const exp = job.experience || "both";
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
     const status = deadlineStatus(job);
     const expired = status === "expired";
+    const mass = isMassHiring(job);
     const companyFoot = job.company
       ? `<a class="job-source job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a>`
       : "";
@@ -471,11 +620,13 @@
       ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
       : "";
     const roleCount = (job.roles || []).length;
+    const walkDate = walkInDateText(job);
 
     const badges = [
       expired
         ? `<span class="job-badge job-badge--expired" title="Apply deadline has passed">EXPIRED</span>`
         : "",
+      !expired && mass ? massHiringBadgeHtml() : "",
       !expired && status === "closing"
         ? `<span class="job-badge job-badge--closing">Closing soon</span>`
         : "",
@@ -485,7 +636,7 @@
         ? `<span class="job-badge job-badge--intern">Internship</span>`
         : "",
       `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
-      job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
+      isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
       job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""
     ]
       .filter(Boolean)
@@ -505,16 +656,23 @@
       .map((tag) => `<span class="job-tag-pill">${escapeHtml(tag)}</span>`)
       .join("");
 
+    const ctaLabel = expired
+      ? "View expired listing"
+      : mass
+        ? "🚀 Apply Now"
+        : "View Details";
+
     return `
       <article
-        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}"
+        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}${mass && !expired ? " job-card--mass-hiring" : ""}"
         data-experience="${escapeHtml(exp)}"
         style="--delay: ${Math.min(index, 8) * 40}ms"
       >
         <div class="job-card-accent" aria-hidden="true"></div>
+        ${mass && !expired ? massHiringRibbonHtml() : ""}
         ${
-          job.isWalkIn && job.walkInDate
-            ? `<p class="job-walkin-banner">${escapeHtml(job.walkInDate)}</p>`
+          isWalkInJob(job) && walkDate
+            ? `<p class="job-walkin-banner">${escapeHtml(walkDate)}</p>`
             : ""
         }
         <header class="job-card-head">
@@ -528,7 +686,11 @@
         <div class="job-card-tags">${badges}</div>
         ${facts ? `<div class="job-fact-row">${facts}</div>` : ""}
         <div class="job-card-body">
-          <p class="job-roles-label">${roleCount} open role${roleCount === 1 ? "" : "s"}</p>
+          <p class="job-roles-label">${
+            mass && !expired
+              ? `${escapeHtml(vacancyLabel(job) || "100+")} openings`
+              : `${roleCount} open role${roleCount === 1 ? "" : "s"}`
+          }</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
           ${blurb}
         </div>
@@ -537,8 +699,8 @@
           <div class="job-meta-row">
             ${companyFoot}
           </div>
-          <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
-            ${expired ? "View expired listing" : "View Details"}
+          <a class="btn ${expired ? "btn-secondary" : mass ? "btn-mass-apply" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
+            ${ctaLabel}
           </a>
         </footer>
       </article>
@@ -579,6 +741,7 @@
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
+    renderMassHiringSection(jobs);
 
     if (expiredBanner) {
       expiredBanner.hidden = activeStatus !== "expired" && activeStatus !== "all";
