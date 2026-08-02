@@ -28,7 +28,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260802rq" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260802rz" />
     <script>
       (function () {
         try {
@@ -208,8 +208,44 @@
                     </select>
                   </label>
                   <label class="hiring-field">
+                    <span>Job type</span>
+                    <select id="hp-jobtype" name="jobtype">
+                      <option value="Full-time" selected>Full-time</option>
+                      <option value="Part-time">Part-time</option>
+                      <option value="Contract">Contract</option>
+                      <option value="Internship">Internship</option>
+                      <option value="Walk-in">Walk-in drive</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="hiring-fields-row">
+                  <label class="hiring-field">
                     <span>Apply deadline</span>
-                    <input id="hp-deadline" name="deadline" type="text" placeholder="YYYY-MM-DD or Rolling" />
+                    <input id="hp-deadline" name="deadline" type="date" />
+                  </label>
+                  <label class="hiring-field">
+                    <span>Salary / CTC <em>optional</em></span>
+                    <input id="hp-salary" name="salary" type="text" placeholder="e.g. 3–5 LPA or Not disclosed" />
+                  </label>
+                </div>
+                <label class="hiring-deadline-rolling">
+                  <input id="hp-deadline-rolling" name="deadline_rolling" type="checkbox" value="1" />
+                  <span>Rolling — no fixed deadline</span>
+                </label>
+                <div class="hiring-fields-row">
+                  <label class="hiring-field">
+                    <span>Apply email or phone</span>
+                    <input
+                      id="hp-apply"
+                      name="apply"
+                      type="text"
+                      required
+                      placeholder="careers@company.com or +91…"
+                    />
+                  </label>
+                  <label class="hiring-field">
+                    <span>Careers / apply link <em>optional</em></span>
+                    <input id="hp-apply-link" name="apply_link" type="url" placeholder="https://…" />
                   </label>
                 </div>
                 <label class="hiring-field">
@@ -221,9 +257,9 @@
                   <textarea
                     id="hp-details"
                     name="details"
-                    rows="7"
+                    rows="6"
                     required
-                    placeholder="Skills, qualification, salary (if any), apply email/phone, and anything candidates should know…"
+                    placeholder="Skills, qualification, responsibilities, and anything else candidates should know…"
                   ></textarea>
                 </label>
               </div>
@@ -256,9 +292,9 @@
             <h2>What we need</h2>
             <ul class="recruit-check">
               <li>Company &amp; office location</li>
-              <li>Role title &amp; vacancy count</li>
+              <li>Role, vacancies &amp; job type</li>
               <li>Apply email or phone</li>
-              <li>Deadline or walk-in schedule</li>
+              <li>Deadline or rolling + walk-in if any</li>
             </ul>
             <p class="recruit-rail-note">
               Incomplete or unverifiable requests are not published. We may ask for an official careers link.
@@ -364,6 +400,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260802ab" defer></script>
     <script src="/js/disclaimer.js?v=20260802r" defer></script>
-    <script src="/js/hiring-portal.js?v=20260802rn" defer></script>
+    <script src="/js/hiring-portal.js?v=20260802rq" defer></script>
   </body>
 </html>

@@ -163,6 +163,16 @@ function isUpcomingJob(job) {
   return ts >= today;
 }
 
+function shortRoleName(role) {
+  let name = String(role || "").trim();
+  if (!name) return "";
+  // Drop experience / vacancy explanations after em dash or en dash.
+  name = name.split(/\s+[—–]\s+/)[0].trim();
+  // Drop trailing vacancy counts like "(1)" or "(3 Vacancies)".
+  name = name.replace(/\s*\(\d+(?:\s*[Vv]acanc(?:y|ies))?\)\s*$/u, "").trim();
+  return name;
+}
+
 function renderFeaturedJobs() {
   if (!featuredJobsGrid || typeof JOBS === "undefined") return;
 
@@ -176,8 +186,12 @@ function renderFeaturedJobs() {
     .map((job, index) => {
       const exp = job.experience || "both";
       const mark = initials(job.company);
-      const roles = (job.roles || []).slice(0, 2).map((role) => `<li>${escapeHtml(role)}</li>`).join("");
-      const extra = Math.max(0, (job.roles || []).length - 2);
+      const roles = (job.roles || [])
+        .slice(0, 2)
+        .map((role) => shortRoleName(role))
+        .filter(Boolean)
+        .map((role) => `<li>${escapeHtml(role)}</li>`)
+        .join("");
       const href = `/job/${encodeURIComponent(job.id || "")}`;
 
       return `
@@ -197,9 +211,7 @@ function renderFeaturedJobs() {
             )}</span>
             ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in</span>` : ""}
           </div>
-          <ul class="job-roles">${roles}${
-            extra > 0 ? `<li class="job-roles-more">+${extra} more</li>` : ""
-          }</ul>
+          <ul class="job-roles">${roles}</ul>
           <a class="btn btn-primary job-details-btn" href="${escapeAttr(href)}">View Details</a>
         </article>
       `;

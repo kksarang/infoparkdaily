@@ -1565,15 +1565,9 @@
       }">
         <div class="job-detail-hero-top">
           <div class="job-detail-hero-main">
-            ${
-              job.logo
-                ? `<div class="job-logo-wrap job-logo-wrap--lg" aria-hidden="true">
-                    <img class="job-logo-img" src="${escapeAttr(assetUrl(job.logo))}" alt="" width="64" height="64" loading="lazy" />
-                  </div>`
-                : `<div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
-                    <span class="job-logo-fallback">${escapeHtml(mark)}</span>
-                  </div>`
-            }
+            <div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+              <span class="job-logo-fallback">${escapeHtml(mark)}</span>
+            </div>
             <div class="job-detail-hero-copy">
               <p class="jobs-kicker">${escapeHtml(
                 isMassHiring(job) ? "🔥 Mass Hiring · InfoparkDaily" : job.alertLabel || "Job hiring sheet"

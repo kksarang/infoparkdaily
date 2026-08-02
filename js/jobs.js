@@ -528,14 +528,7 @@
   function logoBlock(job, sizeClass) {
     const mark = initials(job.company);
     const size = sizeClass ? ` ${sizeClass}` : "";
-    const src = assetUrl(job.logo);
-    if (src) {
-      return `
-        <div class="job-logo-wrap${size}" aria-hidden="true">
-          <img class="job-logo-img" src="${escapeAttr(src)}" alt="" loading="lazy" width="48" height="48" />
-        </div>
-      `;
-    }
+    // Letter-only marks — do not render real company logo images on job cards.
     return `
       <div class="job-logo-wrap job-logo-wrap--text${size}" data-initials="${escapeAttr(mark)}" aria-hidden="true">
         <span class="job-logo-fallback">${escapeHtml(mark)}</span>
@@ -562,14 +555,14 @@
   }
 
   function cardToplineHtml(job, mass, expired) {
-    if (!mass || expired) return "";
-    const deadline = deadlinePill(job);
-    return `
+    if (mass && !expired) {
+      return `
       <div class="job-card-topline">
         ${massHiringRibbonHtml()}
-        ${deadline}
       </div>
     `;
+    }
+    return `<div class="job-card-topline job-card-topline--spacer" aria-hidden="true"></div>`;
   }
 
   /** Card preview: short role title only (full details on job page). */
@@ -613,11 +606,11 @@
   }
 
   function factChip(label, value) {
-    if (!value) return "";
+    const text = String(value || "").trim() || "—";
     return `
       <span class="job-fact">
         <span class="job-fact-label">${escapeHtml(label)}</span>
-        <span class="job-fact-value">${escapeHtml(value)}</span>
+        <span class="job-fact-value">${escapeHtml(text)}</span>
       </span>
     `;
   }
@@ -701,7 +694,6 @@
       ? `<a class="job-source job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a>`
       : "";
     const previewBlurb = cardBlurb(job);
-    const blurb = previewBlurb ? `<p class="job-desc">${escapeHtml(previewBlurb)}</p>` : "";
     const roleCount = (job.roles || []).length;
     const modeShort = job.workMode
       ? String(job.workMode).split("·")[0].trim()
@@ -729,19 +721,18 @@
       job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""
     ]
       .filter(Boolean)
+      .slice(0, 3)
       .join("");
 
     const facts = [
-      factChip("Type", job.employmentType || job.workStatus),
-      factChip("Mode", modeShort),
-      factChip("Exp", expShort),
-      factChip("Posted", job.postedDate ? formatDate(job.postedDate) : "")
-    ]
-      .filter(Boolean)
-      .join("");
+      factChip("Type", job.employmentType || job.workStatus || "Full-time"),
+      factChip("Mode", modeShort || "On-site"),
+      factChip("Exp", expShort || badgeLabel),
+      factChip("Posted", job.postedDate ? formatDate(job.postedDate) : "—")
+    ].join("");
 
     const tagChips = (job.tags || [])
-      .slice(0, 3)
+      .slice(0, 2)
       .map((tag) => `<span class="job-tag-pill">${escapeHtml(tag)}</span>`)
       .join("");
 
@@ -761,18 +752,18 @@
             <h3><a class="job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a></h3>
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
-          ${mass && !expired ? "" : deadlinePill(job)}
+          ${deadlinePill(job) || `<span class="job-deadline-pill job-deadline-pill--open job-deadline-pill--spacer" aria-hidden="true">Open</span>`}
         </header>
         <div class="job-card-tags">${badges}</div>
-        ${facts ? `<div class="job-fact-row">${facts}</div>` : ""}
+        <div class="job-fact-row">${facts}</div>
         <div class="job-card-body">
           <p class="job-roles-label">${
-            roleCount === 1 ? "Open role" : `${roleCount} open roles`
+            roleCount === 1 ? "Open role" : `${roleCount || 1} open roles`
           }</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
-          ${blurb}
+          <p class="job-desc">${escapeHtml(previewBlurb || "View details for full role information.")}</p>
         </div>
-        ${tagChips ? `<div class="job-tag-row">${tagChips}</div>` : ""}
+        <div class="job-tag-row">${tagChips || `<span class="job-tag-pill job-tag-pill--spacer" aria-hidden="true">&nbsp;</span>`}</div>
         <footer class="job-card-foot">
           <div class="job-meta-row">
             ${companyFoot}
