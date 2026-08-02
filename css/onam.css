@@ -276,19 +276,19 @@ body.light .onam-panel {
     border-radius: 18px;
   }
 
-  /* Compact poster on phone — full artwork stays on desktop */
+  /* Full poster readable on phone */
   .onam-poster {
-    max-width: 18rem;
+    max-width: min(22rem, 100%);
     margin-inline: auto;
     border-radius: 14px;
   }
 
   .onam-poster img {
     width: 100%;
-    max-height: 14.5rem;
-    height: 14.5rem;
-    object-fit: cover;
-    object-position: center 22%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
   }
 
   .onam-actions .btn {

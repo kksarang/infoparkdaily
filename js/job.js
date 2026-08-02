@@ -345,11 +345,18 @@
         : job.applyDeadline
           ? formatDate(job.applyDeadline)
           : "";
+    const modeRaw = isKnown(job.workMode) ? String(job.workMode) : "";
+    const modeShort = modeRaw
+      ? modeRaw
+          .replace(/\s*·\s*Infopark Kochi/i, "")
+          .replace(/\s+/g, " ")
+          .trim()
+      : "";
     const stats = [
       ["Location", job.location || ""],
       ["Experience", job.experienceRange || job.experienceYears || EXP_LABELS[job.experience] || ""],
       ["Type", job.employmentType || job.workStatus || ""],
-      ["Mode", isKnown(job.workMode) ? String(job.workMode).split("(")[0].trim() : ""],
+      ["Mode", modeShort || modeRaw],
       ["Apply before", deadline]
     ].filter(([, value]) => value);
 
@@ -778,18 +785,78 @@
     `;
   }
 
+  function resolveMapTarget(job) {
+    const raw =
+      (job.locationDetails && job.locationDetails.googleMapsQuery) ||
+      job.walkinLocation ||
+      job.address ||
+      job.location ||
+      "";
+    const text = String(raw).toLowerCase();
+    if (!text || text === String(ND).toLowerCase()) return null;
+
+    // Known Kerala IT parks — pinned coords so embeds stay reliable offline-from-Google
+    if (/technopark|kariavattom|thiruvananthapuram|trivandrum/.test(text)) {
+      return {
+        query: "Technopark Campus, Kariavattom, Thiruvananthapuram, Kerala 695581",
+        lat: 8.5586,
+        lng: 76.8828
+      };
+    }
+    if (/infopark|kakkanad/.test(text)) {
+      return {
+        query: "Infopark Kochi Phase 1, Kakkanad, Ernakulam, Kerala 682042",
+        lat: 10.0095,
+        lng: 76.3632
+      };
+    }
+    if (/cyberpark|kozhikode|calicut|nellikkode/.test(text)) {
+      return {
+        query: "Cyberpark Kozhikode, Nellikkode, Kerala 673016",
+        lat: 11.2588,
+        lng: 75.7804
+      };
+    }
+
+    return { query: String(raw).trim(), lat: null, lng: null };
+  }
+
   function mapBlock(job) {
-    const query =
-      (job.locationDetails && job.locationDetails.googleMapsQuery) || job.address || job.location;
-    if (!query || query === ND) return "";
+    const target = resolveMapTarget(job);
+    if (!target || !target.query) return "";
+
+    const openHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(target.query)}`;
+    let iframeSrc;
+    if (target.lat != null && target.lng != null) {
+      // Tight bbox ≈ max useful zoom on OSM embed (~street / campus level)
+      const pad = 0.0018;
+      const bbox = [
+        (target.lng - pad).toFixed(5),
+        (target.lat - pad).toFixed(5),
+        (target.lng + pad).toFixed(5),
+        (target.lat + pad).toFixed(5)
+      ].join("%2C");
+      // OpenStreetMap embed — works when Google Maps iframe is blocked / fails
+      iframeSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${target.lat}%2C${target.lng}`;
+    } else {
+      iframeSrc = `https://maps.google.com/maps?q=${encodeURIComponent(target.query)}&hl=en&z=19&output=embed`;
+    }
+
     return `
       <div class="job-map-embed" aria-label="Company location map">
         <iframe
           title="${escapeAttr(job.company)} location map"
-          src="https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed"
+          src="${escapeAttr(iframeSrc)}"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
         ></iframe>
+        <a
+          class="job-map-open"
+          href="${escapeAttr(openHref)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >Open in Google Maps</a>
       </div>
     `;
   }
@@ -875,7 +942,17 @@
   function alertSheetBlock(job) {
     if (!job.alertSheet) return "";
 
-    const locations = job.workLocations || [];
+    const panIndia =
+      /pan[\s-]?india/i.test(String(job.location || "")) ||
+      /pan[\s-]?india/i.test(String(job.alertLabel || "")) ||
+      (Array.isArray(job.workLocations) &&
+        job.workLocations.some((loc) => /pan[\s-]?india/i.test(String(loc))));
+    const locations = (job.workLocations || []).filter(Boolean);
+    if (!locations.length) {
+      if (job.walkinLocation) locations.push(job.walkinLocation);
+      else if (job.address) locations.push(job.address);
+      else if (job.location) locations.push(job.location);
+    }
     const states = job.workStates || [];
     const who = job.whoCanApply || job.requirements || [];
     const edu = job.educationalQualification || [];
@@ -889,50 +966,128 @@
     const checklist = job.applyChecklist || [];
     const faqs = job.faqs || [];
     const safety = job.safetyNotes || [];
-    const applyUrl =
-      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : job.website || "";
+    const externalApply =
+      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
+    const mailApply = job.applyLink && String(job.applyLink).startsWith("mailto:")
+      ? job.applyLink
+      : job.email
+        ? `mailto:${job.email}`
+        : "";
+    const applyCtaHref = externalApply || mailApply || "";
+    const applyCtaLabel = externalApply
+      ? "Official Apply ↗"
+      : mailApply
+        ? "Email resume"
+        : "";
+    const isInternSheet = /intern/i.test(String(job.employmentType || "")) || /intern/i.test(String(job.alertLabel || ""));
 
+    const openRoles = (job.roles || []).filter(Boolean);
+    const multiRole = openRoles.length > 1;
     const factRows = [
-      ["Job title", (job.roles || [])[0] || "Intern"],
+      [
+        multiRole ? "Open positions" : "Job title",
+        multiRole
+          ? `${openRoles.length} positions${job.vacancyText ? ` · ${job.vacancyText}` : vacancyCount(job) > 0 ? ` · ${vacancyCount(job)} openings` : ""}`
+          : openRoles[0] || ""
+      ],
       ["Company", job.company],
       ["Reference ID", job.referenceId || ""],
-      ["Job type", job.employmentType || job.workStatus || "Internship"],
+      ["Job type", job.employmentType || job.workStatus || ""],
       [
         "Team / track",
         job.teamName
           ? String(job.teamName).split("(")[0].trim()
           : ""
       ],
-      ["Experience", job.experienceRange || "Freshers / Students"],
+      ["Experience", job.experienceRange || job.experienceYears || ""],
       [
         "Work mode",
         job.workMode
           ? String(job.workMode).replace(/\s*\([^)]*\)\s*/g, " ").replace(/\s+/g, " ").trim()
           : ""
       ],
+      ["Location", panIndia ? "Pan India" : job.location || ""],
       ["Posting start", job.postingStartDate ? formatDate(job.postingStartDate) : ""],
       ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""],
-      [
-        "Stipend",
-        job.salaryRange
-          ? String(job.salaryRange).includes("offer letter")
-            ? "As per Wipro offer letter"
-            : job.salaryRange
-          : ""
-      ]
+      ["Salary / stipend", job.salaryRange || job.salary || ""]
     ].filter(([, v]) => v);
 
     let sectionNo = 0;
     const nextNum = () => String(++sectionNo).padStart(2, "0");
+    const locationTitle = panIndia
+      ? "Work locations (Pan India)"
+      : locations.length > 1
+        ? "Work locations"
+        : "Work location";
+    const locationNote = panIndia
+      ? `<p class="job-sheet-note">Exact city depends on business requirements and team allocation.</p>`
+      : job.walkinLocation
+        ? `<p class="job-sheet-note">Walk-in venue: ${escapeHtml(job.walkinLocation)}</p>`
+        : "";
+    const openRolesHtml = openRoles.length
+      ? `<ul class="job-role-grid">${openRoles
+          .map(
+            (role, i) =>
+              `<li><span class="job-role-num">${String(i + 1).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`
+          )
+          .join("")}</ul>`
+      : "";
+
+    const walkDate = walkInDateText(job);
+    const walkTime = job.walkinTime || "";
+    const walkVenue = job.walkinLocation || job.address || "";
+    const walkinLead =
+      job.walkinHeadline ||
+      (isWalkInJob(job)
+        ? [
+            walkDate || "Walk-in drive",
+            walkTime,
+            "Fast apply — walk in with resume or email now"
+          ]
+            .filter(Boolean)
+            .join(" · ")
+        : "");
+    const sheetApplyLabel = isWalkInJob(job)
+      ? mailApply
+        ? "Fast apply — Email resume"
+        : applyCtaLabel
+      : applyCtaLabel;
 
     return `
-      <section class="job-alert-banner" aria-label="Internship job alert">
-        <p class="job-alert-banner-label">${escapeHtml(job.alertLabel || "INTERNSHIP JOB ALERT")}</p>
-        <h2>${escapeHtml((job.roles || [])[0] || "Intern")} — full hiring sheet</h2>
-        <p>Everything you need in one clear sheet. Scan fast → apply only on the official careers / apply link.</p>
+      <section class="job-alert-banner${job.urgentHiring ? " job-alert-banner--urgent" : ""}${
+        isWalkInJob(job) ? " job-alert-banner--walkin" : ""
+      }" aria-label="Job hiring alert">
+        <p class="job-alert-banner-label">${escapeHtml(
+          job.alertLabel || (isWalkInJob(job) ? "WALK-IN DRIVE · FAST APPLY" : "JOB ALERT")
+        )}</p>
+        <h2>${escapeHtml(
+          isWalkInJob(job)
+            ? `${job.company} — Wednesday walk-in hiring drive`
+            : multiRole
+              ? `${job.company} — ${openRoles.length} open positions`
+              : `${openRoles[0] || "Role"} — full hiring sheet`
+        )}</h2>
+        <p>${escapeHtml(
+          walkinLead ||
+            "Everything you need in one clear sheet. Scan fast → apply only on the official company channel."
+        )}</p>
         ${
-          applyUrl
-            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Official Apply ↗</a>`
+          isWalkInJob(job)
+            ? `<div class="job-alert-walkin-strip" role="note">
+                <strong>Walk-in drive</strong>
+                <span>${escapeHtml(walkDate || "Date on company notice")}${
+                  walkTime ? ` · ${escapeHtml(walkTime)}` : ""
+                }</span>
+                ${walkVenue ? `<span>${escapeHtml(walkVenue)}</span>` : ""}
+                <em>Fast apply — don’t wait. Walk in with resume or email today.</em>
+              </div>`
+            : ""
+        }
+        ${
+          applyCtaHref
+            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyCtaHref)}" ${
+                externalApply ? 'target="_blank" rel="noopener noreferrer"' : ""
+              }>${escapeHtml(sheetApplyLabel)}</a>`
             : ""
         }
       </section>
@@ -954,13 +1109,51 @@
             .join("")}
         </div>
 
+        ${
+          isWalkInJob(job)
+            ? sheetSection(
+                nextNum(),
+                "Walk-in drive — Wednesday 5 August",
+                `
+                  <ul class="job-walkin-lines">
+                    <li><span aria-hidden="true">📅</span><span><strong>Date:</strong> ${escapeHtml(
+                      walkDate || "Wednesday, 5 August 2026"
+                    )}</span></li>
+                    ${
+                      walkTime
+                        ? `<li><span aria-hidden="true">⏰</span><span><strong>Time:</strong> ${escapeHtml(
+                            walkTime
+                          )}</span></li>`
+                        : ""
+                    }
+                    ${
+                      walkVenue
+                        ? `<li><span aria-hidden="true">📍</span><span><strong>Venue:</strong> ${escapeHtml(
+                            walkVenue
+                          )}</span></li>`
+                        : ""
+                    }
+                    <li><span aria-hidden="true">⚡</span><span><strong>Fast apply:</strong> Walk in with your updated resume, or email ${
+                      job.email
+                        ? `<a href="mailto:${escapeAttr(job.email)}">${escapeHtml(job.email)}</a>`
+                        : "HR"
+                    } if you cannot attend.</span></li>
+                  </ul>
+                  <p class="job-walkin-note">Arrive early. Carry resume + valid ID. Mention the role you want. Never pay any fee to apply.</p>
+                `
+              )
+            : ""
+        }
+
+        ${sheetSection(nextNum(), multiRole ? "All open positions" : "Open position", openRolesHtml)}
+
         ${sheetSection(
           nextNum(),
-          "Work locations (Pan India)",
+          locationTitle,
           `
             ${chipsRow(locations, "job-sheet-chips")}
             ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
-            <p class="job-sheet-note">Exact city depends on business requirements and team allocation. Kochi (Kerala) is included on the official listing.</p>
+            ${locationNote}
           `
         )}
 
@@ -970,9 +1163,8 @@
 
         ${sheetSection(
           nextNum(),
-          "Internship overview (official JD)",
+          isInternSheet ? "Internship overview (official JD)" : "Role responsibilities",
           `
-            ${job.companyDetails ? `<p class="job-detail-text">${escapeHtml(job.companyDetails)}</p>` : ""}
             ${job.teamName ? `<p class="job-sheet-note"><strong>Track:</strong> ${escapeHtml(job.teamName)}</p>` : ""}
             ${listBlock(job.responsibilities)}
           `
@@ -996,9 +1188,11 @@
           `
             ${applySteps.length ? numberedList(applySteps) : job.howToApply ? `<p class="job-detail-text">${escapeHtml(job.howToApply)}</p>` : ""}
             ${
-              applyUrl
-                ? `<a class="job-sheet-link" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer"><strong>Official application link</strong><span>${escapeHtml(applyUrl)}</span></a>`
-                : ""
+              externalApply
+                ? `<a class="job-sheet-link" href="${escapeAttr(externalApply)}" target="_blank" rel="noopener noreferrer"><strong>Official application link</strong><span>${escapeHtml(externalApply)}</span></a>`
+                : mailApply
+                  ? `<a class="job-sheet-link" href="${escapeAttr(mailApply)}"><strong>Email resume</strong><span>${escapeHtml(job.email || mailApply.replace(/^mailto:/i, ""))}</span></a>`
+                  : ""
             }
           `
         )}
@@ -1019,7 +1213,7 @@
 
         ${sheetSection(nextNum(), "Interview / prep tips", listBlock(job.interviewTips))}
 
-        ${sheetSection(nextNum(), "Career growth after internship", listBlock(job.benefits))}
+        ${sheetSection(nextNum(), isInternSheet ? "Career growth after internship" : "Why join", listBlock(job.benefits))}
 
         ${sheetSection(
           nextNum(),
@@ -1040,16 +1234,18 @@
         ${sheetSection(
           nextNum(),
           "Important notes",
-          `<ul class="job-detail-bullets job-sheet-notes">${(notes || [])
-            .map((n) => `<li>${escapeHtml(n)}</li>`)
-            .join("")}</ul>`
+          notes.length
+            ? `<ul class="job-detail-bullets job-sheet-notes">${notes
+                .map((n) => `<li>${escapeHtml(n)}</li>`)
+                .join("")}</ul>`
+            : ""
         )}
 
         ${sheetSection(
           nextNum(),
           "Safety · fraud alert",
           safety.length
-            ? `<div class="job-sheet-safety">${listBlock(safety)}<p class="job-sheet-note">InfoparkDaily is not Wipro HR. Always verify on careers.wipro.com before sharing documents.</p></div>`
+            ? `<div class="job-sheet-safety">${listBlock(safety)}<p class="job-sheet-note">InfoparkDaily is not the employer. Always verify with the company before sharing documents. Never pay a fee to apply.</p></div>`
             : ""
         )}
       </section>
@@ -1130,6 +1326,8 @@
     const applyUrl = (() => {
       const link = String(job.applyLink || "").trim();
       if (link && !link.toLowerCase().startsWith("mailto:")) return link;
+      // Email / walk-in posts: do not pretend the company website is the apply link
+      if (link.toLowerCase().startsWith("mailto:") || job.email) return "";
       const web = String(job.website || "").trim();
       if (/^https?:\/\//i.test(web)) return web;
       return "";
@@ -1146,7 +1344,6 @@
       ["Experience", job.experienceRange || job.experienceYears || badgeLabel || ""],
       ["Work mode", isKnown(job.workMode) ? job.workMode : ""],
       ["Location", job.location || ""],
-      ["Office / campus", isKnown(loc.campus) ? loc.campus : isKnown(job.address) ? job.address : ""],
       ["Industry", isKnown(job.industry) ? job.industry : ""],
       ["Posted", job.postedDate ? formatDate(job.postedDate) : ""],
       [
@@ -1381,7 +1578,18 @@
               <p class="jobs-kicker">${escapeHtml(
                 isMassHiring(job) ? "🔥 Mass Hiring · InfoparkDaily" : job.alertLabel || "Job hiring sheet"
               )}</p>
-              <h1 class="job-hero-title">${escapeHtml((job.roles || [])[0] || "Hiring")}</h1>
+              <h1 class="job-hero-title">${escapeHtml(
+                (job.roles || []).length > 1
+                  ? `${(job.roles || []).length} open positions`
+                  : (job.roles || [])[0] || "Hiring"
+              )}</h1>
+              ${
+                isWalkInJob(job)
+                  ? `<p class="job-hero-walkin-callout">⚡ Walk-in drive · ${escapeHtml(
+                      walkInDateText(job) || "Check date below"
+                    )}${job.walkinTime ? ` · ${escapeHtml(job.walkinTime)}` : ""} · <strong>Fast apply</strong></p>`
+                  : ""
+              }
               <p class="job-hero-company">
                 🏢 <a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
                   job.companyLegalName || job.company
@@ -1411,8 +1619,24 @@
                 ${job.employmentType ? `<span class="job-badge job-badge--intern">${escapeHtml(job.employmentType)}</span>` : ""}
                 ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
                 ${job.verificationLevel === "infopark-profile" ? `<span class="job-badge job-badge--verified">Infopark profile</span>` : ""}
-                ${isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : ""}
-                ${job.alertSheet ? `<span class="job-badge job-badge--pan">Pan India</span>` : ""}
+                ${
+                  isWalkInJob(job) && !(job.alertBadge || job.alertLabel)
+                    ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>`
+                    : ""
+                }
+                ${
+                  job.alertSheet || job.urgentHiring || (isWalkInJob(job) && (job.alertBadge || job.alertLabel))
+                    ? `<span class="job-badge job-badge--alert${job.urgentHiring ? " job-badge--urgent" : ""}">${escapeHtml(
+                        job.alertBadge || job.alertLabel || "Hiring Alert"
+                      )}</span>`
+                    : ""
+                }
+                ${
+                  /pan[\s-]?india/i.test(String(job.location || "")) ||
+                  /pan[\s-]?india/i.test(String(job.alertLabel || ""))
+                    ? `<span class="job-badge job-badge--pan">Pan India</span>`
+                    : ""
+                }
                 ${job.industry && isKnown(job.industry) ? `<span class="job-status-chip">${escapeHtml(job.industry)}</span>` : ""}
               </div>
             </div>
@@ -1425,7 +1649,11 @@
                   }</a>`
                 : !expired && job.email
                   ? `<a class="btn ${isMassHiring(job) ? "btn-mass-apply" : "btn-primary"}" href="mailto:${escapeAttr(job.email)}">${
-                      isMassHiring(job) ? "📩 Send Resume" : "Email to apply"
+                      isMassHiring(job)
+                        ? "📩 Send Resume"
+                        : isWalkInJob(job)
+                          ? "Fast apply — Email resume"
+                          : "Email to apply"
                     }</a>`
                   : ""
             }

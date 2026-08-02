@@ -1096,9 +1096,16 @@ body.hx.nav-locked {
 }
 
 @media (max-width: 860px) {
+  .hx-hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hx-nav {
     position: fixed;
-    inset: 66px 0.8rem auto;
+    top: calc(4.25rem + env(safe-area-inset-top, 0px));
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: auto;
     flex-direction: column;
     align-items: stretch;
     gap: 0.2rem;

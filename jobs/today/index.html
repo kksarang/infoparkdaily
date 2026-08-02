@@ -3,35 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Infopark Kochi &amp; Kerala Tech Park News | InfoparkDaily</title>
+    <title>Today Interviews · Walk-in Calendar | InfoparkDaily</title>
     <meta
       name="description"
-      content="Latest Infopark Kochi and Kerala tech park news — campus updates, hiring stories, AI City, Metro progress, Technopark coverage, and Infopark Kakkanad events curated by InfoparkDaily."
-    />
-    <meta
-      name="keywords"
-      content="Infopark Kochi news, Kerala tech park news, Infopark Kakkanad updates, Technopark news, Kochi IT news, InfoparkDaily news"
+      content="Walk-in interview calendar for Infopark Kochi, Technopark, and Kerala IT parks. Pick a day to see that day's openings and interview details."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0b0b0f" />
     <meta property="og:site_name" content="InfoparkDaily" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:title" content="Infopark Kochi & Kerala Tech Park News | InfoparkDaily" />
+    <meta property="og:title" content="Today Interviews · Walk-in Calendar | InfoparkDaily" />
     <meta
       property="og:description"
-      content="Campus updates, hiring stories, and Kerala tech park coverage from Infopark Kochi — curated daily."
+      content="Calendar of walk-in interviews across Infopark and Kerala IT parks — select a day for details."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://infoparkdaily.online/news/" />
+    <meta property="og:url" content="https://infoparkdaily.online/jobs/today/" />
     <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Infopark Kochi & Kerala Tech Park News" />
-    <meta
-      name="twitter:description"
-      content="Infopark, Technopark, and Kochi IT news curated by InfoparkDaily."
-    />
-    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
-    <link rel="canonical" href="https://infoparkdaily.online/news/" />
+    <link rel="canonical" href="https://infoparkdaily.online/jobs/today/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -40,7 +29,7 @@
     />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="icon" type="image/png" href="/assets/logo-infoparkdaily.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260802o" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260802x" />
     <script>
       (function () {
         try {
@@ -52,7 +41,7 @@
       })();
     </script>
   </head>
-  <body class="jobs-body news-body dark">
+  <body class="jobs-body today-body dark">
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -62,12 +51,12 @@
           <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
         </div>
       </a>
-    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/services/">Services</a>
         <a href="/build/">Build</a>
-        <a href="/news/" aria-current="page">News</a>
+        <a href="/news/">News</a>
         <a href="/media/">Social</a>
-        <a href="/jobs/">Jobs</a>
+        <a href="/jobs/" aria-current="page">Jobs</a>
         <a href="/contact/">Contact</a>
         <a href="/hexenity/" class="nav-hexenity">Hexenity</a>
       </nav>
@@ -88,47 +77,96 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page news-page">
-      <section class="jobs-hero" aria-labelledby="news-hero-title">
-        <div class="jobs-hero-glow" aria-hidden="true"></div>
-        <div class="jobs-hero-copy">
-          <p class="jobs-kicker">News Desk · Kerala Tech Parks</p>
-          <h1 id="news-hero-title">
-            Tech Park News
-            <span class="jobs-hero-accent">Infopark &amp; Beyond</span>
-          </h1>
-          <p class="jobs-intro">
-            Infopark Phase 3, AI City, Kochi Metro progress, campus events, and Technopark updates —
-            the stories shaping Kerala's tech corridors, curated by InfoparkDaily.
-          </p>
-        </div>
-        <aside class="jobs-hero-panel glass" aria-label="News alerts">
-          <p class="jobs-panel-label">Breaking updates first</p>
-          <div class="media-hero-actions">
-            <a class="btn btn-primary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
-            <a class="btn btn-secondary" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
-          <p class="jobs-panel-note">Community-curated · Verify with official sources</p>
-        </aside>
-      </section>
+    <main id="main-content" class="today-page">
+      <section class="today-stage" aria-labelledby="today-hero-title">
+        <div class="today-stage-glow" aria-hidden="true"></div>
+        <div class="today-stage-grid" aria-hidden="true"></div>
 
-      <section class="content-section news-controls-section" aria-label="News filters">
-        <div id="news-filters" class="jobs-filters news-filters" role="group" aria-label="Filter by category">
-          <button type="button" class="jobs-filter-btn is-active" data-category="all" aria-pressed="true">All news</button>
-        </div>
-      </section>
-
-      <section class="content-section" aria-label="Featured story">
-        <div id="news-featured"></div>
-      </section>
-
-      <section class="content-section" aria-label="Latest stories">
-        <div id="news-grid" class="news-grid"></div>
-        <p id="news-empty" class="jobs-empty glass" hidden>
-          No stories in this category yet — follow our
-          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
-          for instant updates.
+        <p class="today-brand-mark">
+          <img src="/assets/logo-infoparkdaily.png" alt="" width="36" height="36" />
+          <span>INFOPARKDAILY</span>
         </p>
+
+        <div class="today-stage-copy">
+          <p class="today-kicker">Walk-in desk · Kerala IT parks</p>
+          <h1 id="today-hero-title">
+            Today Interviews
+            <span>Pick a day. See who’s hiring on campus.</span>
+          </h1>
+          <p class="today-lede">
+            Live walk-in calendar for Infopark, Technopark, and Cyberpark drives — time, venue, and apply details in one tap.
+          </p>
+          <div class="today-stage-actions">
+            <button type="button" id="today-jump-today" class="btn btn-primary">Jump to today</button>
+            <a class="btn btn-secondary" href="/jobs/">Browse all jobs</a>
+          </div>
+        </div>
+
+        <ul class="today-pulse" aria-label="Calendar snapshot">
+          <li>
+            <strong id="today-stat-today">0</strong>
+            <span>Today</span>
+          </li>
+          <li>
+            <strong id="today-stat-week">0</strong>
+            <span>Next 7 days</span>
+          </li>
+          <li>
+            <strong id="today-stat-month">0</strong>
+            <span>This month</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="today-board" aria-label="Walk-in calendar">
+        <div class="today-week" aria-label="This week">
+          <div class="today-week-head">
+            <h2>This week</h2>
+            <p>Tap a day with a count to jump</p>
+          </div>
+          <div id="today-week-strip" class="today-week-strip"></div>
+        </div>
+
+        <div class="today-layout">
+          <div class="today-cal-panel">
+            <div class="today-cal-toolbar">
+              <button type="button" id="today-prev-month" class="today-cal-nav" aria-label="Previous month">
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div class="today-month-block">
+                <h2 id="today-month-label" class="today-month-label">Calendar</h2>
+                <p id="today-month-sub" class="today-month-sub">Walk-in days marked in amber</p>
+              </div>
+              <button type="button" id="today-next-month" class="today-cal-nav" aria-label="Next month">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <div id="today-calendar" class="today-calendar" role="grid" aria-label="Month calendar"></div>
+            <ul class="today-cal-legend" aria-hidden="true">
+              <li><i class="today-leg today-leg--event"></i> Has walk-ins</li>
+              <li><i class="today-leg today-leg--today"></i> Today</li>
+              <li><i class="today-leg today-leg--selected"></i> Selected</li>
+            </ul>
+          </div>
+
+          <div class="today-day-panel">
+            <header class="today-day-head">
+              <div>
+                <p class="today-day-kicker">Agenda</p>
+                <h2 id="today-day-title" class="today-day-title">—</h2>
+              </div>
+              <p id="today-day-count" class="today-day-count">—</p>
+            </header>
+            <div id="today-day-list" class="today-day-list" aria-live="polite"></div>
+            <div id="today-day-empty" class="today-empty" hidden>
+              <p class="today-empty-title">Quiet day on campus</p>
+              <p>
+                No walk-ins listed for this date. Try another day, or browse
+                <a href="/jobs/">all open jobs</a>.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -162,10 +200,6 @@
             <span>Visit</span>
             Thapasya Rd, Infopark Campus, Kakkanad, Kochi, Kerala
           </p>
-          <p class="footer-contact-item">
-            <span>More</span>
-            <a href="/contact/">Open full contact page →</a>
-          </p>
         </div>
         <div class="contact-map footer-map" aria-label="Infopark location map">
           <iframe
@@ -178,28 +212,22 @@
       </div>
       <nav class="footer-links" aria-label="Social links">
         <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs Instagram</a>
-        <a href="https://www.instagram.com/infoparkdaily.media/" target="_blank" rel="noopener noreferrer">Media Instagram</a>
-        <a href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/" target="_blank" rel="noopener noreferrer">Instagram Broadcast</a>
         <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
-        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
-        <a href="https://www.facebook.com/profile.php?id=61590569168309" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.threads.com/@infoparkdaily?xmt=AQG0aYegSoxHpGC0TH1CGPfl10rG8Z2i_3_m0DlrFvlGbUU" target="_blank" rel="noopener noreferrer">Threads</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/privacy/">Privacy</a>
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Hexenity. All rights reserved.</p>
         <p class="footer-credit">
           Made with <span aria-hidden="true">&#10084;</span>
-          <a href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Hexenity</a> - Digital &amp; Software Solutions Company
+          <a href="https://sarangrajan.in/hexenity" target="_blank" rel="noopener noreferrer">Hexenity</a>
         </p>
       </div>
     </footer>
 
-
-    <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
-    <script src="/js/site.js?v=20260725x" defer></script>
-    <script src="/data/news-data.js?v=20260728m" defer></script>
-    <script src="/js/news.js?v=20260724r" defer></script>
+    <script src="/js/site.js?v=20260725v5" defer></script>
+    <script src="/data/jobs-data.js?v=20260802r" defer></script>
+    <script src="/js/jobs-today.js?v=20260802w" defer></script>
   </body>
 </html>

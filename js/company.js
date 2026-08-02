@@ -156,11 +156,26 @@
     `;
   }
 
-  function vacancyCard(job) {
+  /** Expand each job posting into one card per role (a company can hire for many roles in one post). */
+  function expandRoleVacancies(jobList) {
+    const items = [];
+    (jobList || []).forEach((job) => {
+      const roles = (job.roles || []).map((r) => String(r || "").trim()).filter(Boolean);
+      if (!roles.length) {
+        items.push({ job, role: "Open role" });
+        return;
+      }
+      roles.forEach((role) => items.push({ job, role }));
+    });
+    return items;
+  }
+
+  function vacancyCard(item) {
+    const job = item.job;
+    const role = item.role || "Open role";
     const status = deadlineStatus(job);
     const expired = status === "expired";
     const closing = status === "closing";
-    const role = (job.roles && job.roles[0]) || "Open role";
     const exp = job.experienceRange || job.experienceYears || EXP_LABELS[job.experience] || "";
     const deadline =
       job.applyDeadline === "Rolling"
@@ -199,6 +214,8 @@
     const about = pickAbout(jobs);
     const openJobs = jobs.filter((j) => deadlineStatus(j) !== "expired");
     const expiredJobs = jobs.filter((j) => deadlineStatus(j) === "expired");
+    const openRoles = expandRoleVacancies(openJobs);
+    const expiredRoles = expandRoleVacancies(expiredJobs);
     const mark = initials(about.name);
     const shareJobsUrl = `/jobs/?company=${encodeURIComponent(slug)}`;
 
@@ -207,8 +224,8 @@
     if (desc) {
       desc.setAttribute(
         "content",
-        `${about.name} hiring in ${about.location || "Kerala"} — company overview and ${openJobs.length} open role${
-          openJobs.length === 1 ? "" : "s"
+        `${about.name} hiring in ${about.location || "Kerala"} — company overview and ${openRoles.length} open role${
+          openRoles.length === 1 ? "" : "s"
         } on InfoparkDaily.`
       );
     }
@@ -252,15 +269,15 @@
 
           <div class="company-hero-stats" role="list">
             <div class="company-stat company-stat--open" role="listitem">
-              <strong>${openJobs.length}</strong>
+              <strong>${openRoles.length}</strong>
               <span>Open roles</span>
             </div>
             <div class="company-stat" role="listitem">
-              <strong>${jobs.length}</strong>
-              <span>Total listed</span>
+              <strong>${openRoles.length + expiredRoles.length}</strong>
+              <span>Total roles</span>
             </div>
             <div class="company-stat company-stat--expired" role="listitem">
-              <strong>${expiredJobs.length}</strong>
+              <strong>${expiredRoles.length}</strong>
               <span>Expired</span>
             </div>
           </div>
@@ -297,26 +314,26 @@
               <p class="eyebrow">Vacancies</p>
               <h2 id="company-open-title">Open roles</h2>
             </div>
-            <span class="company-count-pill">${openJobs.length} open</span>
+            <span class="company-count-pill">${openRoles.length} open</span>
           </div>
           ${
-            openJobs.length
-              ? `<div class="company-vacancy-list">${openJobs.map(vacancyCard).join("")}</div>`
+            openRoles.length
+              ? `<div class="company-vacancy-list">${openRoles.map(vacancyCard).join("")}</div>`
               : `<p class="company-empty glass">No open vacancies right now. Check back soon or <a href="/jobs/">browse all jobs</a>.</p>`
           }
         </section>
 
         ${
-          expiredJobs.length
+          expiredRoles.length
             ? `<section class="company-vacancies company-vacancies--expired" aria-labelledby="company-expired-title">
                 <div class="section-heading company-section-head">
                   <div>
                     <p class="eyebrow">Archive</p>
                     <h2 id="company-expired-title">Recently expired</h2>
                   </div>
-                  <span class="company-count-pill company-count-pill--muted">${expiredJobs.length} closed</span>
+                  <span class="company-count-pill company-count-pill--muted">${expiredRoles.length} closed</span>
                 </div>
-                <div class="company-vacancy-list">${expiredJobs.map(vacancyCard).join("")}</div>
+                <div class="company-vacancy-list">${expiredRoles.map(vacancyCard).join("")}</div>
               </section>`
             : ""
         }
@@ -327,8 +344,9 @@
       if (window.IPDAnalytics && typeof window.IPDAnalytics.trackCompanyView === "function") {
         window.IPDAnalytics.trackCompanyView(about.name, {
           company_slug: slug,
-          open_roles: openJobs.length,
-          total_listings: jobs.length
+          open_roles: openRoles.length,
+          total_listings: jobs.length,
+          total_roles: openRoles.length + expiredRoles.length
         });
       }
     } catch (_e) {

@@ -153,10 +153,22 @@ function initials(name) {
     .join("");
 }
 
+function isUpcomingJob(job) {
+  const deadline = String(job.applyDeadline || "").trim();
+  if (!deadline || /^rolling$/i.test(deadline)) return true;
+  const ts = new Date(`${deadline}T00:00:00`).getTime();
+  if (Number.isNaN(ts)) return true;
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  return ts >= today;
+}
+
 function renderFeaturedJobs() {
   if (!featuredJobsGrid || typeof JOBS === "undefined") return;
 
+  // Home: only open / upcoming jobs — never show expired listings.
   const featured = [...JOBS]
+    .filter(isUpcomingJob)
     .sort((a, b) => String(b.postedDate || "").localeCompare(String(a.postedDate || "")))
     .slice(0, 4);
 

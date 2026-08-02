@@ -39,7 +39,7 @@
   const NEW_DAYS = 5;
   const CLOSING_DAYS = 7;
   const STICKY_KEY = "jobsStickyDismissed";
-  const MAX_ROLES_ON_CARD = 3;
+  const MAX_ROLES_ON_CARD = 2;
   const DAY_MS = 24 * 60 * 60 * 1000;
 
   let activeFilter = "all";
@@ -511,8 +511,42 @@
     return `<span class="job-mass-ribbon" aria-label="Mass hiring">🔥 100+ Hiring</span>`;
   }
 
+  function cardToplineHtml(job, mass, expired) {
+    if (!mass || expired) return "";
+    const deadline = deadlinePill(job);
+    return `
+      <div class="job-card-topline">
+        ${massHiringRibbonHtml()}
+        ${deadline}
+      </div>
+    `;
+  }
+
+  /** Card preview: short role title only (full details on job page). */
+  function cardRoleLabel(role) {
+    return String(role || "").split("—")[0].trim();
+  }
+
+  function shortCardText(value, maxLen) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (!text) return "";
+    if (text.length <= maxLen) return text;
+    return `${text.slice(0, Math.max(0, maxLen - 1)).trim()}…`;
+  }
+
+  function cardBlurb(job) {
+    if (isWalkInJob(job)) {
+      const date = walkInDateText(job);
+      const time = job.walkinTime ? String(job.walkinTime).replace(/\s+onwards$/i, "") : "";
+      // Vacancy count is already shown via mass badge / ribbon — don't repeat "100+" in the blurb.
+      const bits = [date ? `Walk-in ${date}` : "Walk-in drive", time].filter(Boolean).join(" · ");
+      return shortCardText(bits, 96);
+    }
+    return shortCardText(job.companyBlurb || job.description || "", 96);
+  }
+
   function rolesListHtml(roles, limit) {
-    const list = roles || [];
+    const list = (roles || []).map(cardRoleLabel).filter(Boolean);
     const shown = typeof limit === "number" ? list.slice(0, limit) : list;
     const extra = typeof limit === "number" ? Math.max(0, list.length - limit) : 0;
     const items = shown.map((role) => `<li>${escapeHtml(role)}</li>`).join("");
@@ -616,11 +650,13 @@
     const companyFoot = job.company
       ? `<a class="job-source job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a>`
       : "";
-    const blurb = job.companyBlurb || job.description
-      ? `<p class="job-desc">${escapeHtml(job.companyBlurb || job.description)}</p>`
-      : "";
+    const previewBlurb = cardBlurb(job);
+    const blurb = previewBlurb ? `<p class="job-desc">${escapeHtml(previewBlurb)}</p>` : "";
     const roleCount = (job.roles || []).length;
-    const walkDate = walkInDateText(job);
+    const modeShort = job.workMode
+      ? String(job.workMode).split("·")[0].trim()
+      : "";
+    const expShort = shortCardText(job.experienceRange || job.experienceYears || "", 22);
 
     const badges = [
       expired
@@ -631,12 +667,15 @@
         ? `<span class="job-badge job-badge--closing">Closing soon</span>`
         : "",
       !expired && isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
-      job.alertSheet ? `<span class="job-badge job-badge--alert">Intern Alert</span>` : "",
-      job.employmentType === "Internship"
-        ? `<span class="job-badge job-badge--intern">Internship</span>`
+      !expired && (job.alertSheet || job.urgentHiring)
+        ? `<span class="job-badge job-badge--alert${job.urgentHiring ? " job-badge--urgent" : ""}">${escapeHtml(
+            shortCardText(job.alertBadge || (job.urgentHiring ? "Hiring Alert" : "Intern Alert"), 18)
+          )}</span>`
         : "",
       `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
-      isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-in Drive</span>` : "",
+      isWalkInJob(job) && !(job.alertSheet || job.urgentHiring)
+        ? `<span class="job-badge job-badge--walkin">Walk-in</span>`
+        : "",
       job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""
     ]
       .filter(Boolean)
@@ -644,8 +683,8 @@
 
     const facts = [
       factChip("Type", job.employmentType || job.workStatus),
-      factChip("Mode", job.workMode ? String(job.workMode).split("(")[0].trim() : ""),
-      factChip("Exp", job.experienceRange || job.experienceYears),
+      factChip("Mode", modeShort),
+      factChip("Exp", expShort),
       factChip("Posted", job.postedDate ? formatDate(job.postedDate) : "")
     ]
       .filter(Boolean)
@@ -656,40 +695,29 @@
       .map((tag) => `<span class="job-tag-pill">${escapeHtml(tag)}</span>`)
       .join("");
 
-    const ctaLabel = expired
-      ? "View expired listing"
-      : mass
-        ? "🚀 Apply Now"
-        : "View Details";
+    const ctaLabel = expired ? "View expired listing" : "View Details";
 
     return `
       <article
-        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}${mass && !expired ? " job-card--mass-hiring" : ""}"
+        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}${mass && !expired ? " job-card--mass-hiring" : ""}${job.urgentHiring && !expired ? " job-card--urgent" : ""}"
         data-experience="${escapeHtml(exp)}"
         style="--delay: ${Math.min(index, 8) * 40}ms"
       >
         <div class="job-card-accent" aria-hidden="true"></div>
-        ${mass && !expired ? massHiringRibbonHtml() : ""}
-        ${
-          isWalkInJob(job) && walkDate
-            ? `<p class="job-walkin-banner">${escapeHtml(walkDate)}</p>`
-            : ""
-        }
+        ${cardToplineHtml(job, mass, expired)}
         <header class="job-card-head">
           ${logoBlock(job)}
           <div class="job-card-meta">
             <h3><a class="job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a></h3>
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
-          ${deadlinePill(job)}
+          ${mass && !expired ? "" : deadlinePill(job)}
         </header>
         <div class="job-card-tags">${badges}</div>
         ${facts ? `<div class="job-fact-row">${facts}</div>` : ""}
         <div class="job-card-body">
           <p class="job-roles-label">${
-            mass && !expired
-              ? `${escapeHtml(vacancyLabel(job) || "100+")} openings`
-              : `${roleCount} open role${roleCount === 1 ? "" : "s"}`
+            roleCount === 1 ? "Open role" : `${roleCount} open roles`
           }</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
           ${blurb}
@@ -699,7 +727,7 @@
           <div class="job-meta-row">
             ${companyFoot}
           </div>
-          <a class="btn ${expired ? "btn-secondary" : mass ? "btn-mass-apply" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
+          <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
             ${ctaLabel}
           </a>
         </footer>
