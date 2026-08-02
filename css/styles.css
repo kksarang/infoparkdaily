@@ -5060,6 +5060,687 @@ html.theme-light body .job-alert-banner-label {
   color: var(--muted);
 }
 
+/* ---------- Recruit / Hiring Portal ---------- */
+.hiring-portal-page,
+.recruit-page {
+  width: var(--container);
+  margin: 0 auto 3rem;
+  padding: 0 0 2rem;
+}
+
+.recruit-hero {
+  position: relative;
+  margin-top: 1.15rem;
+  padding: clamp(2rem, 5vw, 3.4rem) clamp(1.2rem, 4vw, 2.4rem) clamp(1.6rem, 3.5vw, 2.4rem);
+  border-radius: 28px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 42%),
+    linear-gradient(210deg, color-mix(in srgb, var(--violet) 10%, transparent), transparent 48%),
+    var(--surface);
+}
+
+.recruit-hero-glow {
+  position: absolute;
+  inset: auto -12% -40% 35%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(255, 193, 7, 0.18), transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+  animation: recruit-glow-drift 9s ease-in-out infinite alternate;
+}
+
+.recruit-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+  animation: recruit-rise 0.7s ease both;
+}
+
+.recruit-kicker {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.recruit-hero h1 {
+  margin: 0.55rem 0 0.75rem;
+  font-size: clamp(2.15rem, 5.2vw, 3.35rem);
+  letter-spacing: -0.03em;
+}
+
+.recruit-hero-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.recruit-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+  animation: recruit-rise 0.75s ease 0.08s both;
+}
+
+.recruit-flow {
+  list-style: none;
+  margin: 1.85rem 0 0;
+  padding: 0.95rem 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 34rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+  animation: recruit-rise 0.8s ease 0.14s both;
+}
+
+.recruit-flow-step {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.recruit-flow-step:has(.recruit-flow-line) {
+  flex: 1 1 1.5rem;
+  min-width: 1rem;
+  margin: 0 0.45rem;
+}
+
+.recruit-flow-marker {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 11px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: var(--accent-soft);
+}
+
+.recruit-flow-num {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.recruit-flow-label {
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.recruit-flow-line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--accent) 55%, transparent),
+    color-mix(in srgb, var(--line-strong) 80%, transparent)
+  );
+}
+
+.recruit-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.7fr);
+  gap: 1.15rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+
+.recruit-form {
+  position: relative;
+  padding: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  animation: recruit-rise 0.75s ease 0.1s both;
+  box-shadow: var(--shadow-1);
+}
+
+.recruit-form-head {
+  margin: 0;
+  padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.25rem, 3vw, 1.9rem) 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%),
+    color-mix(in srgb, var(--bg-elev) 35%, transparent);
+}
+
+.recruit-form-head-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.recruit-form-kicker {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.recruit-form-badge {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--accent-ink);
+  background: var(--accent);
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+}
+
+.recruit-form-head h2 {
+  margin: 0 0 0.55rem;
+  font-size: clamp(1.55rem, 3.2vw, 2rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+}
+
+.recruit-form-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.recruit-form-body {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1.1rem, 2.8vw, 1.55rem);
+}
+
+.recruit-fieldset {
+  margin: 0;
+  padding: 1.05rem 1.1rem 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--bg) 42%, transparent);
+  min-width: 0;
+}
+
+.recruit-fieldset legend {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 0 1rem;
+  float: none;
+}
+
+.recruit-step-index {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  margin-top: 0.05rem;
+  border-radius: 10px;
+  font-family: var(--display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.recruit-step-copy {
+  display: grid;
+  gap: 0.12rem;
+  min-width: 0;
+}
+
+.recruit-step-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+
+.recruit-step-desc {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.recruit-fieldset-grid {
+  display: grid;
+  gap: 0;
+}
+
+.hiring-fields-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.hiring-field {
+  display: grid;
+  gap: 0.42rem;
+  margin-bottom: 0.9rem;
+}
+
+.hiring-fields-row .hiring-field,
+.recruit-fieldset-grid > .hiring-field:last-child {
+  margin-bottom: 0;
+}
+
+.hiring-field span {
+  font-size: 0.74rem;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hiring-field span em {
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-left: 0.35rem;
+}
+
+.hiring-field input,
+.hiring-field select,
+.hiring-field textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  padding: 0.85rem 1rem;
+  font: inherit;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hiring-field select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.15rem) calc(50% - 0.12rem),
+    calc(100% - 0.85rem) calc(50% - 0.12rem);
+  background-size: 0.35rem 0.35rem, 0.35rem 0.35rem;
+  background-repeat: no-repeat;
+  padding-right: 2.4rem;
+}
+
+.hiring-field input::placeholder,
+.hiring-field textarea::placeholder {
+  color: color-mix(in srgb, var(--muted) 78%, transparent);
+}
+
+.hiring-field input:hover,
+.hiring-field select:hover,
+.hiring-field textarea:hover {
+  border-color: var(--line-strong);
+}
+
+.hiring-field input:focus,
+.hiring-field select:focus,
+.hiring-field textarea:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--accent) 75%, var(--line));
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.hiring-field--details textarea,
+.hiring-field textarea {
+  resize: vertical;
+  min-height: 10rem;
+  line-height: 1.55;
+}
+
+.hiring-form-status {
+  min-height: 1.3rem;
+  margin: 0;
+  padding: 0 clamp(1.25rem, 3vw, 1.9rem);
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+.hiring-form-status.is-error {
+  color: #f87171;
+}
+
+.recruit-form-foot {
+  margin-top: 0.35rem;
+  padding: 1.2rem clamp(1.25rem, 3vw, 1.9rem) 1.4rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 35%, transparent);
+}
+
+.hiring-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0;
+}
+
+.hiring-form-actions .btn {
+  text-decoration: none;
+}
+
+.hiring-form-actions .btn-primary {
+  min-width: 12.5rem;
+  box-shadow: var(--glow-accent);
+}
+
+.hiring-form-note {
+  margin: 0.95rem 0 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+.hiring-form-note a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.hiring-form-note a:hover {
+  text-decoration: underline;
+}
+
+.recruit-rail {
+  display: grid;
+  gap: 0.85rem;
+  position: sticky;
+  top: 5.25rem;
+  animation: recruit-rise 0.8s ease 0.16s both;
+}
+
+.recruit-rail-panel {
+  padding: 1.15rem 1.2rem;
+  border-radius: 20px;
+}
+
+.recruit-rail-panel--soft {
+  border: 1px solid var(--line);
+  background: transparent;
+}
+
+.recruit-rail-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.recruit-rail-panel h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.05rem;
+}
+
+.recruit-rail-panel p {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.recruit-rail-note {
+  margin: 0.85rem 0 0 !important;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.84rem !important;
+}
+
+.recruit-check {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.recruit-check li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.recruit-check li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.recruit-text-link {
+  display: inline-flex;
+  color: var(--accent-strong);
+  font-weight: 650;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.recruit-text-link:hover {
+  text-decoration: underline;
+}
+
+.recruit-rules {
+  margin-top: 1.25rem;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.recruit-rules summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.45rem 1rem;
+  padding: 1.05rem 1.25rem;
+  user-select: none;
+}
+
+.recruit-rules summary::-webkit-details-marker {
+  display: none;
+}
+
+.recruit-rules-title {
+  font-family: var(--display);
+  font-weight: 650;
+  font-size: 1.02rem;
+}
+
+.recruit-rules-hint {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.recruit-rules-body {
+  padding: 0 1.25rem 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.recruit-rules-body p {
+  margin: 1rem 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  max-width: 48rem;
+}
+
+.recruit-rules-body ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  display: grid;
+  gap: 0.45rem;
+  max-width: 48rem;
+}
+
+.recruit-rules-body strong {
+  color: var(--text);
+}
+
+.recruit-page .ipd-disclaimer-mount {
+  margin-top: 1.35rem;
+}
+
+@keyframes recruit-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes recruit-glow-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  to {
+    transform: translate3d(-6%, -8%, 0) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recruit-hero-inner,
+  .recruit-hero-cta,
+  .recruit-flow,
+  .recruit-form,
+  .recruit-rail,
+  .recruit-hero-glow {
+    animation: none !important;
+  }
+}
+
+html.theme-light body .recruit-form,
+html.theme-light body .recruit-rail-panel.glass,
+html.theme-light body .recruit-rules,
+body.light .recruit-form,
+body.light .recruit-rail-panel.glass,
+body.light .recruit-rules {
+  background: #fff;
+}
+
+html.theme-light body .recruit-fieldset,
+body.light .recruit-fieldset {
+  background: color-mix(in srgb, var(--bg) 65%, #fff);
+}
+
+html.theme-light body .recruit-form-head,
+body.light .recruit-form-head {
+  background:
+    linear-gradient(180deg, rgba(255, 179, 0, 0.1), transparent 70%),
+    #fff;
+}
+
+html.theme-light body .recruit-form-foot,
+body.light .recruit-form-foot {
+  background: color-mix(in srgb, var(--bg) 55%, #fff);
+}
+
+html.theme-light body .recruit-hero,
+body.light .recruit-hero {
+  background:
+    linear-gradient(145deg, rgba(255, 179, 0, 0.12), transparent 42%),
+    linear-gradient(210deg, rgba(139, 92, 246, 0.08), transparent 48%),
+    #fff;
+}
+
+@media (max-width: 960px) {
+  .recruit-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .recruit-rail {
+    position: static;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .recruit-flow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.55rem;
+    max-width: none;
+    padding: 0.9rem 1rem;
+  }
+
+  .recruit-flow-step:has(.recruit-flow-line) {
+    flex: none;
+    margin: 0;
+    padding-left: 1rem;
+  }
+
+  .recruit-flow-line {
+    width: 1px;
+    height: 0.85rem;
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent) 55%, transparent),
+      color-mix(in srgb, var(--line-strong) 80%, transparent)
+    );
+  }
+
+  .hiring-fields-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hiring-form-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .recruit-rules summary {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .contact-side {
   position: sticky;
   top: 5.25rem;
