@@ -208,6 +208,43 @@
     return mode.includes("remote") || tags.includes("remote");
   }
 
+  function isNonITJob(job) {
+    const tags = (job.tags || []).map((t) => String(t).toLowerCase());
+    const hay = [
+      ...(job.roles || []),
+      job.industry || "",
+      job.workDetails || "",
+      job.description || ""
+    ]
+      .join(" ")
+      .toLowerCase();
+
+    if (tags.some((t) => t === "non-it" || t === "non it" || t.includes("non-it"))) return true;
+
+    const itTags = new Set(["it", "software", "engineering", "qa", "cloud", "ai", "data", "devops", "development"]);
+    if (tags.some((t) => itTags.has(t))) return false;
+
+    const nonItTags = new Set([
+      "bpo",
+      "support",
+      "admin",
+      "sales",
+      "business",
+      "marketing",
+      "hr",
+      "finance",
+      "operations",
+      "media",
+      "insurance",
+      "training"
+    ]);
+    if (tags.some((t) => nonItTags.has(t))) return true;
+
+    return /\b(telecall|customer support|customer care|voice process|non[- ]?it|hr cum|human resource|accountant|receptionist|data entry|back office|business development|digital marketing|graphic designer|content creator|operations executive)\b/.test(
+      hay
+    );
+  }
+
   function jobRegion(job) {
     const loc = String(job.location || "").toLowerCase();
     if (loc.includes("pan india") || loc.includes("pan-india") || job.alertSheet) return "Pan India";
@@ -233,6 +270,7 @@
     if (activeFilter === "masshiring") return isMassHiring(job);
     if (activeFilter === "walkin") return isWalkInJob(job);
     if (activeFilter === "remote") return isRemoteJob(job);
+    if (activeFilter === "nonit") return isNonITJob(job);
     if (activeFilter === "verified") return Boolean(job.verified);
     if (activeFilter === "internship") {
       const type = employmentType(job);
@@ -354,7 +392,19 @@
       if (statusParam && ["open", "closing", "expired", "all"].includes(statusParam)) {
         activeStatus = statusParam;
       }
-      if (typeParam) activeFilter = typeParam;
+      const knownTypes = [
+        "all",
+        "masshiring",
+        "walkin",
+        "fresher",
+        "remote",
+        "nonit",
+        "experienced",
+        "both",
+        "internship",
+        "verified"
+      ];
+      if (typeParam && knownTypes.includes(typeParam)) activeFilter = typeParam;
       if (tagParam) activeTag = tagParam;
       if (sortParam) {
         sortMode = sortParam;
@@ -765,6 +815,30 @@
     });
   }
 
+  function syncFilterChip(value) {
+    if (!filterBar) return;
+    filterBar.querySelectorAll("[data-filter]").forEach((btn) => {
+      const isActive = btn.dataset.filter === value;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  }
+
+  function updateNonITVisibility() {
+    const hasOpenNonIT = JOBS.some(
+      (job) => isNonITJob(job) && deadlineStatus(job) !== "expired"
+    );
+
+    const filterBtn = filterBar && filterBar.querySelector('[data-filter="nonit"]');
+    if (filterBtn) {
+      filterBtn.hidden = !hasOpenNonIT;
+      if (!hasOpenNonIT && activeFilter === "nonit") {
+        activeFilter = "all";
+        syncFilterChip("all");
+      }
+    }
+  }
+
   function render() {
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
@@ -1091,7 +1165,7 @@
     if (!bar) return;
     bar.addEventListener("click", (event) => {
       const button = event.target.closest(`[data-${attr}]`);
-      if (!button) return;
+      if (!button || button.hidden || button.disabled) return;
       onChange(button.dataset[attr]);
       bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
         const isActive = btn === button;
@@ -1210,6 +1284,7 @@
   buildLocationOptions();
   buildCompanyOptions();
   applyFiltersFromUrl();
+  updateNonITVisibility();
   updateStatusFilterLabels();
   render();
 })();
