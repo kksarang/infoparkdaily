@@ -61,6 +61,7 @@ body.light {
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  scrollbar-gutter: stable;
 }
 
 html,
@@ -8112,16 +8113,19 @@ html.theme-light .svcx-hero-grid {
   .site-header {
     position: fixed;
     top: max(8px, env(safe-area-inset-top, 0px));
-    left: 50%;
-    transform: translateX(-50%);
+    /* Margin-centered — avoid left:50% + translateX (compositor jitter when scroll-lock toggles). */
+    left: 0;
+    right: 0;
+    transform: none;
     width: min(1180px, 94vw);
     margin-top: 0;
+    margin-inline: auto;
     border-radius: 22px;
     gap: 0.45rem;
     padding: 0.5rem 0.6rem;
     justify-content: flex-start;
     z-index: 80;
-    max-height: calc(100dvh - max(16px, env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)));
+    max-height: calc(100svh - max(16px, env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)));
     overflow: hidden;
   }
 
@@ -8170,6 +8174,11 @@ html.theme-light .svcx-hero-grid {
     letter-spacing: 0;
     position: relative;
     overflow: hidden;
+    transform: none;
+  }
+
+  .theme-toggle:hover {
+    transform: none;
   }
 
   .theme-toggle::before {
@@ -8206,7 +8215,8 @@ html.theme-light .svcx-hero-grid {
     padding: 0.55rem 0 0.1rem;
     border-top: 1px solid var(--line);
     margin-top: 0.1rem;
-    max-height: calc(100dvh - 5.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    /* svh avoids mobile browser chrome show/hide resizing the open menu. */
+    max-height: calc(100svh - 5.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;

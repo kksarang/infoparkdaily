@@ -258,7 +258,21 @@ function initMobileNav() {
 
   let lockedScrollY = 0;
 
-  const setOpen = (open) => {
+  const scrollbarGap = () =>
+    Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+
+  const scrollToY = (y) => {
+    // Instant restore — html { scroll-behavior: smooth } would animate this and
+    // make the fixed header look like it is vibrating while the menu closes.
+    try {
+      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    } catch (_error) {
+      window.scrollTo(0, y);
+    }
+  };
+
+  const setOpen = (open, options = {}) => {
+    const { restoreScroll = true, unlock = true } = options;
     const isOpen = Boolean(open);
     header.classList.toggle("nav-open", isOpen);
     backdrop.classList.toggle("is-visible", isOpen);
@@ -268,12 +282,15 @@ function initMobileNav() {
 
     if (isOpen) {
       lockedScrollY = window.scrollY || window.pageYOffset || 0;
+      const gap = scrollbarGap();
       document.body.classList.add("nav-locked");
       document.body.style.top = `-${lockedScrollY}px`;
-    } else if (document.body.classList.contains("nav-locked")) {
+      document.body.style.paddingRight = gap ? `${gap}px` : "";
+    } else if (document.body.classList.contains("nav-locked") && unlock) {
       document.body.classList.remove("nav-locked");
       document.body.style.top = "";
-      window.scrollTo(0, lockedScrollY);
+      document.body.style.paddingRight = "";
+      if (restoreScroll) scrollToY(lockedScrollY);
     }
   };
 
@@ -284,7 +301,49 @@ function initMobileNav() {
   backdrop.addEventListener("click", () => setOpen(false));
 
   nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => setOpen(false));
+    link.addEventListener("click", (event) => {
+      if (!header.classList.contains("nav-open")) return;
+
+      const newTab =
+        link.target === "_blank" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.button === 1;
+
+      if (newTab) {
+        setOpen(false);
+        return;
+      }
+
+      let url;
+      try {
+        url = new URL(link.href, window.location.href);
+      } catch (_error) {
+        setOpen(false);
+        return;
+      }
+
+      const sameDoc =
+        url.origin === window.location.origin &&
+        url.pathname === window.location.pathname &&
+        url.search === window.location.search;
+
+      if (sameDoc && url.hash) {
+        // In-page jump: unlock without restoring old Y (hash target wins).
+        setOpen(false, { restoreScroll: false });
+        return;
+      }
+
+      if (!sameDoc) {
+        // Leaving the page: collapse the menu but keep scroll lock so unlock
+        // + scroll restore cannot race navigation and shake the header.
+        setOpen(false, { unlock: false });
+        return;
+      }
+
+      setOpen(false);
+    });
   });
 
   document.addEventListener("keydown", (event) => {
@@ -293,6 +352,13 @@ function initMobileNav() {
 
   window.addEventListener("resize", () => {
     if (window.innerWidth >= 941) setOpen(false);
+  });
+
+  // bfcache / back-forward: clear a lock left behind by in-flight navigation.
+  window.addEventListener("pageshow", () => {
+    if (document.body.classList.contains("nav-locked")) {
+      setOpen(false);
+    }
   });
 }
 

@@ -15,8 +15,9 @@
     document.body.appendChild(backdrop);
   }
 
-  const setNavOpen = (open) => {
+  const setNavOpen = (open, options = {}) => {
     if (!nav || !toggle) return;
+    const { restoreScroll = true, unlock = true } = options;
     nav.classList.toggle("is-open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
@@ -27,10 +28,16 @@
       lockedScrollY = window.scrollY || window.pageYOffset || 0;
       document.body.classList.add("nav-locked");
       document.body.style.top = `-${lockedScrollY}px`;
-    } else if (document.body.classList.contains("nav-locked")) {
+    } else if (document.body.classList.contains("nav-locked") && unlock) {
       document.body.classList.remove("nav-locked");
       document.body.style.top = "";
-      window.scrollTo(0, lockedScrollY);
+      if (restoreScroll) {
+        try {
+          window.scrollTo({ top: lockedScrollY, left: 0, behavior: "auto" });
+        } catch (_error) {
+          window.scrollTo(0, lockedScrollY);
+        }
+      }
     }
   };
 
@@ -39,7 +46,35 @@
       setNavOpen(!nav.classList.contains("is-open"));
     });
     nav.addEventListener("click", (event) => {
-      if (event.target.closest("a")) setNavOpen(false);
+      const link = event.target.closest("a");
+      if (!link || !nav.classList.contains("is-open")) return;
+      const newTab =
+        link.target === "_blank" ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey;
+      if (newTab) {
+        setNavOpen(false);
+        return;
+      }
+      try {
+        const url = new URL(link.href, window.location.href);
+        const sameDoc =
+          url.origin === window.location.origin &&
+          url.pathname === window.location.pathname &&
+          url.search === window.location.search;
+        if (sameDoc && url.hash) {
+          setNavOpen(false, { restoreScroll: false });
+          return;
+        }
+        if (!sameDoc) {
+          setNavOpen(false, { unlock: false });
+          return;
+        }
+      } catch (_error) {
+        /* fall through */
+      }
+      setNavOpen(false);
     });
     backdrop.addEventListener("click", () => setNavOpen(false));
     document.addEventListener("keydown", (event) => {
@@ -47,6 +82,9 @@
     });
     window.addEventListener("resize", () => {
       if (window.innerWidth > 860) setNavOpen(false);
+    });
+    window.addEventListener("pageshow", () => {
+      if (document.body.classList.contains("nav-locked")) setNavOpen(false);
     });
   }
 
