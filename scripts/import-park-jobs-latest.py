@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 2)
+TODAY = date(2026, 8, 2)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -223,6 +223,10 @@ INFOPARK_ROWS = [
     ("450", "24906", "QA Automation Developer", "iCodeBees Private Limited", "30-07-2026", "07 Aug 2026"),
     ("268", "24905", "Founder's Office Assistant (Career Restart Opportunity)", "Techware Lab Pvt.Ltd.", "30-07-2026", "11 Aug 2026"),
     ("91", "24904", "Senior Business Development Executive – EdTech Sales", "iDatalytics Pvt. Ltd.", "30-07-2026", "30 Aug 2026"),
+    ("95", "24889", "HR Recruiter", "Aabasoft Technologies India Private Limited", "29-07-2026", "29 Aug 2026"),
+    ("36", "24888", "Immediate Opening for Gen AI SSE Position", "Aspire Systems Digital Private Limited", "29-07-2026", "29 Aug 2026"),
+    ("495", "24887", "Full-Stack Developer", "Difinity Digital", "29-07-2026", "15 Aug 2026"),
+    ("378", "24886", "AI Algorithms Support Consultant", "Simelabs - An Astek Company", "29-07-2026", "29 Aug 2026"),
 ]
 
 
