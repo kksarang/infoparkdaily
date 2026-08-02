@@ -30,7 +30,7 @@
       messageLabel: "Campaign brief",
       placeholder: "Brand goals, timeline, content type (reels / hiring promo / launch)…"
     },
-    "Get IT/Software Support (Hexenity)": {
+    "Get IT/Software Support (Enitexa.ai)": {
       showCompany: true,
       messageLabel: "Project needs",
       placeholder: "Website, app, portal, or ops tool — what do you need built or fixed?"
@@ -52,8 +52,9 @@
     startup: "Startup / Build Together",
     job: "Post a Job",
     campaign: "Partner for a Campaign",
-    hexenity: "Get IT/Software Support (Hexenity)",
-    it: "Get IT/Software Support (Hexenity)"
+    hexenity: "Get IT/Software Support (Enitexa.ai)",
+    enitexa: "Get IT/Software Support (Enitexa.ai)",
+    it: "Get IT/Software Support (Enitexa.ai)"
   };
 
   function applyReasonFromQuery() {
