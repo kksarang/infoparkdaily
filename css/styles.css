@@ -1603,6 +1603,32 @@ body.light .about-stage {
   justify-content: center;
 }
 
+.jobs-hero-visual {
+  position: relative;
+  padding: 0.35rem 0.2rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 193, 7, 0.14), transparent 58%),
+    radial-gradient(circle at 70% 20%, rgba(139, 92, 246, 0.12), transparent 50%);
+  border: 0;
+}
+
+.jobs-hero-lottie {
+  width: min(100%, 360px);
+  height: auto;
+  aspect-ratio: 5 / 3;
+  max-height: 260px;
+  filter: drop-shadow(0 18px 36px rgba(20, 18, 10, 0.12));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jobs-hero-lottie {
+    animation: none;
+  }
+}
+
 .jobs-panel-label {
   margin: 0 0 0.5rem;
   font-size: 0.72rem;
@@ -6164,6 +6190,16 @@ body.light .contact-side {
 
   .jobs-hero-panel {
     max-width: none;
+  }
+
+  .jobs-hero-visual {
+    min-height: 180px;
+    max-width: 320px;
+    margin-inline: auto;
+  }
+
+  .jobs-hero-lottie {
+    max-height: 200px;
   }
 
   .jobs-park-cta .btn {
