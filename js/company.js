@@ -36,6 +36,82 @@
       .replace(/^-+|-+$/g, "");
   }
 
+  function isParkPortalUrl(url) {
+    if (!url || !/^https?:\/\//i.test(url)) return true;
+    try {
+      const host = new URL(url).hostname.replace(/^www\./i, "").toLowerCase();
+      if (
+        host === "infopark.in" ||
+        host === "technopark.in" ||
+        host === "cyberparks.in" ||
+        host === "ulcyberpark.com"
+      ) {
+        return true;
+      }
+    } catch (_error) {
+      return true;
+    }
+    return /companies-job|\/job-search|paginated-jobs/i.test(url);
+  }
+
+  // Official employer sites — used when job rows only have a park portal URL.
+  const COMPANY_WEBSITES = {
+    "aabasoft-technologies-india-private-limited": "https://www.aabasoft.com",
+    "alphasky-ventures-pvt-ltd": "https://www.alphasky.in",
+    "apro-it-solutions-pvt-ltd": "https://www.aproit.com",
+    "armia-systems": "https://www.armia.com",
+    "armia-systems-pvt-ltd": "https://www.armia.com",
+    "aspire-systems": "https://www.aspiresys.com",
+    "aspire-systems-digital-private-limited": "https://www.aspiresys.com",
+    "aventus-informatics": "https://www.aventusinformatics.com",
+    "cascade-revenue-management-pvt-ltd": "https://www.cascaderevenue.com",
+    "cubet-techno-labs-pvt-ltd": "https://cubettech.com",
+    "difinity-digital": "https://www.difinitydigital.com",
+    "empress-infotech": "https://www.empressinfotech.com",
+    "eqsoft-business-solutions-pvt-ltd": "https://www.eqsoft.com",
+    "eurolink-technologies": "https://eurolinktechnologies.com/",
+    "experion-technologies": "https://www.experionglobal.com",
+    "fdc-web-technologies-pvt-ltd": "https://www.fdcwebtech.com",
+    "feathersoft-info-solutions-private-ltd": "https://www.feathersoft.com",
+    "fingent-global-solutions": "https://www.fingent.com",
+    "flycatch-infotech-pvt-ltd": "https://www.flycatchtech.com",
+    "global-surf-it-pvt-ltd": "https://www.globalsurfit.com",
+    "icodebees-private-limited": "https://www.icodebees.com",
+    "idatalytics-pvt-ltd": "https://www.idatalytics.com",
+    "inspite-technologies": "https://www.inspitetech.com",
+    "jachoos-technologies-private-limited": "https://www.jachoos.com",
+    "lucidplus-infotech-pvt-ltd": "https://www.lucidplus.com",
+    "mcfadyen-digital": "https://www.mcfadyen.com",
+    "ndimensionz-solutions-pvt-ltd": "https://www.ndimensionz.com",
+    "nesa-software-pvt-ltd": "https://nesasoftware.com",
+    "pcs-india-private-limited": "https://www.pcs-india.com",
+    "roberts-design-services": "https://www.robertsdesignservices.com",
+    "seguro-technologies": "https://www.seguro.in",
+    "simelabs": "https://www.simelabs.com",
+    "simelabs-an-astek-company": "https://www.simelabs.com",
+    "ss-consulting": "https://ssconsulting.co.in",
+    "sutherland": "https://www.sutherlandglobal.com/",
+    "techware-lab-pvt-ltd": "https://www.techwarelab.com",
+    "thomsun-infocare-llp": "https://www.thomsuninfocare.com",
+    "touchworld-technology-llc": "https://touchworldtechnology.com/",
+    "urolime": "https://www.urolime.com",
+    "virtual-sys-technologies": "https://www.virtualsys.in",
+    "webdura-technologies": "https://www.webduratech.com",
+    "white-rabbit-group": "https://www.whiterabbit.group",
+    "ynot-infosolutions": "https://www.ynotinfo.com"
+  };
+
+  function lookupCompanyWebsite(name) {
+    const slug = companySlug(name);
+    if (COMPANY_WEBSITES[slug]) return COMPANY_WEBSITES[slug];
+    const parts = slug.split("-");
+    for (let i = parts.length; i >= 2; i -= 1) {
+      const cand = parts.slice(0, i).join("-");
+      if (COMPANY_WEBSITES[cand]) return COMPANY_WEBSITES[cand];
+    }
+    return "";
+  }
+
   function getCompanySlug() {
     const match = String(window.location.pathname || "").match(/\/company\/([^/]+)\/?$/i);
     if (match && match[1]) return decodeURIComponent(match[1]).toLowerCase();
@@ -129,13 +205,25 @@
       return bLen - aLen;
     });
     const best = ranked[0] || {};
+    const name = best.companyLegalName || best.company || "Company";
+
+    // Prefer a real employer site — never treat park portal URLs as "Company website".
+    let website = "";
+    for (const job of ranked) {
+      if (job.website && !isParkPortalUrl(job.website)) {
+        website = job.website;
+        break;
+      }
+    }
+    if (!website) website = lookupCompanyWebsite(name);
+
     return {
-      name: best.companyLegalName || best.company || "Company",
+      name,
       blurb: best.companyBlurb || best.description || "",
       details: best.companyDetails || "",
       location: best.location || best.address || "",
       industry: best.industry || "",
-      website: best.website || "",
+      website,
       email: best.email || "",
       phone: best.phone || "",
       address: best.address || "",

@@ -261,7 +261,7 @@ def build_infopark() -> list[dict]:
                 "walkInDate": "",
                 "email": "",
                 "phone": "",
-                "website": "https://infopark.in/companies-job",
+                "website": "",
                 "address": "Infopark, Kochi, Kerala",
                 "industry": "Infopark company",
                 "companyDetails": f"{company} — listed on the official Infopark jobs portal.",
