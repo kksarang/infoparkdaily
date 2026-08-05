@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 4)  # bump when re-importing
+TODAY = date(2026, 8, 5)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -203,6 +203,39 @@ def insert_jobs(path: Path, array_name: str, jobs: list[dict]) -> int:
 
 # ---------- Infopark ----------
 INFOPARK_ROWS = [
+    ("90", "24987", "Personal PR Podcast Coordinator (Location: Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "15 Aug 2026"),
+    ("90", "24986", "Accounts & Admin Executive (Location- Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "12 Aug 2026"),
+    ("49", "24985", ".NET Enterprise Solution Architect - 10+years", "Thinkpalm Technologies Pvt.Ltd", "05-08-2026", "28 Aug 2026"),
+    ("194", "24984", "We're Hiring: HR Intern (Talent Acquisition) - HTIC Global -  Kochi", "HTIC Global", "05-08-2026", "14 Aug 2026"),
+    ("194", "24983", "Join Our Growing Sales Team! Walkin Drive- HTIC Global - 8th August 2026", "HTIC Global", "05-08-2026", "7 Aug 2026"),
+    ("209", "24982", "Senior Cyber Security Analytics", "NDimensionZ Solutions Pvt.Ltd.", "05-08-2026", "31 Aug 2026"),
+    ("109", "24981", "Market Research & Business Intelligence Expert", "NewAgeSys Solutions (P) Ltd.", "05-08-2026", "5 Aug 2026"),
+    ("132", "24980", "Executive - Client Service", "Dynamed Healthcare Solutions Pvt.Ltd.", "05-08-2026", "30 Aug 2026"),
+    ("538", "24979", "Design Engineer - Electrical", "Gravity Business Process Private Limited", "05-08-2026", "31 Aug 2026"),
+    ("62", "24978", "Systems Engineer", "VIPoint Solutions Pvt Ltd", "05-08-2026", "30 Sep 2026"),
+    ("363", "24977", "IT Sales/ Business Development Executive (Freshers)", "Jachoos Technologies Private Limited", "05-08-2026", "14 Aug 2026"),
+    ("262", "24976", "Backend Developer / Laravel Developer (Immediate Hiring)", "Ynot Infosolutions", "05-08-2026", "10 Aug 2026"),
+    ("142", "24975", "Customer Experience Associate - International Voice Process", "Speridian Technologies Pvt Ltd", "05-08-2026", "20 Aug 2026"),
+    ("118", "24974", "DevOps Engineer", "UROLIME", "05-08-2026", "21 Aug 2026"),
+    ("118", "24973", "HR Recruiter", "UROLIME", "05-08-2026", "21 Aug 2026"),
+    ("118", "24972", "Solution Architect - DevOps", "UROLIME", "05-08-2026", "21 Aug 2026"),
+    ("118", "24971", "System Engineer", "UROLIME", "05-08-2026", "21 Aug 2026"),
+    ("312", "24970", "Visual Designer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("312", "24969", "Marketing & Growth Lead", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("312", "24968", "Associate - System Engineer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("312", "24967", "Business Development Manager", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("312", "24966", "Associate - QA Engineer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("41", "24965", "IT Service Desk SME", "LucidPlus Infotech Pvt Ltd", "05-08-2026", "31 Aug 2026"),
+    ("41", "24964", "Software Engineer - Card Payment Systems and Card Management Platforms", "LucidPlus Infotech Pvt Ltd", "05-08-2026", "31 Aug 2026"),
+    ("329", "24963", "Infrastructure Engineer", "InApp Information Technologies India Pvt Ltd", "05-08-2026", "5 Aug 2026"),
+    ("102", "24962", "Senior Developer \u2013 Shopify + BigCommerce", "McFadyen Digital", "04-08-2026", "30 Oct 2026"),
+    ("102", "24961", "Full-Stack Tech Lead \u2013 AI Best Practices (AIBP)", "McFadyen Digital", "04-08-2026", "30 Sep 2026"),
+    ("480", "24960", "Business Development Associate (Lead Generation & Customer Outreach)", "CloudHouse Technologies Pvt.Ltd", "04-08-2026", "18 Aug 2026"),
+    ("259", "24959", "Business Analyst", "Thomsun Infocare LLP", "04-08-2026", "10 Aug 2026"),
+    ("530", "24958", "Senior Business Analyst", "Nesa Software Pvt Ltd", "04-08-2026", "10 Aug 2026"),
+    ("109", "24957", "US Recruiter (2-6 Years)", "NewAgeSys Solutions (P) Ltd.", "04-08-2026", "7 Aug 2026"),
+    ("109", "24956", "Junior QA Engineer (1 -2 YEARS Experience)", "NewAgeSys Solutions (P) Ltd.", "04-08-2026", "6 Aug 2026"),
+    ("296", "24954", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "04-08-2026", "5 Aug 2026"),
     ("530", "24930", "Software Trainer", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
     ("530", "24929", "Embedded Trainee", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
     ("530", "24928", "Marketing Intern", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
