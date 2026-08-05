@@ -97,6 +97,117 @@
 
 var JOBS = [
   {
+    id: "aabasoft-banking-executive-collections",
+    company: "Aabasoft",
+    logo: "assets/logos/aabasoft.svg",
+    companyBlurb:
+      "Aabasoft · Banking Executive – Centralised Collections · Freshers preferred · Direct walk-in · No registration · Resume only · Chakolas Heights, near Infopark South Gate",
+    location: "Chittethukara, Kakkanad · Near Infopark South Gate",
+    roles: ["Banking Executive – Centralised Collections"],
+    experience: "fresher",
+    experienceRange: "Freshers preferred",
+    employmentType: "Full-time",
+    applyLink:
+      "mailto:jobs@aabasoft.in?subject=Banking%20Executive%20Centralised%20Collections%20-%20Aabasoft",
+    applyDeadline: "Rolling",
+    postedDate: "2026-08-05",
+    source: "WhatsApp",
+    verified: true,
+    verificationNote:
+      "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Business", "Sales", "BPO"],
+    vacancies: 1,
+    vacancyText: "Open hiring",
+    featured: false,
+    isWalkIn: true,
+    walkin: true,
+    walkInDate: "Direct walk-in · No registration",
+    walkinDates: "Direct walk-in · Come anytime during office hours (confirm on arrival)",
+    walkinTime: "Shift: 9:00 AM – 6:00 PM",
+    walkinLocation:
+      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
+    alertSheet: true,
+    alertLabel: "DIRECT WALK-IN · NO REGISTRATION · RESUME ONLY",
+    alertBadge: "Walk-in",
+    walkinHeadline:
+      "Aabasoft Banking Executive – Centralised Collections · Direct walk-in · No registration · Carry resume only · Chakolas Heights, near Infopark South Gate",
+    urgentHiring: true,
+    email: "jobs@aabasoft.in",
+    phone: "8089002222",
+    website: "https://www.aabasoft.com",
+    address:
+      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    industry: "BPO · Banking Collections",
+    companyDetails:
+      "Aabasoft Technologies India Private Limited is hiring Banking Executive – Centralised Collections at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi.",
+    companyLegalName: "Aabasoft Technologies India Private Limited",
+    workDetails:
+      "Direct walk-in — no registration required. Come directly and attend. Carry resume only. Role: Banking Executive – Centralised Collections. Freshers preferred. Shift 9:00 AM – 6:00 PM. Strong Malayalam communication and telephone convincing skills required. Any degree / Diploma.",
+    workStatus: "Full-time",
+    workMode: "On-site · Direct Walk-in · Kakkanad",
+    experienceYears: "Freshers preferred",
+    qualification: "Any degree / Diploma",
+    skills: [
+      "Malayalam communication",
+      "Telephone collections",
+      "Convincing / persuasion",
+      "Customer handling"
+    ],
+    whoCanApply: [
+      "Freshers preferred",
+      "Any degree or Diploma",
+      "Good communication skills in Malayalam",
+      "Excellent convincing capacity with customers over telephone"
+    ],
+    requirements: [
+      "No registration — walk in directly with your resume",
+      "Good communication skills in Malayalam",
+      "Excellent convincing capacity with customers through telephone calls",
+      "Any degree / Diploma",
+      "Freshers preferred",
+      "Never pay any fee to apply or interview"
+    ],
+    responsibilities: [
+      "Handle centralised banking collections calls",
+      "Speak with customers clearly in Malayalam",
+      "Use strong convincing skills to resolve collections over telephone",
+      "Work the 9:00 AM – 6:00 PM shift"
+    ],
+    benefits: [
+      "Direct walk-in — no online registration",
+      "Freshers welcome",
+      "Venue near Infopark South Gate, Kakkanad"
+    ],
+    applySteps: [
+      "No registration required — come directly to Aabasoft",
+      "Carry your resume only",
+      "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+      "Ask for Banking Executive – Centralised Collections",
+      "Contact: 8089002222 · jobs@aabasoft.in"
+    ],
+    importantNotes: [
+      "No registration required",
+      "Candidates can come directly and attend",
+      "Carry resume only",
+      "Shift time: 9:00 AM – 6:00 PM",
+      "Venue: Chakolas Heights, Seaport-Airport Road, Chittethukara · near Infopark South Gate",
+      "Always verify with Aabasoft before you travel · Never pay for a job"
+    ],
+    documentsRequired: ["Updated resume only (as shared by employer)"],
+    howToApply:
+      "Direct walk-in at Aabasoft — no registration. Come to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037. Carry resume only. Role: Banking Executive – Centralised Collections. Call 8089002222 or email jobs@aabasoft.in. Never pay any fee to apply.",
+    hiringNotes:
+      "Shared via WhatsApp hiring flyer on 5 Aug 2026. Direct walk-in · no registration · resume only. Re-check with Aabasoft before travelling.",
+    description:
+      "Aabasoft Banking Executive – Centralised Collections · Freshers preferred · Malayalam voice · Direct walk-in · No registration · Resume only · Chakolas Heights near Infopark South Gate.",
+    startingDate: "Immediate",
+    seoTitle:
+      "Aabasoft Banking Executive Centralised Collections Walk-in Kochi | InfoparkDaily",
+    seoDescription:
+      "Aabasoft direct walk-in for Banking Executive – Centralised Collections near Infopark South Gate, Kakkanad. Freshers preferred, Malayalam required. No registration — carry resume only. Call 8089002222."
+  },
+  {
     id: "aabasoft-walkin-hiring-aug2026",
     company: "Aabasoft",
     logo: "assets/logos/aabasoft.svg",
