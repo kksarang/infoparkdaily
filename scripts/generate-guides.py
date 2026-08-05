@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CSS_VER = "20260805g"
 SITE_JS = "20260802sa"
 ANALYTICS = "20260730e"
-DISCLAIMER = "20260802r"
+DISCLAIMER = "20260805k"
 
 HEAD = """<!doctype html>
 <html lang="en">
@@ -147,9 +147,14 @@ FOOT = """
 
 NOTICE = """
     <div class="guide-notice">
-      <strong>Disclaimer:</strong> InfoparkDaily is an independent community platform. We are not Infopark Kerala,
-      Technopark, Cyberpark, or any employer. Job details can change after publishing. Always verify openings on
-      official channels before applying, travelling, or sharing documents. Never pay anyone for a job or interview.
+      <strong>Disclaimer:</strong> InfoparkDaily exists to help youngsters and job seekers. Job and hiring data on
+      this site is collected from <strong>outside sources</strong> — public websites, individuals, social media,
+      Infopark / Technopark portals, LinkedIn, and similar channels. We are not Infopark Kerala, Technopark,
+      Cyberpark, or any employer. We <strong>cannot guarantee</strong> that every listing is 100% genuine, original,
+      or still correct. <strong>You must strictly verify</strong> on official channels before applying, travelling,
+      or sharing documents. <strong>Never pay any amount</strong> for a job or interview. If any issue arises after
+      you use community information, InfoparkDaily is <strong>not responsible</strong>. See our
+      <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.
     </div>
 """
 
