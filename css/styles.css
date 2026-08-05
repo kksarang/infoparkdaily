@@ -3800,6 +3800,8 @@ body.light .job-verify-note {
   border-radius: 12px;
   border: 1px solid var(--line);
   background: var(--bg-elev);
+  min-width: 0;
+  overflow: visible;
 }
 
 .job-quick-fact span {
@@ -3815,6 +3817,8 @@ body.light .job-verify-note {
   font-weight: 650;
   line-height: 1.35;
   word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .job-detail-layout--premium .job-panel h2 {
@@ -4598,10 +4602,6 @@ body.light .job-hero-walkin-callout {
   max-width: 100%;
   overflow-wrap: anywhere;
   word-break: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .job-sheet-block {
@@ -5188,7 +5188,6 @@ html.theme-light body .job-alert-banner-label {
   }
 
   .job-sheet-fact-value {
-    -webkit-line-clamp: 5;
     font-size: 0.98rem;
   }
 
