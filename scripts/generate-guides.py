@@ -154,9 +154,6 @@ NOTICE = """
 
 
 def wrap(path: str, title: str, description: str, og_title: str, body: str, *, index: bool = False) -> str:
-    nav = ' aria-current="page"' if path.rstrip("/").endswith("guides") or index else ""
-    if path.count("/") >= 3 and not index:
-        nav = ' aria-current="page"'
     return (
         HEAD.format(
             title=title,
@@ -165,7 +162,6 @@ def wrap(path: str, title: str, description: str, og_title: str, body: str, *, i
             og_title=og_title,
             og_type="website" if index else "article",
             css_ver=CSS_VER,
-            nav_current=nav,
         )
         + body
         + FOOT.format(analytics=ANALYTICS, site_js=SITE_JS, disclaimer=DISCLAIMER)
