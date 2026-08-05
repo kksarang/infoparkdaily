@@ -6836,6 +6836,24 @@ body.light .onam-hero-powered strong {
   line-height: 1.6;
 }
 
+.about-us-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+
+.contact-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.site-header .brand-tagline {
+  display: none;
+}
+
 .about-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

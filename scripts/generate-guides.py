@@ -61,14 +61,12 @@ HEAD = """<!doctype html>
         <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
         <div>
           <p class="brand-name">INFOPARKDAILY</p>
-          <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
         </div>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/recruit/">Recruit</a>
         <a href="/jobs/">Jobs</a>
         <a href="/news/">News</a>
-        <a href="/guides/"{nav_current}>Guides</a>
         <a href="/services/">Services</a>
         <a href="/media/">About Us</a>
         <a href="/contact/">Contact</a>
