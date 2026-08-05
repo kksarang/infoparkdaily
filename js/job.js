@@ -865,7 +865,7 @@
     const url = window.location.href;
     const text = `${job.company} is hiring${job.location ? ` in ${job.location}` : ""} — via InfoparkDaily`;
     return `
-      <section class="job-panel glass">
+      <section class="job-panel job-share-panel glass">
         <h2>Share this opening</h2>
         <div class="job-share-actions">
           <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${text}\n${url}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>

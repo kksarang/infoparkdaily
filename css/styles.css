@@ -4150,13 +4150,41 @@ body.light .job-map-open {
 }
 
 /* Share */
+.job-share-panel {
+  padding: 0.75rem 0.9rem;
+}
+
+.job-share-panel h2 {
+  margin-bottom: 0.45rem;
+  font-size: 0.98rem;
+}
+
 .job-share-actions {
   display: grid;
-  gap: 0.55rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
 }
 
 .job-share-actions .btn {
   width: 100%;
+  min-height: 42px;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 520px) {
+  .job-share-panel {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .job-share-actions {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .job-share-actions .btn {
+    min-height: 44px;
+  }
 }
 
 /* Related openings */
@@ -4769,7 +4797,12 @@ button.job-city-filter.is-active {
     min-height: 48px;
   }
 
-  .job-share-actions .btn,
+  .job-share-actions .btn {
+    width: 100%;
+    min-height: 42px;
+    justify-content: center;
+  }
+
   .job-detail-hero-actions .btn {
     width: 100%;
     min-height: 48px;
@@ -5193,7 +5226,8 @@ html.theme-light body .job-alert-banner-label {
   }
 
   .job-share-actions {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
   }
 
   .job-breadcrumb {
