@@ -1062,7 +1062,7 @@
         )}</p>
         <h2>${escapeHtml(
           isWalkInJob(job)
-            ? `${job.company} — Wednesday walk-in hiring drive`
+            ? `${job.company} — walk-in hiring drive${walkDate ? ` · ${walkDate}` : ""}`
             : multiRole
               ? `${job.company} — ${openRoles.length} open positions`
               : `${openRoles[0] || "Role"} — full hiring sheet`
