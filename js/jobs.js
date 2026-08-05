@@ -618,31 +618,31 @@
   function renderFeaturedCard(job) {
     const exp = job.experience || "both";
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
-    const role = (job.roles || [])[0] || "Hiring";
+    const role = shortCardText(cardRoleLabel((job.roles || [])[0] || "Hiring"), 52);
     const walkDate = walkInDateText(job);
     const openings = vacancyLabel(job) || "100+";
     return `
       <article class="job-featured-card">
+        <span class="job-featured-flag">🔥 MASS HIRING</span>
         <header class="job-featured-head">
           ${logoBlock(job, "job-logo-wrap--lg")}
           <div class="job-featured-meta">
             <p class="job-featured-company">${escapeHtml(job.company || "")}</p>
             <h3 class="job-featured-role">${escapeHtml(role)}</h3>
-            <p class="job-featured-location">${escapeHtml(job.location || "")}</p>
+            <p class="job-featured-location">${escapeHtml(shortCardText(job.location || "", 48))}</p>
           </div>
-          <span class="job-featured-flag">🔥 MASS HIRING</span>
         </header>
         <ul class="job-featured-facts">
           ${
             job.industry
-              ? `<li><span>Industry</span><strong>${escapeHtml(job.industry)}</strong></li>`
+              ? `<li><span>Industry</span><strong>${escapeHtml(shortCardText(job.industry, 36))}</strong></li>`
               : ""
           }
-          <li><span>Experience</span><strong>${escapeHtml(job.experienceRange || job.experienceYears || badgeLabel)}</strong></li>
+          <li><span>Experience</span><strong>${escapeHtml(shortCardText(job.experienceRange || job.experienceYears || badgeLabel, 28))}</strong></li>
           <li><span>Openings</span><strong>${escapeHtml(openings)} Openings</strong></li>
           ${
             isWalkInJob(job)
-              ? `<li><span>Walk-in</span><strong>${escapeHtml(walkDate || "Available")}</strong></li>`
+              ? `<li><span>Walk-in</span><strong>${escapeHtml(shortCardText(walkDate || "Available", 28))}</strong></li>`
               : ""
           }
         </ul>

@@ -130,7 +130,7 @@ var JOBS = [
     tags: ["Business", "IT"],
     vacancies: 12,
     vacancyText: "12 open roles",
-    featured: true,
+    featured: false,
     isWalkIn: true,
     walkin: true,
     walkInDate: "Saturday, 8 August 2026",
