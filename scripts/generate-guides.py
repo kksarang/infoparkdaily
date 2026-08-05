@@ -6,7 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CSS_VER = "20260805g"
+CSS_VER = "20260805l"
 SITE_JS = "20260802sa"
 ANALYTICS = "20260730e"
 DISCLAIMER = "20260805k"
@@ -191,7 +191,7 @@ def article(
         sections_html = sections_html + "\n    " + mid
     return f"""
 <main id="main-content" class="guides-page">
-  <article class="guide-article glass">
+  <header class="guide-top glass">
     <nav class="guide-breadcrumb" aria-label="Breadcrumb">
       <a href="/guides/">Guides</a>
       <span aria-hidden="true">/</span>
@@ -201,26 +201,53 @@ def article(
     <h1>{h1}</h1>
     <p class="guide-meta">Updated {updated} · {read} · By InfoparkDaily editorial</p>
     <p class="guide-lead">{lead}</p>
-
-    <aside class="ipd-ad-slot" data-ad-slot="guide-top" hidden aria-hidden="true"></aside>
-
-    {sections_html}
-
-    {NOTICE}
-
-    <div class="guide-cta-row">
+    <div class="guide-cta-row guide-cta-row--top">
       <a class="btn btn-primary" href="/jobs/">Browse open jobs</a>
       <a class="btn btn-secondary" href="/guides/">All guides</a>
-      <a class="btn btn-secondary" href="/recruit/">Recruit</a>
     </div>
+  </header>
 
-    <nav class="guide-more" aria-label="More guides">
-      <h2>More career guides</h2>
-      <ul>
-        {more_links}
-      </ul>
-    </nav>
-  </article>
+  <div class="guide-layout">
+    <article class="guide-article glass">
+      <aside class="ipd-ad-slot" data-ad-slot="guide-top" hidden aria-hidden="true"></aside>
+      <div class="guide-prose">
+        {sections_html}
+      </div>
+      {NOTICE}
+      <div class="guide-cta-row">
+        <a class="btn btn-primary" href="/jobs/">Browse open jobs</a>
+        <a class="btn btn-secondary" href="/guides/">All guides</a>
+        <a class="btn btn-secondary" href="/recruit/">Recruit</a>
+      </div>
+    </article>
+
+    <aside class="guide-rail" aria-label="Guide shortcuts">
+      <div class="guide-rail-card glass">
+        <p class="guide-rail-kicker">Keep exploring</p>
+        <h2>More career guides</h2>
+        <ul class="guide-rail-links">
+          {more_links}
+        </ul>
+      </div>
+      <div class="guide-rail-card glass">
+        <p class="guide-rail-kicker">Safety first</p>
+        <h2>Before you apply</h2>
+        <p>Verify the company on official channels. Never pay for a job or interview. InfoparkDaily is not the employer.</p>
+        <div class="guide-cta-row">
+          <a class="btn btn-secondary" href="/guides/verify-jobs-before-you-apply/">Safety guide</a>
+          <a class="btn btn-ghost" href="/terms/">Terms</a>
+        </div>
+      </div>
+      <div class="guide-rail-card glass">
+        <p class="guide-rail-kicker">Hiring digest</p>
+        <h2>Open roles</h2>
+        <p>Browse Infopark, Technopark, and Cyberpark openings — then confirm on the official portal.</p>
+        <div class="guide-cta-row">
+          <a class="btn btn-primary" href="/jobs/">View Jobs</a>
+        </div>
+      </div>
+    </aside>
+  </div>
 </main>
 """
 
@@ -230,15 +257,30 @@ PAGES: list[tuple[str, str]] = []
 # --- Index ---
 index_body = """
 <main id="main-content" class="guides-page guides-index">
-  <section class="guide-hero glass">
-    <p class="eyebrow">Career guides · Kerala IT parks</p>
-    <h1>Guides for Infopark, Technopark &amp; Kochi tech careers</h1>
-    <p class="guide-lead">
-      Original, practical articles from InfoparkDaily — how to apply safely, prepare as a fresher, handle walk-ins,
-      and verify openings before you share documents. These guides are written for Kerala IT park candidates and
-      recruiters who want clarity, not spam.
-    </p>
-    <p class="guide-meta">Last updated 5 August 2026 · Independent community content</p>
+  <section class="guide-top guide-hero glass">
+    <div class="guide-hero-copy">
+      <p class="eyebrow">Career guides · Kerala IT parks</p>
+      <h1>Guides for Infopark, Technopark &amp; Kochi tech careers</h1>
+      <p class="guide-lead">
+        Original, practical articles from InfoparkDaily — how to apply safely, prepare as a fresher, handle walk-ins,
+        and verify openings before you share documents. Written for Kerala IT park candidates who want clarity, not spam.
+      </p>
+      <p class="guide-meta">Last updated 5 August 2026 · Independent community content</p>
+      <div class="guide-cta-row">
+        <a class="btn btn-primary" href="/jobs/">Browse open jobs</a>
+        <a class="btn btn-secondary" href="/guides/verify-jobs-before-you-apply/">Safety guide</a>
+      </div>
+    </div>
+    <aside class="guide-hero-panel glass" aria-label="Quick links">
+      <p class="guide-rail-kicker">Start here</p>
+      <ul class="guide-rail-links">
+        <li><a href="/guides/how-to-apply-infopark-technopark-jobs/">How to apply</a></li>
+        <li><a href="/guides/fresher-guide-kochi-it-parks/">Fresher guide</a></li>
+        <li><a href="/guides/walk-in-interview-tips-infopark/">Walk-in tips</a></li>
+        <li><a href="/guides/kerala-it-hiring-this-week/">Hiring this week</a></li>
+        <li><a href="/guides/verify-jobs-before-you-apply/">Verify before you apply</a></li>
+      </ul>
+    </aside>
   </section>
 
   <aside class="ipd-ad-slot" data-ad-slot="guides-index" hidden aria-hidden="true"></aside>
