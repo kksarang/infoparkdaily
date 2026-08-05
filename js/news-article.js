@@ -163,53 +163,86 @@
         <a href="/news/">← Tech Park News</a>
       </nav>
 
-      <article class="news-article glass">
-        <header class="news-article-head">
-          <div class="news-meta">
-            <span class="news-cat">${escapeHtml(article.category || "News")}</span>
-            <span class="news-park">${escapeHtml(article.park || "")}</span>
-            <span class="news-date">${escapeHtml(formatDate(article.date))}</span>
+      <header class="news-story-top glass">
+        <div class="news-meta">
+          <span class="news-cat">${escapeHtml(article.category || "News")}</span>
+          <span class="news-park">${escapeHtml(article.park || "")}</span>
+          <span class="news-date">${escapeHtml(formatDate(article.date))}</span>
+        </div>
+        <h1>${escapeHtml(article.title)}</h1>
+        <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
+        <div class="news-story-top-actions">
+          <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
+          <button type="button" class="btn btn-ghost" id="news-copy-link-top">Copy link</button>
+          <a class="btn btn-ghost" href="/guides/">Career Guides</a>
+        </div>
+      </header>
+
+      <div class="news-story-layout">
+        <article class="news-article glass">
+          <aside class="ipd-ad-slot" data-ad-slot="news-after-headline" hidden aria-hidden="true"></aside>
+          <figure class="news-article-media">
+            <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
+            ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
+          </figure>
+          ${highlights}
+          <div class="news-article-body">${body}</div>
+          <aside class="ipd-ad-slot" data-ad-slot="news-end" hidden aria-hidden="true"></aside>
+          <footer class="news-article-foot">
+            <p class="news-source">
+              <strong>Source:</strong> ${escapeHtml(article.source || "InfoparkDaily desk")}
+              ${article.sourceUrl ? ` · <a href="${escapeAttr(article.sourceUrl)}" target="_blank" rel="noopener noreferrer">Original announcement</a>` : ""}
+            </p>
+            <div class="job-share-actions news-share-actions">
+              <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
+              <button type="button" class="btn btn-ghost" id="news-copy-link">Copy link</button>
+            </div>
+          </footer>
+        </article>
+
+        <aside class="news-story-rail" aria-label="Story shortcuts">
+          <div class="news-rail-card glass">
+            <p class="news-rail-kicker">Career guides</p>
+            <h2>Related help</h2>
+            <ul class="news-rail-links">
+              <li><a href="/guides/how-to-apply-infopark-technopark-jobs/">How to apply</a></li>
+              <li><a href="/guides/verify-jobs-before-you-apply/">Verify before you apply</a></li>
+              <li><a href="/guides/kerala-it-hiring-this-week/">Hiring this week</a></li>
+              <li><a href="/jobs/">Browse open jobs</a></li>
+            </ul>
           </div>
-          <h1>${escapeHtml(article.title)}</h1>
-          <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
-        </header>
-        <aside class="ipd-ad-slot" data-ad-slot="news-after-headline" hidden aria-hidden="true"></aside>
-        <figure class="news-article-media">
-          <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
-          ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
-        </figure>
-        ${highlights}
-        <div class="news-article-body">${body}</div>
-        <aside class="ipd-ad-slot" data-ad-slot="news-end" hidden aria-hidden="true"></aside>
-        <footer class="news-article-foot">
-          <p class="news-source">
-            <strong>Source:</strong> ${escapeHtml(article.source || "InfoparkDaily desk")}
-            ${article.sourceUrl ? ` · <a href="${escapeAttr(article.sourceUrl)}" target="_blank" rel="noopener noreferrer">Original announcement</a>` : ""}
-          </p>
-          <div class="job-share-actions news-share-actions">
-            <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
-            <button type="button" class="btn btn-ghost" id="news-copy-link">Copy link</button>
+          <div class="news-rail-card glass">
+            <p class="news-rail-kicker">Community note</p>
+            <h2>Not the employer</h2>
+            <p>InfoparkDaily is an independent community page. Always verify news and jobs on official channels. Never pay for an interview.</p>
+            <div class="news-share-actions">
+              <a class="btn btn-ghost" href="/terms/">Terms</a>
+              <a class="btn btn-ghost" href="/contact/">Contact</a>
+            </div>
           </div>
-        </footer>
-      </article>
+        </aside>
+      </div>
 
       ${attachments}
       ${guidesRelatedBlock()}
       ${relatedBlock(article)}
 `;
 
-    const copyBtn = document.getElementById("news-copy-link");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          copyBtn.textContent = "Link copied!";
-          setTimeout(() => (copyBtn.textContent = "Copy link"), 2000);
-        } catch (_e) {
-          copyBtn.textContent = window.location.href;
-        }
-      });
+    async function copyLink(btn) {
+      if (!btn) return;
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        btn.textContent = "Link copied!";
+        setTimeout(() => (btn.textContent = "Copy link"), 2000);
+      } catch (_e) {
+        btn.textContent = window.location.href;
+      }
     }
+
+    const copyBtn = document.getElementById("news-copy-link");
+    const copyBtnTop = document.getElementById("news-copy-link-top");
+    if (copyBtn) copyBtn.addEventListener("click", () => copyLink(copyBtn));
+    if (copyBtnTop) copyBtnTop.addEventListener("click", () => copyLink(copyBtnTop));
   }
 
   const id = getId();
