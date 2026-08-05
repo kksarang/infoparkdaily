@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CSS_VER = "20260805m"
 SITE_JS = "20260802sa"
 ANALYTICS = "20260730e"
-DISCLAIMER = "20260805k"
+DISCLAIMER = "20260805n"
 
 HEAD = """<!doctype html>
 <html lang="en">
