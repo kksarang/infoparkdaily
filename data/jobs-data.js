@@ -97,6 +97,128 @@
 
 var JOBS = [
   {
+    id: "aabasoft-walkin-hiring-aug2026",
+    company: "Aabasoft",
+    logo: "assets/logos/aabasoft.svg",
+    companyBlurb:
+      "Aabasoft · Direct walk-in · No registration · Resume only · Chakolas Heights, near Infopark South Gate · Banking drive Mon 10 Aug 2026",
+    location: "Chittethukara, Kakkanad · Near Infopark South Gate",
+    roles: [
+      "Banking Executive – Centralised Collections · Freshers preferred",
+      "Business Development Executive · Malayalam / Tamil / Hindi voice",
+      "Technical Support Executive · ISP troubleshooting & networking",
+      "Team Lead · Tele Sales / Finance (1+ year)"
+    ],
+    experience: "both",
+    experienceRange: "Freshers to 1+ years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "mailto:jobs@aabasoft.in?subject=Walk-in%20Application%20-%20Aabasoft",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-08-05",
+    source: "WhatsApp",
+    verified: true,
+    verificationNote:
+      "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Sales", "Business", "Support", "BPO"],
+    vacancies: 4,
+    vacancyText: "4 open roles",
+    featured: false,
+    isWalkIn: true,
+    walkin: true,
+    walkInDate: "Monday, 10 August 2026 (Banking Executive drive) · Direct walk-in for all listed roles",
+    walkinDates: "Monday, 10 August 2026 · Direct walk-in ongoing",
+    walkinTime: "Banking drive: 9:00 AM – 5:00 PM · Other roles: office hours (confirm on arrival)",
+    walkinLocation:
+      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
+    workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
+    alertSheet: true,
+    alertLabel: "DIRECT WALK-IN · NO REGISTRATION · RESUME ONLY",
+    alertBadge: "Walk-in",
+    walkinHeadline:
+      "Aabasoft direct walk-in hiring · No registration · Come directly · Carry resume only · Chakolas Heights, near Infopark South Gate · Banking Executive drive Monday, 10 August 2026, 9:00 AM – 5:00 PM",
+    urgentHiring: true,
+    email: "jobs@aabasoft.in",
+    phone: "8089009751 / 8089002222",
+    website: "https://www.aabasoft.com",
+    address:
+      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    industry: "IT / BPO · Sales & Support",
+    companyDetails:
+      "Aabasoft Technologies India Private Limited is hiring at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi. Roles span Banking Collections, Business Development, Technical Support, and Team Lead.",
+    companyLegalName: "Aabasoft Technologies India Private Limited",
+    workDetails:
+      "Direct walk-in — no registration required. Candidates can come directly and attend. Carry resume only. Banking Executive – Centralised Collections walk-in drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM. Other listed roles also accept direct walk-in at the same venue.",
+    workStatus: "Full-time",
+    workMode: "On-site · Direct Walk-in · Kakkanad",
+    experienceYears: "Freshers to 1+ years (role-wise)",
+    qualification: "Any degree / Diploma (role-wise) · Graduate preferred for Team Lead",
+    skills: [
+      "Malayalam communication",
+      "Telecalling / telesales",
+      "Convincing & negotiation",
+      "ISP troubleshooting",
+      "Networking",
+      "Team leadership",
+      "MS Excel",
+      "CRM"
+    ],
+    whoCanApply: [
+      "Banking Executive – Centralised Collections · Freshers preferred · Any degree / Diploma · Strong Malayalam + phone convincing skills",
+      "Business Development Executive · Graduate / Undergraduate · 0–1 year telecalling / telesales preferred · Malayalam / Tamil / Hindi · Banking / finance / loans / credit cards / insurance experience preferred",
+      "Technical Support Executive · Fluent Malayalam · Ready for 9-hour shifts · ISP troubleshooting & networking",
+      "Team Lead · Graduate preferred · Min 1 year as Team Leader or Senior Executive in Tele Sales / Finance · Outbound calling team experience · Excel & CRM"
+    ],
+    requirements: [
+      "No registration — walk in directly with your resume",
+      "Good communication / convincing skills for voice roles (Malayalam required for several openings; Tamil or Hindi also accepted for one BDE track)",
+      "Immediate joining preferred for Business Development roles",
+      "Technical Support: readiness for 9-hour shifts and ISP / networking work",
+      "Team Lead: minimum 1 year leading outbound Tele Sales / Finance teams",
+      "Never pay any fee to apply or interview"
+    ],
+    responsibilities: [
+      "Banking Executive – Centralised Collections: Customer contact and collections over phone; strong Malayalam communication and convincing skills; shift 9:00 AM – 6:00 PM; freshers preferred",
+      "Business Development Executive: Telecalling / telesales; convince customers over telephone; languages Malayalam (and Tamil / Hindi for the multi-language track); shift typically 9:00 AM – 6:00 PM; immediate joining preferred",
+      "Technical Support Executive: ISP troubleshooting and networking support; fluent Malayalam; available shifts include 8 AM–5 PM, 9 AM–6 PM, 12 PM–9 PM, 1 PM–10 PM, 3 PM–12 AM",
+      "Team Lead: Lead outbound calling teams in Tele Sales / Finance; coach and manage people; reporting, MS Excel, and CRM"
+    ],
+    benefits: [
+      "Direct walk-in — no online registration",
+      "Multiple open roles at one venue near Infopark South Gate",
+      "Freshers welcome for Banking Collections and entry BDE tracks"
+    ],
+    applySteps: [
+      "No registration required — come directly to Aabasoft",
+      "Carry your resume only",
+      "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
+      "Banking Executive drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM",
+      "Mention the role you want (Banking Executive / BDE / Technical Support / Team Lead)",
+      "Contact: 8089009751 or 8089002222 · jobs@aabasoft.in"
+    ],
+    importantNotes: [
+      "No registration required",
+      "Candidates can come directly and attend",
+      "Carry resume only",
+      "Banking Executive – Centralised Collections walk-in: Monday, 10 August 2026, 9:00 AM – 5:00 PM",
+      "Venue: Chakolas Heights, Seaport-Airport Road, Chittethukara · near Infopark South Gate",
+      "Always verify with Aabasoft before you travel · Never pay for a job"
+    ],
+    documentsRequired: [
+      "Updated resume only (as shared by employer)"
+    ],
+    howToApply:
+      "Direct walk-in at Aabasoft — no registration. Come to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate). Carry resume only. Banking Executive drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM. Other roles also accept direct walk-in. Call 8089009751 / 8089002222 or email jobs@aabasoft.in. Never pay any fee to apply.",
+    hiringNotes:
+      "Shared via WhatsApp hiring flyers on 5 Aug 2026. Direct walk-in · no registration · resume only. Banking Executive drive dated 10 Aug 2026. Re-check with Aabasoft before travelling.",
+    description:
+      "Aabasoft direct walk-in · No registration · Resume only · Banking / BDE / Technical Support / Team Lead · Chakolas Heights near Infopark South Gate · Banking drive 10 Aug 2026.",
+    startingDate: "Immediate",
+    seoTitle:
+      "Aabasoft Walk-in Hiring Kochi | Banking BDE Tech Support Team Lead | InfoparkDaily",
+    seoDescription:
+      "Aabasoft direct walk-in near Infopark South Gate, Kakkanad. No registration — carry resume only. Roles: Banking Executive Collections (drive 10 Aug 2026), Business Development Executive, Technical Support Executive, Team Lead."
+  },
+  {
     id: "cognizant-ioa-walkin-aug8-2026",
     company: "Cognizant",
     logo: "assets/logos/cognizant.svg",
