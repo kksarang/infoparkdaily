@@ -12672,17 +12672,17 @@ body.guides-body {
 .jobs-guide-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.9rem;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
 }
 
 .jobs-guide-links a {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
-  padding: 0.55rem 0.9rem;
-  min-height: 40px;
+  padding: 0.4rem 0.75rem;
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
@@ -12799,9 +12799,24 @@ body.guides-body {
 
   .guide-cta-row,
   .about-us-actions,
-  .contact-hero-actions,
-  .jobs-guide-links {
+  .contact-hero-actions {
     gap: 0.5rem;
+  }
+
+  .jobs-guide-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+  }
+
+  .jobs-guide-links a {
+    width: auto;
+    min-height: 34px;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.74rem;
+    justify-content: center;
+    text-align: center;
   }
 
   .guide-cta-row .btn,
@@ -12833,11 +12848,6 @@ body.guides-body {
   .about-us-actions .btn,
   .contact-hero-actions .btn {
     width: 100%;
-  }
-
-  .jobs-guide-links a {
-    width: 100%;
-    justify-content: center;
   }
 }
 
