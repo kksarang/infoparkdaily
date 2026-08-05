@@ -6850,10 +6850,6 @@ body.light .onam-hero-powered strong {
   margin-top: 1rem;
 }
 
-.site-header .brand-tagline {
-  display: none;
-}
-
 .about-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
