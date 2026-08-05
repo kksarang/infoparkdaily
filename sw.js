@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v143";
+const CACHE_NAME = "infoparkdaily-v146";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -6,6 +6,12 @@ const PRELOAD_ASSETS = [
   "./technopark-jobs/",
   "./infopark-jobs/",
   "./cyberpark-jobs/",
+  "./guides/",
+  "./guides/how-to-apply-infopark-technopark-jobs/",
+  "./guides/fresher-guide-kochi-it-parks/",
+  "./guides/walk-in-interview-tips-infopark/",
+  "./guides/kerala-it-hiring-this-week/",
+  "./guides/verify-jobs-before-you-apply/",
   "./job.html",
   "./company.html",
   "./404.html",
@@ -22,11 +28,12 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260802sd",
+  "./css/styles.css?v=20260805h",
   "./css/onam.css?v=20260802m",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260802r",
   "./js/site.js?v=20260802sa",
+  "./js/ads.js?v=20260805a"",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
   "./data/jobs-data.js?v=20260804b",
@@ -44,9 +51,9 @@ const PRELOAD_ASSETS = [
   "./data/media-data.js?v=20260724g",
   "./js/media.js?v=20260724g",
   "./assets/media/onam-bg.svg",
-  "./data/news-data.js?v=20260728m",
+  "./data/news-data.js?v=20260805a",
   "./js/news.js?v=20260724r",
-  "./js/news-article.js?v=20260724r",
+  "./js/news-article.js?v=20260805h",
   "./manifest.webmanifest",
   "./assets/logo-infoparkdaily.png"
 ];

@@ -6836,6 +6836,44 @@ body.light .onam-hero-powered strong {
   line-height: 1.6;
 }
 
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1.5rem 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-fact {
+  padding: 1.15rem 1.2rem 1.25rem;
+  border-radius: var(--radius);
+}
+
+.about-fact h3 {
+  margin: 0 0 0.55rem;
+  font-family: var(--display);
+  font-size: 1.1rem;
+}
+
+.about-fact p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.about-fact a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .about-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
 .about-journey {
   list-style: none;
   margin: 1.85rem 0 0;
@@ -11811,5 +11849,267 @@ body.light .today-week-day.has-events {
 
   .today-day-title {
     font-size: 1.02rem;
+  }
+}
+
+/* ---------- Career Guides (AdSense content) ---------- */
+.guides-page {
+  width: var(--container);
+  margin: 1.25rem auto 3rem;
+  max-width: 100%;
+}
+
+.guide-hero,
+.guide-article,
+.guide-index-note {
+  border-radius: var(--radius);
+  padding: clamp(1.35rem, 3.2vw, 2.4rem);
+}
+
+.guide-article {
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.guide-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: 0 0 1rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.guide-breadcrumb a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.guide-breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.guide-meta {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.guide-lead {
+  margin: 1.1rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 40rem;
+}
+
+.guide-article h2 {
+  margin: 2rem 0 0.7rem;
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+}
+
+.guide-article p,
+.guide-index-note p {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.guide-article ul {
+  margin: 0.85rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.guide-article li + li {
+  margin-top: 0.35rem;
+}
+
+.guide-article a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.guide-article code {
+  font-size: 0.9em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  background: var(--surface-2);
+}
+
+.guide-notice {
+  margin-top: 2rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.guide-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.4rem;
+}
+
+.guide-more {
+  margin-top: 2.2rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.guide-more h2 {
+  margin-top: 0;
+}
+
+.guide-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+.guide-card {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.2rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.guide-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.guide-card-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.guide-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.guide-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.guide-card-meta {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.guide-index-note {
+  margin-top: 1.2rem;
+}
+
+.guide-index-note h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Reserved AdSense slots — hidden until account approved / ads enabled */
+.ipd-ad-slot[hidden] {
+  display: none !important;
+}
+
+.ipd-ad-slot:not([hidden]) {
+  display: grid;
+  place-items: center;
+  min-height: 90px;
+  margin: 1.4rem 0;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--line);
+  background: var(--surface);
+}
+
+.home-guides {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.home-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.home-guides-grid a {
+  text-decoration: none;
+  color: inherit;
+  padding: 1.05rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease;
+}
+
+.home-guides-grid a:hover {
+  border-color: var(--accent);
+}
+
+.home-guides-grid strong {
+  font-family: var(--display);
+  font-size: 1rem;
+}
+
+.home-guides-grid span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.jobs-guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.jobs-guide-links a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.jobs-guide-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .guide-card-grid,
+  .home-guides-grid {
+    grid-template-columns: 1fr;
   }
 }

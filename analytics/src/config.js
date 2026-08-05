@@ -23,8 +23,13 @@ export const config = Object.freeze({
   gtmId: "",
   gaMeasurementId: "G-PWD80WZ7Q2",
   clarityId: "xtwgj04rm6",
-  /** Google AdSense publisher client (ca-pub-…) */
+  /**
+   * Google AdSense publisher client (ca-pub-…)
+   * Keep meta/script for site review. Display units are gated in /js/ads.js
+   * (IPD_ADSENSE.displayAds) until Google approves the account.
+   */
   adsenseClientId: "ca-pub-4593359890362954",
+  /** Load adsbygoogle.js via analytics when consent allows (review + post-approval). */
   adsenseEnabled: true,
 
   clarityEnabled: true,

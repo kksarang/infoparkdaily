@@ -43,6 +43,73 @@
 
 var NEWS = [
   {
+    id: "infoparkdaily-career-guides-launch-2026",
+    title: "InfoparkDaily launches career guides for Infopark & Technopark job seekers",
+    category: "Community",
+    park: "Kerala",
+    date: "2026-08-05",
+    image: "/assets/news/milestone.svg",
+    imageAlt: "Illustration representing career milestones for Kerala IT park job seekers",
+    summary:
+      "New original guides cover how to apply, fresher prep, walk-ins, weekly hiring insights, and how to verify jobs before you share documents — written for Kerala IT park candidates.",
+    body: [
+      "InfoparkDaily has published a new Career Guides section for people hunting roles across Infopark Kochi, Technopark Trivandrum, and Cyberpark. The guides are original explainers — not scrapes of job cards — and they sit alongside our daily openings digest.",
+      "The first set answers the questions we hear most often in the community: how to apply through park portals without missing deadlines, what fresher-friendly hiring usually means in Kochi, how to handle Infopark walk-ins, what hiring themes look like this week, and how to spot fee scams before you travel or share ID proofs.",
+      "Each guide includes practical process advice, internal links to Jobs and Recruit, and a clear note that InfoparkDaily is not the employer. Candidates should always confirm roles on the official Infopark, Technopark, or company careers page before applying.",
+      "You can start at the Guides hub, then jump into How to apply, the Fresher guide, Walk-in tips, Kerala IT hiring this week, or Verify jobs before you apply. We will keep updating the weekly hiring editorial as public portal patterns shift.",
+      "If you are a company contact with an authorised opening, share it through Recruit. If you are a candidate, browse open jobs and use the guides as a checklist — not as a paid placement service. InfoparkDaily never charges applicants a fee to apply."
+    ],
+    highlights: [
+      "Five original career guides live on /guides/",
+      "Covers apply process, freshers, walk-ins, weekly hiring, and safety",
+      "InfoparkDaily is independent — not the park authority or employer",
+      "Companies can submit roles via /recruit/"
+    ],
+    attachments: [
+      { label: "Career Guides", url: "https://infoparkdaily.online/guides/" },
+      { label: "How to apply", url: "https://infoparkdaily.online/guides/how-to-apply-infopark-technopark-jobs/" },
+      { label: "Browse jobs", url: "https://infoparkdaily.online/jobs/" },
+      { label: "Recruit", url: "https://infoparkdaily.online/recruit/" }
+    ],
+    source: "InfoparkDaily editorial",
+    sourceUrl: "https://infoparkdaily.online/guides/",
+    featured: true
+  },
+  {
+    id: "verify-infopark-job-posts-before-you-apply-2026",
+    title: "Fake Infopark job posts are rising — verify before you apply or pay anyone",
+    category: "Business",
+    park: "Infopark Kochi",
+    date: "2026-08-05",
+    image: "/assets/news/govco.svg",
+    imageAlt: "Abstract graphic about checking official channels before applying to jobs",
+    summary:
+      "As Kerala IT park hiring stays busy, scam chats often copy real company names. Here is InfoparkDaily’s short explainer on what to check before you share documents or travel for a walk-in.",
+    body: [
+      "Busy hiring weeks around Infopark Kochi and Technopark usually bring more genuine openings — and more fake “HR” messages. Scammers reuse company logos, claim urgent joining bonuses, and ask for UPI payments or OTPs. InfoparkDaily does not charge candidates to apply, and neither do legitimate park employers through random personal chats.",
+      "Before you share a resume with sensitive IDs attached, match the company name to the Infopark or Technopark jobs portal or the employer’s official website. Confirm the role title, last date to apply, and the apply method on that official page. If the only “proof” is a forwarded WhatsApp image with no park reference and no company domain, pause.",
+      "Never pay for an interview slot, offer letter, training bond cash demand, or “Infopark entry fee.” Call a phone number published on the company site — not a number that appears only inside a suspicious chat. For walk-ins, re-check the building and time window the same morning.",
+      "We published a fuller checklist in Verify jobs before you apply, plus process help in How to apply for Infopark and Technopark jobs. Use our Jobs digest to discover openings, then complete the apply step on official channels.",
+      "If something already went wrong — you paid or shared OTPs — stop further transfers, save chat and payment evidence, and report through cybercrime channels as appropriate. You can also flag suspicious posts to us via Contact so we can warn the community."
+    ],
+    highlights: [
+      "Never pay to apply or to “confirm” an Infopark interview",
+      "Match company + role on official park or careers pages",
+      "Re-check walk-in venue the same morning",
+      "Full checklist: /guides/verify-jobs-before-you-apply/"
+    ],
+    attachments: [
+      { label: "Verify jobs before you apply", url: "https://infoparkdaily.online/guides/verify-jobs-before-you-apply/" },
+      { label: "How to apply", url: "https://infoparkdaily.online/guides/how-to-apply-infopark-technopark-jobs/" },
+      { label: "Open jobs", url: "https://infoparkdaily.online/jobs/" },
+      { label: "Contact InfoparkDaily", url: "https://infoparkdaily.online/contact/" },
+      { label: "Infopark jobs portal", url: "https://infopark.in/companies-job" }
+    ],
+    source: "InfoparkDaily editorial",
+    sourceUrl: "https://infoparkdaily.online/guides/verify-jobs-before-you-apply/",
+    featured: false
+  },
+  {
     id: "aarathi-panikkar-arch-rally-2026",
     title: "Aarathi Panikkar finishes 2nd in Women’s Category at ARCH Rally 2026",
     category: "Community",

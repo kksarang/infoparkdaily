@@ -87,6 +87,31 @@
     `;
   }
 
+  function guidesRelatedBlock() {
+    return `
+      <section class="content-section home-guides" aria-labelledby="article-guides-title">
+        <div class="section-heading">
+          <p class="eyebrow">Related guides</p>
+          <h2 id="article-guides-title">Career guides for Kerala IT parks</h2>
+        </div>
+        <div class="home-guides-grid">
+          <a href="/guides/how-to-apply-infopark-technopark-jobs/">
+            <strong>How to apply</strong>
+            <span>Safe apply process for Infopark &amp; Technopark roles.</span>
+          </a>
+          <a href="/guides/verify-jobs-before-you-apply/">
+            <strong>Verify before you apply</strong>
+            <span>Avoid fee scams and fake walk-in posts.</span>
+          </a>
+          <a href="/guides/kerala-it-hiring-this-week/">
+            <strong>Hiring this week</strong>
+            <span>Weekly editorial on Kerala IT park hiring.</span>
+          </a>
+        </div>
+      </section>
+    `;
+  }
+
   function renderArticle(article) {
     document.title = `${article.title} | InfoparkDaily News`;
     const desc = document.querySelector('meta[name="description"]');
@@ -148,12 +173,14 @@
           <h1>${escapeHtml(article.title)}</h1>
           <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
         </header>
+        <aside class="ipd-ad-slot" data-ad-slot="news-after-headline" hidden aria-hidden="true"></aside>
         <figure class="news-article-media">
           <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
           ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
         </figure>
         ${highlights}
         <div class="news-article-body">${body}</div>
+        <aside class="ipd-ad-slot" data-ad-slot="news-end" hidden aria-hidden="true"></aside>
         <footer class="news-article-foot">
           <p class="news-source">
             <strong>Source:</strong> ${escapeHtml(article.source || "InfoparkDaily desk")}
@@ -167,6 +194,7 @@
       </article>
 
       ${attachments}
+      ${guidesRelatedBlock()}
       ${relatedBlock(article)}
 `;
 
