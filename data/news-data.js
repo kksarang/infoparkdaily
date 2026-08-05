@@ -232,7 +232,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily community announcement",
     sourceUrl: "https://infoparkdaily.online/news/",
-    featured: true
+    featured: false
   },
   {
     id: "naviq-technology-inauguration",

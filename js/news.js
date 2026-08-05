@@ -61,6 +61,14 @@
     `;
   }
 
+  function clipText(value, max) {
+    const text = String(value || "").replace(/\s+/g, " ").trim();
+    if (text.length <= max) return text;
+    const cut = text.slice(0, max - 1);
+    const safer = cut.replace(/\s+\S*$/, "");
+    return `${safer || cut}…`;
+  }
+
   function renderFeatured(item) {
     if (!featuredWrap) return;
     if (!item) {
@@ -74,8 +82,8 @@
         </div>
         <div class="news-featured-copy">
           <p class="eyebrow">Top story</p>
-          <h2>${escapeHtml(item.title)}</h2>
-          <p class="news-summary">${escapeHtml(item.summary || "")}</p>
+          <h2>${escapeHtml(clipText(item.title, 90))}</h2>
+          <p class="news-summary">${escapeHtml(clipText(item.summary, 160))}</p>
           ${metaRow(item)}
           <span class="btn btn-primary news-read-btn">Read full story</span>
         </div>
@@ -90,8 +98,8 @@
           <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-card-body">
-          <h3>${escapeHtml(item.title)}</h3>
-          <p class="news-summary">${escapeHtml(item.summary || "")}</p>
+          <h3>${escapeHtml(clipText(item.title, 78))}</h3>
+          <p class="news-summary">${escapeHtml(clipText(item.summary, 120))}</p>
           ${metaRow(item)}
           <span class="news-card-cta">Read story →</span>
         </div>
