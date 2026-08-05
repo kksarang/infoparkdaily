@@ -33,7 +33,7 @@ const PRELOAD_ASSETS = [
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260802r",
   "./js/site.js?v=20260802sa",
-  "./js/ads.js?v=20260805a"",
+  "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
   "./data/jobs-data.js?v=20260804b",
