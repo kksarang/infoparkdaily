@@ -482,12 +482,6 @@
       const sink = expiredWeight(a) - expiredWeight(b);
       if (sink !== 0) return sink;
 
-      // Keep high-volume hiring near the top for default newest browsing.
-      if (sortMode === "newest") {
-        const massDelta = Number(isMassHiring(b)) - Number(isMassHiring(a));
-        if (massDelta !== 0) return massDelta;
-      }
-
       if (sortMode === "deadline") {
         return deadlineSortValue(a) - deadlineSortValue(b);
       }
@@ -505,7 +499,10 @@
       if (sortMode === "roles") {
         return (b.roles || []).length - (a.roles || []).length;
       }
-      return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+      // Default / newest: Date of Posting, newest first
+      const byPosted = String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+      if (byPosted !== 0) return byPosted;
+      return String(a.company || "").localeCompare(String(b.company || ""));
     });
 
     return list;
