@@ -1147,7 +1147,7 @@
       : "";
     const locationsHtml = canFilterCities
       ? `
-            <p class="job-sheet-note" style="margin-top:0;margin-bottom:0.65rem">Tap a city to show only that city’s roles.</p>
+            <p class="job-sheet-note" style="margin-top:0;margin-bottom:0.65rem">Tap a city to show only that city’s roles below.</p>
             ${locationFilterChips(locations, cityVenues)}
             ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
             <p class="job-sheet-note" data-city-venue-note data-default-venue="${escapeAttr(
@@ -1278,13 +1278,13 @@
             : ""
         }
 
+        ${sheetSection(nextNum(), locationTitle, locationsHtml)}
+
         ${sheetSection(
           nextNum(),
           multiRole ? `All open positions (${openRoles.length})` : "Open position",
           openRolesHtml
         )}
-
-        ${sheetSection(nextNum(), locationTitle, locationsHtml)}
 
         ${sheetSection(nextNum(), "Who can apply?", listBlock(who))}
 
