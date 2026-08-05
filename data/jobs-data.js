@@ -128,7 +128,7 @@ var JOBS = [
       "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
     workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
     alertSheet: true,
-    alertLabel: "DIRECT WALK-IN · NO REGISTRATION · RESUME ONLY",
+    alertLabel: "WALK-IN · NO REGISTRATION · RESUME ONLY",
     alertBadge: "Walk-in",
     walkinHeadline:
       "Aabasoft Banking Executive – Centralised Collections · Direct walk-in · No registration · Carry resume only · Chakolas Heights, near Infopark South Gate",
@@ -243,7 +243,7 @@ var JOBS = [
       "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
     workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
     alertSheet: true,
-    alertLabel: "DIRECT WALK-IN · NO REGISTRATION · RESUME ONLY",
+    alertLabel: "WALK-IN · NO REGISTRATION · RESUME ONLY",
     alertBadge: "Walk-in",
     walkinHeadline:
       "Aabasoft direct walk-in hiring · No registration · Come directly · Carry resume only · Chakolas Heights, near Infopark South Gate · Banking Executive drive Monday, 10 August 2026, 9:00 AM – 5:00 PM",
@@ -262,7 +262,7 @@ var JOBS = [
     workStatus: "Full-time",
     workMode: "On-site · Direct Walk-in · Kakkanad",
     experienceYears: "Freshers to 1+ years (role-wise)",
-    qualification: "Any degree / Diploma (role-wise) · Graduate preferred for Team Lead",
+    qualification: "Any degree / Diploma · Graduate preferred for Team Lead",
     skills: [
       "Malayalam communication",
       "Telecalling / telesales",

@@ -4457,6 +4457,28 @@ body.light .job-map-open {
   flex: 1 1 auto;
 }
 
+.job-detail-hero-copy .jobs-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  overflow-wrap: anywhere;
+}
+
+.job-detail-hero-copy .job-location,
+.job-detail-hero-copy .job-hero-qual,
+.job-detail-hero-copy .job-hero-exp,
+.job-detail-hero-copy .job-hero-company,
+.job-detail-hero-copy .job-legal-aka {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+}
+
 .job-detail-hero-copy .job-card-tags {
   max-width: 100%;
 }
@@ -4807,6 +4829,49 @@ button.job-city-filter.is-active {
     width: 100%;
     min-height: 48px;
     justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .job-detail-hero {
+    padding: 1.05rem 0.9rem 1.15rem;
+    border-radius: 20px;
+  }
+
+  .job-detail-hero-main {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.75rem 0.85rem;
+  }
+
+  .job-detail-hero-copy .jobs-kicker {
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    gap: 0.35rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .job-hero-title {
+    font-size: clamp(1.28rem, 6.5vw, 1.7rem);
+  }
+
+  .job-detail-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .job-detail-hero-actions .btn {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .job-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .job-detail-hero-copy .job-badge,
+  .job-detail-hero-copy .job-status-chip,
+  .job-detail-hero-copy .job-deadline-pill {
+    font-size: 0.72rem;
   }
 }
 
