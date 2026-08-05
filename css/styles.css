@@ -5461,6 +5461,14 @@ html.theme-light body .job-alert-banner-label {
   max-width: 34rem;
 }
 
+.recruit-field-hint {
+  margin: 0.35rem 0 0;
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
 .recruit-form-body {
   display: grid;
   gap: 0.9rem;

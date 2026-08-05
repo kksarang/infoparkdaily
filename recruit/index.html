@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260805m" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260805r" />
     <script>
       (function () {
         try {
@@ -87,8 +87,8 @@
           <p class="recruit-kicker">InfoparkDaily · Recruit</p>
           <h1 id="hiring-hero-title">Add a Recruit request</h1>
           <p class="recruit-hero-lead">
-            For companies and HR teams only. Share a real opening — we verify first, then it can go live on Jobs
-            for candidates.
+            For companies and HR teams only. Share a real opening with your official email, HR/company phone, and
+            website — we verify first, then it can go live on Jobs for candidates.
           </p>
           <div class="recruit-hero-cta">
             <a class="btn btn-primary" href="#hiring-form">Add a Recruit request</a>
@@ -135,8 +135,8 @@
               <legend>
                 <span class="recruit-step-index" aria-hidden="true">1</span>
                 <span class="recruit-step-copy">
-                  <span class="recruit-step-title">Your contact</span>
-                  <span class="recruit-step-desc">How we reach you about this request</span>
+                  <span class="recruit-step-title">Your contact · verification</span>
+                  <span class="recruit-step-desc">We use these to verify you are HR / company staff</span>
                 </span>
               </legend>
               <div class="recruit-fieldset-grid">
@@ -146,17 +146,45 @@
                     <input id="hp-name" name="name" type="text" autocomplete="name" required placeholder="HR / contact person" />
                   </label>
                   <label class="hiring-field">
-                    <span>Email or phone</span>
+                    <span>Your designation</span>
                     <input
-                      id="hp-channel"
-                      name="channel"
+                      id="hp-designation"
+                      name="designation"
                       type="text"
-                      autocomplete="email"
                       required
-                      placeholder="you@company.com or +91…"
+                      placeholder="HR Manager / Recruiter / Founder…"
                     />
                   </label>
                 </div>
+                <div class="hiring-fields-row">
+                  <label class="hiring-field">
+                    <span>Official work email</span>
+                    <input
+                      id="hp-channel"
+                      name="channel"
+                      type="email"
+                      autocomplete="email"
+                      required
+                      placeholder="you@company.com"
+                    />
+                  </label>
+                  <label class="hiring-field">
+                    <span>HR / company phone <em>for verification</em></span>
+                    <input
+                      id="hp-phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      required
+                      inputmode="tel"
+                      placeholder="+91 9XXXXXXXXX"
+                    />
+                  </label>
+                </div>
+                <p class="recruit-field-hint">
+                  Phone is required so InfoparkDaily can call/WhatsApp to verify this opening before it goes on Jobs.
+                  Prefer a company landline or official HR mobile.
+                </p>
               </div>
             </fieldset>
 
@@ -165,7 +193,7 @@
                 <span class="recruit-step-index" aria-hidden="true">2</span>
                 <span class="recruit-step-copy">
                   <span class="recruit-step-title">Company</span>
-                  <span class="recruit-step-desc">Where the role is based</span>
+                  <span class="recruit-step-desc">Where the role is based — needed for verification</span>
                 </span>
               </legend>
               <div class="recruit-fieldset-grid">
@@ -175,10 +203,42 @@
                     <input id="hp-company" name="company" type="text" required placeholder="Company hiring" />
                   </label>
                   <label class="hiring-field">
-                    <span>Office location</span>
+                    <span>Office / park location</span>
                     <input id="hp-location" name="location" type="text" required placeholder="Infopark Kochi / Technopark TVM…" />
                   </label>
                 </div>
+                <div class="hiring-fields-row">
+                  <label class="hiring-field">
+                    <span>Company website</span>
+                    <input
+                      id="hp-website"
+                      name="website"
+                      type="url"
+                      required
+                      placeholder="https://www.company.com"
+                    />
+                  </label>
+                  <label class="hiring-field">
+                    <span>Company LinkedIn <em>optional</em></span>
+                    <input
+                      id="hp-linkedin"
+                      name="linkedin"
+                      type="url"
+                      placeholder="https://www.linkedin.com/company/…"
+                    />
+                  </label>
+                </div>
+                <label class="hiring-field">
+                  <span>IT park</span>
+                  <select id="hp-park" name="park" required>
+                    <option value="">Select park / campus</option>
+                    <option value="Infopark Kochi">Infopark Kochi</option>
+                    <option value="Technopark TVM">Technopark Trivandrum</option>
+                    <option value="Cyberpark Kozhikode">Cyberpark Kozhikode</option>
+                    <option value="Other Kerala">Other Kerala location</option>
+                    <option value="Remote / Hybrid">Remote / Hybrid</option>
+                  </select>
+                </label>
               </div>
             </fieldset>
 
@@ -295,13 +355,14 @@
             <p class="recruit-rail-kicker">Before you send</p>
             <h2>What we need</h2>
             <ul class="recruit-check">
-              <li>Company &amp; office location</li>
-              <li>Role, vacancies &amp; job type</li>
-              <li>Apply email or phone</li>
-              <li>Deadline or rolling + walk-in if any</li>
+              <li>HR / company phone for verification</li>
+              <li>Official work email &amp; designation</li>
+              <li>Company website + park location</li>
+              <li>Role, vacancies, apply contact &amp; deadline</li>
             </ul>
             <p class="recruit-rail-note">
-              Incomplete or unverifiable requests are not published. We may ask for an official careers link.
+              Incomplete or unverifiable requests are not published. We may call the HR number you share before
+              listing on Jobs.
             </p>
           </div>
 
@@ -330,7 +391,7 @@
             not a recruitment agency. Submitting here does <strong>not</strong> auto-publish on Jobs.
           </p>
           <ul>
-            <li><strong>Verify first</strong> — we check company, role, and contacts before publishing.</li>
+            <li><strong>Verify first</strong> — we check company, role, HR phone, and contacts before publishing.</li>
             <li><strong>Fake requests</strong> — incomplete, misleading, or unverifiable openings are not listed.</li>
             <li><strong>Truthful only</strong> — share only real openings you are authorised to post.</li>
             <li><strong>Never pay</strong> — no candidate or “listing” fees via InfoparkDaily.</li>
@@ -413,6 +474,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260802sa" defer></script>
     <script src="/js/disclaimer.js?v=20260805n" defer></script>
-    <script src="/js/hiring-portal.js?v=20260802rq" defer></script>
+    <script src="/js/hiring-portal.js?v=20260805r" defer></script>
   </body>
 </html>

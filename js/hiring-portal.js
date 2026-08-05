@@ -5,6 +5,7 @@
   const form = document.getElementById("hiring-form");
   const statusEl = document.getElementById("hiring-form-status");
   const channelEl = document.getElementById("hp-channel");
+  const phoneEl = document.getElementById("hp-phone");
   const applyEl = document.getElementById("hp-apply");
   const deadlineEl = document.getElementById("hp-deadline");
   const rollingEl = document.getElementById("hp-deadline-rolling");
@@ -108,6 +109,31 @@
     return digits.length >= 10 && digits.length <= 15;
   }
 
+  function validateEmail(value, emptyMessage) {
+    const raw = String(value || "").trim();
+    if (!raw) {
+      return { ok: false, message: emptyMessage || "Please enter an official work email." };
+    }
+    if (!isValidEmail(raw)) {
+      return { ok: false, message: "Please enter a valid email address (example: you@company.com)." };
+    }
+    return { ok: true, message: "" };
+  }
+
+  function validatePhone(value, emptyMessage) {
+    const raw = String(value || "").trim();
+    if (!raw) {
+      return { ok: false, message: emptyMessage || "Please enter an HR / company phone number." };
+    }
+    if (!isValidPhone(raw)) {
+      return {
+        ok: false,
+        message: "Please enter a valid phone number with at least 10 digits (for verification)."
+      };
+    }
+    return { ok: true, message: "" };
+  }
+
   function validateContact(value, emptyMessage) {
     const raw = String(value || "").trim();
     if (!raw) {
@@ -131,11 +157,11 @@
     return { ok: true, message: "" };
   }
 
-  function bindContactField(el, emptyMessage) {
+  function bindValidator(el, validateFn) {
     if (!el) return function () { return true; };
 
     function apply() {
-      const result = validateContact(el.value, emptyMessage);
+      const result = validateFn(el.value);
       el.setCustomValidity(result.ok ? "" : result.message);
       return result.ok;
     }
@@ -143,7 +169,7 @@
     el.addEventListener("input", apply);
     el.addEventListener("blur", function () {
       apply();
-      if (!validateContact(el.value, emptyMessage).ok && String(el.value || "").trim()) {
+      if (!validateFn(el.value).ok && String(el.value || "").trim()) {
         el.reportValidity();
       }
     });
@@ -151,42 +177,84 @@
     return apply;
   }
 
-  const applyChannelValidity = bindContactField(
-    channelEl,
-    "Please enter your email or phone number."
-  );
-  const applyApplyValidity = bindContactField(
-    applyEl,
-    "Please enter the apply email or phone for candidates."
-  );
+  const applyChannelValidity = bindValidator(channelEl, function (v) {
+    return validateEmail(v, "Please enter your official work email.");
+  });
+  const applyPhoneValidity = bindValidator(phoneEl, function (v) {
+    return validatePhone(v, "Please enter HR / company phone for verification.");
+  });
+  const applyApplyValidity = bindValidator(applyEl, function (v) {
+    return validateContact(v, "Please enter the apply email or phone for candidates.");
+  });
 
-  function validateApplyLink() {
-    const raw = val("hp-apply-link");
-    if (!raw) return { ok: true, message: "" };
+  function validateUrlField(raw, required, emptyMessage, invalidMessage) {
+    const value = String(raw || "").trim();
+    if (!value) {
+      if (required) return { ok: false, message: emptyMessage || "This URL is required." };
+      return { ok: true, message: "" };
+    }
     try {
-      const url = new URL(raw);
+      const url = new URL(value);
       if (url.protocol !== "http:" && url.protocol !== "https:") {
-        return { ok: false, message: "Careers link must start with http:// or https://" };
+        return { ok: false, message: invalidMessage || "Link must start with http:// or https://" };
       }
       return { ok: true, message: "" };
     } catch (_e) {
-      return { ok: false, message: "Please enter a valid careers / apply URL." };
+      return { ok: false, message: invalidMessage || "Please enter a valid URL." };
     }
+  }
+
+  function applyWebsiteValidity() {
+    const el = document.getElementById("hp-website");
+    if (!el) return true;
+    const result = validateUrlField(
+      el.value,
+      true,
+      "Please enter the company website for verification.",
+      "Please enter a valid company website URL (https://…)."
+    );
+    el.setCustomValidity(result.ok ? "" : result.message);
+    return result.ok;
   }
 
   function applyLinkValidity() {
     const linkEl = document.getElementById("hp-apply-link");
     if (!linkEl) return true;
-    const result = validateApplyLink();
+    const result = validateUrlField(
+      linkEl.value,
+      false,
+      "",
+      "Please enter a valid careers / apply URL."
+    );
     linkEl.setCustomValidity(result.ok ? "" : result.message);
     return result.ok;
   }
 
-  const applyLinkEl = document.getElementById("hp-apply-link");
-  if (applyLinkEl) {
-    applyLinkEl.addEventListener("input", applyLinkValidity);
-    applyLinkEl.addEventListener("blur", applyLinkValidity);
+  function applyLinkedInValidity() {
+    const el = document.getElementById("hp-linkedin");
+    if (!el) return true;
+    const result = validateUrlField(
+      el.value,
+      false,
+      "",
+      "Please enter a valid LinkedIn company URL."
+    );
+    el.setCustomValidity(result.ok ? "" : result.message);
+    return result.ok;
   }
+
+  ["hp-website", "hp-apply-link", "hp-linkedin"].forEach(function (id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const fn =
+      id === "hp-website"
+        ? applyWebsiteValidity
+        : id === "hp-linkedin"
+          ? applyLinkedInValidity
+          : applyLinkValidity;
+    el.addEventListener("input", fn);
+    el.addEventListener("blur", fn);
+  });
 
   function deadlineForPayload() {
     return validateDeadline().value || "Not specified";
@@ -197,9 +265,14 @@
       "InfoparkDaily Recruit — New Hiring Request",
       "",
       `Name: ${val("hp-name")}`,
-      `Contact: ${val("hp-channel")}`,
+      `Designation: ${val("hp-designation")}`,
+      `Work email: ${val("hp-channel")}`,
+      `HR / company phone (verification): ${val("hp-phone")}`,
       `Company: ${val("hp-company")}`,
       `Location: ${val("hp-location")}`,
+      `IT park: ${val("hp-park")}`,
+      `Company website: ${val("hp-website")}`,
+      `Company LinkedIn: ${val("hp-linkedin") || "N/A"}`,
       `Role: ${val("hp-role")}`,
       `Vacancies: ${val("hp-vacancies") || "Not specified"}`,
       `Experience: ${val("hp-experience")}`,
@@ -245,24 +318,52 @@
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const channelCheck = validateContact(val("hp-channel"), "Please enter your email or phone number.");
+    const emailCheck = validateEmail(val("hp-channel"), "Please enter your official work email.");
+    const phoneCheck = validatePhone(val("hp-phone"), "Please enter HR / company phone for verification.");
     const applyCheck = validateContact(
       val("hp-apply"),
       "Please enter the apply email or phone for candidates."
     );
     applyChannelValidity();
+    applyPhoneValidity();
     applyApplyValidity();
     const deadlineCheck = validateDeadline();
     applyDeadlineValidity();
-    const linkCheck = validateApplyLink();
+    const websiteCheck = validateUrlField(
+      val("hp-website"),
+      true,
+      "Please enter the company website for verification.",
+      "Please enter a valid company website URL (https://…)."
+    );
+    applyWebsiteValidity();
+    const linkCheck = validateUrlField(val("hp-apply-link"), false, "", "Please enter a valid careers / apply URL.");
     applyLinkValidity();
+    const linkedInCheck = validateUrlField(
+      val("hp-linkedin"),
+      false,
+      "",
+      "Please enter a valid LinkedIn company URL."
+    );
+    applyLinkedInValidity();
 
-    if (!form.checkValidity() || !channelCheck.ok || !applyCheck.ok || !deadlineCheck.ok || !linkCheck.ok) {
+    if (
+      !form.checkValidity() ||
+      !emailCheck.ok ||
+      !phoneCheck.ok ||
+      !applyCheck.ok ||
+      !deadlineCheck.ok ||
+      !websiteCheck.ok ||
+      !linkCheck.ok ||
+      !linkedInCheck.ok
+    ) {
       form.reportValidity();
-      if (!channelCheck.ok) setStatus(channelCheck.message, true);
+      if (!emailCheck.ok) setStatus(emailCheck.message, true);
+      else if (!phoneCheck.ok) setStatus(phoneCheck.message, true);
+      else if (!websiteCheck.ok) setStatus(websiteCheck.message, true);
       else if (!applyCheck.ok) setStatus(applyCheck.message, true);
       else if (!deadlineCheck.ok) setStatus(deadlineCheck.message, true);
       else if (!linkCheck.ok) setStatus(linkCheck.message, true);
+      else if (!linkedInCheck.ok) setStatus(linkedInCheck.message, true);
       else setStatus("Please fill the required fields.", true);
       return;
     }
@@ -271,9 +372,14 @@
     const body = buildBody();
     const payload = {
       name: val("hp-name"),
+      designation: val("hp-designation"),
       channel: val("hp-channel"),
+      phone: val("hp-phone"),
       company: val("hp-company"),
       location: val("hp-location"),
+      park: val("hp-park"),
+      website: val("hp-website"),
+      linkedin: val("hp-linkedin"),
       role: val("hp-role"),
       vacancies: val("hp-vacancies"),
       experience: val("hp-experience"),
@@ -300,8 +406,11 @@
         form.reset();
         refreshDeadlineMin();
         applyChannelValidity();
+        applyPhoneValidity();
         applyApplyValidity();
+        applyWebsiteValidity();
         applyLinkValidity();
+        applyLinkedInValidity();
         setStatus("");
         showSuccessToast("Recruit request submitted successfully.", true);
         return;
