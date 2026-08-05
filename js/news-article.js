@@ -71,7 +71,7 @@
                     <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
                   </div>
                   <div class="news-card-body">
-                    <h3>${escapeHtml(item.title)}</h3>
+                    <h3>${escapeHtml(String(item.title || "").length > 72 ? `${String(item.title).slice(0, 71).replace(/\s+\S*$/, "")}…` : item.title)}</h3>
                     <div class="news-meta">
                       <span class="news-cat">${escapeHtml(item.category || "News")}</span>
                       <span class="news-date">${escapeHtml(formatDate(item.date))}</span>
@@ -164,27 +164,31 @@
       </nav>
 
       <header class="news-story-top glass">
-        <div class="news-meta">
-          <span class="news-cat">${escapeHtml(article.category || "News")}</span>
-          <span class="news-park">${escapeHtml(article.park || "")}</span>
-          <span class="news-date">${escapeHtml(formatDate(article.date))}</span>
-        </div>
-        <h1>${escapeHtml(article.title)}</h1>
-        <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
-        <div class="news-story-top-actions">
-          <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
-          <button type="button" class="btn btn-ghost" id="news-copy-link-top">Copy link</button>
-          <a class="btn btn-ghost" href="/guides/">Career Guides</a>
+        <div class="news-story-hero">
+          <div class="news-story-hero-copy">
+            <div class="news-meta">
+              <span class="news-cat">${escapeHtml(article.category || "News")}</span>
+              <span class="news-park">${escapeHtml(article.park || "")}</span>
+              <span class="news-date">${escapeHtml(formatDate(article.date))}</span>
+            </div>
+            <h1>${escapeHtml(article.title)}</h1>
+            <p class="news-article-summary">${escapeHtml(article.summary || "")}</p>
+            <div class="news-story-top-actions">
+              <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
+              <button type="button" class="btn btn-ghost" id="news-copy-link-top">Copy link</button>
+              <a class="btn btn-ghost" href="/guides/">Career Guides</a>
+            </div>
+          </div>
+          <figure class="news-story-hero-media">
+            <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
+            ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
+          </figure>
         </div>
       </header>
 
       <div class="news-story-layout">
         <article class="news-article glass">
           <aside class="ipd-ad-slot" data-ad-slot="news-after-headline" hidden aria-hidden="true"></aside>
-          <figure class="news-article-media">
-            <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
-            ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
-          </figure>
           ${highlights}
           <div class="news-article-body">${body}</div>
           <aside class="ipd-ad-slot" data-ad-slot="news-end" hidden aria-hidden="true"></aside>

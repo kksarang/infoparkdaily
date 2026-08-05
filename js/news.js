@@ -98,8 +98,8 @@
           <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-card-body">
-          <h3>${escapeHtml(clipText(item.title, 78))}</h3>
-          <p class="news-summary">${escapeHtml(clipText(item.summary, 120))}</p>
+          <h3>${escapeHtml(clipText(item.title, 70))}</h3>
+          <p class="news-summary">${escapeHtml(clipText(item.summary, 95))}</p>
           ${metaRow(item)}
           <span class="news-card-cta">Read story →</span>
         </div>
