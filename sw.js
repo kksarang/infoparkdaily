@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v157";
+const CACHE_NAME = "infoparkdaily-v159";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -28,7 +28,7 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260805v",
+  "./css/styles.css?v=20260805x",
   "./css/onam.css?v=20260802m",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260805n",
@@ -51,8 +51,8 @@ const PRELOAD_ASSETS = [
   "./data/media-data.js?v=20260724g",
   "./js/media.js?v=20260724g",
   "./assets/media/onam-bg.svg",
-  "./data/news-data.js?v=20260805u",
-  "./js/news.js?v=20260805u",
+  "./data/news-data.js?v=20260805x",
+  "./js/news.js?v=20260805x",
   "./js/news-article.js?v=20260805l",
   "./manifest.webmanifest",
   "./assets/logo-infoparkdaily.png"

@@ -48,8 +48,8 @@ var NEWS = [
     category: "Community",
     park: "Kerala",
     date: "2026-08-05",
-    image: "/assets/news/milestone.svg",
-    imageAlt: "Illustration representing career milestones for Kerala IT park job seekers",
+    image: "/assets/news/career-guides.svg",
+    imageAlt: "Career guides illustration for Infopark and Technopark job seekers",
     summary:
       "New original guides cover how to apply, fresher prep, walk-ins, weekly hiring insights, and how to verify jobs before you share documents — written for Kerala IT park candidates.",
     body: [

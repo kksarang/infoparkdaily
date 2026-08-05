@@ -45,6 +45,14 @@
     `;
   }
 
+  function isIllustration(path) {
+    return /\.svg(\?|#|$)/i.test(String(path || ""));
+  }
+
+  function mediaClass(path, base) {
+    return isIllustration(path) ? `${base} news-media--illustration` : base;
+  }
+
   function relatedBlock(article) {
     const related = NEWS.filter(
       (other) =>
@@ -67,7 +75,7 @@
             .map(
               (item) => `
                 <a class="news-card glass" href="/news-article/?id=${encodeURIComponent(item.id)}">
-                  <div class="news-card-media">
+                  <div class="${mediaClass(item.image, "news-card-media")}">
                     <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
                   </div>
                   <div class="news-card-body">
@@ -179,8 +187,8 @@
               <a class="btn btn-ghost" href="/guides/">Career Guides</a>
             </div>
           </div>
-          <figure class="news-story-hero-media">
-            <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.parentElement.remove()" />
+          <figure class="${isIllustration(article.image) ? "news-story-hero-media news-media--illustration" : "news-story-hero-media"}">
+            <img src="${escapeAttr(assetUrl(article.image))}" alt="${escapeAttr(article.imageAlt || "")}" onerror="this.classList.add('is-broken')" />
             ${article.imageAlt ? `<figcaption>${escapeHtml(article.imageAlt)}</figcaption>` : ""}
           </figure>
         </div>

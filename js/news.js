@@ -69,6 +69,14 @@
     return `${safer || cut}…`;
   }
 
+  function isIllustration(path) {
+    return /\.svg(\?|#|$)/i.test(String(path || ""));
+  }
+
+  function mediaClass(path, base) {
+    return isIllustration(path) ? `${base} news-media--illustration` : base;
+  }
+
   function renderFeatured(item) {
     if (!featuredWrap) return;
     if (!item) {
@@ -77,7 +85,7 @@
     }
     featuredWrap.innerHTML = `
       <a class="news-featured glass" href="${escapeAttr(articleHref(item))}">
-        <div class="news-featured-media">
+        <div class="${mediaClass(item.image, "news-featured-media")}">
           <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-featured-copy">
@@ -94,7 +102,7 @@
   function renderCard(item, index) {
     return `
       <a class="news-card glass" href="${escapeAttr(articleHref(item))}" style="--delay: ${Math.min(index, 8) * 40}ms">
-        <div class="news-card-media">
+        <div class="${mediaClass(item.image, "news-card-media")}">
           <img src="${escapeAttr(assetUrl(item.image))}" alt="${escapeAttr(item.imageAlt || "")}" loading="lazy" onerror="this.parentElement.classList.add('news-media-missing')" />
         </div>
         <div class="news-card-body">

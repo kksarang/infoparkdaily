@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0b0f"/>
+      <stop offset="1" stop-color="#15121f"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffc107"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.15" cy="0.2" r="0.85">
+      <stop offset="0" stop-color="#ffc107" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#ffc107" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow)"/>
+  <circle cx="980" cy="140" r="200" fill="none" stroke="url(#acc)" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="980" cy="140" r="130" fill="none" stroke="url(#acc)" stroke-opacity="0.32" stroke-width="2"/>
+  <rect x="70" y="70" width="86" height="86" rx="24" fill="url(#acc)"/>
+  <text x="113" y="125" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#0b0b0f" text-anchor="middle">5</text>
+  <text x="180" y="100" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffc107">CAREER GUIDES</text>
+  <text x="180" y="138" font-family="Arial, sans-serif" font-size="20" fill="#a4a8ba">Infopark | Technopark | Cyberpark</text>
+  <text x="72" y="290" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="#f5f6fa">Apply smarter.</text>
+  <text x="72" y="360" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="#f5f6fa">Verify first.</text>
+  <text x="72" y="430" font-family="Arial, sans-serif" font-size="28" fill="#a4a8ba">Original guides for Kerala IT park job seekers</text>
+  <rect x="72" y="470" width="200" height="6" rx="3" fill="url(#acc)"/>
+  <text x="72" y="608" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#6b6f80" letter-spacing="5">INFOPARKDAILY - GUIDES</text>
+</svg>
