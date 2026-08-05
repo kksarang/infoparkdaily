@@ -145,6 +145,14 @@ var JOBS = [
       "Pune",
       "Coimbatore"
     ],
+    cityVenues: {
+      Kochi: "Infopark Phase 2, Kakkanad, Kochi, Kerala – 682303",
+      Bangalore: "Confirm Cognizant Bangalore venue before you travel",
+      Chennai: "Confirm Cognizant Chennai venue before you travel",
+      Hyderabad: "Confirm Cognizant Hyderabad venue before you travel",
+      Pune: "Confirm Cognizant Pune venue before you travel",
+      Coimbatore: "Confirm Cognizant Coimbatore venue before you travel"
+    },
     alertSheet: true,
     alertLabel: "HOT JOB · MEGA WALK-IN · SAT 8 AUG",
     alertBadge: "Hot Job",

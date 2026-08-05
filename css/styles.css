@@ -4632,6 +4632,30 @@ body.light .job-hero-walkin-callout {
   font-weight: 600;
 }
 
+button.job-city-filter {
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+button.job-city-filter:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+button.job-city-filter.is-active {
+  border-color: rgba(255, 193, 7, 0.55);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.job-role-grid li[hidden] {
+  display: none !important;
+}
+
 .job-sheet-chips--tech .job-sheet-chip {
   border-color: rgba(14, 165, 233, 0.35);
   background: rgba(14, 165, 233, 0.1);

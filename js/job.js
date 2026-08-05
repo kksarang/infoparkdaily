@@ -882,6 +882,113 @@
       .join("")}</div>`;
   }
 
+  function cityKey(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/bengaluru/g, "bangalore")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim();
+  }
+
+  function citiesInText(text, cityList) {
+    const hay = cityKey(text);
+    if (!hay) return [];
+    return (cityList || [])
+      .map((city) => String(city || "").trim())
+      .filter(Boolean)
+      .filter((city) => {
+        const needle = cityKey(city);
+        if (!needle) return false;
+        return new RegExp(`(?:^|[^a-z0-9])${needle.replace(/\s+/g, "[\\s-]*")}(?:$|[^a-z0-9])`).test(hay);
+      });
+  }
+
+  function roleCitiesAttr(role, cityList) {
+    const found = citiesInText(role, cityList);
+    return found.map((city) => cityKey(city).replace(/\s+/g, "-")).join(" ");
+  }
+
+  function locationFilterChips(locations, cityVenues) {
+    if (!locations.length) return "";
+    const buttons = [
+      `<button type="button" class="job-sheet-chip job-city-filter is-active" data-city-filter="all" aria-pressed="true">All cities</button>`,
+      ...locations.map((city) => {
+        const key = cityKey(city).replace(/\s+/g, "-");
+        const venue =
+          cityVenues && (cityVenues[city] || cityVenues[String(city)] || "");
+        return `<button type="button" class="job-sheet-chip job-city-filter" data-city-filter="${escapeAttr(
+          key
+        )}" data-city-label="${escapeAttr(city)}"${
+          venue ? ` data-city-venue="${escapeAttr(venue)}"` : ""
+        } aria-pressed="false">${escapeHtml(city)}</button>`;
+      })
+    ];
+    return `<div class="job-sheet-chips job-city-filters" role="group" aria-label="Filter roles by city">${buttons.join(
+      ""
+    )}</div>`;
+  }
+
+  function bindCityRoleFilter(rootEl) {
+    const root = rootEl || document;
+    const filters = root.querySelector(".job-city-filters");
+    const rolesList = root.querySelector(".job-role-grid[data-city-filterable='true']");
+    if (!filters || !rolesList) return;
+
+    const titleEl = rolesList.closest(".job-sheet-block")?.querySelector("h2");
+    const noteEl = root.querySelector("[data-city-venue-note]");
+    const defaultVenue = noteEl ? noteEl.getAttribute("data-default-venue") || "" : "";
+    const items = [...rolesList.querySelectorAll("li[data-cities]")];
+
+    function applyFilter(city, label, venue) {
+      filters.querySelectorAll(".job-city-filter").forEach((btn) => {
+        const active = btn.getAttribute("data-city-filter") === city;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+
+      let visible = 0;
+      items.forEach((li) => {
+        const cities = (li.getAttribute("data-cities") || "").split(/\s+/).filter(Boolean);
+        const show = city === "all" || cities.includes(city);
+        li.hidden = !show;
+        if (show) {
+          visible += 1;
+          const num = li.querySelector(".job-role-num");
+          if (num) num.textContent = String(visible).padStart(2, "0");
+        }
+      });
+
+      if (titleEl) {
+        titleEl.textContent =
+          city === "all"
+            ? `All open positions (${items.length})`
+            : `${label || "City"} positions (${visible})`;
+      }
+
+      if (noteEl) {
+        if (city === "all") {
+          noteEl.textContent = defaultVenue
+            ? `Primary walk-in venue (Kochi): ${defaultVenue}`
+            : "Select a city to see matching roles.";
+        } else if (venue) {
+          noteEl.textContent = `${label} walk-in venue: ${venue}`;
+        } else {
+          noteEl.textContent = `${label} roles shown. Confirm the local Cognizant venue before you travel.`;
+        }
+      }
+    }
+
+    filters.addEventListener("click", (event) => {
+      const btn = event.target.closest(".job-city-filter");
+      if (!btn) return;
+      applyFilter(
+        btn.getAttribute("data-city-filter") || "all",
+        btn.getAttribute("data-city-label") || "",
+        btn.getAttribute("data-city-venue") || ""
+      );
+    });
+  }
+
   function numberedList(items) {
     if (!items || !items.length) return "";
     return `<ol class="job-sheet-steps">${items
@@ -1019,19 +1126,45 @@
       : locations.length > 1
         ? "Work locations"
         : "Work location";
-    const locationNote = panIndia
-      ? `<p class="job-sheet-note">Exact city depends on business requirements and team allocation.</p>`
+    const locationNoteDefault = panIndia
+      ? "Exact city depends on business requirements and team allocation."
       : job.walkinLocation
-        ? `<p class="job-sheet-note">Walk-in venue: ${escapeHtml(job.walkinLocation)}</p>`
-        : "";
+        ? `Primary walk-in venue (Kochi): ${job.walkinLocation}`
+        : "Select a city to see matching roles.";
+    const cityVenues = job.cityVenues || {};
+    const canFilterCities =
+      locations.length > 1 &&
+      openRoles.some((role) => citiesInText(role, locations).length > 0);
     const openRolesHtml = openRoles.length
-      ? `<ul class="job-role-grid">${openRoles
-          .map(
-            (role, i) =>
-              `<li><span class="job-role-num">${String(i + 1).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`
-          )
+      ? `<ul class="job-role-grid"${canFilterCities ? ' data-city-filterable="true"' : ""}>${openRoles
+          .map((role, i) => {
+            const cities = roleCitiesAttr(role, locations);
+            return `<li${cities ? ` data-cities="${escapeAttr(cities)}"` : ""}><span class="job-role-num">${String(
+              i + 1
+            ).padStart(2, "0")}</span><span>${escapeHtml(role)}</span></li>`;
+          })
           .join("")}</ul>`
       : "";
+    const locationsHtml = canFilterCities
+      ? `
+            <p class="job-sheet-note" style="margin-top:0;margin-bottom:0.65rem">Tap a city to show only that city’s roles.</p>
+            ${locationFilterChips(locations, cityVenues)}
+            ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
+            <p class="job-sheet-note" data-city-venue-note data-default-venue="${escapeAttr(
+              job.walkinLocation || ""
+            )}">${escapeHtml(locationNoteDefault)}</p>
+          `
+      : `
+            ${chipsRow(locations, "job-sheet-chips")}
+            ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
+            ${
+              panIndia
+                ? `<p class="job-sheet-note">Exact city depends on business requirements and team allocation.</p>`
+                : job.walkinLocation
+                  ? `<p class="job-sheet-note">Walk-in venue: ${escapeHtml(job.walkinLocation)}</p>`
+                  : ""
+            }
+          `;
 
     const walkDate = walkInDateText(job);
     const walkTime = job.walkinTime || "";
@@ -1113,11 +1246,11 @@
           isWalkInJob(job)
             ? sheetSection(
                 nextNum(),
-                "Walk-in drive — Wednesday 5 August",
+                `Walk-in drive${walkDate ? ` — ${walkDate}` : ""}`,
                 `
                   <ul class="job-walkin-lines">
                     <li><span aria-hidden="true">📅</span><span><strong>Date:</strong> ${escapeHtml(
-                      walkDate || "Wednesday, 5 August 2026"
+                      walkDate || "Confirm on company notice"
                     )}</span></li>
                     ${
                       walkTime
@@ -1133,11 +1266,11 @@
                           )}</span></li>`
                         : ""
                     }
-                    <li><span aria-hidden="true">⚡</span><span><strong>Fast apply:</strong> Walk in with your updated resume, or email ${
+                    <li><span aria-hidden="true">⚡</span><span><strong>Fast apply:</strong> Walk in with your updated resume${
                       job.email
-                        ? `<a href="mailto:${escapeAttr(job.email)}">${escapeHtml(job.email)}</a>`
-                        : "HR"
-                    } if you cannot attend.</span></li>
+                        ? `, or email <a href="mailto:${escapeAttr(job.email)}">${escapeHtml(job.email)}</a> if you cannot attend`
+                        : ""
+                    }.</span></li>
                   </ul>
                   <p class="job-walkin-note">Arrive early. Carry resume + valid ID. Mention the role you want. Never pay any fee to apply.</p>
                 `
@@ -1145,17 +1278,13 @@
             : ""
         }
 
-        ${sheetSection(nextNum(), multiRole ? "All open positions" : "Open position", openRolesHtml)}
-
         ${sheetSection(
           nextNum(),
-          locationTitle,
-          `
-            ${chipsRow(locations, "job-sheet-chips")}
-            ${states.length ? `<p class="job-sheet-subhead">States / regions on official posting</p>${chipsRow(states, "job-sheet-chips")}` : ""}
-            ${locationNote}
-          `
+          multiRole ? `All open positions (${openRoles.length})` : "Open position",
+          openRolesHtml
         )}
+
+        ${sheetSection(nextNum(), locationTitle, locationsHtml)}
 
         ${sheetSection(nextNum(), "Who can apply?", listBlock(who))}
 
@@ -1688,6 +1817,8 @@
         }
       });
     }
+
+    bindCityRoleFilter(root);
   }
 
   if (typeof JOBS === "undefined") {
