@@ -234,27 +234,86 @@
     return m ? m[0] : text.split("–")[0].split("-")[0].trim().slice(0, 14);
   }
 
+  function isIsoDate(value) {
+    return /^\d{4}-\d{2}-\d{2}$/.test(String(value || "").trim());
+  }
+
+  function formatIsoShort(value) {
+    if (!isIsoDate(value)) return String(value || "").trim();
+    const [y, m, d] = String(value).split("-").map((n) => parseInt(n, 10));
+    const dt = new Date(y, m - 1, d);
+    return dt.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
+  }
+
+  function jobKey(job) {
+    return String(job.id || `${job.company || ""}|${(job.roles || [])[0] || ""}`);
+  }
+
+  function kindRank(kinds) {
+    if (kinds.includes("walk-in")) return 0;
+    if (kinds.includes("deadline")) return 1;
+    if (kinds.includes("posted")) return 2;
+    return 3;
+  }
+
+  function primaryKind(kinds) {
+    if (kinds.includes("walk-in")) return "walk-in";
+    if (kinds.includes("deadline")) return "deadline";
+    if (kinds.includes("posted")) return "posted";
+    return "posted";
+  }
+
   function openCount(key) {
     const list = byDate.get(key) || [];
     return list.filter((item) => !item.expired).length || list.length;
+  }
+
+  function pushKind(map, key, job, kind) {
+    if (!key || !isIsoDate(key)) return;
+    if (!map.has(key)) map.set(key, []);
+    const list = map.get(key);
+    const id = jobKey(job);
+    let entry = list.find((item) => jobKey(item.job) === id);
+    if (!entry) {
+      entry = {
+        job,
+        dateKey: key,
+        kinds: [],
+        expired: isExpired(job)
+      };
+      list.push(entry);
+    }
+    if (!entry.kinds.includes(kind)) entry.kinds.push(kind);
+    entry.expired = isExpired(job);
   }
 
   function buildIndex() {
     const map = new Map();
 
     jobs.forEach((job) => {
-      if (!isWalkInJob(job)) return;
-      const text = walkInText(job);
-      const keys = parseWalkInDateKeys(text);
-      if (!keys.length) return;
+      if (isWalkInJob(job)) {
+        const keys = parseWalkInDateKeys(walkInText(job));
+        keys.forEach((key) => pushKind(map, key, job, "walk-in"));
+      }
 
-      keys.forEach((key) => {
-        if (!map.has(key)) map.set(key, []);
-        map.get(key).push({
-          job,
-          dateKey: key,
-          expired: isExpired(job)
-        });
+      const posted = String(job.postedDate || "").trim();
+      if (isIsoDate(posted)) pushKind(map, posted, job, "posted");
+
+      const deadline = String(job.applyDeadline || "").trim();
+      if (isIsoDate(deadline) && deadline !== "Rolling") {
+        pushKind(map, deadline, job, "deadline");
+      }
+    });
+
+    map.forEach((list) => {
+      list.sort((a, b) => {
+        const byKind = kindRank(a.kinds) - kindRank(b.kinds);
+        if (byKind !== 0) return byKind;
+        return String(a.job.company || "").localeCompare(String(b.job.company || ""));
       });
     });
 
@@ -310,7 +369,7 @@
           class="${classes}"
           data-date="${escapeAttr(key)}"
           aria-pressed="${key === selectedKey ? "true" : "false"}"
-          aria-label="${escapeAttr(formatLong(key))}${count ? `, ${count} walk-ins` : ""}"
+          aria-label="${escapeAttr(formatLong(key))}${count ? `, ${count} openings` : ""}"
         >
           <span class="today-week-dow">${escapeHtml(formatShortDay(key))}</span>
           <span class="today-week-num">${parts ? parts.d : ""}</span>
@@ -327,8 +386,8 @@
     if (monthSubEl) {
       monthSubEl.textContent =
         monthCount > 0
-          ? `${monthCount} walk-in${monthCount === 1 ? "" : "s"} this month`
-          : "No walk-ins marked this month";
+          ? `${monthCount} hiring date${monthCount === 1 ? "" : "s"} this month`
+          : "No hiring dates marked this month";
     }
 
     const dim = daysInMonth(viewYear, viewMonth);
@@ -364,7 +423,7 @@
           class="${classes}"
           data-date="${escapeAttr(key)}"
           aria-pressed="${isSelected ? "true" : "false"}"
-          aria-label="${escapeAttr(formatLong(key))}${count ? `, ${count} walk-in${count === 1 ? "" : "s"}` : ""}"
+          aria-label="${escapeAttr(formatLong(key))}${count ? `, ${count} opening${count === 1 ? "" : "s"}` : ""}"
         >
           <span class="today-cal-daynum">${d}</span>
           ${count ? `<span class="today-cal-dot" aria-hidden="true">${count > 9 ? "9+" : count}</span>` : ""}
@@ -373,6 +432,42 @@
     }
 
     calendarEl.innerHTML = cells.join("");
+  }
+
+  function kindBadgesHtml(kinds, expired) {
+    if (expired) {
+      return `<span class="today-interview-badge today-interview-badge--expired">Expired</span>`;
+    }
+    const order = ["walk-in", "deadline", "posted"];
+    const labels = {
+      "walk-in": { text: "Walk-in", className: "" },
+      deadline: { text: "Apply by", className: "today-interview-badge--deadline" },
+      posted: { text: "Published", className: "today-interview-badge--posted" }
+    };
+    return order
+      .filter((k) => kinds.includes(k))
+      .map((k) => {
+        const meta = labels[k];
+        return `<span class="today-interview-badge${meta.className ? ` ${meta.className}` : ""}">${meta.text}</span>`;
+      })
+      .join("");
+  }
+
+  function railForItem(item) {
+    const kind = primaryKind(item.kinds);
+    if (kind === "walk-in") {
+      return shortTime(item.job.walkinTime) || "Walk-in";
+    }
+    if (kind === "deadline") return "Apply by";
+    return "Published";
+  }
+
+  function railSubForItem(item) {
+    if (item.expired) return "Closed";
+    const kind = primaryKind(item.kinds);
+    if (kind === "walk-in") return "Drive";
+    if (kind === "deadline") return "Deadline";
+    return "Posted";
   }
 
   function renderDayList() {
@@ -384,8 +479,8 @@
     if (dayCountEl) {
       dayCountEl.textContent =
         show.length === 0
-          ? "No walk-ins"
-          : `${show.length} walk-in${show.length === 1 ? "" : "s"}`;
+          ? "No openings"
+          : `${show.length} opening${show.length === 1 ? "" : "s"}`;
     }
 
     if (!show.length) {
@@ -397,17 +492,20 @@
     if (emptyEl) emptyEl.hidden = true;
 
     dayListEl.innerHTML = show
-      .map(({ job, expired }, index) => {
+      .map((item, index) => {
+        const { job, expired, kinds } = item;
         const role = (job.roles && job.roles[0]) || "Hiring";
         const time = job.walkinTime || "";
         const venue = job.walkinLocation || job.address || job.location || "";
         const when = walkInText(job);
-        const rail = shortTime(time) || "Walk-in";
+        const posted = String(job.postedDate || "").trim();
+        const deadline = String(job.applyDeadline || "").trim();
+        const showWalkMeta = kinds.includes("walk-in");
         return `
           <article class="today-interview-card${expired ? " is-expired" : ""}" style="animation-delay: ${Math.min(index, 6) * 45}ms">
             <div class="today-interview-time">
-              <strong>${escapeHtml(rail)}</strong>
-              <span>${expired ? "Closed" : "Drive"}</span>
+              <strong>${escapeHtml(railForItem(item))}</strong>
+              <span>${escapeHtml(railSubForItem(item))}</span>
             </div>
             <div class="today-interview-body">
               <header class="today-interview-head">
@@ -415,15 +513,23 @@
                   <p class="today-interview-company">${escapeHtml(job.company || "")}</p>
                   <h3 class="today-interview-role">${escapeHtml(role)}</h3>
                 </div>
-                ${
-                  expired
-                    ? `<span class="today-interview-badge today-interview-badge--expired">Expired</span>`
-                    : `<span class="today-interview-badge">Walk-in</span>`
-                }
+                <div class="today-interview-badges">${kindBadgesHtml(kinds, expired)}</div>
               </header>
               <ul class="today-interview-meta">
-                ${when ? `<li><span>Dates</span><strong>${escapeHtml(when)}</strong></li>` : ""}
-                ${time ? `<li><span>Time</span><strong>${escapeHtml(time)}</strong></li>` : ""}
+                ${
+                  posted
+                    ? `<li><span>Published</span><strong>${escapeHtml(formatIsoShort(posted))}</strong></li>`
+                    : ""
+                }
+                ${
+                  deadline
+                    ? `<li><span>Apply by</span><strong>${escapeHtml(
+                        deadline === "Rolling" ? "Rolling" : formatIsoShort(deadline)
+                      )}</strong></li>`
+                    : ""
+                }
+                ${showWalkMeta && when ? `<li><span>Walk-in</span><strong>${escapeHtml(when)}</strong></li>` : ""}
+                ${showWalkMeta && time ? `<li><span>Time</span><strong>${escapeHtml(time)}</strong></li>` : ""}
                 ${venue ? `<li><span>Venue</span><strong>${escapeHtml(venue)}</strong></li>` : ""}
                 ${
                   job.experienceRange || job.experienceYears

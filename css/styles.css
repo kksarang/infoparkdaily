@@ -11905,6 +11905,16 @@ body.light .today-pulse li {
   border: 1px solid rgba(255, 193, 7, 0.7);
 }
 
+.today-leg--posted {
+  background: rgba(56, 189, 248, 0.4);
+  border: 1px solid rgba(56, 189, 248, 0.75);
+}
+
+.today-leg--deadline {
+  background: rgba(248, 113, 113, 0.4);
+  border: 1px solid rgba(248, 113, 113, 0.75);
+}
+
 .today-leg--today {
   box-shadow: inset 0 0 0 1.5px rgba(255, 193, 7, 0.9);
   background: transparent;
@@ -12071,10 +12081,40 @@ body.light .today-pulse li {
   color: var(--accent-strong, var(--accent));
 }
 
+.today-interview-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  justify-content: flex-end;
+  max-width: min(100%, 11rem);
+}
+
+.today-interview-badge--posted {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+}
+
+.today-interview-badge--deadline {
+  background: rgba(248, 113, 113, 0.16);
+  border-color: rgba(248, 113, 113, 0.4);
+  color: #fca5a5;
+}
+
 .today-interview-badge--expired {
   background: var(--surface);
   border-color: var(--line);
   color: var(--muted);
+}
+
+html.theme-light body .today-interview-badge--posted,
+body.light .today-interview-badge--posted {
+  color: #0369a1;
+}
+
+html.theme-light body .today-interview-badge--deadline,
+body.light .today-interview-badge--deadline {
+  color: #b91c1c;
 }
 
 .today-interview-meta {

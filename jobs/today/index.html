@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Today Interviews · Walk-in Calendar | InfoparkDaily</title>
+    <title>Today Interviews · Hiring Calendar | InfoparkDaily</title>
     <meta
       name="description"
-      content="Walk-in interview calendar for Infopark Kochi, Technopark, and Kerala IT parks. Pick a day to see that day's openings and interview details."
+      content="Hiring calendar for Infopark Kochi, Technopark, and Kerala IT parks — walk-ins, publish dates, and apply deadlines by day."
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0b0b0f" />
     <meta property="og:site_name" content="InfoparkDaily" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:title" content="Today Interviews · Walk-in Calendar | InfoparkDaily" />
+    <meta property="og:title" content="Today Interviews · Hiring Calendar | InfoparkDaily" />
     <meta
       property="og:description"
-      content="Calendar of walk-in interviews across Infopark and Kerala IT parks — select a day for details."
+      content="Calendar of walk-ins, job publish dates, and apply deadlines across Infopark and Kerala IT parks."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://infoparkdaily.online/jobs/today/" />
@@ -33,7 +33,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260805k" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260807d" />
     <script>
       (function () {
         try {
@@ -92,13 +92,13 @@
         </p>
 
         <div class="today-stage-copy">
-          <p class="today-kicker">Walk-in desk · Kerala IT parks</p>
+          <p class="today-kicker">Hiring desk · Kerala IT parks</p>
           <h1 id="today-hero-title">
             Today Interviews
             <span>Pick a day. See who’s hiring on campus.</span>
           </h1>
           <p class="today-lede">
-            Live walk-in calendar for Infopark, Technopark, and Cyberpark drives — time, venue, and apply details in one tap.
+            Hiring calendar for Infopark, Technopark, and Cyberpark — walk-ins, publish days, and apply deadlines in one view.
           </p>
           <div class="today-stage-actions">
             <button type="button" id="today-jump-today" class="btn btn-primary">Jump to today</button>
@@ -122,7 +122,7 @@
         </ul>
       </section>
 
-      <section class="today-board" aria-label="Walk-in calendar">
+      <section class="today-board" aria-label="Hiring calendar">
         <div class="today-week" aria-label="This week">
           <div class="today-week-head">
             <h2>This week</h2>
@@ -139,7 +139,7 @@
               </button>
               <div class="today-month-block">
                 <h2 id="today-month-label" class="today-month-label">Calendar</h2>
-                <p id="today-month-sub" class="today-month-sub">Walk-in days marked in amber</p>
+                <p id="today-month-sub" class="today-month-sub">Walk-ins, publish days, and apply deadlines</p>
               </div>
               <button type="button" id="today-next-month" class="today-cal-nav" aria-label="Next month">
                 <span aria-hidden="true">›</span>
@@ -147,7 +147,9 @@
             </div>
             <div id="today-calendar" class="today-calendar" role="grid" aria-label="Month calendar"></div>
             <ul class="today-cal-legend" aria-hidden="true">
-              <li><i class="today-leg today-leg--event"></i> Has walk-ins</li>
+              <li><i class="today-leg today-leg--event"></i> Has openings</li>
+              <li><i class="today-leg today-leg--posted"></i> Published</li>
+              <li><i class="today-leg today-leg--deadline"></i> Apply by</li>
               <li><i class="today-leg today-leg--today"></i> Today</li>
               <li><i class="today-leg today-leg--selected"></i> Selected</li>
             </ul>
@@ -165,7 +167,7 @@
             <div id="today-day-empty" class="today-empty" hidden>
               <p class="today-empty-title">Quiet day on campus</p>
               <p>
-                No walk-ins listed for this date. Try another day, or browse
+                No walk-ins, publish days, or apply deadlines listed for this date. Try another day, or browse
                 <a href="/jobs/">all open jobs</a>.
               </p>
             </div>
@@ -247,6 +249,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260802sa" defer></script>
     <script src="/data/jobs-data.js?v=20260807c" defer></script>
-    <script src="/js/jobs-today.js?v=20260802w" defer></script>
+    <script src="/js/jobs-today.js?v=20260807d" defer></script>
   </body>
 </html>
