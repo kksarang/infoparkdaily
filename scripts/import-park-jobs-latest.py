@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 5)  # bump when re-importing
+TODAY = date(2026, 8, 7)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -203,6 +203,26 @@ def insert_jobs(path: Path, array_name: str, jobs: list[dict]) -> int:
 
 # ---------- Infopark ----------
 INFOPARK_ROWS = [
+    ("266", "25015", "UI Developer", "Planet Media India ( PMIN Agency Pvt.Ltd.)", "07-08-2026", "31 Aug 2026"),
+    ("296", "25014", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "07-08-2026", "10 Aug 2026"),
+    ("312", "25013", "Visual Designer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
+    ("312", "25012", "Marketing & Growth Lead", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
+    ("312", "25011", "Associate - System Engineer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
+    ("312", "25010", "Business Development Manager", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
+    ("312", "25009", "Associate - QA Engineer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
+    ("530", "25008", "Finance Manager", "Nesa Software Pvt Ltd", "06-08-2026", "20 Aug 2026"),
+    ("530", "25007", "DevOps Engineer - Fresher", "Nesa Software Pvt Ltd", "06-08-2026", "20 Aug 2026"),
+    ("190", "25006", "Data Engineer", "Innovature Software Labs (P) Ltd", "06-08-2026", "31 Aug 2026"),
+    ("259", "25005", "Business Development Specialist", "Thomsun Infocare LLP", "06-08-2026", "25 Aug 2026"),
+    ("92", "25002", "Business Immigration Coordinator - German Language Specialist", "Fragomen Immigration Services  India Private Limited", "06-08-2026", "10 Sep 2026"),
+    ("92", "25001", "Business Immigration Coordinator - French Language Specialist", "Fragomen Immigration Services  India Private Limited", "06-08-2026", "10 Sep 2026"),
+    ("109", "25000", "Video Editor & Motion Graphic Designer (2+ Year)", "NewAgeSys Solutions (P) Ltd.", "06-08-2026", "10 Aug 2026"),
+    ("340", "24999", "HR Recruiter", "Classic Technologies & Business Solutions Pvt. Ltd.", "06-08-2026", "31 Aug 2026"),
+    ("340", "24998", "Software Engineer", "Classic Technologies & Business Solutions Pvt. Ltd.", "06-08-2026", "30 Aug 2026"),
+    ("218", "24997", "MEP BIM MODELER", "Roberts Design Services", "06-08-2026", "19 Aug 2026"),
+    ("59", "24990", "Fullstack Developer", "iLeaf Solutions Pvt Ltd.", "06-08-2026", "28 Aug 2026"),
+    ("59", "24989", "AI Engineer", "iLeaf Solutions Pvt Ltd.", "06-08-2026", "28 Aug 2026"),
+    ("499", "24988", "Sales & Business Development Officer", "Dee and Lee Services", "05-08-2026", "31 Aug 2026"),
     ("90", "24987", "Personal PR Podcast Coordinator (Location: Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "15 Aug 2026"),
     ("90", "24986", "Accounts & Admin Executive (Location- Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "12 Aug 2026"),
     ("49", "24985", ".NET Enterprise Solution Architect - 10+years", "Thinkpalm Technologies Pvt.Ltd", "05-08-2026", "28 Aug 2026"),
