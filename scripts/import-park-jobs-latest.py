@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 7)  # bump when re-importing
+TODAY = date(2026, 8, 8)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -203,6 +203,10 @@ def insert_jobs(path: Path, array_name: str, jobs: list[dict]) -> int:
 
 # ---------- Infopark ----------
 INFOPARK_ROWS = [
+    ("189", "25019", "Video Editor", "GALTech Technologies Pvt Ltd", "07-08-2026", "30 Aug 2026"),
+    ("211", "25018", "AI Search & Prompt Engineering Specialist (Local SEO & GEO)", "Lanware Solutions", "07-08-2026", "30 Sep 2026"),
+    ("95", "25017", "Business Analyst", "Aabasoft Technologies India Private Limited", "07-08-2026", "21 Aug 2026"),
+    ("496", "25016", "Sr. Contract Drafting Legal Analyst", "Unilaw Global Private Limited", "07-08-2026", "14 Aug 2026"),
     ("266", "25015", "UI Developer", "Planet Media India ( PMIN Agency Pvt.Ltd.)", "07-08-2026", "31 Aug 2026"),
     ("296", "25014", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "07-08-2026", "10 Aug 2026"),
     ("312", "25013", "Visual Designer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
