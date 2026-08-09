@@ -216,6 +216,20 @@
     return `/job/${encodeURIComponent(id)}`;
   }
 
+  function companySlug(name) {
+    return String(name || "")
+      .trim()
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
+  function companyPath(name) {
+    const slug = companySlug(name);
+    return slug ? `/company/${encodeURIComponent(slug)}/` : "/jobs/";
+  }
+
   function isExpired(job) {
     const raw = job.applyDeadline;
     if (!raw || raw === "Rolling") return false;
@@ -510,7 +524,15 @@
             <div class="today-interview-body">
               <header class="today-interview-head">
                 <div>
-                  <p class="today-interview-company">${escapeHtml(job.company || "")}</p>
+                  <p class="today-interview-company">
+                    ${
+                      job.company
+                        ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                            job.company
+                          )}</a>`
+                        : ""
+                    }
+                  </p>
                   <h3 class="today-interview-role">${escapeHtml(role)}</h3>
                 </div>
                 <div class="today-interview-badges">${kindBadgesHtml(kinds, expired)}</div>
