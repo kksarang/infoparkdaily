@@ -97,53 +97,178 @@
 
 var JOBS = [
   {
+    id: "aabasoft-walkin-hiring-aug2026",
+    company: "Aabasoft",
+    logo: "assets/logos/aabasoft.svg",
+    companyBlurb: "Hot Job · Aabasoft Walk-in Drive · Monday 10 Aug 2026 · No registration · Resume only · Chakolas Heights, near Infopark South Gate",
+    location: "Chittethukara, Kakkanad · Near Infopark South Gate",
+    roles: [
+      "Banking Executive – Centralised Collections · Freshers preferred",
+      "Business Development Executive · Malayalam / Tamil / Hindi",
+      "Technical Support Executive · ISP troubleshooting & networking",
+      "Team Lead · Tele Sales / Finance (1+ year)",
+      "Business Analyst · 1–2 years (software / ERP / AI tools)"
+    ],
+    experience: "both",
+    experienceRange: "Freshers to 2 years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "mailto:jobs@aabasoft.in?subject=Walk-in%20Application%20-%20Aabasoft",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-08-09",
+    source: "WhatsApp",
+    verified: true,
+    verificationNote: "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Sales",
+      "Business",
+      "Support",
+      "BPO"
+    ],
+    vacancies: 5,
+    vacancyText: "5 open roles",
+    featured: false,
+    isWalkIn: true,
+    walkin: true,
+    walkInDate: "Monday, 10 August 2026",
+    walkinDates: "Monday, 10 August 2026",
+    walkinTime: "9:00 AM onwards · Office hours (confirm on arrival)",
+    walkinLocation: "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
+    workLocations: [
+      "Kochi",
+      "Kakkanad",
+      "Chittethukara"
+    ],
+    alertSheet: true,
+    alertLabel: "HOT JOB · WALK-IN DRIVE · MON 10 AUG",
+    alertBadge: "Hot Job",
+    walkinHeadline: "Hot Job · Aabasoft Walk-in Drive · Monday, 10 August 2026 · No registration · Come directly · Carry resume only · Chakolas Heights, near Infopark South Gate",
+    urgentHiring: true,
+    email: "jobs@aabasoft.in",
+    phone: "8089009751 / 8089002222",
+    website: "https://www.aabasoft.com",
+    address: "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    industry: "IT / BPO · Sales & Support",
+    companyDetails: "Aabasoft Technologies India Private Limited is hosting a walk-in drive on Monday, 10 August 2026 at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi. Roles: Banking Collections, Business Development, Technical Support, Team Lead, and Business Analyst.",
+    companyLegalName: "Aabasoft Technologies India Private Limited",
+    workDetails: "Hot Job walk-in drive on Monday, 10 August 2026. No registration required — come directly and attend with resume only. Roles: Banking Executive – Centralised Collections; Business Development Executive; Technical Support Executive; Team Lead; Business Analyst (1–2 years, BRD/FRD, ERP/AI tools).",
+    workStatus: "Full-time",
+    workMode: "On-site · Direct Walk-in · Kakkanad",
+    experienceYears: "Freshers to 2 years (role-wise)",
+    qualification: "Any degree / Diploma · Graduate preferred for Team Lead / Business Analyst",
+    skills: [
+      "Malayalam communication",
+      "Telecalling / telesales",
+      "Convincing & negotiation",
+      "ISP troubleshooting",
+      "Networking",
+      "Team leadership",
+      "MS Excel",
+      "CRM",
+      "Business analysis",
+      "BRD / FRD",
+      "ERP",
+      "AI tools / process automation"
+    ],
+    whoCanApply: [
+      "Banking Executive – Centralised Collections · Freshers preferred · Any degree / Diploma · Strong Malayalam + phone convincing skills",
+      "Business Development Executive · Graduate / Undergraduate · 0–1 year telecalling / telesales preferred · Malayalam / Tamil / Hindi · Banking / finance experience preferred",
+      "Technical Support Executive · Fluent Malayalam · Ready for 9-hour shifts · ISP troubleshooting & networking",
+      "Team Lead · Graduate preferred · Min 1 year as Team Leader or Senior Executive in Tele Sales / Finance · Excel & CRM",
+      "Business Analyst · 1–2 years in software projects · Strong analytical skills · BRD/FRD · ERP / AI tools / prototyping experience preferred"
+    ],
+    requirements: [
+      "Walk-in on Monday, 10 August 2026 — no registration",
+      "Come directly and carry resume only",
+      "Good communication / convincing skills for voice roles (Malayalam required for several openings; Tamil or Hindi also accepted for one BDE track)",
+      "Immediate joining preferred for Business Development roles",
+      "Technical Support: readiness for 9-hour shifts and ISP / networking work",
+      "Team Lead: minimum 1 year leading outbound Tele Sales / Finance teams",
+      "Business Analyst: 1–2 years BA experience; BRD/FRD; ERP / AI tools preferred",
+      "Never pay any fee to apply or interview"
+    ],
+    responsibilities: [
+      "Banking Executive – Centralised Collections: Customer contact and collections over phone; strong Malayalam; shift 9:00 AM – 6:00 PM; freshers preferred",
+      "Business Development Executive: Telecalling / telesales; Malayalam (and Tamil / Hindi track); shift typically 9:00 AM – 6:00 PM; immediate joining preferred",
+      "Technical Support Executive: ISP troubleshooting and networking; fluent Malayalam; shifts include 8 AM–5 PM, 9 AM–6 PM, 12 PM–9 PM, 1 PM–10 PM, 3 PM–12 AM",
+      "Team Lead: Lead outbound calling teams in Tele Sales / Finance; coaching, reporting, MS Excel, and CRM",
+      "Business Analyst: Gather and document requirements; prepare BRDs/FRDs; bridge business and tech; ERP / AI tooling / prototyping as needed"
+    ],
+    benefits: [
+      "Direct walk-in — no online registration",
+      "Multiple open roles at one venue near Infopark South Gate",
+      "Freshers welcome for Banking Collections and entry BDE tracks"
+    ],
+    applySteps: [
+      "Walk in on Monday, 10 August 2026 — no registration required",
+      "Come directly to Aabasoft and carry your resume only",
+      "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
+      "Mention the role (Banking Executive / BDE / Technical Support / Team Lead / Business Analyst)",
+      "Contact: 8089009751 or 8089002222 · jobs@aabasoft.in · +91 484 417 2222"
+    ],
+    importantNotes: [
+      "Hot Job · Walk-in drive: Monday, 10 August 2026",
+      "No registration required",
+      "Candidates can come directly and attend",
+      "Carry resume only",
+      "Venue: Chakolas Heights, Seaport-Airport Road, Chittethukara · near Infopark South Gate",
+      "Always verify with Aabasoft before you travel · Never pay for a job"
+    ],
+    documentsRequired: ["Updated resume only (as shared by employer)"],
+    howToApply: "Hot Job: Aabasoft Walk-in Drive on Monday, 10 August 2026. No registration — come directly to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate). Carry resume only. Roles: Banking Executive, BDE, Technical Support, Team Lead, Business Analyst. Call 8089009751 / 8089002222 or email jobs@aabasoft.in. Never pay any fee to apply.",
+    hiringNotes: "Hot Job walk-in confirmed for Monday, 10 August 2026. No registration · resume only. Re-check with Aabasoft before travelling.",
+    description: "Hot Job · Aabasoft Walk-in Drive Monday 10 Aug 2026 · Banking / BDE / Tech Support / Team Lead / Business Analyst · No registration · Resume only · Chakolas Heights near Infopark South Gate.",
+    startingDate: "Immediate",
+    seoTitle: "Aabasoft Hot Job Walk-in 10 Aug 2026 Kochi | Banking BDE Tech Support Team Lead BA | InfoparkDaily",
+    seoDescription: "Hot Job: Aabasoft walk-in drive on Monday 10 August 2026 near Infopark South Gate. No registration — carry resume only. Roles: Banking Executive Collections, Business Development, Technical Support, Team Lead, Business Analyst.",
+  },
+  {
     id: "aabasoft-banking-executive-collections",
     company: "Aabasoft",
     logo: "assets/logos/aabasoft.svg",
-    companyBlurb:
-      "Aabasoft · Banking Executive – Centralised Collections · Freshers preferred · Direct walk-in · No registration · Resume only · Chakolas Heights, near Infopark South Gate",
+    companyBlurb: "Hot Job · Aabasoft Walk-in · Monday 10 Aug 2026 · Banking Executive – Centralised Collections · Freshers preferred · Resume only · Chakolas Heights",
     location: "Chittethukara, Kakkanad · Near Infopark South Gate",
     roles: ["Banking Executive – Centralised Collections"],
     experience: "fresher",
     experienceRange: "Freshers preferred",
     employmentType: "Full-time",
-    applyLink:
-      "mailto:jobs@aabasoft.in?subject=Banking%20Executive%20Centralised%20Collections%20-%20Aabasoft",
-    applyDeadline: "Rolling",
-    postedDate: "2026-08-05",
+    applyLink: "mailto:jobs@aabasoft.in?subject=Banking%20Executive%20Centralised%20Collections%20-%20Aabasoft",
+    applyDeadline: "2026-08-10",
+    postedDate: "2026-08-09",
     source: "WhatsApp",
     verified: true,
-    verificationNote:
-      "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
-    tags: ["Business", "Sales", "BPO"],
+    verificationNote: "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Business",
+      "Sales",
+      "BPO"
+    ],
     vacancies: 1,
     vacancyText: "Open hiring",
     featured: false,
     isWalkIn: true,
     walkin: true,
-    walkInDate: "Direct walk-in · No registration",
-    walkinDates: "Direct walk-in · Come anytime during office hours (confirm on arrival)",
-    walkinTime: "Shift: 9:00 AM – 6:00 PM",
-    walkinLocation:
-      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
-    workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
+    walkInDate: "Monday, 10 August 2026",
+    walkinDates: "Monday, 10 August 2026",
+    walkinTime: "9:00 AM onwards · Shift after joining: 9:00 AM – 6:00 PM",
+    walkinLocation: "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    workLocations: [
+      "Kochi",
+      "Kakkanad",
+      "Chittethukara"
+    ],
     alertSheet: true,
-    alertLabel: "WALK-IN · NO REGISTRATION · RESUME ONLY",
-    alertBadge: "Walk-in",
-    walkinHeadline:
-      "Aabasoft Banking Executive – Centralised Collections · Direct walk-in · No registration · Carry resume only · Chakolas Heights, near Infopark South Gate",
+    alertLabel: "HOT JOB · WALK-IN · MON 10 AUG",
+    alertBadge: "Hot Job",
+    walkinHeadline: "Hot Job · Aabasoft Banking Executive – Centralised Collections · Walk-in Monday, 10 August 2026 · No registration · Carry resume only",
     urgentHiring: true,
     email: "jobs@aabasoft.in",
     phone: "8089002222",
     website: "https://www.aabasoft.com",
-    address:
-      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
+    address: "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
     industry: "BPO · Banking Collections",
-    companyDetails:
-      "Aabasoft Technologies India Private Limited is hiring Banking Executive – Centralised Collections at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi.",
+    companyDetails: "Aabasoft Technologies India Private Limited is hiring Banking Executive – Centralised Collections at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi.",
     companyLegalName: "Aabasoft Technologies India Private Limited",
-    workDetails:
-      "Direct walk-in — no registration required. Come directly and attend. Carry resume only. Role: Banking Executive – Centralised Collections. Freshers preferred. Shift 9:00 AM – 6:00 PM. Strong Malayalam communication and telephone convincing skills required. Any degree / Diploma.",
+    workDetails: "Hot Job walk-in on Monday, 10 August 2026. No registration — come directly with resume only. Role: Banking Executive – Centralised Collections. Freshers preferred. Malayalam communication and telephone convincing skills. Any degree / Diploma. Shift 9:00 AM – 6:00 PM.",
     workStatus: "Full-time",
     workMode: "On-site · Direct Walk-in · Kakkanad",
     experienceYears: "Freshers preferred",
@@ -180,154 +305,28 @@ var JOBS = [
       "Venue near Infopark South Gate, Kakkanad"
     ],
     applySteps: [
-      "No registration required — come directly to Aabasoft",
+      "Walk in on Monday, 10 August 2026 — no registration",
       "Carry your resume only",
       "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
       "Ask for Banking Executive – Centralised Collections",
       "Contact: 8089002222 · jobs@aabasoft.in"
     ],
     importantNotes: [
+      "Hot Job · Walk-in: Monday, 10 August 2026",
       "No registration required",
       "Candidates can come directly and attend",
       "Carry resume only",
       "Shift time: 9:00 AM – 6:00 PM",
-      "Venue: Chakolas Heights, Seaport-Airport Road, Chittethukara · near Infopark South Gate",
+      "Venue: Chakolas Heights · near Infopark South Gate",
       "Always verify with Aabasoft before you travel · Never pay for a job"
     ],
     documentsRequired: ["Updated resume only (as shared by employer)"],
-    howToApply:
-      "Direct walk-in at Aabasoft — no registration. Come to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037. Carry resume only. Role: Banking Executive – Centralised Collections. Call 8089002222 or email jobs@aabasoft.in. Never pay any fee to apply.",
-    hiringNotes:
-      "Shared via WhatsApp hiring flyer on 5 Aug 2026. Direct walk-in · no registration · resume only. Re-check with Aabasoft before travelling.",
-    description:
-      "Aabasoft Banking Executive – Centralised Collections · Freshers preferred · Malayalam voice · Direct walk-in · No registration · Resume only · Chakolas Heights near Infopark South Gate.",
+    howToApply: "Hot Job: Aabasoft walk-in on Monday, 10 August 2026. No registration. Come to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037. Carry resume only. Role: Banking Executive – Centralised Collections. Call 8089002222 or email jobs@aabasoft.in.",
+    hiringNotes: "Hot Job walk-in Monday 10 Aug 2026. No registration · resume only. Re-check with Aabasoft before travelling.",
+    description: "Hot Job · Aabasoft Banking Executive walk-in Monday 10 Aug 2026 · Freshers preferred · Malayalam · Resume only · Chakolas Heights near Infopark South Gate.",
     startingDate: "Immediate",
-    seoTitle:
-      "Aabasoft Banking Executive Centralised Collections Walk-in Kochi | InfoparkDaily",
-    seoDescription:
-      "Aabasoft direct walk-in for Banking Executive – Centralised Collections near Infopark South Gate, Kakkanad. Freshers preferred, Malayalam required. No registration — carry resume only. Call 8089002222."
-  },
-  {
-    id: "aabasoft-walkin-hiring-aug2026",
-    company: "Aabasoft",
-    logo: "assets/logos/aabasoft.svg",
-    companyBlurb:
-      "Aabasoft · Direct walk-in · No registration · Resume only · Chakolas Heights, near Infopark South Gate · Banking drive Mon 10 Aug 2026",
-    location: "Chittethukara, Kakkanad · Near Infopark South Gate",
-    roles: [
-      "Banking Executive – Centralised Collections · Freshers preferred",
-      "Business Development Executive · Malayalam / Tamil / Hindi voice",
-      "Technical Support Executive · ISP troubleshooting & networking",
-      "Team Lead · Tele Sales / Finance (1+ year)"
-    ],
-    experience: "both",
-    experienceRange: "Freshers to 1+ years (role-wise)",
-    employmentType: "Full-time",
-    applyLink: "mailto:jobs@aabasoft.in?subject=Walk-in%20Application%20-%20Aabasoft",
-    applyDeadline: "2026-08-10",
-    postedDate: "2026-08-05",
-    source: "WhatsApp",
-    verified: true,
-    verificationNote:
-      "Walk-in details can change. Confirm with Aabasoft before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
-    tags: ["Sales", "Business", "Support", "BPO"],
-    vacancies: 4,
-    vacancyText: "4 open roles",
-    featured: false,
-    isWalkIn: true,
-    walkin: true,
-    walkInDate: "Monday, 10 August 2026 (Banking Executive drive) · Direct walk-in for all listed roles",
-    walkinDates: "Monday, 10 August 2026 · Direct walk-in ongoing",
-    walkinTime: "Banking drive: 9:00 AM – 5:00 PM · Other roles: office hours (confirm on arrival)",
-    walkinLocation:
-      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
-    workLocations: ["Kochi", "Kakkanad", "Chittethukara"],
-    alertSheet: true,
-    alertLabel: "WALK-IN · NO REGISTRATION · RESUME ONLY",
-    alertBadge: "Walk-in",
-    walkinHeadline:
-      "Aabasoft direct walk-in hiring · No registration · Come directly · Carry resume only · Chakolas Heights, near Infopark South Gate · Banking Executive drive Monday, 10 August 2026, 9:00 AM – 5:00 PM",
-    urgentHiring: true,
-    email: "jobs@aabasoft.in",
-    phone: "8089009751 / 8089002222",
-    website: "https://www.aabasoft.com",
-    address:
-      "Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037",
-    industry: "IT / BPO · Sales & Support",
-    companyDetails:
-      "Aabasoft Technologies India Private Limited is hiring at Chakolas Heights, Seaport-Airport Road, Chittethukara (near Infopark South Gate), Kakkanad, Kochi. Roles span Banking Collections, Business Development, Technical Support, and Team Lead.",
-    companyLegalName: "Aabasoft Technologies India Private Limited",
-    workDetails:
-      "Direct walk-in — no registration required. Candidates can come directly and attend. Carry resume only. Banking Executive – Centralised Collections walk-in drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM. Other listed roles also accept direct walk-in at the same venue.",
-    workStatus: "Full-time",
-    workMode: "On-site · Direct Walk-in · Kakkanad",
-    experienceYears: "Freshers to 1+ years (role-wise)",
-    qualification: "Any degree / Diploma · Graduate preferred for Team Lead",
-    skills: [
-      "Malayalam communication",
-      "Telecalling / telesales",
-      "Convincing & negotiation",
-      "ISP troubleshooting",
-      "Networking",
-      "Team leadership",
-      "MS Excel",
-      "CRM"
-    ],
-    whoCanApply: [
-      "Banking Executive – Centralised Collections · Freshers preferred · Any degree / Diploma · Strong Malayalam + phone convincing skills",
-      "Business Development Executive · Graduate / Undergraduate · 0–1 year telecalling / telesales preferred · Malayalam / Tamil / Hindi · Banking / finance / loans / credit cards / insurance experience preferred",
-      "Technical Support Executive · Fluent Malayalam · Ready for 9-hour shifts · ISP troubleshooting & networking",
-      "Team Lead · Graduate preferred · Min 1 year as Team Leader or Senior Executive in Tele Sales / Finance · Outbound calling team experience · Excel & CRM"
-    ],
-    requirements: [
-      "No registration — walk in directly with your resume",
-      "Good communication / convincing skills for voice roles (Malayalam required for several openings; Tamil or Hindi also accepted for one BDE track)",
-      "Immediate joining preferred for Business Development roles",
-      "Technical Support: readiness for 9-hour shifts and ISP / networking work",
-      "Team Lead: minimum 1 year leading outbound Tele Sales / Finance teams",
-      "Never pay any fee to apply or interview"
-    ],
-    responsibilities: [
-      "Banking Executive – Centralised Collections: Customer contact and collections over phone; strong Malayalam communication and convincing skills; shift 9:00 AM – 6:00 PM; freshers preferred",
-      "Business Development Executive: Telecalling / telesales; convince customers over telephone; languages Malayalam (and Tamil / Hindi for the multi-language track); shift typically 9:00 AM – 6:00 PM; immediate joining preferred",
-      "Technical Support Executive: ISP troubleshooting and networking support; fluent Malayalam; available shifts include 8 AM–5 PM, 9 AM–6 PM, 12 PM–9 PM, 1 PM–10 PM, 3 PM–12 AM",
-      "Team Lead: Lead outbound calling teams in Tele Sales / Finance; coach and manage people; reporting, MS Excel, and CRM"
-    ],
-    benefits: [
-      "Direct walk-in — no online registration",
-      "Multiple open roles at one venue near Infopark South Gate",
-      "Freshers welcome for Banking Collections and entry BDE tracks"
-    ],
-    applySteps: [
-      "No registration required — come directly to Aabasoft",
-      "Carry your resume only",
-      "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)",
-      "Banking Executive drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM",
-      "Mention the role you want (Banking Executive / BDE / Technical Support / Team Lead)",
-      "Contact: 8089009751 or 8089002222 · jobs@aabasoft.in"
-    ],
-    importantNotes: [
-      "No registration required",
-      "Candidates can come directly and attend",
-      "Carry resume only",
-      "Banking Executive – Centralised Collections walk-in: Monday, 10 August 2026, 9:00 AM – 5:00 PM",
-      "Venue: Chakolas Heights, Seaport-Airport Road, Chittethukara · near Infopark South Gate",
-      "Always verify with Aabasoft before you travel · Never pay for a job"
-    ],
-    documentsRequired: [
-      "Updated resume only (as shared by employer)"
-    ],
-    howToApply:
-      "Direct walk-in at Aabasoft — no registration. Come to 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate). Carry resume only. Banking Executive drive: Monday, 10 August 2026, 9:00 AM – 5:00 PM. Other roles also accept direct walk-in. Call 8089009751 / 8089002222 or email jobs@aabasoft.in. Never pay any fee to apply.",
-    hiringNotes:
-      "Shared via WhatsApp hiring flyers on 5 Aug 2026. Direct walk-in · no registration · resume only. Banking Executive drive dated 10 Aug 2026. Re-check with Aabasoft before travelling.",
-    description:
-      "Aabasoft direct walk-in · No registration · Resume only · Banking / BDE / Technical Support / Team Lead · Chakolas Heights near Infopark South Gate · Banking drive 10 Aug 2026.",
-    startingDate: "Immediate",
-    seoTitle:
-      "Aabasoft Walk-in Hiring Kochi | Banking BDE Tech Support Team Lead | InfoparkDaily",
-    seoDescription:
-      "Aabasoft direct walk-in near Infopark South Gate, Kakkanad. No registration — carry resume only. Roles: Banking Executive Collections (drive 10 Aug 2026), Business Development Executive, Technical Support Executive, Team Lead."
+    seoTitle: "Aabasoft Hot Job Banking Executive Walk-in 10 Aug 2026 Kochi | InfoparkDaily",
+    seoDescription: "Hot Job: Aabasoft Banking Executive – Centralised Collections walk-in on Monday 10 August 2026 near Infopark South Gate. Freshers preferred. No registration — carry resume only.",
   },
   {
     id: "ipv-galtech-technologies-pvt-ltd-video-editor-25019",
