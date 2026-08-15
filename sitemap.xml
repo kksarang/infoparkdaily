@@ -110,9 +110,27 @@
   </url>
   <url>
     <loc>https://infoparkdaily.online/media/</loc>
-    <lastmod>2026-08-05</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/social/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/social-post/?id=aavesham-2k26</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/rajaonam/</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.84</priority>
   </url>
   <url>
     <loc>https://infoparkdaily.online/onam/</loc>
