@@ -7099,7 +7099,7 @@ body.light .onam-hero-powered strong {
 
 .about-hero-copy h1 {
   margin: 0;
-  max-width: 16ch;
+  max-width: 18ch;
   font-family: var(--display);
   font-size: clamp(2.15rem, 5.4vw, 3.55rem);
   font-weight: 680;
@@ -7157,6 +7157,84 @@ body.light .onam-hero-powered strong {
   max-width: 22rem;
   color: var(--muted);
   font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.about-claim {
+  list-style: none;
+  margin: 0;
+  padding: 1.15rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-claim li {
+  margin: 0;
+  padding: 0 0 0 0.9rem;
+  border-left: 1px solid var(--line-strong);
+}
+
+.about-claim strong {
+  display: block;
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.about-claim span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.about-parks {
+  padding: 1.5rem 0 0.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.about-parks h2 {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--display);
+  font-size: clamp(1.45rem, 3vw, 1.95rem);
+  font-weight: 680;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.about-parks-grid {
+  list-style: none;
+  margin: 1.35rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.about-parks-grid li {
+  margin: 0;
+  padding: 1.15rem 0 0;
+  border-top: 2px solid var(--accent);
+}
+
+.about-parks-name {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 680;
+  letter-spacing: -0.02em;
+}
+
+.about-parks-grid p:last-child {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
   line-height: 1.55;
 }
 
@@ -7444,6 +7522,11 @@ body.light .onam-hero-powered strong {
     border-top: 1px solid var(--line);
   }
 
+  .about-claim,
+  .about-parks-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .about-notes {
     position: static;
   }
@@ -7461,6 +7544,8 @@ body.light .onam-hero-powered strong {
 }
 
 @media (max-width: 640px) {
+  .about-claim,
+  .about-parks-grid,
   .about-journey {
     grid-template-columns: 1fr;
     gap: 1.15rem;
