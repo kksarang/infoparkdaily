@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 8)  # bump when re-importing
+TODAY = date(2026, 8, 15)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -202,88 +202,48 @@ def insert_jobs(path: Path, array_name: str, jobs: list[dict]) -> int:
 
 
 # ---------- Infopark ----------
+# New rows from https://infopark.in/companies-job (job ids > last import 25019).
 INFOPARK_ROWS = [
-    ("189", "25019", "Video Editor", "GALTech Technologies Pvt Ltd", "07-08-2026", "30 Aug 2026"),
-    ("211", "25018", "AI Search & Prompt Engineering Specialist (Local SEO & GEO)", "Lanware Solutions", "07-08-2026", "30 Sep 2026"),
-    ("95", "25017", "Business Analyst", "Aabasoft Technologies India Private Limited", "07-08-2026", "21 Aug 2026"),
-    ("496", "25016", "Sr. Contract Drafting Legal Analyst", "Unilaw Global Private Limited", "07-08-2026", "14 Aug 2026"),
-    ("266", "25015", "UI Developer", "Planet Media India ( PMIN Agency Pvt.Ltd.)", "07-08-2026", "31 Aug 2026"),
-    ("296", "25014", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "07-08-2026", "10 Aug 2026"),
-    ("312", "25013", "Visual Designer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
-    ("312", "25012", "Marketing & Growth Lead", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
-    ("312", "25011", "Associate - System Engineer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
-    ("312", "25010", "Business Development Manager", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
-    ("312", "25009", "Associate - QA Engineer", "2Base Technologies Pvt Ltd", "07-08-2026", "7 Aug 2026"),
-    ("530", "25008", "Finance Manager", "Nesa Software Pvt Ltd", "06-08-2026", "20 Aug 2026"),
-    ("530", "25007", "DevOps Engineer - Fresher", "Nesa Software Pvt Ltd", "06-08-2026", "20 Aug 2026"),
-    ("190", "25006", "Data Engineer", "Innovature Software Labs (P) Ltd", "06-08-2026", "31 Aug 2026"),
-    ("259", "25005", "Business Development Specialist", "Thomsun Infocare LLP", "06-08-2026", "25 Aug 2026"),
-    ("92", "25002", "Business Immigration Coordinator - German Language Specialist", "Fragomen Immigration Services  India Private Limited", "06-08-2026", "10 Sep 2026"),
-    ("92", "25001", "Business Immigration Coordinator - French Language Specialist", "Fragomen Immigration Services  India Private Limited", "06-08-2026", "10 Sep 2026"),
-    ("109", "25000", "Video Editor & Motion Graphic Designer (2+ Year)", "NewAgeSys Solutions (P) Ltd.", "06-08-2026", "10 Aug 2026"),
-    ("340", "24999", "HR Recruiter", "Classic Technologies & Business Solutions Pvt. Ltd.", "06-08-2026", "31 Aug 2026"),
-    ("340", "24998", "Software Engineer", "Classic Technologies & Business Solutions Pvt. Ltd.", "06-08-2026", "30 Aug 2026"),
-    ("218", "24997", "MEP BIM MODELER", "Roberts Design Services", "06-08-2026", "19 Aug 2026"),
-    ("59", "24990", "Fullstack Developer", "iLeaf Solutions Pvt Ltd.", "06-08-2026", "28 Aug 2026"),
-    ("59", "24989", "AI Engineer", "iLeaf Solutions Pvt Ltd.", "06-08-2026", "28 Aug 2026"),
-    ("499", "24988", "Sales & Business Development Officer", "Dee and Lee Services", "05-08-2026", "31 Aug 2026"),
-    ("90", "24987", "Personal PR Podcast Coordinator (Location: Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "15 Aug 2026"),
-    ("90", "24986", "Accounts & Admin Executive (Location- Kadavanthra)", "Voyager IT Solutions Pvt Ltd", "05-08-2026", "12 Aug 2026"),
-    ("49", "24985", ".NET Enterprise Solution Architect - 10+years", "Thinkpalm Technologies Pvt.Ltd", "05-08-2026", "28 Aug 2026"),
-    ("194", "24984", "We're Hiring: HR Intern (Talent Acquisition) - HTIC Global -  Kochi", "HTIC Global", "05-08-2026", "14 Aug 2026"),
-    ("194", "24983", "Join Our Growing Sales Team! Walkin Drive- HTIC Global - 8th August 2026", "HTIC Global", "05-08-2026", "7 Aug 2026"),
-    ("209", "24982", "Senior Cyber Security Analytics", "NDimensionZ Solutions Pvt.Ltd.", "05-08-2026", "31 Aug 2026"),
-    ("109", "24981", "Market Research & Business Intelligence Expert", "NewAgeSys Solutions (P) Ltd.", "05-08-2026", "5 Aug 2026"),
-    ("132", "24980", "Executive - Client Service", "Dynamed Healthcare Solutions Pvt.Ltd.", "05-08-2026", "30 Aug 2026"),
-    ("538", "24979", "Design Engineer - Electrical", "Gravity Business Process Private Limited", "05-08-2026", "31 Aug 2026"),
-    ("62", "24978", "Systems Engineer", "VIPoint Solutions Pvt Ltd", "05-08-2026", "30 Sep 2026"),
-    ("363", "24977", "IT Sales/ Business Development Executive (Freshers)", "Jachoos Technologies Private Limited", "05-08-2026", "14 Aug 2026"),
-    ("262", "24976", "Backend Developer / Laravel Developer (Immediate Hiring)", "Ynot Infosolutions", "05-08-2026", "10 Aug 2026"),
-    ("142", "24975", "Customer Experience Associate - International Voice Process", "Speridian Technologies Pvt Ltd", "05-08-2026", "20 Aug 2026"),
-    ("118", "24974", "DevOps Engineer", "UROLIME", "05-08-2026", "21 Aug 2026"),
-    ("118", "24973", "HR Recruiter", "UROLIME", "05-08-2026", "21 Aug 2026"),
-    ("118", "24972", "Solution Architect - DevOps", "UROLIME", "05-08-2026", "21 Aug 2026"),
-    ("118", "24971", "System Engineer", "UROLIME", "05-08-2026", "21 Aug 2026"),
-    ("312", "24970", "Visual Designer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("312", "24969", "Marketing & Growth Lead", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("312", "24968", "Associate - System Engineer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("312", "24967", "Business Development Manager", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("312", "24966", "Associate - QA Engineer", "2Base Technologies Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("41", "24965", "IT Service Desk SME", "LucidPlus Infotech Pvt Ltd", "05-08-2026", "31 Aug 2026"),
-    ("41", "24964", "Software Engineer - Card Payment Systems and Card Management Platforms", "LucidPlus Infotech Pvt Ltd", "05-08-2026", "31 Aug 2026"),
-    ("329", "24963", "Infrastructure Engineer", "InApp Information Technologies India Pvt Ltd", "05-08-2026", "5 Aug 2026"),
-    ("102", "24962", "Senior Developer \u2013 Shopify + BigCommerce", "McFadyen Digital", "04-08-2026", "30 Oct 2026"),
-    ("102", "24961", "Full-Stack Tech Lead \u2013 AI Best Practices (AIBP)", "McFadyen Digital", "04-08-2026", "30 Sep 2026"),
-    ("480", "24960", "Business Development Associate (Lead Generation & Customer Outreach)", "CloudHouse Technologies Pvt.Ltd", "04-08-2026", "18 Aug 2026"),
-    ("259", "24959", "Business Analyst", "Thomsun Infocare LLP", "04-08-2026", "10 Aug 2026"),
-    ("530", "24958", "Senior Business Analyst", "Nesa Software Pvt Ltd", "04-08-2026", "10 Aug 2026"),
-    ("109", "24957", "US Recruiter (2-6 Years)", "NewAgeSys Solutions (P) Ltd.", "04-08-2026", "7 Aug 2026"),
-    ("109", "24956", "Junior QA Engineer (1 -2 YEARS Experience)", "NewAgeSys Solutions (P) Ltd.", "04-08-2026", "6 Aug 2026"),
-    ("296", "24954", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "04-08-2026", "5 Aug 2026"),
-    ("530", "24930", "Software Trainer", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
-    ("530", "24929", "Embedded Trainee", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
-    ("530", "24928", "Marketing Intern", "Nesa Software Pvt Ltd", "01-08-2026", "10 Aug 2026"),
-    ("95", "24926", "Junior Office Assistant-Munnar", "Aabasoft Technologies India Private Limited", "31-07-2026", "07 Aug 2026"),
-    ("95", "24925", "Executive Assistant to the CEO- Kochi Location", "Aabasoft Technologies India Private Limited", "31-07-2026", "07 Aug 2026"),
-    ("363", "24924", "IT SALES/ LEAD GENERATION EXPERT", "Jachoos Technologies Private Limited", "31-07-2026", "07 Aug 2026"),
-    ("363", "24923", "Google Ads Expert", "Jachoos Technologies Private Limited", "31-07-2026", "07 Aug 2026"),
-    ("218", "24922", "Façade BIM Modeler / Coordinator", "Roberts Design Services", "31-07-2026", "14 Aug 2026"),
-    ("218", "24921", "BIM Engineer", "Roberts Design Services", "31-07-2026", "14 Aug 2026"),
-    ("192", "24920", "OFFICE ADMINISTRATOR", "FDC Web Technologies Pvt Ltd", "31-07-2026", "30 Sep 2026"),
-    ("192", "24919", "OFFICE ADMINISTRATOR INTERN", "FDC Web Technologies Pvt Ltd", "31-07-2026", "05 Sep 2026"),
-    ("149", "24918", "Accessibility QA Engineer", "White Rabbit Group", "31-07-2026", "31 Oct 2026"),
-    ("286", "24917", "ERP Content Creator", "Eqsoft Business Solutions Pvt Ltd", "31-07-2026", "31 Aug 2026"),
-    ("286", "24916", "Business Development Officer", "Eqsoft Business Solutions Pvt Ltd", "31-07-2026", "31 Aug 2026"),
-    ("41", "24914", "Flutter Developer", "LucidPlus Infotech Pvt Ltd", "31-07-2026", "07 Aug 2026"),
-    ("41", "24913", ".NET Technical Lead (Exp: 7 - 12 Yrs)", "LucidPlus Infotech Pvt Ltd", "31-07-2026", "07 Aug 2026"),
-    ("103", "24907", "Database Architect", "Experion Technologies", "30-07-2026", "31 Aug 2026"),
-    ("450", "24906", "QA Automation Developer", "iCodeBees Private Limited", "30-07-2026", "07 Aug 2026"),
-    ("268", "24905", "Founder's Office Assistant (Career Restart Opportunity)", "Techware Lab Pvt.Ltd.", "30-07-2026", "11 Aug 2026"),
-    ("91", "24904", "Senior Business Development Executive – EdTech Sales", "iDatalytics Pvt. Ltd.", "30-07-2026", "30 Aug 2026"),
-    ("95", "24889", "HR Recruiter", "Aabasoft Technologies India Private Limited", "29-07-2026", "29 Aug 2026"),
-    ("36", "24888", "Immediate Opening for Gen AI SSE Position", "Aspire Systems Digital Private Limited", "29-07-2026", "29 Aug 2026"),
-    ("495", "24887", "Full-Stack Developer", "Difinity Digital", "29-07-2026", "15 Aug 2026"),
-    ("378", "24886", "AI Algorithms Support Consultant", "Simelabs - An Astek Company", "29-07-2026", "29 Aug 2026"),
+    ("296", "25088", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "14-08-2026", "17 Aug 2026"),
+    ("70", "25087", "Software Engineer", "Empress InfoTech", "14-08-2026", "21 Aug 2026"),
+    ("371", "25086", "Software Test Engineer - 0-2 years", "Gizmeon Technologies Private Limited", "14-08-2026", "31 Aug 2026"),
+    ("530", "25085", "Senior Test Engineer", "Nesa Software Pvt Ltd", "14-08-2026", "30 Aug 2026"),
+    ("251", "25084", "IT Business Analyst (4+ Years of Experience in the FinTech Domain Preferred)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
+    ("251", "25083", "Senior Java Developer (4+ Year\u2019s)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
+    ("251", "25082", "Java Team Lead (5+ years of experience in Java, with at least 2+years of experience in lead role)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
+    ("3", "25080", "INTERNSHIP- WALK-IN INTERVIEW RHCE Certified Linux System Engineer (Fresher) @02nd September 2026", "Armia Systems Pvt. Ltd", "14-08-2026", "02 Sep 2026"),
+    ("62", "25079", "Internal System Administrator", "VIPoint Solutions Pvt Ltd", "14-08-2026", "30 Sep 2026"),
+    ("328", "25078", "Senior Sales Manager", "Daskalos virtual Academy pvt Limited", "14-08-2026", "28 Aug 2026"),
+    ("259", "25077", "SEO Analyst-2-4 years", "Thomsun Infocare LLP", "14-08-2026", "15 Sep 2026"),
+    ("259", "25076", "Digital Performance Marketing Specialist-4+ years", "Thomsun Infocare LLP", "14-08-2026", "15 Sep 2026"),
+    ("542", "25074", "HR Head", "Lisbell Technologies Pvt Ltd", "14-08-2026", "21 Aug 2026"),
+    ("542", "25073", "AI Intern", "Lisbell Technologies Pvt Ltd", "14-08-2026", "21 Aug 2026"),
+    ("542", "25072", "Digital Marketing GenAI Internship", "Lisbell Technologies Pvt Ltd", "13-08-2026", "31 Aug 2026"),
+    ("450", "25071", "Microsoft PPM Consultant", "iCodeBees Private Limited", "13-08-2026", "18 Aug 2026"),
+    ("494", "25070", "Business Analyst", "Neork Technologies", "13-08-2026", "15 Sep 2026"),
+    ("450", "25069", "Systems Operations Specialist", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
+    ("450", "25068", "Systems Analyst and Documentation Expert", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
+    ("450", "25067", "Network and Cybersecurity Specialist", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
+    ("351", "25060", "HR Recruiter", "Stepping Stone Consultancy Services", "12-08-2026", "12 Sep 2026"),
+    ("189", "25059", "Digital Marketing Executive(1+ years)", "GALTech Technologies Pvt Ltd", "12-08-2026", "29 Aug 2026"),
+    ("468", "25058", "Technical Manager", "SS Consulting", "12-08-2026", "10 Sep 2026"),
+    ("420", "25057", "SEO Intern", "Apro IT Solutions Pvt Ltd", "12-08-2026", "29 Aug 2026"),
+    ("387", "25056", "Software Developer (Contract, Remote)", "AlignMinds Technologies", "12-08-2026", "15 Aug 2026"),
+    ("363", "25054", "IT SALES and LEAD GENERATION EXPERT", "Jachoos Technologies Private Limited", "12-08-2026", "19 Aug 2026"),
+    ("363", "25053", "GOOGLE ADS EXPERT", "Jachoos Technologies Private Limited", "12-08-2026", "19 Aug 2026"),
+    ("148", "25051", "Business Intelligence (BI) Analyst \u2013 GA & GSC Specialist", "AVENTUS INFORMATICS", "12-08-2026", "16 Sep 2026"),
+    ("55", "25045", "Project Manager \u2013 .NET required for JTSi Technologies India Pvt Ltd at Kochi Infopark.", "JTSi Technologies India Private Limited", "12-08-2026", "19 Aug 2026"),
+    ("530", "25044", "Node js Developer", "Nesa Software Pvt Ltd", "11-08-2026", "30 Aug 2026"),
+    ("95", "25043", "Business Support Executive", "Aabasoft Technologies India Private Limited", "11-08-2026", "28 Aug 2026"),
+    ("396", "25042", "Graphic Designer & Video Editor \u2013 AI & Digital Content", "Merabt Technologies Private Limited", "11-08-2026", "31 Aug 2026"),
+    ("95", "25041", "Business Coordinator- Male", "Aabasoft Technologies India Private Limited", "11-08-2026", "28 Aug 2026"),
+    ("189", "25040", "Business Development Executive (1\u2013 2Years)", "GALTech Technologies Pvt Ltd", "11-08-2026", "29 Aug 2026"),
+    ("73", "25038", "Financial Analyst \u2013 Investor Relations", "ValueMentor Infosec Pvt. Ltd.", "11-08-2026", "27 Aug 2026"),
+    ("256", "25037", "Full-Stack Engineer- AI Integration & ERP Modernization", "Yellowfish Digital Innovations Pvt Ltd.", "11-08-2026", "10 Sep 2026"),
+    ("148", "25030", "Business Intelligence (BI) Analyst", "AVENTUS INFORMATICS", "10-08-2026", "02 Sep 2026"),
+    ("83", "25029", "Senior Consultant - Magento (Contract)", "Fingent Global Solutions", "10-08-2026", "08 Sep 2026"),
+    ("495", "25028", "Project Coordinator", "Difinity Digital", "10-08-2026", "31 Aug 2026"),
+    ("269", "25020", "Senior Computational Biologist", "Feathersoft Info Solutions Private Ltd", "09-08-2026", "30 Sep 2026"),
 ]
 
 
@@ -344,9 +304,9 @@ def build_infopark() -> list[dict]:
     return out
 
 
-def build_technopark(limit: int = 24) -> list[dict]:
+def build_technopark(limit: int = 160) -> list[dict]:
     rows = []
-    for page in range(1, 4):
+    for page in range(1, 9):
         data = json.loads(fetch(f"https://technopark.in/api/paginated-jobs?page={page}&search=&type="))
         rows.extend(data.get("data") or [])
     out = []
@@ -360,7 +320,7 @@ def build_technopark(limit: int = 24) -> list[dict]:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 7, 28):
+        if p and p < date(2026, 8, 7):
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
@@ -498,20 +458,29 @@ def build_cyberpark() -> list[dict]:
     return out
 
 
-def main() -> None:
+def main(parks: set[str] | None = None) -> None:
+    parks = parks or {"infopark", "technopark", "cyberpark"}
     print("Fetching portals…")
-    ip = build_infopark()
-    tp = build_technopark(24)
-    cp = build_cyberpark()
+    ip = build_infopark() if "infopark" in parks else []
+    tp = build_technopark(160) if "technopark" in parks else []
+    cp = build_cyberpark() if "cyberpark" in parks else []
     print(f"Built Infopark={len(ip)} Technopark={len(tp)} Cyberpark={len(cp)}")
 
-    insert_jobs(ROOT / "data" / "infopark-jobs-data.js", "INFOPARK_VERIFIED_JOBS", ip)
-    insert_jobs(ROOT / "data" / "technopark-jobs-data.js", "TECHNOPARK_VERIFIED_JOBS", tp)
-    insert_jobs(ROOT / "data" / "cyberpark-jobs-data.js", "CYBERPARK_VERIFIED_JOBS", cp)
+    if ip:
+        insert_jobs(ROOT / "data" / "infopark-jobs-data.js", "INFOPARK_VERIFIED_JOBS", ip)
+    if tp:
+        insert_jobs(ROOT / "data" / "technopark-jobs-data.js", "TECHNOPARK_VERIFIED_JOBS", tp)
+    if cp:
+        insert_jobs(ROOT / "data" / "cyberpark-jobs-data.js", "CYBERPARK_VERIFIED_JOBS", cp)
     # Also add into main JOBS for /job/<id> detail pages
-    insert_jobs(ROOT / "data" / "jobs-data.js", "JOBS", ip + tp + cp)
+    combined = ip + tp + cp
+    if combined:
+        insert_jobs(ROOT / "data" / "jobs-data.js", "JOBS", combined)
     print("Done.")
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    selected = {a.lower() for a in sys.argv[1:]} if len(sys.argv) > 1 else None
+    main(selected)
