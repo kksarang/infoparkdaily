@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v201";
+const CACHE_NAME = "infoparkdaily-v202";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -31,7 +31,7 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260815p",
+  "./css/styles.css?v=20260815q",
   "./css/onam.css?v=20260815d",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260805n",

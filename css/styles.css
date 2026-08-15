@@ -7158,6 +7158,38 @@ body.light .onam-hero-powered strong {
   overflow: visible;
 }
 
+.au-event--highlight {
+  border-color: rgba(255, 193, 7, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(255, 193, 7, 0.18),
+    0 18px 40px rgba(180, 83, 9, 0.1);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(255, 193, 7, 0.42), transparent 38%),
+    radial-gradient(circle at 8% 92%, rgba(255, 106, 42, 0.16), transparent 40%),
+    linear-gradient(145deg, #fff6d6 0%, #fffaf0 48%, #f3e8ff 100%);
+}
+
+html.theme-dark body .au-event--highlight,
+body.dark .au-event--highlight {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(255, 193, 7, 0.28), transparent 40%),
+    radial-gradient(circle at 8% 92%, rgba(168, 85, 247, 0.22), transparent 42%),
+    linear-gradient(145deg, rgba(255, 193, 7, 0.12), var(--surface));
+  box-shadow:
+    0 0 0 3px rgba(255, 193, 7, 0.2),
+    0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.au-event--highlight .jobs-hero-stats li {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(255, 193, 7, 0.28);
+}
+
+html.theme-dark body .au-event--highlight .jobs-hero-stats li,
+body.dark .au-event--highlight .jobs-hero-stats li {
+  background: rgba(15, 15, 21, 0.45);
+}
+
 .au-event h2 {
   margin: 0;
   font-family: var(--display);
