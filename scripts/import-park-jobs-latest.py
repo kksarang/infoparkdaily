@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 15)  # bump when re-importing
+TODAY = date(2026, 8, 19)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -202,58 +202,50 @@ def insert_jobs(path: Path, array_name: str, jobs: list[dict]) -> int:
 
 
 # ---------- Infopark ----------
-# New rows from https://infopark.in/companies-job (job ids > last import 25019).
-INFOPARK_ROWS = [
-    ("296", "25088", "Senior Business Development Specialist \u2013 IT Services", "Grapelime Innovations Private Limited.", "14-08-2026", "17 Aug 2026"),
-    ("70", "25087", "Software Engineer", "Empress InfoTech", "14-08-2026", "21 Aug 2026"),
-    ("371", "25086", "Software Test Engineer - 0-2 years", "Gizmeon Technologies Private Limited", "14-08-2026", "31 Aug 2026"),
-    ("530", "25085", "Senior Test Engineer", "Nesa Software Pvt Ltd", "14-08-2026", "30 Aug 2026"),
-    ("251", "25084", "IT Business Analyst (4+ Years of Experience in the FinTech Domain Preferred)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
-    ("251", "25083", "Senior Java Developer (4+ Year\u2019s)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
-    ("251", "25082", "Java Team Lead (5+ years of experience in Java, with at least 2+years of experience in lead role)", "Empay Software Solutions Private Limited", "14-08-2026", "31 Aug 2026"),
-    ("3", "25080", "INTERNSHIP- WALK-IN INTERVIEW RHCE Certified Linux System Engineer (Fresher) @02nd September 2026", "Armia Systems Pvt. Ltd", "14-08-2026", "02 Sep 2026"),
-    ("62", "25079", "Internal System Administrator", "VIPoint Solutions Pvt Ltd", "14-08-2026", "30 Sep 2026"),
-    ("328", "25078", "Senior Sales Manager", "Daskalos virtual Academy pvt Limited", "14-08-2026", "28 Aug 2026"),
-    ("259", "25077", "SEO Analyst-2-4 years", "Thomsun Infocare LLP", "14-08-2026", "15 Sep 2026"),
-    ("259", "25076", "Digital Performance Marketing Specialist-4+ years", "Thomsun Infocare LLP", "14-08-2026", "15 Sep 2026"),
-    ("542", "25074", "HR Head", "Lisbell Technologies Pvt Ltd", "14-08-2026", "21 Aug 2026"),
-    ("542", "25073", "AI Intern", "Lisbell Technologies Pvt Ltd", "14-08-2026", "21 Aug 2026"),
-    ("542", "25072", "Digital Marketing GenAI Internship", "Lisbell Technologies Pvt Ltd", "13-08-2026", "31 Aug 2026"),
-    ("450", "25071", "Microsoft PPM Consultant", "iCodeBees Private Limited", "13-08-2026", "18 Aug 2026"),
-    ("494", "25070", "Business Analyst", "Neork Technologies", "13-08-2026", "15 Sep 2026"),
-    ("450", "25069", "Systems Operations Specialist", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
-    ("450", "25068", "Systems Analyst and Documentation Expert", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
-    ("450", "25067", "Network and Cybersecurity Specialist", "iCodeBees Private Limited", "13-08-2026", "20 Aug 2026"),
-    ("351", "25060", "HR Recruiter", "Stepping Stone Consultancy Services", "12-08-2026", "12 Sep 2026"),
-    ("189", "25059", "Digital Marketing Executive(1+ years)", "GALTech Technologies Pvt Ltd", "12-08-2026", "29 Aug 2026"),
-    ("468", "25058", "Technical Manager", "SS Consulting", "12-08-2026", "10 Sep 2026"),
-    ("420", "25057", "SEO Intern", "Apro IT Solutions Pvt Ltd", "12-08-2026", "29 Aug 2026"),
-    ("387", "25056", "Software Developer (Contract, Remote)", "AlignMinds Technologies", "12-08-2026", "15 Aug 2026"),
-    ("363", "25054", "IT SALES and LEAD GENERATION EXPERT", "Jachoos Technologies Private Limited", "12-08-2026", "19 Aug 2026"),
-    ("363", "25053", "GOOGLE ADS EXPERT", "Jachoos Technologies Private Limited", "12-08-2026", "19 Aug 2026"),
-    ("148", "25051", "Business Intelligence (BI) Analyst \u2013 GA & GSC Specialist", "AVENTUS INFORMATICS", "12-08-2026", "16 Sep 2026"),
-    ("55", "25045", "Project Manager \u2013 .NET required for JTSi Technologies India Pvt Ltd at Kochi Infopark.", "JTSi Technologies India Private Limited", "12-08-2026", "19 Aug 2026"),
-    ("530", "25044", "Node js Developer", "Nesa Software Pvt Ltd", "11-08-2026", "30 Aug 2026"),
-    ("95", "25043", "Business Support Executive", "Aabasoft Technologies India Private Limited", "11-08-2026", "28 Aug 2026"),
-    ("396", "25042", "Graphic Designer & Video Editor \u2013 AI & Digital Content", "Merabt Technologies Private Limited", "11-08-2026", "31 Aug 2026"),
-    ("95", "25041", "Business Coordinator- Male", "Aabasoft Technologies India Private Limited", "11-08-2026", "28 Aug 2026"),
-    ("189", "25040", "Business Development Executive (1\u2013 2Years)", "GALTech Technologies Pvt Ltd", "11-08-2026", "29 Aug 2026"),
-    ("73", "25038", "Financial Analyst \u2013 Investor Relations", "ValueMentor Infosec Pvt. Ltd.", "11-08-2026", "27 Aug 2026"),
-    ("256", "25037", "Full-Stack Engineer- AI Integration & ERP Modernization", "Yellowfish Digital Innovations Pvt Ltd.", "11-08-2026", "10 Sep 2026"),
-    ("148", "25030", "Business Intelligence (BI) Analyst", "AVENTUS INFORMATICS", "10-08-2026", "02 Sep 2026"),
-    ("83", "25029", "Senior Consultant - Magento (Contract)", "Fingent Global Solutions", "10-08-2026", "08 Sep 2026"),
-    ("495", "25028", "Project Coordinator", "Difinity Digital", "10-08-2026", "31 Aug 2026"),
-    ("269", "25020", "Senior Computational Biologist", "Feathersoft Info Solutions Private Ltd", "09-08-2026", "30 Sep 2026"),
-]
+# Live scrape from https://infopark.in/companies-job (new rows since last import).
+INFOPARK_ROW_RE = re.compile(
+    r'<tr>\s*<td class="head">([^<]+)</td>\s*<td class="head">([^<]+)</td>\s*'
+    r'<td class="date">([^<]+)</td>\s*<td>([^<]+)</td>\s*<td class="btn-sec">\s*'
+    r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
+    re.I,
+)
+INFOPARK_LAST_IMPORTED_ID = 25130
+
+
+def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
+    rows: list[tuple[str, str, str, str, str, str]] = []
+    seen: set[str] = set()
+    for page in range(1, pages + 1):
+        url = "https://infopark.in/companies-job" if page == 1 else f"https://infopark.in/companies-job?page={page}"
+        html = fetch(url)
+        for posted, title, company, deadline, company_id, job_id in INFOPARK_ROW_RE.findall(html):
+            if job_id in seen:
+                continue
+            seen.add(job_id)
+            rows.append(
+                (
+                    company_id,
+                    job_id,
+                    unescape(title).strip(),
+                    unescape(company).strip(),
+                    posted.strip(),
+                    deadline.strip(),
+                )
+            )
+    return rows
 
 
 def build_infopark() -> list[dict]:
     out = []
-    for company_id, job_id, title, company, posted, deadline in INFOPARK_ROWS:
+    for company_id, job_id, title, company, posted, deadline in scrape_infopark_rows(3):
+        if int(job_id) <= INFOPARK_LAST_IMPORTED_ID:
+            continue
         exp, exp_range = infer_exp(title)
         link = f"https://infopark.in/company-jobs/details/{company_id}/{job_id}"
         posted_iso = parse_deadline(posted)
         deadline_iso = parse_deadline(deadline)
+        if deadline_iso < TODAY.isoformat():
+            continue
         jid = f"ipv-{slugify(company)}-{slugify(title)}-{job_id}"
         out.append(
             {
@@ -320,7 +312,7 @@ def build_technopark(limit: int = 160) -> list[dict]:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 8, 7):
+        if p and p < date(2026, 8, 15):
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
