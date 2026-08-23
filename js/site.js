@@ -351,7 +351,7 @@ function initMobileNav() {
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 941) setOpen(false);
+    if (window.innerWidth >= 1100) setOpen(false);
   });
 
   // bfcache / back-forward: clear a lock left behind by in-flight navigation.

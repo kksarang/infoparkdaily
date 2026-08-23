@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 19)  # bump when re-importing
+TODAY = date(2026, 8, 23)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -209,7 +209,7 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25130
+INFOPARK_LAST_IMPORTED_ID = 25167
 
 
 def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
@@ -237,7 +237,7 @@ def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, 
 
 def build_infopark() -> list[dict]:
     out = []
-    for company_id, job_id, title, company, posted, deadline in scrape_infopark_rows(3):
+    for company_id, job_id, title, company, posted, deadline in scrape_infopark_rows(4):
         if int(job_id) <= INFOPARK_LAST_IMPORTED_ID:
             continue
         exp, exp_range = infer_exp(title)
@@ -312,7 +312,7 @@ def build_technopark(limit: int = 160) -> list[dict]:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 8, 15):
+        if p and p < date(2026, 8, 19):
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
