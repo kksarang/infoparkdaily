@@ -611,6 +611,214 @@
     viewMonth = parts.m;
   }
 
+  function isOpenJob(job) {
+    const deadline = String(job.applyDeadline || "").trim();
+    if (!deadline || deadline === "Rolling") return true;
+    return deadline >= todayKey();
+  }
+
+  function parkLabel(job) {
+    const loc = String(job.location || job.source || "").toLowerCase();
+    if (loc.includes("technopark")) return "Technopark";
+    if (loc.includes("cyberpark")) return "Cyberpark";
+    if (loc.includes("infopark")) return "Infopark";
+    return job.source || job.location || "Kerala IT park";
+  }
+
+  function classifyEntryRole(job) {
+    const title = (job.roles || []).join(" ").toLowerCase();
+    const exp = String(job.experience || "").toLowerCase();
+    const range = String(job.experienceRange || job.experienceYears || "").toLowerCase();
+
+    const intern = /\bintern(?:ship)?s?\b|\bapprentices?/.test(title);
+
+    const fresher =
+      exp === "fresher" ||
+      /\bfresher|\btrainee|\bgraduate/.test(title) ||
+      /\b0\s*[-–to]{1,3}\s*[012]\s*year/.test(`${title} ${range}`) ||
+      (/\b(junior|jr\.|jr )\b/.test(title) && exp !== "experienced");
+
+    if (intern) return "intern";
+    if (fresher) return "fresher";
+    return "";
+  }
+
+  function matchesFreshersQuery(job, query) {
+    if (!query) return true;
+    const hay = [
+      job.company,
+      ...(job.roles || []),
+      job.location,
+      job.source,
+      job.experienceRange,
+      job.employmentType
+    ]
+      .join(" ")
+      .toLowerCase();
+    return hay.includes(query);
+  }
+
+  function initFreshersBoard() {
+    const panel = document.getElementById("today-freshers");
+    const board = document.querySelector(".today-board");
+    const btn = document.getElementById("today-freshers-btn");
+    const groupsEl = document.getElementById("today-freshers-groups");
+    const emptyEl = document.getElementById("today-freshers-empty");
+    const countEl = document.getElementById("today-freshers-count");
+    const searchEl = document.getElementById("today-freshers-q");
+    const nAll = document.getElementById("today-freshers-n-all");
+    const nIntern = document.getElementById("today-freshers-n-intern");
+    const nFresher = document.getElementById("today-freshers-n-fresher");
+    if (!panel || !btn || !groupsEl) return;
+
+    const catalog = jobs
+      .map((job) => ({ job, kind: classifyEntryRole(job) }))
+      .filter((row) => row.kind && isOpenJob(row.job));
+
+    let kind = "all";
+    let query = "";
+
+    function setUrlView(open) {
+      try {
+        const url = new URL(globalThis.location.href);
+        if (open) url.searchParams.set("view", "freshers");
+        else url.searchParams.delete("view");
+        if (open && kind !== "all") url.searchParams.set("kind", kind);
+        else url.searchParams.delete("kind");
+        globalThis.history.replaceState({}, "", url);
+      } catch {
+        /* ignore */
+      }
+    }
+
+    function setOpen(open) {
+      panel.hidden = !open;
+      if (board) board.hidden = open;
+      btn.setAttribute("aria-pressed", open ? "true" : "false");
+      btn.textContent = open ? "Back to calendar" : "Freshers Hiring";
+      document.body.classList.toggle("today-freshers-open", open);
+      setUrlView(open);
+      if (open) {
+        renderFreshers();
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function renderFreshers() {
+      const internRows = catalog.filter((row) => row.kind === "intern" && matchesFreshersQuery(row.job, query));
+      const fresherRows = catalog.filter((row) => row.kind === "fresher" && matchesFreshersQuery(row.job, query));
+      if (nAll) nAll.textContent = String(internRows.length + fresherRows.length);
+      if (nIntern) nIntern.textContent = String(internRows.length);
+      if (nFresher) nFresher.textContent = String(fresherRows.length);
+
+      const sections = [];
+      if (kind !== "fresher") sections.push({ key: "intern", title: "Internships & intern roles", rows: internRows });
+      if (kind !== "intern") sections.push({ key: "fresher", title: "Fresher & trainee jobs", rows: fresherRows });
+
+      const visible = sections.reduce((sum, section) => sum + section.rows.length, 0);
+      if (countEl) {
+        countEl.textContent = visible === 0 ? "No openings" : `${visible} open role${visible === 1 ? "" : "s"}`;
+      }
+
+      if (!visible) {
+        groupsEl.innerHTML = "";
+        if (emptyEl) emptyEl.hidden = false;
+        return;
+      }
+
+      if (emptyEl) emptyEl.hidden = true;
+      groupsEl.innerHTML = sections
+        .filter((section) => section.rows.length)
+        .map((section) => {
+          const cards = section.rows
+            .map((row) => {
+              const { job } = row;
+              const role = (job.roles && job.roles[0]) || "Open role";
+              const deadline = String(job.applyDeadline || "").trim();
+              const posted = String(job.postedDate || "").trim();
+              const kindLabel = row.kind === "intern" ? "Internship" : "Fresher";
+              return `
+                <article class="today-fresher-card">
+                  <div class="today-fresher-card-top">
+                    <span class="today-fresher-kind today-fresher-kind--${row.kind}">${kindLabel}</span>
+                    <span class="today-fresher-park">${escapeHtml(parkLabel(job))}</span>
+                  </div>
+                  <h4>${escapeHtml(role)}</h4>
+                  <p class="today-fresher-company">${
+                    job.company
+                      ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                          job.company
+                        )}</a>`
+                      : ""
+                  }</p>
+                  <ul class="today-fresher-meta">
+                    ${
+                      deadline
+                        ? `<li><span>Apply by</span>${escapeHtml(
+                            deadline === "Rolling" ? "Rolling" : formatIsoShort(deadline)
+                          )}</li>`
+                        : ""
+                    }
+                    ${posted ? `<li><span>Posted</span>${escapeHtml(formatIsoShort(posted))}</li>` : ""}
+                    ${
+                      job.experienceRange || job.experienceYears
+                        ? `<li><span>Level</span>${escapeHtml(job.experienceRange || job.experienceYears)}</li>`
+                        : ""
+                    }
+                  </ul>
+                  <a class="btn btn-primary" href="${escapeAttr(jobHref(job))}">View details</a>
+                </article>
+              `;
+            })
+            .join("");
+          return `
+            <section class="today-freshers-group" aria-label="${escapeAttr(section.title)}">
+              <h3>${escapeHtml(section.title)} <span class="today-freshers-group-count">· ${section.rows.length}</span></h3>
+              <div class="today-freshers-grid">${cards}</div>
+            </section>
+          `;
+        })
+        .join("");
+    }
+
+    panel.querySelectorAll("[data-freshers-kind]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        kind = tab.getAttribute("data-freshers-kind") || "all";
+        panel.querySelectorAll("[data-freshers-kind]").forEach((other) => {
+          const on = other === tab;
+          other.classList.toggle("is-active", on);
+          other.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        setUrlView(true);
+        renderFreshers();
+      });
+    });
+
+    searchEl?.addEventListener("input", () => {
+      query = String(searchEl.value || "").trim().toLowerCase();
+      renderFreshers();
+    });
+
+    btn.addEventListener("click", () => {
+      setOpen(panel.hidden);
+    });
+
+    const params = new URLSearchParams(globalThis.location.search);
+    const startKind = params.get("kind");
+    if (startKind === "intern" || startKind === "fresher") {
+      kind = startKind;
+      const tab = panel.querySelector(`[data-freshers-kind="${kind}"]`);
+      if (tab) {
+        panel.querySelectorAll("[data-freshers-kind]").forEach((other) => {
+          const on = other === tab;
+          other.classList.toggle("is-active", on);
+          other.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+    }
+    if (params.get("view") === "freshers") setOpen(true);
+  }
+
   let lastPickAt = 0;
   let lastPickKey = "";
 
@@ -672,4 +880,5 @@
   renderCalendar();
   renderWeekStrip();
   renderDayList();
+  initFreshersBoard();
 })();

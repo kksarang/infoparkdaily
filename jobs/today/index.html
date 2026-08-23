@@ -33,7 +33,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260819a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260823a" />
     <script>
       (function () {
         try {
@@ -102,7 +102,10 @@
           </p>
           <div class="today-stage-actions">
             <button type="button" id="today-jump-today" class="btn btn-primary">Jump to today</button>
-            <a class="btn btn-secondary" href="/jobs/">Browse all jobs</a>
+            <button type="button" id="today-freshers-btn" class="btn btn-secondary" aria-pressed="false">
+              Freshers Hiring
+            </button>
+            <a class="btn btn-ghost" href="/jobs/">Browse all jobs</a>
           </div>
         </div>
 
@@ -120,6 +123,57 @@
             <span>This month</span>
           </li>
         </ul>
+      </section>
+
+      <section
+        id="today-freshers"
+        class="today-freshers"
+        hidden
+        aria-labelledby="today-freshers-title"
+      >
+        <header class="today-freshers-head">
+          <div>
+            <p class="today-day-kicker">Intern · Trainee · Fresher</p>
+            <h2 id="today-freshers-title">Freshers hiring</h2>
+            <p class="today-freshers-lede">
+              Open internships, intern roles, and fresher / trainee jobs from official Infopark, Technopark, and
+              Cyberpark listings.
+            </p>
+          </div>
+          <p id="today-freshers-count" class="today-day-count">—</p>
+        </header>
+
+        <div class="today-freshers-tools">
+          <div class="today-freshers-tabs" role="tablist" aria-label="Fresher job type">
+            <button type="button" class="is-active" data-freshers-kind="all" aria-pressed="true">
+              All <span id="today-freshers-n-all">0</span>
+            </button>
+            <button type="button" data-freshers-kind="intern" aria-pressed="false">
+              Internships <span id="today-freshers-n-intern">0</span>
+            </button>
+            <button type="button" data-freshers-kind="fresher" aria-pressed="false">
+              Fresher jobs <span id="today-freshers-n-fresher">0</span>
+            </button>
+          </div>
+          <label class="today-freshers-search">
+            <span class="visually-hidden">Search fresher and intern jobs</span>
+            <input
+              id="today-freshers-q"
+              type="search"
+              placeholder="Search role, company, or park…"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <div id="today-freshers-groups" class="today-freshers-groups"></div>
+        <div id="today-freshers-empty" class="today-empty" hidden>
+          <p class="today-empty-title">No matching entry roles</p>
+          <p>
+            No open internships or fresher jobs match this filter. Try All, or browse
+            <a href="/jobs/?type=fresher">all fresher jobs</a>.
+          </p>
+        </div>
       </section>
 
       <section class="today-board" aria-label="Hiring calendar">
@@ -248,7 +302,7 @@
 
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260819a" defer></script>
-    <script src="/data/jobs-data.js?v=20260815a" defer></script>
-    <script src="/js/jobs-today.js?v=20260809a" defer></script>
+    <script src="/data/jobs-data.js?v=20260823a" defer></script>
+    <script src="/js/jobs-today.js?v=20260823a" defer></script>
   </body>
 </html>

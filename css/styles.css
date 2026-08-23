@@ -11520,6 +11520,226 @@ body.light .company-vacancy-status--open {
   margin-top: 1.25rem;
 }
 
+.today-stage-actions .btn.is-active,
+#today-freshers-btn[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.today-freshers {
+  margin-top: 0.95rem;
+  padding: 1.2rem 1.15rem 1.35rem;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  min-width: 0;
+}
+
+.today-freshers-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.today-freshers-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.45rem, 3.4vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.today-freshers-lede {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 40rem;
+}
+
+.today-freshers-tools {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.today-freshers-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.today-freshers-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.today-freshers-tabs button span {
+  min-width: 1.4rem;
+  padding: 0.08rem 0.42rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 0.72rem;
+}
+
+.today-freshers-tabs button.is-active {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+.today-freshers-tabs button.is-active span {
+  background: rgba(0, 0, 0, 0.14);
+  color: inherit;
+}
+
+.today-freshers-search input {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.7rem 0.95rem;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.today-freshers-search input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.today-freshers-group {
+  margin: 0 0 1.25rem;
+}
+
+.today-freshers-group:last-child {
+  margin-bottom: 0;
+}
+
+.today-freshers-group h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.today-freshers-group-count {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.today-freshers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.today-fresher-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 1rem 1.05rem 1.05rem;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.today-fresher-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.today-fresher-kind {
+  display: inline-flex;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.today-fresher-kind--intern {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.today-fresher-kind--fresher {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.today-fresher-park {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.today-fresher-card h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.today-fresher-company {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+.today-fresher-meta {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.2rem;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.today-fresher-meta span {
+  color: var(--muted);
+  font-weight: 650;
+  margin-right: 0.35rem;
+}
+
+.today-fresher-card .btn {
+  margin-top: auto;
+  width: 100%;
+  justify-content: center;
+  min-height: 42px;
+}
+
+@media (max-width: 720px) {
+  .today-freshers-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .today-pulse {
   position: relative;
   z-index: 1;
@@ -12378,6 +12598,16 @@ body.light .today-week-day.has-events {
     width: 100%;
     justify-content: center;
     min-height: 44px;
+  }
+
+  .today-freshers {
+    padding: 0.9rem 0.75rem 1rem;
+    border-radius: 16px;
+  }
+
+  .today-freshers-tabs button {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 
   .today-board {
