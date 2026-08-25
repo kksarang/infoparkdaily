@@ -3406,6 +3406,11 @@ body:not(.light) .jobs-notice-chips span {
   margin: 0 0 0.7rem;
 }
 
+.privacy-panel h3 {
+  margin: 1.15rem 0 0.55rem;
+  font-size: 1.05rem;
+}
+
 .privacy-panel > p {
   color: var(--muted);
   line-height: 1.7;

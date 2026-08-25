@@ -176,14 +176,20 @@
   </url>
   <url>
     <loc>https://infoparkdaily.online/privacy/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://infoparkdaily.online/terms/</loc>
-    <lastmod>2026-07-25</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/safety/</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
