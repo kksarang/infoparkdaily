@@ -362,16 +362,39 @@
       ? `<div class="company-dir-logo"><img src="${escapeAttr(about.logo)}" alt="" width="120" height="120" /></div>`
       : `<div class="company-dir-logo company-dir-logo--mark" aria-hidden="true">${escapeHtml(mark)}</div>`;
 
-    const line = (value, href, extraClass) => {
-      const body = value
-        ? href
-          ? `<a href="${escapeAttr(href)}"${href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${escapeHtml(
-              value
-            )}</a>`
-          : escapeHtml(value)
-        : "&nbsp;";
-      return `<p class="company-dir-line${value ? "" : " is-empty"}${extraClass ? ` ${extraClass}` : ""}">${body}</p>`;
-    };
+    function contactLink(value, href) {
+      if (!value || !href) return "";
+      const external = href.startsWith("http");
+      return `<a class="company-dir-link" href="${escapeAttr(href)}"${
+        external ? ' target="_blank" rel="noopener noreferrer"' : ""
+      }>${escapeHtml(value)}</a>`;
+    }
+
+    const contactLinks = [
+      siteLabel && about.website ? contactLink(siteLabel, about.website) : "",
+      about.email ? contactLink(about.email, `mailto:${about.email}`) : "",
+      about.phone ? contactLink(about.phone, `tel:${String(about.phone).replace(/[^\d+]/g, "")}`) : ""
+    ].filter(Boolean);
+
+    const contactHtml = contactLinks.length
+      ? `<div class="company-dir-links">${contactLinks.join('<span class="company-dir-sep" aria-hidden="true">·</span>')}</div>`
+      : "";
+
+    const addressHtml = about.address
+      ? `<p class="company-dir-address">${escapeHtml(about.address)}</p>`
+      : "";
+
+    const locationBits = [about.building, about.campus].filter(Boolean);
+    const statsHtml = `<div class="company-dir-stats">
+        <span class="company-dir-stat company-dir-stat--open"><strong>${openRoles.length}</strong> open role${
+          openRoles.length === 1 ? "" : "s"
+        }</span>
+        ${
+          locationBits.length
+            ? `<span class="company-dir-stat">${escapeHtml(locationBits.join(" · "))}</span>`
+            : ""
+        }
+      </div>`;
     const domainPills = (about.domains || [])
       .filter(Boolean)
       .map((d) => `<span class="job-badge job-badge--both">${escapeHtml(d)}</span>`)
@@ -384,25 +407,30 @@
         </nav>
 
         <header class="company-dir-sheet">
-          ${markHtml}
-          <div class="company-dir-copy">
-            <p class="jobs-kicker">${escapeHtml(about.park || "Company profile")}</p>
-            <h1>${escapeHtml(about.name)}</h1>
-            ${line(about.address, "", "company-dir-address")}
-            ${line(about.email, about.email ? `mailto:${about.email}` : "")}
-            ${line(about.phone, about.phone ? `tel:${String(about.phone).replace(/[^\d+]/g, "")}` : "")}
-            ${line(siteLabel, about.website, "company-dir-web")}
-            ${domainPills ? `<div class="job-card-tags company-dir-domains">${domainPills}</div>` : ""}
-          </div>
-          <div class="company-dir-cta">
-            <a class="btn btn-primary" href="${escapeAttr(jobsHref)}"${
-              jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""
-            }>Job Openings</a>
-            ${
-              about.officialUrl
-                ? `<a class="btn btn-secondary" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
-                : ""
-            }
+          <div class="company-dir-main">
+            ${markHtml}
+            <div class="company-dir-copy">
+              <div class="company-dir-headrow">
+                <div class="company-dir-title">
+                  <p class="jobs-kicker">${escapeHtml(about.park || "Company profile")}</p>
+                  <h1>${escapeHtml(about.name)}</h1>
+                </div>
+                <div class="company-dir-cta">
+                  <a class="btn btn-primary" href="${escapeAttr(jobsHref)}"${
+                    jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""
+                  }>Job Openings</a>
+                  ${
+                    about.officialUrl
+                      ? `<a class="btn btn-secondary" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
+                      : ""
+                  }
+                </div>
+              </div>
+              ${contactHtml}
+              ${addressHtml}
+              ${domainPills ? `<div class="job-card-tags company-dir-domains">${domainPills}</div>` : ""}
+              ${statsHtml}
+            </div>
           </div>
         </header>
 

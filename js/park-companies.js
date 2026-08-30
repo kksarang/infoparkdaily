@@ -132,8 +132,8 @@
           </div>
         </a>
         <div class="co-row-actions">
-          <a href="${escapeAttr(profile)}">Profile</a>
-          <a href="${escapeAttr(jobsHref)}"${jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""}>Jobs</a>
+          <a class="co-row-btn" href="${escapeAttr(profile)}">Profile</a>
+          <a class="co-row-btn co-row-btn--accent" href="${escapeAttr(jobsHref)}"${jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""}>Jobs</a>
         </div>
       </article>
     `;
