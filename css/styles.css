@@ -11526,7 +11526,8 @@ body.light .company-vacancy-status--open {
 }
 
 .today-stage-actions .btn.is-active,
-#today-freshers-btn[aria-pressed="true"] {
+#today-freshers-btn[aria-pressed="true"],
+#today-walkins-btn[aria-pressed="true"] {
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
@@ -11694,6 +11695,12 @@ body.light .company-vacancy-status--open {
   color: var(--accent);
   background: var(--accent-soft);
   border: 1px solid rgba(255, 193, 7, 0.4);
+}
+
+.today-fresher-kind--walkin {
+  color: #fb7185;
+  background: rgba(251, 113, 133, 0.14);
+  border: 1px solid rgba(251, 113, 133, 0.4);
 }
 
 .today-fresher-park {

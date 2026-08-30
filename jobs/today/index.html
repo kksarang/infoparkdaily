@@ -33,7 +33,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260823a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260830c" />
     <script>
       (function () {
         try {
@@ -102,6 +102,9 @@
           </p>
           <div class="today-stage-actions">
             <button type="button" id="today-jump-today" class="btn btn-primary">Jump to today</button>
+            <button type="button" id="today-walkins-btn" class="btn btn-secondary" aria-pressed="false">
+              Walk-in Drive
+            </button>
             <button type="button" id="today-freshers-btn" class="btn btn-secondary" aria-pressed="false">
               Freshers Hiring
             </button>
@@ -123,6 +126,60 @@
             <span>This month</span>
           </li>
         </ul>
+      </section>
+
+      <section
+        id="today-walkins"
+        class="today-freshers"
+        hidden
+        aria-labelledby="today-walkins-title"
+      >
+        <header class="today-freshers-head">
+          <div>
+            <p class="today-day-kicker">Walk-in · Campus drive</p>
+            <h2 id="today-walkins-title">Walk-in drives</h2>
+            <p class="today-freshers-lede">
+              Open walk-in drives at Infopark, Technopark, and Cyberpark. Confirm date, time, and venue on the
+              company page before you travel.
+            </p>
+          </div>
+          <p id="today-walkins-count" class="today-day-count">—</p>
+        </header>
+
+        <div class="today-freshers-tools">
+          <div class="today-freshers-tabs" role="tablist" aria-label="Walk-in park">
+            <button type="button" class="is-active" data-walkins-park="all" aria-pressed="true">
+              All <span id="today-walkins-n-all">0</span>
+            </button>
+            <button type="button" data-walkins-park="Infopark" aria-pressed="false">
+              Infopark <span id="today-walkins-n-infopark">0</span>
+            </button>
+            <button type="button" data-walkins-park="Technopark" aria-pressed="false">
+              Technopark <span id="today-walkins-n-technopark">0</span>
+            </button>
+            <button type="button" data-walkins-park="Other" aria-pressed="false">
+              Other <span id="today-walkins-n-other">0</span>
+            </button>
+          </div>
+          <label class="today-freshers-search">
+            <span class="visually-hidden">Search walk-in drives</span>
+            <input
+              id="today-walkins-q"
+              type="search"
+              placeholder="Search company, role, or venue…"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+
+        <div id="today-walkins-groups" class="today-freshers-groups"></div>
+        <div id="today-walkins-empty" class="today-empty" hidden>
+          <p class="today-empty-title">No matching walk-ins</p>
+          <p>
+            No open walk-in drives match this filter. Try All, or browse
+            <a href="/jobs/?type=walkin">all walk-in jobs</a>.
+          </p>
+        </div>
       </section>
 
       <section
@@ -303,6 +360,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260819a" defer></script>
     <script src="/data/jobs-data.js?v=20260830b" defer></script>
-    <script src="/js/jobs-today.js?v=20260823a" defer></script>
+    <script src="/js/jobs-today.js?v=20260830c" defer></script>
   </body>
 </html>

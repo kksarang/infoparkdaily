@@ -625,6 +625,21 @@
     return job.source || job.location || "Kerala IT park";
   }
 
+  function walkinParkGroup(job) {
+    const park = parkLabel(job);
+    if (park === "Infopark" || park === "Technopark") return park;
+    return "Other";
+  }
+
+  function walkInSortKey(job) {
+    const keys = parseWalkInDateKeys(walkInText(job)).filter(Boolean).sort();
+    if (keys.length) return keys[0];
+    const deadline = String(job.applyDeadline || "").trim();
+    if (isIsoDate(deadline)) return deadline;
+    const posted = String(job.postedDate || "").trim();
+    return isIsoDate(posted) ? posted : "9999-12-31";
+  }
+
   function classifyEntryRole(job) {
     const title = (job.roles || []).join(" ").toLowerCase();
     const exp = String(job.experience || "").toLowerCase();
@@ -682,7 +697,7 @@
       try {
         const url = new URL(globalThis.location.href);
         if (open) url.searchParams.set("view", "freshers");
-        else url.searchParams.delete("view");
+        else if (url.searchParams.get("view") === "freshers") url.searchParams.delete("view");
         if (open && kind !== "all") url.searchParams.set("kind", kind);
         else url.searchParams.delete("kind");
         globalThis.history.replaceState({}, "", url);
@@ -692,6 +707,16 @@
     }
 
     function setOpen(open) {
+      if (open) {
+        const walkinsPanel = document.getElementById("today-walkins");
+        const walkinsBtn = document.getElementById("today-walkins-btn");
+        if (walkinsPanel) walkinsPanel.hidden = true;
+        if (walkinsBtn) {
+          walkinsBtn.setAttribute("aria-pressed", "false");
+          walkinsBtn.textContent = "Walk-in Drive";
+        }
+        document.body.classList.remove("today-walkins-open");
+      }
       panel.hidden = !open;
       if (board) board.hidden = open;
       btn.setAttribute("aria-pressed", open ? "true" : "false");
@@ -819,6 +844,198 @@
     if (params.get("view") === "freshers") setOpen(true);
   }
 
+  function initWalkinsBoard() {
+    const panel = document.getElementById("today-walkins");
+    const board = document.querySelector(".today-board");
+    const btn = document.getElementById("today-walkins-btn");
+    const groupsEl = document.getElementById("today-walkins-groups");
+    const emptyEl = document.getElementById("today-walkins-empty");
+    const countEl = document.getElementById("today-walkins-count");
+    const searchEl = document.getElementById("today-walkins-q");
+    const nAll = document.getElementById("today-walkins-n-all");
+    const nInfopark = document.getElementById("today-walkins-n-infopark");
+    const nTechnopark = document.getElementById("today-walkins-n-technopark");
+    const nOther = document.getElementById("today-walkins-n-other");
+    if (!panel || !btn || !groupsEl) return;
+
+    const catalog = jobs
+      .filter((job) => isWalkInJob(job) && isOpenJob(job))
+      .sort((a, b) => {
+        const byDate = walkInSortKey(a).localeCompare(walkInSortKey(b));
+        if (byDate !== 0) return byDate;
+        return String(a.company || "").localeCompare(String(b.company || ""));
+      });
+
+    let park = "all";
+    let query = "";
+
+    function setUrlView(open) {
+      try {
+        const url = new URL(globalThis.location.href);
+        if (open) url.searchParams.set("view", "walkins");
+        else if (url.searchParams.get("view") === "walkins") url.searchParams.delete("view");
+        if (open && park !== "all") url.searchParams.set("park", park.toLowerCase());
+        else url.searchParams.delete("park");
+        url.searchParams.delete("kind");
+        globalThis.history.replaceState({}, "", url);
+      } catch {
+        /* ignore */
+      }
+    }
+
+    function setOpen(open) {
+      if (open) {
+        const freshersPanel = document.getElementById("today-freshers");
+        const freshersBtn = document.getElementById("today-freshers-btn");
+        if (freshersPanel) freshersPanel.hidden = true;
+        if (freshersBtn) {
+          freshersBtn.setAttribute("aria-pressed", "false");
+          freshersBtn.textContent = "Freshers Hiring";
+        }
+        document.body.classList.remove("today-freshers-open");
+      }
+      panel.hidden = !open;
+      if (board) board.hidden = open;
+      btn.setAttribute("aria-pressed", open ? "true" : "false");
+      btn.textContent = open ? "Back to calendar" : "Walk-in Drive";
+      document.body.classList.toggle("today-walkins-open", open);
+      setUrlView(open);
+      if (open) {
+        renderWalkins();
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function matchesWalkinsQuery(job, q) {
+      if (!query) return true;
+      const hay = [
+        job.company,
+        ...(job.roles || []),
+        job.location,
+        job.walkinLocation,
+        job.address,
+        walkInText(job),
+        job.walkinTime
+      ]
+        .join(" ")
+        .toLowerCase();
+      return hay.includes(q);
+    }
+
+    function renderWalkins() {
+      const matching = catalog.filter((job) => matchesWalkinsQuery(job, query));
+      const infoparkRows = matching.filter((job) => walkinParkGroup(job) === "Infopark");
+      const technoparkRows = matching.filter((job) => walkinParkGroup(job) === "Technopark");
+      const otherRows = matching.filter((job) => walkinParkGroup(job) === "Other");
+      if (nAll) nAll.textContent = String(matching.length);
+      if (nInfopark) nInfopark.textContent = String(infoparkRows.length);
+      if (nTechnopark) nTechnopark.textContent = String(technoparkRows.length);
+      if (nOther) nOther.textContent = String(otherRows.length);
+
+      const sections = [];
+      if (park === "all" || park === "Infopark") {
+        sections.push({ title: "Infopark walk-ins", rows: infoparkRows });
+      }
+      if (park === "all" || park === "Technopark") {
+        sections.push({ title: "Technopark walk-ins", rows: technoparkRows });
+      }
+      if (park === "all" || park === "Other") {
+        sections.push({ title: "Other walk-ins", rows: otherRows });
+      }
+
+      const visible = sections.reduce((sum, section) => sum + section.rows.length, 0);
+      if (countEl) {
+        countEl.textContent = visible === 0 ? "No walk-ins" : `${visible} walk-in${visible === 1 ? "" : "s"}`;
+      }
+
+      if (!visible) {
+        groupsEl.innerHTML = "";
+        if (emptyEl) emptyEl.hidden = false;
+        return;
+      }
+
+      if (emptyEl) emptyEl.hidden = true;
+      groupsEl.innerHTML = sections
+        .filter((section) => section.rows.length)
+        .map((section) => {
+          const cards = section.rows
+            .map((job) => {
+              const role = (job.roles && job.roles[0]) || "Walk-in drive";
+              const when = walkInText(job);
+              const time = job.walkinTime || "";
+              const venue = job.walkinLocation || job.address || job.location || "";
+              return `
+                <article class="today-fresher-card">
+                  <div class="today-fresher-card-top">
+                    <span class="today-fresher-kind today-fresher-kind--walkin">Walk-in</span>
+                    <span class="today-fresher-park">${escapeHtml(parkLabel(job))}</span>
+                  </div>
+                  <h4>${escapeHtml(role)}</h4>
+                  <p class="today-fresher-company">${
+                    job.company
+                      ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                          job.company
+                        )}</a>`
+                      : ""
+                  }</p>
+                  <ul class="today-fresher-meta">
+                    ${when ? `<li><span>Dates</span>${escapeHtml(when)}</li>` : ""}
+                    ${time ? `<li><span>Time</span>${escapeHtml(time)}</li>` : ""}
+                    ${venue ? `<li><span>Venue</span>${escapeHtml(venue)}</li>` : ""}
+                  </ul>
+                  <a class="btn btn-primary" href="${escapeAttr(jobHref(job))}">View details</a>
+                </article>
+              `;
+            })
+            .join("");
+          return `
+            <section class="today-freshers-group" aria-label="${escapeAttr(section.title)}">
+              <h3>${escapeHtml(section.title)} <span class="today-freshers-group-count">· ${section.rows.length}</span></h3>
+              <div class="today-freshers-grid">${cards}</div>
+            </section>
+          `;
+        })
+        .join("");
+    }
+
+    panel.querySelectorAll("[data-walkins-park]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        park = tab.getAttribute("data-walkins-park") || "all";
+        panel.querySelectorAll("[data-walkins-park]").forEach((other) => {
+          const on = other === tab;
+          other.classList.toggle("is-active", on);
+          other.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        setUrlView(true);
+        renderWalkins();
+      });
+    });
+
+    searchEl?.addEventListener("input", () => {
+      query = String(searchEl.value || "").trim().toLowerCase();
+      renderWalkins();
+    });
+
+    btn.addEventListener("click", () => {
+      setOpen(panel.hidden);
+    });
+
+    const params = new URLSearchParams(globalThis.location.search);
+    const startPark = (params.get("park") || "").toLowerCase();
+    if (startPark === "infopark" || startPark === "technopark" || startPark === "other") {
+      park = startPark === "infopark" ? "Infopark" : startPark === "technopark" ? "Technopark" : "Other";
+      const tab = panel.querySelector(`[data-walkins-park="${park}"]`);
+      if (tab) {
+        panel.querySelectorAll("[data-walkins-park]").forEach((other) => {
+          const on = other === tab;
+          other.classList.toggle("is-active", on);
+          other.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+    }
+    if (params.get("view") === "walkins") setOpen(true);
+  }
+
   let lastPickAt = 0;
   let lastPickKey = "";
 
@@ -872,6 +1089,23 @@
   });
 
   jumpTodayBtn?.addEventListener("click", () => {
+    const freshersPanel = document.getElementById("today-freshers");
+    const walkinsPanel = document.getElementById("today-walkins");
+    const freshersBtn = document.getElementById("today-freshers-btn");
+    const walkinsBtn = document.getElementById("today-walkins-btn");
+    const board = document.querySelector(".today-board");
+    if (freshersPanel) freshersPanel.hidden = true;
+    if (walkinsPanel) walkinsPanel.hidden = true;
+    if (freshersBtn) {
+      freshersBtn.setAttribute("aria-pressed", "false");
+      freshersBtn.textContent = "Freshers Hiring";
+    }
+    if (walkinsBtn) {
+      walkinsBtn.setAttribute("aria-pressed", "false");
+      walkinsBtn.textContent = "Walk-in Drive";
+    }
+    if (board) board.hidden = false;
+    document.body.classList.remove("today-freshers-open", "today-walkins-open");
     selectDate(todayKey(), { scrollAgenda: true });
   });
 
@@ -881,4 +1115,5 @@
   renderWeekStrip();
   renderDayList();
   initFreshersBoard();
+  initWalkinsBoard();
 })();
