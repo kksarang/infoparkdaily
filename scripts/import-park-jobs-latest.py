@@ -18,7 +18,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 8, 23)  # bump when re-importing
+TODAY = date(2026, 8, 30)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -47,7 +47,8 @@ def slugify(text: str) -> str:
 
 def infer_exp(title: str) -> tuple[str, str]:
     t = title.lower()
-    fresh = any(k in t for k in ["fresher", "trainee", "intern", "junior", "jr.", "graduate", "office boy"])
+    intern = bool(re.search(r"\bintern(?:ship)?s?\b|\bapprentices?", t))
+    fresh = intern or any(k in t for k in ["fresher", "trainee", "junior", "jr.", "graduate", "office boy"])
     senior = any(
         k in t
         for k in [
@@ -209,7 +210,7 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25167
+INFOPARK_LAST_IMPORTED_ID = 25211
 
 
 def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
@@ -247,6 +248,7 @@ def build_infopark() -> list[dict]:
         if deadline_iso < TODAY.isoformat():
             continue
         jid = f"ipv-{slugify(company)}-{slugify(title)}-{job_id}"
+        walk = "walk-in" in title.lower() or "walk in" in title.lower()
         out.append(
             {
                 "id": jid,
@@ -257,7 +259,7 @@ def build_infopark() -> list[dict]:
                 "roles": [title],
                 "experience": exp,
                 "experienceRange": exp_range,
-                "employmentType": "Internship" if "intern" in title.lower() else "Full-time",
+                "employmentType": "Internship" if re.search(r"\bintern(?:ship)?s?\b|\bapprentices?", title.lower()) else "Full-time",
                 "applyLink": link,
                 "applyDeadline": deadline_iso,
                 "postedDate": posted_iso,
@@ -266,7 +268,7 @@ def build_infopark() -> list[dict]:
                 "infoparkVerified": True,
                 "verificationNote": NOTE,
                 "tags": infer_tags(title),
-                "isWalkIn": False,
+                "isWalkIn": walk,
                 "walkInDate": "",
                 "email": "",
                 "phone": "",
@@ -312,7 +314,7 @@ def build_technopark(limit: int = 160) -> list[dict]:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 8, 19):
+        if p and p < date(2026, 8, 23):
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
