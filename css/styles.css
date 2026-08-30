@@ -1458,12 +1458,13 @@ body.light .about-stage {
 }
 
 .footer-bottom {
-  margin-top: 1.3rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.65rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  text-align: center;
   color: var(--muted);
   font-size: 0.85rem;
   padding-bottom: 0.35rem;
@@ -1477,6 +1478,7 @@ body.light .about-stage {
 .footer-bottom .footer-credit {
   width: 100%;
   text-align: center;
+  order: 1;
 }
 
 .footer-bottom p {
@@ -5806,29 +5808,45 @@ html.theme-light body .job-alert-banner-label {
 
 .recruit-workspace {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.7fr);
-  gap: 1.15rem;
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.75fr);
+  grid-template-areas:
+    "head head"
+    "form rail";
+  gap: 1rem 1.15rem;
   margin-top: 1.25rem;
   align-items: start;
+}
+
+.recruit-form-head {
+  grid-area: head;
+}
+
+.recruit-form {
+  grid-area: form;
+}
+
+.recruit-rail {
+  grid-area: rail;
 }
 
 .recruit-form {
   position: relative;
   padding: 0;
   border-radius: 28px;
-  overflow: visible;
+  overflow: hidden;
   animation: recruit-rise 0.75s ease 0.1s both;
   box-shadow: var(--shadow-1);
 }
 
 .recruit-form-head {
   margin: 0;
-  padding: clamp(1.35rem, 3vw, 1.9rem) clamp(1.25rem, 3vw, 1.9rem) 1.25rem;
-  border-bottom: 1px solid var(--line);
-  border-radius: 28px 28px 0 0;
+  padding: clamp(1.35rem, 3vw, 1.9rem);
+  border-radius: 28px;
+  border: 1px solid var(--line);
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%),
     color-mix(in srgb, var(--bg-elev) 35%, transparent);
+  box-shadow: var(--shadow-1);
 }
 
 .recruit-form-head-top {
@@ -5887,7 +5905,7 @@ html.theme-light body .job-alert-banner-label {
 .recruit-form-body {
   display: grid;
   gap: 0.9rem;
-  padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1.1rem, 2.8vw, 1.55rem);
+  padding: clamp(1.1rem, 2.8vw, 1.6rem) clamp(1.25rem, 3vw, 1.9rem) 0.35rem;
 }
 
 .recruit-fieldset {
@@ -6156,10 +6174,10 @@ body.light .recruit-toast {
 }
 
 .recruit-form-foot {
-  margin-top: 0.35rem;
+  margin-top: 0;
   padding: 1.2rem clamp(1.25rem, 3vw, 1.9rem) 1.4rem;
   border-top: 1px solid var(--line);
-  border-radius: 0 0 28px 28px;
+  border-radius: 0;
   background: color-mix(in srgb, var(--bg) 35%, transparent);
 }
 
@@ -6200,7 +6218,8 @@ body.light .recruit-toast {
   display: grid;
   gap: 0.85rem;
   position: sticky;
-  top: 5.25rem;
+  top: calc(5.25rem + env(safe-area-inset-top, 0px));
+  align-self: start;
   animation: recruit-rise 0.8s ease 0.16s both;
 }
 
@@ -6342,7 +6361,11 @@ body.light .recruit-toast {
 }
 
 .recruit-page .ipd-disclaimer-mount {
-  margin-top: 1.35rem;
+  margin-top: 1rem;
+}
+
+body.recruit-body .site-footer {
+  margin-top: 2.5rem;
 }
 
 @keyframes recruit-rise {
@@ -6376,6 +6399,13 @@ body.light .recruit-toast {
   .recruit-hero-glow {
     animation: none !important;
   }
+}
+
+html.theme-light body .recruit-form-head,
+body.light .recruit-form-head {
+  background:
+    linear-gradient(180deg, rgba(255, 179, 0, 0.1), transparent 70%),
+    #fff;
 }
 
 html.theme-light body .recruit-form,
@@ -6415,6 +6445,10 @@ body.light .recruit-hero {
 @media (max-width: 960px) {
   .recruit-workspace {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "form"
+      "rail";
   }
 
   .recruit-rail {
@@ -14381,10 +14415,14 @@ main,
   width: var(--container);
   max-width: 100%;
   margin: 0 auto;
-  padding: 1.6rem 0 3.5rem;
+  padding: 1.6rem 0 2rem;
   box-sizing: border-box;
   overflow-x: clip;
   min-width: 0;
+}
+
+body:has(.co-page) .site-footer {
+  margin-top: 2rem;
 }
 
 .co-hero {
