@@ -62,7 +62,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260819a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260830k" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
@@ -134,6 +134,7 @@
             <a class="btn btn-secondary" href="/infopark-jobs/">Infopark Jobs</a>
             <a class="btn btn-secondary" href="/cyberpark-jobs/">Cyberpark Jobs</a>
             <a class="btn btn-secondary" href="/technopark-jobs/">Technopark Jobs</a>
+            <a class="btn btn-secondary" href="/companies/">Company directory</a>
           </div>
           <div class="jobs-support">
             <p class="jobs-support-label">Job support · interview help</p>
@@ -170,8 +171,10 @@
           </div>
           <ul class="jobs-hero-stats" aria-label="Digest snapshot">
             <li>
-              <strong id="stat-companies">0</strong>
-              <span>Companies</span>
+              <a class="jobs-stat-link" href="/companies/">
+                <strong id="stat-companies">0</strong>
+                <span>Companies</span>
+              </a>
             </li>
             <li>
               <strong id="stat-roles">0</strong>
@@ -197,6 +200,24 @@
             autoplay
           ></lottie-player>
         </aside>
+      </section>
+
+      <section class="content-section jobs-companies-section" aria-labelledby="jobs-companies-title">
+        <div class="jobs-companies-card glass">
+          <div class="jobs-companies-copy">
+            <p class="jobs-kicker">Official park tenants</p>
+            <h2 id="jobs-companies-title">Browse the company directory</h2>
+            <p class="jobs-companies-lead">
+              Every listed company at Infopark, Technopark, and Cyberpark — profiles, contact details, and job links from official park listings.
+            </p>
+          </div>
+          <div class="jobs-companies-actions">
+            <a class="btn btn-primary" href="/companies/">All companies</a>
+            <a class="btn btn-secondary" href="/companies/?park=infopark">Infopark</a>
+            <a class="btn btn-secondary" href="/companies/?park=technopark">Technopark</a>
+            <a class="btn btn-secondary" href="/companies/?park=cyberpark">Cyberpark</a>
+          </div>
+        </div>
       </section>
 
       <section class="content-section jobs-controls-section">
