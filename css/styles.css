@@ -300,18 +300,23 @@ body.light .site-header {
 }
 
 .brand-logo {
-  width: auto;
+  width: 42px;
   height: 42px;
-  max-width: min(168px, 40vw);
-  object-fit: contain;
-  border-radius: 10px;
-  border: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
   flex-shrink: 0;
-  background: transparent;
 }
 
 .brand-name {
-  display: none;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .brand-tagline {
@@ -1344,13 +1349,12 @@ body.light .about-stage {
   margin-bottom: 0.8rem;
 }
 
-.footer-brand .brand-logo {
-  height: 44px;
-  max-width: 190px;
-}
-
 .footer-brand-name {
-  display: none;
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
 }
 
 .footer-tagline {
@@ -9298,8 +9302,8 @@ body.light .news-story-hero-media {
   }
 
   .brand-logo {
+    width: 36px;
     height: 36px;
-    max-width: min(148px, 44vw);
   }
 
   .brand-name {
