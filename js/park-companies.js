@@ -43,11 +43,6 @@
   let letter = "all";
   let visible = PAGE_SIZE;
 
-  const ICO_WEB =
-    '<svg class="park-dir-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.4 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.4-3.6-9S9.6 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
-  const ICO_PHONE =
-    '<svg class="park-dir-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.6h3.1l1.2 3.1-1.9 1.2a12.2 12.2 0 0 0 6.3 6.3l1.2-1.9 3.1 1.2v3.1c0 .9-.8 1.7-1.7 1.7C9.4 18.3 5.7 14.6 5.7 5.3c0-.9.8-1.7 1.5-1.7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
-
   function campusesOf(list) {
     return Array.from(new Set(list.map((c) => String(c.campus || "").trim()).filter(Boolean))).sort((a, b) =>
       a.localeCompare(b)
@@ -110,48 +105,35 @@
     });
   }
 
-  function contactRow(icon, value, href) {
-    const empty = !value;
-    const inner = value ? escapeHtml(value) : "&nbsp;";
-    const body =
-      href && value
-        ? `<a href="${escapeAttr(href)}"${String(href).startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${inner}</a>`
-        : inner;
-    return `<p class="park-dir-contact${empty ? " is-empty" : ""}">${icon}<span>${body}</span></p>`;
-  }
-
-  function card(c, index) {
+  function card(c) {
     const profile = `/company/${encodeURIComponent(c.slug)}/`;
     const jobsHref = c.jobsUrl || `/jobs/?company=${encodeURIComponent(c.slug)}`;
     const jobsExternal = /^https?:\/\//i.test(c.jobsUrl || "");
-    const domains = (c.domains || []).filter(Boolean);
+    const domains = (c.domains || []).filter(Boolean).slice(0, 4);
     const mark = initials(c.name);
     const site = displaySite(c.website);
-    const firstContact = site || c.email || "";
-    const firstHref = site ? c.website : c.email ? `mailto:${c.email}` : "";
-    const delay = Math.min(index, 11) * 35;
+    const bits = [site || c.email, c.phone, c.building || c.campus].filter(Boolean);
     const logo = c.logo
-      ? `<img src="${escapeAttr(c.logo)}" alt="" width="96" height="96" loading="lazy" />`
-      : `<span class="park-dir-mark">${escapeHtml(mark)}</span>`;
+      ? `<img src="${escapeAttr(c.logo)}" alt="" width="56" height="56" loading="lazy" />`
+      : `<span>${escapeHtml(mark)}</span>`;
 
     return `
-      <article class="park-dir-card" style="--delay: ${delay}ms">
-        <div class="park-dir-logo">${logo}</div>
-        <h3>${escapeHtml(c.name)}</h3>
-        <div class="park-dir-rule" aria-hidden="true"></div>
-        ${contactRow(ICO_WEB, firstContact, firstHref)}
-        ${contactRow(ICO_PHONE, c.phone, c.phone ? `tel:${String(c.phone).replace(/[^\d+]/g, "")}` : "")}
-        ${
-          domains.length
-            ? `<p class="park-dir-domain-label">Domain</p>
-               <ul class="park-dir-tags">${domains.map((d) => `<li>${escapeHtml(d)}</li>`).join("")}</ul>`
-            : `<p class="park-dir-domain-label">Domain</p><ul class="park-dir-tags park-dir-tags--empty"><li>&nbsp;</li></ul>`
-        }
-        <div class="park-dir-actions">
-          <a class="park-dir-btn" href="${escapeAttr(jobsHref)}"${
-            jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""
-          }>Job Openings</a>
-          <a class="park-dir-btn park-dir-btn--gold" href="${escapeAttr(profile)}">Company Profile</a>
+      <article class="co-row">
+        <a class="co-row-main" href="${escapeAttr(profile)}">
+          <div class="co-row-logo">${logo}</div>
+          <div class="co-row-copy">
+            <h3>${escapeHtml(c.name)}</h3>
+            <p class="co-row-meta">${bits.length ? escapeHtml(bits.join("  ·  ")) : "&nbsp;"}</p>
+            ${
+              domains.length
+                ? `<p class="co-row-tags">${domains.map((d) => `<span>${escapeHtml(d)}</span>`).join("")}</p>`
+                : ""
+            }
+          </div>
+        </a>
+        <div class="co-row-actions">
+          <a href="${escapeAttr(profile)}">Profile</a>
+          <a href="${escapeAttr(jobsHref)}"${jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""}>Jobs</a>
         </div>
       </article>
     `;
@@ -160,7 +142,16 @@
   function renderLocations() {
     if (!locationsEl) return;
     const campuses = campusesOf(companies);
-    const keys = [{ id: "all", label: "All Locations" }].concat(campuses.map((c) => ({ id: c, label: c })));
+    const keys = [{ id: "all", label: "All campuses" }].concat(campuses.map((c) => ({ id: c, label: c })));
+    if (locationsEl.tagName === "SELECT") {
+      locationsEl.innerHTML = keys
+        .map(
+          (item) =>
+            `<option value="${escapeAttr(item.id)}"${campus === item.id ? " selected" : ""}>${escapeHtml(item.label)}</option>`
+        )
+        .join("");
+      return;
+    }
     locationsEl.innerHTML = keys
       .map((item) => {
         const on = campus === item.id ? " is-on" : "";
@@ -176,6 +167,15 @@
     const present = new Set(companies.map((c) => firstLetter(c.name)));
     const keys = ["all"].concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").filter((l) => present.has(l)));
     if (present.has("#")) keys.push("#");
+    if (lettersEl.tagName === "SELECT") {
+      lettersEl.innerHTML = keys
+        .map((key) => {
+          const label = key === "all" ? "All letters" : key;
+          return `<option value="${escapeAttr(key)}"${letter === key ? " selected" : ""}>${escapeHtml(label)}</option>`;
+        })
+        .join("");
+      return;
+    }
     lettersEl.innerHTML = keys
       .map((key) => {
         const label = key === "all" ? "A–Z" : key;
@@ -208,7 +208,7 @@
   function render() {
     const rows = filtered();
     if (countEl) countEl.textContent = String(rows.length);
-    grid.innerHTML = rows.slice(0, visible).map((c, i) => card(c, i)).join("");
+    grid.innerHTML = rows.slice(0, visible).map((c) => card(c)).join("");
     if (emptyEl) emptyEl.hidden = rows.length > 0;
     if (moreBtn) moreBtn.hidden = visible >= rows.length;
   }
@@ -243,23 +243,31 @@
   });
 
   if (locationsEl) {
-    locationsEl.addEventListener("click", (event) => {
-      const btn = event.target.closest("[data-campus]");
-      if (!btn) return;
-      campus = btn.getAttribute("data-campus") || "all";
+    locationsEl.addEventListener(locationsEl.tagName === "SELECT" ? "change" : "click", (event) => {
+      if (locationsEl.tagName === "SELECT") {
+        campus = locationsEl.value || "all";
+      } else {
+        const btn = event.target.closest("[data-campus]");
+        if (!btn) return;
+        campus = btn.getAttribute("data-campus") || "all";
+      }
       visible = PAGE_SIZE;
-      renderLocations();
+      if (locationsEl.tagName !== "SELECT") renderLocations();
       render();
     });
   }
 
   if (lettersEl) {
-    lettersEl.addEventListener("click", (event) => {
-      const btn = event.target.closest("[data-letter]");
-      if (!btn) return;
-      letter = btn.getAttribute("data-letter") || "all";
+    lettersEl.addEventListener(lettersEl.tagName === "SELECT" ? "change" : "click", (event) => {
+      if (lettersEl.tagName === "SELECT") {
+        letter = lettersEl.value || "all";
+      } else {
+        const btn = event.target.closest("[data-letter]");
+        if (!btn) return;
+        letter = btn.getAttribute("data-letter") || "all";
+      }
       visible = PAGE_SIZE;
-      renderLetters();
+      if (lettersEl.tagName !== "SELECT") renderLetters();
       render();
     });
   }

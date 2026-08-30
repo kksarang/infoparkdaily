@@ -30,7 +30,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260830g" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260830h" />
     <script>
       (function () {
         try {
@@ -70,69 +70,49 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page companies-page">
-      <section class="jobs-hero companies-hero" aria-labelledby="companies-hero-title">
-        <div class="jobs-hero-glow" aria-hidden="true"></div>
-        <div class="jobs-hero-copy">
-          <p class="jobs-kicker">Company directory</p>
-          <h1 id="companies-hero-title">Companies</h1>
-          <p class="jobs-intro">
-            Full company lists from Infopark, Technopark, and Cyberpark. This is not a job board — open a profile for the listing.
-            Blank fields were not published by the park. InfoparkDaily is not a recruiter. Never pay for a job.
-          </p>
-          <div class="park-tabs" role="tablist" aria-label="Choose a park">
-            <button type="button" class="park-tab is-on" data-park-tab="infopark">
-              Infopark <span data-park-tab-count>0</span>
-            </button>
-            <button type="button" class="park-tab" data-park-tab="technopark">
-              Technopark <span data-park-tab-count>0</span>
-            </button>
-            <button type="button" class="park-tab" data-park-tab="cyberpark">
-              Cyberpark <span data-park-tab-count>0</span>
-            </button>
-          </div>
+    <main id="main-content" class="co-page">
+      <header class="co-hero">
+        <p class="co-eyebrow">Official park tenants</p>
+        <h1 id="companies-hero-title">Company directory</h1>
+        <p class="co-lead">
+          Every listed company at Infopark, Technopark, and Cyberpark. This is a company index, not a job board.
+          Missing details were not published by the park. InfoparkDaily is not a recruiter.
+        </p>
+        <div class="co-tabs" role="tablist" aria-label="Choose a park">
+          <button type="button" class="co-tab is-on" data-park-tab="infopark">
+            Infopark <em data-park-tab-count>0</em>
+          </button>
+          <button type="button" class="co-tab" data-park-tab="technopark">
+            Technopark <em data-park-tab-count>0</em>
+          </button>
+          <button type="button" class="co-tab" data-park-tab="cyberpark">
+            Cyberpark <em data-park-tab-count>0</em>
+          </button>
         </div>
-        <aside class="jobs-hero-panel glass" aria-label="Verification rules">
-          <p class="jobs-panel-label">Our rule</p>
-          <ol class="jobs-panel-steps">
-            <li>This page lists companies, not job openings</li>
-            <li>Copied from official park directories</li>
-            <li>Always confirm on the park or employer page</li>
-          </ol>
-          <p class="jobs-panel-note">InfoparkDaily is not a recruiter. Never pay for a job application or interview.</p>
-        </aside>
-      </section>
+      </header>
 
       <section
         id="directory"
-        class="content-section park-co-section"
+        class="co-board"
         aria-labelledby="companies-list-title"
         data-park-companies="infopark"
         data-park-sync-url
       >
-        <div class="section-heading">
-          <p class="eyebrow">Company list</p>
+        <div class="co-board-head">
           <h2 id="companies-list-title" data-park-heading>Infopark Kochi companies</h2>
+          <p class="co-count"><strong data-park-company-count>0</strong> in view</p>
         </div>
-        <p class="park-co-note">
-          Search and filter the full directory. Company Profile opens the listing. Job Openings goes to the official park jobs page when the park published one.
-        </p>
-        <div class="park-co-toolbar glass">
-          <nav class="park-dir-locations" data-park-company-locations aria-label="Filter by location"></nav>
-          <div class="park-co-tools">
-            <label class="park-co-search">
-              <span class="visually-hidden">Search companies</span>
-              <input type="search" data-park-company-search placeholder="Search Company Here" autocomplete="off" />
-            </label>
-            <p class="park-co-meta"><strong data-park-company-count>0</strong> companies</p>
-          </div>
-          <div class="park-co-letters" data-park-company-letters></div>
+        <div class="co-filters">
+          <label class="co-search">
+            <span class="visually-hidden">Search companies</span>
+            <input type="search" data-park-company-search placeholder="Search by name, domain, phone…" autocomplete="off" />
+          </label>
+          <select class="co-select" data-park-company-locations aria-label="Campus"></select>
+          <select class="co-select" data-park-company-letters aria-label="Letter"></select>
         </div>
-        <div class="park-dir-grid" data-park-company-grid></div>
-        <p class="park-co-empty" data-park-company-empty hidden>No matching company.</p>
-        <div class="park-co-more-wrap">
-          <button type="button" class="btn btn-primary park-co-more" data-park-company-more>Show more companies</button>
-        </div>
+        <div class="co-list" data-park-company-grid></div>
+        <p class="co-empty" data-park-company-empty hidden>No matching company.</p>
+        <button type="button" class="co-more" data-park-company-more>Load more</button>
       </section>
     </main>
 
@@ -184,6 +164,6 @@
     <script src="/data/infopark-companies-data.js?v=20260830d" defer></script>
     <script src="/data/technopark-companies-data.js?v=20260830d" defer></script>
     <script src="/data/cyberpark-companies-data.js?v=20260830d" defer></script>
-    <script src="/js/park-companies.js?v=20260830g" defer></script>
+    <script src="/js/park-companies.js?v=20260830h" defer></script>
   </body>
 </html>
