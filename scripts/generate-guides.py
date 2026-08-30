@@ -6,7 +6,7 @@ from __future__ import annotations
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CSS_VER = "20260819a"
+CSS_VER = "20260830m"
 SITE_JS = "20260819a"
 ANALYTICS = "20260730e"
 DISCLAIMER = "20260825b"
