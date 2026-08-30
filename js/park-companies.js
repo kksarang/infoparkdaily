@@ -1,19 +1,31 @@
 /**
- * Official park company directories — Infopark-style catalog, InfoparkDaily premium UI.
- * Data comes only from the park sites. Missing fields stay blank.
+ * Official park company directories. Missing fields stay blank.
  */
 (function () {
   const mount = document.querySelector("[data-park-companies]");
   if (!mount) return;
 
-  const PAGE_SIZE = 24;
-  const park = String(mount.getAttribute("data-park-companies") || "").toLowerCase();
+  const PAGE_SIZE = 30;
   const sources = {
     infopark: typeof INFOPARK_COMPANIES !== "undefined" ? INFOPARK_COMPANIES : [],
     technopark: typeof TECHNOPARK_COMPANIES !== "undefined" ? TECHNOPARK_COMPANIES : [],
     cyberpark: typeof CYBERPARK_COMPANIES !== "undefined" ? CYBERPARK_COMPANIES : []
   };
-  const companies = Array.isArray(sources[park]) ? sources[park].slice() : [];
+  const PARK_LABEL = {
+    infopark: "Infopark Kochi",
+    technopark: "Technopark",
+    cyberpark: "Cyberpark Kozhikode"
+  };
+
+  function parkFromUrl() {
+    const q = String(new URLSearchParams(window.location.search).get("park") || "").toLowerCase();
+    if (sources[q]) return q;
+    return String(mount.getAttribute("data-park-companies") || "infopark").toLowerCase();
+  }
+
+  let park = parkFromUrl();
+  if (!sources[park]) park = "infopark";
+  let companies = Array.isArray(sources[park]) ? sources[park].slice() : [];
 
   const searchInput = mount.querySelector("[data-park-company-search]");
   const locationsEl = mount.querySelector("[data-park-company-locations]");
@@ -22,12 +34,10 @@
   const moreBtn = mount.querySelector("[data-park-company-more]");
   const countEl = mount.querySelector("[data-park-company-count]");
   const emptyEl = mount.querySelector("[data-park-company-empty]");
+  const headingEl = document.querySelector("[data-park-heading]");
+  const tabs = document.querySelectorAll("[data-park-tab]");
 
   if (!grid) return;
-
-  const campuses = Array.from(
-    new Set(companies.map((c) => String(c.campus || "").trim()).filter(Boolean))
-  ).sort((a, b) => a.localeCompare(b));
 
   let campus = "all";
   let letter = "all";
@@ -37,6 +47,12 @@
     '<svg class="park-dir-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3c2.4 2.6 3.6 5.4 3.6 9s-1.2 6.4-3.6 9c-2.4-2.6-3.6-5.4-3.6-9S9.6 5.6 12 3z" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>';
   const ICO_PHONE =
     '<svg class="park-dir-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.6h3.1l1.2 3.1-1.9 1.2a12.2 12.2 0 0 0 6.3 6.3l1.2-1.9 3.1 1.2v3.1c0 .9-.8 1.7-1.7 1.7C9.4 18.3 5.7 14.6 5.7 5.3c0-.9.8-1.7 1.5-1.7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
+
+  function campusesOf(list) {
+    return Array.from(new Set(list.map((c) => String(c.campus || "").trim()).filter(Boolean))).sort((a, b) =>
+      a.localeCompare(b)
+    );
+  }
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -99,7 +115,7 @@
     const inner = value ? escapeHtml(value) : "&nbsp;";
     const body =
       href && value
-        ? `<a href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">${inner}</a>`
+        ? `<a href="${escapeAttr(href)}"${String(href).startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${inner}</a>`
         : inner;
     return `<p class="park-dir-contact${empty ? " is-empty" : ""}">${icon}<span>${body}</span></p>`;
   }
@@ -111,7 +127,9 @@
     const domains = (c.domains || []).filter(Boolean);
     const mark = initials(c.name);
     const site = displaySite(c.website);
-    const delay = Math.min(index, 11) * 40;
+    const firstContact = site || c.email || "";
+    const firstHref = site ? c.website : c.email ? `mailto:${c.email}` : "";
+    const delay = Math.min(index, 11) * 35;
     const logo = c.logo
       ? `<img src="${escapeAttr(c.logo)}" alt="" width="96" height="96" loading="lazy" />`
       : `<span class="park-dir-mark">${escapeHtml(mark)}</span>`;
@@ -121,14 +139,12 @@
         <div class="park-dir-logo">${logo}</div>
         <h3>${escapeHtml(c.name)}</h3>
         <div class="park-dir-rule" aria-hidden="true"></div>
-        ${contactRow(ICO_WEB, site, c.website)}
+        ${contactRow(ICO_WEB, firstContact, firstHref)}
         ${contactRow(ICO_PHONE, c.phone, c.phone ? `tel:${String(c.phone).replace(/[^\d+]/g, "")}` : "")}
         ${
           domains.length
             ? `<p class="park-dir-domain-label">Domain</p>
-               <ul class="park-dir-tags">${domains
-                 .map((d) => `<li>${escapeHtml(d)}</li>`)
-                 .join("")}</ul>`
+               <ul class="park-dir-tags">${domains.map((d) => `<li>${escapeHtml(d)}</li>`).join("")}</ul>`
             : `<p class="park-dir-domain-label">Domain</p><ul class="park-dir-tags park-dir-tags--empty"><li>&nbsp;</li></ul>`
         }
         <div class="park-dir-actions">
@@ -143,9 +159,8 @@
 
   function renderLocations() {
     if (!locationsEl) return;
-    const keys = [{ id: "all", label: "All Locations" }].concat(
-      campuses.map((c) => ({ id: c, label: c }))
-    );
+    const campuses = campusesOf(companies);
+    const keys = [{ id: "all", label: "All Locations" }].concat(campuses.map((c) => ({ id: c, label: c })));
     locationsEl.innerHTML = keys
       .map((item) => {
         const on = campus === item.id ? " is-on" : "";
@@ -172,14 +187,60 @@
       .join("");
   }
 
+  function renderTabs() {
+    tabs.forEach((btn) => {
+      const id = String(btn.getAttribute("data-park-tab") || "").toLowerCase();
+      const n = (sources[id] || []).length;
+      const count = btn.querySelector("[data-park-tab-count]");
+      if (count) count.textContent = String(n);
+      btn.classList.toggle("is-on", id === park);
+    });
+  }
+
+  function renderHeading() {
+    if (headingEl) headingEl.textContent = `${PARK_LABEL[park] || "Park"} companies`;
+    document.title =
+      mount.hasAttribute("data-park-sync-url")
+        ? `${PARK_LABEL[park] || "Park"} companies | InfoparkDaily`
+        : document.title;
+  }
+
   function render() {
     const rows = filtered();
     if (countEl) countEl.textContent = String(rows.length);
-    const slice = rows.slice(0, visible);
-    grid.innerHTML = slice.map((c, i) => card(c, i)).join("");
+    grid.innerHTML = rows.slice(0, visible).map((c, i) => card(c, i)).join("");
     if (emptyEl) emptyEl.hidden = rows.length > 0;
-    if (moreBtn) moreBtn.hidden = slice.length >= rows.length;
+    if (moreBtn) moreBtn.hidden = visible >= rows.length;
   }
+
+  function switchPark(next) {
+    if (!sources[next]) return;
+    park = next;
+    companies = sources[park].slice();
+    campus = "all";
+    letter = "all";
+    visible = PAGE_SIZE;
+    if (searchInput) searchInput.value = "";
+    mount.setAttribute("data-park-companies", park);
+    if (mount.hasAttribute("data-park-sync-url")) {
+      try {
+        window.history.replaceState({}, "", `/companies/?park=${encodeURIComponent(park)}`);
+      } catch (_e) {
+        /* ignore */
+      }
+    }
+    renderTabs();
+    renderHeading();
+    renderLocations();
+    renderLetters();
+    render();
+  }
+
+  tabs.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      switchPark(String(btn.getAttribute("data-park-tab") || "").toLowerCase());
+    });
+  });
 
   if (locationsEl) {
     locationsEl.addEventListener("click", (event) => {
@@ -217,6 +278,9 @@
     });
   }
 
+  mount.setAttribute("data-park-companies", park);
+  renderTabs();
+  renderHeading();
   renderLocations();
   renderLetters();
   render();

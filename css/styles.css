@@ -13620,10 +13620,51 @@ main,
   text-decoration: none;
 }
 
-.park-co-toolbar {
-  margin: 0 0 1.15rem;
-  padding: 1.05rem 1.15rem 0.95rem;
-  border-radius: var(--radius);
+.park-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.15rem 0 0;
+}
+
+.park-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.7rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.park-tab span {
+  min-width: 1.6rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.park-tab.is-on {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent) 55%, #f5a300);
+  color: var(--accent-ink);
+  border-color: transparent;
+  box-shadow: var(--glow-accent);
+}
+
+.park-tab.is-on span {
+  background: rgba(25, 18, 4, 0.12);
+}
+
+.companies-hero .jobs-intro {
+  max-width: 38rem;
 }
 
 .park-co-tools {

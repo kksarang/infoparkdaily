@@ -30,7 +30,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260830f" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260830g" />
     <script>
       (function () {
         try {
@@ -70,52 +70,68 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page">
-      <section class="jobs-hero" aria-labelledby="companies-hero-title">
+    <main id="main-content" class="jobs-page companies-page">
+      <section class="jobs-hero companies-hero" aria-labelledby="companies-hero-title">
         <div class="jobs-hero-glow" aria-hidden="true"></div>
         <div class="jobs-hero-copy">
-          <p class="jobs-kicker">Park directories</p>
+          <p class="jobs-kicker">Company directory</p>
           <h1 id="companies-hero-title">Companies</h1>
           <p class="jobs-intro">
-            Open the official Infopark, Technopark, or Cyberpark company list. Fields the parks did not publish are left blank.
-            InfoparkDaily is not the park authority and not a recruiter. Never pay for a job.
+            Full company lists from Infopark, Technopark, and Cyberpark. This is not a job board — open a profile for the listing.
+            Blank fields were not published by the park. InfoparkDaily is not a recruiter. Never pay for a job.
           </p>
+          <div class="park-tabs" role="tablist" aria-label="Choose a park">
+            <button type="button" class="park-tab is-on" data-park-tab="infopark">
+              Infopark <span data-park-tab-count>0</span>
+            </button>
+            <button type="button" class="park-tab" data-park-tab="technopark">
+              Technopark <span data-park-tab-count>0</span>
+            </button>
+            <button type="button" class="park-tab" data-park-tab="cyberpark">
+              Cyberpark <span data-park-tab-count>0</span>
+            </button>
+          </div>
         </div>
         <aside class="jobs-hero-panel glass" aria-label="Verification rules">
           <p class="jobs-panel-label">Our rule</p>
           <ol class="jobs-panel-steps">
-            <li>Lists are copied from official park directories</li>
-            <li>Blank fields mean the park did not publish that detail</li>
+            <li>This page lists companies, not job openings</li>
+            <li>Copied from official park directories</li>
             <li>Always confirm on the park or employer page</li>
           </ol>
           <p class="jobs-panel-note">InfoparkDaily is not a recruiter. Never pay for a job application or interview.</p>
         </aside>
       </section>
 
-      <section class="content-section" aria-labelledby="companies-pick-title">
+      <section
+        id="directory"
+        class="content-section park-co-section"
+        aria-labelledby="companies-list-title"
+        data-park-companies="infopark"
+        data-park-sync-url
+      >
         <div class="section-heading">
-          <p class="eyebrow">Choose a park</p>
-          <h2 id="companies-pick-title">Open a company directory</h2>
+          <p class="eyebrow">Company list</p>
+          <h2 id="companies-list-title" data-park-heading>Infopark Kochi companies</h2>
         </div>
-        <div class="park-dir-grid">
-          <a class="park-dir-card park-dir-card--link" href="/infopark-jobs/#companies">
-            <p class="jobs-kicker">Infopark Kochi</p>
-            <h3>Infopark companies</h3>
-            <p class="park-co-note">Official listing from infopark.in — logos, websites, phones, and domains when published.</p>
-            <span class="btn btn-primary">Open Infopark companies</span>
-          </a>
-          <a class="park-dir-card park-dir-card--link" href="/technopark-jobs/#companies">
-            <p class="jobs-kicker">Technopark</p>
-            <h3>Technopark companies</h3>
-            <p class="park-co-note">Official listing from technopark.in — address, phone, and email when published.</p>
-            <span class="btn btn-primary">Open Technopark companies</span>
-          </a>
-          <a class="park-dir-card park-dir-card--link" href="/cyberpark-jobs/#companies">
-            <p class="jobs-kicker">Cyberpark Kozhikode</p>
-            <h3>Cyberpark companies</h3>
-            <p class="park-co-note">Official listing from cyberparks.in — email and address when published.</p>
-            <span class="btn btn-primary">Open Cyberpark companies</span>
-          </a>
+        <p class="park-co-note">
+          Search and filter the full directory. Company Profile opens the listing. Job Openings goes to the official park jobs page when the park published one.
+        </p>
+        <div class="park-co-toolbar glass">
+          <nav class="park-dir-locations" data-park-company-locations aria-label="Filter by location"></nav>
+          <div class="park-co-tools">
+            <label class="park-co-search">
+              <span class="visually-hidden">Search companies</span>
+              <input type="search" data-park-company-search placeholder="Search Company Here" autocomplete="off" />
+            </label>
+            <p class="park-co-meta"><strong data-park-company-count>0</strong> companies</p>
+          </div>
+          <div class="park-co-letters" data-park-company-letters></div>
+        </div>
+        <div class="park-dir-grid" data-park-company-grid></div>
+        <p class="park-co-empty" data-park-company-empty hidden>No matching company.</p>
+        <div class="park-co-more-wrap">
+          <button type="button" class="btn btn-primary park-co-more" data-park-company-more>Show more companies</button>
         </div>
       </section>
     </main>
@@ -165,5 +181,9 @@
     </footer>
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260819a" defer></script>
+    <script src="/data/infopark-companies-data.js?v=20260830d" defer></script>
+    <script src="/data/technopark-companies-data.js?v=20260830d" defer></script>
+    <script src="/data/cyberpark-companies-data.js?v=20260830d" defer></script>
+    <script src="/js/park-companies.js?v=20260830g" defer></script>
   </body>
 </html>

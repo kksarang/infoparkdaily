@@ -340,12 +340,9 @@
     const expiredRoles = expandRoleVacancies(expiredJobs);
     const mark = initials(about.name);
     const shareJobsUrl = `/jobs/?company=${encodeURIComponent(slug)}`;
-    const parkHome =
-      about.park === "Technopark"
-        ? "/technopark-jobs/"
-        : about.park === "Cyberpark"
-          ? "/cyberpark-jobs/"
-          : "/infopark-jobs/";
+    const parkKey =
+      about.park === "Technopark" ? "technopark" : about.park === "Cyberpark" ? "cyberpark" : "infopark";
+    const parkHome = `/companies/?park=${parkKey}`;
 
     document.title = `${about.name} | Company profile | InfoparkDaily`;
     const desc = document.querySelector('meta[name="description"]');
@@ -383,7 +380,7 @@
     root.innerHTML = `
       <section class="company-profile">
         <nav class="company-breadcrumb" aria-label="Breadcrumb">
-          <a class="company-back" href="${escapeAttr(parkHome + "#companies")}">← Back</a>
+          <a class="company-back" href="${escapeAttr(parkHome)}">← Back to companies</a>
         </nav>
 
         <header class="company-dir-sheet">
