@@ -58,7 +58,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260819a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260830f" />
     <script>
       (function () {
         try {
@@ -83,6 +83,7 @@
     <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/recruit/">Recruit</a>
         <a href="/jobs/" aria-current="page">Jobs</a>
+        <a href="/companies/">Companies</a>
         <a href="/news/">News</a>
         <a href="/services/">Services</a>
         <a href="/media/">About Us</a>
@@ -116,6 +117,9 @@
             Verified and upcoming jobs at Cyberpark Kozhikode and UL CyberPark. Always re-check the employer listing before applying.
           </p>
           <p class="tp-hero-meta"><strong id="cp-count">0</strong> curated verified roles · Source checked 28 Jul 2026</p>
+          <div class="jobs-park-cta">
+            <a class="btn btn-primary" href="#companies">All Cyberpark companies</a>
+          </div>
         </div>
         <aside class="jobs-hero-panel glass" aria-label="Verification rules">
           <p class="jobs-panel-label">Our rule</p>
@@ -142,6 +146,33 @@
           <h2 id="cp-upcoming-title">Recent openings from Cyberpark Kozhikode careers</h2>
         </div>
         <div id="cp-upcoming-grid" class="jobs-grid"></div>
+      </section>
+
+      <section id="companies" class="content-section park-co-section" aria-labelledby="cp-companies-title" data-park-companies="cyberpark">
+        <div class="section-heading">
+          <p class="eyebrow">Cyberpark companies</p>
+          <h2 id="cp-companies-title">Companies listed on the official Cyberpark directory</h2>
+        </div>
+        <p class="park-co-note">
+          Copied from the <a href="https://cyberparks.in/listings/" target="_blank" rel="noopener noreferrer">Cyberpark company listings</a>.
+          Fields the park did not publish are left blank. InfoparkDaily is not Cyberpark and not a recruiter.
+        </p>
+        <div class="park-co-toolbar glass">
+          <nav class="park-dir-locations" data-park-company-locations aria-label="Filter by location"></nav>
+          <div class="park-co-tools">
+            <label class="park-co-search">
+              <span class="visually-hidden">Search Cyberpark companies</span>
+              <input type="search" data-park-company-search placeholder="Search Company Here" autocomplete="off" />
+            </label>
+            <p class="park-co-meta"><strong data-park-company-count>0</strong> companies</p>
+          </div>
+          <div class="park-co-letters" data-park-company-letters></div>
+        </div>
+        <div class="park-dir-grid" data-park-company-grid></div>
+        <p class="park-co-empty" data-park-company-empty hidden>No matching company.</p>
+        <div class="park-co-more-wrap">
+          <button type="button" class="btn btn-primary park-co-more" data-park-company-more>Show more companies</button>
+        </div>
       </section>
 
       <section class="content-section tp-verify-banner" aria-label="Verification disclaimer">
@@ -247,5 +278,7 @@
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script src="/data/cyberpark-jobs-data.js?v=20260809b" defer></script>
     <script src="/js/cyberpark-jobs.js?v=20260805p" defer></script>
+    <script src="/data/cyberpark-companies-data.js?v=20260830d" defer></script>
+    <script src="/js/park-companies.js?v=20260830f" defer></script>
   </body>
 </html>

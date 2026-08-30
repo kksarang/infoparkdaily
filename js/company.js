@@ -1,6 +1,6 @@
 /**
  * Company profile page — /company/<slug>/
- * Aggregates about + vacancies from JOBS for one employer.
+ * Aggregates official park directory fields plus vacancies from JOBS.
  */
 (function () {
   if (window.__IPD_IS_COMPANY_ROUTE__ !== true) return;
@@ -198,35 +198,69 @@
     return `/company/${encodeURIComponent(slug)}/`;
   }
 
-  function pickAbout(jobs) {
+  function allDirectoryCompanies() {
+    const bags = [];
+    if (typeof INFOPARK_COMPANIES !== "undefined") bags.push(INFOPARK_COMPANIES);
+    if (typeof TECHNOPARK_COMPANIES !== "undefined") bags.push(TECHNOPARK_COMPANIES);
+    if (typeof CYBERPARK_COMPANIES !== "undefined") bags.push(CYBERPARK_COMPANIES);
+    return bags.flat().filter(Boolean);
+  }
+
+  function findDirectory(slug) {
+    const list = allDirectoryCompanies();
+    return (
+      list.find((c) => c.slug === slug) ||
+      list.find((c) => companySlug(c.name) === slug) ||
+      null
+    );
+  }
+
+  function pickAbout(jobs, directory) {
     const ranked = jobs.slice().sort((a, b) => {
       const aLen = String(a.companyDetails || a.companyBlurb || a.description || "").length;
       const bLen = String(b.companyDetails || b.companyBlurb || b.description || "").length;
       return bLen - aLen;
     });
     const best = ranked[0] || {};
-    const name = best.companyLegalName || best.company || "Company";
+    const name = (directory && directory.name) || best.companyLegalName || best.company || "Company";
 
-    // Prefer a real employer site — never treat park portal URLs as "Company website".
     let website = "";
-    for (const job of ranked) {
-      if (job.website && !isParkPortalUrl(job.website)) {
-        website = job.website;
-        break;
+    if (directory && directory.website && /^https?:\/\//i.test(directory.website)) {
+      website = directory.website;
+    } else if (!directory) {
+      for (const job of ranked) {
+        if (job.website && !isParkPortalUrl(job.website)) {
+          website = job.website;
+          break;
+        }
       }
+      if (!website) website = lookupCompanyWebsite(name);
     }
-    if (!website) website = lookupCompanyWebsite(name);
+
+    const dirEmail = directory && directory.email ? directory.email : "";
+    const dirPhone = directory && directory.phone ? directory.phone : "";
+    const dirAddress = directory && directory.address ? directory.address : "";
+    const dirIndustry = directory && directory.domains && directory.domains.length ? directory.domains[0] : "";
 
     return {
       name,
-      blurb: best.companyBlurb || best.description || "",
+      blurb: best.companyBlurb || "",
       details: best.companyDetails || "",
-      location: best.location || best.address || "",
-      industry: best.industry || "",
+      location: (directory && (directory.building || directory.campus)) || best.location || best.address || "",
+      industry: dirIndustry || best.industry || "",
       website,
-      email: best.email || "",
-      phone: best.phone || "",
-      address: best.address || "",
+      email: dirEmail || (!directory ? best.email || "" : ""),
+      phone: dirPhone || (!directory ? best.phone || "" : ""),
+      address: dirAddress || (!directory ? best.address || "" : ""),
+      building: (directory && directory.building) || "",
+      campus: (directory && directory.campus) || "",
+      park: (directory && directory.park) || "",
+      logo: (directory && directory.logo) || "",
+      officialUrl: (directory && directory.officialUrl) || "",
+      jobsUrl: (directory && directory.jobsUrl) || "",
+      contactPerson: (directory && directory.contactPerson) || "",
+      designation: (directory && directory.designation) || "",
+      domains: (directory && directory.domains) || [],
       verified: jobs.some((j) => j.verified || j.infoparkVerified)
     };
   }
@@ -298,101 +332,91 @@
     `;
   }
 
-  function renderCompany(slug, jobs) {
-    const about = pickAbout(jobs);
+  function renderCompany(slug, jobs, directory) {
+    const about = pickAbout(jobs, directory);
     const openJobs = jobs.filter((j) => deadlineStatus(j) !== "expired");
     const expiredJobs = jobs.filter((j) => deadlineStatus(j) === "expired");
     const openRoles = expandRoleVacancies(openJobs);
     const expiredRoles = expandRoleVacancies(expiredJobs);
     const mark = initials(about.name);
     const shareJobsUrl = `/jobs/?company=${encodeURIComponent(slug)}`;
+    const parkHome =
+      about.park === "Technopark"
+        ? "/technopark-jobs/"
+        : about.park === "Cyberpark"
+          ? "/cyberpark-jobs/"
+          : "/infopark-jobs/";
 
-    document.title = `${about.name} Jobs & Company Profile | InfoparkDaily`;
+    document.title = `${about.name} | Company profile | InfoparkDaily`;
     const desc = document.querySelector('meta[name="description"]');
     if (desc) {
       desc.setAttribute(
         "content",
-        `${about.name} hiring in ${about.location || "Kerala"} — company overview and ${openRoles.length} open role${
-          openRoles.length === 1 ? "" : "s"
-        } on InfoparkDaily.`
+        `${about.name}${about.park ? ` at ${about.park}` : ""} — company listing on InfoparkDaily. Confirm details on the official park or employer page.`
       );
     }
 
-    const aboutText = about.details || about.blurb || `${about.name} is hiring through InfoparkDaily.`;
-    const website =
-      about.website && /^https?:\/\//i.test(about.website)
-        ? `<a class="btn btn-secondary" href="${escapeAttr(about.website)}" target="_blank" rel="noopener noreferrer"><span class="company-btn-full">Company website</span><span class="company-btn-short">Website</span> ↗</a>`
-        : "";
-    const email = about.email
-      ? `<a class="btn btn-ghost company-hero-mail" href="mailto:${escapeAttr(about.email)}"><span class="company-btn-full">${escapeHtml(about.email)}</span><span class="company-btn-short">Email</span></a>`
-      : "";
-    const metaChips = [
-      about.location ? `<li>${escapeHtml(about.location)}</li>` : "",
-      about.industry ? `<li>${escapeHtml(about.industry)}</li>` : "",
-      about.verified ? `<li class="is-verified">Verified listings</li>` : ""
-    ]
+    const aboutText = about.details || about.blurb || "";
+    const jobsHref = about.jobsUrl || shareJobsUrl;
+    const jobsExternal = /^https?:\/\//i.test(about.jobsUrl || "");
+    const siteLabel =
+      about.website && /^https?:\/\//i.test(about.website) ? about.website.replace(/^https?:\/\/(www\.)?/i, "") : "";
+    const markHtml = about.logo
+      ? `<div class="company-dir-logo"><img src="${escapeAttr(about.logo)}" alt="" width="120" height="120" /></div>`
+      : `<div class="company-dir-logo company-dir-logo--mark" aria-hidden="true">${escapeHtml(mark)}</div>`;
+
+    const line = (value, href, extraClass) => {
+      const body = value
+        ? href
+          ? `<a href="${escapeAttr(href)}"${href.startsWith("http") ? ' target="_blank" rel="noopener noreferrer"' : ""}>${escapeHtml(
+              value
+            )}</a>`
+          : escapeHtml(value)
+        : "&nbsp;";
+      return `<p class="company-dir-line${value ? "" : " is-empty"}${extraClass ? ` ${extraClass}` : ""}">${body}</p>`;
+    };
+    const domainPills = (about.domains || [])
       .filter(Boolean)
+      .map((d) => `<span class="job-badge job-badge--both">${escapeHtml(d)}</span>`)
       .join("");
 
     root.innerHTML = `
       <section class="company-profile">
         <nav class="company-breadcrumb" aria-label="Breadcrumb">
-          <a href="/jobs/">← Jobs</a>
-          <span class="company-breadcrumb-sep" aria-hidden="true">/</span>
-          <span class="company-breadcrumb-current">${escapeHtml(about.name)}</span>
+          <a class="company-back" href="${escapeAttr(parkHome + "#companies")}">← Back</a>
         </nav>
 
-        <header class="company-hero glass">
-          <div class="company-hero-glow" aria-hidden="true"></div>
-          <div class="company-hero-top">
-            <div class="company-hero-identity">
-              <div class="company-hero-mark" aria-hidden="true">${escapeHtml(mark)}</div>
-              <div class="company-hero-titles">
-                <p class="jobs-kicker">Company profile</p>
-                <h1>${escapeHtml(about.name)}</h1>
-              </div>
-            </div>
-            ${metaChips ? `<ul class="company-hero-chips">${metaChips}</ul>` : ""}
+        <header class="company-dir-sheet">
+          ${markHtml}
+          <div class="company-dir-copy">
+            <p class="jobs-kicker">${escapeHtml(about.park || "Company profile")}</p>
+            <h1>${escapeHtml(about.name)}</h1>
+            ${line(about.address, "", "company-dir-address")}
+            ${line(about.email, about.email ? `mailto:${about.email}` : "")}
+            ${line(about.phone, about.phone ? `tel:${String(about.phone).replace(/[^\d+]/g, "")}` : "")}
+            ${line(siteLabel, about.website, "company-dir-web")}
+            ${domainPills ? `<div class="job-card-tags company-dir-domains">${domainPills}</div>` : ""}
           </div>
-
-          <div class="company-hero-stats" role="list">
-            <div class="company-stat company-stat--open" role="listitem">
-              <strong>${openRoles.length}</strong>
-              <span>Open roles</span>
-            </div>
-            <div class="company-stat" role="listitem">
-              <strong>${openRoles.length + expiredRoles.length}</strong>
-              <span>Total roles</span>
-            </div>
-            <div class="company-stat company-stat--expired" role="listitem">
-              <strong>${expiredRoles.length}</strong>
-              <span>Expired</span>
-            </div>
-          </div>
-
-          <div class="company-hero-actions">
-            <a class="btn btn-primary" href="${escapeAttr(shareJobsUrl)}">
-              <span class="company-btn-full">See jobs from this company</span>
-              <span class="company-btn-short">Company jobs</span>
-            </a>
-            ${website}
-            ${email}
+          <div class="company-dir-cta">
+            <a class="btn btn-primary" href="${escapeAttr(jobsHref)}"${
+              jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""
+            }>Job Openings</a>
+            ${
+              about.officialUrl
+                ? `<a class="btn btn-secondary" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
+                : ""
+            }
           </div>
         </header>
 
         <section class="company-about glass">
           <div class="section-heading">
             <p class="eyebrow">About</p>
-            <h2>Brief about the company</h2>
+            <h2>Company listing</h2>
           </div>
-          <p class="company-about-text">${escapeHtml(aboutText)}</p>
-          ${
-            about.address
-              ? `<p class="company-about-address"><span>Address</span>${escapeHtml(about.address)}</p>`
-              : ""
-          }
+          ${aboutText ? `<p class="company-about-text">${escapeHtml(aboutText)}</p>` : `<p class="company-about-text is-empty">&nbsp;</p>`}
           <p class="company-about-note">
-            InfoparkDaily is not the employer. Verify openings on official channels before applying. Never pay for a job.
+            InfoparkDaily is not the employer and not the park authority. Blank fields were not published on the official directory. Verify openings on official channels before applying. Never pay for a job.
           </p>
         </section>
 
@@ -407,7 +431,7 @@
           ${
             openRoles.length
               ? `<div class="company-vacancy-list">${openRoles.map(vacancyCard).join("")}</div>`
-              : `<p class="company-empty glass">No open vacancies right now. Check back soon or <a href="/jobs/">browse all jobs</a>.</p>`
+              : `<p class="company-empty glass">No open vacancies listed here. Check the official park or employer page, or <a href="/jobs/">browse all jobs</a>.</p>`
           }
         </section>
 
@@ -451,29 +475,18 @@
     }
   }
 
-  if (typeof JOBS === "undefined") {
-    document.title = "Couldn’t load company | InfoparkDaily";
-    root.innerHTML = `
-      <section class="job-missing glass">
-        <h1>Couldn’t load company data</h1>
-        <p>Please refresh the page.</p>
-        <a class="btn btn-primary" href="/jobs/">View Jobs</a>
-      </section>
-    `;
-    return;
-  }
-
   const slug = getCompanySlug();
   if (!slug) {
     renderMissing();
     return;
   }
 
-  const jobs = JOBS.filter((job) => companySlug(job.company) === slug);
-  if (!jobs.length) {
+  const jobs = typeof JOBS !== "undefined" ? JOBS.filter((job) => companySlug(job.company) === slug) : [];
+  const directory = findDirectory(slug);
+  if (!directory && !jobs.length) {
     renderMissing();
     return;
   }
 
-  renderCompany(slug, jobs);
+  renderCompany(slug, jobs, directory);
 })();
