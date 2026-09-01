@@ -9,11 +9,21 @@
   const messageEl = document.getElementById("review-message");
   const statusEl = document.getElementById("review-form-status");
 
-  if (!listEl || typeof IPD_REVIEWS === "undefined") return;
+  if (!listEl) return;
 
   const LOCAL_KEY = "ipd-site-reviews";
-  /** Optional: set Formspree endpoint to email review submissions for moderation. */
-  const FORMSPREE_REVIEW_ENDPOINT = "";
+  const SESSION_KEY = "ipd-site-reviews";
+  const SITE_REVIEWS_URL =
+    typeof IPD_SITE_REVIEWS_URL === "string" && IPD_SITE_REVIEWS_URL
+      ? IPD_SITE_REVIEWS_URL
+      : "/data/site-reviews.json";
+  const REVIEWS_API = typeof IPD_REVIEWS_API === "string" ? IPD_REVIEWS_API.trim() : "";
+  const FORMSPREE_ENDPOINT =
+    typeof IPD_REVIEW_FORMSPREE === "string" ? IPD_REVIEW_FORMSPREE.trim() : "";
+
+  /** In-memory list — always used for render so posts show instantly. */
+  let memoryReviews = [];
+  let publicReviews = [];
 
   let selectedRating = 5;
 
@@ -45,29 +55,74 @@
     return `${y}-${m}-${d}`;
   }
 
-  function getLocalReviews() {
+  function normalizeReview(raw) {
+    if (!raw || typeof raw !== "object") return null;
+    const text = String(raw.text || raw.message || "").trim();
+    if (!text) return null;
+    return {
+      id: String(raw.id || `review-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`),
+      author: String(raw.author || raw.name || "Community member").trim() || "Community member",
+      role: String(raw.role || "Posted on InfoparkDaily Website").trim(),
+      rating: Math.max(1, Math.min(5, Number(raw.rating) || 5)),
+      date: String(raw.date || todayIso()),
+      source: String(raw.source || "InfoparkDaily").trim(),
+      text,
+      local: Boolean(raw.local),
+    };
+  }
+
+  function readStorage(storage) {
     try {
-      const raw = localStorage.getItem(LOCAL_KEY);
+      const raw = storage.getItem(LOCAL_KEY);
       if (!raw) return [];
       const parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
+      if (!Array.isArray(parsed)) return [];
+      return parsed.map(normalizeReview).filter(Boolean);
     } catch (_e) {
       return [];
     }
   }
 
-  function saveLocalReviews(reviews) {
+  function loadDeviceReviews() {
+    const fromLocal = readStorage(localStorage);
+    const fromSession = readStorage(sessionStorage);
+    const merged = new Map();
+    fromLocal.concat(fromSession).forEach((item) => merged.set(item.id, item));
+    return Array.from(merged.values());
+  }
+
+  function persistDeviceReviews(reviews) {
+    memoryReviews = reviews.slice();
+    const payload = JSON.stringify(reviews);
+    let ok = false;
     try {
-      localStorage.setItem(LOCAL_KEY, JSON.stringify(reviews));
+      localStorage.setItem(LOCAL_KEY, payload);
+      ok = true;
     } catch (_e) {
       /* ignore */
     }
+    try {
+      sessionStorage.setItem(SESSION_KEY, payload);
+      ok = true;
+    } catch (_e) {
+      /* ignore */
+    }
+    return ok;
+  }
+
+  function curatedReviews() {
+    return Array.isArray(typeof IPD_REVIEWS !== "undefined" ? IPD_REVIEWS : [])
+      ? (typeof IPD_REVIEWS !== "undefined" ? IPD_REVIEWS : [])
+      : [];
   }
 
   function allReviews() {
-    const local = getLocalReviews();
-    const curated = Array.isArray(IPD_REVIEWS) ? IPD_REVIEWS.slice() : [];
-    return local.concat(curated).sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    const merged = new Map();
+    publicReviews.concat(curatedReviews()).concat(memoryReviews).forEach((item) => {
+      const normalized = normalizeReview(item);
+      if (normalized) merged.set(normalized.id, normalized);
+    });
+    return Array.from(merged.values()).sort((a, b) => String(b.date).localeCompare(String(a.date)));
   }
 
   function setStatus(text, type) {
@@ -119,12 +174,12 @@
       <article class="review-card${review.local ? " review-card--local" : ""}">
         <header class="review-card-head">
           <div>
-            <p class="review-card-author">${escapeHtml(review.author || "Community member")}</p>
+            <p class="review-card-author">${escapeHtml(review.author)}</p>
             ${review.role ? `<p class="review-card-role">${escapeHtml(review.role)}</p>` : ""}
           </div>
-          <p class="review-card-stars" aria-label="${Number(review.rating) || 5} out of 5 stars">${starsHtml(review.rating)}</p>
+          <p class="review-card-stars" aria-label="${review.rating} out of 5 stars">${starsHtml(review.rating)}</p>
         </header>
-        <p class="review-card-text">${escapeHtml(review.text || "")}</p>
+        <p class="review-card-text">${escapeHtml(review.text)}</p>
         <footer class="review-card-foot">
           ${review.source ? `<span>${escapeHtml(review.source)}</span>` : ""}
           ${review.date ? `<time datetime="${escapeHtml(review.date)}">${escapeHtml(formatDate(review.date))}</time>` : ""}
@@ -139,8 +194,8 @@
   }
 
   function notifyAdmin(review) {
-    if (!FORMSPREE_REVIEW_ENDPOINT) return;
-    fetch(FORMSPREE_REVIEW_ENDPOINT, {
+    if (!FORMSPREE_ENDPOINT) return;
+    fetch(FORMSPREE_ENDPOINT, {
       method: "POST",
       headers: { Accept: "application/json", "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -148,11 +203,54 @@
         rating: review.rating,
         message: review.text,
         date: review.date,
-        _subject: `InfoparkDaily review (${review.rating}★) — ${review.author}`,
+        _subject: `InfoparkDaily website review (${review.rating}★) — ${review.author}`,
       }),
     }).catch(() => {
-      /* ignore network errors */
+      /* ignore */
     });
+  }
+
+  function submitToApi(review) {
+    if (!REVIEWS_API) return Promise.resolve(false);
+    return fetch(REVIEWS_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.ok)
+      .catch(() => false);
+  }
+
+  async function loadPublicReviews() {
+    const tasks = [];
+
+    tasks.push(
+      fetch(`${SITE_REVIEWS_URL}?v=${Date.now()}`, { cache: "no-store" })
+        .then((res) => (res.ok ? res.json() : []))
+        .then((data) => (Array.isArray(data) ? data : []))
+        .catch(() => [])
+    );
+
+    if (REVIEWS_API) {
+      tasks.push(
+        fetch(REVIEWS_API, { cache: "no-store" })
+          .then((res) => (res.ok ? res.json() : []))
+          .then((data) => (Array.isArray(data) ? data : data && Array.isArray(data.reviews) ? data.reviews : []))
+          .catch(() => [])
+      );
+    }
+
+    const batches = await Promise.all(tasks);
+    const merged = new Map();
+    batches.flat().forEach((item) => {
+      const normalized = normalizeReview(item);
+      if (normalized) {
+        normalized.local = false;
+        merged.set(normalized.id, normalized);
+      }
+    });
+    publicReviews = Array.from(merged.values());
+    renderReviews();
   }
 
   function submitSiteReview() {
@@ -165,34 +263,50 @@
       return;
     }
 
-    const review = {
+    const review = normalizeReview({
       id: `local-${Date.now()}`,
       author: name || "Community member",
-      role: "Posted on InfoparkDaily",
+      role: "Posted on InfoparkDaily Website",
       rating: selectedRating,
       date: todayIso(),
-      source: "InfoparkDaily",
+      source: "InfoparkDaily Website",
       text: message,
       local: true,
-    };
+    });
 
-    const next = [review].concat(getLocalReviews());
-    saveLocalReviews(next);
-    notifyAdmin(review);
+    if (!review) return;
+
+    const next = [review].concat(memoryReviews.length ? memoryReviews : loadDeviceReviews());
+    memoryReviews = next.slice();
     renderReviews();
+
+    const persisted = persistDeviceReviews(next);
+    notifyAdmin(review);
+    submitToApi(review);
 
     if (formEl) formEl.reset();
     selectedRating = 5;
     renderStars();
-    setStatus("Thank you! Your review is live on this page.", "success");
 
-    if (listEl && listEl.firstElementChild) {
-      listEl.firstElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (listEl.children.length === 0) {
+      setStatus("Your review could not be saved in this browser. Please try again.", "error");
+      return;
     }
+
+    setStatus(
+      persisted
+        ? "Thank you! Your review is now listed below."
+        : "Thank you! Your review is listed for this session (browser storage is blocked).",
+      "success"
+    );
+
+    listEl.firstElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
+  memoryReviews = loadDeviceReviews();
   renderStars();
   renderReviews();
+  loadPublicReviews();
 
   if (formEl) {
     formEl.addEventListener("submit", (event) => {
