@@ -3219,6 +3219,46 @@ body:not(.light) .jobs-notice-chips span {
   }
 }
 
+.google-review-card {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(66, 133, 244, 0.14), transparent 38%),
+    radial-gradient(circle at 88% 82%, rgba(52, 168, 83, 0.1), transparent 34%),
+    var(--bg-elev);
+}
+
+.google-review-stars {
+  margin-top: 0.85rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: #fbbc04;
+}
+
+.google-review-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.google-review-qr {
+  width: 140px;
+  height: 140px;
+  border-radius: 14px;
+  background: #fff;
+  padding: 0.45rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.google-review-scan {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .jobs-notice-orbit,
   .jobs-notice-float {

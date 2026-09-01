@@ -33,7 +33,7 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260831b",
+  "./css/styles.css?v=20260901d",
   "./css/onam.css?v=20260831b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
