@@ -5,7 +5,10 @@
   const avgEl = document.getElementById("review-avg");
   const formEl = document.getElementById("review-write-form");
   const starPicker = document.getElementById("review-star-picker");
+  const nameEl = document.getElementById("review-name");
   const messageEl = document.getElementById("review-message");
+  const statusEl = document.getElementById("review-form-status");
+  const googleBtn = document.getElementById("review-google-btn");
 
   if (!listEl || typeof IPD_REVIEWS === "undefined") return;
 
@@ -13,6 +16,10 @@
     typeof IPD_GOOGLE_REVIEW_URL === "string" && IPD_GOOGLE_REVIEW_URL
       ? IPD_GOOGLE_REVIEW_URL
       : "https://g.page/r/Cf_jW_WIN2EoEBM/review";
+
+  const LOCAL_KEY = "ipd-site-reviews";
+  /** Optional: set Formspree endpoint to email review submissions for moderation. */
+  const FORMSPREE_REVIEW_ENDPOINT = "";
 
   let selectedRating = 5;
 
@@ -26,7 +33,7 @@
 
   function starsHtml(rating) {
     const full = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
-    return "★★★★★".slice(0, full) + "<span class=\"review-stars-empty\">" + "★★★★★".slice(full) + "</span>";
+    return "★★★★★".slice(0, full) + '<span class="review-stars-empty">' + "★★★★★".slice(full) + "</span>";
   }
 
   function formatDate(iso) {
@@ -34,6 +41,46 @@
     const date = new Date(`${iso}T00:00:00`);
     if (Number.isNaN(date.getTime())) return iso;
     return date.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+  }
+
+  function todayIso() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function getLocalReviews() {
+    try {
+      const raw = localStorage.getItem(LOCAL_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (_e) {
+      return [];
+    }
+  }
+
+  function saveLocalReviews(reviews) {
+    try {
+      localStorage.setItem(LOCAL_KEY, JSON.stringify(reviews));
+    } catch (_e) {
+      /* ignore */
+    }
+  }
+
+  function allReviews() {
+    const local = getLocalReviews();
+    const curated = Array.isArray(IPD_REVIEWS) ? IPD_REVIEWS.slice() : [];
+    return local.concat(curated).sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  }
+
+  function setStatus(text, type) {
+    if (!statusEl) return;
+    statusEl.textContent = text || "";
+    statusEl.classList.toggle("is-success", type === "success");
+    statusEl.classList.toggle("is-error", type === "error");
   }
 
   function renderStars() {
@@ -56,26 +103,26 @@
   }
 
   function renderReviews() {
-    const reviews = IPD_REVIEWS.slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
+    const reviews = allReviews();
 
     if (countEl) {
       countEl.textContent =
         reviews.length === 0
-          ? "Be the first to review on Google"
-          : `${reviews.length} community highlight${reviews.length === 1 ? "" : "s"}`;
+          ? "Be the first to review"
+          : `${reviews.length} review${reviews.length === 1 ? "" : "s"}`;
     }
 
     if (avgEl && reviews.length) {
       const avg = reviews.reduce((sum, item) => sum + (Number(item.rating) || 0), 0) / reviews.length;
       avgEl.innerHTML = `<span class="review-avg-stars" aria-label="${avg.toFixed(1)} out of 5">${starsHtml(avg)}</span> <strong>${avg.toFixed(1)}</strong> / 5`;
     } else if (avgEl) {
-      avgEl.textContent = "No Google rating yet — your review helps!";
+      avgEl.textContent = "No rating yet — your review helps!";
     }
 
     listEl.innerHTML = reviews
       .map(
         (review) => `
-      <article class="review-card">
+      <article class="review-card${review.local ? " review-card--local" : ""}">
         <header class="review-card-head">
           <div>
             <p class="review-card-author">${escapeHtml(review.author || "Community member")}</p>
@@ -97,30 +144,76 @@
     }
   }
 
+  function openGoogleReview() {
+    window.open(REVIEW_URL, "_blank", "noopener,noreferrer");
+  }
+
+  function notifyAdmin(review) {
+    if (!FORMSPREE_REVIEW_ENDPOINT) return;
+    fetch(FORMSPREE_REVIEW_ENDPOINT, {
+      method: "POST",
+      headers: { Accept: "application/json", "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: review.author,
+        rating: review.rating,
+        message: review.text,
+        date: review.date,
+        _subject: `InfoparkDaily review (${review.rating}★) — ${review.author}`,
+      }),
+    }).catch(() => {
+      /* ignore network errors */
+    });
+  }
+
+  function submitSiteReview() {
+    const message = messageEl && messageEl.value.trim();
+    const name = nameEl && nameEl.value.trim();
+
+    if (!message || message.length < 8) {
+      setStatus("Please write at least 8 characters in your feedback.", "error");
+      messageEl && messageEl.focus();
+      return;
+    }
+
+    const review = {
+      id: `local-${Date.now()}`,
+      author: name || "Community member",
+      role: "Posted on InfoparkDaily",
+      rating: selectedRating,
+      date: todayIso(),
+      source: "InfoparkDaily",
+      text: message,
+      local: true,
+    };
+
+    const next = [review].concat(getLocalReviews());
+    saveLocalReviews(next);
+    notifyAdmin(review);
+    renderReviews();
+
+    if (formEl) formEl.reset();
+    selectedRating = 5;
+    renderStars();
+    setStatus("Thank you! Your review is live on this page.", "success");
+
+    if (listEl && listEl.firstElementChild) {
+      listEl.firstElementChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }
+
   renderStars();
   renderReviews();
 
   if (formEl) {
     formEl.addEventListener("submit", (event) => {
       event.preventDefault();
-      const message = messageEl && messageEl.value.trim();
-      if (message) {
-        try {
-          sessionStorage.setItem("ipd-review-draft", message);
-        } catch (_e) {
-          /* ignore */
-        }
-      }
-      window.open(REVIEW_URL, "_blank", "noopener,noreferrer");
+      submitSiteReview();
     });
   }
 
-  try {
-    const draft = sessionStorage.getItem("ipd-review-draft");
-    if (draft && messageEl && !messageEl.value) {
-      messageEl.value = draft;
-    }
-  } catch (_e) {
-    /* ignore */
+  if (googleBtn) {
+    googleBtn.addEventListener("click", () => {
+      openGoogleReview();
+    });
   }
 })();

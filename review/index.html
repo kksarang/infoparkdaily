@@ -39,7 +39,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260901f" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260901g" />
     <script>
       (function () {
         try {
@@ -182,35 +182,52 @@
             <p class="eyebrow">Reviews</p>
             <h2 id="review-column-title">Community feedback</h2>
             <p class="review-column-note">
-              Highlights from our community. For official public reviews, use Google — we’ll surface those here as they
-              grow.
+              Post a review here on InfoparkDaily, or leave one on Google — both help the community grow.
             </p>
           </header>
 
           <div id="review-list" class="review-list" aria-live="polite"></div>
 
           <div id="review-empty" class="review-empty" hidden>
-            <p class="review-empty-title">No Google reviews yet</p>
-            <p>Be among the first to leave a review on our Google Business Profile.</p>
+            <p class="review-empty-title">No reviews yet</p>
+            <p>Be the first to share feedback below — it appears on this page right away.</p>
           </div>
 
           <form id="review-write-form" class="review-write-panel" novalidate>
             <h3>Write a review</h3>
-            <p class="review-write-lead">Pick a rating, draft your message, then post it on Google.</p>
+            <p class="review-write-lead">Pick a rating, share your feedback, and post it on InfoparkDaily.</p>
             <div id="review-star-picker" class="review-star-picker" role="group" aria-label="Star rating"></div>
+            <label class="review-field">
+              <span>Your name</span>
+              <input
+                id="review-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                placeholder="First name or nickname (optional)"
+              />
+            </label>
             <label class="review-field">
               <span>Your feedback</span>
               <textarea
                 id="review-message"
                 name="message"
                 rows="4"
+                required
+                minlength="8"
                 placeholder="Tell us how InfoparkDaily helped you — job alerts, guides, walk-ins, or community support…"
               ></textarea>
             </label>
-            <button type="submit" class="btn btn-primary">Post review on Google</button>
+            <p id="review-form-status" class="review-form-status" role="status" aria-live="polite"></p>
+            <div class="review-form-actions">
+              <button type="submit" class="btn btn-primary">Post review on InfoparkDaily</button>
+              <button type="button" id="review-google-btn" class="btn btn-secondary">
+                Also post on Google
+              </button>
+            </div>
             <p class="review-write-note">
-              Reviews are published on Google, not stored on this site. Never pay anyone for job help — InfoparkDaily is
-              free for candidates.
+              Your review appears on this page right away. Tap “Also post on Google” separately if you want it on our
+              Google Business Profile too. Never pay anyone for job help — InfoparkDaily is free for candidates.
             </p>
           </form>
         </aside>
@@ -301,6 +318,6 @@
     <script src="/js/site.js?v=20260819a" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script src="/data/review-data.js?v=20260901e" defer></script>
-    <script src="/js/review.js?v=20260901e" defer></script>
+    <script src="/js/review.js?v=20260901g" defer></script>
   </body>
 </html>
