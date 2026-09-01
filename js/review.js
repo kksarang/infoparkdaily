@@ -8,14 +8,8 @@
   const nameEl = document.getElementById("review-name");
   const messageEl = document.getElementById("review-message");
   const statusEl = document.getElementById("review-form-status");
-  const googleBtn = document.getElementById("review-google-btn");
 
   if (!listEl || typeof IPD_REVIEWS === "undefined") return;
-
-  const REVIEW_URL =
-    typeof IPD_GOOGLE_REVIEW_URL === "string" && IPD_GOOGLE_REVIEW_URL
-      ? IPD_GOOGLE_REVIEW_URL
-      : "https://g.page/r/Cf_jW_WIN2EoEBM/review";
 
   const LOCAL_KEY = "ipd-site-reviews";
   /** Optional: set Formspree endpoint to email review submissions for moderation. */
@@ -144,10 +138,6 @@
     }
   }
 
-  function openGoogleReview() {
-    window.open(REVIEW_URL, "_blank", "noopener,noreferrer");
-  }
-
   function notifyAdmin(review) {
     if (!FORMSPREE_REVIEW_ENDPOINT) return;
     fetch(FORMSPREE_REVIEW_ENDPOINT, {
@@ -208,12 +198,6 @@
     formEl.addEventListener("submit", (event) => {
       event.preventDefault();
       submitSiteReview();
-    });
-  }
-
-  if (googleBtn) {
-    googleBtn.addEventListener("click", () => {
-      openGoogleReview();
     });
   }
 })();
