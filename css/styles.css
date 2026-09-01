@@ -188,6 +188,7 @@ li {
 .site-footer,
 .jobs-page,
 .contact-page,
+.review-page,
 .onam-page,
 .guides-page,
 .hiring-portal-page,
@@ -3257,6 +3258,361 @@ body:not(.light) .jobs-notice-chips span {
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+.jobs-review-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
+  width: 100%;
+  padding: clamp(1rem, 2.5vw, 1.35rem) clamp(1.1rem, 2.8vw, 1.55rem);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(66, 133, 244, 0.12), transparent 38%),
+    radial-gradient(circle at 92% 82%, rgba(52, 168, 83, 0.08), transparent 34%),
+    var(--bg-elev);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.jobs-review-teaser:hover {
+  border-color: rgba(255, 193, 7, 0.45);
+  transform: translateY(-1px);
+}
+
+.jobs-review-teaser-copy {
+  min-width: 0;
+  text-align: left;
+}
+
+.jobs-review-teaser-copy h2 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.jobs-review-teaser-copy p:not(.eyebrow):not(.google-review-stars) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  max-width: 38rem;
+}
+
+.jobs-review-teaser-cta {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.review-page {
+  width: min(1120px, 94vw);
+  margin: 0 auto 3rem;
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.35rem);
+}
+
+.review-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.75fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: start;
+  padding: clamp(1.2rem, 2.8vw, 1.65rem);
+  border-radius: 22px;
+  border: 1px solid var(--line);
+}
+
+.review-hero-copy h1 {
+  margin: 0.2rem 0 0.55rem;
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 3.6vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.review-hero-copy > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 42rem;
+}
+
+.review-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.review-hero-side {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 1rem 1.05rem;
+}
+
+.review-hero-avg {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.review-hero-count {
+  margin: 0 0 0.65rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.review-avg-stars {
+  color: #fbbc04;
+  letter-spacing: 0.08em;
+}
+
+.review-stars-empty {
+  color: var(--line);
+}
+
+.review-hero-map-link {
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: clamp(1rem, 2.5vw, 1.35rem);
+  align-items: start;
+}
+
+.review-details,
+.review-column {
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  padding: clamp(1.1rem, 2.5vw, 1.45rem);
+  background: var(--bg-elev);
+}
+
+.review-details-lead {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.review-details-points {
+  margin: 0 0 1.1rem;
+  padding-left: 1.1rem;
+  color: var(--text);
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.review-google-box {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.35rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.review-google-copy h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+
+.review-google-copy p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.review-google-url {
+  margin: 0.65rem 0 0;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+
+.review-column-head h2 {
+  margin: 0.15rem 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.review-column-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.review-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.review-card {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 0.85rem 0.95rem;
+}
+
+.review-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.review-card-author {
+  margin: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.review-card-role {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.review-card-stars {
+  margin: 0;
+  color: #fbbc04;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.review-card-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.review-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.review-empty {
+  margin: 0.85rem 0 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px dashed var(--line);
+  background: rgba(255, 193, 7, 0.06);
+}
+
+.review-empty-title {
+  margin: 0 0 0.25rem;
+  font-weight: 700;
+}
+
+.review-empty p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.review-write-panel {
+  margin-top: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.review-write-panel h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.review-write-lead {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.review-star-picker {
+  display: flex;
+  gap: 0.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-star-btn {
+  border: 0;
+  background: transparent;
+  color: var(--line);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1rem;
+}
+
+.review-star-btn.is-active {
+  color: #fbbc04;
+}
+
+.review-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.review-field span {
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.review-field textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  min-height: 6.5rem;
+  resize: vertical;
+}
+
+.review-write-note {
+  margin: 0.65rem 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 860px) {
+  .review-hero,
+  .review-layout,
+  .review-google-box {
+    grid-template-columns: 1fr;
+  }
+
+  .jobs-review-teaser {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jobs-review-teaser-cta {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
