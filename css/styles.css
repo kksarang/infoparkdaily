@@ -1590,7 +1590,7 @@ body.light .about-stage {
 }
 
 .jobs-companies-section {
-  margin-top: 1.15rem;
+  margin-top: 1.5rem;
 }
 
 .jobs-companies-card {
@@ -1598,19 +1598,19 @@ body.light .about-stage {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem 1.5rem;
-  padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.5rem, 3.5vw, 2.15rem);
+  gap: 1.15rem 1.75rem;
+  padding: clamp(1.5rem, 3.5vw, 2.25rem) clamp(2rem, 4.5vw, 2.75rem);
   border-radius: clamp(18px, 3vw, 24px);
 }
 
 .jobs-companies-copy {
   flex: 1 1 16rem;
   min-width: 0;
-  padding-inline: 0.15rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.85rem;
 }
 
 .jobs-companies-copy .jobs-kicker {
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.7rem;
 }
 
 .jobs-companies-copy h2 {
@@ -1622,7 +1622,7 @@ body.light .about-stage {
 }
 
 .jobs-companies-lead {
-  margin: 0.65rem 0 0;
+  margin: 0.75rem 0 0;
   max-width: 36rem;
   color: var(--muted);
   font-size: 0.92rem;
@@ -1663,6 +1663,11 @@ body.light .about-stage {
   .jobs-companies-card {
     flex-direction: column;
     align-items: stretch;
+    padding: 1.35rem 1.25rem 1.4rem;
+  }
+
+  .jobs-companies-copy {
+    padding: 0.25rem 0.5rem 0.35rem 0.65rem;
   }
 
   .jobs-companies-actions {
