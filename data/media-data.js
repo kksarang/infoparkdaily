@@ -134,6 +134,36 @@ var SOCIAL_CHANNELS = [
 
 var SOCIAL_WORKS = [
   {
+    id: "cpe-opscloud-corporate-project-experience",
+    featured: true,
+    page: "/cpe/",
+    title: "CPE — Corporate Project Experience",
+    kicker: "Career training · Opscloud",
+    account: "Opscloud Technologies",
+    date: "2026-09-02",
+    excerpt:
+      "Explore a tech domain practically before a long course — 1-month & 4-month programs for freshers. Python+AI, Software Testing & more.",
+    body: [
+      "Freshers-ന് tech field-ൽ opportunities ഒരുപാടുണ്ട് — പക്ഷേ ആ opportunities-ലേക്ക് എങ്ങനെ എത്തണം എന്നതാണ് പലർക്കും അറിയാത്തത്.",
+      "CPE by Opscloud Technologies is a career-focused practical training program — explore the right domain for one month before committing to a long-term course.",
+      "First explore. Then learn. Then decide. Then build your career."
+    ],
+    highlights: [
+      "1-month explore program",
+      "4-month advanced program",
+      "Python+AI · Software Testing · more",
+      "opscloudtechnologies.com"
+    ],
+    image: "/assets/media/cpe-opscloud.svg",
+    images: ["/assets/media/cpe-opscloud.svg"],
+    imageAlt: "CPE Corporate Project Experience by Opscloud Technologies",
+    links: [
+      { label: "Open CPE page", url: "/cpe/", external: false },
+      { label: "Opscloud Technologies", url: "https://opscloudtechnologies.com" },
+      { label: "Browse IT jobs", url: "/jobs/", external: false }
+    ]
+  },
+  {
     id: "aavesham-2k26",
     featured: true,
     page: "/onam/",

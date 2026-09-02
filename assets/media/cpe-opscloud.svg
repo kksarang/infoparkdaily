@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="CPE Corporate Project Experience by Opscloud Technologies">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="120" r="180" fill="#38bdf8" opacity="0.12"/>
+  <circle cx="150" cy="520" r="140" fill="#22d3ee" opacity="0.1"/>
+  <text x="72" y="88" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">OPSCLOUD TECHNOLOGIES</text>
+  <text x="72" y="210" fill="#ffffff" font-family="Space Grotesk, Arial, sans-serif" font-size="92" font-weight="700">CPE</text>
+  <text x="72" y="278" fill="url(#accent)" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">Corporate Project Experience</text>
+  <text x="72" y="360" fill="#e2e8f0" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500">First explore. Then learn. Then decide.</text>
+  <rect x="72" y="410" width="520" height="4" fill="#38bdf8" opacity="0.55" rx="2"/>
+  <text x="72" y="470" fill="#cbd5e1" font-family="Inter, Arial, sans-serif" font-size="24">1-month explore · 4-month advanced · Freshers welcome</text>
+  <text x="72" y="560" fill="#64748b" font-family="Inter, Arial, sans-serif" font-size="20">opscloudtechnologies.com · InfoparkDaily partner</text>
+</svg>
