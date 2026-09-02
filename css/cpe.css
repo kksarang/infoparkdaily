@@ -242,6 +242,44 @@ body.light .cpe-panel {
   line-height: 1.35;
 }
 
+.cpe-facts strong a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cpe-facts strong a:hover {
+  color: #38bdf8;
+}
+
+.cpe-contact-card {
+  margin-top: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: var(--surface);
+}
+
+.cpe-contact-card .cpe-lead {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.cpe-facts--contact {
+  margin-top: 0;
+}
+
+.cpe-btn-wa {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+  color: #fff !important;
+}
+
+.cpe-btn-wa:hover {
+  background: #1fb855 !important;
+  border-color: #1fb855 !important;
+  color: #fff !important;
+}
+
 .cpe-actions {
   display: flex;
   flex-wrap: wrap;

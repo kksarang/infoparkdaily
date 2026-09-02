@@ -151,16 +151,17 @@ var SOCIAL_WORKS = [
     highlights: [
       "1-month explore program",
       "4-month advanced program",
-      "Python+AI · Software Testing · more",
+      "WhatsApp +91 90371 69742",
       "opscloudtechnologies.com"
     ],
     image: "/assets/media/cpe-opscloud.png?v=20260902b",
     images: ["/assets/media/cpe-opscloud.png?v=20260902b"],
     imageAlt: "CPE Corporate Project Experience by Opscloud Technologies",
     links: [
+      { label: "WhatsApp Opscloud", url: "https://wa.me/919037169742?text=Hi%2C%20I%20would%20like%20CPE%20program%20details." },
+      { label: "Call +91 90371 69742", url: "tel:+919037169742" },
       { label: "Open CPE page", url: "/cpe/", external: false },
-      { label: "Opscloud Technologies", url: "https://opscloudtechnologies.com" },
-      { label: "Browse IT jobs", url: "/jobs/", external: false }
+      { label: "Opscloud Technologies", url: "https://opscloudtechnologies.com" }
     ]
   },
   {
