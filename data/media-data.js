@@ -154,8 +154,8 @@ var SOCIAL_WORKS = [
       "Python+AI · Software Testing · more",
       "opscloudtechnologies.com"
     ],
-    image: "/assets/media/cpe-opscloud.svg",
-    images: ["/assets/media/cpe-opscloud.svg"],
+    image: "/assets/media/cpe-opscloud.png?v=20260902b",
+    images: ["/assets/media/cpe-opscloud.png?v=20260902b"],
     imageAlt: "CPE Corporate Project Experience by Opscloud Technologies",
     links: [
       { label: "Open CPE page", url: "/cpe/", external: false },
