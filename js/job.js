@@ -377,6 +377,7 @@
   }
 
   function premiumFactTiles(job) {
+    const expiredDeadline = deadlineStatus(job) === "expired";
     const deadline =
       job.applyDeadline === "Rolling"
         ? "Open / Rolling"
@@ -391,12 +392,13 @@
         "exp"
       ],
       ["Work mode", workModeDisplay(job), "mode"],
-      ["Deadline", deadline, "deadline"]
+      [expiredDeadline ? "Deadline passed" : "Deadline", deadline, expiredDeadline ? "passed" : "deadline"]
     ];
     return `<div class="jd-facts">${items
       .map(
         ([label, value, key]) => `
       <div class="jd-fact jd-fact--${key}">
+        <span class="jd-fact-icon" aria-hidden="true"></span>
         <span class="jd-fact-label">${escapeHtml(label)}</span>
         <strong>${escapeHtml(value)}</strong>
       </div>`
@@ -1915,28 +1917,30 @@
       <section class="jd-hero${expired ? " jd-hero--expired" : ""}">
         <div class="jd-hero-top">
           <div class="jd-hero-identity">
-            <div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text" data-initials="${escapeAttr(mark)}" aria-hidden="true">
+            <div class="job-logo-wrap job-logo-wrap--lg job-logo-wrap--text jd-company-mark" data-initials="${escapeAttr(mark)}" aria-hidden="true">
               <span class="job-logo-fallback">${escapeHtml(mark)}</span>
             </div>
             <div class="jd-hero-copy">
-              <div class="jd-hero-badges">
-                <span class="ej-status ej-status--${st.cls}">${st.label}</span>
-                <span class="jd-type-pill">${escapeHtml(typeBadgeLabel(job))}</span>
-                ${!expired && isMassHiring(job) ? massHiringBadgeHtml() : ""}
-                ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
-                ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
+              <div class="jd-title-row">
+                <h1>${escapeHtml(roleTitle)}</h1>
+                <div class="jd-hero-badges">
+                  <span class="jd-type-pill">${escapeHtml(typeBadgeLabel(job))}</span>
+                  <span class="ej-status ej-status--${st.cls}">${st.label}</span>
+                  ${!expired && isMassHiring(job) ? massHiringBadgeHtml() : ""}
+                  ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
+                  ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
+                </div>
               </div>
-              <h1>${escapeHtml(roleTitle)}</h1>
               <ul class="jd-hero-meta">
-                <li><a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                <li class="jd-meta jd-meta--company"><a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
                   job.companyLegalName || job.company
                 )}</a></li>
-                ${job.location ? `<li>${escapeHtml(job.location)}</li>` : ""}
-                ${postedLabel(job) ? `<li>${escapeHtml(postedLabel(job))}</li>` : ""}
+                ${job.location ? `<li class="jd-meta jd-meta--loc">${escapeHtml(job.location)}</li>` : ""}
+                ${postedLabel(job) ? `<li class="jd-meta jd-meta--date">${escapeHtml(postedLabel(job))}</li>` : ""}
               </ul>
               ${
                 isWalkInJob(job)
-                  ? `<p class="job-hero-walkin-callout">⚡ Walk-in drive · ${escapeHtml(
+                  ? `<p class="job-hero-walkin-callout">Walk-in drive · ${escapeHtml(
                       walkInDateText(job) || "Check date below"
                     )}${job.walkinTime ? ` · ${escapeHtml(job.walkinTime)}` : ""}</p>`
                   : ""
@@ -1946,10 +1950,10 @@
           <div class="jd-hero-actions">
             ${
               !expired && applyCtaHref
-                ? `<a class="btn btn-primary" href="${escapeAttr(applyCtaHref)}" ${
+                ? `<a class="btn btn-primary jd-apply-btn" href="${escapeAttr(applyCtaHref)}" ${
                     applyUrl && !onSiteApply ? 'target="_blank" rel="noopener noreferrer"' : ""
                   }>${escapeHtml(applyCtaLabel)}</a>`
-                : `<a class="btn btn-secondary" href="/jobs/">${expired ? "See live jobs" : "Browse jobs"}</a>`
+                : `<a class="btn btn-secondary jd-apply-btn" href="/jobs/">${expired ? "See live jobs" : "Browse jobs"}</a>`
             }
           </div>
         </div>
