@@ -826,6 +826,20 @@
       .replace(/"/g, "&quot;");
   }
 
+  const localBanner = document.getElementById("rq-local-banner");
+  const localCount = document.getElementById("rq-local-count");
+  if (localBanner) {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
+      if (Array.isArray(saved) && saved.length) {
+        if (localCount) localCount.textContent = String(saved.length);
+        localBanner.hidden = false;
+      }
+    } catch (_e) {
+      /* private mode */
+    }
+  }
+
   goStep(0);
   toggleWalkin();
   syncSalaryMode();

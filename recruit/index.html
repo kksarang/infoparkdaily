@@ -59,7 +59,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20260904k" />
-    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260905a" />
+    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260905c" />
     
   </head>
   <body class="contact-body dark recruit-body">
@@ -108,39 +108,111 @@
 
     <main id="main-content" class="hiring-portal-page recruit-page">
       <section class="rq-hero" aria-labelledby="hiring-hero-title">
-        <p class="rq-kicker">InfoparkDaily Recruit</p>
-        <h1 id="hiring-hero-title">Hire Kerala’s tech talent</h1>
-        <p class="recruit-hero-lead">
-          Publish an opening to the InfoparkDaily community across Infopark, Technopark, and Cyberpark. We review every request before it goes on Jobs.
-        </p>
-        <ul class="rq-proof" aria-label="Reach">
-          <li><strong>55K+</strong> community</li>
-          <li><strong>100M+</strong> social reach</li>
-          <li><strong>Human-reviewed</strong> listings</li>
-        </ul>
-        <div class="rq-hero-actions">
-          <a class="btn btn-primary" href="#post-job">Start a hiring request</a>
-          <a class="btn btn-ghost" href="/recruit/track/">Track a request</a>
+        <div class="rq-hero-copy">
+          <p class="rq-kicker">InfoparkDaily Recruit</p>
+          <h1 id="hiring-hero-title">Hire Kerala’s tech talent</h1>
+          <p class="recruit-hero-lead">
+            Publish an opening to the InfoparkDaily community across Infopark, Technopark, and Cyberpark. We review every request before it goes on Jobs.
+          </p>
+          <ul class="rq-proof" aria-label="Reach">
+            <li><strong>55K+</strong> community</li>
+            <li><strong>100M+</strong> social reach</li>
+            <li><strong>Human-reviewed</strong> listings</li>
+          </ul>
+          <p class="rq-hero-fine">No candidate fees · Never pay to list · Verified before publishing</p>
         </div>
-        <p class="rq-hero-fine">No candidate fees · Never pay to list · Verified before publishing</p>
+        <div class="rq-hero-aside">
+          <div class="rq-hero-actions">
+            <a class="btn btn-primary" href="#post-job">Start a hiring request</a>
+            <a class="btn btn-ghost" href="/recruit/track/">Track a request</a>
+          </div>
+          <article class="rq-sample" aria-label="Example of a listing after review">
+            <p class="rq-sample-kicker">After review, candidates see</p>
+            <strong>Your role title</strong>
+            <p class="rq-sample-meta">Your company · Infopark Kochi</p>
+            <ul>
+              <li>Full-time</li>
+              <li>On-site</li>
+              <li>Apply via official contact</li>
+            </ul>
+            <p class="rq-sample-note">Nothing auto-publishes. This is a preview of the Jobs card style.</p>
+          </article>
+        </div>
+      </section>
+
+      <aside id="rq-local-banner" class="rq-local-banner" hidden>
+        <p>This browser has <strong id="rq-local-count">0</strong> saved hiring request(s).</p>
+        <a class="rq-local-go" href="/recruit/track/">Track them</a>
+      </aside>
+
+      <section class="rq-process" aria-labelledby="rq-process-title">
+        <h2 id="rq-process-title">How a hiring request works</h2>
+        <ol>
+          <li>
+            <b>1</b>
+            <strong>Submit</strong>
+            <span>Five short steps about HR, company, role, and how to apply.</span>
+          </li>
+          <li>
+            <b>2</b>
+            <strong>Verify</strong>
+            <span>We check the company and the HR phone or work email you entered.</span>
+          </li>
+          <li>
+            <b>3</b>
+            <strong>Approve</strong>
+            <span>You keep a request ID. We contact you if anything is missing.</span>
+          </li>
+          <li>
+            <b>4</b>
+            <strong>Publish</strong>
+            <span>Only then does the opening appear on InfoparkDaily Jobs.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="rq-parks" aria-labelledby="rq-parks-title">
+        <h2 id="rq-parks-title">Where listings can reach</h2>
+        <div class="rq-park-grid">
+          <a class="rq-park" href="/infopark-jobs/">
+            <strong>Infopark Kochi</strong>
+            <span>Kakkanad campus jobs</span>
+          </a>
+          <a class="rq-park" href="/technopark-jobs/">
+            <strong>Technopark TVM</strong>
+            <span>Trivandrum campus jobs</span>
+          </a>
+          <a class="rq-park" href="/cyberpark-jobs/">
+            <strong>Cyberpark Kozhikode</strong>
+            <span>Calicut campus jobs</span>
+          </a>
+          <a class="rq-park" href="/jobs/">
+            <strong>All Kerala IT</strong>
+            <span>Browse the live Jobs board</span>
+          </a>
+        </div>
       </section>
 
       <section class="rq-paths" id="hire-paths" aria-labelledby="rq-paths-title">
         <h2 id="rq-paths-title">What do you need?</h2>
         <div class="rq-path-grid" role="list">
           <button type="button" class="rq-path is-active" data-intent="job" role="listitem">
+            <span class="rq-path-mark" aria-hidden="true">01</span>
             <strong>Post a job</strong>
             <span>One opening, published on Jobs after review.</span>
           </button>
           <button type="button" class="rq-path" data-intent="campaign" role="listitem">
+            <span class="rq-path-mark" aria-hidden="true">02</span>
             <strong>Promote hiring</strong>
             <span>Listing plus Instagram, WhatsApp, and community reach.</span>
           </button>
           <button type="button" class="rq-path" data-intent="mass" role="listitem">
+            <span class="rq-path-mark" aria-hidden="true">03</span>
             <strong>Mass hiring</strong>
             <span>20, 50, 100+ roles in one drive.</span>
           </button>
           <button type="button" class="rq-path" data-intent="walkin" role="listitem">
+            <span class="rq-path-mark" aria-hidden="true">04</span>
             <strong>Walk-in drive</strong>
             <span>Campus interview date, time, and venue.</span>
           </button>
@@ -157,18 +229,22 @@
           <button type="button" class="rq-pkg is-active" data-package="listing" role="option" aria-selected="true">
             <strong>Job listing</strong>
             <span>Website after review</span>
+            <em>Best for a single opening</em>
           </button>
           <button type="button" class="rq-pkg" data-package="priority" role="option" aria-selected="false">
             <strong>Priority</strong>
             <span>Website + WhatsApp</span>
+            <em>Faster community reach</em>
           </button>
           <button type="button" class="rq-pkg" data-package="social" role="option" aria-selected="false">
             <strong>Social hiring</strong>
             <span>Instagram + WhatsApp</span>
+            <em>Poster and caption support</em>
           </button>
           <button type="button" class="rq-pkg" data-package="mass-campaign" role="option" aria-selected="false">
             <strong>Mass campaign</strong>
             <span>Reels + community</span>
+            <em>Walk-ins and large drives</em>
           </button>
         </div>
         <select id="hp-campaign-pick" class="visually-hidden" tabindex="-1" aria-hidden="true">
@@ -183,12 +259,20 @@
         </p>
       </section>
 
-      <ul class="rq-trust">
-        <li>We verify HR contact before publishing</li>
-        <li>Nothing auto-publishes to Jobs</li>
-        <li>Never pay InfoparkDaily to list</li>
-        <li><a href="/recruit/track/">Track by request ID</a></li>
-      </ul>
+      <div class="rq-notes">
+        <ul class="rq-trust">
+          <li>We verify HR contact before publishing</li>
+          <li>Nothing auto-publishes to Jobs</li>
+          <li>Never pay InfoparkDaily to list</li>
+          <li><a href="/recruit/track/">Track by request ID</a></li>
+        </ul>
+        <ul class="rq-ready" aria-label="Have these ready">
+          <li>Official HR email and phone</li>
+          <li>Company website</li>
+          <li>Role title and job details</li>
+          <li>Where candidates should apply</li>
+        </ul>
+      </div>
 
       <section class="recruit-workspace" id="post-job" aria-label="Recruit request">
         <form id="hiring-form" class="recruit-form" novalidate>
@@ -593,6 +677,53 @@
         </form>
       </section>
 
+      <section class="rq-help" aria-label="Talk to the hiring desk">
+        <a class="rq-help-card" href="tel:+919995254290">
+          <span>Call</span>
+          <strong>+91 99952 54290</strong>
+          <em>Urgent openings and walk-ins</em>
+        </a>
+        <a
+          class="rq-help-card"
+          href="https://wa.me/919995254290?text=Hi%20InfoparkDaily%2C%20I%20want%20to%20talk%20about%20a%20hiring%20request."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>WhatsApp</span>
+          <strong>Message the hiring desk</strong>
+          <em>Campaigns, mass hiring, follow-up</em>
+        </a>
+        <a class="rq-help-card" href="mailto:infoparkstorieskochi@gmail.com">
+          <span>Email</span>
+          <strong>infoparkstorieskochi@gmail.com</strong>
+          <em>We read every request</em>
+        </a>
+      </section>
+
+      <section class="rq-faq" aria-labelledby="rq-faq-title">
+        <h2 id="rq-faq-title">Questions recruiters ask</h2>
+        <details open>
+          <summary>Does submitting publish the job immediately?</summary>
+          <p>No. Every request is reviewed. It goes on Jobs only after we verify the company and HR contact.</p>
+        </details>
+        <details>
+          <summary>Do I pay InfoparkDaily to list?</summary>
+          <p>Never pay to list through InfoparkDaily, and never ask candidates to pay. Ignore anyone requesting a listing fee in our name.</p>
+        </details>
+        <details>
+          <summary>How long does review take?</summary>
+          <p>We review each request ourselves. Timing depends on volume. If something is missing, we contact the HR phone or work email you entered.</p>
+        </details>
+        <details>
+          <summary>How do I track a request?</summary>
+          <p>After submit you get a request ID. Open Track a request and look it up in this browser, or email us with the company name.</p>
+        </details>
+        <details>
+          <summary>Can I post walk-ins or many roles at once?</summary>
+          <p>Yes. Choose Walk-in drive or Mass hiring above, then add extra roles in the form. We confirm details before any campaign goes out.</p>
+        </details>
+      </section>
+
       <details class="recruit-rules">
         <summary>
           <span class="recruit-rules-title">Recruit rules &amp; awareness</span>
@@ -686,6 +817,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260904f" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/js/hiring-portal.js?v=20260904b" defer></script>
+    <script src="/js/hiring-portal.js?v=20260905a" defer></script>
   </body>
 </html>
