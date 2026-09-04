@@ -59,7 +59,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
-    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260903a" />
+    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260904r" />
     
   </head>
   <body class="contact-body dark recruit-body">
@@ -108,82 +108,92 @@
 
     <main id="main-content" class="hiring-portal-page recruit-page">
       <section class="recruit-hero" aria-labelledby="hiring-hero-title">
-        <div class="recruit-hero-glow" aria-hidden="true"></div>
-        <div class="recruit-hero-inner">
-          <p class="recruit-kicker">For recruiters</p>
-          <h1 id="hiring-hero-title">Post a job</h1>
+        <div class="recruit-hero-copy">
+          <p class="recruit-kicker">For companies</p>
+          <h1 id="hiring-hero-title">Post a hiring request</h1>
           <p class="recruit-hero-lead">
-            Find the right people in Infopark, Technopark, and Cyberpark. Submit one opening, we verify, then it can go live on Jobs.
+            One role, verified HR contact, then it can go live on Jobs for Infopark, Technopark, and Cyberpark.
           </p>
-          <div class="recruit-hero-cta">
-            <a class="btn btn-primary" href="#hiring-form">Post a job</a>
-            <a class="btn btn-ghost" href="/jobs/">See live Jobs</a>
-          </div>
-          <ol class="recruit-flow" aria-label="How Recruit works">
-            <li class="recruit-flow-step">
-              <span class="recruit-flow-marker"><span class="recruit-flow-num">01</span></span>
-              <span class="recruit-flow-label">Submit</span>
-            </li>
-            <li class="recruit-flow-step" aria-hidden="true">
-              <span class="recruit-flow-line"></span>
-            </li>
-            <li class="recruit-flow-step">
-              <span class="recruit-flow-marker"><span class="recruit-flow-num">02</span></span>
-              <span class="recruit-flow-label">We verify</span>
-            </li>
-            <li class="recruit-flow-step" aria-hidden="true">
-              <span class="recruit-flow-line"></span>
-            </li>
-            <li class="recruit-flow-step">
-              <span class="recruit-flow-marker"><span class="recruit-flow-num">03</span></span>
-              <span class="recruit-flow-label">Live on Jobs</span>
-            </li>
-          </ol>
         </div>
+        <ol class="recruit-flow" aria-label="How Recruit works">
+          <li class="recruit-flow-step">
+            <span class="recruit-flow-marker"><span class="recruit-flow-num">1</span></span>
+            <span class="recruit-flow-copy">
+              <span class="recruit-flow-label">Submit</span>
+              <span class="recruit-flow-hint">This form</span>
+            </span>
+          </li>
+          <li class="recruit-flow-step" aria-hidden="true">
+            <span class="recruit-flow-line"></span>
+          </li>
+          <li class="recruit-flow-step">
+            <span class="recruit-flow-marker"><span class="recruit-flow-num">2</span></span>
+            <span class="recruit-flow-copy">
+              <span class="recruit-flow-label">We verify</span>
+              <span class="recruit-flow-hint">Call / WhatsApp</span>
+            </span>
+          </li>
+          <li class="recruit-flow-step" aria-hidden="true">
+            <span class="recruit-flow-line"></span>
+          </li>
+          <li class="recruit-flow-step">
+            <span class="recruit-flow-marker"><span class="recruit-flow-num">3</span></span>
+            <span class="recruit-flow-copy">
+              <span class="recruit-flow-label">Live on Jobs</span>
+              <span class="recruit-flow-hint">After review</span>
+            </span>
+          </li>
+        </ol>
       </section>
 
       <section class="recruit-workspace" aria-label="Recruit request">
-        <header class="recruit-form-head glass">
-          <div class="recruit-form-head-top">
-            <p class="recruit-form-kicker">New job posting</p>
-            <p class="recruit-form-badge">Verified before Jobs</p>
-          </div>
-          <h2>Tell us about the opening</h2>
-          <p class="recruit-form-lead">
-            One role per submit works best. For several roles, send again or list them in job details.
-          </p>
-        </header>
-
         <form id="hiring-form" class="recruit-form glass" novalidate>
+          <header class="recruit-form-head">
+            <div class="recruit-form-head-top">
+              <p class="recruit-form-kicker">New job posting</p>
+              <p class="recruit-form-badge">Goes live after review</p>
+            </div>
+            <h2>Opening details</h2>
+            <p class="recruit-form-lead">
+              One role per submission works best. For several roles, send again or list them in job details.
+            </p>
+            <nav class="recruit-form-steps" aria-label="Form sections">
+              <a href="#rq-step-contact">1 · Contact</a>
+              <a href="#rq-step-company">2 · Company</a>
+              <a href="#rq-step-role">3 · Role</a>
+            </nav>
+          </header>
+
           <div class="recruit-form-body">
-            <fieldset class="recruit-fieldset">
-              <legend>
-                <span class="recruit-step-index" aria-hidden="true">1</span>
-                <span class="recruit-step-copy">
-                  <span class="recruit-step-title">Your contact · verification</span>
-                  <span class="recruit-step-desc">We use these to verify you are HR / company staff</span>
-                </span>
-              </legend>
+            <fieldset class="recruit-fieldset" id="rq-step-contact">
+              <legend class="visually-hidden">1. Your contact — used to verify you are HR or company staff</legend>
+              <div class="recruit-step-head" aria-hidden="true">
+                <span class="recruit-step-index">1</span>
+                <div class="recruit-step-copy">
+                  <p class="recruit-step-title">Your contact</p>
+                  <p class="recruit-step-desc">Used to verify you are HR or company staff</p>
+                </div>
+              </div>
               <div class="recruit-fieldset-grid">
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Your name</span>
+                    <span class="rq-label">Your name <span class="rq-star" aria-hidden="true">*</span></span>
                     <input id="hp-name" name="name" type="text" autocomplete="name" required placeholder="HR / contact person" />
                   </label>
                   <label class="hiring-field">
-                    <span>Your designation</span>
+                    <span class="rq-label">Your designation <span class="rq-star" aria-hidden="true">*</span></span>
                     <input
                       id="hp-designation"
                       name="designation"
                       type="text"
                       required
-                      placeholder="HR Manager / Recruiter / Founder…"
+                      placeholder="HR Manager / Recruiter / Founder"
                     />
                   </label>
                 </div>
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Official work email</span>
+                    <span class="rq-label">Official work email <span class="rq-star" aria-hidden="true">*</span></span>
                     <input
                       id="hp-channel"
                       name="channel"
@@ -194,7 +204,7 @@
                     />
                   </label>
                   <label class="hiring-field">
-                    <span>HR / company phone <em>for verification</em></span>
+                    <span class="rq-label">HR / company phone <span class="rq-star" aria-hidden="true">*</span></span>
                     <input
                       id="hp-phone"
                       name="phone"
@@ -203,92 +213,96 @@
                       required
                       inputmode="tel"
                       placeholder="+91 9XXXXXXXXX"
+                      aria-describedby="hp-phone-help"
                     />
                   </label>
                 </div>
-                <p class="recruit-field-hint">
-                  Phone is required so InfoparkDaily can call/WhatsApp to verify this opening before it goes on Jobs.
-                  Prefer a company landline or official HR mobile.
+                <p id="hp-phone-help" class="hiring-help hiring-help--row">
+                  We’ll call or WhatsApp this number to verify the opening before it goes on Jobs. Prefer a company landline or official HR mobile.
                 </p>
               </div>
             </fieldset>
 
-            <fieldset class="recruit-fieldset">
-              <legend>
-                <span class="recruit-step-index" aria-hidden="true">2</span>
-                <span class="recruit-step-copy">
-                  <span class="recruit-step-title">Company</span>
-                  <span class="recruit-step-desc">Where the role is based — needed for verification</span>
-                </span>
-              </legend>
+            <fieldset class="recruit-fieldset" id="rq-step-company">
+              <legend class="visually-hidden">2. Company — where the role is based, needed for verification</legend>
+              <div class="recruit-step-head" aria-hidden="true">
+                <span class="recruit-step-index">2</span>
+                <div class="recruit-step-copy">
+                  <p class="recruit-step-title">Company</p>
+                  <p class="recruit-step-desc">Where the role is based — needed for verification</p>
+                </div>
+              </div>
               <div class="recruit-fieldset-grid">
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Company name</span>
-                    <input id="hp-company" name="company" type="text" required placeholder="Company hiring" />
+                    <span class="rq-label">Company name <span class="rq-star" aria-hidden="true">*</span></span>
+                    <input id="hp-company" name="company" type="text" autocomplete="organization" required placeholder="Company hiring" />
                   </label>
                   <label class="hiring-field">
-                    <span>Office / park location</span>
-                    <input id="hp-location" name="location" type="text" required placeholder="Infopark Kochi / Technopark TVM…" />
+                    <span class="rq-label">IT park <span class="rq-star" aria-hidden="true">*</span></span>
+                    <select id="hp-park" name="park" required>
+                      <option value="">Select park / campus</option>
+                      <option value="Infopark Kochi">Infopark Kochi</option>
+                      <option value="Technopark TVM">Technopark Trivandrum</option>
+                      <option value="Cyberpark Kozhikode">Cyberpark Kozhikode</option>
+                      <option value="Other Kerala">Other Kerala location</option>
+                      <option value="Remote / Hybrid">Remote / Hybrid</option>
+                    </select>
                   </label>
                 </div>
+                <label class="hiring-field">
+                  <span class="rq-label">Building / campus <span class="rq-star" aria-hidden="true">*</span></span>
+                  <input id="hp-location" name="location" type="text" required placeholder="Tower, phase, or full campus address" />
+                </label>
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Company website</span>
+                    <span class="rq-label">Company website <span class="rq-star" aria-hidden="true">*</span></span>
                     <input
                       id="hp-website"
                       name="website"
                       type="url"
+                      inputmode="url"
                       required
                       placeholder="https://www.company.com"
                     />
                   </label>
                   <label class="hiring-field">
-                    <span>Company LinkedIn <em>optional</em></span>
+                    <span class="rq-label">Company LinkedIn <span class="rq-opt">Optional</span></span>
                     <input
                       id="hp-linkedin"
                       name="linkedin"
                       type="url"
+                      inputmode="url"
                       placeholder="https://www.linkedin.com/company/…"
                     />
                   </label>
                 </div>
-                <label class="hiring-field">
-                  <span>IT park</span>
-                  <select id="hp-park" name="park" required>
-                    <option value="">Select park / campus</option>
-                    <option value="Infopark Kochi">Infopark Kochi</option>
-                    <option value="Technopark TVM">Technopark Trivandrum</option>
-                    <option value="Cyberpark Kozhikode">Cyberpark Kozhikode</option>
-                    <option value="Other Kerala">Other Kerala location</option>
-                    <option value="Remote / Hybrid">Remote / Hybrid</option>
-                  </select>
-                </label>
               </div>
             </fieldset>
 
-            <fieldset class="recruit-fieldset">
-              <legend>
-                <span class="recruit-step-index" aria-hidden="true">3</span>
-                <span class="recruit-step-copy">
-                  <span class="recruit-step-title">Role details</span>
-                  <span class="recruit-step-desc">What candidates need to know</span>
-                </span>
-              </legend>
+            <fieldset class="recruit-fieldset" id="rq-step-role">
+              <legend class="visually-hidden">3. Role details — what candidates need to know</legend>
+              <div class="recruit-step-head" aria-hidden="true">
+                <span class="recruit-step-index">3</span>
+                <div class="recruit-step-copy">
+                  <p class="recruit-step-title">Role details</p>
+                  <p class="recruit-step-desc">What candidates need to know</p>
+                </div>
+              </div>
               <div class="recruit-fieldset-grid">
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Role / position</span>
+                    <span class="rq-label">Role / position <span class="rq-star" aria-hidden="true">*</span></span>
                     <input id="hp-role" name="role" type="text" required placeholder="e.g. Software Engineer" />
                   </label>
                   <label class="hiring-field">
-                    <span>Vacancies</span>
-                    <input id="hp-vacancies" name="vacancies" type="text" placeholder="e.g. 5 or 100+" />
+                    <span class="rq-label">Vacancies <span class="rq-opt">Optional</span></span>
+                    <input id="hp-vacancies" name="vacancies" type="text" inputmode="numeric" placeholder="e.g. 5 or 100+" />
                   </label>
                 </div>
                 <div class="hiring-fields-row">
                   <label class="hiring-field">
-                    <span>Experience</span>
+                    <span class="rq-label">Experience</span>
                     <select id="hp-experience" name="experience">
                       <option value="Fresher">Fresher</option>
                       <option value="Experienced">Experienced</option>
@@ -297,7 +311,7 @@
                     </select>
                   </label>
                   <label class="hiring-field">
-                    <span>Job type</span>
+                    <span class="rq-label">Job type</span>
                     <select id="hp-jobtype" name="jobtype">
                       <option value="Full-time" selected>Full-time</option>
                       <option value="Part-time">Part-time</option>
@@ -308,41 +322,49 @@
                   </label>
                 </div>
                 <div class="hiring-fields-row">
+                  <div class="hiring-field-stack">
+                    <label class="hiring-field">
+                      <span class="rq-label">Apply deadline <span class="rq-opt">Optional</span></span>
+                      <input id="hp-deadline" name="deadline" type="date" />
+                    </label>
+                    <label class="hiring-deadline-rolling">
+                      <input id="hp-deadline-rolling" name="deadline_rolling" type="checkbox" value="1" />
+                      <span>Rolling — no fixed deadline</span>
+                    </label>
+                  </div>
                   <label class="hiring-field">
-                    <span>Apply deadline</span>
-                    <input id="hp-deadline" name="deadline" type="date" />
-                  </label>
-                  <label class="hiring-field">
-                    <span>Salary / CTC <em>optional</em></span>
+                    <span class="rq-label">Salary / CTC <span class="rq-opt">Optional</span></span>
                     <input id="hp-salary" name="salary" type="text" placeholder="e.g. 3–5 LPA or Not disclosed" />
                   </label>
                 </div>
-                <label class="hiring-deadline-rolling">
-                  <input id="hp-deadline-rolling" name="deadline_rolling" type="checkbox" value="1" />
-                  <span>Rolling — no fixed deadline</span>
-                </label>
-                <div class="hiring-fields-row">
-                  <label class="hiring-field">
-                    <span>Apply email or phone</span>
-                    <input
-                      id="hp-apply"
-                      name="apply"
-                      type="text"
-                      required
-                      placeholder="careers@company.com or +91…"
-                    />
-                  </label>
-                  <label class="hiring-field">
-                    <span>Careers / apply link <em>optional</em></span>
-                    <input id="hp-apply-link" name="apply_link" type="url" placeholder="https://…" />
-                  </label>
+                <div class="recruit-apply-box">
+                  <div class="recruit-apply-box-head">
+                    <p class="recruit-apply-box-title">Where candidates apply</p>
+                    <p class="hiring-help">Published on Jobs. This is not the HR verification contact above.</p>
+                  </div>
+                  <div class="hiring-fields-row">
+                    <label class="hiring-field">
+                      <span class="rq-label">Apply email or phone <span class="rq-star" aria-hidden="true">*</span></span>
+                      <input
+                        id="hp-apply"
+                        name="apply"
+                        type="text"
+                        required
+                        placeholder="careers@company.com or +91…"
+                      />
+                    </label>
+                    <label class="hiring-field">
+                      <span class="rq-label">Careers / apply link <span class="rq-opt">Optional</span></span>
+                      <input id="hp-apply-link" name="apply_link" type="url" inputmode="url" placeholder="https://…" />
+                    </label>
+                  </div>
                 </div>
                 <label class="hiring-field">
-                  <span>Walk-in details <em>optional</em></span>
+                  <span class="rq-label">Walk-in details <span class="rq-opt">Optional</span></span>
                   <input id="hp-walkin" name="walkin" type="text" placeholder="Date, time, venue if walk-in" />
                 </label>
                 <label class="hiring-field hiring-field--details">
-                  <span>Full job details</span>
+                  <span class="rq-label">Full job details <span class="rq-star" aria-hidden="true">*</span></span>
                   <textarea
                     id="hp-details"
                     name="details"
@@ -362,14 +384,14 @@
           <div class="recruit-form-foot">
             <div class="recruit-form-foot-main">
               <div class="hiring-form-actions">
-                <button type="submit" class="btn btn-primary">Submit Recruit request</button>
+                <button type="submit" class="btn btn-primary">Submit for review</button>
                 <a class="btn btn-secondary" href="tel:+919995254290">Call</a>
                 <a class="btn btn-ghost" href="mailto:infoparkstorieskochi@gmail.com?subject=Recruit%20Hiring%20Request">Email</a>
               </div>
               <p class="hiring-form-note">
-                You confirm this is truthful and authorised. Agrees to
-                <a href="/privacy/">Privacy</a> &amp; <a href="/terms/#recruit">Terms</a>.
-                Goes on Jobs <strong>only after verification</strong>. Never pay for a listing.
+                You confirm this is truthful and authorised. See
+                <a href="/privacy/">Privacy</a> and <a href="/terms/#recruit">Terms</a>.
+                Listings go on Jobs <strong>only after verification</strong>. Never pay for a listing.
               </p>
             </div>
           </div>
@@ -380,27 +402,27 @@
             <p class="recruit-rail-kicker">Before you send</p>
             <h2>What we need</h2>
             <ul class="recruit-check">
-              <li>HR / company phone for verification</li>
-              <li>Official work email &amp; designation</li>
-              <li>Company website + park location</li>
-              <li>Role, vacancies, apply contact &amp; deadline</li>
+              <li>HR name, designation, work email, and phone</li>
+              <li>Company website and park location</li>
+              <li>Role, vacancies, and apply contact for candidates</li>
+              <li>Deadline or mark as rolling</li>
             </ul>
             <p class="recruit-rail-note">
               Incomplete or unverifiable requests are not published. We may call the HR number you share before
               listing on Jobs.
             </p>
-          </div>
-
-          <div class="recruit-rail-panel recruit-rail-panel--soft">
-            <h2>Mass hiring?</h2>
-            <p>Put the vacancy count clearly (100+) so we can flag High Volume Hiring on Jobs.</p>
-            <a class="recruit-text-link" href="/contact/?reason=job">Ask about campaigns →</a>
-          </div>
-
-          <div class="recruit-rail-panel recruit-rail-panel--soft">
-            <h2>For candidates</h2>
-            <p>Browse verified community openings already live.</p>
-            <a class="recruit-text-link" href="/jobs/">Open Jobs →</a>
+            <div class="recruit-rail-links">
+              <div class="recruit-rail-link-block">
+                <p class="recruit-rail-link-title">Mass hiring?</p>
+                <p>Put 100+ in vacancies so we can flag High Volume Hiring.</p>
+                <a class="recruit-text-link" href="/contact/?reason=job">Ask about campaigns →</a>
+              </div>
+              <div class="recruit-rail-link-block">
+                <p class="recruit-rail-link-title">For candidates</p>
+                <p>Browse verified community openings already live.</p>
+                <a class="recruit-text-link" href="/jobs/">Open Jobs →</a>
+              </div>
+            </div>
           </div>
         </aside>
       </section>

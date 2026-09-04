@@ -97,6 +97,104 @@
 
 var JOBS = [
   {
+    id: "unilaw-us-immigration-associate-graduate-20260904",
+    company: "Unilaw",
+    companyLegalName: "Unilaw Global Private Limited",
+    logo: "https://infopark.in/upload_images/company_logos/Unilaw_Global_Private_Limited-1754298915.jpg",
+    companyBlurb: "U.S. Immigration Associate · Graduates · Infopark Kochi · Email resume to hr@unilawtech.com",
+    location: "Infopark, Kochi",
+    roles: ["U.S. Immigration Associate"],
+    experience: "fresher",
+    experienceRange: "Graduate / Fresher",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@unilawtech.com?subject=Application%20%E2%80%94%20U.S.%20Immigration%20Associate",
+    applyDeadline: "Rolling",
+    postedDate: "2026-09-04",
+    source: "Direct",
+    verified: true,
+    tags: ["Business"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@unilawtech.com",
+    phone: "+91 99950 45717",
+    website: "https://www.unilawtech.com",
+    address: "Infopark, Kochi, Kerala",
+    industry: "U.S. Immigration / Legal services",
+    companyDetails: "Unilaw Global Private Limited (Unilaw) is an Infopark Kochi company working on U.S. immigration documentation and related legal-process support. Listed on the official Infopark company directory.",
+    workDetails: "We're hiring graduates to build a career in U.S. Immigration. Structured training and mentorship, hands-on documentation work, and long-term growth in a collaborative team. Strong English, attention to detail, and willingness to learn U.S. immigration processes matter more than a law degree.",
+    workStatus: "Full-time",
+    workMode: "On-site · Infopark Kochi",
+    experienceYears: "Graduate / fresher — any discipline",
+    qualification: "Graduate from any discipline",
+    skills: [
+      "Written and verbal English",
+      "Research and analysis",
+      "Organisation and attention to detail",
+      "MS Office",
+      "Willingness to learn U.S. Immigration processes"
+    ],
+    technicalSkills: ["MS Office", "Documentation", "Research"],
+    softSkills: [
+      "English communication",
+      "Attention to detail",
+      "Analytical thinking",
+      "Organisation",
+      "Willingness to learn"
+    ],
+    whoCanApply: [
+      "Graduates from any discipline",
+      "Strong written and verbal English skills",
+      "Good research, analytical, and organisational skills",
+      "Proficiency in MS Office",
+      "Willingness to learn U.S. Immigration processes"
+    ],
+    requirements: [
+      "Graduate from any discipline",
+      "Strong written and verbal English communication",
+      "Good research, analytical, and organisational skills",
+      "Proficiency in MS Office",
+      "Willingness to learn U.S. Immigration processes",
+      "Attention to detail"
+    ],
+    responsibilities: [
+      "Support U.S. Immigration documentation with guidance from the team",
+      "Research case details and organise files accurately",
+      "Draft and check documents with attention to detail",
+      "Use MS Office for tracking, reporting, and correspondence",
+      "Learn Unilaw’s U.S. Immigration workflows through structured training"
+    ],
+    benefits: [
+      "Structured training and mentorship",
+      "Hands-on exposure to U.S. Immigration documentation",
+      "Professional development",
+      "Collaborative work environment",
+      "Long-term career growth"
+    ],
+    applySteps: [
+      "Prepare an updated resume (PDF preferred)",
+      "Email it to hr@unilawtech.com",
+      "Use a clear subject such as Application — U.S. Immigration Associate",
+      "Mention your degree, English skills, and interest in U.S. Immigration in a short note"
+    ],
+    applyChecklist: [
+      "Updated resume",
+      "Graduate details (any discipline)",
+      "Never pay anyone to apply"
+    ],
+    documentsRequired: ["Updated resume"],
+    howToApply: "Email your updated resume to hr@unilawtech.com with the subject Application — U.S. Immigration Associate. InfoparkDaily is not Unilaw and never collects money for jobs. Never pay anyone for an application or interview.",
+    hiringNotes: "Posted via InfoparkDaily Direct on 2026-09-04 from Unilaw hiring notice. Always verify on the company channel before applying. Never pay anyone for an application or interview.",
+    description: "Unilaw is hiring graduates for U.S. Immigration Associate roles at Infopark Kochi — training, mentorship, and documentation work. Email resume to hr@unilawtech.com.",
+    seoTitle: "U.S. Immigration Associate — Unilaw Infopark Kochi | InfoparkDaily",
+    seoDescription: "Unilaw Global Private Limited is hiring graduates for U.S. Immigration Associate roles at Infopark Kochi. Strong English and MS Office. Email resume to hr@unilawtech.com.",
+    startingDate: "",
+    officialLinks: {
+      website: "https://www.unilawtech.com",
+      infoparkProfile: "https://infopark.in/companies-profile/unilaw-global-private-limited",
+      apply: "mailto:hr@unilawtech.com?subject=Application%20%E2%80%94%20U.S.%20Immigration%20Associate"
+    }
+  },
+  {
     id: "viewy-digital-designer-creative-content-20260904",
     company: "Viewy Digital P(Ltd)",
     companyLegalName: "Viewy Digital Pvt. Ltd.",
