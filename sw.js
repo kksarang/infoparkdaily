@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v273";
+const CACHE_NAME = "infoparkdaily-v274";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -51,7 +51,7 @@ const PRELOAD_ASSETS = [
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
   "./data/jobs-data.js?v=20260904b",
-  "./data/applications-config.js?v=20260904a",
+  "./data/applications-config.js?v=20260904c",
   "./data/technopark-jobs-data.js?v=20260904a",
   "./data/infopark-jobs-data.js?v=20260904a",
   "./data/cyberpark-jobs-data.js?v=20260904a",
@@ -65,7 +65,7 @@ const PRELOAD_ASSETS = [
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260805r",
-  "./js/job-apply.js?v=20260904b",
+  "./js/job-apply.js?v=20260904c",
   "./js/job.js?v=20260904a",
   "./js/company.js?v=20260904d",
   "./js/park-companies.js?v=20260830l",

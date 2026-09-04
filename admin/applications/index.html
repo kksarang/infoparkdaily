@@ -214,9 +214,13 @@
           otherwise from this browser’s localStorage mirror.
         </p>
         <p class="admin-hint" id="admin-setup-hint">
-          To store resumes in Drive and email cover letters to <strong>infoparkstorieskochi@gmail.com</strong>, deploy
-          <code>scripts/applications-api.gs</code> and paste the web app URL into
+          To email applications <strong>with the resume attached</strong>, FormSubmit is enabled by default
+          (first submission may send an activation link to
+          <strong>infoparkstorieskochi@gmail.com</strong> — click Activate once).
+          For Drive storage + Sheets, deploy
+          <code>scripts/applications-api.gs</code> and paste the URL into
           <code>data/applications-config.js</code> → <code>IPD_APPLICATIONS_API</code>.
+          Resumes are also kept in this browser for Download resume.
         </p>
 
         <div class="admin-toolbar">
@@ -238,8 +242,8 @@
       </section>
     </div>
 
-    <script src="/data/applications-config.js?v=20260904a"></script>
-    <script src="/js/job-apply.js?v=20260904b"></script>
+    <script src="/data/applications-config.js?v=20260904c"></script>
+    <script src="/js/job-apply.js?v=20260904c"></script>
     <script>
       (function () {
         const listEl = document.getElementById("app-list");
@@ -450,7 +454,11 @@
                     '" target="_blank" rel="noopener noreferrer">' +
                     escapeHtml(a.resumeFileName || "Download") +
                     "</a>"
-                  : escapeHtml(a.resumeFileName || "Saved with submission")) +
+                  : '<button type="button" class="btn btn-ghost" data-download-resume="' +
+                    escapeHtml(a.id) +
+                    '" data-resume-name="' +
+                    escapeHtml(a.resumeFileName || "resume.pdf") +
+                    '">Download resume</button>') +
                 "</div>" +
                 "<div><span>Job page</span>" +
                 (a.jobUrl
@@ -495,6 +503,39 @@
           listEl.querySelectorAll("select[data-status-for]").forEach(function (sel) {
             sel.addEventListener("change", function () {
               setStatus(sel.getAttribute("data-status-for"), sel.value);
+            });
+          });
+
+          listEl.querySelectorAll("button[data-download-resume]").forEach(function (btn) {
+            btn.addEventListener("click", async function () {
+              const id = btn.getAttribute("data-download-resume");
+              const name = btn.getAttribute("data-resume-name") || "resume.pdf";
+              if (!window.IPDJobApply || typeof window.IPDJobApply.getResumeBlob !== "function") {
+                alert("Resume download is not available in this browser.");
+                return;
+              }
+              btn.disabled = true;
+              try {
+                const blob = await window.IPDJobApply.getResumeBlob(id);
+                if (!blob) {
+                  alert(
+                    "Resume file not found on this device. It is emailed to InfoparkDaily on submit — check that inbox (and FormSubmit activation mail if this is the first time)."
+                  );
+                  return;
+                }
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = name;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+                setTimeout(function () {
+                  URL.revokeObjectURL(url);
+                }, 2000);
+              } finally {
+                btn.disabled = false;
+              }
             });
           });
         }

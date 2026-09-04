@@ -14,7 +14,11 @@
 
   function cfg(key, fallback) {
     try {
-      if (typeof window[key] !== "undefined" && window[key]) return window[key];
+      if (typeof window[key] !== "undefined") {
+        const v = window[key];
+        if (v === "" || v === null) return fallback;
+        return v;
+      }
     } catch (_e) {
       /* ignore */
     }
@@ -160,7 +164,8 @@
           <h2 id="ipd-apply-title">Submit your application</h2>
           <p class="ipd-apply-lead">
             Apply for <strong>${role}</strong> at <strong>${company}</strong>.
-            Your details and resume are stored for InfoparkDaily review, and a cover letter is emailed to our official inbox.
+            Your details and resume are emailed to InfoparkDaily with a cover letter (resume attached).
+            Applications are also stored for review.
           </p>
         </div>
         <form class="ipd-apply-form" id="ipd-job-apply-form" novalidate>
@@ -288,39 +293,284 @@
   async function postToFormspree(payload, file) {
     const endpoint = cfg("IPD_APPLICATIONS_FORMSPREE", "");
     if (!endpoint) return { skipped: true };
-    const fd = new FormData();
-    fd.append("_subject", payload._subject);
-    fd.append("fullName", payload.fullName);
-    fd.append("email", payload.email);
-    fd.append("_replyto", payload.email);
-    fd.append("phone", payload.phone);
-    fd.append("experience", payload.experience);
-    fd.append("location", payload.location);
-    fd.append("portfolioUrl", payload.portfolioUrl);
-    fd.append("jobId", payload.jobId);
-    fd.append("jobTitle", payload.jobTitle);
-    fd.append("company", payload.company);
-    fd.append("jobUrl", payload.jobUrl);
-    fd.append("message", payload.coverLetter);
-    if (file) fd.append("resume", file, file.name);
+    const fd = buildEmailFormData(payload, file);
     const res = await fetch(endpoint, {
       method: "POST",
       body: fd,
       headers: { Accept: "application/json" }
     });
     if (!res.ok) throw new Error("Formspree submission failed");
-    return { ok: true };
+    return { ok: true, channel: "formspree" };
   }
 
-  function openMailtoFallback(payload) {
-    const subject = payload._subject;
-    const body =
-      payload.coverLetter +
-      "\n\n---\nNote: Resume could not be attached via mailto. Please reply with your resume if this email opened without an attachment.";
-    const href = `mailto:${encodeURIComponent(mailtoAddress())}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
+  function buildEmailFormData(payload, file) {
+    const fd = new FormData();
+    fd.append("_subject", payload._subject || "Job application — InfoparkDaily");
+    fd.append("_template", "table");
+    fd.append("_captcha", "false");
+    fd.append("name", payload.fullName || "");
+    fd.append("email", payload.email || "");
+    fd.append("_replyto", payload.email || "");
+    fd.append("phone", payload.phone || "");
+    fd.append("experience", payload.experience || "");
+    fd.append("location", payload.location || "");
+    fd.append("portfolioUrl", payload.portfolioUrl || "");
+    fd.append("jobId", payload.jobId || "");
+    fd.append("jobTitle", payload.jobTitle || "");
+    fd.append("company", payload.company || "");
+    fd.append("jobUrl", payload.jobUrl || "");
+    fd.append("message", payload.coverLetter || "");
+    fd.append("coverLetter", payload.coverLetter || "");
+    if (file) {
+      fd.append("attachment", file, file.name);
+      fd.append("resume", file, file.name);
+    }
+    return fd;
+  }
+
+  /**
+   * FormSubmit classic multipart — attaches resume to the email.
+   * mailto: cannot do this; do not fall back to mailto when a file is present.
+   */
+  async function postToFormSubmit(payload, file) {
+    const enabled = cfg("IPD_APPLICATIONS_FORMSUBMIT", true);
+    if (enabled === false || enabled === "false") return { skipped: true };
+
+    const email = encodeURIComponent(mailtoAddress());
+    const fd = buildEmailFormData(payload, file);
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/" + email, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: fd
+      });
+      const data = await res.json().catch(function () {
+        return {};
+      });
+      if (res.ok && (data.success === "true" || data.success === true || data.message || res.status === 200)) {
+        return { ok: true, channel: "formsubmit", data: data };
+      }
+      // Some responses still deliver mail — treat 200-ish as ok
+      if (res.status >= 200 && res.status < 300) {
+        return { ok: true, channel: "formsubmit", data: data };
+      }
+      throw new Error((data && data.message) || "FormSubmit failed");
+    } catch (ajaxErr) {
+      // Fallback: classic multipart POST in a hidden iframe (supports file attachments)
+      await postToFormSubmitIframe(payload, file);
+      return { ok: true, channel: "formsubmit-iframe" };
+    }
+  }
+
+  function postToFormSubmitIframe(payload, file) {
+    return new Promise(function (resolve, reject) {
+      const frameName = "ipd-apply-frame-" + Date.now();
+      const iframe = document.createElement("iframe");
+      iframe.name = frameName;
+      iframe.title = "Application submit";
+      iframe.setAttribute("aria-hidden", "true");
+      iframe.style.cssText = "position:absolute;width:0;height:0;border:0;visibility:hidden";
+      document.body.appendChild(iframe);
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.enctype = "multipart/form-data";
+      form.action = "https://formsubmit.co/" + encodeURIComponent(mailtoAddress());
+      form.target = frameName;
+      form.style.display = "none";
+
+      function addField(name, value) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value == null ? "" : String(value);
+        form.appendChild(input);
+      }
+
+      addField("_subject", payload._subject || "Job application — InfoparkDaily");
+      addField("_template", "table");
+      addField("_captcha", "false");
+      addField("_next", payload.jobUrl || "https://infoparkdaily.online/jobs/");
+      addField("name", payload.fullName || "");
+      addField("email", payload.email || "");
+      addField("_replyto", payload.email || "");
+      addField("phone", payload.phone || "");
+      addField("experience", payload.experience || "");
+      addField("location", payload.location || "");
+      addField("portfolioUrl", payload.portfolioUrl || "");
+      addField("jobId", payload.jobId || "");
+      addField("jobTitle", payload.jobTitle || "");
+      addField("company", payload.company || "");
+      addField("jobUrl", payload.jobUrl || "");
+      addField("message", payload.coverLetter || "");
+      addField("coverLetter", payload.coverLetter || "");
+
+      if (file) {
+        const fileInput = document.createElement("input");
+        fileInput.type = "file";
+        fileInput.name = "attachment";
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        fileInput.files = dt.files;
+        form.appendChild(fileInput);
+      }
+
+      document.body.appendChild(form);
+
+      let settled = false;
+      const cleanup = function () {
+        setTimeout(function () {
+          if (form.parentNode) form.remove();
+          if (iframe.parentNode) iframe.remove();
+        }, 1500);
+      };
+
+      const timer = setTimeout(function () {
+        if (settled) return;
+        settled = true;
+        cleanup();
+        resolve();
+      }, 8000);
+
+      iframe.addEventListener("load", function () {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        cleanup();
+        resolve();
+      });
+
+      try {
+        form.submit();
+      } catch (err) {
+        if (!settled) {
+          settled = true;
+          clearTimeout(timer);
+          cleanup();
+          reject(err);
+        }
+      }
+    });
+  }
+
+  const RESUME_DB = "ipd-job-resumes-v1";
+  const RESUME_STORE = "resumes";
+
+  function openResumeDb() {
+    return new Promise(function (resolve, reject) {
+      const req = indexedDB.open(RESUME_DB, 1);
+      req.onupgradeneeded = function () {
+        const db = req.result;
+        if (!db.objectStoreNames.contains(RESUME_STORE)) {
+          db.createObjectStore(RESUME_STORE, { keyPath: "id" });
+        }
+      };
+      req.onsuccess = function () {
+        resolve(req.result);
+      };
+      req.onerror = function () {
+        reject(req.error || new Error("IndexedDB open failed"));
+      };
+    });
+  }
+
+  async function saveResumeBlob(id, file) {
+    if (!id || !file || !window.indexedDB) return false;
+    try {
+      const db = await openResumeDb();
+      const buffer = await file.arrayBuffer();
+      await new Promise(function (resolve, reject) {
+        const tx = db.transaction(RESUME_STORE, "readwrite");
+        tx.oncomplete = function () {
+          resolve();
+        };
+        tx.onerror = function () {
+          reject(tx.error);
+        };
+        tx.objectStore(RESUME_STORE).put({
+          id: id,
+          name: file.name,
+          type: file.type || "application/octet-stream",
+          size: file.size,
+          buffer: buffer,
+          savedAt: new Date().toISOString()
+        });
+      });
+      db.close();
+      return true;
+    } catch (_e) {
+      return false;
+    }
+  }
+
+  async function getResumeBlob(id) {
+    if (!id || !window.indexedDB) return null;
+    try {
+      const db = await openResumeDb();
+      const row = await new Promise(function (resolve, reject) {
+        const tx = db.transaction(RESUME_STORE, "readonly");
+        const req = tx.objectStore(RESUME_STORE).get(id);
+        req.onsuccess = function () {
+          resolve(req.result || null);
+        };
+        req.onerror = function () {
+          reject(req.error);
+        };
+      });
+      db.close();
+      if (!row || !row.buffer) return null;
+      return new Blob([row.buffer], { type: row.type || "application/octet-stream" });
+    } catch (_e) {
+      return null;
+    }
+  }
+
+  async function getResumeMeta(id) {
+    if (!id || !window.indexedDB) return null;
+    try {
+      const db = await openResumeDb();
+      const row = await new Promise(function (resolve, reject) {
+        const tx = db.transaction(RESUME_STORE, "readonly");
+        const req = tx.objectStore(RESUME_STORE).get(id);
+        req.onsuccess = function () {
+          resolve(req.result || null);
+        };
+        req.onerror = function () {
+          reject(req.error);
+        };
+      });
+      db.close();
+      if (!row) return null;
+      return { id: row.id, name: row.name, type: row.type, size: row.size, savedAt: row.savedAt };
+    } catch (_e) {
+      return null;
+    }
+  }
+
+  function showErrorToast(message) {
+    var existing = document.getElementById("ipd-apply-toast");
+    if (existing) existing.remove();
+    var toast = document.createElement("div");
+    toast.id = "ipd-apply-toast";
+    toast.className = "recruit-toast ipd-apply-toast";
+    toast.setAttribute("role", "alert");
+    toast.setAttribute("aria-live", "assertive");
+    toast.innerHTML =
+      '<span class="recruit-toast-mark" aria-hidden="true">!</span>' +
+      "<span>" +
+      String(message || "Submission failed.") +
+      "</span>";
+    document.body.appendChild(toast);
+    requestAnimationFrame(function () {
+      toast.classList.add("is-visible");
+    });
+    setTimeout(function () {
+      toast.classList.remove("is-visible");
+      setTimeout(function () {
+        if (toast.parentNode) toast.remove();
+      }, 320);
+    }, 5200);
   }
 
   function validate(form, file) {
@@ -412,7 +662,7 @@
         try {
           resumeBase64 = await fileToBase64(file);
         } catch (_e) {
-          /* continue without base64 if read fails — mailto/Formspree may still work */
+          /* continue — FormSubmit/Formspree can still send the File object */
         }
 
         const apiPayload = {
@@ -421,14 +671,19 @@
           _subject: subject
         };
 
-        let apiOk = false;
-        let formspreeOk = false;
+        // Keep resume for admin download (same browser) even if email path differs
+        const resumeSaved = await saveResumeBlob(id, file);
+        localRecord.resumeStoredLocally = Boolean(resumeSaved);
+
+        let delivered = false;
+        let deliveryNote = "";
         let apiWarning = "";
 
         try {
           const apiRes = await postToApi(apiPayload);
           if (!apiRes.skipped) {
-            apiOk = true;
+            delivered = true;
+            deliveryNote = "emailed with resume";
             if (apiRes.resumeDriveUrl) localRecord.resumeDriveUrl = apiRes.resumeDriveUrl;
             if (apiRes.warning) apiWarning = apiRes.warning;
           }
@@ -436,52 +691,75 @@
           apiWarning = String(apiErr && apiErr.message ? apiErr.message : apiErr);
         }
 
-        try {
-          const fsRes = await postToFormspree(apiPayload, file);
-          if (!fsRes.skipped) formspreeOk = true;
-        } catch (_fsErr) {
-          /* optional channel */
+        if (!delivered) {
+          try {
+            const fsRes = await postToFormspree(apiPayload, file);
+            if (!fsRes.skipped) {
+              delivered = true;
+              deliveryNote = "emailed with resume";
+            }
+          } catch (_fsErr) {
+            /* try FormSubmit next */
+          }
+        }
+
+        if (!delivered) {
+          try {
+            const fsSubmit = await postToFormSubmit(apiPayload, file);
+            if (!fsSubmit.skipped) {
+              delivered = true;
+              deliveryNote = "emailed with resume attached";
+            }
+          } catch (submitErr) {
+            apiWarning = String(submitErr && submitErr.message ? submitErr.message : submitErr);
+          }
         }
 
         saveLocalApplication(localRecord);
 
         if (typeof window.ipdTrack === "function") {
           try {
-            window.ipdTrack("job_apply_submit", { jobId: job.id, company: job.company });
+            window.ipdTrack("job_apply_submit", {
+              jobId: job.id,
+              company: job.company,
+              delivered: delivered
+            });
           } catch (_e) {
             /* ignore */
           }
         }
 
-        clearApplyForm(form);
-
-        if (apiOk || formspreeOk) {
+        if (delivered) {
+          clearApplyForm(form);
           const okMsg = apiWarning
-            ? "Application submitted. " + apiWarning
-            : "Application submitted successfully.";
+            ? "Application submitted with resume. " + apiWarning
+            : "Application submitted successfully — resume attached.";
           setStatus(statusEl, okMsg, false);
           showSuccessToast(okMsg);
         } else {
-          const fallbackMsg =
-            "Application submitted successfully. Opening email — attach your resume if needed.";
-          setStatus(statusEl, fallbackMsg, false);
-          showSuccessToast("Application submitted successfully.");
-          setTimeout(function () {
-            openMailtoFallback(apiPayload);
-          }, 450);
+          // Do NOT open mailto — it cannot attach the resume.
+          setStatus(
+            statusEl,
+            "Could not email the resume. Please try again, or email your resume to " +
+              mailtoAddress() +
+              ".",
+            true
+          );
+          showErrorToast("Resume was not emailed. Please try again.");
         }
       } catch (err) {
         saveLocalApplication(localRecord);
-        clearApplyForm(form);
+        try {
+          await saveResumeBlob(id, file);
+        } catch (_e) {
+          /* ignore */
+        }
         setStatus(
           statusEl,
-          "Application saved. Opening email with your cover letter — please attach your resume.",
-          false
+          "Submission failed. Your details were saved on this device — please retry so the resume can be emailed.",
+          true
         );
-        showSuccessToast("Application submitted successfully.");
-        setTimeout(function () {
-          openMailtoFallback({ ...localRecord, _subject: subject });
-        }, 450);
+        showErrorToast("Submission failed — resume not emailed. Please try again.");
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -496,6 +774,9 @@
     compactCtaHtml: compactFormHtml,
     bind,
     readLocalApps,
-    buildCoverLetter
+    buildCoverLetter,
+    getResumeBlob,
+    getResumeMeta,
+    saveResumeBlob
   };
 })();
