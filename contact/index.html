@@ -70,7 +70,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260904i" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904k" />
+    <link rel="stylesheet" href="/css/contact-premium.css?v=20260905a" />
     
   </head>
   <body class="contact-body dark">
@@ -118,70 +119,84 @@
     </header>
 
     <main id="main-content" class="contact-page">
-      <section class="contact-hero glass">
-        <div class="contact-hero-copy">
-          <p class="eyebrow">Let's talk</p>
-          <h1>Contact <span class="accent">InfoparkDaily</span></h1>
-          <p>
-            Whether you want to post a job, run a campaign, or need Enitexa.ai IT support — tell us what you need.
-            We usually reply within 24 hours.
-          </p>
-          <p class="contact-hours"><strong>Business hours:</strong> Mon–Sat, 10:00 AM – 7:00 PM IST</p>
-          <div class="contact-hero-actions">
-            <a class="btn btn-secondary" href="/guides/">Career Guides</a>
-            <a class="btn btn-ghost" href="/jobs/">View Jobs</a>
-          </div>
-        </div>
-        <aside class="contact-hero-direct" aria-label="Direct lines">
-          <p class="eyebrow">Direct lines</p>
-          <p class="contact-person">
-            <a href="https://sarangrajan.in/" target="_blank" rel="noopener noreferrer">Sarang R</a>
-          </p>
-          <p><a href="tel:+919995254290">+91 99952 54290</a></p>
-          <p><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a></p>
-          <p class="contact-site-link">
-            <a href="https://sarangrajan.in/" target="_blank" rel="noopener noreferrer">sarangrajan.in ↗</a>
-          </p>
-        </aside>
+      <section class="cq-hero" aria-labelledby="contact-title">
+        <p class="cq-kicker">Contact</p>
+        <h1 id="contact-title">Talk to InfoparkDaily</h1>
+        <p class="cq-lead">
+          Post a job, run a hiring campaign, or get Enitexa.ai IT support. We read every message and usually reply within 24 hours.
+        </p>
+        <ul class="cq-meta">
+          <li>Mon–Sat, 10:00 AM – 7:00 PM IST</li>
+          <li>Infopark Kochi</li>
+          <li>No listing fees for candidates</li>
+        </ul>
       </section>
 
-      <section class="contact-layout">
-        <form id="contact-form" class="contact-form glass" novalidate>
-          <div class="section-heading">
-            <p class="eyebrow">Inquiry form</p>
-            <h2>I want to…</h2>
-          </div>
+      <section class="cq-direct" aria-label="Reach us directly">
+        <a class="cq-direct-card" href="tel:+919995254290">
+          <span>Call</span>
+          <strong>+91 99952 54290</strong>
+          <em>Best for urgent hiring or walk-ins</em>
+        </a>
+        <a
+          class="cq-direct-card"
+          href="https://wa.me/919995254290?text=Hi%20InfoparkDaily%2C%20I%20want%20to%20talk."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>WhatsApp</span>
+          <strong>Message Sarang</strong>
+          <em>Jobs, campaigns, and support</em>
+        </a>
+        <a class="cq-direct-card" href="mailto:infoparkstorieskochi@gmail.com">
+          <span>Email</span>
+          <strong>infoparkstorieskochi@gmail.com</strong>
+          <em>We read every request</em>
+        </a>
+      </section>
+
+      <section class="cq-workspace contact-layout" aria-label="Send a message">
+        <form id="contact-form" class="contact-form cq-form" novalidate>
+          <header class="cq-form-head">
+            <p class="cq-form-kicker">Inquiry</p>
+            <h2>What do you need?</h2>
+            <p>Pick a reason so we route it to the right person. Then leave a short brief.</p>
+          </header>
 
           <fieldset class="contact-reasons" id="contact-reasons">
             <legend class="visually-hidden">Contact reason</legend>
             <label class="contact-reason">
               <input type="radio" name="reason" value="Post a Job" checked />
-              <span>Post a Job</span>
+              <span>Post a job</span>
+              <small>Openings, walk-ins, mass hiring</small>
             </label>
             <label class="contact-reason">
               <input type="radio" name="reason" value="Partner for a Campaign" />
-              <span>Partner for a Campaign</span>
+              <span>Run a campaign</span>
+              <small>Instagram, WhatsApp, community</small>
             </label>
             <label class="contact-reason">
               <input type="radio" name="reason" value="Get IT/Software Support (Enitexa.ai)" />
-              <span>Get IT/Software Support (Enitexa.ai)</span>
+              <span>IT / software</span>
+              <small>Enitexa.ai build or support</small>
             </label>
             <label class="contact-reason">
               <input type="radio" name="reason" value="Startup / Build Together" />
-              <span>Startup / Build Together</span>
+              <span>Startup / build</span>
+              <small>Idea, product, or partnership</small>
             </label>
             <label class="contact-reason">
               <input type="radio" name="reason" value="General Inquiry" />
-              <span>General Inquiry</span>
+              <span>Something else</span>
+              <small>Press, collab, or a question</small>
             </label>
           </fieldset>
 
           <div class="contact-fields-row">
             <label class="contact-field">
-              <span>Name</span>
-              <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+              <span>Your name</span>
+              <input id="contact-name" name="name" type="text" autocomplete="name" required placeholder="HR / founder / contact" />
             </label>
-
             <label class="contact-field">
               <span id="contact-channel-label">Email or phone</span>
               <input
@@ -205,7 +220,7 @@
             <textarea
               id="contact-message"
               name="message"
-              rows="5"
+              rows="6"
               required
               placeholder="Tell us about the role, campaign, or project…"
             ></textarea>
@@ -217,22 +232,25 @@
 
           <div class="contact-form-actions">
             <button type="submit" class="btn btn-primary">Send message</button>
-            <a class="btn btn-secondary" href="tel:+919995254290">Call +91 99952 54290</a>
-            <a class="btn btn-ghost" href="mailto:infoparkstorieskochi@gmail.com">Email instead</a>
+            <a
+              class="btn btn-secondary"
+              href="https://wa.me/919995254290?text=Hi%20InfoparkDaily%2C%20I%20want%20to%20talk."
+              target="_blank"
+              rel="noopener noreferrer"
+            >WhatsApp</a>
+            <a class="btn btn-ghost" href="tel:+919995254290">Call</a>
           </div>
           <p class="contact-form-note">
-            By sending this form you agree to our <a href="/privacy/">Privacy Policy</a> and
-            <a href="/terms/">Terms</a>. You can also reach us directly at
-            <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>
-            or <a href="tel:+919995254290">+91 99952 54290</a> (Mon–Sat, 10:00 AM – 7:00 PM IST).
-            The form opens your mail app with a pre-filled message when Formspree is not configured.
+            By sending, you agree to our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms</a>.
+            If the form cannot send online, it opens your email app to
+            <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>.
           </p>
         </form>
 
-        <aside class="contact-side glass">
+        <aside class="contact-side" aria-label="Visit and follow">
           <div class="contact-side-block">
-            <h2>Visit / map</h2>
-            <p>Thapasya Rd, Infopark Campus, Infopark, Kochi, Kakkanad, Kerala</p>
+            <h2>Visit</h2>
+            <p>Thapasya Rd, Infopark Campus, Kakkanad, Kochi, Kerala</p>
             <div class="contact-map" aria-label="Infopark location map">
               <iframe
                 title="Infopark Location Map"
@@ -244,23 +262,28 @@
           </div>
 
           <div class="contact-side-block">
-            <h2>Social</h2>
+            <h2>Hours</h2>
+            <ul class="cq-hours">
+              <li><span>Monday–Saturday</span><strong>10:00 AM – 7:00 PM</strong></li>
+              <li><span>Sunday</span><strong>Closed</strong></li>
+              <li><span>Timezone</span><strong>IST</strong></li>
+            </ul>
+          </div>
+
+          <div class="contact-side-block">
+            <h2>Follow</h2>
             <div class="contact-social-row" aria-label="Social links">
               <a class="contact-social-btn" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a class="contact-social-btn" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">IG Jobs</a>
-              <a class="contact-social-btn" href="https://www.instagram.com/infoparkdaily.media/" target="_blank" rel="noopener noreferrer">IG Media</a>
-              <a class="contact-social-btn" href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/" target="_blank" rel="noopener noreferrer">IG Broadcast</a>
-              <a class="contact-social-btn" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WA Channel</a>
-              <a class="contact-social-btn" href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WA Group</a>
+              <a class="contact-social-btn" href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs IG</a>
+              <a class="contact-social-btn" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
               <a class="contact-social-btn" href="https://www.facebook.com/profile.php?id=61590569168309" target="_blank" rel="noopener noreferrer">Facebook</a>
               <a class="contact-social-btn" href="https://www.threads.com/@infoparkdaily?xmt=AQG0aYegSoxHpGC0TH1CGPfl10rG8Z2i_3_m0DlrFvlGbUU" target="_blank" rel="noopener noreferrer">Threads</a>
-              <a class="contact-social-btn" href="https://www.instagram.com/enitexa/" target="_blank" rel="noopener noreferrer">Enitexa IG</a>
             </div>
           </div>
 
           <div class="contact-side-block contact-side-block--cta">
-            <h2>Need software support?</h2>
-            <p>IT implementation partner: Enitexa.ai.</p>
+            <h2>Need software built?</h2>
+            <p>IT implementation partner: Enitexa.ai — websites, apps, and ops tools.</p>
             <a class="btn btn-secondary" href="https://sarangrajan.in/hexenity/" target="_blank" rel="noopener noreferrer">View Enitexa.ai</a>
           </div>
         </aside>

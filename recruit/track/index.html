@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Track hiring request | InfoparkDaily Recruit</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link rel="canonical" href="https://infoparkdaily.online/recruit/track/" />
+    <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#ffffff" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#ffffff" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904k" />
+    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260905a" />
+  </head>
+  <body class="contact-body dark recruit-body">
+    <script>
+      (function () {
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
+      })();
+    </script>
+    <header class="site-header glass">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
+        </div>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="/recruit/" aria-current="page">Recruit</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="hiring-portal-page recruit-page">
+      <section class="rq-hero">
+        <p class="rq-kicker">Recruit</p>
+        <h1>Track your hiring request</h1>
+        <p class="recruit-hero-lead">
+          Request IDs from this browser are stored locally. Status after “Submitted” is updated by InfoparkDaily during review.
+        </p>
+      </section>
+      <form id="track-form" class="rq-track-form" action="/recruit/track/" method="get" role="search">
+        <div class="rq-track-row">
+          <label class="hiring-field" for="track-id">
+            <span class="rq-label">Request ID</span>
+            <input id="track-id" name="id" type="text" placeholder="IPD-20260904-1234" autocomplete="off" spellcheck="false" />
+          </label>
+          <button id="track-lookup" class="btn btn-primary" type="submit">Look up</button>
+        </div>
+        <p id="track-status" class="rq-track-status" role="status"></p>
+      </form>
+      <div id="track-result" class="rq-track-list"></div>
+      <p class="hiring-help" style="margin-top: 1rem">
+        Need help? <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>
+        · <a href="/recruit/">Post another job</a>
+      </p>
+    </main>
+
+    <script src="/js/site.js?v=20260904f" defer></script>
+    <script>
+      (function () {
+        var KEY = "ipd-recruit-submissions-v1";
+        var form = document.getElementById("track-form");
+        var input = document.getElementById("track-id");
+        var out = document.getElementById("track-result");
+        var statusEl = document.getElementById("track-status");
+        var lookupBtn = document.getElementById("track-lookup");
+        function list() {
+          try {
+            var raw = JSON.parse(localStorage.getItem(KEY) || "[]");
+            return Array.isArray(raw) ? raw : [];
+          } catch (_e) {
+            return [];
+          }
+        }
+        function esc(value) {
+          return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+        function card(item) {
+          var when = item.createdAt ? new Date(item.createdAt).toLocaleString("en-IN") : "";
+          var status =
+            item.status === "submitted" ? "Submitted — under verification" : item.status || "Unknown";
+          return (
+            '<article class="rq-track-card"><strong>' +
+            esc(item.id) +
+            "</strong><p>" +
+            esc(item.company) +
+            " · " +
+            esc(item.role) +
+            "</p><p>Status: " +
+            esc(status) +
+            "</p><p>" +
+            esc(when) +
+            "</p></article>"
+          );
+        }
+        function setStatus(text) {
+          if (statusEl) statusEl.textContent = text || "";
+        }
+        function render(id, announce) {
+          if (!out) return;
+          var items = list();
+          if (id) {
+            items = items.filter(function (item) {
+              return String(item.id || "").toUpperCase() === id.toUpperCase();
+            });
+          }
+          if (!items.length) {
+            out.innerHTML = id
+              ? "<p>No local record for that ID. Check the ID on your confirmation screen, or email us with the company name.</p>"
+              : "";
+            setStatus(id ? "No local record for " + id + "." : "");
+            return;
+          }
+          out.innerHTML = items.map(card).join("");
+          if (announce) {
+            out.classList.remove("is-updated");
+            void out.offsetWidth;
+            out.classList.add("is-updated");
+            setStatus(id ? "Showing " + id + "." : "Showing requests saved in this browser.");
+          } else {
+            setStatus("");
+          }
+        }
+        function lookup(announce) {
+          var id = (input && input.value.trim()) || "";
+          render(id, announce);
+          try {
+            var url = new URL(window.location.href);
+            if (id) url.searchParams.set("id", id);
+            else url.searchParams.delete("id");
+            history.replaceState({}, "", url.pathname + url.search);
+          } catch (_e) {}
+        }
+        var params = new URLSearchParams(window.location.search);
+        var q = params.get("id") || "";
+        if (input) input.value = q;
+        render(q, false);
+        if (form) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            lookup(true);
+          });
+        }
+        if (lookupBtn) {
+          lookupBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            lookup(true);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

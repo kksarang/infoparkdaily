@@ -23,7 +23,7 @@ body.cpe-body .site-footer {
 }
 
 .cpe-page {
-  width: min(1120px, var(--container));
+  width: var(--container);
   margin-inline: auto;
   padding: 0.5rem 0 2rem;
   overflow-x: clip;

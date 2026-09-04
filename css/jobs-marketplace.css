@@ -1783,7 +1783,7 @@ body.jobs-marketplace .ej-board {
 }
 
 body.jobs-marketplace .jobs-page {
-  width: min(1120px, calc(100% - 1.5rem));
+  width: var(--container);
   margin-inline: auto;
   padding-bottom: 2rem;
 }
@@ -1791,7 +1791,7 @@ body.jobs-marketplace .jobs-page {
 /* Mobile page clearance */
 @media (max-width: 980px) {
   body.jobs-marketplace .jobs-page {
-    width: min(100%, calc(100% - 1rem));
+    width: var(--container);
     padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   }
 

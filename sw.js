@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v282";
+const CACHE_NAME = "infoparkdaily-v291";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -36,13 +36,14 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260904i",
-  "./css/onam.css?v=20260831b",
-  "./css/jobs-marketplace.css?v=20260904x",
-  "./css/recruit-premium.css?v=20260904r",
-  "./css/ats-checker.css?v=20260904d",
-  "./css/job-detail-premium.css?v=20260904l",
-  "./css/company-premium.css?v=20260904e",
+  "./css/styles.css?v=20260904k",
+  "./css/onam.css?v=20260904v",
+  "./css/jobs-marketplace.css?v=20260904ab",
+  "./css/recruit-premium.css?v=20260905a",
+  "./css/contact-premium.css?v=20260905a",
+  "./css/ats-checker.css?v=20260904n",
+  "./css/job-detail-premium.css?v=20260904m",
+  "./css/company-premium.css?v=20260904f",
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
@@ -50,11 +51,7 @@ const PRELOAD_ASSETS = [
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
-  "./data/jobs-data.js?v=20260904c",
   "./data/applications-config.js?v=20260904f",
-  "./data/technopark-jobs-data.js?v=20260904a",
-  "./data/infopark-jobs-data.js?v=20260904a",
-  "./data/cyberpark-jobs-data.js?v=20260904a",
   "./data/site-reviews.json",
   "./js/cyberpark-jobs.js?v=20260805p",
   "./js/infopark-jobs.js?v=20260805p",
@@ -64,7 +61,7 @@ const PRELOAD_ASSETS = [
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
-  "./js/hiring-portal.js?v=20260805r",
+  "./js/hiring-portal.js?v=20260904b",
   "./js/job-apply.js?v=20260904g",
   "./js/job.js?v=20260904c",
   "./js/company.js?v=20260904d",
@@ -114,7 +111,11 @@ async function staleWhileRevalidate(request) {
 }
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(PRELOAD_ASSETS)));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.allSettled(PRELOAD_ASSETS.map((url) => cache.add(url)))
+    )
+  );
   self.skipWaiting();
 });
 

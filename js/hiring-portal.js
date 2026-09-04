@@ -260,9 +260,76 @@
     return validateDeadline().value || "Not specified";
   }
 
+  function fileName(id) {
+    const el = document.getElementById(id);
+    if (!el || !el.files || !el.files[0]) return "";
+    return el.files[0].name;
+  }
+
+  function salaryPayload() {
+    const mode = (form.querySelector('input[name="salary_mode"]:checked') || {}).value;
+    if (mode === "hidden") return "Not disclosed";
+    const min = val("hp-salary-min");
+    const max = val("hp-salary-max");
+    const nego = document.getElementById("hp-salary-nego") && document.getElementById("hp-salary-nego").checked;
+    let text = "";
+    if (min && max) text = `${min}–${max} LPA`;
+    else if (min) text = `${min}+ LPA`;
+    else if (max) text = `Up to ${max} LPA`;
+    else text = val("hp-salary") || "Not specified";
+    if (nego && text) text += " (negotiable)";
+    return text || "Not specified";
+  }
+
+  function syncSalaryHidden() {
+    const el = document.getElementById("hp-salary");
+    if (el) el.value = salaryPayload();
+  }
+
+  function syncWalkinHidden() {
+    const jobtype = val("hp-jobtype");
+    const intent = val("hp-intent");
+    const walk = jobtype === "Walk-in" || intent === "walkin";
+    const parts = [];
+    if (val("hp-walkin-date")) parts.push(`Date: ${val("hp-walkin-date")}`);
+    if (val("hp-walkin-start") || val("hp-walkin-end")) {
+      parts.push(`Time: ${val("hp-walkin-start") || "—"}${val("hp-walkin-end") ? "–" + val("hp-walkin-end") : ""}`);
+    }
+    if (val("hp-walkin-venue")) parts.push(`Venue: ${val("hp-walkin-venue")}`);
+    if (val("hp-walkin-maps")) parts.push(`Maps: ${val("hp-walkin-maps")}`);
+    if (val("hp-walkin-docs")) parts.push(`Docs: ${val("hp-walkin-docs")}`);
+    const el = document.getElementById("hp-walkin");
+    if (el) el.value = walk ? parts.join(" · ") : parts.join(" · ");
+  }
+
+  function extraRoles() {
+    return Array.from(document.querySelectorAll("[data-extra-role]"))
+      .map((input) => String(input.value || "").trim())
+      .filter(Boolean);
+  }
+
+  function syncSkillsHidden() {
+    const chips = Array.from(document.querySelectorAll(".rq-skill.is-on")).map((btn) => btn.dataset.skill);
+    const extra = val("hp-skills-extra")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const el = document.getElementById("hp-skills");
+    if (el) el.value = [...new Set(chips.concat(extra))].join(", ");
+  }
+
   function buildBody() {
+    syncSalaryHidden();
+    syncWalkinHidden();
+    syncSkillsHidden();
+    const extra = extraRoles();
+    const extraEl = document.getElementById("hp-extra-roles-value");
+    if (extraEl) extraEl.value = extra.join(" | ");
     return [
       "InfoparkDaily Recruit — New Hiring Request",
+      `Request ID: ${val("hp-request-id") || "pending"}`,
+      `Intent: ${val("hp-intent") || "job"}`,
+      `Package: ${val("hp-campaign") || "listing"}`,
       "",
       `Name: ${val("hp-name")}`,
       `Designation: ${val("hp-designation")}`,
@@ -273,19 +340,64 @@
       `IT park: ${val("hp-park")}`,
       `Company website: ${val("hp-website")}`,
       `Company LinkedIn: ${val("hp-linkedin") || "N/A"}`,
+      `Logo file: ${fileName("hp-logo") || "N/A"}`,
+      `Poster file: ${fileName("hp-poster") || "N/A"}`,
       `Role: ${val("hp-role")}`,
+      extra.length ? `Additional roles: ${extra.join(" | ")}` : "",
       `Vacancies: ${val("hp-vacancies") || "Not specified"}`,
       `Experience: ${val("hp-experience")}`,
       `Job type: ${val("hp-jobtype") || "Not specified"}`,
+      `Work mode: ${val("hp-workmode") || "On-site"}`,
+      `Category: ${val("hp-category") || "N/A"}`,
+      `Skills: ${val("hp-skills") || "N/A"}`,
       `Deadline: ${deadlineForPayload()}`,
-      `Salary: ${val("hp-salary") || "Not disclosed"}`,
+      `Salary: ${salaryPayload()}`,
+      `Apply via: ${val("hp-apply-via") || "N/A"}`,
       `Apply contact: ${val("hp-apply")}`,
       `Apply link: ${val("hp-apply-link") || "N/A"}`,
       `Walk-in: ${val("hp-walkin") || "N/A"}`,
       "",
       "Job details:",
       val("hp-details")
-    ].join("\n");
+    ]
+      .filter((line) => line !== "")
+      .join("\n");
+  }
+
+  function makeRequestId() {
+    const stamp = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    const n = String(Math.floor(1000 + Math.random() * 9000));
+    return `IPD-${stamp}-${n}`;
+  }
+
+  const STORE_KEY = "ipd-recruit-submissions-v1";
+  const COMPANY_KEY = "ipd-recruit-company-v1";
+
+  function saveSubmission(record) {
+    try {
+      const list = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
+      list.unshift(record);
+      localStorage.setItem(STORE_KEY, JSON.stringify(list.slice(0, 40)));
+    } catch (_e) {
+      /* ignore */
+    }
+  }
+
+  function saveCompanyProfile() {
+    try {
+      localStorage.setItem(
+        COMPANY_KEY,
+        JSON.stringify({
+          company: val("hp-company"),
+          park: val("hp-park"),
+          location: val("hp-location"),
+          website: val("hp-website"),
+          linkedin: val("hp-linkedin")
+        })
+      );
+    } catch (_e) {
+      /* ignore */
+    }
   }
 
   function showSuccessToast(message, thenRefresh) {
@@ -310,13 +422,17 @@
 
     if (thenRefresh) {
       setTimeout(function () {
-        window.location.reload();
-      }, 1600);
+        toast.classList.remove("is-visible");
+      }, 2200);
     }
   }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (step !== STEPS.length - 1) {
+      goStep(step + 1);
+      return;
+    }
 
     const emailCheck = validateEmail(val("hp-channel"), "Please enter your official work email.");
     const phoneCheck = validatePhone(val("hp-phone"), "Please enter HR / company phone for verification.");
@@ -345,6 +461,9 @@
       "Please enter a valid LinkedIn company URL."
     );
     applyLinkedInValidity();
+    syncSalaryHidden();
+    syncWalkinHidden();
+    syncSkillsHidden();
 
     if (
       !form.checkValidity() ||
@@ -357,6 +476,11 @@
       !linkedInCheck.ok
     ) {
       form.reportValidity();
+      if (!emailCheck.ok) goStep(0);
+      else if (!phoneCheck.ok) goStep(0);
+      else if (!websiteCheck.ok) goStep(1);
+      else if (!applyCheck.ok) goStep(3);
+      else if (!deadlineCheck.ok) goStep(3);
       if (!emailCheck.ok) setStatus(emailCheck.message, true);
       else if (!phoneCheck.ok) setStatus(phoneCheck.message, true);
       else if (!websiteCheck.ok) setStatus(websiteCheck.message, true);
@@ -368,9 +492,17 @@
       return;
     }
 
-    const subject = "InfoparkDaily Recruit — New Hiring Request";
+    const idEl = document.getElementById("hp-request-id");
+    if (idEl && !idEl.value) idEl.value = makeRequestId();
+    const requestId = val("hp-request-id");
+    const subject = `InfoparkDaily Recruit — ${requestId} — ${val("hp-company")} — ${val("hp-role")}`;
+    const subjEl = document.getElementById("hp-subject");
+    if (subjEl) subjEl.value = subject;
     const body = buildBody();
     const payload = {
+      request_id: requestId,
+      intent: val("hp-intent"),
+      campaign: val("hp-campaign"),
       name: val("hp-name"),
       designation: val("hp-designation"),
       channel: val("hp-channel"),
@@ -381,19 +513,35 @@
       website: val("hp-website"),
       linkedin: val("hp-linkedin"),
       role: val("hp-role"),
+      extra_roles: extraRoles().join(" | "),
       vacancies: val("hp-vacancies"),
       experience: val("hp-experience"),
       jobtype: val("hp-jobtype"),
+      workmode: val("hp-workmode"),
+      category: val("hp-category"),
+      skills: val("hp-skills"),
       deadline: deadlineForPayload(),
-      salary: val("hp-salary"),
+      salary: salaryPayload(),
+      apply_via: val("hp-apply-via"),
       apply: val("hp-apply"),
       apply_link: val("hp-apply-link"),
       walkin: val("hp-walkin"),
       details: val("hp-details"),
+      logo: fileName("hp-logo"),
+      poster: fileName("hp-poster"),
       _subject: subject
     };
 
     setStatus("Sending…");
+    saveCompanyProfile();
+    saveSubmission({
+      id: requestId,
+      company: payload.company,
+      role: payload.role,
+      intent: payload.intent,
+      status: "submitted",
+      createdAt: new Date().toISOString()
+    });
 
     if (FORMSPREE_ENDPOINT) {
       try {
@@ -403,16 +551,7 @@
           body: JSON.stringify(payload)
         });
         if (!res.ok) throw new Error("Request failed");
-        form.reset();
-        refreshDeadlineMin();
-        applyChannelValidity();
-        applyPhoneValidity();
-        applyApplyValidity();
-        applyWebsiteValidity();
-        applyLinkValidity();
-        applyLinkedInValidity();
-        setStatus("");
-        showSuccessToast("Recruit request submitted successfully.", true);
+        finishSuccess(requestId);
         return;
       } catch (_e) {
         setStatus("Couldn’t send online. Opening your email app instead…", true);
@@ -421,7 +560,273 @@
 
     const mailto = `mailto:${MAILTO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
-    setStatus("");
-    showSuccessToast("Recruit request ready — send the email to complete.", true);
+    finishSuccess(requestId);
   });
+
+  function finishSuccess(requestId) {
+    setStatus("");
+    showSuccessToast("Recruit request submitted. Keep your request ID.", false);
+    const success = document.getElementById("rq-success");
+    const idLabel = document.getElementById("rq-success-id");
+    const track = document.getElementById("rq-track-link");
+    const body = form.querySelector(".recruit-form-body");
+    const head = form.querySelector(".recruit-form-head");
+    const foot = form.querySelector(".recruit-form-foot");
+    if (idLabel) idLabel.textContent = requestId;
+    if (track) track.href = `/recruit/track/?id=${encodeURIComponent(requestId)}`;
+    if (success) success.hidden = false;
+    if (body) body.hidden = true;
+    if (head) head.hidden = true;
+    if (foot) foot.hidden = true;
+    success && success.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  /* ----- wizard / product chrome ----- */
+  const STEPS = ["rq-step-contact", "rq-step-company", "rq-step-role", "rq-step-apply", "rq-step-preview"];
+  let step = 0;
+
+  function goStep(next) {
+    step = Math.max(0, Math.min(STEPS.length - 1, next));
+    STEPS.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.classList.toggle("is-active", i === step);
+    });
+    document.querySelectorAll("#rq-progress li").forEach((li, i) => {
+      li.classList.toggle("is-active", i === step);
+      li.classList.toggle("is-done", i < step);
+      li.setAttribute("aria-current", i === step ? "step" : "false");
+    });
+    const back = document.getElementById("rq-back");
+    const nextBtn = document.getElementById("rq-next");
+    const submitBtn = document.getElementById("rq-submit");
+    if (back) back.hidden = step === 0;
+    if (nextBtn) nextBtn.hidden = step === STEPS.length - 1;
+    if (submitBtn) submitBtn.hidden = step !== STEPS.length - 1;
+    if (step === STEPS.length - 1) renderPreview();
+  }
+
+  function validateCurrentStep() {
+    const id = STEPS[step];
+    const root = document.getElementById(id);
+    if (!root) return true;
+    const fields = root.querySelectorAll("input, select, textarea");
+    for (const el of fields) {
+      if (typeof el.checkValidity === "function" && !el.checkValidity()) {
+        el.reportValidity();
+        return false;
+      }
+    }
+    if (step === 0) {
+      const emailCheck = validateEmail(val("hp-channel"), "Please enter your official work email.");
+      const phoneCheck = validatePhone(val("hp-phone"), "Please enter HR / company phone for verification.");
+      if (!emailCheck.ok) {
+        setStatus(emailCheck.message, true);
+        return false;
+      }
+      if (!phoneCheck.ok) {
+        setStatus(phoneCheck.message, true);
+        return false;
+      }
+    }
+    if (step === 1 && !applyWebsiteValidity()) {
+      setStatus("Please enter a valid company website.", true);
+      return false;
+    }
+    setStatus("");
+    return true;
+  }
+
+  const nextBtn = document.getElementById("rq-next");
+  const backBtn = document.getElementById("rq-back");
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      if (!validateCurrentStep()) return;
+      goStep(step + 1);
+    });
+  }
+  if (backBtn) backBtn.addEventListener("click", () => goStep(step - 1));
+
+  document.querySelectorAll("#rq-progress li").forEach((li, i) => {
+    li.addEventListener("click", () => {
+      if (i < step) goStep(i);
+    });
+  });
+
+  function setCampaign(value) {
+    const next = value || "listing";
+    const hidden = document.getElementById("hp-campaign");
+    const pick = document.getElementById("hp-campaign-pick");
+    if (hidden) hidden.value = next;
+    if (pick) pick.value = next;
+    document.querySelectorAll(".rq-pkg").forEach((el) => {
+      const on = el.dataset.package === next;
+      el.classList.toggle("is-active", on);
+      el.setAttribute("aria-selected", on ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll(".rq-pkg").forEach((btn) => {
+    btn.addEventListener("click", () => setCampaign(btn.dataset.package || "listing"));
+  });
+
+  document.querySelectorAll(".rq-path").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const intent = btn.dataset.intent || "job";
+      document.querySelectorAll(".rq-path").forEach((el) => el.classList.toggle("is-active", el === btn));
+      const intentEl = document.getElementById("hp-intent");
+      if (intentEl) intentEl.value = intent;
+      const jobtype = document.getElementById("hp-jobtype");
+      const vac = document.getElementById("hp-vacancies");
+      if (intent === "walkin" && jobtype) jobtype.value = "Walk-in";
+      if (intent === "mass" && vac && !vac.value) vac.placeholder = "100+";
+      if (intent === "campaign") setCampaign("social");
+      if (intent === "mass") setCampaign("mass-campaign");
+      if (intent === "job") setCampaign("listing");
+      if (intent === "walkin") setCampaign("listing");
+      toggleWalkin();
+      document.getElementById("post-job")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  const campPick = document.getElementById("hp-campaign-pick");
+  if (campPick) {
+    campPick.addEventListener("change", () => setCampaign(campPick.value));
+  }
+
+  function toggleWalkin() {
+    const panel = document.getElementById("hp-walkin-panel");
+    const show = val("hp-jobtype") === "Walk-in" || val("hp-intent") === "walkin";
+    if (panel) panel.hidden = !show;
+  }
+  const jobtypeEl = document.getElementById("hp-jobtype");
+  if (jobtypeEl) jobtypeEl.addEventListener("change", toggleWalkin);
+
+  const emailEl = document.getElementById("hp-channel");
+  const emailWarn = document.getElementById("hp-email-warn");
+  function checkPersonalEmail() {
+    const raw = val("hp-channel").toLowerCase();
+    const personal = /@(gmail|yahoo|outlook|hotmail|icloud|rediffmail)\./i.test(raw);
+    if (emailWarn) emailWarn.hidden = !personal;
+  }
+  if (emailEl) {
+    emailEl.addEventListener("input", checkPersonalEmail);
+    emailEl.addEventListener("blur", checkPersonalEmail);
+  }
+
+  document.querySelectorAll(".rq-skill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("is-on");
+      syncSkillsHidden();
+    });
+  });
+  const skillsExtra = document.getElementById("hp-skills-extra");
+  if (skillsExtra) skillsExtra.addEventListener("input", syncSkillsHidden);
+
+  function syncSalaryMode() {
+    const range = document.getElementById("hp-salary-range");
+    const mode = (form.querySelector('input[name="salary_mode"]:checked') || {}).value;
+    if (range) range.hidden = mode === "hidden";
+    syncSalaryHidden();
+  }
+  form.querySelectorAll('input[name="salary_mode"]').forEach((el) => el.addEventListener("change", syncSalaryMode));
+  ["hp-salary-min", "hp-salary-max", "hp-salary-nego"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", syncSalaryHidden);
+    if (el) el.addEventListener("change", syncSalaryHidden);
+  });
+
+  const addRoleBtn = document.getElementById("hp-add-role");
+  const extraList = document.getElementById("hp-extra-roles-list");
+  if (addRoleBtn && extraList) {
+    addRoleBtn.addEventListener("click", () => {
+      const n = extraList.querySelectorAll("[data-extra-role]").length + 2;
+      const label = document.createElement("label");
+      label.className = "hiring-field";
+      label.innerHTML = `<span class="rq-label">Role ${n}</span><input data-extra-role type="text" placeholder="e.g. QA Engineer" />`;
+      extraList.appendChild(label);
+    });
+  }
+
+  const savedBtn = document.getElementById("hp-use-saved-company");
+  try {
+    const saved = JSON.parse(localStorage.getItem(COMPANY_KEY) || "null");
+    if (saved && saved.company && savedBtn) {
+      savedBtn.hidden = false;
+      savedBtn.addEventListener("click", () => {
+        const map = {
+          "hp-company": saved.company,
+          "hp-park": saved.park,
+          "hp-location": saved.location,
+          "hp-website": saved.website,
+          "hp-linkedin": saved.linkedin
+        };
+        Object.entries(map).forEach(([id, value]) => {
+          const el = document.getElementById(id);
+          if (el && value) el.value = value;
+        });
+      });
+    }
+  } catch (_e) {
+    /* ignore */
+  }
+
+  function renderPreview() {
+    syncSalaryHidden();
+    syncWalkinHidden();
+    syncSkillsHidden();
+    const card = document.getElementById("rq-preview-card");
+    if (!card) return;
+    const extras = extraRoles();
+    card.innerHTML = `
+      <p class="rq-preview-kicker">${escapeText(val("hp-company") || "Company")}</p>
+      <h3>${escapeText(val("hp-role") || "Role")}</h3>
+      <p class="rq-preview-meta">${[
+        val("hp-park"),
+        val("hp-workmode"),
+        val("hp-jobtype"),
+        val("hp-experience"),
+        salaryPayload()
+      ]
+        .filter(Boolean)
+        .map(escapeText)
+        .join(" · ")}</p>
+      ${val("hp-skills") ? `<p><strong>Skills</strong> ${escapeText(val("hp-skills"))}</p>` : ""}
+      ${extras.length ? `<p><strong>Also hiring</strong> ${escapeText(extras.join(" · "))}</p>` : ""}
+      <p><strong>Apply</strong> ${escapeText(val("hp-apply") || "—")} ${val("hp-apply-link") ? " · " + escapeText(val("hp-apply-link")) : ""}</p>
+      <p><strong>Deadline</strong> ${escapeText(deadlineForPayload())}</p>
+      ${val("hp-walkin") ? `<p><strong>Walk-in</strong> ${escapeText(val("hp-walkin"))}</p>` : ""}
+      <p class="rq-preview-details">${escapeText(val("hp-details")).replace(/\n/g, "<br>")}</p>
+    `;
+    const dup = document.getElementById("rq-dup-warn");
+    if (dup) {
+      let previous = [];
+      try {
+        previous = JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
+      } catch (_e) {
+        previous = [];
+      }
+      const hit = previous.find(
+        (item) =>
+          String(item.company || "").toLowerCase() === val("hp-company").toLowerCase() &&
+          String(item.role || "").toLowerCase() === val("hp-role").toLowerCase()
+      );
+      dup.hidden = !hit;
+      if (hit) {
+        dup.textContent = `A similar opening from this company was already submitted (${hit.id}). You can still create a new vacancy if this is a different req.`;
+      }
+    }
+  }
+
+  function escapeText(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  goStep(0);
+  toggleWalkin();
+  syncSalaryMode();
 })();

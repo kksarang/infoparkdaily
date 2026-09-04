@@ -110,7 +110,7 @@
 
 /* ===== ATS page ===== */
 .ats-page {
-  width: min(1100px, calc(100% - 1.5rem));
+  width: var(--container);
   margin-inline: auto;
   padding: 0.85rem 0 2.5rem;
 }
