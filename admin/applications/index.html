@@ -214,9 +214,9 @@
           otherwise from this browser’s localStorage mirror.
         </p>
         <p class="admin-hint" id="admin-setup-hint">
-          To email applications <strong>with the resume attached</strong>, FormSubmit is enabled by default
-          (first submission may send an activation link to
-          <strong>infoparkstorieskochi@gmail.com</strong> — click Activate once).
+          To email applications <strong>with the resume attached</strong>, FormSubmit is active
+          (multipart POST to the activated form id, inbox
+          <strong>infoparkstorieskochi@gmail.com</strong>).
           For Drive storage + Sheets, deploy
           <code>scripts/applications-api.gs</code> and paste the URL into
           <code>data/applications-config.js</code> → <code>IPD_APPLICATIONS_API</code>.
@@ -242,8 +242,8 @@
       </section>
     </div>
 
-    <script src="/data/applications-config.js?v=20260904c"></script>
-    <script src="/js/job-apply.js?v=20260904c"></script>
+    <script src="/data/applications-config.js?v=20260904d"></script>
+    <script src="/js/job-apply.js?v=20260904d"></script>
     <script>
       (function () {
         const listEl = document.getElementById("app-list");
