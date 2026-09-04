@@ -8,6 +8,32 @@
     <meta name="theme-color" content="#0b0b0f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -17,7 +43,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260902a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
     <style>
       .admin-page {
         width: min(860px, 94vw);
@@ -126,18 +152,17 @@
         }
       }
     </style>
-    <script>
-      (function () {
-        try {
-          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
-          else document.documentElement.classList.add("theme-dark");
-        } catch (_e) {
-          document.documentElement.classList.add("theme-dark");
-        }
-      })();
-    </script>
+    
   </head>
   <body class="dark">
+    <script>
+      (function () {
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
+      })();
+    </script>
+
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -148,6 +173,7 @@
         </div>
       </a>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="/admin/applications/">Applications</a>
         <a href="/recruit/">Recruit</a>
         <a href="/jobs/" aria-current="page">Jobs</a>
         <a href="/news/">News</a>
@@ -168,6 +194,8 @@
         <p>
           Fill the fields below to generate a ready-to-paste job object. Vacancies of
           <strong>100+</strong> automatically enable the yellow badge, ribbon, and High Volume Hiring strip.
+          Manage candidate submissions in
+          <a href="/admin/applications/">Admin → Applications</a>.
         </p>
 
         <form id="job-composer" class="admin-grid" autocomplete="off">
@@ -279,7 +307,7 @@
       </section>
     </main>
 
-    <script src="/js/site.js?v=20260819a" defer></script>
+    <script src="/js/site.js?v=20260904e" defer></script>
     <script>
       (function () {
         const form = document.getElementById("job-composer");

@@ -1,0 +1,156 @@
+/* Premium recruiter console — Post a job */
+body.recruit-body {
+  --rq-blue: #1d4ed8;
+  --rq-soft: #eff6ff;
+}
+
+body.recruit-body .recruit-page {
+  width: min(1120px, var(--container));
+}
+
+body.recruit-body .recruit-hero {
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.16), transparent 42%),
+    linear-gradient(160deg, #f8fafc, #eff6ff 55%, #fff);
+  border: 1px solid #dbeafe;
+}
+
+html.theme-dark body.recruit-body .recruit-hero,
+body.recruit-body.dark .recruit-hero {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.22), transparent 42%),
+    var(--surface);
+  border-color: var(--line);
+}
+
+body.recruit-body .recruit-hero h1 {
+  font-family: var(--display);
+}
+
+body.recruit-body .recruit-kicker {
+  display: inline-flex;
+  padding: 0.28rem 0.7rem;
+  border-radius: 8px;
+  background: var(--rq-blue);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+body.recruit-body .recruit-workspace {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(240px, 0.7fr);
+  gap: 1.1rem;
+  align-items: start;
+}
+
+body.recruit-body .recruit-form-head,
+body.recruit-body .recruit-form,
+body.recruit-body .recruit-rail-panel,
+body.recruit-body .recruit-rules {
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+body.recruit-body .recruit-form-head {
+  padding: 1.15rem 1.2rem;
+  background: #fff;
+}
+
+html.theme-dark body.recruit-body .recruit-form-head,
+body.recruit-body.dark .recruit-form-head {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+body.recruit-body .recruit-form-badge {
+  background: #dbeafe;
+  color: var(--rq-blue);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-weight: 750;
+}
+
+body.recruit-body .recruit-form {
+  padding: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+html.theme-dark body.recruit-body .recruit-form,
+body.recruit-body.dark .recruit-form {
+  background: var(--surface);
+}
+
+body.recruit-body .recruit-fieldset {
+  margin: 0;
+  padding: 1.2rem 1.2rem 1.35rem;
+  border: 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.recruit-body .recruit-fieldset legend {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 0 0.85rem;
+  float: none;
+}
+
+body.recruit-body .recruit-step-index {
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 10px;
+  background: var(--rq-blue);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+body.recruit-body .hiring-field span,
+body.recruit-body .hiring-field {
+  font-size: 0.88rem;
+}
+
+body.recruit-body .hiring-field input,
+body.recruit-body .hiring-field select,
+body.recruit-body .hiring-field textarea {
+  min-height: 46px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+}
+
+body.recruit-body .recruit-form-foot {
+  position: sticky;
+  bottom: 0;
+  padding: 0.95rem 1.2rem;
+  background: color-mix(in srgb, var(--surface, #fff) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid #e2e8f0;
+}
+
+body.recruit-body .recruit-form-foot .btn-primary {
+  background: var(--rq-blue);
+  border: 0;
+  border-radius: 999px;
+  min-height: 46px;
+  padding-inline: 1.35rem;
+}
+
+body.recruit-body .recruit-rail-panel {
+  padding: 1.05rem 1.1rem;
+  background: #f8fafc;
+}
+
+@media (max-width: 900px) {
+  body.recruit-body .recruit-workspace {
+    grid-template-columns: 1fr;
+  }
+}

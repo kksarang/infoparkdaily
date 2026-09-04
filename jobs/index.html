@@ -52,6 +52,32 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -62,25 +88,26 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260902d" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260904w" />
+    <link rel="stylesheet" href="/css/ats-checker.css?v=20260904m" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
       crossorigin="anonymous"
     ></script>
     <meta name="google-adsense-account" content="ca-pub-4593359890362954" />
+    
+  </head>
+  <body class="jobs-body jobs-marketplace dark">
     <script>
       (function () {
-        try {
-          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
-          else document.documentElement.classList.add("theme-dark");
-        } catch (_e) {
-          document.documentElement.classList.add("theme-dark");
-        }
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
       })();
     </script>
-  </head>
-  <body class="jobs-body dark">
+
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -117,161 +144,111 @@
     </header>
 
     <main id="main-content" class="jobs-page">
-      <section class="jobs-hero" aria-labelledby="jobs-hero-title">
-        <div class="jobs-hero-glow" aria-hidden="true"></div>
-        <div class="jobs-hero-copy">
-          <p class="jobs-kicker">Hiring Digest · Infopark Kochi · Technopark TVM</p>
-          <h1 id="jobs-hero-title">
-            Kerala IT Park Jobs
-            <span class="jobs-hero-accent">Infopark &amp; Technopark</span>
-          </h1>
-          <p class="jobs-intro">
-            Latest Infopark Kochi and Technopark Trivandrum openings — fresher roles, experienced hiring, and walk-ins.
-            Filter by location, open vs expired, and category. Always verify on the company / park portal before applying.
-          </p>
-          <div class="jobs-park-cta">
-            <a class="btn btn-primary" href="/jobs/today/">Today Jobs</a>
-            <a class="btn btn-secondary" href="/infopark-jobs/">Infopark Jobs</a>
-            <a class="btn btn-secondary" href="/cyberpark-jobs/">Cyberpark Jobs</a>
-            <a class="btn btn-secondary" href="/technopark-jobs/">Technopark Jobs</a>
-            <a class="btn btn-secondary" href="/companies/">Company directory</a>
-          </div>
-          <div class="jobs-support">
-            <p class="jobs-support-label">Job support · interview help</p>
-            <nav class="jobs-guide-links" aria-label="Job support and interview help">
-              <a href="/guides/how-to-apply-infopark-technopark-jobs/">
-                <span class="jobs-guide-full">How to apply</span>
-                <span class="jobs-guide-short">Apply</span>
-              </a>
-              <a href="/guides/resume-guide-kerala-it-jobs/">
-                <span class="jobs-guide-full">Resume guide</span>
-                <span class="jobs-guide-short">Resume</span>
-              </a>
-              <a href="/guides/interview-preparation-kerala-it/">
-                <span class="jobs-guide-full">Interview prep</span>
-                <span class="jobs-guide-short">Interview</span>
-              </a>
-              <a href="/guides/kerala-it-salary-guide/">
-                <span class="jobs-guide-full">Salary guide</span>
-                <span class="jobs-guide-short">Salary</span>
-              </a>
-              <a href="/guides/fresher-guide-kochi-it-parks/">
-                <span class="jobs-guide-full">Fresher guide</span>
-                <span class="jobs-guide-short">Freshers</span>
-              </a>
-              <a href="/guides/verify-jobs-before-you-apply/">
-                <span class="jobs-guide-full">Verify before you apply</span>
-                <span class="jobs-guide-short">Verify</span>
-              </a>
-              <a href="/guides/">
-                <span class="jobs-guide-full">All guides</span>
-                <span class="jobs-guide-short">Guides</span>
-              </a>
+      <section class="ej-hero" aria-labelledby="jobs-hero-title">
+        <div class="ej-hero-inner">
+          <p class="ej-hero-kicker">Infopark · Technopark · Cyberpark</p>
+          <h1 id="jobs-hero-title">Find a job close to your home</h1>
+          <p class="ej-hero-lead">Search verified openings across Kerala’s IT parks — then filter by type, deadline, and company.</p>
+
+          <form class="ej-search-bar" action="/jobs/" method="get" role="search">
+            <label class="ej-search-field ej-search-field--query">
+              <span class="ej-field-label">Search</span>
+              <span class="ej-field-control">
+                <svg class="jobs-search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                </svg>
+                <input
+                  id="jobs-search"
+                  class="jobs-search"
+                  type="search"
+                  name="q"
+                  placeholder="Job title, skill, or company"
+                  autocomplete="off"
+                />
+              </span>
+            </label>
+            <label class="ej-search-field ej-search-field--location">
+              <span class="ej-field-label">Location</span>
+              <span class="ej-field-control">
+                <select id="jobs-location" class="jobs-sort" aria-label="Location">
+                  <option value="all" selected>All locations</option>
+                </select>
+              </span>
+            </label>
+            <button class="ej-search-submit" type="submit">Search jobs</button>
+          </form>
+
+          <div class="ej-hero-meta">
+            <ul class="ej-hero-stats" aria-label="Digest snapshot">
+              <li>
+                <a class="jobs-stat-link" href="/companies/">
+                  <strong id="stat-companies">0</strong>
+                  listings
+                </a>
+              </li>
+              <li><strong id="stat-roles">0</strong> open roles</li>
+              <li><strong id="stat-freshers">0</strong> fresher-friendly</li>
+              <li><strong id="stat-closing">0</strong> closing this week</li>
+            </ul>
+            <nav class="ej-hero-links" aria-label="Park job boards">
+              <a href="/jobs/today/">Today</a>
+              <a href="/infopark-jobs/">Infopark</a>
+              <a href="/technopark-jobs/">Technopark</a>
+              <a href="/cyberpark-jobs/">Cyberpark</a>
+              <a href="/ats-checker/">ATS Checker</a>
+              <a href="/companies/">Companies</a>
             </nav>
           </div>
-          <ul class="jobs-hero-stats" aria-label="Digest snapshot">
-            <li>
-              <a class="jobs-stat-link" href="/companies/">
-                <strong id="stat-companies">0</strong>
-                <span>Companies</span>
-              </a>
-            </li>
-            <li>
-              <strong id="stat-roles">0</strong>
-              <span>Open roles</span>
-            </li>
-            <li>
-              <strong id="stat-freshers">0</strong>
-              <span>Fresher-friendly</span>
-            </li>
-            <li>
-              <strong id="stat-closing">0</strong>
-              <span>Closing this week</span>
-            </li>
-          </ul>
-        </div>
-        <aside class="jobs-hero-panel jobs-hero-visual" aria-hidden="true">
-          <lottie-player
-            class="jobs-hero-lottie"
-            src="/assets/lottie/job-search.json?v=20260802sd"
-            background="transparent"
-            speed="1"
-            loop
-            autoplay
-          ></lottie-player>
-        </aside>
-      </section>
-
-      <section class="content-section jobs-companies-section" aria-labelledby="jobs-companies-title">
-        <div class="jobs-companies-card glass">
-          <div class="jobs-companies-copy">
-            <p class="jobs-kicker">Official park tenants</p>
-            <h2 id="jobs-companies-title">Browse the company directory</h2>
-            <p class="jobs-companies-lead">
-              Every listed company at Infopark, Technopark, and Cyberpark — profiles, contact details, and job links from official park listings.
-            </p>
-          </div>
-          <div class="jobs-companies-actions">
-            <a class="btn btn-primary" href="/companies/">All companies</a>
-            <a class="btn btn-secondary" href="/companies/?park=infopark">Infopark</a>
-            <a class="btn btn-secondary" href="/companies/?park=technopark">Technopark</a>
-            <a class="btn btn-secondary" href="/companies/?park=cyberpark">Cyberpark</a>
-          </div>
         </div>
       </section>
 
+      <section class="ej-board" id="job-listings" aria-label="Job listings">
+      <aside class="ej-filters" id="jobs-filters-sheet">
+        <div class="ej-filters-head">
+          <div>
+            <h2>Filters</h2>
+            <p id="jobs-filter-count" class="ej-filter-meta">0 filters applied</p>
+          </div>
+          <div class="ej-filters-head-actions">
+            <button type="button" id="jobs-clear" class="ej-clear-btn">Clear all</button>
+            <button type="button" id="jobs-filter-done" class="ej-filter-done">Done</button>
+          </div>
+        </div>
       <section class="content-section jobs-controls-section">
         <div class="jobs-toolbar glass">
-          <div class="jobs-toolbar-row jobs-toolbar-row--top">
-            <label class="jobs-search-label">
-              <span class="visually-hidden">Search jobs</span>
-              <svg class="jobs-search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <circle cx="11" cy="11" r="7"></circle>
-                <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
-              </svg>
-              <input
-                id="jobs-search"
-                class="jobs-search"
-                type="search"
-                placeholder="Search company, role, skill, or location…"
-                autocomplete="off"
-              />
-            </label>
-            <label class="jobs-select-label">
-              <span class="jobs-select-caption">Location</span>
-              <select id="jobs-location" class="jobs-sort">
-                <option value="all" selected>All locations</option>
-              </select>
-            </label>
-            <label class="jobs-select-label jobs-company-combobox">
-              <span class="jobs-select-caption">Company</span>
-              <input
-                id="jobs-company"
-                class="jobs-sort"
-                type="search"
-                placeholder="Type company name…"
-                autocomplete="off"
-                spellcheck="false"
-                aria-autocomplete="list"
-                aria-controls="jobs-company-suggest"
-                aria-expanded="false"
-                aria-describedby="jobs-company-hint"
-              />
-              <ul id="jobs-company-suggest" class="jobs-company-suggest" role="listbox" hidden></ul>
-            </label>
-            <label class="jobs-select-label">
-              <span class="jobs-select-caption">Sort by</span>
-              <select id="jobs-sort" class="jobs-sort">
-                <option value="newest" selected>Date of Posting (newest)</option>
-                <option value="deadline">Deadline soonest</option>
-                <option value="closing">Closing soon first</option>
-                <option value="company">Company A–Z</option>
-                <option value="roles">Most open roles</option>
-              </select>
-            </label>
+          <div class="ej-filter-block">
+            <div class="jobs-toolbar-row jobs-toolbar-row--top">
+              <label class="jobs-select-label jobs-company-combobox">
+                <span class="jobs-select-caption">Company</span>
+                <input
+                  id="jobs-company"
+                  class="jobs-sort"
+                  type="search"
+                  placeholder="Type company name…"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-autocomplete="list"
+                  aria-controls="jobs-company-suggest"
+                  aria-expanded="false"
+                  aria-describedby="jobs-company-hint"
+                />
+                <ul id="jobs-company-suggest" class="jobs-company-suggest" role="listbox" hidden></ul>
+              </label>
+              <label class="jobs-select-label">
+                <span class="jobs-select-caption">Sort by</span>
+                <select id="jobs-sort" class="jobs-sort">
+                  <option value="newest" selected>Date of Posting (newest)</option>
+                  <option value="deadline">Deadline soonest</option>
+                  <option value="closing">Closing soon first</option>
+                  <option value="company">Company A–Z</option>
+                  <option value="roles">Most open roles</option>
+                </select>
+              </label>
+            </div>
           </div>
 
-          <div class="jobs-filter-group">
+          <div class="ej-filter-block jobs-filter-group">
             <p class="jobs-filter-caption">Experience &amp; type</p>
             <div
               id="jobs-filters"
@@ -292,8 +269,8 @@
             </div>
           </div>
 
-          <div class="jobs-filter-group">
-            <p class="jobs-filter-caption">Deadline status <span class="jobs-filter-hint">(default = Open only)</span></p>
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Deadline status</p>
             <div
               id="jobs-status"
               class="jobs-filters"
@@ -307,21 +284,22 @@
             </div>
           </div>
 
-          <div class="jobs-filter-group">
+          <div class="ej-filter-block jobs-filter-group">
             <p class="jobs-filter-caption">Category</p>
             <div id="jobs-tags" class="jobs-tags" role="group" aria-label="Filter by category"></div>
           </div>
 
           <div class="jobs-toolbar-foot">
             <p id="jobs-count" class="jobs-count" aria-live="polite"></p>
-            <button type="button" id="jobs-clear" class="jobs-clear-btn" hidden>Clear all filters</button>
           </div>
           <p id="jobs-share-hint" class="jobs-share-hint" hidden>
             Share this filtered view — the page URL updates when you pick a company.
           </p>
         </div>
       </section>
+      </aside>
 
+      <div class="ej-listings">
       <section
         id="jobs-mass-hiring"
         class="content-section jobs-mass-hiring-section"
@@ -351,7 +329,26 @@
           </p>
         </div>
         <aside class="jobs-ad ipd-ad-slot" id="jobs-ad-slot" data-ad-slot="jobs-listing" hidden aria-hidden="true"></aside>
+        <div class="ej-listings-head">
+          <div class="ej-listings-head-copy">
+            <h2 class="ej-listings-title">Open roles</h2>
+            <p class="ej-listings-note">Live / Closing / Expired status · open a card for full details</p>
+          </div>
+          <button type="button" id="jobs-filter-open" class="ej-filter-open-btn" aria-controls="jobs-filters-sheet" aria-expanded="false">
+            Filters
+            <span id="jobs-filter-fab-count" class="ej-fab-count" hidden>0</span>
+          </button>
+        </div>
         <div id="jobs-grid" class="jobs-grid"></div>
+        <div class="ej-ats-slot">
+          <a class="ej-ats-banner ej-ats-banner--compact" href="/ats-checker/">
+            <div>
+              <h2>Will your resume pass ATS?</h2>
+              <p>Free local score - missing keywords - formatting tips</p>
+              <span class="ej-ats-cta">Analyze my resume</span>
+            </div>
+          </a>
+        </div>
         <p id="jobs-empty" class="jobs-empty glass" hidden>
           No listings match — check back soon or follow our
           <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
@@ -359,6 +356,87 @@
         </p>
         <div class="jobs-load-more-wrap">
           <button type="button" id="jobs-load-more" class="btn btn-secondary" hidden>Load more</button>
+        </div>
+      </section>
+      </div>
+      </section>
+
+      <section class="ej-section ej-section--secondary" aria-labelledby="ej-how-title">
+        <h2 id="ej-how-title">How it works</h2>
+        <div class="ej-how">
+          <article class="ej-how-card ej-how-card--1"><span>1</span><strong>Browse verified openings</strong><p>Infopark, Technopark, and Cyberpark jobs in one place.</p></article>
+          <article class="ej-how-card ej-how-card--2"><span>2</span><strong>Filter near you</strong><p>Pick park, city, experience, and job type.</p></article>
+          <article class="ej-how-card ej-how-card--3"><span>3</span><strong>Open details &amp; apply</strong><p>Check Live / Expired status, verify with the company, then apply.</p></article>
+          <article class="ej-how-card ej-how-card--4"><span>4</span><strong>Get hired &amp; grow</strong><p>Use our guides for resume, interview, and salary prep.</p></article>
+        </div>
+      </section>
+
+      <section class="ej-section ej-section--secondary" aria-labelledby="ej-cat-title">
+        <h2 id="ej-cat-title">Explore jobs by category</h2>
+        <div id="jobs-category-browse" class="ej-cats"></div>
+      </section>
+
+      <section class="ej-section ej-section--secondary" aria-labelledby="ej-loc-title">
+        <h2 id="ej-loc-title">Find jobs near your location</h2>
+        <div id="jobs-location-browse" class="ej-locs"></div>
+      </section>
+
+      <section class="ej-section ej-hire ej-section--secondary" aria-labelledby="ej-hire-title">
+        <div class="ej-hire-copy">
+          <p class="ej-hire-kicker">For recruiters</p>
+          <h2 id="ej-hire-title">Want to hire?</h2>
+          <p class="ej-hire-lead">
+            Share vacancies with Kerala’s largest tech community. Post a role, reach park talent, and manage hiring from one request.
+          </p>
+          <ul class="ej-hire-list">
+            <li>Reach Infopark, Technopark, and Cyberpark talent</li>
+            <li>Simple recruit request for founders &amp; HR</li>
+            <li>Walk-ins, internships, and full-time roles</li>
+            <li>Listed after a quick review</li>
+          </ul>
+          <div class="ej-hire-actions">
+            <a class="btn ej-hire-cta" href="/recruit/">Post a job</a>
+            <a class="ej-hire-secondary" href="/contact/">Talk to us</a>
+          </div>
+        </div>
+        <aside class="ej-hire-panel" aria-label="Hiring highlights">
+          <p class="ej-hire-panel-kicker">Why post here</p>
+          <ul class="ej-hire-panel-stats">
+            <li>
+              <strong>55K+</strong>
+              <span>community reach</span>
+            </li>
+            <li>
+              <strong>3 parks</strong>
+              <span>Infopark · Technopark · Cyberpark</span>
+            </li>
+            <li>
+              <strong>Fast listing</strong>
+              <span>Reviewed and published quickly</span>
+            </li>
+            <li>
+              <strong>Direct apply</strong>
+              <span>Candidates open official links</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="content-section jobs-companies-section" aria-labelledby="jobs-companies-title">
+        <div class="jobs-companies-card glass">
+          <div class="jobs-companies-copy">
+            <p class="jobs-kicker">Official park tenants</p>
+            <h2 id="jobs-companies-title">Browse the company directory</h2>
+            <p class="jobs-companies-lead">
+              Every listed company at Infopark, Technopark, and Cyberpark — profiles, contact details, and job links from official park listings.
+            </p>
+          </div>
+          <div class="jobs-companies-actions">
+            <a class="btn btn-primary" href="/companies/">All companies</a>
+            <a class="btn btn-secondary" href="/companies/?park=infopark">Infopark</a>
+            <a class="btn btn-secondary" href="/companies/?park=technopark">Technopark</a>
+            <a class="btn btn-secondary" href="/companies/?park=cyberpark">Cyberpark</a>
+          </div>
         </div>
       </section>
 
@@ -419,6 +497,8 @@
 
       <div class="ipd-disclaimer-mount" data-ipd-disclaimer="full"></div>
     </main>
+
+    <div id="jobs-filter-overlay" class="ej-filter-overlay" hidden></div>
 
     <aside id="jobs-sticky-cta" class="jobs-sticky-cta" aria-label="Job alerts">
       <div class="jobs-sticky-copy">
@@ -521,10 +601,10 @@
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
-    <script src="/js/site.js?v=20260819a" defer></script>
+    <script src="/js/site.js?v=20260904e" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/data/jobs-data.js?v=20260902b" defer></script>
-    <script src="/js/jobs.js?v=20260805p" defer></script>
+    <script src="/data/jobs-data.js?v=20260904b" defer></script>
+    <script src="/js/jobs.js?v=20260904s" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

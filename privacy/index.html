@@ -20,6 +20,32 @@
     <link rel="canonical" href="https://infoparkdaily.online/privacy/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -30,19 +56,18 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260902a" />
-    <script>
-      (function () {
-        try {
-          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
-          else document.documentElement.classList.add("theme-dark");
-        } catch (_e) {
-          document.documentElement.classList.add("theme-dark");
-        }
-      })();
-    </script>
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    
   </head>
   <body class="jobs-body dark">
+    <script>
+      (function () {
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
+      })();
+    </script>
+
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -217,8 +242,10 @@
         </p>
         <ul class="job-detail-bullets">
           <li>
-            We are <strong>not the employer</strong>. We do not receive your resume for company hiring unless you
-            choose to email our community inbox for a separate support reason.
+            We are <strong>not the employer</strong>. For most jobs, we do not receive your resume unless you
+            choose to email our community inbox for a separate support reason. For selected listings with an
+            on-site InfoparkDaily application form, we collect your application (including resume) to review and
+            forward for that opening.
           </li>
           <li>
             Because listings are compiled from outside websites, people, and social channels, we
@@ -306,9 +333,16 @@
             similar preferences on the device.
           </li>
           <li>
-            We do <strong>not</strong> ask candidates to upload a resume to InfoparkDaily <em>in order to apply
-            for a company job</em>. Applications go to company portals. Resume creating in the mobile app is a
-            helper so you can prepare your own CV.
+            For most listings, we do <strong>not</strong> ask candidates to upload a resume to InfoparkDaily
+            <em>in order to apply for a company job</em> — you apply on the employer’s official channel. Resume
+            creating in the mobile app is a helper so you can prepare your own CV.
+          </li>
+          <li>
+            <strong>Selected on-site apply jobs:</strong> when a job page shows an InfoparkDaily application form,
+            we may collect your name, email, phone, location, experience, portfolio / LinkedIn URL, resume file,
+            and optional note. We store those details for hiring review and email a cover letter (with your
+            details) to our official inbox (<a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>).
+            We do not charge candidates to apply. You can ask us to delete an application we still hold, where practical.
           </li>
         </ul>
       </section>
@@ -577,7 +611,7 @@
 
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
-    <script src="/js/site.js?v=20260819a" defer></script>
+    <script src="/js/site.js?v=20260904e" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
   </body>
 </html>

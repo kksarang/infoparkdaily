@@ -20,6 +20,32 @@
     <link rel="canonical" href="https://infoparkdaily.online/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
@@ -30,17 +56,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260902a" />
-    <script>
-      (function () {
-        try {
-          if (localStorage.getItem("ipd-theme") === "light") document.documentElement.classList.add("theme-light");
-          else document.documentElement.classList.add("theme-dark");
-        } catch (_e) {
-          document.documentElement.classList.add("theme-dark");
-        }
-      })();
-    </script>
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    <link rel="stylesheet" href="/css/job-detail-premium.css?v=20260904j" />
+    <link rel="stylesheet" href="/css/company-premium.css?v=20260904d" />
+    
     <script>
       (function () {
         var path = window.location.pathname || "";
@@ -57,6 +76,14 @@
     </script>
   </head>
   <body class="jobs-body dark">
+    <script>
+      (function () {
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
+      })();
+    </script>
+
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header glass">
       <a class="brand" href="/" aria-label="Infopark Daily home">
@@ -179,13 +206,15 @@
 
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
-    <script src="/js/site.js?v=20260819a" defer></script>
-    <script src="/data/jobs-data.js?v=20260902b" defer></script>
+    <script src="/js/site.js?v=20260904e" defer></script>
+    <script src="/data/jobs-data.js?v=20260904b" defer></script>
+    <script src="/data/applications-config.js?v=20260904a" defer></script>
     <script src="/data/infopark-companies-data.js?v=20260830d" defer></script>
     <script src="/data/technopark-companies-data.js?v=20260830d" defer></script>
     <script src="/data/cyberpark-companies-data.js?v=20260830d" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/js/job.js?v=20260805h" defer></script>
-    <script src="/js/company.js?v=20260830j" defer></script>
+    <script src="/js/job-apply.js?v=20260904b" defer></script>
+    <script src="/js/job.js?v=20260904a" defer></script>
+    <script src="/js/company.js?v=20260904d" defer></script>
   </body>
 </html>

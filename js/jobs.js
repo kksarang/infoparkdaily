@@ -559,7 +559,7 @@
       </div>
     `;
     }
-    return `<div class="job-card-topline job-card-topline--spacer" aria-hidden="true"></div>`;
+    return "";
   }
 
   /** Card preview: short role title only (full details on job page). */
@@ -602,14 +602,31 @@
     return `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(label)}</span>`;
   }
 
-  function factChip(label, value) {
-    const text = String(value || "").trim() || "—";
-    return `
-      <span class="job-fact">
-        <span class="job-fact-label">${escapeHtml(label)}</span>
-        <span class="job-fact-value">${escapeHtml(text)}</span>
-      </span>
-    `;
+  function postedAgo(iso) {
+    const ts = parseIso(iso);
+    if (ts === null) return iso ? `Posted ${formatDate(iso)}` : "";
+    const mins = Math.max(0, Math.round((Date.now() - ts) / 60000));
+    if (mins < 2) return "Posted just now";
+    if (mins < 60) return `Posted ${mins} minutes ago`;
+    const hours = Math.round(mins / 60);
+    if (hours < 24) return `Posted ${hours} hour${hours === 1 ? "" : "s"} ago`;
+    const days = Math.round(hours / 24);
+    if (days < 14) return `Posted ${days} day${days === 1 ? "" : "s"} ago`;
+    return `Posted ${formatDate(iso)}`;
+  }
+
+  function salaryText(job) {
+    const value = String(job.salary || job.salaryRange || "").trim();
+    return value || "Not disclosed";
+  }
+
+  function typeText(job) {
+    const raw = String(job.employmentType || job.workStatus || "Full-time").trim();
+    if (/intern/i.test(raw)) return "Internship";
+    if (/part/i.test(raw)) return "Part Time";
+    if (/contract/i.test(raw)) return "Contract";
+    if (/remote/i.test(raw)) return "Remote";
+    return raw.replace(/-/g, " ");
   }
 
   function renderFeaturedCard(job) {
@@ -681,15 +698,30 @@
     massHiringTrack.innerHTML = featured.map((job) => renderFeaturedCard(job)).join("");
   }
 
+  function factChip(label, value) {
+    const text = String(value || "").trim() || "—";
+    return `
+      <span class="job-fact">
+        <span class="job-fact-label">${escapeHtml(label)}</span>
+        <span class="job-fact-value">${escapeHtml(text)}</span>
+      </span>
+    `;
+  }
+
+  function listingStatusMeta(job) {
+    const status = deadlineStatus(job);
+    if (status === "expired") return { cls: "expired", label: "Expired" };
+    if (status === "closing") return { cls: "closing", label: "Closing soon" };
+    return { cls: "live", label: "Live" };
+  }
+
   function renderCard(job, index) {
     const exp = job.experience || "both";
     const badgeLabel = EXP_LABELS[exp] || EXP_LABELS.both;
     const status = deadlineStatus(job);
     const expired = status === "expired";
     const mass = isMassHiring(job);
-    const companyFoot = job.company
-      ? `<a class="job-source job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a>`
-      : "";
+    const st = listingStatusMeta(job);
     const previewBlurb = cardBlurb(job);
     const roleCount = (job.roles || []).length;
     const modeShort = job.workMode
@@ -698,13 +730,11 @@
     const expShort = shortCardText(job.experienceRange || job.experienceYears || "", 22);
 
     const badges = [
+      `<span class="ej-status ej-status--${st.cls}">${st.label}</span>`,
       expired
         ? `<span class="job-badge job-badge--expired" title="Apply deadline has passed">EXPIRED</span>`
         : "",
       !expired && mass ? massHiringBadgeHtml() : "",
-      !expired && status === "closing"
-        ? `<span class="job-badge job-badge--closing">Closing soon</span>`
-        : "",
       !expired && isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
       !expired && (job.alertSheet || job.urgentHiring)
         ? `<span class="job-badge job-badge--alert${job.urgentHiring ? " job-badge--urgent" : ""}">${escapeHtml(
@@ -734,6 +764,9 @@
       .join("");
 
     const ctaLabel = expired ? "View expired listing" : "View Details";
+    const href = jobHref(job);
+    // Keep blurb short; walk-in timing is useful, long company blurbs clutter mobile cards
+    const mobileBlurb = isWalkInJob(job) ? previewBlurb : "";
 
     return `
       <article
@@ -746,28 +779,26 @@
         <header class="job-card-head">
           ${logoBlock(job)}
           <div class="job-card-meta">
-            <h3><a class="job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company)}</a></h3>
+            <h3><a class="job-company-link" href="${escapeAttr(`/company/${companyKey(job)}/`)}">${escapeHtml(job.company || "Company")}</a></h3>
             <p class="job-location">${escapeHtml(job.location || "")}</p>
           </div>
-          ${deadlinePill(job) || `<span class="job-deadline-pill job-deadline-pill--open job-deadline-pill--spacer" aria-hidden="true">Open</span>`}
         </header>
-        <div class="job-card-tags">${badges}</div>
+        <div class="job-card-tags">${deadlinePill(job) || ""}${badges}</div>
         <div class="job-fact-row">${facts}</div>
         <div class="job-card-body">
           <p class="job-roles-label">${
             roleCount === 1 ? "Open role" : `${roleCount || 1} open roles`
           }</p>
           ${rolesListHtml(job.roles, MAX_ROLES_ON_CARD)}
-          <p class="job-desc">${escapeHtml(previewBlurb || "View details for full role information.")}</p>
         </div>
-        <div class="job-tag-row">${tagChips || `<span class="job-tag-pill job-tag-pill--spacer" aria-hidden="true">&nbsp;</span>`}</div>
+        <div class="job-tag-row">${tagChips || ""}</div>
+        ${
+          mobileBlurb
+            ? `<p class="job-desc">${escapeHtml(shortCardText(mobileBlurb, 72))}</p>`
+            : ""
+        }
         <footer class="job-card-foot">
-          <div class="job-meta-row">
-            ${companyFoot}
-          </div>
-          <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(jobHref(job))}">
-            ${ctaLabel}
-          </a>
+          <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(href)}">${ctaLabel}</a>
         </footer>
       </article>
     `;
@@ -931,7 +962,24 @@
     syncUrlFromFilters();
 
     if (clearBtn) {
-      clearBtn.hidden = !hasActiveFilters();
+      const n = [
+        activeFilter !== "all",
+        activeStatus !== "open",
+        activeTag !== "all",
+        activeLocation !== "all",
+        activeCompany !== "all",
+        Boolean(companyQuery),
+        Boolean(searchQuery)
+      ].filter(Boolean).length;
+      const filterCount = document.getElementById("jobs-filter-count");
+      if (filterCount) filterCount.textContent = `${n} filter${n === 1 ? "" : "s"} applied`;
+      const fabCount = document.getElementById("jobs-filter-fab-count");
+      if (fabCount) {
+        fabCount.hidden = n === 0;
+        fabCount.textContent = String(n);
+      }
+      clearBtn.hidden = false;
+      clearBtn.disabled = n === 0;
     }
 
     if (emptyState) {
@@ -988,6 +1036,86 @@
           )}" aria-pressed="false">${escapeHtml(tag)}</button>`
       )
     ].join("");
+  }
+
+  function categoryIcon(tag) {
+    const t = String(tag || "").toLowerCase();
+    if (t.includes("ai") || t.includes("data")) return "🧠";
+    if (t.includes("design")) return "🎨";
+    if (t.includes("market") || t.includes("sales")) return "📣";
+    if (t.includes("hr") || t.includes("admin")) return "👥";
+    if (t.includes("qa") || t.includes("test")) return "🧪";
+    if (t.includes("cloud") || t.includes("devops")) return "☁️";
+    if (t.includes("it") || t.includes("software") || t.includes("engineer")) return "💻";
+    return "📁";
+  }
+
+  function buildCategoryBrowse() {
+    const root = document.getElementById("jobs-category-browse");
+    if (!root) return;
+    const counts = new Map();
+    JOBS.forEach((job) => {
+      if (deadlineStatus(job) === "expired") return;
+      (job.tags || []).forEach((tag) => {
+        const key = String(tag);
+        counts.set(key, (counts.get(key) || 0) + 1);
+      });
+    });
+    const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
+    root.innerHTML = top
+      .map(
+        ([tag, count]) => `
+        <button type="button" class="ej-cat" data-browse-tag="${escapeAttr(tag.toLowerCase())}">
+          <span class="ej-cat-icon" aria-hidden="true">${categoryIcon(tag)}</span>
+          <strong>${escapeHtml(tag)}</strong>
+          <span>${count}+ jobs</span>
+        </button>`
+      )
+      .join("");
+    root.querySelectorAll("[data-browse-tag]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeTag = btn.dataset.browseTag || "all";
+        if (tagBar) {
+          tagBar.querySelectorAll("[data-tag]").forEach((chip) => {
+            const on = chip.dataset.tag === activeTag;
+            chip.classList.toggle("is-active", on);
+            chip.setAttribute("aria-pressed", on ? "true" : "false");
+          });
+        }
+        document.getElementById("job-listings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        resetVisibleAndRender();
+      });
+    });
+  }
+
+  function buildLocationBrowse() {
+    const root = document.getElementById("jobs-location-browse");
+    if (!root) return;
+    const counts = new Map();
+    JOBS.forEach((job) => {
+      if (deadlineStatus(job) === "expired") return;
+      const region = jobRegion(job);
+      counts.set(region, (counts.get(region) || 0) + 1);
+    });
+    const top = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
+    root.innerHTML = top
+      .map(
+        ([region, count]) => `
+        <button type="button" class="ej-loc" data-browse-loc="${escapeAttr(region)}">
+          <span class="ej-loc-pin" aria-hidden="true">📍</span>
+          <span><strong>${escapeHtml(region)}</strong><span>${count}+ openings</span></span>
+          <span class="ej-loc-chevron" aria-hidden="true">›</span>
+        </button>`
+      )
+      .join("");
+    root.querySelectorAll("[data-browse-loc]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeLocation = btn.dataset.browseLoc || "all";
+        if (locationSelect) locationSelect.value = activeLocation;
+        document.getElementById("job-listings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        resetVisibleAndRender();
+      });
+    });
   }
 
   function buildLocationOptions() {
@@ -1241,6 +1369,30 @@
     clearBtn.addEventListener("click", clearAllFilters);
   }
 
+  const searchForm = document.querySelector(".ej-search-bar");
+  if (searchForm) {
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("job-listings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      resetVisibleAndRender();
+    });
+  }
+
+  (function bindMobileFilters() {
+    const openBtn = document.getElementById("jobs-filter-open");
+    const overlay = document.getElementById("jobs-filter-overlay");
+    const doneBtn = document.getElementById("jobs-filter-done");
+    function setOpen(on) {
+      document.body.classList.toggle("ej-filters-open", on);
+      if (overlay) overlay.hidden = !on;
+      if (openBtn) openBtn.setAttribute("aria-expanded", on ? "true" : "false");
+      document.body.style.overflow = on ? "hidden" : "";
+    }
+    if (openBtn) openBtn.addEventListener("click", () => setOpen(true));
+    if (doneBtn) doneBtn.addEventListener("click", () => setOpen(false));
+    if (overlay) overlay.addEventListener("click", () => setOpen(false));
+  })();
+
   if (loadMoreBtn) {
     loadMoreBtn.addEventListener("click", () => {
       visibleCount += PAGE_SIZE;
@@ -1270,6 +1422,8 @@
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
+  buildCategoryBrowse();
+  buildLocationBrowse();
   buildCompanyOptions();
   applyFiltersFromUrl();
   updateNonITVisibility();

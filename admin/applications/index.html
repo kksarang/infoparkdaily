@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Job Applications | InfoparkDaily Admin</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    <style>
+      .admin-page {
+        width: min(1100px, 94vw);
+        margin: 1.5rem auto 4rem;
+      }
+      .admin-card {
+        padding: 1.4rem 1.35rem 1.5rem;
+        border-radius: var(--radius);
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .admin-card h1 {
+        margin: 0.2rem 0 0.35rem;
+        font-family: var(--display);
+        font-size: clamp(1.45rem, 3vw, 1.9rem);
+      }
+      .admin-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin: 0 0 1rem;
+      }
+      .admin-toolbar {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr auto;
+        gap: 0.65rem;
+        margin: 1rem 0 0.85rem;
+      }
+      .admin-toolbar input,
+      .admin-toolbar select {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--bg-elev);
+        color: var(--text);
+        padding: 0.65rem 0.75rem;
+        font: inherit;
+      }
+      .admin-hint {
+        margin: 0.75rem 0 0;
+        padding: 0.75rem 0.9rem;
+        border-radius: 12px;
+        background: rgba(255, 212, 0, 0.12);
+        border: 1px solid rgba(255, 212, 0, 0.28);
+        color: var(--text);
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+      .admin-meta {
+        margin: 0.35rem 0 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .app-list {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .app-row {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--bg-elev);
+        padding: 0.95rem 1rem;
+        display: grid;
+        gap: 0.55rem;
+      }
+      .app-row-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        align-items: flex-start;
+      }
+      .app-row h2 {
+        margin: 0;
+        font-size: 1.02rem;
+      }
+      .app-row p {
+        margin: 0.15rem 0 0;
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+      .app-badge {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 0.2rem 0.55rem;
+        font-size: 0.72rem;
+        font-weight: 750;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        background: rgba(37, 99, 235, 0.14);
+        color: #93c5fd;
+      }
+      .app-badge--reviewed {
+        background: rgba(34, 197, 94, 0.14);
+        color: #86efac;
+      }
+      .app-badge--shortlisted {
+        background: rgba(234, 179, 8, 0.16);
+        color: #fde047;
+      }
+      .app-badge--rejected {
+        background: rgba(239, 68, 68, 0.14);
+        color: #fca5a5;
+      }
+      .app-facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.45rem 0.75rem;
+        font-size: 0.86rem;
+      }
+      .app-facts span {
+        color: var(--muted);
+        display: block;
+        font-size: 0.72rem;
+      }
+      .app-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        align-items: center;
+      }
+      .app-actions select {
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--text);
+        padding: 0.4rem 0.55rem;
+        font: inherit;
+      }
+      .app-cover {
+        white-space: pre-wrap;
+        font-size: 0.86rem;
+        line-height: 1.5;
+        padding: 0.75rem 0.85rem;
+        border-radius: 12px;
+        border: 1px dashed var(--line);
+        background: var(--surface);
+        max-height: 220px;
+        overflow: auto;
+      }
+      .app-empty {
+        padding: 1.4rem 1rem;
+        text-align: center;
+        color: var(--muted);
+        border: 1px dashed var(--line);
+        border-radius: 14px;
+      }
+      @media (max-width: 800px) {
+        .admin-toolbar {
+          grid-template-columns: 1fr;
+        }
+        .app-facts {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <div class="admin-page">
+      <div class="admin-nav">
+        <a class="btn btn-ghost" href="/admin/post-job/">← Job composer</a>
+        <a class="btn btn-ghost" href="/jobs/">Jobs</a>
+        <a class="btn btn-ghost" href="/job/viewy-digital-designer-creative-content-20260904/#apply">Viewy Designer apply</a>
+      </div>
+
+      <section class="admin-card">
+        <p class="eyebrow">Admin · noindex</p>
+        <h1>Job applications</h1>
+        <p class="admin-meta">
+          Review candidate submissions for on-site apply jobs. Data loads from the Google Apps Script API when configured,
+          otherwise from this browser’s localStorage mirror.
+        </p>
+        <p class="admin-hint" id="admin-setup-hint">
+          To store resumes in Drive and email cover letters to <strong>infoparkstorieskochi@gmail.com</strong>, deploy
+          <code>scripts/applications-api.gs</code> and paste the web app URL into
+          <code>data/applications-config.js</code> → <code>IPD_APPLICATIONS_API</code>.
+        </p>
+
+        <div class="admin-toolbar">
+          <input id="filter-q" type="search" placeholder="Search name, email, company, role…" />
+          <select id="filter-job">
+            <option value="">All jobs</option>
+          </select>
+          <select id="filter-status">
+            <option value="">All statuses</option>
+            <option value="new">New</option>
+            <option value="reviewed">Reviewed</option>
+            <option value="shortlisted">Shortlisted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+          <button type="button" class="btn btn-primary" id="refresh-btn">Refresh</button>
+        </div>
+        <p class="admin-meta" id="list-meta">Loading…</p>
+        <div class="app-list" id="app-list"></div>
+      </section>
+    </div>
+
+    <script src="/data/applications-config.js?v=20260904a"></script>
+    <script src="/js/job-apply.js?v=20260904b"></script>
+    <script>
+      (function () {
+        const listEl = document.getElementById("app-list");
+        const metaEl = document.getElementById("list-meta");
+        const jobFilter = document.getElementById("filter-job");
+        const statusFilter = document.getElementById("filter-status");
+        const qFilter = document.getElementById("filter-q");
+        const hintEl = document.getElementById("admin-setup-hint");
+        let apps = [];
+
+        function escapeHtml(value) {
+          return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
+        }
+
+        function apiUrl() {
+          return typeof IPD_APPLICATIONS_API === "string" ? IPD_APPLICATIONS_API.trim() : "";
+        }
+
+        function formatWhen(iso) {
+          if (!iso) return "—";
+          const d = new Date(iso);
+          if (Number.isNaN(d.getTime())) return String(iso);
+          return d.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+        }
+
+        function readLocal() {
+          if (window.IPDJobApply && typeof window.IPDJobApply.readLocalApps === "function") {
+            return window.IPDJobApply.readLocalApps();
+          }
+          try {
+            const key =
+              typeof IPD_APPLICATIONS_STORAGE_KEY === "string"
+                ? IPD_APPLICATIONS_STORAGE_KEY
+                : "ipd-job-applications-v1";
+            const raw = localStorage.getItem(key);
+            const list = raw ? JSON.parse(raw) : [];
+            return Array.isArray(list) ? list : [];
+          } catch (_e) {
+            return [];
+          }
+        }
+
+        function writeLocal(list) {
+          try {
+            const key =
+              typeof IPD_APPLICATIONS_STORAGE_KEY === "string"
+                ? IPD_APPLICATIONS_STORAGE_KEY
+                : "ipd-job-applications-v1";
+            localStorage.setItem(key, JSON.stringify(list.slice(0, 500)));
+          } catch (_e) {}
+        }
+
+        function mergeById(primary, secondary) {
+          const map = new Map();
+          primary.concat(secondary).forEach(function (a) {
+            if (!a || !a.id) return;
+            if (!map.has(a.id)) map.set(a.id, a);
+          });
+          return Array.from(map.values()).sort(function (a, b) {
+            return String(b.submittedAt || "").localeCompare(String(a.submittedAt || ""));
+          });
+        }
+
+        async function loadApps() {
+          metaEl.textContent = "Loading applications…";
+          const local = readLocal();
+          let remote = [];
+          const api = apiUrl();
+          if (api) {
+            hintEl.hidden = true;
+            try {
+              const res = await fetch(api + (api.includes("?") ? "&" : "?") + "t=" + Date.now());
+              const data = await res.json();
+              remote = (data && data.applications) || [];
+            } catch (_e) {
+              metaEl.textContent = "API unreachable — showing local submissions only.";
+            }
+          } else {
+            hintEl.hidden = false;
+          }
+          apps = mergeById(remote, local);
+          fillJobFilter();
+          render();
+        }
+
+        function fillJobFilter() {
+          const current = jobFilter.value;
+          const jobs = {};
+          apps.forEach(function (a) {
+            const id = a.jobId || "unknown";
+            if (!jobs[id]) {
+              jobs[id] = (a.jobTitle || id) + " · " + (a.company || "");
+            }
+          });
+          jobFilter.innerHTML = '<option value="">All jobs</option>';
+          Object.keys(jobs)
+            .sort()
+            .forEach(function (id) {
+              const opt = document.createElement("option");
+              opt.value = id;
+              opt.textContent = jobs[id];
+              jobFilter.appendChild(opt);
+            });
+          if (current) jobFilter.value = current;
+        }
+
+        function filtered() {
+          const q = String(qFilter.value || "").toLowerCase().trim();
+          const jobId = jobFilter.value;
+          const status = statusFilter.value;
+          return apps.filter(function (a) {
+            if (jobId && a.jobId !== jobId) return false;
+            if (status && String(a.status || "new") !== status) return false;
+            if (!q) return true;
+            const hay = [a.fullName, a.email, a.phone, a.company, a.jobTitle, a.portfolioUrl, a.location]
+              .join(" ")
+              .toLowerCase();
+            return hay.includes(q);
+          });
+        }
+
+        async function setStatus(id, status) {
+          apps = apps.map(function (a) {
+            if (a.id === id) return Object.assign({}, a, { status: status });
+            return a;
+          });
+          writeLocal(apps);
+          const api = apiUrl();
+          if (api) {
+            try {
+              await fetch(api, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ action: "updateStatus", id: id, status: status })
+              });
+            } catch (_e) {}
+          }
+          render();
+        }
+
+        function render() {
+          const rows = filtered();
+          metaEl.textContent =
+            rows.length +
+            " application" +
+            (rows.length === 1 ? "" : "s") +
+            (apiUrl() ? " · synced with API + local mirror" : " · local browser storage only");
+          if (!rows.length) {
+            listEl.innerHTML =
+              '<div class="app-empty">No applications yet. Submit a test apply on the Viewy Digital Designer job page.</div>';
+            return;
+          }
+          listEl.innerHTML = rows
+            .map(function (a) {
+              const status = a.status || "new";
+              return (
+                '<article class="app-row" data-id="' +
+                escapeHtml(a.id) +
+                '">' +
+                '<div class="app-row-top">' +
+                "<div><h2>" +
+                escapeHtml(a.fullName || "Candidate") +
+                '</h2><p>' +
+                escapeHtml(a.jobTitle || "Role") +
+                " · " +
+                escapeHtml(a.company || "") +
+                "</p></div>" +
+                '<span class="app-badge app-badge--' +
+                escapeHtml(status) +
+                '">' +
+                escapeHtml(status) +
+                "</span></div>" +
+                '<div class="app-facts">' +
+                "<div><span>Email</span><a href=\"mailto:" +
+                escapeHtml(a.email) +
+                '">' +
+                escapeHtml(a.email || "—") +
+                "</a></div>" +
+                "<div><span>Phone</span><a href=\"tel:" +
+                escapeHtml(String(a.phone || "").replace(/\s+/g, "")) +
+                '">' +
+                escapeHtml(a.phone || "—") +
+                "</a></div>" +
+                "<div><span>Submitted</span>" +
+                escapeHtml(formatWhen(a.submittedAt)) +
+                "</div>" +
+                "<div><span>Experience</span>" +
+                escapeHtml(a.experience || "—") +
+                "</div>" +
+                "<div><span>Location</span>" +
+                escapeHtml(a.location || "—") +
+                "</div>" +
+                "<div><span>Portfolio / LinkedIn</span>" +
+                (a.portfolioUrl
+                  ? '<a href="' +
+                    escapeHtml(a.portfolioUrl) +
+                    '" target="_blank" rel="noopener noreferrer">Open link</a>'
+                  : "—") +
+                "</div>" +
+                "<div><span>Resume</span>" +
+                (a.resumeDriveUrl
+                  ? '<a href="' +
+                    escapeHtml(a.resumeDriveUrl) +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    escapeHtml(a.resumeFileName || "Download") +
+                    "</a>"
+                  : escapeHtml(a.resumeFileName || "Saved with submission")) +
+                "</div>" +
+                "<div><span>Job page</span>" +
+                (a.jobUrl
+                  ? '<a href="' + escapeHtml(a.jobUrl) + '" target="_blank" rel="noopener noreferrer">Open</a>'
+                  : escapeHtml(a.jobId || "—")) +
+                "</div></div>" +
+                (a.coverLetter
+                  ? '<details><summary>Cover letter</summary><pre class="app-cover">' +
+                    escapeHtml(a.coverLetter) +
+                    "</pre></details>"
+                  : "") +
+                '<div class="app-actions">' +
+                '<label>Status <select data-status-for="' +
+                escapeHtml(a.id) +
+                '">' +
+                ["new", "reviewed", "shortlisted", "rejected"]
+                  .map(function (s) {
+                    return (
+                      '<option value="' +
+                      s +
+                      '"' +
+                      (s === status ? " selected" : "") +
+                      ">" +
+                      s +
+                      "</option>"
+                    );
+                  })
+                  .join("") +
+                "</select></label>" +
+                (a.email
+                  ? '<a class="btn btn-ghost" href="mailto:' +
+                    encodeURIComponent(a.email) +
+                    "?subject=" +
+                    encodeURIComponent("Re: " + (a.jobTitle || "your application") + " — InfoparkDaily") +
+                    '">Email candidate</a>'
+                  : "") +
+                "</div></article>"
+              );
+            })
+            .join("");
+
+          listEl.querySelectorAll("select[data-status-for]").forEach(function (sel) {
+            sel.addEventListener("change", function () {
+              setStatus(sel.getAttribute("data-status-for"), sel.value);
+            });
+          });
+        }
+
+        qFilter.addEventListener("input", render);
+        jobFilter.addEventListener("change", render);
+        statusFilter.addEventListener("change", render);
+        document.getElementById("refresh-btn").addEventListener("click", loadApps);
+        loadApps();
+      })();
+    </script>
+  </body>
+</html>

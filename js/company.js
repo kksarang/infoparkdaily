@@ -119,41 +119,6 @@
     return companySlug(params.get("company") || params.get("id") || "");
   }
 
-  function initials(name) {
-    const skip = new Set([
-      "ltd",
-      "pvt",
-      "private",
-      "limited",
-      "llc",
-      "inc",
-      "opc",
-      "the",
-      "and",
-      "of",
-      "india",
-      "technologies",
-      "technology",
-      "solutions",
-      "systems",
-      "software",
-      "services"
-    ]);
-    const parts = String(name || "?")
-      .replace(/[().,&/]/g, " ")
-      .split(/\s+/)
-      .filter(Boolean)
-      .filter((part) => !skip.has(part.toLowerCase()) && !/^\d+$/.test(part));
-    if (!parts.length) return "?";
-    if (parts.length === 1) {
-      return parts[0].replace(/[^a-zA-Z0-9]/g, "").slice(0, 4).toUpperCase() || "?";
-    }
-    return parts
-      .slice(0, 4)
-      .map((part) => part[0].toUpperCase())
-      .join("");
-  }
-
   function parseIso(iso) {
     if (!iso || iso === "Rolling") return null;
     const date = new Date(`${iso}T00:00:00`);
@@ -292,7 +257,7 @@
     return items;
   }
 
-  function vacancyCard(item) {
+  function vacancyCard(item, index) {
     const job = item.job;
     const role = item.role || "Open role";
     const status = deadlineStatus(job);
@@ -301,35 +266,38 @@
     const exp = job.experienceRange || job.experienceYears || EXP_LABELS[job.experience] || "";
     const deadline =
       job.applyDeadline === "Rolling"
-        ? "Open / Rolling"
+        ? "Rolling"
         : job.applyDeadline
           ? formatDate(job.applyDeadline)
           : "";
-    const chips = [exp, job.employmentType, job.workMode, job.location].filter(Boolean);
+    const meta = [exp, job.employmentType, job.workMode || job.location].filter(Boolean).slice(0, 3);
     const statusLabel = expired ? "Expired" : closing ? "Closing soon" : "Open";
+    const href = jobPath(job.id);
+    const idx = String((index || 0) + 1).padStart(2, "0");
 
     return `
-      <article class="company-vacancy-card glass${expired ? " is-expired" : ""}${closing ? " is-closing" : ""}">
-        <div class="company-vacancy-accent" aria-hidden="true"></div>
-        <div class="company-vacancy-main">
-          <div class="company-vacancy-top">
-            <span class="company-vacancy-status company-vacancy-status--${status}">${statusLabel}</span>
-            ${deadline ? `<span class="company-vacancy-deadline">${expired ? "Closed" : "Apply by"} · ${escapeHtml(deadline)}</span>` : ""}
+      <a class="cp-role${expired ? " is-expired" : ""}${closing ? " is-closing" : ""}" href="${escapeAttr(href)}" style="--i:${index || 0}">
+        <span class="cp-role-index" aria-hidden="true">${idx}</span>
+        <div class="cp-role-body">
+          <div class="cp-role-top">
+            <span class="cp-role-status cp-role-status--${status}">${statusLabel}</span>
+            ${deadline ? `<span class="cp-role-deadline">${expired ? "Closed" : "Apply by"} ${escapeHtml(deadline)}</span>` : ""}
           </div>
-          <h3><a href="${escapeAttr(jobPath(job.id))}">${escapeHtml(role)}</a></h3>
-          ${
-            chips.length
-              ? `<ul class="company-vacancy-meta">${chips
-                  .map((chip) => `<li>${escapeHtml(chip)}</li>`)
-                  .join("")}</ul>`
-              : ""
-          }
+          <h3 class="cp-role-title">${escapeHtml(role)}</h3>
+          ${meta.length ? `<p class="cp-role-meta">${meta.map((m) => escapeHtml(m)).join(" · ")}</p>` : ""}
         </div>
-        <a class="btn ${expired ? "btn-secondary" : "btn-primary"} company-vacancy-cta" href="${escapeAttr(jobPath(job.id))}">
-          ${expired ? "View listing" : "View details"}
-        </a>
-      </article>
+        <span class="cp-role-go">${expired ? "View" : "Details"}</span>
+      </a>
     `;
+  }
+
+  function splitCompanyName(name) {
+    const raw = String(name || "").trim();
+    const parts = raw.split(/\s+[–—-]\s+/);
+    if (parts.length >= 2) {
+      return { primary: parts[0].trim(), secondary: parts.slice(1).join(" – ").trim() };
+    }
+    return { primary: raw, secondary: "" };
   }
 
   function renderCompany(slug, jobs, directory) {
@@ -338,7 +306,6 @@
     const expiredJobs = jobs.filter((j) => deadlineStatus(j) === "expired");
     const openRoles = expandRoleVacancies(openJobs);
     const expiredRoles = expandRoleVacancies(expiredJobs);
-    const mark = initials(about.name);
     const shareJobsUrl = `/jobs/?company=${encodeURIComponent(slug)}`;
     const parkKey =
       about.park === "Technopark" ? "technopark" : about.park === "Cyberpark" ? "cyberpark" : "infopark";
@@ -353,21 +320,38 @@
       );
     }
 
-    const aboutText = about.details || about.blurb || "";
-    const jobsHref = about.jobsUrl || shareJobsUrl;
-    const jobsExternal = /^https?:\/\//i.test(about.jobsUrl || "");
-    const siteLabel =
-      about.website && /^https?:\/\//i.test(about.website) ? about.website.replace(/^https?:\/\/(www\.)?/i, "") : "";
-    const markHtml = about.logo
-      ? `<div class="company-dir-logo"><img src="${escapeAttr(about.logo)}" alt="" width="120" height="120" /></div>`
-      : `<div class="company-dir-logo company-dir-logo--mark" aria-hidden="true">${escapeHtml(mark)}</div>`;
+    const rawAbout = String(about.details || about.blurb || "").trim();
+    const looksLikeJobBlurb =
+      !rawAbout ||
+      /^.{0,12}$/.test(rawAbout) ||
+      (/·/.test(rawAbout) && rawAbout.length < 140) ||
+      /role at|portal ·|official listing/i.test(rawAbout);
+    const locationLine = [about.building, about.campus, about.location, about.park ? `${about.park}, Kerala` : ""]
+      .filter(Boolean)
+      .filter((v, i, arr) => arr.findIndex((x) => x.toLowerCase() === v.toLowerCase()) === i)
+      .slice(0, 2)
+      .join(" · ");
+    const aboutText = looksLikeJobBlurb
+      ? `${about.name} is listed${about.park ? ` at ${about.park}` : ""}${
+          locationLine ? ` (${locationLine})` : ""
+        }. ${
+          openRoles.length
+            ? `${openRoles.length} open role${openRoles.length === 1 ? "" : "s"} curated on InfoparkDaily.`
+            : "Check the official park or employer page for current openings."
+        }`
+      : rawAbout;
 
-    function contactLink(value, href) {
-      if (!value || !href) return "";
+    const siteLabel =
+      about.website && /^https?:\/\//i.test(about.website)
+        ? about.website.replace(/^https?:\/\/(www\.)?/i, "").replace(/\/$/, "")
+        : "";
+
+    function contactLink(label, href) {
+      if (!label || !href) return "";
       const external = href.startsWith("http");
-      return `<a class="company-dir-link" href="${escapeAttr(href)}"${
+      return `<a class="cp-contact" href="${escapeAttr(href)}"${
         external ? ' target="_blank" rel="noopener noreferrer"' : ""
-      }>${escapeHtml(value)}</a>`;
+      }>${escapeHtml(label)}</a>`;
     }
 
     const contactLinks = [
@@ -376,105 +360,128 @@
       about.phone ? contactLink(about.phone, `tel:${String(about.phone).replace(/[^\d+]/g, "")}`) : ""
     ].filter(Boolean);
 
-    const contactHtml = contactLinks.length
-      ? `<div class="company-dir-links">${contactLinks.join('<span class="company-dir-sep" aria-hidden="true">·</span>')}</div>`
-      : "";
+    const parkLabel = about.park || "Company profile";
+    const ledeParts = [
+      openRoles.length ? `Hiring now · ${openRoles.length} open role${openRoles.length === 1 ? "" : "s"}` : "No open roles listed right now",
+      locationLine || null
+    ].filter(Boolean);
+    const { primary: namePrimary, secondary: nameSecondary } = splitCompanyName(about.name);
 
-    const addressHtml = about.address
-      ? `<p class="company-dir-address">${escapeHtml(about.address)}</p>`
-      : "";
+    const facts = [
+      { label: "Open roles", value: String(openRoles.length) },
+      about.park ? { label: "Park", value: about.park } : null,
+      locationLine ? { label: "Location", value: locationLine } : null,
+      siteLabel && about.website
+        ? {
+            label: "Website",
+            value: `<a href="${escapeAttr(about.website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(siteLabel)}</a>`,
+            html: true
+          }
+        : null,
+      about.phone
+        ? {
+            label: "Phone",
+            value: `<a href="tel:${escapeAttr(String(about.phone).replace(/[^\d+]/g, ""))}">${escapeHtml(about.phone)}</a>`,
+            html: true
+          }
+        : null
+    ].filter(Boolean);
 
-    const locationBits = [about.building, about.campus].filter(Boolean);
-    const statsHtml = `<div class="company-dir-stats">
-        <span class="company-dir-stat company-dir-stat--open"><strong>${openRoles.length}</strong> open role${
-          openRoles.length === 1 ? "" : "s"
-        }</span>
-        ${
-          locationBits.length
-            ? `<span class="company-dir-stat">${escapeHtml(locationBits.join(" · "))}</span>`
-            : ""
-        }
-      </div>`;
-    const domainPills = (about.domains || [])
-      .filter(Boolean)
-      .map((d) => `<span class="job-badge job-badge--both">${escapeHtml(d)}</span>`)
-      .join("");
+    document.body.classList.add("company-route");
 
     root.innerHTML = `
-      <section class="company-profile">
-        <nav class="company-breadcrumb" aria-label="Breadcrumb">
-          <a class="company-back" href="${escapeAttr(parkHome)}">← Back to companies</a>
-        </nav>
+      <article class="cp">
+        <div class="cp-wrap">
+          <nav class="cp-nav" aria-label="Breadcrumb">
+            <a href="${escapeAttr(parkHome)}">← Companies</a>
+            <span class="cp-nav-sep" aria-hidden="true">/</span>
+            <a href="${escapeAttr(shareJobsUrl)}">Jobs from this company</a>
+          </nav>
+        </div>
 
-        <header class="company-dir-sheet">
-          <div class="company-dir-main">
-            ${markHtml}
-            <div class="company-dir-copy">
-              <div class="company-dir-headrow">
-                <div class="company-dir-title">
-                  <p class="jobs-kicker">${escapeHtml(about.park || "Company profile")}</p>
-                  <h1>${escapeHtml(about.name)}</h1>
-                </div>
-                <div class="company-dir-cta">
-                  <a class="btn btn-primary" href="${escapeAttr(jobsHref)}"${
-                    jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""
-                  }>Job Openings</a>
-                  ${
-                    about.officialUrl
-                      ? `<a class="btn btn-secondary" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
-                      : ""
-                  }
-                </div>
+        <header class="cp-stage">
+          <div class="cp-stage-inner">
+            <div class="cp-stage-copy">
+              <p class="cp-kicker">${escapeHtml(parkLabel)}</p>
+              <h1 class="cp-name">
+                ${escapeHtml(namePrimary)}
+                ${nameSecondary ? `<span class="cp-name-sub">${escapeHtml(nameSecondary)}</span>` : ""}
+              </h1>
+              <p class="cp-lede">${escapeHtml(ledeParts.join(" · "))}</p>
+              <div class="cp-stage-actions">
+                <a class="cp-btn cp-btn--primary" href="${openRoles.length ? "#cp-open-roles" : "/jobs/"}">${
+                  openRoles.length ? "View open roles" : "Browse jobs"
+                }</a>
+                ${
+                  about.officialUrl
+                    ? `<a class="cp-btn cp-btn--ghost" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
+                    : `<a class="cp-btn cp-btn--ghost" href="${escapeAttr(shareJobsUrl)}">All company jobs</a>`
+                }
               </div>
-              ${contactHtml}
-              ${addressHtml}
-              ${domainPills ? `<div class="job-card-tags company-dir-domains">${domainPills}</div>` : ""}
-              ${statsHtml}
+              ${
+                contactLinks.length
+                  ? `<div class="cp-contacts">${contactLinks.join("")}</div>`
+                  : ""
+              }
             </div>
+            <aside class="cp-stage-aside" aria-label="Open roles count">
+              <div class="cp-open-meter">
+                <strong>${openRoles.length}</strong>
+                <span>Open roles</span>
+              </div>
+            </aside>
           </div>
         </header>
 
-        <section class="company-about glass">
-          <div class="section-heading">
-            <p class="eyebrow">About</p>
-            <h2>Company listing</h2>
-          </div>
-          ${aboutText ? `<p class="company-about-text">${escapeHtml(aboutText)}</p>` : `<p class="company-about-text is-empty">&nbsp;</p>`}
-          <p class="company-about-note">
-            InfoparkDaily is not the employer and not the park authority. Blank fields were not published on the official directory. Verify openings on official channels before applying. Never pay for a job.
-          </p>
-        </section>
-
-        <section class="company-vacancies" aria-labelledby="company-open-title">
-          <div class="section-heading company-section-head">
-            <div>
-              <p class="eyebrow">Vacancies</p>
-              <h2 id="company-open-title">Open roles</h2>
+        <div class="cp-body">
+          <div class="cp-wrap">
+            <div class="cp-story">
+              <section class="cp-about" aria-labelledby="cp-about-title">
+                <h2 id="cp-about-title">About the company</h2>
+                <p class="cp-about-text">${escapeHtml(aboutText)}</p>
+                ${about.address ? `<p class="cp-address">${escapeHtml(about.address)}</p>` : ""}
+                <p class="cp-note">
+                  InfoparkDaily is a directory, not the employer. Confirm openings on official channels before you apply. Never pay for a job.
+                </p>
+              </section>
+              <aside class="cp-facts" aria-label="Company facts">
+                ${facts
+                  .map(
+                    (f) => `<div class="cp-fact">
+                      <span class="cp-fact-label">${escapeHtml(f.label)}</span>
+                      <div class="cp-fact-value">${f.html ? f.value : escapeHtml(f.value)}</div>
+                    </div>`
+                  )
+                  .join("")}
+              </aside>
             </div>
-            <span class="company-count-pill">${openRoles.length} open</span>
-          </div>
-          ${
-            openRoles.length
-              ? `<div class="company-vacancy-list">${openRoles.map(vacancyCard).join("")}</div>`
-              : `<p class="company-empty glass">No open vacancies listed here. Check the official park or employer page, or <a href="/jobs/">browse all jobs</a>.</p>`
-          }
-        </section>
 
-        ${
-          expiredRoles.length
-            ? `<section class="company-vacancies company-vacancies--expired" aria-labelledby="company-expired-title">
-                <div class="section-heading company-section-head">
-                  <div>
-                    <p class="eyebrow">Archive</p>
-                    <h2 id="company-expired-title">Recently expired</h2>
-                  </div>
-                  <span class="company-count-pill company-count-pill--muted">${expiredRoles.length} closed</span>
-                </div>
-                <div class="company-vacancy-list">${expiredRoles.map(vacancyCard).join("")}</div>
-              </section>`
-            : ""
-        }
-      </section>
+            <section class="cp-roles" id="cp-open-roles" aria-labelledby="cp-open-title">
+              <div class="cp-roles-head">
+                <h2 id="cp-open-title">Open roles</h2>
+                <span class="cp-count">${openRoles.length}</span>
+              </div>
+              ${
+                openRoles.length
+                  ? `<div class="cp-role-list">${openRoles.map((item, i) => vacancyCard(item, i)).join("")}</div>`
+                  : `<p class="cp-empty">No open vacancies here right now. Check the official park or employer page, or <a href="/jobs/">browse all jobs</a>.</p>`
+              }
+            </section>
+
+            ${
+              expiredRoles.length
+                ? `<section class="cp-roles cp-roles--archive" aria-labelledby="cp-expired-title">
+                    <div class="cp-roles-head">
+                      <h2 id="cp-expired-title">Recently closed</h2>
+                      <span class="cp-count cp-count--muted">${expiredRoles.length}</span>
+                    </div>
+                    <div class="cp-role-list">${expiredRoles.map((item, i) => vacancyCard(item, i)).join("")}</div>
+                  </section>`
+                : ""
+            }
+          </div>
+        </div>
+      </article>
     `;
 
     try {

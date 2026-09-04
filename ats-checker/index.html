@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>ATS Checker | InfoparkDaily Jobs</title>
+    <meta
+      name="description"
+      content="Check if your resume can pass ATS screening for Infopark, Technopark, and Cyberpark jobs. Upload a PDF or DOCX, paste a job description, and get a local score — files stay on your device."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b0b0f" />
+    <meta property="og:title" content="ATS Checker | InfoparkDaily" />
+    <meta property="og:description" content="Compare your resume against a job description and get keyword and formatting tips before you apply." />
+    <meta property="og:url" content="https://infoparkdaily.online/ats-checker/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/ats-checker/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <script>
+      (function () {
+        var light = false;
+        try {
+          light = localStorage.getItem("ipd-theme") === "light";
+        } catch (_e) {}
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add(light ? "theme-light" : "theme-dark");
+        root.style.colorScheme = light ? "light" : "dark";
+        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.toggle("light", light);
+          document.body.classList.toggle("dark", !light);
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    <link rel="stylesheet" href="/css/ats-checker.css?v=20260904d" />
+    
+  </head>
+  <body class="jobs-body dark ats-body">
+    <script>
+      (function () {
+        var light = document.documentElement.classList.contains("theme-light");
+        document.body.classList.toggle("light", light);
+        document.body.classList.toggle("dark", !light);
+      })();
+    </script>
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header glass">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
+        </div>
+      </a>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="/recruit/">Recruit</a>
+        <a href="/jobs/">Jobs</a>
+        <a href="/news/">News</a>
+        <a href="/services/">Services</a>
+        <a href="/media/">About Us</a>
+        <a href="/contact/">Contact</a>
+        <a href="https://sarangrajan.in/hexenity/" class="nav-enitexa" target="_blank" rel="noopener noreferrer">Enitexa.ai</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content" class="ats-page">
+      <header class="ats-head">
+        <p class="ats-kicker">Free · Private · On-device</p>
+        <h1>ATS Checker</h1>
+        <p>
+          Upload your resume, paste a job description, and get a local compatibility score with missing keywords and
+          formatting tips. Nothing is uploaded to our servers.
+        </p>
+        <ol class="ats-flow" aria-label="How it works">
+          <li class="is-active" data-ats-flow="1"><span>1</span> Resume</li>
+          <li data-ats-flow="2"><span>2</span> Job description</li>
+          <li data-ats-flow="3"><span>3</span> Score</li>
+        </ol>
+      </header>
+
+      <div class="ats-layout">
+        <aside class="ats-panel" aria-label="ATS inputs">
+          <section class="ats-block" aria-labelledby="ats-step1-title">
+            <div class="ats-block-head">
+              <p class="ats-step" id="ats-step1-title">Step 1 · Resume</p>
+              <span id="ats-step1-status" class="ats-status">Waiting</span>
+            </div>
+            <input id="ats-file" type="file" accept=".pdf,.docx,.txt,application/pdf" hidden />
+            <div id="ats-drop" class="ats-drop" role="button" tabindex="0" aria-label="Upload resume file">
+              <span class="ats-icon" aria-hidden="true">↑</span>
+              <p>Drop your resume here or <strong>browse</strong></p>
+              <p id="ats-file-hint">PDF or DOCX · Max 5MB</p>
+            </div>
+            <details class="ats-paste-details">
+              <summary>Or paste resume text instead</summary>
+              <textarea id="ats-resume-text" placeholder="Paste resume text if the file does not read…"></textarea>
+            </details>
+          </section>
+
+          <section class="ats-block" aria-labelledby="ats-step2-title">
+            <div class="ats-block-head">
+              <p class="ats-step" id="ats-step2-title">Step 2 · Job description</p>
+              <span id="ats-step2-status" class="ats-status">Waiting</span>
+            </div>
+            <textarea id="ats-jd" placeholder="Paste the full job description you’re targeting…"></textarea>
+          </section>
+
+          <div class="ats-actions">
+            <button id="ats-check" class="ats-check" type="button" disabled>Check ATS score</button>
+            <p class="ats-secure">Analyzed on your device · never stored</p>
+          </div>
+        </aside>
+
+        <section class="ats-result" id="ats-result-panel" aria-live="polite">
+          <div id="ats-empty" class="ats-empty">
+            <div class="ats-empty-gauge" aria-hidden="true">
+              <span>—</span>
+              <small>Score</small>
+            </div>
+            <h2>Your score will show here</h2>
+            <p>Finish steps 1 and 2, then tap <strong>Check ATS score</strong>.</p>
+            <ul class="ats-empty-points">
+              <li>Keyword match against the job</li>
+              <li>Formatting / ATS readability tips</li>
+              <li>Practical resume fixes for Kerala IT roles</li>
+            </ul>
+            <a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a>
+          </div>
+          <div id="ats-result-body" hidden></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom">
+        <p class="copyright">&copy; <span id="year"></span> Enitexa.ai. All rights reserved.</p>
+        <p class="footer-legal">
+          <a href="/jobs/">Jobs</a>
+          <span aria-hidden="true">·</span>
+          <a href="/guides/resume-guide-kerala-it-jobs/">Resume guide</a>
+          <span aria-hidden="true">·</span>
+          <a href="/privacy/">Privacy</a>
+        </p>
+      </div>
+    </footer>
+    <script src="/js/site.js?v=20260904e" defer></script>
+    <script src="/js/ats-checker.js?v=20260904e" defer></script>
+  </body>
+</html>

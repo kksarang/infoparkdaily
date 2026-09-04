@@ -63,6 +63,13 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
   scrollbar-gutter: stable;
+  background-color: #0b0b0f;
+  color-scheme: dark;
+}
+
+html.theme-light {
+  background-color: #f6f5f1;
+  color-scheme: light;
 }
 
 html,
@@ -459,6 +466,10 @@ html.theme-light .site-nav a.nav-enitexa {
 }
 
 .nav-backdrop {
+  display: none;
+}
+
+.site-nav-drawer {
   display: none;
 }
 
@@ -1874,6 +1885,26 @@ body.light .about-stage {
   padding-left: 2.6rem;
 }
 
+/* Marketplace search uses flex control — never absolute-escape the icon */
+body.jobs-marketplace .jobs-search-icon {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  transform: none !important;
+  display: block;
+  flex: 0 0 auto;
+  pointer-events: none;
+}
+
+body.jobs-marketplace .ej-field-control {
+  position: relative;
+}
+
+body.jobs-marketplace .ej-search-field--query .jobs-search {
+  padding-left: 0 !important;
+}
+
+
 .jobs-company-combobox {
   position: relative;
 }
@@ -2140,6 +2171,9 @@ html.theme-light body .jobs-expired-mode-banner strong {
 
 html.theme-light .jobs-sort {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 6L8 10.5 12.5 6' stroke='%235c5f6e' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.95rem center;
+  background-size: 16px 16px;
 }
 
 .jobs-sort::-ms-expand {
@@ -2289,7 +2323,8 @@ html.theme-light .jobs-sort {
   white-space: nowrap;
 }
 
-.job-deadline-pill--open {
+.job-deadline-pill--open,
+.job-deadline-pill--live {
   color: var(--green);
   background: rgba(74, 222, 128, 0.1);
   border: 1px solid rgba(74, 222, 128, 0.28);
@@ -9507,7 +9542,7 @@ body.light .news-story-hero-media {
 
   .header-actions {
     order: 2;
-    margin-left: 0;
+    margin-left: auto;
     flex: 0 0 auto;
   }
 
@@ -9553,63 +9588,146 @@ body.light .news-story-hero-media {
     flex-shrink: 0;
   }
 
-  .site-nav {
-    order: 3;
-    flex: 1 0 100%;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
-    padding: 0.55rem 0 0.1rem;
-    border-top: 1px solid var(--line);
-    margin-top: 0.1rem;
-    /* svh avoids mobile browser chrome show/hide resizing the open menu. */
-    max-height: calc(100svh - 5.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+  /* Hide in-header accordion nav — side drawer replaces it */
+  .site-header > .site-nav {
+    display: none !important;
   }
 
   .site-header.nav-open {
-    border-radius: 20px;
+    border-radius: 22px;
+    overflow: hidden;
   }
 
-  .site-header.nav-open .site-nav {
+  .site-nav-drawer {
     display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(86vw, 320px);
+    z-index: 90;
+    padding:
+      max(1rem, env(safe-area-inset-top, 0px))
+      max(1rem, env(safe-area-inset-right, 0px))
+      max(1.25rem, env(safe-area-inset-bottom, 0px))
+      1rem;
+    background: var(--bg-elev);
+    border-left: 1px solid var(--line-strong);
+    box-shadow: -18px 0 50px rgba(0, 0, 0, 0.35);
+    transform: translateX(104%);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
   }
 
-  .site-nav a {
-    min-height: 44px;
-    padding: 0.85rem 1rem;
+  @media (prefers-reduced-motion: reduce) {
+    .site-nav-drawer {
+      transition: none;
+    }
+  }
+
+  .site-nav-drawer.is-open {
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .site-nav-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .site-nav-drawer-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 1.15rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .site-nav-drawer-close {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-nav-drawer-close:hover {
+    border-color: var(--accent);
+  }
+
+  .site-nav-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    flex: 1 1 auto;
+  }
+
+  .site-nav-panel a {
+    min-height: 48px;
+    padding: 0.9rem 1rem;
     border-radius: 14px;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     color: var(--text);
     background: var(--surface-2);
     display: flex;
     align-items: center;
+    text-decoration: none;
   }
 
-  .site-nav a:hover,
-  .site-nav a:focus-visible {
+  .site-nav-panel a:hover,
+  .site-nav-panel a:focus-visible {
     background: rgba(255, 193, 7, 0.16);
     color: var(--text);
   }
 
-  .site-nav a[aria-current="page"] {
+  .site-nav-panel a[aria-current="page"] {
     color: var(--accent-ink);
     background: var(--accent);
+  }
+
+  .site-nav-panel a.nav-enitexa {
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    background: rgba(139, 92, 246, 0.12);
+    color: #c4b5fd;
+  }
+
+  html.theme-light .site-nav-panel a.nav-enitexa {
+    color: #6d28d9;
+    background: rgba(139, 92, 246, 0.1);
   }
 
   .nav-backdrop {
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 70;
+    z-index: 85;
     background: rgba(5, 5, 8, 0.55);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.25s ease;
   }
 
   .nav-backdrop.is-visible {
