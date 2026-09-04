@@ -1,20 +1,17 @@
 /**
  * InfoparkDaily — Job applications config
  *
- * Delivery order on submit:
- * 1) Google Apps Script API (best — Drive resume + email with attachment)
- * 2) Formspree (if endpoint set, file upload plan)
- * 3) FormSubmit.co native multipart email with resume attached (default)
+ * To get the resume PDF in Gmail (required for shortlisting):
  *
- * mailto: cannot attach files — it is never used when a resume is uploaded.
+ * BEST — Google Apps Script (real attachment + Drive copy):
+ * 1. https://script.google.com → New project
+ * 2. Paste scripts/applications-mail.gs
+ * 3. Deploy → Web app → Execute as Me, Who has access: Anyone
+ * 4. Paste the /exec URL into IPD_APPLICATIONS_API below, then redeploy the site
  *
- * Apps Script setup:
- * 1. Create a Google Sheet → Extensions → Apps Script → paste scripts/applications-api.gs
- * 2. Deploy → Web app (Execute as: Me, Who has access: Anyone)
- * 3. Paste the /exec URL into IPD_APPLICATIONS_API below.
- *
- * FormSubmit: after Activate Form, use IPD_APPLICATIONS_FORMSUBMIT_KEY (not the naked email)
- * in the form action. File uploads require enctype=multipart/form-data and input name=attachment.
+ * FALLBACK — FormSubmit native form POST (AJAX cannot attach files):
+ * After Activate Form, IPD_APPLICATIONS_FORMSUBMIT_KEY is used. Submit navigates
+ * through FormSubmit so the PDF can attach, then returns to the job page.
  */
 var IPD_APPLICATIONS_API = "";
 

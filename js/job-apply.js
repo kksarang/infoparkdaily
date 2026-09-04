@@ -169,8 +169,7 @@
           <h2 id="ipd-apply-title">Submit your application</h2>
           <p class="ipd-apply-lead">
             Apply for <strong>${role}</strong> at <strong>${company}</strong>.
-            Your details and resume are emailed to InfoparkDaily with a cover letter (resume attached).
-            Applications are also stored for review.
+            Your resume PDF is emailed as an attachment to InfoparkDaily with a cover letter.
           </p>
         </div>
         <form class="ipd-apply-form" id="ipd-job-apply-form" novalidate>
@@ -283,7 +282,7 @@
     if (!api) return { skipped: true };
     const res = await fetch(api, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify(payload)
     });
     const data = await res.json().catch(function () {
@@ -298,7 +297,16 @@
   async function postToFormspree(payload, file) {
     const endpoint = cfg("IPD_APPLICATIONS_FORMSPREE", "");
     if (!endpoint) return { skipped: true };
-    const fd = buildEmailFormData(payload, file);
+    const fd = new FormData();
+    fd.append("_subject", payload._subject || "Job application — InfoparkDaily");
+    fd.append("name", payload.fullName || "");
+    fd.append("email", payload.email || "");
+    fd.append("_replyto", payload.email || "");
+    fd.append("phone", payload.phone || "");
+    fd.append("jobTitle", payload.jobTitle || "");
+    fd.append("company", payload.company || "");
+    fd.append("message", payload.coverLetter || "");
+    if (file) fd.append("attachment", file, file.name);
     const res = await fetch(endpoint, {
       method: "POST",
       body: fd,
@@ -308,170 +316,60 @@
     return { ok: true, channel: "formspree" };
   }
 
-  function addFormSubmitFields(form, payload) {
-    function addField(name, value) {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = name;
-      input.value = value == null ? "" : String(value);
-      form.appendChild(input);
-    }
-
-    addField("_subject", payload._subject || "Job application — InfoparkDaily");
-    addField("_template", "table");
-    addField("_captcha", "false");
-    addField("name", payload.fullName || "");
-    addField("email", payload.email || "");
-    addField("_replyto", payload.email || "");
-    addField("phone", payload.phone || "");
-    addField("experience", payload.experience || "");
-    addField("location", payload.location || "");
-    addField("portfolioUrl", payload.portfolioUrl || "");
-    addField("jobId", payload.jobId || "");
-    addField("jobTitle", payload.jobTitle || "");
-    addField("company", payload.company || "");
-    addField("jobUrl", payload.jobUrl || "");
-    addField("resumeFileName", payload.resumeFileName || "");
-    addField("message", payload.coverLetter || "");
-    addField("coverLetter", payload.coverLetter || "");
-  }
-
-  function buildEmailFormData(payload, file) {
-    const fd = new FormData();
-    const holder = document.createElement("form");
-    addFormSubmitFields(holder, payload);
-    holder.querySelectorAll("input").forEach(function (input) {
-      fd.append(input.name, input.value);
-    });
-    if (file) {
-      fd.append("attachment", file, file.name);
-    }
-    return fd;
-  }
-
   /**
-   * FormSubmit native multipart — required for resume attachments.
-   * AJAX/JSON drops files. mailto: cannot attach files.
+   * FormSubmit attaches files ONLY on a real HTML form POST (not AJAX / iframe).
+   * That navigates to FormSubmit, then _next returns to the job page.
    */
-  async function postToFormSubmit(payload, file, sourceForm) {
+  function postToFormSubmit(payload, file, sourceForm) {
     const enabled = cfg("IPD_APPLICATIONS_FORMSUBMIT", true);
     if (enabled === false || enabled === "false") return { skipped: true };
 
     const key = formSubmitKey() || mailtoAddress();
     if (!key) throw new Error("FormSubmit is not configured");
+    if (!sourceForm) throw new Error("Application form missing");
+    if (!file) throw new Error("Resume file missing");
 
-    // Native form POST is the path FormSubmit uses to attach files.
-    if (file) {
-      await postToFormSubmitIframe(payload, file, sourceForm, key);
-      return { ok: true, channel: "formsubmit-multipart" };
+    sourceForm.querySelectorAll(".ipd-fs-field").forEach(function (el) {
+      el.remove();
+    });
+
+    function addHidden(name, value) {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      input.className = "ipd-fs-field";
+      input.value = value == null ? "" : String(value);
+      sourceForm.appendChild(input);
     }
 
-    const fd = buildEmailFormData(payload, file);
-    const res = await fetch("https://formsubmit.co/ajax/" + encodeURIComponent(key), {
-      method: "POST",
-      body: fd
-    });
-    const data = await res.json().catch(function () {
-      return {};
-    });
-    if (res.ok && (data.success === "true" || data.success === true || data.message || res.status === 200)) {
-      return { ok: true, channel: "formsubmit", data: data };
-    }
-    if (res.status >= 200 && res.status < 300) {
-      return { ok: true, channel: "formsubmit", data: data };
-    }
-    throw new Error((data && data.message) || "FormSubmit failed");
-  }
+    const nextUrl = String(payload.jobUrl || "https://infoparkdaily.online/jobs/").split("#")[0];
+    const joiner = nextUrl.indexOf("?") >= 0 ? "&" : "?";
 
-  function postToFormSubmitIframe(payload, file, sourceForm, key) {
-    return new Promise(function (resolve, reject) {
-      const frameName = "ipd-apply-frame-" + Date.now();
-      const iframe = document.createElement("iframe");
-      iframe.name = frameName;
-      iframe.title = "Application submit";
-      iframe.setAttribute("aria-hidden", "true");
-      iframe.style.cssText = "position:absolute;width:0;height:0;border:0;visibility:hidden";
-      document.body.appendChild(iframe);
+    addHidden("_subject", payload._subject || "Job application — InfoparkDaily");
+    addHidden("_template", "table");
+    addHidden("_captcha", "false");
+    addHidden("_next", nextUrl + joiner + "applied=1");
+    addHidden("name", payload.fullName || "");
+    addHidden("_replyto", payload.email || "");
+    addHidden("phone", payload.phone || "");
+    addHidden("experience", payload.experience || "");
+    addHidden("location", payload.location || "");
+    addHidden("portfolioUrl", payload.portfolioUrl || "");
+    addHidden("jobId", payload.jobId || "");
+    addHidden("jobTitle", payload.jobTitle || "");
+    addHidden("company", payload.company || "");
+    addHidden("jobUrl", payload.jobUrl || "");
+    addHidden("coverLetter", payload.coverLetter || "");
 
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.enctype = "multipart/form-data";
-      form.acceptCharset = "UTF-8";
-      form.action = "https://formsubmit.co/" + encodeURIComponent(key);
-      form.target = frameName;
-      form.style.display = "none";
-      addFormSubmitFields(form, payload);
+    const resumeInput = sourceForm.querySelector("#ipd-apply-resume");
+    if (resumeInput) resumeInput.setAttribute("name", "attachment");
 
-      const resumeInput = sourceForm ? sourceForm.querySelector("#ipd-apply-resume") : null;
-      let moved = false;
-      let originalName = "attachment";
-      let originalParent = null;
-      let originalNext = null;
-
-      if (resumeInput && resumeInput.files && resumeInput.files.length) {
-        originalName = resumeInput.name || "attachment";
-        originalParent = resumeInput.parentNode;
-        originalNext = resumeInput.nextSibling;
-        resumeInput.name = "attachment";
-        form.appendChild(resumeInput);
-        moved = true;
-      } else if (file && typeof DataTransfer === "function") {
-        const fileInput = document.createElement("input");
-        fileInput.type = "file";
-        fileInput.name = "attachment";
-        const dt = new DataTransfer();
-        dt.items.add(file);
-        fileInput.files = dt.files;
-        form.appendChild(fileInput);
-      } else if (file) {
-        reject(new Error("Could not attach resume file"));
-        return;
-      }
-
-      function restoreInput() {
-        if (!moved || !resumeInput || !originalParent) return;
-        resumeInput.name = originalName;
-        if (originalNext && originalNext.parentNode === originalParent) {
-          originalParent.insertBefore(resumeInput, originalNext);
-        } else {
-          originalParent.appendChild(resumeInput);
-        }
-      }
-
-      document.body.appendChild(form);
-
-      let settled = false;
-      let posted = false;
-      const finish = function (err) {
-        if (settled) return;
-        settled = true;
-        restoreInput();
-        setTimeout(function () {
-          if (form.parentNode) form.remove();
-          if (iframe.parentNode) iframe.remove();
-        }, 1200);
-        if (err) reject(err);
-        else resolve();
-      };
-
-      const timer = setTimeout(function () {
-        finish();
-      }, 4500);
-
-      iframe.addEventListener("load", function () {
-        if (!posted || settled) return;
-        clearTimeout(timer);
-        finish();
-      });
-
-      try {
-        posted = true;
-        form.submit();
-      } catch (err) {
-        clearTimeout(timer);
-        finish(err);
-      }
-    });
+    sourceForm.setAttribute("action", "https://formsubmit.co/" + encodeURIComponent(key));
+    sourceForm.setAttribute("method", "POST");
+    sourceForm.setAttribute("enctype", "multipart/form-data");
+    sourceForm.removeAttribute("target");
+    sourceForm.submit();
+    return { ok: true, channel: "formsubmit-native", navigating: true };
   }
 
   const RESUME_DB = "ipd-job-resumes-v1";
@@ -627,6 +525,22 @@
     const submitBtn = document.getElementById("ipd-apply-submit");
     const resumeInput = document.getElementById("ipd-apply-resume");
 
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("applied") === "1") {
+        const okMsg = "Application submitted. Open Gmail and confirm the resume PDF is attached.";
+        setStatus(statusEl, okMsg, false);
+        showSuccessToast(okMsg);
+        params.delete("applied");
+        const qs = params.toString();
+        const next =
+          window.location.pathname + (qs ? "?" + qs : "") + (window.location.hash || "#apply");
+        window.history.replaceState({}, "", next);
+      }
+    } catch (_e) {
+      /* ignore */
+    }
+
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
       const file = resumeInput && resumeInput.files && resumeInput.files[0] ? resumeInput.files[0] : null;
@@ -725,7 +639,12 @@
 
         if (!delivered) {
           try {
-            const fsSubmit = await postToFormSubmit(apiPayload, file, form);
+            const fsSubmit = postToFormSubmit(apiPayload, file, form);
+            if (fsSubmit && fsSubmit.navigating) {
+              saveLocalApplication(localRecord);
+              setStatus(statusEl, "Sending your resume as an email attachment…", false);
+              return;
+            }
             if (!fsSubmit.skipped) {
               delivered = true;
               deliveryNote = "emailed with resume attached";

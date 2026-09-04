@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v275";
+const CACHE_NAME = "infoparkdaily-v278";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -39,7 +39,7 @@ const PRELOAD_ASSETS = [
   "./css/styles.css?v=20260904h",
   "./css/onam.css?v=20260831b",
   "./css/jobs-marketplace.css?v=20260904w",
-  "./css/recruit-premium.css?v=20260903a",
+  "./css/recruit-premium.css?v=20260904a",
   "./css/ats-checker.css?v=20260904d",
   "./css/job-detail-premium.css?v=20260904j",
   "./css/company-premium.css?v=20260904d",
@@ -50,8 +50,8 @@ const PRELOAD_ASSETS = [
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
-  "./data/jobs-data.js?v=20260904b",
-  "./data/applications-config.js?v=20260904d",
+  "./data/jobs-data.js?v=20260904c",
+  "./data/applications-config.js?v=20260904e",
   "./data/technopark-jobs-data.js?v=20260904a",
   "./data/infopark-jobs-data.js?v=20260904a",
   "./data/cyberpark-jobs-data.js?v=20260904a",
@@ -65,7 +65,7 @@ const PRELOAD_ASSETS = [
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260805r",
-  "./js/job-apply.js?v=20260904d",
+  "./js/job-apply.js?v=20260904e",
   "./js/job.js?v=20260904a",
   "./js/company.js?v=20260904d",
   "./js/park-companies.js?v=20260830l",

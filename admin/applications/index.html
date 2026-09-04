@@ -214,13 +214,13 @@
           otherwise from this browser’s localStorage mirror.
         </p>
         <p class="admin-hint" id="admin-setup-hint">
-          To email applications <strong>with the resume attached</strong>, FormSubmit is active
-          (multipart POST to the activated form id, inbox
-          <strong>infoparkstorieskochi@gmail.com</strong>).
-          For Drive storage + Sheets, deploy
-          <code>scripts/applications-api.gs</code> and paste the URL into
-          <code>data/applications-config.js</code> → <code>IPD_APPLICATIONS_API</code>.
-          Resumes are also kept in this browser for Download resume.
+          FormSubmit’s AJAX path <strong>cannot attach PDFs</strong> — that is why some mails showed only the filename.
+          Apply now uses a real form POST so the resume can attach. For a reliable inbox (PDF attached + Drive copy),
+          paste <code>scripts/applications-mail.gs</code> into
+          <a href="https://script.google.com" target="_blank" rel="noopener">script.google.com</a>,
+          deploy as a Web app (Anyone), and put the <code>/exec</code> URL in
+          <code>IPD_APPLICATIONS_API</code>. Inbox:
+          <strong>infoparkstorieskochi@gmail.com</strong>.
         </p>
 
         <div class="admin-toolbar">
@@ -242,8 +242,8 @@
       </section>
     </div>
 
-    <script src="/data/applications-config.js?v=20260904d"></script>
-    <script src="/js/job-apply.js?v=20260904d"></script>
+    <script src="/data/applications-config.js?v=20260904e"></script>
+    <script src="/js/job-apply.js?v=20260904e"></script>
     <script>
       (function () {
         const listEl = document.getElementById("app-list");
