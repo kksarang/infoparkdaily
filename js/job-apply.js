@@ -280,10 +280,31 @@
   async function postToApi(payload) {
     const api = cfg("IPD_APPLICATIONS_API", "");
     if (!api) return { skipped: true };
+    if (!payload || !payload.resumeBase64) {
+      throw new Error("Resume could not be read for upload");
+    }
+
+    const body = JSON.stringify(payload);
+    const isAppsScript = /script\.google\.com\/macros\//i.test(api);
+
+    // Apps Script web apps 302 to googleusercontent.com. A CORS fetch then
+    // fails even when doPost ran. text/plain avoids a preflight; no-cors
+    // lets the POST complete without reading the redirected JSON.
+    if (isAppsScript) {
+      await fetch(api, {
+        method: "POST",
+        mode: "no-cors",
+        credentials: "omit",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: body
+      });
+      return { ok: true, channel: "apps-script" };
+    }
+
     const res = await fetch(api, {
       method: "POST",
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
+      body: body
     });
     const data = await res.json().catch(function () {
       return {};
@@ -596,7 +617,9 @@
         try {
           resumeBase64 = await fileToBase64(file);
         } catch (_e) {
-          /* continue — FormSubmit/Formspree can still send the File object */
+          if (cfg("IPD_APPLICATIONS_API", "")) {
+            throw new Error("Could not read the resume file. Please try another PDF.");
+          }
         }
 
         const apiPayload = {

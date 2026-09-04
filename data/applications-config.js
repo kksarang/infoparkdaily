@@ -13,7 +13,8 @@
  * After Activate Form, IPD_APPLICATIONS_FORMSUBMIT_KEY is used. Submit navigates
  * through FormSubmit so the PDF can attach, then returns to the job page.
  */
-var IPD_APPLICATIONS_API = "";
+var IPD_APPLICATIONS_API =
+  "https://script.google.com/macros/s/AKfycbwUiTVI_u2aM4_nTAdlwsFkMAcFA7blorheTErtW2D3mLDRuiq2sIms9yz0T1uIZtrLHw/exec";
 
 /** Optional Formspree form endpoint (file uploads supported on paid plans). */
 var IPD_APPLICATIONS_FORMSPREE = "";

@@ -35,10 +35,17 @@ function resumeFolder_() {
   return DriveApp.createFolder(DRIVE_FOLDER);
 }
 
+function parseBody_(e) {
+  if (e && e.parameter && e.parameter.payload) {
+    return JSON.parse(e.parameter.payload);
+  }
+  const raw = e && e.postData && e.postData.contents ? e.postData.contents : "{}";
+  return JSON.parse(raw);
+}
+
 function doPost(e) {
   try {
-    const raw = e && e.postData && e.postData.contents ? e.postData.contents : "{}";
-    const body = JSON.parse(raw);
+    const body = parseBody_(e);
 
     const fullName = String(body.fullName || "").trim();
     const email = String(body.email || "").trim();
