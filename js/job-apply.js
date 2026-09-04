@@ -231,7 +231,7 @@
   function compactFormHtml(job) {
     return `
       <a class="btn btn-primary jd-apply-btn" href="#apply">Apply now</a>
-      <p class="jd-apply-note">Fill the form on this page — resume, portfolio / LinkedIn, and contact details. InfoparkDaily receives your cover letter by email.</p>
+      <p class="jd-apply-note">Use the form on this page to send your resume.</p>
     `;
   }
 

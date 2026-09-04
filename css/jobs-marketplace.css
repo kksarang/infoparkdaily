@@ -9,13 +9,13 @@
   --ej-bg: #f8fafc;
   --ej-card: #ffffff;
   --ej-radius: 16px;
-  --ej-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  --ej-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
 }
 
 html.theme-light body.jobs-marketplace,
 body.jobs-marketplace.light,
 html.theme-light body.jobs-marketplace .jobs-page {
-  background: var(--ej-bg);
+  background: #ffffff;
   color: var(--ej-ink);
 }
 
@@ -35,11 +35,11 @@ body.jobs-marketplace .jobs-hero-lottie {
   position: relative;
   margin-top: 0.85rem;
   margin-bottom: 1rem;
-  padding: clamp(1.15rem, 3vw, 1.85rem) clamp(1.1rem, 3vw, 1.6rem) clamp(1.2rem, 3vw, 1.65rem);
-  border-radius: 28px;
+  padding: clamp(1.15rem, 3vw, 1.85rem) 0 clamp(1.2rem, 3vw, 1.65rem);
+  border-radius: 0;
   overflow: hidden;
-  border: 1px solid var(--ej-line);
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 0;
+  background: transparent;
 }
 
 html.theme-dark body.jobs-marketplace .ej-hero,
@@ -726,10 +726,10 @@ body.jobs-marketplace .job-card {
   height: 100%;
   gap: 0.65rem;
   padding: 1.1rem 1.15rem 1rem;
-  border-radius: 18px;
+  border-radius: 12px;
   border: 1px solid var(--ej-line);
   background: var(--ej-card);
-  box-shadow: var(--ej-shadow);
+  box-shadow: none;
 }
 
 html.theme-dark body.jobs-marketplace .job-card,
@@ -740,8 +740,8 @@ body.jobs-marketplace.dark .job-card {
 }
 
 body.jobs-marketplace .job-card:hover {
-  border-color: #93c5fd;
-  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  transform: none;
 }
 
 body.jobs-marketplace .job-card-head {
@@ -1839,8 +1839,8 @@ body.jobs-marketplace .jobs-page {
 @media (max-width: 720px) {
   .ej-hero {
     margin-top: 0.55rem;
-    padding: 0.95rem 0.85rem 1rem;
-    border-radius: 18px;
+    padding: 0.95rem 0 1rem;
+    border-radius: 0;
   }
 
   .ej-hero-kicker {

@@ -1928,11 +1928,11 @@
               </div>
               <h1>${escapeHtml(roleTitle)}</h1>
               <ul class="jd-hero-meta">
-                <li>🏢 <a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
+                <li><a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
                   job.companyLegalName || job.company
                 )}</a></li>
-                ${job.location ? `<li>📍 ${escapeHtml(job.location)}</li>` : ""}
-                ${postedLabel(job) ? `<li>🗓️ ${escapeHtml(postedLabel(job))}</li>` : ""}
+                ${job.location ? `<li>${escapeHtml(job.location)}</li>` : ""}
+                ${postedLabel(job) ? `<li>${escapeHtml(postedLabel(job))}</li>` : ""}
               </ul>
               ${
                 isWalkInJob(job)

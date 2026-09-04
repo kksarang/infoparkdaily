@@ -93,9 +93,9 @@ function applyTheme(isLight) {
   document.documentElement.classList.toggle("theme-light", isLight);
   document.documentElement.classList.toggle("theme-dark", !isLight);
   document.documentElement.style.colorScheme = isLight ? "light" : "dark";
-  document.documentElement.style.backgroundColor = isLight ? "#f6f5f1" : "#0b0b0f";
+  document.documentElement.style.backgroundColor = isLight ? "#ffffff" : "#0b0b0f";
   const themeColor = document.querySelector('meta[name="theme-color"]');
-  if (themeColor) themeColor.setAttribute("content", isLight ? "#f6f5f1" : "#0b0b0f");
+  if (themeColor) themeColor.setAttribute("content", isLight ? "#ffffff" : "#0b0b0f");
   if (themeToggle) {
     themeToggle.textContent = isLight ? "Dark" : "Light";
     themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");

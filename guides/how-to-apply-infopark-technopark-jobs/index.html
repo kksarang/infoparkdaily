@@ -33,9 +33,9 @@
         root.classList.remove("theme-light", "theme-dark");
         root.classList.add(light ? "theme-light" : "theme-dark");
         root.style.colorScheme = light ? "light" : "dark";
-        root.style.backgroundColor = light ? "#f6f5f1" : "#0b0b0f";
+        root.style.backgroundColor = light ? "#ffffff" : "#0b0b0f";
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute("content", light ? "#f6f5f1" : "#0b0b0f");
+        if (meta) meta.setAttribute("content", light ? "#ffffff" : "#0b0b0f");
         function syncBody() {
           if (!document.body) return false;
           document.body.classList.toggle("light", light);
@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="stylesheet" href="/css/styles.css?v=20260904h" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260904i" />
     
   </head>
   <body class="guides-body dark">
@@ -354,7 +354,7 @@
       </div>
     </footer>
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
-    <script src="/js/site.js?v=20260904e" defer></script>
+    <script src="/js/site.js?v=20260904f" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>

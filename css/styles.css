@@ -38,18 +38,18 @@
 
 html.theme-light body,
 body.light {
-  --bg: #f6f5f1;
+  --bg: #ffffff;
   --bg-elev: #ffffff;
-  --surface: rgba(12, 12, 18, 0.035);
-  --surface-2: rgba(12, 12, 18, 0.07);
-  --text: #17171f;
-  --muted: #5c5f6e;
-  --line: rgba(12, 12, 18, 0.1);
-  --line-strong: rgba(12, 12, 18, 0.2);
-  --accent-soft: rgba(255, 179, 0, 0.16);
-  --shadow-1: 0 10px 30px rgba(20, 18, 10, 0.08);
-  --shadow-2: 0 24px 70px rgba(20, 18, 10, 0.12);
-  --glow-accent: 0 8px 30px rgba(255, 179, 0, 0.25);
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e5e7eb;
+  --line-strong: #cbd5e1;
+  --accent-soft: rgba(255, 193, 7, 0.16);
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-2: 0 12px 32px rgba(15, 23, 42, 0.06);
+  --glow-accent: 0 8px 24px rgba(255, 193, 7, 0.18);
 }
 
 /* ---------- Base ---------- */
@@ -68,7 +68,7 @@ html {
 }
 
 html.theme-light {
-  background-color: #f6f5f1;
+  background-color: #ffffff;
   color-scheme: light;
 }
 
@@ -101,10 +101,7 @@ body {
 
 html.theme-light body,
 body.light {
-  background:
-    radial-gradient(ellipse 60% 42% at 12% -8%, rgba(255, 179, 0, 0.12), transparent 60%),
-    radial-gradient(ellipse 55% 40% at 92% -4%, rgba(139, 92, 246, 0.1), transparent 55%),
-    var(--bg);
+  background: var(--bg);
 }
 
 h1,
@@ -291,7 +288,11 @@ li {
 
 html.theme-light body .site-header,
 body.light .site-header {
-  background: rgba(255, 255, 255, 0.82);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .brand {
@@ -2372,6 +2373,12 @@ html.theme-light .jobs-sort {
   background: var(--surface);
   min-width: 0;
   min-height: 3.05rem;
+}
+
+html.theme-light body .job-fact,
+body.light .job-fact {
+  background: #ffffff;
+  border-color: #e2e8f0;
 }
 
 .job-fact-label {
