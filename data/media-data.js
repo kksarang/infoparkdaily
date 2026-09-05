@@ -41,24 +41,6 @@ var SOCIAL_CHANNELS = [
     cta: "Follow"
   },
   {
-    id: "ig-tbc",
-    badge: "IG",
-    tone: "tbc",
-    name: "@infopark_tbc",
-    blurb: "Infopark TBC — IT professional community",
-    url: "https://www.instagram.com/infopark_tbc/",
-    cta: "Follow"
-  },
-  {
-    id: "ig-divine",
-    badge: "IG",
-    tone: "divine",
-    name: "@thedivineproduction_7",
-    blurb: "The Divine Productions — events & stage",
-    url: "https://www.instagram.com/thedivineproduction_7/",
-    cta: "Follow"
-  },
-  {
     id: "ig-broadcast",
     badge: "BC",
     tone: "bc",
@@ -110,24 +92,6 @@ var SOCIAL_CHANNELS = [
     name: "@enitexa",
     blurb: "Enitexa.ai — digital & software",
     url: "https://www.instagram.com/enitexa/",
-    cta: "Follow"
-  },
-  {
-    id: "ig-ptf",
-    badge: "IG",
-    tone: "tbc",
-    name: "@primetimefestivals",
-    blurb: "Prime Time Festivals — RAJAONAM & events",
-    url: "https://www.instagram.com/primetimefestivals/",
-    cta: "Follow"
-  },
-  {
-    id: "ig-pte",
-    badge: "IG",
-    tone: "divine",
-    name: "@primetimeeventsindia",
-    blurb: "Prime Time Events — shows & productions",
-    url: "https://www.instagram.com/primetimeeventsindia/",
     cta: "Follow"
   }
 ];

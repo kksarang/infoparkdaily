@@ -7819,6 +7819,236 @@ body.light .onam-hero-powered strong {
   font-weight: 600;
 }
 
+.au-owner {
+  padding: 1.55rem 1.6rem 1.65rem;
+  border-radius: 24px;
+  display: grid;
+  gap: 1.3rem;
+}
+
+.au-owner-id {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.au-owner-avatar {
+  flex: 0 0 4.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  color: var(--accent-ink);
+  background: linear-gradient(135deg, var(--accent-strong), #f5a300);
+  box-shadow: var(--glow-accent);
+}
+
+.au-owner-role {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 780;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.au-owner-id-copy h3 {
+  margin: 0.15rem 0 0;
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.au-owner-place {
+  margin: 0.28rem 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.au-owner-handles {
+  margin: 0.35rem 0 0;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.au-owner-bio p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.au-owner-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.au-owner-history {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.au-owner-history li {
+  min-width: 0;
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.au-owner-history span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.au-owner-history strong {
+  display: block;
+  margin-top: 0.28rem;
+  font-family: var(--display);
+  font-size: 0.98rem;
+  font-weight: 680;
+}
+
+.au-owner-history em {
+  display: block;
+  margin-top: 0.2rem;
+  font-style: normal;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.au-owner-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem 1rem;
+  margin: 0;
+  padding: 1.05rem 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.au-owner-facts dt {
+  font-size: 0.68rem;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.au-owner-facts dd {
+  margin: 0.22rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.au-owner-facts a {
+  color: var(--text);
+}
+
+.au-owner-brands {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.au-brand {
+  display: grid;
+  align-content: start;
+  gap: 0.22rem;
+  min-width: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  text-decoration: none;
+  color: inherit;
+}
+
+.au-brand:hover,
+.au-brand:focus-visible {
+  border-color: var(--line-strong);
+}
+
+.au-brand span {
+  font-size: 0.65rem;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.au-brand strong {
+  font-family: var(--display);
+  font-size: 1.02rem;
+  font-weight: 680;
+}
+
+.au-brand em {
+  font-style: normal;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.au-owner-cta {
+  margin-top: 0.1rem;
+}
+
+.au-owner--brief {
+  gap: 0.9rem;
+  padding: 1.2rem 1.3rem 1.3rem;
+}
+
+.au-owner-brief {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1080px) {
+  .au-owner-history,
+  .au-owner-facts,
+  .au-owner-brands {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .au-owner {
+    padding: 1.2rem 1.1rem 1.3rem;
+    border-radius: 22px;
+  }
+
+  .au-owner-id {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .au-owner-history,
+  .au-owner-facts,
+  .au-owner-brands {
+    grid-template-columns: 1fr;
+  }
+}
+
 .au-event {
   margin-top: 0;
   min-height: 0;

@@ -120,6 +120,7 @@ export function contentTypeFromPath(path) {
   if (/^\/jobs\/?$/i.test(path) || path.indexOf("/jobs") === 0) return "jobs_list";
   if (/infopark-jobs|technopark-jobs|cyberpark-jobs/i.test(path)) return "park_jobs";
   if (/^\/media/i.test(path)) return "media";
+  if (/^\/sarang/i.test(path)) return "profile";
   if (/^\/contact/i.test(path)) return "contact";
   if (/^\/services/i.test(path)) return "services";
   if (path === "/" || path === "") return "home";

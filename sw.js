@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v293";
+const CACHE_NAME = "infoparkdaily-v308";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -20,6 +20,7 @@ const PRELOAD_ASSETS = [
   "./contact/",
   "./review/",
   "./media/",
+  "./sarang/",
   "./social/",
   "./social-post/",
   "./onam/",
@@ -36,7 +37,9 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260904k",
+  "./css/styles.css?v=20260905f",
+  "./css/sarang.css?v=20260905m",
+  "./js/sarang.js?v=20260905g",
   "./css/onam.css?v=20260904v",
   "./css/jobs-marketplace.css?v=20260904ab",
   "./css/recruit-premium.css?v=20260905d",
@@ -70,7 +73,7 @@ const PRELOAD_ASSETS = [
   "./data/technopark-companies-data.js?v=20260830d",
   "./data/cyberpark-companies-data.js?v=20260830d",
   "./js/contact.js?v=20260725k",
-  "./data/media-data.js?v=20260902c",
+  "./data/media-data.js?v=20260905b",
   "./js/social.js?v=20260902a",
   "./js/social-post.js?v=20260815b",
   "./assets/media/onam-bg.svg",
