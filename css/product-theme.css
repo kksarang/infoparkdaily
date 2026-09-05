@@ -1,0 +1,648 @@
+/* Shared Jobs / Recruit product look for Services + About Us.
+   Light + dark tokens, stacked layouts on phone / tablet. */
+
+body.services-body,
+body.media-body,
+body.news-body {
+  --pt-blue: #2563eb;
+  --pt-blue-ink: #1d4ed8;
+  --pt-soft: #eff6ff;
+  --pt-ink: #0f172a;
+  --pt-muted: #64748b;
+  --pt-line: #e2e8f0;
+  --pt-bg: #f8fafc;
+  --pt-card: #ffffff;
+  --pt-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --pt-radius: 16px;
+}
+
+html.theme-dark body.services-body,
+body.services-body.dark,
+html.theme-dark body.media-body,
+body.media-body.dark,
+html.theme-dark body.news-body,
+body.news-body.dark {
+  --pt-soft: rgba(37, 99, 235, 0.2);
+  --pt-ink: #f8fafc;
+  --pt-muted: #94a3b8;
+  --pt-line: rgba(148, 163, 184, 0.22);
+  --pt-bg: #0b1220;
+  --pt-card: rgba(15, 23, 42, 0.72);
+  --pt-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+html.theme-light body.services-body,
+body.services-body.light,
+html.theme-light body.media-body,
+body.media-body.light,
+html.theme-light body.news-body,
+body.news-body.light {
+  background: var(--pt-bg);
+  color: var(--pt-ink);
+}
+
+html.theme-dark body.services-body,
+body.services-body.dark,
+html.theme-dark body.media-body,
+body.media-body.dark,
+html.theme-dark body.news-body,
+body.news-body.dark {
+  background: var(--pt-bg);
+  color: var(--pt-ink);
+}
+
+body.services-body .jobs-page,
+body.media-body .jobs-page,
+body.news-body .jobs-page,
+body.news-body .news-page {
+  color: var(--pt-ink);
+}
+
+body.services-body .btn-primary,
+body.media-body .btn-primary,
+body.news-body .btn-primary {
+  background: var(--pt-blue);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+  border: 1px solid transparent;
+}
+
+body.services-body .btn-primary:hover,
+body.media-body .btn-primary:hover,
+body.news-body .btn-primary:hover,
+body.services-body .btn-primary:focus-visible,
+body.media-body .btn-primary:focus-visible,
+body.news-body .btn-primary:focus-visible {
+  background: var(--pt-blue-ink);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(29, 78, 216, 0.32);
+}
+
+body.services-body .btn-secondary,
+body.media-body .btn-secondary,
+body.news-body .btn-secondary {
+  background: var(--pt-card);
+  color: var(--pt-blue-ink);
+  border: 1px solid var(--pt-line);
+}
+
+html.theme-dark body.services-body .btn-secondary,
+body.services-body.dark .btn-secondary,
+html.theme-dark body.media-body .btn-secondary,
+body.media-body.dark .btn-secondary,
+html.theme-dark body.news-body .btn-secondary,
+body.news-body.dark .btn-secondary {
+  background: rgba(37, 99, 235, 0.12);
+  color: #bfdbfe;
+  border-color: rgba(147, 197, 253, 0.4);
+}
+
+body.services-body .btn-secondary:hover,
+body.media-body .btn-secondary:hover,
+body.news-body .btn-secondary:hover {
+  border-color: var(--pt-blue);
+  color: var(--pt-blue);
+}
+
+html.theme-dark body.services-body .btn-secondary:hover,
+body.services-body.dark .btn-secondary:hover,
+html.theme-dark body.media-body .btn-secondary:hover,
+body.media-body.dark .btn-secondary:hover,
+html.theme-dark body.news-body .btn-secondary:hover,
+body.news-body.dark .btn-secondary:hover {
+  color: #dbeafe;
+  border-color: #93c5fd;
+}
+
+body.services-body .eyebrow,
+body.media-body .eyebrow,
+body.news-body .eyebrow {
+  color: var(--pt-blue);
+}
+
+body.services-body .section-heading h2,
+body.media-body .section-heading h2,
+body.news-body .section-heading h2 {
+  color: var(--pt-ink);
+  letter-spacing: -0.03em;
+}
+
+/* ----- Services hero ----- */
+body.services-body .svcx-hero {
+  overflow: hidden;
+  border-radius: 24px;
+  margin: 0.85rem 0 0;
+  padding: clamp(1.35rem, 3.6vw, 2.15rem);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(37, 99, 235, 0.12), transparent 36%),
+    linear-gradient(180deg, var(--pt-card) 0%, var(--pt-bg) 100%);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+}
+
+body.services-body .svcx-orb {
+  display: none;
+}
+
+body.services-body .svcx-hero-grid {
+  opacity: 0.45;
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--pt-blue) 18%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--pt-blue) 18%, transparent) 1px, transparent 1px);
+}
+
+body.services-body .svcx-kicker {
+  border-color: color-mix(in srgb, var(--pt-blue) 35%, transparent);
+  background: var(--pt-soft);
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-hero h1 {
+  font-size: clamp(1.7rem, 4.4vw, 2.7rem);
+  color: var(--pt-ink);
+}
+
+body.services-body .svcx-hero-flame {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-lede {
+  color: var(--pt-muted);
+  max-width: 40rem;
+}
+
+body.services-body .svcx-ticker {
+  background: var(--pt-card);
+  border-color: var(--pt-line);
+  border-radius: 14px;
+  margin-top: 1rem;
+  padding-inline: 0.75rem;
+}
+
+body.services-body .svcx-ticker-track strong {
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-ticker-track span::after {
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-row::before {
+  background: var(--pt-blue);
+}
+
+body.services-body .svcx-row:hover {
+  background: var(--pt-soft);
+}
+
+body.services-body .svcx-row:hover .svcx-num {
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-row-main h3 {
+  color: var(--pt-ink);
+}
+
+body.services-body .svcx-row-main p,
+body.services-body .svcx-row-main a {
+  color: var(--pt-muted);
+}
+
+body.services-body .svcx-row-main a {
+  color: var(--pt-blue);
+}
+
+body.services-body .svcx-chips li {
+  background: var(--pt-card);
+  border-color: var(--pt-line);
+  color: var(--pt-ink);
+}
+
+body.services-body .svcx-row:hover .svcx-chips li {
+  border-color: color-mix(in srgb, var(--pt-blue) 45%, transparent);
+}
+
+body.services-body .svcx-engine::before {
+  background: linear-gradient(90deg, transparent, var(--pt-blue) 12%, #60a5fa 88%, transparent);
+  opacity: 0.7;
+}
+
+body.services-body .svcx-engine-node {
+  background: var(--pt-card);
+  border-color: var(--pt-blue);
+  color: var(--pt-blue);
+  box-shadow: 0 0 0 6px var(--pt-soft);
+}
+
+body.services-body .svcx-engine h3 {
+  color: var(--pt-ink);
+}
+
+body.services-body .svcx-engine p {
+  color: var(--pt-muted);
+}
+
+body.services-body .media-channel.glass,
+body.services-body .glass {
+  background: var(--pt-card);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+  backdrop-filter: none;
+  color: var(--pt-ink);
+}
+
+body.services-body .media-channel h3,
+body.services-body .media-channel p {
+  color: inherit;
+}
+
+body.services-body .media-channel p {
+  color: var(--pt-muted);
+}
+
+body.services-body .media-channel-cta {
+  color: var(--pt-blue);
+}
+
+/* ----- About Us ----- */
+body.media-body .jobs-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: clamp(1.35rem, 3.6vw, 2.15rem);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(37, 99, 235, 0.12), transparent 36%),
+    linear-gradient(180deg, var(--pt-card) 0%, var(--pt-bg) 100%);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+}
+
+body.media-body .jobs-hero-glow {
+  opacity: 0.35;
+}
+
+body.media-body .jobs-kicker {
+  color: var(--pt-blue);
+  background: var(--pt-soft);
+  border: 1px solid color-mix(in srgb, var(--pt-blue) 28%, transparent);
+  display: inline-flex;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+body.media-body .jobs-hero-copy h1,
+body.media-body .jobs-hero-copy h2 {
+  color: var(--pt-ink);
+  font-size: clamp(1.7rem, 4.4vw, 2.55rem);
+}
+
+body.media-body .jobs-hero-accent {
+  color: var(--pt-blue);
+}
+
+body.media-body .jobs-intro {
+  color: var(--pt-muted);
+}
+
+body.media-body .jobs-hero-stats li {
+  background: var(--pt-soft);
+  border: 1px solid var(--pt-line);
+  border-radius: 14px;
+  color: var(--pt-ink);
+}
+
+body.media-body .jobs-hero-stats strong {
+  color: var(--pt-blue);
+}
+
+body.media-body .glass.au-card,
+body.media-body .glass.au-owner,
+body.media-body .au-card,
+body.media-body .au-owner {
+  background: var(--pt-card);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+  backdrop-filter: none;
+  border-radius: var(--pt-radius);
+  color: var(--pt-ink);
+}
+
+body.media-body .au-card-kicker,
+body.media-body .au-owner-role {
+  color: var(--pt-blue);
+}
+
+body.media-body .au-card h3,
+body.media-body .au-owner-id-copy h3 {
+  color: var(--pt-ink);
+}
+
+body.media-body .au-card p,
+body.media-body .au-owner-brief,
+body.media-body .au-owner-place {
+  color: var(--pt-muted);
+}
+
+body.media-body .au-card a:not(.btn),
+body.media-body .au-owner a:not(.btn) {
+  color: var(--pt-blue);
+}
+
+body.media-body .au-owner-cta,
+body.media-body .jobs-park-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+body.media-body .au-owner-cta .btn,
+body.media-body .jobs-park-cta .btn {
+  min-height: 44px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+
+body.media-body .au-owner-cta .btn-primary,
+body.media-body .jobs-park-cta .btn-primary,
+body.media-body .au-owner a.btn-primary {
+  background: var(--pt-blue);
+  color: #fff;
+}
+
+body.media-body .au-owner-cta .btn-primary:hover,
+body.media-body .jobs-park-cta .btn-primary:hover,
+body.media-body .au-owner a.btn-primary:hover {
+  background: var(--pt-blue-ink);
+  color: #fff;
+}
+
+body.media-body .au-owner-cta .btn-secondary,
+body.media-body .au-owner a.btn-secondary {
+  background: transparent;
+  color: var(--pt-blue);
+  border-color: color-mix(in srgb, var(--pt-blue) 50%, var(--pt-line));
+}
+
+html.theme-dark body.media-body .au-owner-cta .btn-secondary,
+body.media-body.dark .au-owner-cta .btn-secondary,
+html.theme-dark body.media-body .au-owner a.btn-secondary,
+body.media-body.dark .au-owner a.btn-secondary {
+  background: rgba(37, 99, 235, 0.12);
+  color: #bfdbfe;
+  border-color: rgba(147, 197, 253, 0.45);
+}
+
+body.media-body .au-owner-avatar {
+  background: var(--pt-blue);
+  color: #fff;
+  border: 0;
+}
+
+body.media-body .jobs-guide-links a {
+  background: var(--pt-card);
+  border: 1px solid var(--pt-line);
+  color: var(--pt-ink);
+  border-radius: 999px;
+}
+
+body.media-body .jobs-guide-links a:hover {
+  border-color: var(--pt-blue);
+  color: var(--pt-blue);
+}
+
+body.media-body .au-event--highlight {
+  background:
+    radial-gradient(circle at 8% 80%, rgba(37, 99, 235, 0.1), transparent 40%),
+    linear-gradient(180deg, var(--pt-card) 0%, var(--pt-bg) 100%);
+}
+
+/* ----- News ----- */
+body.news-body .jobs-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  padding: clamp(1.35rem, 3.6vw, 2.15rem);
+  background:
+    radial-gradient(circle at 92% 12%, rgba(37, 99, 235, 0.12), transparent 36%),
+    linear-gradient(180deg, var(--pt-card) 0%, var(--pt-bg) 100%);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+}
+
+body.news-body .jobs-hero-glow {
+  opacity: 0.35;
+}
+
+body.news-body .jobs-kicker {
+  color: var(--pt-blue);
+  background: var(--pt-soft);
+  border: 1px solid color-mix(in srgb, var(--pt-blue) 28%, transparent);
+  display: inline-flex;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  letter-spacing: 0.08em;
+}
+
+body.news-body .jobs-hero-copy h1 {
+  color: var(--pt-ink);
+  font-size: clamp(1.7rem, 4.4vw, 2.55rem);
+}
+
+body.news-body .jobs-hero-accent {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--pt-blue);
+}
+
+body.news-body .jobs-intro {
+  color: var(--pt-muted);
+}
+
+body.news-body .jobs-hero-panel,
+body.news-body .news-featured,
+body.news-body .news-card,
+body.news-body .jobs-empty,
+body.news-body .home-guides-grid a {
+  background: var(--pt-card);
+  border: 1px solid var(--pt-line);
+  box-shadow: var(--pt-shadow);
+  backdrop-filter: none;
+  color: var(--pt-ink);
+}
+
+body.news-body .jobs-panel-label {
+  color: var(--pt-blue);
+}
+
+body.news-body .jobs-panel-note {
+  color: var(--pt-muted);
+}
+
+body.news-body .media-hero-actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+body.news-body .media-hero-actions .btn {
+  width: 100%;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 999px;
+}
+
+body.news-body .jobs-filter-btn {
+  background: var(--pt-card);
+  border: 1px solid var(--pt-line);
+  color: var(--pt-ink);
+  border-radius: 999px;
+}
+
+body.news-body .jobs-filter-btn:hover {
+  border-color: var(--pt-blue);
+  color: var(--pt-blue);
+}
+
+body.news-body .jobs-filter-btn.is-active {
+  background: var(--pt-blue);
+  border-color: var(--pt-blue);
+  color: #fff;
+}
+
+body.news-body .news-cat {
+  background: var(--pt-soft);
+  border-color: color-mix(in srgb, var(--pt-blue) 28%, transparent);
+  color: var(--pt-blue);
+}
+
+body.news-body .news-featured-copy h2,
+body.news-body .news-card-body h3,
+body.news-body .news-article-page h1 {
+  color: var(--pt-ink);
+}
+
+body.news-body .news-summary,
+body.news-body .section-heading p {
+  color: var(--pt-muted);
+}
+
+body.news-body .news-card-cta {
+  color: var(--pt-blue);
+}
+
+body.news-body .news-featured-media,
+body.news-body .news-card-media,
+body.news-body .news-story-hero-media {
+  background: #0b1220;
+}
+
+body.news-body .home-guides-grid a strong {
+  color: var(--pt-ink);
+}
+
+body.news-body .home-guides-grid a span {
+  color: var(--pt-muted);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 1080px) {
+  body.services-body .svcx-engine {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.services-body .svcx-engine::before {
+    display: none;
+  }
+
+  body.media-body .au-card-grid--3,
+  body.media-body .au-card-grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body.services-body .svcx-hero,
+  body.media-body .jobs-hero,
+  body.news-body .jobs-hero {
+    padding: 1.15rem 1.05rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  body.services-body .svcx-hero-ctas,
+  body.media-body .jobs-park-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  body.services-body .svcx-hero-ctas .btn,
+  body.media-body .jobs-park-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.services-body .svcx-row {
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+    align-items: start;
+    padding-inline: 0.15rem;
+  }
+
+  body.services-body .svcx-chips {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+
+  body.media-body .au-card-grid--3,
+  body.media-body .au-card-grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  body.media-body .au-owner-id {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  body.services-body .svcx-hero h1,
+  body.media-body .jobs-hero-copy h1,
+  body.media-body .jobs-hero-copy h2 {
+    font-size: clamp(1.45rem, 7vw, 1.9rem);
+  }
+
+  body.services-body .svcx-engine,
+  body.services-body .media-channels {
+    grid-template-columns: 1fr;
+  }
+
+  body.services-body .svcx-ticker-track span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 420px) {
+  body.services-body .svcx-hero,
+  body.media-body .jobs-hero,
+  body.news-body .jobs-hero {
+    padding: 1rem 0.85rem 1.05rem;
+    border-radius: 16px;
+  }
+
+  body.services-body .svcx-num {
+    font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.services-body .svcx-ticker-track,
+  body.services-body .svcx-orb,
+  body.services-body .svcx-trust-dot {
+    animation: none;
+  }
+}

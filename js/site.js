@@ -254,6 +254,9 @@ function initMobileNav() {
   const nav = document.getElementById("site-nav");
   if (!header || !toggle || !nav) return;
 
+  const leftoverDrawer = document.getElementById("site-nav-drawer");
+  if (leftoverDrawer) leftoverDrawer.remove();
+
   let backdrop = document.querySelector(".nav-backdrop");
   if (!backdrop) {
     backdrop = document.createElement("div");
@@ -262,35 +265,7 @@ function initMobileNav() {
     document.body.appendChild(backdrop);
   }
 
-  let drawer = document.getElementById("site-nav-drawer");
-  if (!drawer) {
-    drawer = document.createElement("aside");
-    drawer.id = "site-nav-drawer";
-    drawer.className = "site-nav-drawer";
-    drawer.setAttribute("aria-hidden", "true");
-    drawer.setAttribute("aria-label", "Site menu");
-
-    const drawerHead = document.createElement("div");
-    drawerHead.className = "site-nav-drawer-head";
-    drawerHead.innerHTML = `
-      <p class="site-nav-drawer-title">Menu</p>
-      <button type="button" class="site-nav-drawer-close" aria-label="Close menu">
-        <span aria-hidden="true">×</span>
-      </button>
-    `;
-
-    const panel = nav.cloneNode(true);
-    panel.id = "site-nav-panel";
-    panel.classList.add("site-nav-panel");
-    panel.removeAttribute("aria-label");
-
-    drawer.appendChild(drawerHead);
-    drawer.appendChild(panel);
-    document.body.appendChild(drawer);
-  }
-
-  const panel = drawer.querySelector(".site-nav-panel") || drawer.querySelector(".site-nav");
-  toggle.setAttribute("aria-controls", "site-nav-drawer");
+  toggle.setAttribute("aria-controls", "site-nav");
 
   let lockedScrollY = 0;
 
@@ -314,8 +289,6 @@ function initMobileNav() {
     const { restoreScroll = true, unlock = true } = options;
     const isOpen = Boolean(open);
     header.classList.toggle("nav-open", isOpen);
-    drawer.classList.toggle("is-open", isOpen);
-    drawer.setAttribute("aria-hidden", isOpen ? "false" : "true");
     backdrop.classList.toggle("is-visible", isOpen);
     backdrop.setAttribute("aria-hidden", isOpen ? "false" : "true");
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
@@ -330,18 +303,8 @@ function initMobileNav() {
         document.body.style.top = `-${lockedScrollY}px`;
         document.body.style.paddingRight = gap ? `${gap}px` : "";
       }
-      const closeBtn = drawer.querySelector(".site-nav-drawer-close");
-      if (closeBtn) closeBtn.focus({ preventScroll: true });
     } else if (document.body.classList.contains("nav-locked") && unlock) {
       const y = lockedScrollY;
-      if (
-        document.activeElement &&
-        (drawer.contains(document.activeElement) || document.activeElement === backdrop)
-      ) {
-        try {
-          toggle.focus({ preventScroll: true });
-        } catch (_error) {}
-      }
       document.body.classList.remove("nav-locked");
       document.documentElement.classList.remove("nav-locked");
       document.body.style.top = "";
@@ -359,11 +322,8 @@ function initMobileNav() {
   };
 
   toggle.addEventListener("click", () => {
-    setOpen(!drawer.classList.contains("is-open"));
+    setOpen(!header.classList.contains("nav-open"));
   });
-
-  const closeBtn = drawer.querySelector(".site-nav-drawer-close");
-  if (closeBtn) closeBtn.addEventListener("click", () => setOpen(false));
 
   backdrop.addEventListener("pointerdown", (event) => {
     event.preventDefault();
@@ -371,9 +331,9 @@ function initMobileNav() {
     setOpen(false);
   });
 
-  (panel || nav).querySelectorAll("a").forEach((link) => {
+  nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (event) => {
-      if (!drawer.classList.contains("is-open")) return;
+      if (!header.classList.contains("nav-open")) return;
 
       const newTab =
         link.target === "_blank" ||

@@ -9,8 +9,8 @@
  * ------
  * id          string   Unique slug — used in URL: /news-article/?id=my-story
  * title       string   Headline
- * category    string   "Infrastructure" | "AI City" | "Metro" | "Events" | "Business" | "Community"
- * park        string   "Infopark Kochi" | "Technopark TVM" | "Kerala"
+ * category    string   "Infrastructure" | "Investment" | "Campus" | "AI City" | "Metro" | "Events" | "Business" | "Community"
+ * park        string   "Infopark Kochi" | "Technopark TVM" | "Cyberpark Kozhikode" | "SmartCity Kochi" | "Kerala"
  * date        string   ISO "YYYY-MM-DD" — drives sorting + New badge
  * image       string   Root path to cover image, e.g. "/assets/news/story.jpg"
  * imageAlt    string   Short description of the image
@@ -43,6 +43,301 @@
 
 var NEWS = [
   {
+    id: "technopark-quad-350-crore-loan-2026",
+    title: "Technopark seeks ₹350 crore loan to finish QUAD IT building in Phase IV",
+    category: "Investment",
+    park: "Technopark TVM",
+    date: "2026-09-04",
+    image: "/assets/news/technopark.svg",
+    imageAlt: "Technopark Phase IV Technocity campus illustration",
+    summary:
+      "Technopark has invited banks to fund a ₹350 crore term loan so it can complete the QUAD IT building at Technocity (Phase IV) — about 8.97 lakh sq ft of new office space at Pallipuram.",
+    body: [
+      "Technopark is seeking a ₹350 crore term loan to complete its QUAD IT building at Technocity, the park’s Phase IV campus at Pallipuram, Thiruvananthapuram. The Times of India reported that the loan would cover most of a ₹432.57 crore project cost, excluding land.",
+      "The proposed building has a built-up area of about 8.97 lakh sq ft. Technopark has invited expressions of interest from scheduled commercial banks and financial institutions. The park would put in ₹82.57 crore from its own funds. Repayment is planned mainly from rental income once the building is let.",
+      "After lenders asked for more time for internal appraisal, the deadline to submit proposals was extended to 15 September 2026, 5 pm. Bids are scheduled to be opened at 3 pm on 16 September 2026 at Park Centre, Technopark.",
+      "QUAD is one of the large developments planned at Technocity. Officials say nearly 9 lakh sq ft of extra built-up space should help the park take more companies and support more jobs when the building opens. InfoparkDaily is independent — this is not a Technopark or bank announcement. Confirm tenders and terms on technopark.org.",
+      "For job seekers: new towers do not mean walk-ins tomorrow. Watch official Technopark and company careers pages when leasing starts. InfoparkDaily will keep covering Phase IV buildings, co-developer projects, and campus hiring as public updates appear."
+    ],
+    highlights: [
+      "₹350 crore term loan sought from banks / FIs",
+      "Project cost cited: ₹432.57 crore (excluding land)",
+      "QUAD IT building: ~8.97 lakh sq ft at Technocity (Phase IV)",
+      "Park contribution cited: ₹82.57 crore from internal resources",
+      "EOI deadline extended to 15 Sept 2026; opening 16 Sept 2026"
+    ],
+    attachments: [
+      {
+        label: "Times of India — QUAD loan report",
+        url: "https://timesofindia.indiatimes.com/city/thiruvananthapuram/technopark-seeks-350-crore-loan-to-complete-quad-it-building-at-phase-iv/articleshow/133741217.cms"
+      },
+      { label: "Technopark official website", url: "https://technopark.org/" }
+    ],
+    source: "The Times of India / Technopark EOI coverage",
+    sourceUrl:
+      "https://timesofindia.indiatimes.com/city/thiruvananthapuram/technopark-seeks-350-crore-loan-to-complete-quad-it-building-at-phase-iv/articleshow/133741217.cms",
+    featured: true
+  },
+  {
+    id: "technopark-semiconductor-science-park-100-crore-2026",
+    title: "₹100 crore semiconductor & science park proposed at Technopark Phase IV",
+    category: "Infrastructure",
+    park: "Technopark TVM",
+    date: "2026-09-03",
+    image: "/assets/news/aicity.svg",
+    imageAlt: "Illustration for science and semiconductor park at Technocity",
+    summary:
+      "A 10-acre Semiconductor Capability Development Park and Science–Technology Experience Park is proposed at Technocity, with an estimated ₹100 crore investment. The MoU was handed over in early September 2026.",
+    body: [
+      "Kerala has proposed a Semiconductor Capability Development Park and a Science and Technology Experience Park at Technocity (Technopark Phase IV). The Hindu and The Times of India report a 10-acre project with an estimated ₹100 crore investment.",
+      "Xtra G Club Private Limited is to implement the project in collaboration with the Indian Institute of Information Technology and Management-Kerala (IIITM-K). On 3 September 2026, Industries and IT Minister P.K. Kunhalikutty handed over the MoU to Anian Koshy, managing director of Xtra G Club, according to The Hindu.",
+      "Public descriptions include semiconductor process demonstration, electronics labs, chip-design learning spaces, prototyping, and industry programmes — framed as hands-on capability building, not a full chip fab. A science–technology experience park is also described, with interactive galleries.",
+      "This is separate from other Technocity projects such as QUAD and longer-running science-park plans. InfoparkDaily is not the developer. Watch official Technopark and Government of Kerala updates for land, construction, and hiring — none of those are confirmed in the MoU handover reports we used."
+    ],
+    highlights: [
+      "Estimated investment: ₹100 crore",
+      "About 10 acres at Technocity (Phase IV)",
+      "Developer cited: Xtra G Club Pvt Ltd with IIITM-K",
+      "MoU handover reported 3 September 2026",
+      "Focus: semiconductor skills + science–tech experience — not a confirmed fab"
+    ],
+    attachments: [
+      {
+        label: "The Hindu — semiconductor park",
+        url: "https://www.thehindu.com/news/national/kerala/semiconductor-capability-development-park-to-come-up-in-thiruvananthapuram/article71416013.ece"
+      },
+      {
+        label: "The Hindu — MoU handover",
+        url: "https://www.thehindu.com/news/national/kerala/mou-on-semiconductor-capacity-building-park-in-keralams-capital-handed-over-to-xtra-g-club/article71424807.ece"
+      },
+      { label: "Technopark official website", url: "https://technopark.org/" }
+    ],
+    source: "The Hindu / The Times of India",
+    sourceUrl:
+      "https://www.thehindu.com/news/national/kerala/mou-on-semiconductor-capacity-building-park-in-keralams-capital-handed-over-to-xtra-g-club/article71424807.ece",
+    featured: false
+  },
+  {
+    id: "infopark-phase-3-ai-township-status-2026",
+    title: "Infopark Phase 3 AI township: 300+ acres planned, land pooling still needs clearance",
+    category: "AI City",
+    park: "Infopark Kochi",
+    date: "2026-09-01",
+    image: "/assets/news/phase3.svg",
+    imageAlt: "Infopark Phase 3 Integrated AI Township concept",
+    summary:
+      "Infopark and GCDA signed an MoU for Kerala’s first Integrated AI Township on 300+ acres. Land pooling in Kizhakkambalam / Kunnathunad has since hit legal-jurisdiction questions. Here is what is confirmed.",
+    body: [
+      "On 29 September 2025 Infopark and the Greater Cochin Development Authority signed an MoU, in the presence of the Chief Minister, for Infopark Phase 3 — described on Infopark’s site as Kerala’s first Integrated AI Township on more than 300 acres in Ernakulam, using land pooling.",
+      "Public briefings after the MoU described a township model: GCDA to identify land, Infopark to remain project owner, with studies, surveys, and a detailed report to government. Infopark’s CEO has previously spoken of a 2030-horizon build-out. Those are plans, not a finished campus.",
+      "In 2026, The Times of India reported that implementation is stuck on jurisdiction: the proposed site sits in Kizhakkambalam and Kunnathunad panchayats, outside GCDA’s usual area. Infopark’s CEO was quoted saying land pooling cannot start until legal and statutory issues are sorted, including possible amendments.",
+      "InfoparkDaily will keep this as a project-level story — land, approvals, construction — not as a hiring notice. There is no public walk-in attached to Phase 3. Verify every update on infopark.in. We are not Infopark official."
+    ],
+    highlights: [
+      "Official MoU: Infopark + GCDA, 29 September 2025",
+      "Vision: Integrated AI Township, 300+ acres, land pooling",
+      "2026 reports: land pooling paused over GCDA jurisdiction",
+      "Not a jobs listing — watch infopark.in for official steps"
+    ],
+    attachments: [
+      {
+        label: "Infopark — MoU for Phase 3",
+        url: "https://infopark.in/news/infopark-gcda-sign-mou-for-infopark-phase-3"
+      },
+      {
+        label: "The Hindu — Phase III briefing (2025)",
+        url: "https://www.thehindu.com/news/national/kerala/infopark-phase-iii-likely-to-be-completed-by-2030-says-ceo/article70113040.ece"
+      }
+    ],
+    source: "Infopark official news / The Hindu / The Times of India",
+    sourceUrl: "https://infopark.in/news/infopark-gcda-sign-mou-for-infopark-phase-3",
+    featured: false
+  },
+  {
+    id: "experion-ai-centre-technopark-2026",
+    title: "Experion opens AI Centre of Excellence at Technopark, Bhavani Building",
+    category: "Campus",
+    park: "Technopark TVM",
+    date: "2026-08-17",
+    image: "/assets/news/aicity.svg",
+    imageAlt: "AI and product engineering campus illustration",
+    summary:
+      "Experion Technologies inaugurated a 58,000 sq ft development centre at Technopark in August 2026. The site is the company’s AI Centre of Excellence, with capacity for more than 700 engineers.",
+    body: [
+      "Experion Technologies opened a 58,000 sq ft development centre at Technopark, Thiruvananthapuram, in August 2026. Company and trade-press reports say it is Experion’s largest development centre so far and will work as its AI Centre of Excellence.",
+      "The facility is in the Bhavani Building. Reports describe capacity for more than 700 engineers, AI and embedded IoT labs, rapid prototyping, and a Forward Deployed Engineer Academy. Dr Tessy Thomas inaugurated the centre, according to Experion’s own announcement.",
+      "This is a company campus story — more AI product-engineering seats in Trivandrum — not a park-wide hiring drive. Roles, if any, belong on Experion’s careers page. InfoparkDaily does not recruit for Experion."
+    ],
+    highlights: [
+      "58,000 sq ft centre at Technopark (Bhavani Building)",
+      "Described as AI Centre of Excellence",
+      "Capacity cited: 700+ engineers",
+      "Inauguration reported mid-August 2026"
+    ],
+    attachments: [
+      {
+        label: "TechnoparkToday — Experion AI CoE",
+        url: "https://www.technoparktoday.com/experion-technologies-opens-ai-center-of-excellence-at-technopark-trivandrum/"
+      },
+      { label: "Technopark official website", url: "https://technopark.org/" }
+    ],
+    source: "Experion / TechnoparkToday / trade press",
+    sourceUrl:
+      "https://www.technoparktoday.com/experion-technologies-opens-ai-center-of-excellence-at-technopark-trivandrum/",
+    featured: false
+  },
+  {
+    id: "healthedge-brigade-square-technopark-2026",
+    title: "HealthEdge opens 1.62 lakh sq ft campus at Brigade Square, Technopark",
+    category: "Campus",
+    park: "Technopark TVM",
+    date: "2026-08-20",
+    image: "/assets/news/milestone.svg",
+    imageAlt: "Large IT campus expansion illustration",
+    summary:
+      "US healthcare-tech firm HealthEdge inaugurated a new Technopark campus at Brigade Square in August 2026 — about 162,000 sq ft across 11 floors, with seating cited around 1,500.",
+    body: [
+      "HealthEdge inaugurated a new campus at Brigade Square, Technopark Phase I, Thiruvananthapuram, on 20 August 2026, according to the company’s press release. The Economic Times reported a lease of about 1.62 lakh sq ft across 11 floors of the tower.",
+      "HealthEdge says the campus spans about 162,000 sq ft across 11 of Brigade Square’s 12 upper floors, with seating for about 1,500 people, covering engineering, product, technology, operations, and corporate teams. Brigade Square is described as roughly 2 lakh sq ft including basements and 12 upper floors.",
+      "The company lists India offices in Chennai, Coimbatore, Bengaluru, Hyderabad, Pune, Kochi, and Thiruvananthapuram. Seating capacity is not a confirmed hiring number. Check HealthEdge careers for actual openings. InfoparkDaily is not the employer."
+    ],
+    highlights: [
+      "Brigade Square, Technopark Phase I",
+      "Lease / campus size cited: ~1.62 lakh sq ft (11 floors)",
+      "Seating cited: ~1,500 — not a job advertisement",
+      "Inauguration: 20 August 2026 (company release)"
+    ],
+    attachments: [
+      {
+        label: "HealthEdge press release",
+        url: "https://healthedge.com/resources/press-releases/healthedge-expands-india-footprint-with-new-thiruvananthapuram-campus-deepening-commitment-to-technology-innovation-and-growth-in-kerala"
+      },
+      {
+        label: "Economic Times — lease report",
+        url: "https://economictimes.indiatimes.com/industry/services/property-/-cstruction/healthedge-leases-1-62-lakh-sq-ft-in-thiruvananthapuram-for-new-campus/articleshow/133375968.cms"
+      }
+    ],
+    source: "HealthEdge press release / The Economic Times",
+    sourceUrl:
+      "https://healthedge.com/resources/press-releases/healthedge-expands-india-footprint-with-new-thiruvananthapuram-campus-deepening-commitment-to-technology-innovation-and-growth-in-kerala",
+    featured: false
+  },
+  {
+    id: "lulu-twin-towers-non-sez-smartcity-2026",
+    title: "LuLu IT Twin Towers: one tower opened as Non-SEZ space at SmartCity Kochi",
+    category: "Business",
+    park: "SmartCity Kochi",
+    date: "2026-08-04",
+    image: "/assets/news/gcc-hub.svg",
+    imageAlt: "Grade-A IT office towers illustration",
+    summary:
+      "LuLu IT Parks has designated about 1.25 million sq ft at LuLu IT Twin Towers, SmartCity Kochi, as Non-SEZ / non-processing-area space — alongside 1.25 million sq ft that remains SEZ.",
+    body: [
+      "LuLu IT Twin Towers at SmartCity Kochi, Kakkanad, are two Grade-A office towers. Company and government coverage at inauguration (June 2025) cited about ₹1,500 crore investment, 12.74 acres, 3.5 million sq ft built-up, and 2.5 million sq ft leasable, with each tower about 30 office floors and 152 metres tall.",
+      "In 2026 LuLu IT Parks said it is offering Non-SEZ IT/ITES space at the Twin Towers. Its LinkedIn post (4 August 2026) cites 1.25 million sq ft of Grade A Non-SEZ office space. Malayalam business daily Dhanam reported that one 12.5 lakh sq ft tower was shifted to a Non-Processing Area of the SEZ so domestic-market firms can sit alongside export-oriented SEZ units, with the other 12.5 lakh sq ft remaining SEZ.",
+      "That split matters in Kochi: many GCCs, banks, and Indian IT firms prefer non-SEZ floors. Infopark’s own LuLu Cyber Towers in Phase 1 are a different campus. This story is SmartCity Kochi, not Infopark Phase 2.",
+      "Dhanam also reported pre-leasing of 2.5 lakh sq ft. Treat tenant names as unconfirmed unless LuLu or the company publishes them. InfoparkDaily is not a leasing agent."
+    ],
+    highlights: [
+      "Location: SmartCity Kochi, Kakkanad — not Infopark Phase 2",
+      "Leasable campus cited: 2.5 million sq ft (two towers)",
+      "About 1.25 million sq ft Non-SEZ / non-processing area",
+      "About 1.25 million sq ft remains SEZ",
+      "Inauguration reported June 2025; Non-SEZ offer posted August 2026"
+    ],
+    attachments: [
+      {
+        label: "LuLu IT Parks — Non-SEZ announcement (LinkedIn)",
+        url: "https://www.linkedin.com/posts/lulutechpark_luluitparks-luluittwintowers-nonsez-activity-7490292145480769536-yQ_q"
+      },
+      {
+        label: "The Hindu — Twin Towers inauguration",
+        url: "https://www.thehindu.com/news/national/kerala/lulu-it-twin-towers-to-be-inaugurated-on-june-28/article69740566.ece"
+      },
+      { label: "SmartCity Kochi", url: "https://www.smartcity-infra.com/" }
+    ],
+    source: "LuLu IT Parks / The Hindu / Dhanam",
+    sourceUrl:
+      "https://www.linkedin.com/posts/lulutechpark_luluitparks-luluittwintowers-nonsez-activity-7490292145480769536-yQ_q",
+    featured: false
+  },
+  {
+    id: "ust-infopark-phase-2-campus-2026",
+    title: "UST campus rising at Infopark Phase 2 — 9 acres, 6 lakh+ sq ft, late-2027 target",
+    category: "Campus",
+    park: "Infopark Kochi",
+    date: "2026-05-22",
+    image: "/assets/news/phase3.svg",
+    imageAlt: "Infopark Phase 2 campus development illustration",
+    summary:
+      "UST is building its second owned India campus on 9 acres in Infopark Phase 2: a 10-floor, 6 lakh+ sq ft building with about 4,400 seats, aimed at completion by late 2027.",
+    body: [
+      "UST is constructing a self-owned campus in Infopark Kochi Phase 2 on a 9-acre plot. Company announcements at foundation (September 2024) described a 10-floor building of over 6 lakh sq ft, about 4,400 seats, a gym, and a 1,400-seat auditorium — UST’s second owned campus in India after Thiruvananthapuram.",
+      "UST said it then employed more than 2,800 people at Infopark Kochi and aimed to add over 3,000 jobs over five years, targeting about 6,000 people in the region when the campus opens. Those are company targets, not guaranteed hires.",
+      "The New Indian Express reported in May 2026 that the campus — 10 floors, over 6 lakh sq ft, seating about 4,400 — is slated for completion by late 2027. Infopark CEO Susanth Kurunthil said UST had been allotted 9 acres on land that was later frozen for SilverLine, then released by special order so work could continue. Piling has been reported as underway.",
+      "This is a campus-and-capacity story. Apply only via UST careers or official park listings. InfoparkDaily is not UST and does not charge candidates."
+    ],
+    highlights: [
+      "9 acres, Infopark Phase 2",
+      "10 floors, 6 lakh+ sq ft, ~4,400 seats (company / press figures)",
+      "Second owned India campus after Thiruvananthapuram",
+      "Completion cited: late 2027",
+      "Job figures are company targets — not an InfoparkDaily vacancy"
+    ],
+    attachments: [
+      {
+        label: "Express Computer — UST Kochi campus",
+        url: "https://www.expresscomputer.in/news/ust-to-expand-india-presence-with-state-of-the-art-kochi-campus-and-create-over-3000-new-jobs-in-the-next-5-years/116691/"
+      },
+      {
+        label: "The New Indian Express — Infopark land / UST campus",
+        url: "https://www.newindianexpress.com/cities/kochi/2026/May/22/silverline-scrapped-easing-land-crunch-at-infopark-for-expansion-plans"
+      },
+      { label: "Infopark official website", url: "https://infopark.in/" }
+    ],
+    source: "UST announcements / Express Computer / The New Indian Express",
+    sourceUrl:
+      "https://www.newindianexpress.com/cities/kochi/2026/May/22/silverline-scrapped-easing-land-crunch-at-infopark-for-expansion-plans",
+    featured: false
+  },
+  {
+    id: "hilite-cyberpark-570-crore-2026",
+    title: "HiLITE plans ₹570 crore IT complexes at Cyberpark Kozhikode — 12,500 jobs cited",
+    category: "Investment",
+    park: "Cyberpark Kozhikode",
+    date: "2026-03-10",
+    image: "/assets/news/milestone.svg",
+    imageAlt: "Cyberpark Kozhikode IT tower illustration",
+    summary:
+      "HiLITE Group announced two IT complexes at Cyberpark Kozhikode with a combined ₹570 crore investment. BusinessLine cited about 10,000 jobs at Cyber Tower and 2,500 at Cyber Hub.",
+    body: [
+      "HiLITE Group announced two IT complexes at Cyberpark, Kozhikode, with Kerala State IT Infrastructure Ltd (KSITIL/KITFRA) and Cyberpark. The Hindu Business Line (11 March 2026) put combined investment at ₹570 crore.",
+      "HiLITE Cyber Tower is described as a 28-floor building on 2.5 acres, about 9 lakh sq ft, around ₹500 crore, with about 10,000 jobs expected. HiLITE Cyber Hub is described as over 1.56 lakh sq ft and about ₹70 crore, with construction already started and about 2,500 direct IT jobs projected. Together, reports add those job figures to 12,500 — they are expectations, not filled seats.",
+      "HiLITE’s own site later listed Cyber Hub groundbreaking on 9 March 2026. North Kerala’s IT story is still smaller than Infopark or Technopark; these towers are the capacity bet. InfoparkDaily is not HiLITE or Cyberpark. Confirm leasing and hiring on official pages."
+    ],
+    highlights: [
+      "Combined investment cited: ₹570 crore",
+      "Cyber Tower: 28 floors, ~9 lakh sq ft, ~₹500 crore",
+      "Cyber Hub: ~1.56 lakh sq ft, construction reported underway",
+      "Job numbers (10,000 + 2,500) are projections"
+    ],
+    attachments: [
+      {
+        label: "The Hindu Business Line",
+        url: "https://www.thehindubusinessline.com/info-tech/hilite-group-to-invest-570-crore-in-two-it-complexes-at-kozhikode-cyberpark/article70729776.ece"
+      },
+      {
+        label: "HiLITE — Cyber Hub groundbreaking",
+        url: "https://hilitegroup.com/news-events/hilite-cyber-hub-groundbreaking-ceremony-held-at-cyberpark-kozhikode/"
+      },
+      { label: "Cyberpark Kozhikode", url: "https://cyberparks.in/" }
+    ],
+    source: "The Hindu Business Line / HiLITE Group",
+    sourceUrl:
+      "https://www.thehindubusinessline.com/info-tech/hilite-group-to-invest-570-crore-in-two-it-complexes-at-kozhikode-cyberpark/article70729776.ece",
+    featured: false
+  },
+  {
     id: "infoparkdaily-career-guides-launch-2026",
     title: "InfoparkDaily launches career guides for Infopark & Technopark job seekers",
     category: "Community",
@@ -73,7 +368,7 @@ var NEWS = [
     ],
     source: "InfoparkDaily editorial",
     sourceUrl: "https://infoparkdaily.online/guides/",
-    featured: true
+    featured: false
   },
   {
     id: "verify-infopark-job-posts-before-you-apply-2026",

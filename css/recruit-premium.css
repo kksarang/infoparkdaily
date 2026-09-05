@@ -36,6 +36,13 @@ body.recruit-body.dark {
 html.theme-light body.recruit-body,
 body.recruit-body.light {
   background: #f6f7f9;
+  color: var(--rq-ink);
+}
+
+html.theme-dark body.recruit-body,
+body.recruit-body.dark {
+  background: #0b1220;
+  color: var(--rq-ink);
 }
 
 body.recruit-body {
@@ -100,13 +107,16 @@ body.recruit-body .btn {
 }
 
 body.recruit-body .site-nav a[aria-current="page"] {
-  color: var(--rq-blue);
-  background: var(--rq-blue-soft);
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #93c5fd;
 }
 
 html.theme-dark body.recruit-body .site-nav a[aria-current="page"],
 body.recruit-body.dark .site-nav a[aria-current="page"] {
   color: #93c5fd;
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(147, 197, 253, 0.4);
 }
 
 body.recruit-body .btn:active {
@@ -1778,6 +1788,17 @@ body.recruit-body .rq-track-card p {
 @media (max-width: 420px) {
   body.recruit-body .rq-hero-fine {
     font-size: 0.76rem;
+  }
+
+  body.recruit-body .hiring-form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body.recruit-body .hiring-form-actions .btn,
+  body.recruit-body .hiring-form-actions .btn-primary {
+    width: 100%;
+    flex: 1 1 auto;
   }
 }
 

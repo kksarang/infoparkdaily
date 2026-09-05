@@ -274,7 +274,7 @@ li {
   z-index: 50;
   margin-top: 16px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.75rem 1rem;
   padding: 0.7rem 1rem;
@@ -300,14 +300,14 @@ body.light .site-header {
   align-items: center;
   gap: 0.75rem;
   min-width: 0;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   text-decoration: none;
 }
 
 .brand > div {
-  min-width: 0;
+  min-width: auto;
   display: grid;
-  gap: 0.08rem;
+  gap: 0.09rem;
   align-content: center;
 }
 
@@ -328,7 +328,7 @@ body.light .site-header {
   font-size: clamp(0.78rem, 2.2vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.1em;
-  line-height: 1.15;
+  line-height: 1.19;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -336,10 +336,12 @@ body.light .site-header {
 
 .brand-tagline {
   margin: 0;
+  margin-top: -0.12em;
   color: var(--muted);
   font-size: clamp(0.58rem, 1.6vw, 0.72rem);
-  line-height: 1.25;
-  max-width: 15rem;
+  line-height: 1.05;
+  max-width: none;
+  white-space: nowrap;
 }
 
 .header-actions {
@@ -353,21 +355,33 @@ body.light .site-header {
 
 .site-nav {
   display: flex;
-  flex: 0 1 auto;
-  gap: 0.35rem;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem;
   order: 2;
+  min-width: 0;
 }
 
 .site-nav a {
-  padding: 0.45rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 0.72rem;
+  border: 1px solid transparent;
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--muted);
-  transition: color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
 .site-nav a:hover {
@@ -376,8 +390,23 @@ body.light .site-header {
 }
 
 .site-nav a[aria-current="page"] {
-  color: var(--accent-ink);
-  background: var(--accent);
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+html.theme-dark .site-nav a[aria-current="page"],
+body.dark .site-nav a[aria-current="page"] {
+  color: #93c5fd;
+  background: rgba(37, 99, 235, 0.2);
+  border-color: rgba(147, 197, 253, 0.4);
+}
+
+html.theme-light .site-nav a[aria-current="page"],
+body.light .site-nav a[aria-current="page"] {
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #93c5fd;
 }
 
 .site-nav a.nav-enitexa {
@@ -401,19 +430,21 @@ html.theme-light .site-nav a.nav-enitexa {
   background: transparent;
   color: var(--text);
   border-radius: 999px;
-  padding: 0.45rem 1rem;
+  min-width: 4.85rem;
+  min-height: 34px;
+  padding: 0 0.85rem;
   font: inherit;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
+  line-height: 1;
   text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
+  border-color: #93c5fd;
 }
 
 .nav-toggle {
@@ -9735,6 +9766,7 @@ body.light .news-story-hero-media {
   }
 
   .brand > div {
+    min-width: 0;
     max-width: min(12.5rem, calc(100vw - 7.5rem));
   }
 
@@ -9761,6 +9793,7 @@ body.light .news-story-hero-media {
     padding: 0.5rem 0.6rem;
     justify-content: flex-start;
     z-index: 80;
+    flex-wrap: wrap;
     max-height: calc(100svh - max(16px, env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)));
     overflow: hidden;
   }
@@ -9845,146 +9878,86 @@ body.light .news-story-hero-media {
     flex-shrink: 0;
   }
 
-  /* Hide in-header accordion nav — side drawer replaces it */
-  .site-header > .site-nav {
-    display: none !important;
+  .site-nav {
+    order: 3;
+    flex: 1 0 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    padding: 0.55rem 0 0.1rem;
+    border-top: 1px solid var(--line);
+    margin-top: 0.1rem;
+    max-height: calc(100svh - 5.5rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
 
   .site-header.nav-open {
-    border-radius: 22px;
-    overflow: hidden;
+    border-radius: 20px;
   }
 
-  .site-nav-drawer {
+  .site-header.nav-open .site-nav {
     display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: min(86vw, 320px);
-    z-index: 90;
-    padding:
-      max(1rem, env(safe-area-inset-top, 0px))
-      max(1rem, env(safe-area-inset-right, 0px))
-      max(1.25rem, env(safe-area-inset-bottom, 0px))
-      1rem;
-    background: var(--bg-elev);
-    border-left: 1px solid var(--line-strong);
-    box-shadow: -18px 0 50px rgba(0, 0, 0, 0.35);
-    transform: translateX(104%);
-    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
-    pointer-events: none;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .site-nav-drawer {
-      transition: none;
-    }
-  }
-
-  .site-nav-drawer.is-open {
-    transform: translateX(0);
-    pointer-events: auto;
-  }
-
-  .site-nav-drawer-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.85rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .site-nav-drawer-title {
-    margin: 0;
-    font-family: var(--display);
-    font-size: 1.15rem;
-    font-weight: 750;
-    letter-spacing: -0.02em;
-    color: var(--text);
-  }
-
-  .site-nav-drawer-close {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    border: 1px solid var(--line-strong);
-    background: var(--surface-2);
-    color: var(--text);
-    font-size: 1.45rem;
-    line-height: 1;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .site-nav-drawer-close:hover {
-    border-color: var(--accent);
-  }
-
-  .site-nav-panel {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.4rem;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    flex: 1 1 auto;
-  }
-
-  .site-nav-panel a {
-    min-height: 48px;
-    padding: 0.9rem 1rem;
+  .site-header > .site-nav a {
+    min-height: 44px;
+    padding: 0.85rem 1rem;
     border-radius: 14px;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
     color: var(--text);
     background: var(--surface-2);
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    justify-content: flex-start;
   }
 
-  .site-nav-panel a:hover,
-  .site-nav-panel a:focus-visible {
+  .site-header > .site-nav a:hover,
+  .site-header > .site-nav a:focus-visible {
     background: rgba(255, 193, 7, 0.16);
     color: var(--text);
   }
 
-  .site-nav-panel a[aria-current="page"] {
-    color: var(--accent-ink);
-    background: var(--accent);
+  .site-header > .site-nav a[aria-current="page"] {
+    color: #1d4ed8;
+    background: #eff6ff;
+    border-color: #93c5fd;
   }
 
-  .site-nav-panel a.nav-enitexa {
-    border: 1px solid rgba(139, 92, 246, 0.45);
-    background: rgba(139, 92, 246, 0.12);
-    color: #c4b5fd;
+  html.theme-dark .site-header > .site-nav a[aria-current="page"],
+  body.dark .site-header > .site-nav a[aria-current="page"] {
+    color: #93c5fd;
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgba(147, 197, 253, 0.4);
   }
 
-  html.theme-light .site-nav-panel a.nav-enitexa {
+  .site-header > .site-nav a.nav-enitexa {
     color: #6d28d9;
     background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.45);
+  }
+
+  html.theme-dark .site-header > .site-nav a.nav-enitexa,
+  body.dark .site-header > .site-nav a.nav-enitexa {
+    color: #c4b5fd;
+    background: rgba(139, 92, 246, 0.12);
+  }
+
+  .site-nav-drawer {
+    display: none !important;
   }
 
   .nav-backdrop {
     display: block;
     position: fixed;
     inset: 0;
-    z-index: 85;
-    background: rgba(5, 5, 8, 0.55);
+    z-index: 70;
+    background: rgba(5, 5, 8, 0.45);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.2s ease;
   }
 
   .nav-backdrop.is-visible {

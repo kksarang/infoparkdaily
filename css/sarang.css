@@ -1,5 +1,60 @@
 /* Sarang profile — InfoparkDaily chrome, profile layout. */
 
+body.sarang-body {
+  --sg-blue: #2563eb;
+  --sg-blue-ink: #1d4ed8;
+  --sg-soft: #eff6ff;
+  --sg-ink: #0f172a;
+  --sg-muted: #64748b;
+  --sg-line: #e2e8f0;
+  --sg-bg: #f8fafc;
+  --sg-card: #ffffff;
+}
+
+html.theme-dark body.sarang-body,
+body.sarang-body.dark {
+  --sg-soft: rgba(37, 99, 235, 0.2);
+  --sg-ink: #f8fafc;
+  --sg-muted: #94a3b8;
+  --sg-line: rgba(148, 163, 184, 0.22);
+  --sg-bg: #0b1220;
+  --sg-card: rgba(15, 23, 42, 0.72);
+  background: var(--sg-bg);
+  color: var(--sg-ink);
+}
+
+html.theme-light body.sarang-body,
+body.sarang-body.light {
+  background: var(--sg-bg);
+  color: var(--sg-ink);
+}
+
+body.sarang-body .btn-primary {
+  background: var(--sg-blue);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+  border-color: transparent;
+}
+
+body.sarang-body .btn-primary:hover,
+body.sarang-body .btn-primary:focus-visible {
+  background: var(--sg-blue-ink);
+  color: #fff;
+}
+
+body.sarang-body .btn-secondary {
+  background: var(--sg-card);
+  color: var(--sg-blue-ink);
+  border: 1px solid var(--sg-line);
+}
+
+html.theme-dark body.sarang-body .btn-secondary,
+body.sarang-body.dark .btn-secondary {
+  background: rgba(37, 99, 235, 0.12);
+  color: #bfdbfe;
+  border-color: rgba(147, 197, 253, 0.4);
+}
+
 .sg-page {
   width: var(--container);
   max-width: 100%;
@@ -16,22 +71,46 @@
   padding: 0.35rem 0 0;
 }
 
-.sg-id {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.35rem 1.6rem;
-  align-items: start;
+@media (min-width: 900px) {
+  .sg-intro {
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+    align-items: start;
+  }
+
+  .sg-facts {
+    grid-column: 1 / -1;
+  }
 }
 
-.sg-id .au-owner-avatar {
-  width: 5.25rem;
-  height: 5.25rem;
-  flex-basis: 5.25rem;
-  font-size: 1.55rem;
+.sg-id {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  align-items: start;
 }
 
 .sg-id .jobs-kicker {
   margin: 0;
+  color: var(--sg-blue, #2563eb);
+}
+
+.sg-open {
+  display: inline-flex;
+  margin: 0.45rem 0 0;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+html.theme-dark .sg-open,
+body.dark .sg-open {
+  background: rgba(22, 163, 74, 0.22);
+  color: #86efac;
 }
 
 .sg-id h1 {
@@ -49,6 +128,118 @@
 
 .sg-id .jobs-park-cta {
   margin-top: 1.1rem;
+}
+
+.sg-stack {
+  margin: 0.7rem 0 0;
+  color: var(--sg-muted, var(--muted));
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sg-connect {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+  margin: 1rem 0 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.sg-connect span {
+  color: var(--sg-muted, var(--muted));
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sg-connect a {
+  color: var(--sg-blue, #2563eb);
+  text-decoration: none;
+}
+
+.sg-connect a:hover {
+  text-decoration: underline;
+}
+
+html.theme-dark .sg-connect a,
+body.dark .sg-connect a {
+  color: #93c5fd;
+}
+
+.sg-portfolio {
+  padding: 1.2rem 1.25rem 1.3rem;
+  border-radius: 18px;
+  border: 1px solid var(--sg-line, var(--line));
+  background: var(--sg-card, var(--surface));
+}
+
+.sg-portfolio-kicker {
+  margin: 0;
+  color: var(--sg-blue, #2563eb);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sg-portfolio h2 {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  letter-spacing: -0.03em;
+}
+
+.sg-portfolio p {
+  margin: 0.45rem 0 0.95rem;
+  max-width: 36rem;
+  color: var(--sg-muted, var(--muted));
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.sg-skills {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.sg-skills article {
+  padding: 1rem 1.05rem;
+  border-radius: 16px;
+  border: 1px solid var(--sg-line, var(--line));
+  background: var(--sg-card, var(--surface));
+}
+
+.sg-skills h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.sg-skills p {
+  margin: 0.4rem 0 0;
+  color: var(--sg-muted, var(--muted));
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.sg-adventures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sg-adventures li {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--sg-line, var(--line));
+  background: var(--sg-card, var(--surface));
+  font-size: 0.84rem;
+  font-weight: 650;
 }
 
 .sg-facts {
@@ -152,7 +343,7 @@
 
 .sg-time li {
   display: grid;
-  grid-template-columns: 7.5rem minmax(0, 1fr);
+  grid-template-columns: 11rem minmax(0, 1fr);
   gap: 1.25rem;
   padding: 1.15rem 0;
   border-top: 1px solid var(--line);
@@ -163,10 +354,10 @@
 }
 
 .sg-time span {
-  color: var(--accent);
-  font-size: 0.7rem;
+  color: var(--sg-blue, var(--accent));
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   padding-top: 0.28rem;
 }
@@ -237,7 +428,8 @@
 @media (max-width: 1080px) {
   .sg-facts,
   .sg-page .sw-grid,
-  .sarang-reels {
+  .sarang-reels,
+  .sg-skills {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -255,7 +447,8 @@
 
   .sg-facts,
   .sg-page .sw-grid,
-  .sarang-reels {
+  .sarang-reels,
+  .sg-skills {
     grid-template-columns: 1fr;
   }
 
@@ -266,5 +459,20 @@
   .sg-page {
     gap: 2.2rem;
     padding-bottom: 3rem;
+  }
+
+  .sg-id .jobs-park-cta,
+  .sg-portfolio .btn {
+    width: 100%;
+  }
+
+  .sg-id .jobs-park-cta {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .sg-id .jobs-park-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 }
