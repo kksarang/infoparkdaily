@@ -216,6 +216,7 @@ function renderFeaturedJobs() {
               exp === "fresher" ? "Fresher" : exp === "experienced" ? "Experienced" : "Fresher + Exp"
             )}</span>
             ${job.isWalkIn ? `<span class="job-badge job-badge--walkin">Walk-in</span>` : ""}
+            ${job.isReferral || job.referral ? `<span class="job-badge job-badge--referral">Referral</span>` : ""}
           </div>
           <ul class="job-roles">${roles}</ul>
           <a class="btn btn-primary job-details-btn" href="${escapeAttr(href)}">View Details</a>

@@ -2624,6 +2624,65 @@ body.light .job-fact {
   white-space: nowrap;
 }
 
+.job-referral-ribbon {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #4c1d95;
+  background: #ede9fe;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.12);
+  white-space: nowrap;
+}
+
+.job-badge--referral {
+  color: #5b21b6;
+  background: rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  font-weight: 800;
+}
+
+.job-card--referral {
+  border-color: rgba(124, 58, 237, 0.35);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.1), transparent 42%),
+    var(--surface);
+}
+
+.jobs-filter-btn--referral.is-active,
+.jobs-filter-btn--referral:hover {
+  border-color: rgba(124, 58, 237, 0.5);
+  background: rgba(124, 58, 237, 0.12);
+  color: #5b21b6;
+}
+
+html.theme-dark .job-referral-ribbon,
+body.dark .job-referral-ribbon {
+  color: #ddd6fe;
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+
+html.theme-dark .job-badge--referral,
+body.dark .job-badge--referral {
+  color: #ddd6fe;
+  background: rgba(124, 58, 237, 0.22);
+  border-color: rgba(167, 139, 250, 0.4);
+}
+
+html.theme-dark .job-card--referral,
+body.dark .job-card--referral {
+  border-color: rgba(167, 139, 250, 0.35);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.16), transparent 42%),
+    var(--surface);
+}
+
 .job-card-topline .job-deadline-pill {
   position: static;
   margin: 0;
@@ -5126,6 +5185,26 @@ body.light .job-map-open {
   line-height: 1.35;
   max-width: 100%;
   overflow-wrap: anywhere;
+}
+
+.job-hero-referral-callout {
+  margin: 0.35rem 0 0.55rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.35;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+html.theme-dark .job-hero-referral-callout,
+body.dark .job-hero-referral-callout {
+  border-color: rgba(167, 139, 250, 0.45);
+  background: rgba(124, 58, 237, 0.18);
 }
 
 .job-detail-hero-copy {

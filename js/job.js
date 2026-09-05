@@ -131,6 +131,14 @@
     return Boolean(job.isWalkIn || job.walkin);
   }
 
+  function isReferralJob(job) {
+    return Boolean(job.isReferral || job.referral);
+  }
+
+  function referralLabel(job) {
+    return String(job.referralLabel || "Referral available").trim() || "Referral available";
+  }
+
   function walkInDateText(job) {
     return job.walkinDates || job.walkInDate || "";
   }
@@ -2151,6 +2159,7 @@
                   <span class="jd-type-pill">${escapeHtml(typeBadgeLabel(job))}</span>
                   <span class="ej-status ej-status--${st.cls}">${st.label}</span>
                   ${!expired && isMassHiring(job) ? massHiringBadgeHtml() : ""}
+                  ${!expired && isReferralJob(job) ? `<span class="job-badge job-badge--referral">Referral</span>` : ""}
                   ${countdown ? `<span class="job-deadline-pill job-deadline-pill--${status}">${escapeHtml(countdown)}</span>` : ""}
                   ${job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""}
                 </div>
@@ -2162,6 +2171,13 @@
                 ${job.location ? `<li class="jd-meta jd-meta--loc">${escapeHtml(job.location)}</li>` : ""}
                 ${postedLabel(job) ? `<li class="jd-meta jd-meta--date">${escapeHtml(postedLabel(job))}</li>` : ""}
               </ul>
+              ${
+                isReferralJob(job)
+                  ? `<p class="job-hero-referral-callout">${escapeHtml(
+                      referralLabel(job)
+                    )} · Highlighted by InfoparkDaily · Verify with the company before you apply</p>`
+                  : ""
+              }
               ${
                 isWalkInJob(job)
                   ? `<p class="job-hero-walkin-callout">Walk-in drive · ${escapeHtml(

@@ -195,6 +195,14 @@
     return Boolean(job.isWalkIn || job.walkin);
   }
 
+  function isReferralJob(job) {
+    return Boolean(job.isReferral || job.referral);
+  }
+
+  function referralLabel(job) {
+    return String(job.referralLabel || "Referral available").trim() || "Referral available";
+  }
+
   function walkInDateText(job) {
     return job.walkinDates || job.walkInDate || "";
   }
@@ -265,6 +273,7 @@
   function matchesFilter(job) {
     if (activeFilter === "all") return true;
     if (activeFilter === "masshiring") return isMassHiring(job);
+    if (activeFilter === "referral") return isReferralJob(job);
     if (activeFilter === "walkin") return isWalkInJob(job);
     if (activeFilter === "remote") return isRemoteJob(job);
     if (activeFilter === "nonit") return isNonITJob(job);
@@ -392,6 +401,7 @@
       const knownTypes = [
         "all",
         "masshiring",
+        "referral",
         "walkin",
         "fresher",
         "remote",
@@ -548,11 +558,25 @@
     return `<span class="job-mass-ribbon" aria-label="Mass hiring">🔥 100+ Hiring</span>`;
   }
 
+  function referralRibbonHtml(job) {
+    return `<span class="job-referral-ribbon" aria-label="Referral opportunity">🔥 ${escapeHtml(
+      referralLabel(job)
+    )}</span>`;
+  }
+
   function cardToplineHtml(job, mass, expired) {
-    if (mass && !expired) {
+    if (expired) return "";
+    if (mass) {
       return `
       <div class="job-card-topline">
         ${massHiringRibbonHtml()}
+      </div>
+    `;
+    }
+    if (isReferralJob(job)) {
+      return `
+      <div class="job-card-topline">
+        ${referralRibbonHtml(job)}
       </div>
     `;
     }
@@ -572,6 +596,9 @@
   }
 
   function cardBlurb(job) {
+    if (isReferralJob(job)) {
+      return shortCardText(job.referralLabel || "Referral opportunity via InfoparkDaily", 96);
+    }
     if (isWalkInJob(job)) {
       const date = walkInDateText(job);
       const time = job.walkinTime ? String(job.walkinTime).replace(/\s+onwards$/i, "") : "";
@@ -660,6 +687,7 @@
         <div class="job-featured-aside">
           <div class="job-featured-badges">
             ${massHiringBadgeHtml()}
+            ${isReferralJob(job) ? `<span class="job-badge job-badge--referral">Referral</span>` : ""}
             ${isWalkInJob(job) ? `<span class="job-badge job-badge--walkin">Walk-In Available</span>` : ""}
           </div>
           <footer class="job-featured-actions">
@@ -732,6 +760,9 @@
         ? `<span class="job-badge job-badge--expired" title="Apply deadline has passed">EXPIRED</span>`
         : "",
       !expired && mass ? massHiringBadgeHtml() : "",
+      !expired && isReferralJob(job)
+        ? `<span class="job-badge job-badge--referral">Referral</span>`
+        : "",
       !expired && isNew(job) ? `<span class="job-badge job-badge--new">New</span>` : "",
       !expired && (job.alertSheet || job.urgentHiring)
         ? `<span class="job-badge job-badge--alert${job.urgentHiring ? " job-badge--urgent" : ""}">${escapeHtml(
@@ -739,13 +770,13 @@
           )}</span>`
         : "",
       `<span class="job-badge job-badge--${escapeHtml(exp)}">${escapeHtml(badgeLabel)}</span>`,
-      isWalkInJob(job) && !(job.alertSheet || job.urgentHiring)
+      isWalkInJob(job) && !(job.alertSheet || job.urgentHiring) && !isReferralJob(job)
         ? `<span class="job-badge job-badge--walkin">Walk-in</span>`
         : "",
       job.verified ? `<span class="job-badge job-badge--verified">Verified</span>` : ""
     ]
       .filter(Boolean)
-      .slice(0, 3)
+      .slice(0, isReferralJob(job) ? 4 : 3)
       .join("");
 
     const facts = [
@@ -762,12 +793,11 @@
 
     const ctaLabel = expired ? "View expired listing" : "View Details";
     const href = jobHref(job);
-    // Keep blurb short; walk-in timing is useful, long company blurbs clutter mobile cards
-    const mobileBlurb = isWalkInJob(job) ? previewBlurb : "";
+    const mobileBlurb = isWalkInJob(job) || isReferralJob(job) ? previewBlurb : "";
 
     return `
       <article
-        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}${mass && !expired ? " job-card--mass-hiring" : ""}${job.urgentHiring && !expired ? " job-card--urgent" : ""}"
+        class="job-card${expired ? " job-card--expired" : ""}${status === "closing" ? " job-card--closing" : ""}${mass && !expired ? " job-card--mass-hiring" : ""}${isReferralJob(job) && !expired ? " job-card--referral" : ""}${job.urgentHiring && !expired ? " job-card--urgent" : ""}"
         data-experience="${escapeHtml(exp)}"
         style="--delay: ${Math.min(index, 8) * 40}ms"
       >

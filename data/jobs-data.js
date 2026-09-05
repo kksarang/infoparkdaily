@@ -25,6 +25,8 @@
  * tags            string[] e.g. ["IT", "Marketing", "Design", "Sales", "Business"]
  * verified        boolean  Shows "Verified by InfoparkDaily" badge
  * isWalkIn        boolean  Walk-in drive filter + badge (alias: walkin)
+ * isReferral      boolean  Referral opportunity highlight + filter (alias: referral)
+ * referralLabel   string   Ribbon / callout text (default: "Referral available")
  * walkInDate      string   Human date text when isWalkIn is true (alias: walkinDates)
  * source          string   "WhatsApp" | "Instagram" | "Direct" | "Infopark"
  *
@@ -96,6 +98,73 @@
  */
 
 var JOBS = [
+  {
+    id: "ibs-software-solution-consultant-itravel-referral-20260905",
+    company: "IBS Software",
+    logo: "https://infopark.in/upload_images/company_logos/606IBS_Software_logo.jpg",
+    companyBlurb: "IBS Software · Solution Consultant – iTravel (TnC) · Kochi / Trivandrum · Referral opportunity · 1+ years",
+    location: "Kochi / Trivandrum",
+    roles: ["Solution Consultant – iTravel (TnC)"],
+    experience: "experienced",
+    experienceRange: "1+ years",
+    employmentType: "Full-time",
+    applyLink: "mailto:athuldeepv25@gmail.com?subject=Solution%20Consultant%20%E2%80%93%20iTravel",
+    applyDeadline: "Rolling",
+    postedDate: "2026-09-05",
+    source: "WhatsApp",
+    verified: true,
+    isReferral: true,
+    referralLabel: "Referral available",
+    verificationNote: "This is a referral opportunity shared with InfoparkDaily. Always verify the opening with IBS Software before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT", "Travel Tech", "Consulting"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "athuldeepv25@gmail.com",
+    phone: "",
+    website: "https://www.ibsplc.com",
+    address: "Kochi / Trivandrum, Kerala",
+    industry: "Travel technology / software",
+    companyDetails: "IBS Software is a global travel technology company with a major Kerala presence (Infopark Kochi / Technopark Trivandrum).",
+    workDetails: "Solution Consultant – iTravel (TnC). Full-time, day shift. Travel required. Any degree with 1+ years experience. Preferred: tour management, airline/cruise reservation systems, finance & accounting. Basic AI & prompt engineering knowledge is a plus.",
+    workStatus: "Full-time",
+    workMode: "On-site · Day shift · Travel required",
+    experienceYears: "1+ years",
+    qualification: "Any degree",
+    skills: [
+      "Communication & presentation",
+      "Customer / stakeholder management",
+      "Documentation & analytical skills",
+      "Troubleshooting & problem-solving",
+      "Technical understanding",
+      "Basic AI & prompt engineering"
+    ],
+    requirements: [
+      "1+ years of relevant experience",
+      "Any degree",
+      "Strong communication and presentation skills",
+      "Customer / stakeholder management experience",
+      "Documentation and analytical skills",
+      "Troubleshooting and problem-solving ability",
+      "Technical understanding of solutions / systems",
+      "Basic AI and prompt engineering knowledge",
+      "Willingness to travel (role requires travel)",
+      "Preferred: Tour Management, Airline/Cruise Reservation Systems, Finance & Accounting"
+    ],
+    responsibilities: [
+      "Work as Solution Consultant on the iTravel (TnC) track",
+      "Support customers and stakeholders with solution discussions and presentations",
+      "Document requirements, issues, and follow-ups clearly",
+      "Troubleshoot problems and help drive resolutions",
+      "Apply technical understanding (and basic AI / prompt skills) in day-to-day consulting work"
+    ],
+    benefits: ["Referral opportunity via InfoparkDaily community channel"],
+    howToApply: "Send your updated CV directly to athuldeepv25@gmail.com with subject line: Solution Consultant – iTravel. This listing highlights a referral path — confirm details with IBS Software before you apply. Never pay for a job or interview.",
+    hiringNotes: "🔥 Referral available — highlighted by InfoparkDaily. Apply by email with subject “Solution Consultant – iTravel”. InfoparkDaily is not the employer.",
+    description: "IBS Software referral: Solution Consultant – iTravel (TnC) in Kochi / Trivandrum — 1+ years, travel required.",
+    startingDate: "",
+    seoTitle: "IBS Software Solution Consultant iTravel Referral | Kochi Trivandrum | InfoparkDaily",
+    seoDescription: "Referral opportunity: Solution Consultant – iTravel (TnC) at IBS Software in Kochi / Trivandrum. 1+ years. Email CV to athuldeepv25@gmail.com."
+  },
   {
     id: "cyncly-sr-service-desk-engineer-l2-smartcity-20260703",
     company: "Cyncly",
