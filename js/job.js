@@ -410,6 +410,30 @@
     return Boolean(job && (job.onSiteApply || job.applyForm || job.collectApplications));
   }
 
+  function isParkListingUrl(url) {
+    const u = String(url || "");
+    return /infopark\.in\/(company-jobs|jobs\/|companies-job)/i.test(u)
+      || /technopark\.in\/job-details/i.test(u)
+      || /cyberparks\.in\//i.test(u);
+  }
+
+  function mailApplyHref(job) {
+    const link = String(job.applyLink || "").trim();
+    if (/^mailto:/i.test(link)) return link;
+    const email = String(job.email || "").trim();
+    if (!email) return "";
+    const subject = job.emailSubject || (job.roles || [])[0] || "Job application";
+    return `mailto:${email}?subject=${encodeURIComponent(subject)}`;
+  }
+
+  function externalApplyHref(job) {
+    const link = String(job.applyLink || "").trim();
+    if (!link || /^mailto:/i.test(link) || link.startsWith("#") || link.includes("/#apply")) return "";
+    if (mailApplyHref(job) && isParkListingUrl(link)) return "";
+    if (/^https?:\/\//i.test(link)) return link;
+    return "";
+  }
+
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
     const st = listingStatusMeta(job);
     const deadline =
@@ -471,8 +495,19 @@
           <span class="jd-ats-cta">Open ATS checker →</span>
         </a>
         <a class="jd-company-link-card" href="${escapeAttr(companyPath(job.company))}">
-          <span>Company profile</span>
-          <strong>${escapeHtml(job.companyLegalName || job.company || "View company")}</strong>
+          <div class="jd-co-card">
+            ${
+              job.logo
+                ? `<div class="job-logo-wrap" aria-hidden="true"><img src="${escapeAttr(assetUrl(job.logo))}" alt=""></div>`
+                : `<div class="job-logo-wrap job-logo-wrap--text" data-initials="${escapeAttr(initials(job.company))}" aria-hidden="true"><span class="job-logo-fallback">${escapeHtml(initials(job.company))}</span></div>`
+            }
+            <div class="jd-co-card-copy">
+              <span>Company profile</span>
+              <strong>${escapeHtml(job.companyLegalName || job.company || "View company")}</strong>
+              ${job.location ? `<p>${escapeHtml(job.location)}</p>` : ""}
+            </div>
+          </div>
+          <span class="jd-ats-cta">View company →</span>
         </a>
       </aside>
     `;
@@ -681,7 +716,10 @@
       links.infoparkProfile
         ? infoItem("Infopark company profile", linkHtml(links.infoparkProfile, "View Infopark profile"))
         : "",
-      job.source === "Infopark" || links.infoparkProfile
+      links.infoparkJob
+        ? infoItem("Infopark job listing", linkHtml(links.infoparkJob, "View on infopark.in"))
+        : "",
+      job.source === "Infopark" || links.infoparkProfile || links.infoparkJob
         ? infoItem("Infopark Jobs portal", linkHtml(links.infoparkJobs || "https://infopark.in/companies-job", "infopark.in/companies-job"))
         : "",
       links.linkedin ? infoItem("Official LinkedIn", linkHtml(links.linkedin)) : "",
@@ -716,13 +754,208 @@
   }
 
   function textBlock(value) {
+    const inner = formatJobProseInner(value);
+    return inner ? `<div class="jd-prose">${inner}</div>` : "";
+  }
+
+  function pickJobDescriptionHtml(job) {
+    const candidates = [job.workDetails, job.jobSummary, job.description]
+      .filter((value) => isKnown(value))
+      .map((value) => String(value).trim())
+      .sort((a, b) => b.length - a.length);
+    const kept = [];
+    for (const text of candidates) {
+      const compact = text.replace(/\s+/g, " ").trim().toLowerCase();
+      if (kept.some((existing) => existing.replace(/\s+/g, " ").trim().toLowerCase().includes(compact))) {
+        continue;
+      }
+      kept.push(text);
+    }
+    const inner = kept.map((text) => formatJobProseInner(text)).filter(Boolean).join("");
+    return inner ? `<div class="jd-prose">${inner}</div>` : "";
+  }
+
+  function stripJdDecor(line) {
+    return String(line || "")
+      .replace(/[\u00a0\u200b]/g, " ")
+      .replace(/^[\s\uFE0F]*(?:[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}🔹📁📌🔷📍📋🚀✨🌟⭐️💼🎯✅☑️✔️➡️➤►▸•●▪–—*\uF0B7\u2022]|📍)+\s*/u, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function isSkippedJdLine(line) {
+    const text = stripJdDecor(line);
+    if (!text) return true;
+    if (/^click here to apply/i.test(text)) return true;
+    if (/^apply now$/i.test(text)) return true;
+    return false;
+  }
+
+  function isJdHeading(line) {
+    const text = stripJdDecor(line).replace(/[:.\-–—]+\s*$/, "").trim();
+    if (!text || text.length > 72) return false;
+    if (
+      /^(eligibility(?:\s*(?:&|and)\s*program)?|selection process|how to apply|job description|candidate profile|compensation(?:\s*(?:&|and)\s*benefits)?|perks(?:\s*&?\s*benefits)?|responsibilities|requirements|benefits|about(?:\s+the\s+(?:role|company|us))?|role details?|opportunities|what you will own|what you will not own|what this role exists to do|what you(?:'|’)ll do|who (?:can|should) apply|documents?(?:\s+required)?|important notes?|the role|key responsibilities|must have|good to have|nice to have|job (?:title|summary|overview)|register now)$/i.test(
+        text
+      )
+    ) {
+      return true;
+    }
+    if (/^what [a-z].{6,48}$/i.test(text) && !/[.!?]$/.test(text)) return true;
+    return /[:：]\s*$/.test(stripJdDecor(line)) && text.length < 42 && !/\d/.test(text);
+  }
+
+  function isJdBullet(line) {
+    const raw = String(line || "").trim();
+    if (/^(?:[-–—*•●▪➤►▸🔹📁📌🔷✅☑️✔️➡️]|[\uF0B7\u2022])\s+\S/.test(raw)) return true;
+    if (/^\d+[.)]\s+\S/.test(raw)) return true;
+    if (/^->\s+\S/.test(raw)) return true;
+    return false;
+  }
+
+  function stripJdBullet(line) {
+    return String(line || "")
+      .trim()
+      .replace(/^(?:[-–—*•●▪➤►▸🔹📁📌🔷✅☑️✔️➡️]|[\uF0B7\u2022]|\d+[.)]|->)\s+/, "")
+      .trim();
+  }
+
+  function parseJdKv(line) {
+    const text = stripJdDecor(line);
+    const match = text.match(
+      /^(job title|experience|company(?: name)?|location|job type|salary|work (?:mode|status|type)|posted|deadline|vacancies|qualification|employment type)\s*[:：]\s*(.+)$/i
+    );
+    return match ? { key: match[1], value: match[2].trim() } : null;
+  }
+
+  function isJdProcessLine(line) {
+    const text = stripJdDecor(line);
+    if (text.length > 90 || /https?:/i.test(text)) return false;
+    const parts = text.split(/\s*(?:→|->|➔|⇒)\s*/).map((part) => part.trim()).filter(Boolean);
+    return parts.length >= 2 && parts.every((part) => part.length < 28);
+  }
+
+  function isJdLead(line, index) {
+    if (index !== 0) return false;
+    const text = stripJdDecor(line);
+    if (!text || text.length > 90) return false;
+    if (/\|/.test(text)) return true;
+    if (text === text.toUpperCase() && /[A-Z]/.test(text) && text.length < 70) return true;
+    return false;
+  }
+
+  function linkifyJdText(text) {
+    const escaped = escapeHtml(text);
+    return escaped
+      .replace(/\bhttps?:\/\/[^\s<]+/gi, (url) => {
+        const trailing = url.match(/[),.;]+$/) ? url.match(/[),.;]+$/)[0] : "";
+        const href = url.slice(0, url.length - trailing.length);
+        const label = href.replace(/^https?:\/\//i, "").replace(/\/$/, "");
+        return `<a href="${escapeAttr(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>${trailing}`;
+      })
+      .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, (email) => {
+        return `<a href="mailto:${escapeAttr(email)}">${escapeHtml(email)}</a>`;
+      });
+  }
+
+  function normalizeJdLines(value) {
+    const raw = String(value || "")
+      .replace(/\r\n/g, "\n")
+      .replace(/\u00a0/g, " ")
+      .replace(/\uF0B7/g, "•");
+    const merged = [];
+    raw.split("\n").forEach((part) => {
+      const line = part.replace(/\s+/g, " ").trim();
+      if (!line) {
+        if (merged.length && merged[merged.length - 1] !== "") merged.push("");
+        return;
+      }
+      const prev = merged[merged.length - 1];
+      const continuation =
+        prev &&
+        prev !== "" &&
+        !isJdHeading(line) &&
+        !isJdBullet(line) &&
+        !parseJdKv(line) &&
+        !/^(https?:\/\/)/i.test(line) &&
+        !isJdHeading(prev) &&
+        !/[.!?…:]$/.test(stripJdDecor(prev));
+      if (continuation) {
+        merged[merged.length - 1] = `${prev} ${line}`;
+      } else {
+        merged.push(line);
+      }
+    });
+    return merged;
+  }
+
+  function formatJobProseInner(value) {
     const text = String(value || "").trim();
     if (!isKnown(text)) return "";
-    const paras = text
-      .split(/\n+/)
-      .map((p) => p.replace(/\s+/g, " ").trim())
-      .filter(Boolean);
-    return paras.map((p) => `<p class="job-detail-text">${escapeHtml(p)}</p>`).join("");
+    const lines = normalizeJdLines(text).filter((line) => !isSkippedJdLine(line) || line === "");
+    const html = [];
+    let bullets = [];
+    let numbered = true;
+
+    const flushBullets = () => {
+      if (!bullets.length) return;
+      const tag = numbered ? "ol" : "ul";
+      html.push(
+        `<${tag} class="jd-prose-list">${bullets
+          .map((item) => `<li>${linkifyJdText(item)}</li>`)
+          .join("")}</${tag}>`
+      );
+      bullets = [];
+      numbered = true;
+    };
+
+    lines.forEach((line) => {
+      if (!line) {
+        flushBullets();
+        return;
+      }
+      if (!html.length && !bullets.length && isJdLead(line, 0)) {
+        html.push(`<p class="jd-prose-lead">${linkifyJdText(stripJdDecor(line))}</p>`);
+        return;
+      }
+      if (isJdHeading(line)) {
+        flushBullets();
+        html.push(`<h3 class="jd-prose-h">${escapeHtml(stripJdDecor(line).replace(/[:.\-–—]+\s*$/, ""))}</h3>`);
+        return;
+      }
+      const kv = parseJdKv(line);
+      if (kv) {
+        flushBullets();
+        html.push(
+          `<p class="jd-prose-kv"><span>${escapeHtml(kv.key)}</span><strong>${linkifyJdText(kv.value)}</strong></p>`
+        );
+        return;
+      }
+      if (isJdProcessLine(line)) {
+        flushBullets();
+        const steps = stripJdDecor(line)
+          .split(/\s*(?:→|->|➔|⇒)\s*/)
+          .map((step) => step.trim())
+          .filter(Boolean);
+        html.push(
+          `<ol class="jd-prose-steps">${steps
+            .map((step) => `<li>${escapeHtml(step)}</li>`)
+            .join("")}</ol>`
+        );
+        return;
+      }
+      if (isJdBullet(line)) {
+        const item = stripJdBullet(line);
+        if (!item) return;
+        if (!bullets.length) numbered = /^\d+[.)]\s+/.test(line.trim());
+        bullets.push(item);
+        return;
+      }
+      flushBullets();
+      html.push(`<p>${linkifyJdText(stripJdDecor(line))}</p>`);
+    });
+    flushBullets();
+    return html.join("");
   }
 
   function uniqueKnownTexts(values) {
@@ -826,7 +1059,7 @@
 
     if (job.email) {
       methods.push(`
-        <a class="job-apply-method" href="mailto:${escapeAttr(job.email)}">
+        <a class="job-apply-method" href="${escapeAttr(mailApplyHref(job) || `mailto:${job.email}`)}">
           <span class="job-apply-method-icon job-apply-method-icon--mail" aria-hidden="true">@</span>
           <span class="job-apply-method-body">
             <strong>Apply email</strong>
@@ -836,14 +1069,24 @@
       `);
     }
 
+    const listingUrl =
+      (job.officialLinks && (job.officialLinks.infoparkJob || job.officialLinks.careers)) ||
+      (job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "");
     const careers =
-      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
-    if (careers) {
+      listingUrl && !mailApplyHref(job)
+        ? listingUrl
+        : listingUrl && isParkListingUrl(listingUrl)
+          ? listingUrl
+          : job.applyLink && !String(job.applyLink).startsWith("mailto:")
+            ? job.applyLink
+            : "";
+    if (careers && !/^mailto:/i.test(careers)) {
+      const park = isParkListingUrl(careers);
       methods.push(`
         <a class="job-apply-method" href="${escapeAttr(careers)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">↗</span>
           <span class="job-apply-method-body">
-            <strong>Official apply / careers</strong>
+            <strong>${park ? "Infopark listing" : "Official apply / careers"}</strong>
             <span>${escapeHtml(String(careers).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
           </span>
         </a>
@@ -1250,18 +1493,13 @@
     const checklist = job.applyChecklist || [];
     const faqs = job.faqs || [];
     const safety = job.safetyNotes || [];
-    const externalApply =
-      job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "";
-    const mailApply = job.applyLink && String(job.applyLink).startsWith("mailto:")
-      ? job.applyLink
-      : job.email
-        ? `mailto:${job.email}`
-        : "";
-    const applyCtaHref = externalApply || mailApply || "";
-    const applyCtaLabel = externalApply
-      ? "Official Apply ↗"
-      : mailApply
-        ? "Email resume"
+    const mailApply = mailApplyHref(job);
+    const externalApply = externalApplyHref(job);
+    const applyCtaHref = mailApply || externalApply || "";
+    const applyCtaLabel = mailApply
+      ? "Email resume"
+      : externalApply
+        ? "Official Apply ↗"
         : "";
     const isInternSheet = /intern/i.test(String(job.employmentType || "")) || /intern/i.test(String(job.alertLabel || ""));
 
@@ -1632,18 +1870,7 @@
     }
 
     const onSiteApply = usesOnSiteApply(job);
-    const applyUrl = (() => {
-      if (onSiteApply) return "";
-      const link = String(job.applyLink || "").trim();
-      if (link && !link.toLowerCase().startsWith("mailto:") && !link.startsWith("#") && !link.includes("/#apply")) {
-        return link;
-      }
-      // Email / walk-in posts: do not pretend the company website is the apply link
-      if (link.toLowerCase().startsWith("mailto:") || job.email) return "";
-      const web = String(job.website || "").trim();
-      if (/^https?:\/\//i.test(web)) return web;
-      return "";
-    })();
+    const applyUrl = onSiteApply ? "" : externalApplyHref(job);
     const loc = job.locationDetails || {};
     const factRows = [
       ["Job title", (job.roles || [])[0] || ""],
@@ -1708,24 +1935,21 @@
     const applyCtaLabel = onSiteApply
       ? "Apply now"
       : isMassHiring(job)
-        ? job.email && !applyUrl
+        ? mailApplyHref(job)
           ? "Send resume"
-          : "Apply on official site"
-        : job.email && !applyUrl
+          : applyUrl
+            ? "Apply on official site"
+            : "Apply now"
+        : mailApplyHref(job)
           ? "Email to apply"
-          : "Apply on official site";
+          : applyUrl
+            ? "Apply on official site"
+            : "Apply now";
     const applyCtaHref = onSiteApply
       ? "#apply"
-      : applyUrl || (job.email ? `mailto:${job.email}` : "");
+      : mailApplyHref(job) || applyUrl || "";
 
-    const aboutBody = uniqueKnownTexts([
-      job.jobSummary,
-      job.companyDetails,
-      job.workDetails,
-      job.description
-    ])
-      .map((text) => textBlock(text))
-      .join("");
+    const aboutBody = pickJobDescriptionHtml(job);
 
     const locationBody = `
       ${kvGrid([

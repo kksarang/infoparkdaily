@@ -298,11 +298,16 @@ function initMobileNav() {
     Math.max(0, window.innerWidth - document.documentElement.clientWidth);
 
   const scrollToY = (y) => {
+    const top = Math.max(0, Number(y) || 0);
+    const html = document.documentElement;
+    html.style.scrollBehavior = "auto";
     try {
-      window.scrollTo({ top: y, left: 0, behavior: "auto" });
+      window.scrollTo({ top, left: 0, behavior: "instant" });
     } catch (_error) {
-      window.scrollTo(0, y);
+      window.scrollTo(0, top);
     }
+    html.scrollTop = top;
+    document.body.scrollTop = top;
   };
 
   const setOpen = (open, options = {}) => {
@@ -317,18 +322,39 @@ function initMobileNav() {
     toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
 
     if (isOpen) {
-      lockedScrollY = window.scrollY || window.pageYOffset || 0;
-      const gap = scrollbarGap();
-      document.body.classList.add("nav-locked");
-      document.body.style.top = `-${lockedScrollY}px`;
-      document.body.style.paddingRight = gap ? `${gap}px` : "";
+      if (!document.body.classList.contains("nav-locked")) {
+        lockedScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        const gap = scrollbarGap();
+        document.documentElement.classList.add("nav-locked");
+        document.body.classList.add("nav-locked");
+        document.body.style.top = `-${lockedScrollY}px`;
+        document.body.style.paddingRight = gap ? `${gap}px` : "";
+      }
       const closeBtn = drawer.querySelector(".site-nav-drawer-close");
       if (closeBtn) closeBtn.focus({ preventScroll: true });
     } else if (document.body.classList.contains("nav-locked") && unlock) {
+      const y = lockedScrollY;
+      if (
+        document.activeElement &&
+        (drawer.contains(document.activeElement) || document.activeElement === backdrop)
+      ) {
+        try {
+          toggle.focus({ preventScroll: true });
+        } catch (_error) {}
+      }
       document.body.classList.remove("nav-locked");
+      document.documentElement.classList.remove("nav-locked");
       document.body.style.top = "";
       document.body.style.paddingRight = "";
-      if (restoreScroll) scrollToY(lockedScrollY);
+      if (restoreScroll) {
+        scrollToY(y);
+        requestAnimationFrame(() => {
+          scrollToY(y);
+          document.documentElement.style.scrollBehavior = "";
+        });
+      } else {
+        document.documentElement.style.scrollBehavior = "";
+      }
     }
   };
 
@@ -339,7 +365,11 @@ function initMobileNav() {
   const closeBtn = drawer.querySelector(".site-nav-drawer-close");
   if (closeBtn) closeBtn.addEventListener("click", () => setOpen(false));
 
-  backdrop.addEventListener("click", () => setOpen(false));
+  backdrop.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    setOpen(false);
+  });
 
   (panel || nav).querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -472,8 +502,146 @@ if (newsletterForm && newsletterMessage) {
   });
 }
 
+const WA_JOBS_CHANNEL_URL = "https://www.whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22";
+const WA_JOBS_PROMPT_KEY = "ipd-wa-jobs-channel";
+const WA_JOBS_PROMPT_LEGACY_KEY = "jobsStickyDismissed";
+const WA_JOBS_PROMPT_SESSION_KEY = "ipd-wa-jobs-channel-shown";
+
+function readStoredFlag(key) {
+  try {
+    return localStorage.getItem(key) === "1";
+  } catch (_error) {
+    return false;
+  }
+}
+
+function writeStoredFlag(key) {
+  try {
+    localStorage.setItem(key, "1");
+  } catch (_error) {
+    // Private mode / blocked storage should not break the page.
+  }
+}
+
+function wasWhatsAppPromptDismissed() {
+  return readStoredFlag(WA_JOBS_PROMPT_KEY) || readStoredFlag(WA_JOBS_PROMPT_LEGACY_KEY);
+}
+
+function wasWhatsAppPromptShownThisVisit() {
+  try {
+    return sessionStorage.getItem(WA_JOBS_PROMPT_SESSION_KEY) === "1";
+  } catch (_error) {
+    return false;
+  }
+}
+
+function markWhatsAppPromptShownThisVisit() {
+  try {
+    sessionStorage.setItem(WA_JOBS_PROMPT_SESSION_KEY, "1");
+  } catch (_error) {
+    // Ignore storage failures.
+  }
+}
+
+function rememberWhatsAppPrompt() {
+  writeStoredFlag(WA_JOBS_PROMPT_KEY);
+  writeStoredFlag(WA_JOBS_PROMPT_LEGACY_KEY);
+  markWhatsAppPromptShownThisVisit();
+}
+
+function isWhatsAppPromptPage() {
+  const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+  if (
+    path.startsWith("/admin") ||
+    path.startsWith("/recruit") ||
+    path.startsWith("/social-post")
+  ) {
+    return false;
+  }
+  if (path === "/" || path === "/index.html") return true;
+  if (path.startsWith("/job")) return true;
+  if (path.startsWith("/infopark-jobs")) return true;
+  if (path.startsWith("/technopark-jobs")) return true;
+  if (path.startsWith("/cyberpark-jobs")) return true;
+  if (path.startsWith("/ats-checker")) return true;
+  if (path.startsWith("/companies")) return true;
+  return false;
+}
+
+function hideWhatsAppPrompt(bar) {
+  rememberWhatsAppPrompt();
+  bar.classList.remove("is-visible");
+  bar.hidden = true;
+  document.body.classList.remove("ipd-wa-prompt-open");
+}
+
+function buildWhatsAppPrompt() {
+  const aside = document.createElement("aside");
+  aside.id = "jobs-sticky-cta";
+  aside.className = "jobs-sticky-cta";
+  aside.setAttribute("aria-label", "InfoparkDaily jobs on WhatsApp");
+  aside.innerHTML = `
+      <div class="jobs-sticky-copy">
+        <p class="jobs-sticky-title">Get daily job alerts on WhatsApp</p>
+        <p class="jobs-sticky-meta">Free InfoparkDaily jobs channel · Infopark, Technopark &amp; Kerala IT openings</p>
+      </div>
+      <a class="btn btn-primary" href="${WA_JOBS_CHANNEL_URL}" target="_blank" rel="noopener noreferrer">Join channel</a>
+      <button type="button" id="jobs-sticky-dismiss" class="jobs-sticky-dismiss" aria-label="Close WhatsApp jobs prompt">×</button>
+    `;
+  document.body.appendChild(aside);
+  return aside;
+}
+
+function initWhatsAppJobsPrompt() {
+  const existing = document.getElementById("jobs-sticky-cta");
+
+  if (wasWhatsAppPromptDismissed() || wasWhatsAppPromptShownThisVisit()) {
+    if (existing) {
+      existing.hidden = true;
+      existing.classList.remove("is-visible");
+    }
+    return;
+  }
+
+  if (!isWhatsAppPromptPage()) return;
+
+  const bar = existing || buildWhatsAppPrompt();
+  const dismiss = bar.querySelector("#jobs-sticky-dismiss, .jobs-sticky-dismiss");
+  const join = bar.querySelector("a[href*='whatsapp.com/channel']");
+  let revealed = false;
+
+  const reveal = () => {
+    if (revealed || bar.hidden) return;
+    revealed = true;
+    markWhatsAppPromptShownThisVisit();
+    bar.classList.add("is-visible");
+    document.body.classList.add("ipd-wa-prompt-open");
+    window.removeEventListener("scroll", onScroll);
+  };
+
+  const onScroll = () => {
+    if (window.scrollY > 220) reveal();
+  };
+
+  if (dismiss) {
+    dismiss.addEventListener("click", () => hideWhatsAppPrompt(bar));
+  }
+  if (join) {
+    join.addEventListener("click", () => hideWhatsAppPrompt(bar));
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  window.setTimeout(() => {
+    const shortPage = document.documentElement.scrollHeight <= window.innerHeight + 80;
+    if (shortPage) reveal();
+  }, 1600);
+}
+
 renderFeaturedJobs();
 initRevealAnimations();
+initWhatsAppJobsPrompt();
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

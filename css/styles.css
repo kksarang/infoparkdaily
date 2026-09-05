@@ -2438,6 +2438,13 @@ body.light .job-fact {
   place-items: center;
 }
 
+.job-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #fff;
+}
+
 .job-logo-wrap--lg {
   width: 72px;
   height: 72px;
@@ -4092,7 +4099,7 @@ body.light .jobs-sticky-cta {
 
 .jobs-sticky-dismiss {
   border: 0;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
   color: var(--muted);
   font-size: 1.5rem;
   line-height: 1;
@@ -4104,19 +4111,28 @@ body.light .jobs-sticky-cta {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: color 0.2s ease;
+  border-radius: 50%;
+  transition: color 0.2s ease, background 0.2s ease;
   flex-shrink: 0;
 }
 
-.jobs-sticky-dismiss:hover {
+.jobs-sticky-dismiss:hover,
+.jobs-sticky-dismiss:focus-visible {
   color: var(--text);
+  background: rgba(255, 255, 255, 0.16);
 }
 
-body.jobs-body:has(#jobs-sticky-cta) {
+html.theme-light body .jobs-sticky-dismiss,
+body.light .jobs-sticky-dismiss {
+  background: rgba(15, 15, 20, 0.06);
+}
+
+body.jobs-body:has(#jobs-sticky-cta:not([hidden])),
+body.ipd-wa-prompt-open {
   padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
 }
 
-body.jobs-body:has(#jobs-sticky-cta):has(#ipd-consent-banner) {
+body.jobs-body:has(#jobs-sticky-cta:not([hidden])):has(#ipd-consent-banner) {
   padding-bottom: calc(12.5rem + env(safe-area-inset-bottom, 0px));
 }
 
@@ -9754,12 +9770,16 @@ body.light .news-story-hero-media {
     padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
   }
 
+  body.nav-locked,
+  html.nav-locked {
+    overflow: hidden;
+  }
+
   body.nav-locked {
     position: fixed;
     left: 0;
     right: 0;
     width: 100%;
-    overflow: hidden;
   }
 
   input,

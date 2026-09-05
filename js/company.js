@@ -98,7 +98,8 @@
     "virtual-sys-technologies": "https://www.virtualsys.in",
     "webdura-technologies": "https://www.webduratech.com",
     "white-rabbit-group": "https://www.whiterabbit.group",
-    "ynot-infosolutions": "https://www.ynotinfo.com"
+    "ynot-infosolutions": "https://www.ynotinfo.com",
+    "2base-technologies-pvt-ltd": "https://www.2basetechnologies.com"
   };
 
   function lookupCompanyWebsite(name) {
@@ -163,6 +164,64 @@
     return `/company/${encodeURIComponent(slug)}/`;
   }
 
+  function initials(name) {
+    const skip = new Set(["pvt", "ltd", "llp", "llc", "inc", "private", "limited", "technologies", "solutions", "systems"]);
+    const parts = String(name || "?")
+      .replace(/[().,&/]/g, " ")
+      .split(/\s+/)
+      .filter(Boolean)
+      .filter((part) => !skip.has(part.toLowerCase()) && !/^\d+$/.test(part));
+    if (!parts.length) return String(name || "?").slice(0, 2).toUpperCase();
+    if (parts.length === 1) return parts[0].replace(/[^a-zA-Z0-9]/g, "").slice(0, 3).toUpperCase() || "?";
+    return parts
+      .slice(0, 2)
+      .map((part) => part[0].toUpperCase())
+      .join("");
+  }
+
+  function looksLikeStubBlurb(text) {
+    const raw = String(text || "").trim();
+    return (
+      !raw ||
+      raw.length < 48 ||
+      (/·/.test(raw) && raw.length < 140) ||
+      /listed on the official|portal ·|official listing|role at/i.test(raw)
+    );
+  }
+
+  function extractCompanyAbout(jobs, about) {
+    const owned = String(about.details || about.blurb || "").trim();
+    if (!looksLikeStubBlurb(owned)) return owned;
+    const found = [];
+    (jobs || []).forEach((job) => {
+      String(job.workDetails || "")
+        .split(/\n+/)
+        .map((chunk) => chunk.replace(/\s+/g, " ").trim())
+        .forEach((chunk) => {
+          if (chunk.length < 70 || chunk.length > 480) return;
+          if (/this role|you will|internship|google form|how to apply|must register|shortlisted/i.test(chunk)) {
+            return;
+          }
+          if (
+            /we are a |we are an |is a technology|years of (delivery|experience)|our work spans|our primary markets|technology services company/i.test(
+              chunk
+            )
+          ) {
+            found.push(chunk);
+          }
+        });
+    });
+    if (found.length) return found[0];
+    const locationLine = [about.building, about.campus, about.location, about.park ? `${about.park}, Kerala` : ""]
+      .filter(Boolean)
+      .filter((value, index, arr) => arr.findIndex((item) => item.toLowerCase() === value.toLowerCase()) === index)
+      .slice(0, 2)
+      .join(" · ");
+    return `${about.name} is listed${about.park ? ` at ${about.park}` : ""}${
+      locationLine ? ` (${locationLine})` : ""
+    }. Confirm openings on the official park or employer page before you apply.`;
+  }
+
   function allDirectoryCompanies() {
     const bags = [];
     if (typeof INFOPARK_COMPANIES !== "undefined") bags.push(INFOPARK_COMPANIES);
@@ -220,7 +279,7 @@
       building: (directory && directory.building) || "",
       campus: (directory && directory.campus) || "",
       park: (directory && directory.park) || "",
-      logo: (directory && directory.logo) || "",
+      logo: (directory && directory.logo) || jobs.map((job) => job.logo).find(Boolean) || "",
       officialUrl: (directory && directory.officialUrl) || "",
       jobsUrl: (directory && directory.jobsUrl) || "",
       contactPerson: (directory && directory.contactPerson) || "",
@@ -320,26 +379,12 @@
       );
     }
 
-    const rawAbout = String(about.details || about.blurb || "").trim();
-    const looksLikeJobBlurb =
-      !rawAbout ||
-      /^.{0,12}$/.test(rawAbout) ||
-      (/·/.test(rawAbout) && rawAbout.length < 140) ||
-      /role at|portal ·|official listing/i.test(rawAbout);
     const locationLine = [about.building, about.campus, about.location, about.park ? `${about.park}, Kerala` : ""]
       .filter(Boolean)
       .filter((v, i, arr) => arr.findIndex((x) => x.toLowerCase() === v.toLowerCase()) === i)
       .slice(0, 2)
       .join(" · ");
-    const aboutText = looksLikeJobBlurb
-      ? `${about.name} is listed${about.park ? ` at ${about.park}` : ""}${
-          locationLine ? ` (${locationLine})` : ""
-        }. ${
-          openRoles.length
-            ? `${openRoles.length} open role${openRoles.length === 1 ? "" : "s"} curated on InfoparkDaily.`
-            : "Check the official park or employer page for current openings."
-        }`
-      : rawAbout;
+    const aboutText = extractCompanyAbout(jobs, about);
 
     const siteLabel =
       about.website && /^https?:\/\//i.test(about.website)
@@ -361,20 +406,35 @@
     ].filter(Boolean);
 
     const parkLabel = about.park || "Company profile";
-    const ledeParts = [
-      openRoles.length ? `Hiring now · ${openRoles.length} open role${openRoles.length === 1 ? "" : "s"}` : "No open roles listed right now",
-      locationLine || null
+    const chips = [
+      parkLabel,
+      locationLine && locationLine !== parkLabel ? locationLine : "",
+      openRoles.length
+        ? `${openRoles.length} open role${openRoles.length === 1 ? "" : "s"}`
+        : expiredRoles.length
+          ? `${expiredRoles.length} recently closed`
+          : "No open roles listed"
     ].filter(Boolean);
     const { primary: namePrimary, secondary: nameSecondary } = splitCompanyName(about.name);
+    const mark = initials(about.name);
+    const domainTags = (about.domains || []).filter(Boolean).slice(0, 4);
 
     const facts = [
       { label: "Open roles", value: String(openRoles.length) },
+      expiredRoles.length ? { label: "Recently closed", value: String(expiredRoles.length) } : null,
       about.park ? { label: "Park", value: about.park } : null,
       locationLine ? { label: "Location", value: locationLine } : null,
       siteLabel && about.website
         ? {
             label: "Website",
             value: `<a href="${escapeAttr(about.website)}" target="_blank" rel="noopener noreferrer">${escapeHtml(siteLabel)}</a>`,
+            html: true
+          }
+        : null,
+      about.email
+        ? {
+            label: "Email",
+            value: `<a href="mailto:${escapeAttr(about.email)}">${escapeHtml(about.email)}</a>`,
             html: true
           }
         : null,
@@ -402,15 +462,28 @@
         <header class="cp-stage">
           <div class="cp-stage-inner">
             <div class="cp-stage-copy">
-              <p class="cp-kicker">${escapeHtml(parkLabel)}</p>
-              <h1 class="cp-name">
-                ${escapeHtml(namePrimary)}
-                ${nameSecondary ? `<span class="cp-name-sub">${escapeHtml(nameSecondary)}</span>` : ""}
-              </h1>
-              <p class="cp-lede">${escapeHtml(ledeParts.join(" · "))}</p>
+              <div class="cp-identity">
+                <div class="cp-mark" aria-hidden="true">
+                  ${
+                    about.logo
+                      ? `<img src="${escapeAttr(about.logo)}" alt="">`
+                      : `<span>${escapeHtml(mark)}</span>`
+                  }
+                </div>
+                <div class="cp-identity-copy">
+                  <p class="cp-kicker">${escapeHtml(parkLabel)}</p>
+                  <h1 class="cp-name">
+                    ${escapeHtml(namePrimary)}
+                    ${nameSecondary ? `<span class="cp-name-sub">${escapeHtml(nameSecondary)}</span>` : ""}
+                  </h1>
+                </div>
+              </div>
+              <ul class="cp-chips">
+                ${chips.map((chip) => `<li>${escapeHtml(chip)}</li>`).join("")}
+              </ul>
               <div class="cp-stage-actions">
-                <a class="cp-btn cp-btn--primary" href="${openRoles.length ? "#cp-open-roles" : "/jobs/"}">${
-                  openRoles.length ? "View open roles" : "Browse jobs"
+                <a class="cp-btn cp-btn--primary" href="${openRoles.length ? "#cp-open-roles" : expiredRoles.length ? "#cp-closed-roles" : "/jobs/"}">${
+                  openRoles.length ? "View open roles" : expiredRoles.length ? "See recent roles" : "Browse jobs"
                 }</a>
                 ${
                   about.officialUrl
@@ -424,11 +497,19 @@
                   : ""
               }
             </div>
-            <aside class="cp-stage-aside" aria-label="Open roles count">
+            <aside class="cp-stage-aside" aria-label="Hiring snapshot">
               <div class="cp-open-meter">
                 <strong>${openRoles.length}</strong>
                 <span>Open roles</span>
               </div>
+              ${
+                expiredRoles.length
+                  ? `<div class="cp-open-meter cp-open-meter--muted">
+                      <strong>${expiredRoles.length}</strong>
+                      <span>Recently closed</span>
+                    </div>`
+                  : ""
+              }
             </aside>
           </div>
         </header>
@@ -437,8 +518,16 @@
           <div class="cp-wrap">
             <div class="cp-story">
               <section class="cp-about" aria-labelledby="cp-about-title">
+                <p class="cp-section-kicker">Profile</p>
                 <h2 id="cp-about-title">About the company</h2>
                 <p class="cp-about-text">${escapeHtml(aboutText)}</p>
+                ${
+                  domainTags.length
+                    ? `<ul class="cp-domains">${domainTags
+                        .map((tag) => `<li>${escapeHtml(tag)}</li>`)
+                        .join("")}</ul>`
+                    : ""
+                }
                 ${about.address ? `<p class="cp-address">${escapeHtml(about.address)}</p>` : ""}
                 <p class="cp-note">
                   InfoparkDaily is a directory, not the employer. Confirm openings on official channels before you apply. Never pay for a job.
@@ -464,13 +553,21 @@
               ${
                 openRoles.length
                   ? `<div class="cp-role-list">${openRoles.map((item, i) => vacancyCard(item, i)).join("")}</div>`
-                  : `<p class="cp-empty">No open vacancies here right now. Check the official park or employer page, or <a href="/jobs/">browse all jobs</a>.</p>`
+                  : `<div class="cp-empty-card">
+                      <strong>No open roles listed right now</strong>
+                      <p>${
+                        expiredRoles.length
+                          ? "Recent listings from this company are in Recently closed below. Confirm on the official park or employer page before you apply."
+                          : "Check the official park or employer page, or browse other Kerala IT jobs."
+                      }</p>
+                      <a href="/jobs/">Browse all jobs</a>
+                    </div>`
               }
             </section>
 
             ${
               expiredRoles.length
-                ? `<section class="cp-roles cp-roles--archive" aria-labelledby="cp-expired-title">
+                ? `<section class="cp-roles cp-roles--archive" id="cp-closed-roles" aria-labelledby="cp-expired-title">
                     <div class="cp-roles-head">
                       <h2 id="cp-expired-title">Recently closed</h2>
                       <span class="cp-count cp-count--muted">${expiredRoles.length}</span>

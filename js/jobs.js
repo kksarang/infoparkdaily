@@ -14,8 +14,6 @@
   const countEl = document.getElementById("jobs-count");
   const clearBtn = document.getElementById("jobs-clear");
   const loadMoreBtn = document.getElementById("jobs-load-more");
-  const stickyBar = document.getElementById("jobs-sticky-cta");
-  const stickyDismiss = document.getElementById("jobs-sticky-dismiss");
   const expiredBanner = document.getElementById("jobs-expired-banner");
   const massHiringSection = document.getElementById("jobs-mass-hiring");
   const massHiringTrack = document.getElementById("jobs-mass-hiring-track");
@@ -38,7 +36,6 @@
   const PAGE_SIZE = 12;
   const NEW_DAYS = 5;
   const CLOSING_DAYS = 7;
-  const STICKY_KEY = "jobsStickyDismissed";
   const MAX_ROLES_ON_CARD = 2;
   const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -1398,25 +1395,6 @@
       visibleCount += PAGE_SIZE;
       render();
     });
-  }
-
-  if (stickyBar) {
-    const dismissed = localStorage.getItem(STICKY_KEY) === "1";
-    if (!dismissed) {
-      const onScroll = () => {
-        stickyBar.classList.toggle("is-visible", window.scrollY > 320);
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-    }
-
-    if (stickyDismiss) {
-      stickyDismiss.addEventListener("click", () => {
-        localStorage.setItem(STICKY_KEY, "1");
-        stickyBar.classList.remove("is-visible");
-        stickyBar.hidden = true;
-      });
-    }
   }
 
   updateHeroStats();
