@@ -108,7 +108,7 @@ var JOBS = [
     experience: "fresher",
     experienceRange: "Fresher",
     employmentType: "Full-time",
-    applyLink: "/job/exl-associate-backoffice-us-healthcare-walkin-20260908",
+    applyLink: "",
     applyDeadline: "2026-09-08",
     postedDate: "2026-09-07",
     source: "WhatsApp",
