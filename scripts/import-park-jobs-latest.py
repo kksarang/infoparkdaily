@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 9, 5)  # bump when re-importing
+TODAY = date(2026, 9, 7)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -618,7 +618,7 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25337
+INFOPARK_LAST_IMPORTED_ID = 25363
 
 
 def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
@@ -730,7 +730,7 @@ def build_technopark(limit: int = 160) -> list[dict]:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 8, 23):
+        if p and p < date(2026, 9, 3):
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
@@ -792,61 +792,99 @@ def build_technopark(limit: int = 160) -> list[dict]:
 
 
 def build_cyberpark() -> list[dict]:
-    raw = fetch(
-        "https://cyberparks.in/jm-ajax/get_listings/",
-        data=b"page=1&per_page=50&orderby=date&order=DESC",
+    """Import latest openings from https://www.ulcyberpark.com/jobs (UL CyberPark)."""
+    row_re = re.compile(
+        r"<tr>\s*<td>\s*<a[^>]*>\s*(.*?)\s*</a>\s*<br>\s*"
+        r'<span[^>]*>\s*closing date:\s*([\d-]+)\s*</span>\s*</td>\s*'
+        r'<td[^>]*>\s*<a[^>]*href="([^"]*)"[^>]*>\s*(.*?)\s*</a>\s*</td>\s*'
+        r'<td[^>]*>\s*<a\s+href="https://www\.ulcyberpark\.com/jobs/job_vacancy\?job_id=(\d+)"',
+        re.I | re.S,
     )
-    data = json.loads(raw)
-    html = data.get("html") or ""
-    pat = re.compile(
-        r'<li class="post-(\d+)[\s\S]*?<a href="([^"]+)"[\s\S]*?<h3>(.*?)</h3>[\s\S]*?<strong>(.*?)</strong>[\s\S]*?<div class="location">\s*([^<]*?)[\s\S]*?<time datetime="([^"]+)"',
-        re.I,
-    )
+    seen: set[str] = set()
+    rows: list[tuple[str, str, str, str, str]] = []
+    for page in range(1, 6):
+        url = "https://www.ulcyberpark.com/jobs" if page == 1 else f"https://www.ulcyberpark.com/jobs/index/{page}"
+        html = fetch(url)
+        for title_html, deadline, href, company_html, jid in row_re.findall(html):
+            if jid in seen or int(jid) <= 1668:
+                continue
+            seen.add(jid)
+            title = unescape(re.sub(r"<[^>]+>", "", title_html)).strip()
+            company = unescape(re.sub(r"<[^>]+>", "", company_html)).strip()
+            email = ""
+            mail_m = re.search(r"(?:mailto:|http://)?([A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,})", href, re.I)
+            if mail_m:
+                email = mail_m.group(1).strip()
+            rows.append((title, deadline, email, jid, company))
+
     out = []
-    for post_id, link, title_html, company, location, posted in pat.findall(html):
-        title = unescape(re.sub(r"<[^>]+>", "", title_html)).strip()
-        company = unescape(company).strip()
-        location = unescape(location).strip() or "Cyberpark, Kozhikode"
-        posted_iso = posted[:10]
+    for title, deadline, email, jid, company in rows:
+        detail_url = f"https://www.ulcyberpark.com/jobs/job_vacancy?job_id={jid}"
+        logo = ""
+        work_details = (
+            f"Official UL CyberPark listing for {title}. "
+            "Confirm details on ulcyberpark.com before applying."
+        )
         try:
-            p = datetime.strptime(posted_iso, "%Y-%m-%d").date()
-        except ValueError:
-            continue
-        # Only brand-new listings not already curated (post ids > 12110 or recent week)
-        if post_id in {"12110", "12109", "12108", "12102", "12101", "12100", "12097", "12090", "12086", "12083"}:
-            continue
-        if p < date(2026, 7, 28):
-            continue
+            detail = fetch(detail_url)
+            time.sleep(0.15)
+            mails = [m for m in pick_emails(detail) if "ulcyberpark.com" not in m]
+            if mails:
+                email = mails[0]
+            img = re.search(r'<img class="img_lt"[^>]+src="([^"]+)"', detail, re.I)
+            if img:
+                logo = img.group(1)
+            close_m = re.search(r"Closing date\s*:?\s*([\d-]+)", detail, re.I)
+            if close_m:
+                deadline = close_m.group(1)
+            body = strip_html(detail)
+            if title.lower() in body.lower():
+                idx = body.lower().find(title.lower())
+                snippet = body[idx : idx + 1200].strip()
+                if len(snippet) > 80:
+                    work_details = snippet
+        except Exception as exc:
+            print(f"  UL detail fetch failed {jid}: {exc}")
+
+        company = company or "UL CyberPark company"
         exp, exp_range = infer_exp(title)
-        deadline = (p + timedelta(days=30)).isoformat()
+        deadline_iso = parse_deadline(deadline or "")
+        apply_link = (
+            f"mailto:{email}?subject={quote(title)}" if email else detail_url
+        )
+        how = (
+            f"Email {email} or apply via UL CyberPark listing: {detail_url}"
+            if email
+            else f"Apply via official UL CyberPark listing: {detail_url}"
+        )
         out.append(
             {
-                "id": f"cpv-cp-{post_id}-aug2",
+                "id": f"cpv-ul-{slugify(company)}-{slugify(title)}-{jid}",
                 "company": company,
-                "logo": "",
-                "companyBlurb": f"Official Cyberpark careers listing · posted {posted_iso}.",
-                "location": location,
+                "logo": logo,
+                "companyBlurb": f"Official UL CyberPark listing · closes {deadline or 'see portal'}.",
+                "location": "UL CyberPark / Cyberpark, Kozhikode",
                 "roles": [title],
                 "experience": exp,
                 "experienceRange": exp_range,
                 "employmentType": "Full-time",
-                "applyLink": link,
-                "applyDeadline": deadline,
-                "postedDate": posted_iso,
-                "source": "Cyberpark",
+                "applyLink": apply_link,
+                "applyDeadline": deadline_iso,
+                "postedDate": TODAY.isoformat(),
+                "source": "UL CyberPark",
                 "verified": True,
                 "cyberparkVerified": True,
                 "verificationNote": NOTE,
                 "tags": infer_tags(title),
                 "isWalkIn": False,
                 "walkInDate": "",
-                "email": "",
+                "email": email,
                 "phone": "",
-                "website": "https://cyberparks.in/careers/",
+                "website": "https://www.ulcyberpark.com/jobs",
                 "address": "Cyberpark, Nellikkode, Kozhikode, Kerala",
                 "industry": "Cyberpark company",
-                "companyDetails": f"{company} — verified from official Cyberpark Kozhikode careers.",
-                "workDetails": f"Official Cyberpark listing for {title}. Confirm details on cyberparks.in before applying.",
+                "companyDetails": f"{company} — verified from official UL CyberPark job board.",
+                "workDetails": work_details,
                 "workStatus": "Full-time",
                 "workMode": "On-site · Cyberpark Kozhikode",
                 "experienceYears": exp_range,
@@ -857,12 +895,16 @@ def build_cyberpark() -> list[dict]:
                     "Verify closing date before applying",
                 ],
                 "responsibilities": ["Deliver role outcomes as listed by the company"],
-                "benefits": ["Official Cyberpark careers listing", "Verified by InfoparkDaily"],
-                "howToApply": f"Apply via official Cyberpark listing: {link}",
-                "hiringNotes": f"Imported from cyberparks.in on {TODAY.isoformat()} · post {post_id}. Re-check with the employer before applying.",
-                "description": f"{title} at {company} — Cyberpark official careers.",
+                "benefits": ["Official UL CyberPark careers listing", "Verified by InfoparkDaily"],
+                "howToApply": how,
+                "hiringNotes": (
+                    f"Imported from ulcyberpark.com on {TODAY.isoformat()} · job_id {jid}. "
+                    "Re-check with the employer before applying."
+                ),
+                "description": f"{title} at {company} — UL CyberPark official careers.",
                 "startingDate": "",
                 "alertBucket": "upcoming",
+                "officialLinks": {"ulCyberParkJob": detail_url},
             }
         )
     return out
