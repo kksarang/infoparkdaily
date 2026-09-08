@@ -5300,6 +5300,47 @@ body.light .job-hero-walkin-callout {
   line-height: 1.25;
 }
 
+.job-register-qr {
+  margin: 0.85rem 0 0;
+  padding: 0.85rem;
+  max-width: 15rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  text-align: center;
+}
+
+.job-register-qr img {
+  display: block;
+  width: min(200px, 100%);
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.job-register-qr figcaption {
+  margin: 0.55rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.job-register-qr a {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+html.theme-dark .job-register-qr,
+body.dark .job-register-qr {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.jd-hero-actions .job-register-qr {
+  margin-top: 0.75rem;
+}
+
 .job-sheet {
   padding: clamp(0.9rem, 2.2vw, 1.25rem);
   border-radius: 24px;

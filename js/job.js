@@ -435,11 +435,47 @@
   }
 
   function externalApplyHref(job) {
-    const link = String(job.applyLink || "").trim();
+    const link = String(job.applyLink || job.registerLink || "").trim();
     if (!link || /^mailto:/i.test(link) || link.startsWith("#") || link.includes("/#apply")) return "";
     if (mailApplyHref(job) && isParkListingUrl(link)) return "";
     if (/^https?:\/\//i.test(link)) return link;
     return "";
+  }
+
+  function isRegisterApply(job) {
+    const link = String(job.applyLink || job.registerLink || "").toLowerCase();
+    return Boolean(
+      job.registerQr ||
+        job.registrationQr ||
+        job.applyQr ||
+        /forms\.gle|docs\.google\.com\/forms|register/i.test(link)
+    );
+  }
+
+  function registerQrBlock(job) {
+    const qr = String(job.registerQr || job.registrationQr || job.applyQr || "").trim();
+    if (!qr) return "";
+    const link = externalApplyHref(job);
+    return `
+      <figure class="job-register-qr">
+        <img
+          src="${escapeAttr(qr)}"
+          alt="Scan QR code to register for ${escapeAttr(job.company || "this")} walk-in"
+          width="200"
+          height="200"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>
+          Scan to register
+          ${
+            link
+              ? ` · <a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">Open registration form</a>`
+              : ""
+          }
+        </figcaption>
+      </figure>
+    `;
   }
 
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
@@ -485,12 +521,15 @@
             <li><span>Work mode</span><strong>${escapeHtml(workModeDisplay(job))}</strong></li>
           </ul>
           ${ctaHtml}
+          ${!expired ? registerQrBlock(job) : ""}
           ${
             expired
               ? `<p class="jd-apply-note">This listing has expired. Confirm with the employer before applying.</p>`
               : onSite
                 ? ""
-                : `<p class="jd-apply-note">Always verify on the official company site or email before you apply.</p>`
+                : isRegisterApply(job)
+                  ? `<p class="jd-apply-note">Scan the QR or open the registration form before you walk in. Always verify with the company.</p>`
+                  : `<p class="jd-apply-note">Always verify on the official company site or email before you apply.</p>`
           }
         </section>
         <a class="jd-ats-card" href="/ats-checker/">
@@ -1503,12 +1542,16 @@
     const safety = job.safetyNotes || [];
     const mailApply = mailApplyHref(job);
     const externalApply = externalApplyHref(job);
-    const applyCtaHref = mailApply || externalApply || "";
-    const applyCtaLabel = mailApply
-      ? "Email resume"
-      : externalApply
-        ? "Official Apply ↗"
-        : "";
+    const applyCtaHref = isRegisterApply(job)
+      ? externalApply || mailApply || ""
+      : mailApply || externalApply || "";
+    const applyCtaLabel = isRegisterApply(job)
+      ? "Register for walk-in"
+      : mailApply
+        ? "Email resume"
+        : externalApply
+          ? "Official Apply ↗"
+          : "";
     const isInternSheet = /intern/i.test(String(job.employmentType || "")) || /intern/i.test(String(job.alertLabel || ""));
 
     const openRoles = (job.roles || []).filter(Boolean);
@@ -1604,9 +1647,11 @@
             .join(" · ")
         : "");
     const sheetApplyLabel = isWalkInJob(job)
-      ? mailApply
-        ? "Fast apply — Email resume"
-        : applyCtaLabel
+      ? isRegisterApply(job)
+        ? "Register for walk-in"
+        : mailApply
+          ? "Fast apply — Email resume"
+          : applyCtaLabel
       : applyCtaLabel;
 
     return `
@@ -1635,7 +1680,11 @@
                   walkTime ? ` · ${escapeHtml(walkTime)}` : ""
                 }</span>
                 ${walkVenue ? `<span>${escapeHtml(walkVenue)}</span>` : ""}
-                <em>Fast apply — don’t wait. Walk in with resume or email today.</em>
+                <em>${
+                  isRegisterApply(job)
+                    ? "Register via QR / form first — then walk in with your resume."
+                    : "Fast apply — don’t wait. Walk in with resume or email today."
+                }</em>
               </div>`
             : ""
         }
@@ -1646,6 +1695,7 @@
               }>${escapeHtml(sheetApplyLabel)}</a>`
             : ""
         }
+        ${registerQrBlock(job)}
       </section>
 
       <section class="job-sheet glass">
@@ -1942,20 +1992,24 @@
 
     const applyCtaLabel = onSiteApply
       ? "Apply now"
-      : isMassHiring(job)
-        ? mailApplyHref(job)
-          ? "Send resume"
-          : applyUrl
-            ? "Apply on official site"
-            : "Apply now"
-        : mailApplyHref(job)
-          ? "Email to apply"
-          : applyUrl
-            ? "Apply on official site"
-            : "Apply now";
+      : isRegisterApply(job)
+        ? "Register for walk-in"
+        : isMassHiring(job)
+          ? mailApplyHref(job)
+            ? "Send resume"
+            : applyUrl
+              ? "Apply on official site"
+              : "Apply now"
+          : mailApplyHref(job)
+            ? "Email to apply"
+            : applyUrl
+              ? "Apply on official site"
+              : "Apply now";
     const applyCtaHref = onSiteApply
       ? "#apply"
-      : mailApplyHref(job) || applyUrl || "";
+      : isRegisterApply(job)
+        ? applyUrl || mailApplyHref(job) || ""
+        : mailApplyHref(job) || applyUrl || "";
 
     const aboutBody = pickJobDescriptionHtml(job);
 
@@ -2195,6 +2249,7 @@
                   }>${escapeHtml(applyCtaLabel)}</a>`
                 : `<a class="btn btn-secondary jd-apply-btn" href="/jobs/">${expired ? "See live jobs" : "Browse jobs"}</a>`
             }
+            ${!expired ? registerQrBlock(job) : ""}
           </div>
         </div>
         ${premiumFactTiles(job)}
