@@ -618,7 +618,7 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25371
+INFOPARK_LAST_IMPORTED_ID = 25372
 
 
 def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
