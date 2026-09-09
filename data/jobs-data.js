@@ -99,6 +99,82 @@
 
 var JOBS = [
   {
+    id: "sutherland-customer-support-walkin-kochi-20260909",
+    company: "Sutherland",
+    logo: "assets/logos/sutherland.svg",
+    companyBlurb: "Sutherland · Customer Support · Voice / Non-Voice · International Process · Walk-in 9–13 Sep 2026 · 11:30 AM–4:00 PM · Technopolis, C-SEZ, Kakkanad",
+    location: "Kakkanad, Kochi",
+    roles: ["Customer Support (Voice / Non-Voice | International Process)"],
+    experience: "both",
+    experienceRange: "As per Sutherland hiring at the walk-in",
+    employmentType: "Full-time",
+    applyLink: "",
+    applyDeadline: "2026-09-13",
+    postedDate: "2026-09-09",
+    source: "Instagram",
+    verified: true,
+    verificationNote: "Walk-in details can change after publishing. Confirm date, time, and venue with Sutherland before you travel. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Support", "BPO", "Walk-in"],
+    isWalkIn: true,
+    walkin: true,
+    walkInDate: "9–13 September 2026",
+    walkinDates: "9–13 September 2026",
+    walkinTime: "11:30 AM – 4:00 PM",
+    walkinLocation: "Sutherland, 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi",
+    workLocations: ["Kochi", "Kakkanad"],
+    alertSheet: true,
+    alertLabel: "WALK-IN DRIVE · 9–13 SEP 2026",
+    alertBadge: "Walk-in",
+    walkinHeadline: "Sutherland Kochi walk-in · 9–13 September 2026 · 11:30 AM – 4:00 PM · Customer Support (Voice / Non-Voice | International Process) · 5th Floor, Technopolis, C-SEZ, Kakkanad",
+    urgentHiring: true,
+    email: "",
+    phone: "",
+    website: "https://www.sutherlandglobal.com/",
+    address: "Sutherland, 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi",
+    industry: "BPO / Customer Support",
+    companyDetails: "Sutherland is hosting a walk-in drive in Kochi for Customer Support roles (Voice / Non-Voice, International Process) from 9 to 13 September 2026.",
+    companyLegalName: "Sutherland",
+    workDetails: "Sutherland walk-in for Customer Support (Voice / Non-Voice | International Process) at 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi. Dates: 9–13 September 2026, 11:30 AM – 4:00 PM. Direct walk-in — bring an updated resume. No application email is listed on the official Instagram flyer.",
+    workStatus: "Full-time",
+    workMode: "On-site · Direct Walk-in · Kakkanad",
+    experienceYears: "As briefed at the walk-in",
+    qualification: "As per Sutherland hiring criteria",
+    skills: ["Customer support", "Communication", "Voice / Non-voice process"],
+    whoCanApply: [
+      "Candidates interested in Customer Support (Voice / Non-Voice, International Process)",
+      "Walk in with an updated resume during the drive dates"
+    ],
+    requirements: [
+      "Attend the walk-in with an updated resume",
+      "Willingness to work in Customer Support (Voice / Non-Voice, International Process)",
+      "Confirm venue and timing with Sutherland before travelling"
+    ],
+    responsibilities: [
+      "Handle customer support on Voice / Non-Voice international process as briefed after selection"
+    ],
+    benefits: ["Walk-in hiring at Sutherland Technopolis, Kakkanad"],
+    applySteps: [
+      "Walk in between 9 and 13 September 2026, 11:30 AM – 4:00 PM",
+      "Carry your updated resume",
+      "Venue: Sutherland, 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi"
+    ],
+    documentsRequired: ["Updated resume"],
+    importantNotes: [
+      "Direct walk-in — no registration email on the official flyer",
+      "Confirm date, time, and venue with Sutherland before travelling",
+      "Never pay anyone for an application or interview"
+    ],
+    howToApply: "Walk in on any day from 9 to 13 September 2026, 11:30 AM – 4:00 PM at Sutherland, 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi. Bring your updated resume. Official source: https://www.instagram.com/p/DdBpGxvMRnD/ Always verify with Sutherland before travelling. InfoparkDaily is not the employer.",
+    hiringNotes: "Walk-in 9–13 Sep 2026 · 11:30 AM – 4:00 PM · Instagram @sutherlandlifeindia. InfoparkDaily is not the employer.",
+    description: "Sutherland Kochi walk-in 9–13 Sep 2026 for Customer Support (Voice / Non-Voice, International Process) at Technopolis, C-SEZ, Kakkanad.",
+    startingDate: "",
+    seoTitle: "Sutherland Kochi Walk-in 9–13 Sep 2026 | Customer Support Voice Non-Voice | InfoparkDaily",
+    seoDescription: "Sutherland walk-in for Customer Support (Voice / Non-Voice, International Process) from 9 to 13 September 2026, 11:30 AM–4:00 PM at 5th Floor, Technopolis, C-SEZ, Kakkanad, Kochi.",
+    officialLinks: {
+      instagram: "https://www.instagram.com/p/DdBpGxvMRnD/"
+    }
+  },
+  {
     id: "ipv-global-surf-it-pvt-ltd-motion-graphics-designer-25398",
     company: "Global Surf IT Pvt Ltd",
     logo: "https://infopark.in/upload_images/company_logos/598Global Surf Cochi logo.jpg",
