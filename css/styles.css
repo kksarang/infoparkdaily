@@ -5303,7 +5303,7 @@ body.light .job-hero-walkin-callout {
 .job-register-qr {
   margin: 0.85rem 0 0;
   padding: 0.85rem;
-  max-width: 15rem;
+  max-width: 17.5rem;
   border-radius: 16px;
   border: 1px solid var(--line);
   background: #fff;
@@ -5312,7 +5312,7 @@ body.light .job-hero-walkin-callout {
 
 .job-register-qr img {
   display: block;
-  width: min(200px, 100%);
+  width: min(240px, 100%);
   height: auto;
   margin: 0 auto;
   border-radius: 8px;
@@ -5324,6 +5324,14 @@ body.light .job-hero-walkin-callout {
   font-weight: 650;
   line-height: 1.35;
   color: var(--text);
+}
+
+.job-register-qr-help {
+  margin: 0.55rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 .job-register-qr a {

@@ -456,24 +456,40 @@
     const qr = String(job.registerQr || job.registrationQr || job.applyQr || "").trim();
     if (!qr) return "";
     const link = externalApplyHref(job);
+    const email = String(job.email || "").trim();
+    const phoneDisplay = String(job.phone || "").trim();
+    const phoneTel = phoneDisplay.replace(/\s+/g, "");
+    const helpHtml =
+      email || phoneTel
+        ? `<p class="job-register-qr-help">If you have any issue registering with this QR code, ${
+            email
+              ? `send mail to <a href="mailto:${escapeAttr(email)}">${escapeHtml(email)}</a>`
+              : ""
+          }${email && phoneTel ? " or " : ""}${
+            phoneTel
+              ? `call <a href="tel:${escapeAttr(phoneTel)}">${escapeHtml(phoneDisplay)}</a>`
+              : ""
+          }.</p>`
+        : "";
     return `
       <figure class="job-register-qr">
         <img
           src="${escapeAttr(qr)}"
           alt="Scan QR code to register for ${escapeAttr(job.company || "this")} walk-in"
-          width="200"
-          height="200"
+          width="220"
+          height="262"
           loading="lazy"
           decoding="async"
         />
         <figcaption>
-          Scan to register
+          Scan this QR code to register
           ${
             link
               ? ` · <a href="${escapeAttr(link)}" target="_blank" rel="noopener noreferrer">Open registration form</a>`
               : ""
           }
         </figcaption>
+        ${helpHtml}
       </figure>
     `;
   }
