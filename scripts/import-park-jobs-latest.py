@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 9, 8)  # bump when re-importing
+TODAY = date(2026, 9, 9)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -618,7 +618,7 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25372
+INFOPARK_LAST_IMPORTED_ID = 25395
 
 
 def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
