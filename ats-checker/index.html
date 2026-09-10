@@ -22,8 +22,8 @@
     <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
     <link rel="canonical" href="https://infoparkdaily.online/ats-checker/" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/css/ats-checker.css?v=20260911c" />
-    <link rel="stylesheet" href="/css/resume-builder.css?v=20260911c" />
+    <link rel="stylesheet" href="/css/ats-checker.css?v=20260911d" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260911d" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -57,23 +57,49 @@
     </header>
 
     <main id="main">
-      <section id="ats-tool" class="ats-bench career-ats rb-width" aria-labelledby="ats-tool-title">
-        <header class="ats-bench-head">
-          <div>
-            <p class="ct-kicker">ATS checker · private on this device</p>
-            <h1 id="ats-tool-title">Check how a tracker reads your resume</h1>
-            <p>
-              Put the file on the left. Paste a job on the right only if you want keyword match. The file never leaves
-              this browser.
+      <section class="ct-stage ats-hero">
+        <div class="ct-stage-inner rb-width">
+          <div class="ct-stage-copy">
+            <p class="ct-kicker">Career Tools · ATS checker</p>
+            <h1 id="ats-page-title">See if a tracker can read your resume.</h1>
+            <p class="ct-lede">
+              Drop a PDF or paste a job post. We score readable text, headings and contact details on this device. The
+              file is never uploaded.
             </p>
+            <div class="ct-cta">
+              <a class="button" href="#ats-tool">Check a file</a>
+              <a class="button secondary" href="/resume-builder/templates/">Build a resume</a>
+            </div>
+            <ul class="ct-pills">
+              <li>Private · this browser</li>
+              <li>PDF, DOCX or text</li>
+              <li>Optional keyword match</li>
+            </ul>
           </div>
-          <ul class="ats-bench-facts">
-            <li>Text a tracker can copy — not a photo scan</li>
-            <li>Name, email and phone as real text</li>
-            <li>Clear Experience, Education, Skills headings</li>
-            <li>Optional match against a job post</li>
-          </ul>
-        </header>
+          <div class="ats-hero-art" aria-hidden="true">
+            <div class="ats-hero-sheet">
+              <div class="ats-hero-score">
+                <strong>Pass</strong>
+                <span>Readable file</span>
+              </div>
+              <ul>
+                <li>Contact as real text</li>
+                <li>Experience / Education / Skills</li>
+                <li>No scanned image</li>
+              </ul>
+              <div class="ats-hero-chips">
+                <span>Headings</span><span>Email</span><span>Skills</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ats-tool" class="ats-stage career-ats rb-width" aria-labelledby="ats-tool-title">
+        <div class="ats-stage-head">
+          <h2 id="ats-tool-title">Run the check</h2>
+          <p>Resume on the left. Job post on the right only if you want a keyword score.</p>
+        </div>
 
         <ol class="ats-flow visually-hidden" aria-hidden="true">
           <li class="is-active" data-ats-flow="1"><span>1</span> Resume</li>
@@ -132,10 +158,7 @@
             </div>
 
             <div class="ats-actions">
-              <p class="ats-secure">
-                Stays in this browser · not Naukri, Zoho Recruit or the employer’s ATS.
-                <a href="/resume-builder/templates/">Need a cleaner file? Build one →</a>
-              </p>
+              <p class="ats-secure">Stays in this browser · not Naukri, Zoho Recruit or the employer’s ATS.</p>
               <button id="ats-check" class="ats-check" type="button">Check resume</button>
             </div>
           </aside>
@@ -148,6 +171,47 @@
           </section>
         </div>
       </section>
+
+      <section class="rb-width ct-band ats-how" aria-labelledby="ats-how-title">
+        <p class="ct-kicker">How it works</p>
+        <h2 id="ats-how-title">A first pass — before you apply.</h2>
+        <ol class="ct-how">
+          <li>
+            <span>01 — File</span>
+            <h3>Drop the resume</h3>
+            <p>PDF, DOCX or pasted text. Parsing runs in this tab. InfoparkDaily never receives the file.</p>
+          </li>
+          <li>
+            <span>02 — Optional job</span>
+            <h3>Paste a posting</h3>
+            <p>Only if you want keyword overlap. Skip it for a readability and structure score.</p>
+          </li>
+          <li>
+            <span>03 — Fix</span>
+            <h3>Read the report</h3>
+            <p>Contact, headings and phrasing first. A high score is not a shortlist.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="rb-width ats-split-wrap">
+        <div class="ct-split">
+          <div>
+            <p class="ct-kicker ct-kicker-on-dark">Need a cleaner file?</p>
+            <h2>Build it in Resume Builder.</h2>
+            <p>
+              Park-ready templates, live A4 preview, text PDF. Then bring that file back here for a second pass.
+            </p>
+            <a class="button" href="/resume-builder/templates/">Browse templates</a>
+          </div>
+          <ul>
+            <li>20 free templates, Pro designs via WhatsApp</li>
+            <li>Selectable text in the exported PDF</li>
+            <li>Same Career Tools account for drafts</li>
+            <li>Change layout later without rewriting</li>
+          </ul>
+        </div>
+      </section>
     </main>
     <footer class="footer rb-width">
       <span>© InfoparkDaily · Career tools for Kerala IT jobs.</span>
@@ -157,6 +221,6 @@
         <a href="/privacy/">Privacy</a>
       </div>
     </footer>
-    <script src="/js/ats-checker.js?v=20260911c" defer></script>
+    <script src="/js/ats-checker.js?v=20260911d" defer></script>
   </body>
 </html>
