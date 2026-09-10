@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v367-infopark-jobs-sep11";
+const CACHE_NAME = "infoparkdaily-v368-contact-terms-59k";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -44,9 +44,9 @@ const PRELOAD_ASSETS = [
   "./css/jobs-marketplace.css?v=20260910c",
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
-  "./css/contact-premium.css?v=20260905a",
+  "./css/contact-premium.css?v=20260911i",
   "./css/ats-checker.css?v=20260911g",
-  "./css/resume-builder.css?v=20260911g",
+  "./css/resume-builder.css?v=20260911i",
   "./css/job-detail-premium.css?v=20260910a",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",
@@ -74,7 +74,7 @@ const PRELOAD_ASSETS = [
   "./data/infopark-companies-data.js?v=20260830d",
   "./data/technopark-companies-data.js?v=20260830d",
   "./data/cyberpark-companies-data.js?v=20260830d",
-  "./js/contact.js?v=20260725k",
+  "./js/contact.js?v=20260911i",
   "./data/media-data.js?v=20260905b",
   "./js/social.js?v=20260902a",
   "./js/social-post.js?v=20260815b",

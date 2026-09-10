@@ -1669,6 +1669,13 @@ body.career-tools-auth .footer {
   margin: 0;
   font-weight: 400;
   color: var(--muted);
+  flex-wrap: wrap;
+  line-height: 1.45;
+}
+.check-label a {
+  color: #9a7400;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .auth-card .check-label input {
   width: 15px;

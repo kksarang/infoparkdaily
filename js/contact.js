@@ -40,6 +40,11 @@
       messageLabel: "Your idea & what you need",
       placeholder: "Describe your startup idea, stage, and whether you need partners, ERP/SaaS/web build, marketing, or all of the above…"
     },
+    "Career Tools / Resume": {
+      showCompany: false,
+      messageLabel: "Career Tools question",
+      placeholder: "Login, saved drafts, templates, Pro pass, or ATS checker — tell us what you need."
+    },
     "General Inquiry": {
       showCompany: false,
       messageLabel: "Message",
@@ -54,6 +59,9 @@
     campaign: "Partner for a Campaign",
     hexenity: "Get IT/Software Support (Enitexa.ai)",
     enitexa: "Get IT/Software Support (Enitexa.ai)",
+    career: "Career Tools / Resume",
+    resume: "Career Tools / Resume",
+    ats: "Career Tools / Resume",
     it: "Get IT/Software Support (Enitexa.ai)"
   };
 

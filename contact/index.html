@@ -71,10 +71,11 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20260910a" />
-    <link rel="stylesheet" href="/css/contact-premium.css?v=20260905a" />
+    <link rel="stylesheet" href="/css/product-theme.css?v=20260905c" />
+    <link rel="stylesheet" href="/css/contact-premium.css?v=20260911i" />
     
   </head>
-  <body class="contact-body dark">
+  <body class="jobs-body news-body contact-body dark">
     <script>
       (function () {
         var light = document.documentElement.classList.contains("theme-light");
@@ -119,18 +120,33 @@
       </div>
     </header>
 
-    <main id="main-content" class="contact-page">
-      <section class="cq-hero" aria-labelledby="contact-title">
-        <p class="cq-kicker">Contact</p>
-        <h1 id="contact-title">Talk to InfoparkDaily</h1>
-        <p class="cq-lead">
-          Post a job, run a hiring campaign, or get Enitexa.ai IT support. We read every message and usually reply within 24 hours.
-        </p>
-        <ul class="cq-meta">
-          <li>Mon–Sat, 10:00 AM – 7:00 PM IST</li>
-          <li>Infopark Kochi</li>
-          <li>No listing fees for candidates</li>
-        </ul>
+    <main id="main-content" class="jobs-page contact-page">
+      <section class="jobs-hero" aria-labelledby="contact-title">
+        <div class="jobs-hero-glow" aria-hidden="true"></div>
+        <div class="jobs-hero-copy">
+          <p class="jobs-kicker">Contact · Infopark Kochi</p>
+          <h1 id="contact-title">
+            Talk to InfoparkDaily
+            <span class="jobs-hero-accent">Jobs, campaigns &amp; Career Tools</span>
+          </h1>
+          <p class="jobs-intro">
+            Post a job, run a hiring campaign, ask about Career Tools, or get Enitexa.ai IT support. We read every message and usually reply within 24 hours.
+          </p>
+          <ul class="cq-meta">
+            <li>Mon–Sat, 10:00 AM – 7:00 PM IST</li>
+            <li>Infopark Kochi</li>
+            <li>No listing fees for candidates</li>
+            <li>59K+ community</li>
+          </ul>
+        </div>
+        <aside class="jobs-hero-panel glass" aria-label="Reach us now">
+          <p class="jobs-panel-label">Fastest reply</p>
+          <div class="media-hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/919995254290?text=Hi%20InfoparkDaily%2C%20I%20want%20to%20talk." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn-secondary" href="tel:+919995254290">Call +91 99952 54290</a>
+          </div>
+          <p class="jobs-panel-note">Email infoparkstorieskochi@gmail.com · Career Tools terms on the Terms page</p>
+        </aside>
       </section>
 
       <section class="cq-direct" aria-label="Reach us directly">
@@ -185,6 +201,11 @@
               <input type="radio" name="reason" value="Startup / Build Together" />
               <span>Startup / build</span>
               <small>Idea, product, or partnership</small>
+            </label>
+            <label class="contact-reason">
+              <input type="radio" name="reason" value="Career Tools / Resume" />
+              <span>Career Tools</span>
+              <small>Login, resume, ATS, Pro</small>
             </label>
             <label class="contact-reason">
               <input type="radio" name="reason" value="General Inquiry" />
@@ -375,6 +396,6 @@
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
     <script src="/js/site.js?v=20260911a" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/js/contact.js?v=20260725k" defer></script>
+    <script src="/js/contact.js?v=20260911i" defer></script>
   </body>
 </html>

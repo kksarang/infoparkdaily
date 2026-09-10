@@ -351,16 +351,16 @@ function auth() {
       <div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
       <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "At least 10 characters" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">Use at least 10 characters.</small>' : ""}</div>
       ${signup ? '<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Enter it again"></div>' : ""}
-      <div class="auth-form-options">${signup ? "<span></span>" : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
+      <div class="auth-form-options">${signup ? `<label class="check-label"><input type="checkbox" name="agree" value="yes" required> I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a></label>` : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
       <button class="button auth-primary" type="submit">${signup ? "Create account" : "Sign in"}</button>
       </form>`
       }
       ${
         useLocalApi()
           ? `<div class="auth-note"><span class="auth-local-tag">LOCAL</span><p>Accounts on this computer only — not Firebase.</p></div><details class="preview-tools"><summary>Owner preview</summary><p>Shared demo for product checks. Use your own account for drafts.</p><button type="button" class="button secondary small" data-action="local-login">Open demo workspace</button></details>`
-          : `<p class="auth-note">Drafts are stored in your InfoparkDaily account. ATS checks never leave this browser.</p>`
+          : `<p class="auth-note">Drafts are stored in your InfoparkDaily account. ATS checks never leave this browser. By signing in you agree to our <a href="/terms/#career-tools">Terms</a> (login, resume making, ATS, templates) and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
       }
-      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/privacy/">Privacy</a></div>
+      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/">Privacy</a></div>
     </section></div>`;
 }
 function verifyBanner() {

@@ -533,6 +533,41 @@ body.contact-body.light:not(.recruit-body) .cq-hero {
   }
 }
 
+/* Match Jobs / News / Services product theme when those body classes are present. */
+body.news-body.contact-body:not(.recruit-body) .contact-page {
+  width: var(--container);
+  margin: 0 auto 3.5rem;
+  padding: 0 0 4.5rem;
+  display: grid;
+  gap: 1.2rem;
+}
+body.news-body.contact-body:not(.recruit-body) .jobs-hero {
+  margin-top: 1.15rem;
+}
+body.news-body.contact-body:not(.recruit-body) .cq-meta {
+  margin-top: 1rem;
+}
+body.news-body.contact-body:not(.recruit-body) .cq-meta li {
+  background: var(--pt-card, var(--cq-card));
+  border-color: var(--pt-line, var(--cq-line));
+  color: var(--pt-muted, var(--cq-muted));
+}
+body.news-body.contact-body:not(.recruit-body) .cq-direct-card,
+body.news-body.contact-body:not(.recruit-body) .cq-form,
+body.news-body.contact-body:not(.recruit-body) .contact-side {
+  background: var(--pt-card, var(--cq-card));
+  border: 1px solid var(--pt-line, var(--cq-line));
+  box-shadow: var(--pt-shadow, var(--cq-shadow));
+  color: var(--pt-ink, var(--cq-ink));
+}
+body.news-body.contact-body:not(.recruit-body) .cq-direct-card:hover {
+  border-color: var(--pt-blue, var(--cq-blue));
+}
+body.news-body.contact-body:not(.recruit-body) .btn-primary {
+  background: var(--pt-blue, var(--cq-blue));
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
 @media (max-width: 640px) {
   body.contact-body:not(.recruit-body) .contact-reasons {
     grid-template-columns: 1fr;
