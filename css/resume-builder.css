@@ -2210,15 +2210,19 @@ body.career-tools .ats-actions {
     padding-top: 28px;
   }
   .ct-stage-art {
-    overflow: hidden;
-    max-height: 230px;
+    overflow: visible;
+    max-height: none;
+    display: flex;
+    justify-content: center;
   }
   .ct-stack {
-    height: 230px;
+    height: 280px;
+    width: min(340px, 100%);
+    margin: 0 auto;
   }
   .ct-sheet {
-    min-height: 190px;
-    width: 52%;
+    min-height: 210px;
+    width: 48%;
   }
   .ct-paths {
     padding: 0 16px;
@@ -2934,5 +2938,304 @@ body.career-tools-ats .ats-help {
   }
   body.career-tools-ats .ats-check {
     width: 100%;
+  }
+}
+
+/* Any-device layout: phone, tablet, landscape, notched screens. */
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body.career-tools,
+body.career-tools-ats,
+body.career-tools-auth {
+  overflow-x: clip;
+  max-width: 100%;
+}
+body.career-tools img,
+body.career-tools-ats img {
+  max-width: 100%;
+}
+.brand span {
+  white-space: nowrap;
+}
+.template-image img,
+.ct-sheet img,
+.preview-canvas img {
+  height: auto;
+}
+
+@media (max-width: 1100px) {
+  .pricing-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 720px) {
+  body.career-tools-ats #ats-tool,
+  .ct-paths,
+  .section,
+  .page-head {
+    scroll-margin-top: 88px;
+  }
+  .rb-width,
+  .ats-app-head {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .topbar {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .ct-paths {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .footer {
+    padding: 24px max(16px, env(safe-area-inset-left)) 32px max(16px, env(safe-area-inset-right));
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer > div {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+  .subnav {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    -webkit-overflow-scrolling: touch;
+  }
+  .ct-cta,
+  body.career-tools-ats .ats-hero .ats-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .ct-cta .button,
+  body.career-tools-ats .ats-hero .ats-hero-actions .button {
+    width: 100%;
+  }
+  .filter-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filter-search input,
+  .filter-search select {
+    max-width: none;
+    width: 100%;
+  }
+  .pricing-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .price-card {
+    padding: 24px 20px;
+  }
+  .price-card .button,
+  .ct-split .button,
+  .final-call .button {
+    white-space: normal;
+    min-height: 44px;
+    text-align: center;
+  }
+  .price {
+    font-size: 40px;
+  }
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  .editor-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+  }
+  .editor-toolbar input {
+    max-width: none;
+    width: 100%;
+    font-size: 16px;
+  }
+  .editor-toolbar .actions {
+    width: 100%;
+    justify-content: stretch;
+    gap: 8px;
+  }
+  .editor-toolbar .actions .button {
+    flex: 1 1 calc(50% - 8px);
+    white-space: normal;
+    min-height: 40px;
+  }
+  .editor-layout,
+  .editor-layout.show-preview {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+  .section-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 8px 12px;
+    gap: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .section-nav > p {
+    display: none;
+  }
+  .section-nav button {
+    flex: 0 0 auto;
+    width: auto;
+    white-space: nowrap;
+    padding: 10px 12px;
+    margin: 0;
+    font-size: 12px;
+  }
+  .section-nav .settings-button {
+    margin-top: 0;
+    border-top: 0;
+  }
+  .edit-panel {
+    padding: 18px 16px 28px;
+  }
+  .edit-panel input,
+  .edit-panel textarea,
+  .edit-panel select {
+    font-size: 16px;
+  }
+  .editor-layout.show-preview .section-nav,
+  .editor-layout.show-preview .edit-panel {
+    display: none;
+  }
+  .auth-wrap,
+  .auth-shell {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 16px;
+  }
+  .card,
+  .resume-card {
+    padding: 20px 16px;
+  }
+  .purchase {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .member-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .template-dialog {
+    width: min(1020px, 100vw);
+    max-height: 100dvh;
+  }
+  .dialog-templates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.career-tools-ats .ats-hero-sheet {
+    width: min(100%, 360px);
+    transform: none;
+    padding: 22px 18px;
+  }
+  body.career-tools-ats .ats-pane {
+    min-height: 0;
+    padding: 16px;
+    border-radius: 18px;
+  }
+  body.career-tools-ats .ats-drop,
+  body.career-tools-ats #ats-jd {
+    min-height: 180px;
+  }
+  .ats-block-head {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .rb-width {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .ct-stage-copy h1,
+  .ct-page-intro h1,
+  body.career-tools-ats .ats-hero h1 {
+    font-size: clamp(28px, 9vw, 36px);
+  }
+  .ct-lede,
+  .ct-page-intro > p,
+  body.career-tools-ats .ats-hero p {
+    font-size: 16px;
+  }
+  .ct-stack {
+    height: 240px;
+  }
+  .ct-path {
+    min-height: 0;
+    padding: 20px 18px 18px;
+  }
+  .ct-split {
+    border-radius: 18px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .ct-split h2,
+  .ct-how h2,
+  .section-heading h2 {
+    font-size: 26px;
+  }
+  .template-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .featured .template-card:last-child {
+    display: block;
+  }
+  .page-head h1 {
+    font-size: 28px;
+  }
+  .chips {
+    gap: 8px;
+  }
+  .chip {
+    min-height: 36px;
+  }
+  .topbar .button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .dialog-templates {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  .brand span {
+    font-size: 12px;
+  }
+  .brand img {
+    width: 28px;
+    height: 28px;
+  }
+  .topbar {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    gap: 8px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .ct-stage-art,
+  body.career-tools-ats .ats-hero-art {
+    display: none;
+  }
+  .ct-stage-inner,
+  body.career-tools-ats .ats-hero {
+    grid-template-columns: 1fr;
   }
 }
