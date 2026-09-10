@@ -1481,9 +1481,9 @@ body.career-tools-ats .section-heading p a.text-link {
 }
 .ats-layout.is-scored .ats-panel,
 .ats-layout.is-scored .ats-result {
-  max-width: 760px;
+  max-width: none;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
 }
 .ats-layout.is-scored .ats-result {
   min-height: 0;

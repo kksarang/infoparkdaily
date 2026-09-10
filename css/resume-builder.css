@@ -2278,31 +2278,36 @@ body.career-tools-ats .ats-flow li.is-active span {
 }
 body.career-tools-ats .ats-layout,
 body.career-tools-ats .ats-layout.is-scored {
-  display: grid !important;
-  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  display: flex !important;
+  flex-direction: column;
   gap: 20px;
-  align-items: start;
+  width: 100%;
+  grid-template-columns: none !important;
 }
 body.career-tools-ats .ats-layout.is-scored .ats-panel,
 body.career-tools-ats .ats-layout.is-scored .ats-result {
   max-width: none !important;
   margin: 0 !important;
+  width: 100% !important;
 }
 body.career-tools-ats .ats-panel {
-  position: sticky;
-  top: 76px;
-  max-height: calc(100vh - 96px);
-  overflow: auto;
-  border-radius: 22px;
-  box-shadow: 0 1px 2px rgba(14, 23, 38, 0.04), 0 18px 40px rgba(14, 23, 38, 0.06);
+  position: static;
+  max-height: none;
+  max-width: none !important;
+  width: 100%;
+  overflow: visible;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
 }
 body.career-tools-ats .ats-result {
-  min-height: 540px;
-  padding: 28px 30px;
-  border-radius: 22px;
-  background: #fff;
-  border: 1px solid rgba(14, 23, 38, 0.06);
-  box-shadow: 0 1px 2px rgba(14, 23, 38, 0.04), 0 18px 40px rgba(14, 23, 38, 0.06);
+  display: none !important;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 body.career-tools-ats .ats-result #ats-result-body {
   padding: 0;
@@ -2717,17 +2722,19 @@ body.career-tools-ats .ats-panel {
 }
 body.career-tools-ats .ats-bench-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 18px;
   align-items: stretch;
+  width: 100%;
 }
 body.career-tools-ats .ats-pane {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 248px;
+  min-height: 340px;
+  width: 100%;
   height: 100%;
-  padding: 18px;
+  padding: 20px;
   background: #fff;
   border: 1px solid rgba(14, 23, 38, 0.06);
   border-radius: 24px;
@@ -2754,7 +2761,7 @@ body.career-tools-ats .ats-opt {
 }
 body.career-tools-ats .ats-drop {
   flex: 1 1 auto;
-  min-height: 148px;
+  min-height: 220px;
   height: auto;
   border-radius: 18px;
   border: 1.5px dashed #e8c547;
@@ -2803,7 +2810,7 @@ body.career-tools-ats #ats-jd {
   background: #fafafa;
   border-color: var(--line);
   color: var(--ink);
-  min-height: 148px !important;
+  min-height: 220px !important;
   height: auto;
 }
 body.career-tools-ats .ats-actions {
@@ -2857,7 +2864,8 @@ body.career-tools-ats .ats-result {
 }
 body.career-tools-ats .ats-layout.is-scored .ats-result,
 body.career-tools-ats.ats-has-report .ats-result {
-  display: block;
+  display: block !important;
+  width: 100%;
 }
 body.career-tools-ats.ats-has-report .ats-hero,
 body.career-tools-ats.ats-has-report .ats-how,
@@ -2867,7 +2875,7 @@ body.career-tools-ats.ats-has-report .ats-split-wrap {
 body.career-tools-ats.ats-has-report .ats-pane,
 body.career-tools-ats.ats-has-report .ats-drop,
 body.career-tools-ats.ats-has-report #ats-jd {
-  min-height: 148px;
+  min-height: 220px;
 }
 body.career-tools-ats .ats-empty {
   display: none !important;
@@ -2918,7 +2926,7 @@ body.career-tools-ats .ats-help {
   body.career-tools-ats .ats-pane,
   body.career-tools-ats .ats-drop,
   body.career-tools-ats #ats-jd {
-    min-height: 148px;
+    min-height: 200px;
   }
   body.career-tools-ats .ats-actions {
     flex-direction: column;
