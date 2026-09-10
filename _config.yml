@@ -15,6 +15,9 @@ exclude:
   - services/resume-worker
   - admin/members
   - admin/resume-templates
+  - firebase
+  - firebase.json
+  - .firebaserc
   - package.json
   - package-lock.json
   - tsconfig.json

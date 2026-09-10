@@ -6,11 +6,24 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
+import { publicTemplates } from "./catalog.js";
+import { request as cloudRequest } from "./cloud.bundle.js";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
 const params = new URLSearchParams(location.search);
 const route = location.pathname.replace(base, "").split("/")[0];
+const localHost = ["localhost", "127.0.0.1", "[::1]"].includes(
+  location.hostname,
+);
+function useLocalApi() {
+  if (!localHost) return false;
+  if (params.get("local") === "1")
+    sessionStorage.setItem("ipd_use_local_api", "1");
+  if (params.get("local") === "0")
+    sessionStorage.removeItem("ipd_use_local_api");
+  return sessionStorage.getItem("ipd_use_local_api") === "1";
+}
 let templates = [],
   me = null,
   config = {},
@@ -24,7 +37,8 @@ let templates = [],
   previewURL = null,
   saveError = false,
   toastTimer,
-  previewTimer;
+  previewTimer,
+  lastSaveStarted = 0;
 let authDraft = { email: "", name: "" };
 let authMode = "login",
   category = "All",
@@ -40,6 +54,13 @@ const categories = [
   "Executive",
 ];
 async function api(path, options = {}) {
+  if (!useLocalApi()) {
+    if (options.blob)
+      throw Error(
+        "Server PDF export is only available in the local preview.",
+      );
+    return cloudRequest(path, options);
+  }
   let r;
   try {
     r = await fetch("/v1" + path, {
@@ -209,11 +230,20 @@ async function selectTemplate(id) {
     );
     return;
   }
+  if (!useLocalApi() && !me.email_verified) {
+    showDialog(
+      "Verify your email first",
+      `<p>We sent a verification link to <strong>${esc(me.email)}</strong>. Cloud saving starts after you verify.</p><div class="actions">${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify")}</div>`,
+    );
+    return;
+  }
   if (t.access === "premium" && !pro()) {
     if (resume) await save();
     showDialog(
       "Make it yours with Pro",
-      `<p><strong>${esc(t.name)}</strong> is a Pro template. Get seven days of access to all ${templates.length} designs for ₹99.</p><p class="hint">Your existing content stays saved. Free templates include a clean PDF without a watermark.</p><div class="warning">Local test checkout · no money will be charged.</div><div class="actions">${button("Try the Pro Pass", "checkout", `data-template="${esc(id)}"`, "")}${button("Browse free templates", "browse-free")}</div>`,
+      useLocalApi()
+        ? `<p><strong>${esc(t.name)}</strong> is a Pro template. Get seven days of access to all ${templates.length} designs for ₹99.</p><p class="hint">Your existing content stays saved. Free templates include a clean PDF without a watermark.</p><div class="warning">Local test checkout · no money will be charged.</div><div class="actions">${button("Try the Pro Pass", "checkout", `data-template="${esc(id)}"`, "")}${button("Browse free templates", "browse-free")}</div>`
+        : `<p><strong>${esc(t.name)}</strong> is a Pro template. Paid Pro access is not live on the public site yet.</p><p class="hint">Your content stays saved. Choose a free template to keep editing and download a PDF.</p><div class="actions">${button("Browse free templates", "browse-free")}</div>`,
     );
     return;
   }
@@ -248,7 +278,7 @@ function auth() {
     ? "Your selected template will be waiting after sign-in."
     : "Sign in to find your saved resumes and continue editing.";
   main.innerHTML = `<div class="member-auth-layout">
-    <aside class="member-auth-story"><a href="${base}" class="auth-back">← Explore Career Tools</a><div class="eyebrow">A WORKSPACE FOR YOUR NEXT CHAPTER</div><h1>Your next move.<br><em>Already in progress.</em></h1><p>Keep your story together. Come back to your drafts, make the next edit, and get ready for the right opportunity.</p><div class="auth-document-stage"><img src="/v1/templates/harbor/thumbnail" alt="Harbor resume template with fictional example content"><div class="auth-document-label"><span>▤</span><div>One account. Your resumes.<small>Pick up where you left off.</small></div></div></div><div class="auth-story-footer"><span>Free to start</span><span>Your drafts, in one place</span></div></aside>
+    <aside class="member-auth-story"><a href="${base}" class="auth-back">← Explore Career Tools</a><div class="eyebrow">A WORKSPACE FOR YOUR NEXT CHAPTER</div><h1>Your next move.<br><em>Already in progress.</em></h1><p>Keep your story together. Come back to your drafts, make the next edit, and get ready for the right opportunity.</p><div class="auth-document-stage"><img src="${esc(templates.find((t) => t.id === "harbor")?.thumbnail || "")}" alt="Harbor resume template with fictional example content"><div class="auth-document-label"><span>▤</span><div>One account. Your resumes.<small>Pick up where you left off.</small></div></div></div><div class="auth-story-footer"><span>Free to start</span><span>Your drafts, in one place</span></div></aside>
     <section class="member-auth-panel" aria-label="Member sign-in"><div class="member-auth-inner">
       <div class="auth-product-label">INFOPARKDAILY <span>/ CAREER TOOLS</span></div>
       ${
@@ -258,6 +288,7 @@ function auth() {
       <div class="auth-mode-tabs" aria-label="Account access"><button type="button" data-action="auth-mode" data-mode="login" aria-pressed="${!signup}" class="${!signup ? "active" : ""}">Sign in</button><button type="button" data-action="auth-mode" data-mode="signup" aria-pressed="${signup}" class="${signup ? "active" : ""}">Create account</button></div>
       <h2>${signup ? "A place for your next chapter." : "Good to see you again."}</h2><p>${signup ? "Create your account to save resumes and return to them later." : target}</p>
       <div id="auth-error" role="alert" tabindex="-1"></div>
+      ${useLocalApi() ? "" : `<button type="button" class="button secondary" data-action="google-login" style="width:100%">Continue with Google</button><p class="auth-switch-copy">or use email</p>`}
       <form id="auth-form">
       ${signup ? `<div class="field"><label for="auth-name">Your name</label><input id="auth-name" name="name" autocomplete="name" placeholder="e.g. Ananya Menon" required maxlength="100" value="${esc(authDraft.name)}"></div>` : ""}
       <div class="field"><label for="auth-email">Email address</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
@@ -267,11 +298,18 @@ function auth() {
       <button class="button auth-primary" type="submit">${signup ? "Create my account" : "Sign in and continue"} <span>→</span></button>
       </form><p class="auth-switch-copy">${signup ? "Already have an account?" : "New to Career Tools?"} <button class="auth-switch" data-action="auth-mode" data-mode="${signup ? "login" : "signup"}">${signup ? "Sign in" : "Create an account"}</button></p>`
       }
-      <div class="auth-local-caption"><span class="auth-local-tag">LOCAL PREVIEW</span><p>Accounts and drafts are currently saved on this computer. Firebase cloud sign-in is not connected yet.</p></div>
-      <details class="preview-tools"><summary>Preview tools for the site owner</summary><p>Use the shared demo to inspect the product and administration. Use a personal account for your own draft.</p><button type="button" class="button secondary small" data-action="local-login">Open shared demo workspace</button></details>
+      ${
+        useLocalApi()
+          ? `<div class="auth-local-caption"><span class="auth-local-tag">LOCAL PREVIEW</span><p>This tab is using local accounts on this computer, not Firebase.</p></div><details class="preview-tools"><summary>Preview tools for the site owner</summary><p>Use the shared demo to inspect the product and administration. Use a personal account for your own draft.</p><button type="button" class="button secondary small" data-action="local-login">Open shared demo workspace</button></details>`
+          : `<div class="auth-local-caption"><p>Your account and saved resumes are stored with Firebase for InfoparkDaily Career Tools. You can return on any device after you sign in.</p></div>`
+      }
       <div class="auth-bottom-links"><a href="${base}templates/">Browse templates without signing in</a><a href="/privacy/">Privacy</a></div>
     </div></section>
   </div>`;
+}
+function verifyBanner() {
+  if (useLocalApi() || !me || me.email_verified) return "";
+  return `<div class="warning" style="margin-bottom:22px">Verify ${esc(me.email)} to save resumes in the cloud. Check your inbox, then tap refresh.${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify")}</div>`;
 }
 async function dashboard() {
   if (!ensureAuth()) return;
@@ -279,9 +317,10 @@ async function dashboard() {
   page(
     `Welcome back, ${me.name === "Local preview" ? "Explorer" : me.name.split(" ")[0]}.`,
     "Your saved work is here. Pick up where you left off.",
-    resumes.length
+    verifyBanner() +
+    (resumes.length
       ? `<section class="continue-draft"><div class="continue-icon">▤</div><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>${esc(resumes[0].title)}</h2><p>${esc(sections[resumes[0].last_section]?.name || (resumes[0].last_section === "appearance" ? "Design & order" : "Personal details"))} · Last saved ${date(resumes[0].updated_at)}</p></div><a class="button" href="${base}editor/?id=${resumes[0].id}">Continue editing →</a></section><div class="dashboard-section-title"><h2>All your resumes</h2><span>${resumes.length} saved ${resumes.length === 1 ? "resume" : "resumes"}</span></div><div class="dashboard-grid">${resumes.map((r) => `<article class="resume-card"><div class="document-icon">▤</div><h2>${esc(r.title)}</h2><p>${esc(templates.find((t) => t.id === r.template_id)?.name || r.template_id)} · Updated ${date(r.updated_at)}</p>${r.job_id ? "<p>Created for a job application</p>" : ""}<div class="actions"><a class="button small" href="${base}editor/?id=${r.id}">Edit resume ↗</a>${button("Duplicate", "duplicate", `data-id="${r.id}"`)}${button("Rename", "rename", `data-id="${r.id}" data-title="${esc(r.title)}"`)}${button("Delete", "delete-resume", `data-id="${r.id}"`)}</div></article>`).join("")}</div>`
-      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>A blank page. A new beginning.</h2><p>Your saved resumes will appear here. Start with a template you love.</p><a class="button" href="${base}templates/">Create my first resume ↗</a></div>`,
+      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>A blank page. A new beginning.</h2><p>Your saved resumes will appear here. Start with a template you love.</p><a class="button" href="${base}templates/">Create my first resume ↗</a></div>`),
     `<a class="button" href="${base}templates/">＋ Create new resume</a>`,
   );
 }
@@ -290,10 +329,14 @@ function pricing() {
   page(
     "Start free. Go further when you’re ready.",
     "A simple pass for your job search. No subscription. No automatic renewal.",
-    `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">A STRONG START</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">MORE WAYS TO TELL YOUR STORY</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Find the right expression for your next opportunity.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul><button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here.</p></div>`,
+    `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">A STRONG START</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">MORE WAYS TO TELL YOUR STORY</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Find the right expression for your next opportunity.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul>${useLocalApi() ? `<button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>` : '<p class="hint" style="margin-top:12px">Pro checkout is not live on the public site yet. Free templates and PDF export are available now.</p>'}${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">${useLocalApi() ? "This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here." : "Live Career Tools currently includes free templates, Firebase member accounts and browser PDF export."}</p></div>`,
   );
 }
 async function checkout(templateId) {
+  if (!useLocalApi()) {
+    toast("Pro checkout is not live on the public site yet.");
+    return;
+  }
   if (!me) {
     location.assign(
       base + "sign-in/?next=" + encodeURIComponent(base + "pricing/"),
@@ -388,7 +431,7 @@ async function account() {
   page(
     "Your account",
     "Your resumes, your access, your choice.",
-    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">Local account · saved on this computer</p>${button("Sign out", "logout")} ${button("Sign out on all devices", "logout-all")}</section><section class="card"><h2>${pro() ? "Your Pro Pass is active" : "You’re on the Free plan"}</h2><p>${pro() ? "Access until " + date(me.entitlements.find((e) => e.feature === "template.premium").expires_at) : "Create, save and download resumes with our free templates."}</p><a class="button small secondary" href="${base}pricing/">View plans</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>Download your saved resumes as structured data, or delete this local account and its resumes.</p><div class="actions"><a class="button small secondary" href="/v1/me/data" download>Download my data</a>${button("Delete local account", "delete-account", "", "danger")}</div></section></div>`,
+    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Verify your email to enable cloud saving."}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>${pro() ? "Your Pro Pass is active" : "You’re on the Free plan"}</h2><p>${pro() ? "Access until " + date(me.entitlements.find((e) => e.feature === "template.premium").expires_at) : "Create, save and download resumes with our free templates."}</p><a class="button small secondary" href="${base}pricing/">View plans</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
   );
 }
 function fieldLabel(key) {
@@ -455,7 +498,7 @@ function editor() {
   document.querySelector(".footer").style.display = "none";
   const t =
     templates.find((x) => x.id === resume.template_id) || resume.template;
-  main.innerHTML = `<div class="editor-toolbar"><div><input id="resume-title" aria-label="Resume title" value="${esc(resume.title)}" maxlength="120"><div id="save-status" class="save-status" role="status" aria-live="polite">Saved · ${date(resume.updated_at)}</div></div><div class="actions"><button class="button small secondary" data-action="sample">Use sample content</button><button class="button small secondary" data-action="change-template">Change template</button><button class="button small" id="export-button" data-action="export">Download PDF ↓</button></div></div><div class="mobile-editor-tabs"><button class="chip active" data-action="editor-edit">Edit details</button><button class="chip" data-action="editor-preview">Preview resume</button></div><div class="editor-layout" id="editor-layout"><aside class="section-nav" aria-label="Resume sections"><p>YOUR RESUME</p>${Object.entries(
+  main.innerHTML = `${verifyBanner()}<div class="editor-toolbar"><div><input id="resume-title" aria-label="Resume title" value="${esc(resume.title)}" maxlength="120"><div id="save-status" class="save-status" role="status" aria-live="polite">Saved · ${date(resume.updated_at)}</div></div><div class="actions"><button class="button small secondary" data-action="sample">Use sample content</button><button class="button small secondary" data-action="change-template">Change template</button><button class="button small" id="export-button" data-action="export">${useLocalApi() ? "Download PDF ↓" : "Print / Save PDF"}</button></div></div><div class="mobile-editor-tabs"><button class="chip active" data-action="editor-edit">Edit details</button><button class="chip" data-action="editor-preview">Preview resume</button></div><div class="editor-layout" id="editor-layout"><aside class="section-nav" aria-label="Resume sections"><p>YOUR RESUME</p>${Object.entries(
     sections,
   )
     .map(
@@ -464,7 +507,7 @@ function editor() {
     )
     .join(
       "",
-    )}<button class="settings-button" data-action="edit-section" data-section="appearance"><span>◈</span>Design & order</button><a class="text-link" href="${base}my-resumes/" style="display:block;font-size:11px;margin:25px 10px">← All my resumes</a></aside><section class="edit-panel" id="edit-panel"></section><section class="preview-panel"><div class="preview-toolbar"><span id="preview-template-name">${esc(t?.name || resume.template_id)}</span><label style="margin:0;font-size:11px">Zoom <select id="preview-zoom" aria-label="Preview zoom"><option value="fit">Fit page</option><option value="0.7">70%</option><option value="1">100%</option></select></label></div><div class="preview-canvas" id="preview-canvas"></div><p class="preview-note">A4 · Text-based PDF · Final page breaks are applied on export</p></section></div><div class="editor-footer"><span>${resume.job_id ? "Job-linked draft · " + esc(resume.job_id) : "Your content stays yours. Only include accurate information."}</span><span>Local preview · no real payments</span></div>`;
+    )}<button class="settings-button" data-action="edit-section" data-section="appearance"><span>◈</span>Design & order</button><a class="text-link" href="${base}my-resumes/" style="display:block;font-size:11px;margin:25px 10px">← All my resumes</a></aside><section class="edit-panel" id="edit-panel"></section><section class="preview-panel"><div class="preview-toolbar"><span id="preview-template-name">${esc(t?.name || resume.template_id)}</span><label style="margin:0;font-size:11px">Zoom <select id="preview-zoom" aria-label="Preview zoom"><option value="fit">Fit page</option><option value="0.7">70%</option><option value="1">100%</option></select></label></div><div class="preview-canvas" id="preview-canvas"></div><p class="preview-note">A4 · Text-based PDF · ${useLocalApi() ? "Final page breaks are applied on export" : "Use Print → Save as PDF for a text-based download"}</p></section></div><div class="editor-footer"><span>${resume.job_id ? "Job-linked draft · " + esc(resume.job_id) : "Your content stays yours. Only include accurate information."}</span><span>${useLocalApi() ? "Local preview · no real payments" : me?.email_verified ? "Saved to your InfoparkDaily account" : "Verify email to cloud-save"}</span></div>`;
   sectionForm();
   renderPreview();
   if (params.get("select"))
@@ -503,7 +546,12 @@ function markDirty() {
   saveError = false;
   setStatus("Unsaved changes");
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => void save(), 800);
+  const delay = useLocalApi() ? 800 : 3000;
+  const wait =
+    !useLocalApi() && lastSaveStarted && Date.now() - lastSaveStarted < 15000
+      ? Math.max(delay, 15000 - (Date.now() - lastSaveStarted))
+      : delay;
+  saveTimer = setTimeout(() => void save(), wait);
   renderPreview();
 }
 async function save() {
@@ -524,6 +572,7 @@ async function save() {
     return;
   }
   setStatus("Saving…");
+  lastSaveStarted = Date.now();
   savePromise = (async () => {
     try {
       const saved = await api("/resumes/" + resume.id, {
@@ -629,8 +678,26 @@ async function downloadPDF() {
   if (dirty) throw Error("Please resolve the save issue before exporting.");
   const btn = document.getElementById("export-button");
   btn.disabled = true;
-  btn.textContent = "Preparing PDF…";
+  const previous = btn.textContent;
+  btn.textContent = useLocalApi() ? "Preparing PDF…" : "Opening print dialog…";
   try {
+    if (!useLocalApi()) {
+      const t =
+        templates.find((x) => x.id === resume.template_id) || resume.template;
+      if (!t?.config)
+        throw Error("Choose a free template to export a PDF on the live site.");
+      const popup = window.open("", "_blank", "noopener,noreferrer");
+      if (!popup)
+        throw Error(
+          "Allow pop-ups, then choose Print → Save as PDF in your browser.",
+        );
+      popup.document.write(renderResume(resume.data, t.config));
+      popup.document.close();
+      popup.focus();
+      popup.print();
+      toast("In the print dialog, choose Save as PDF.");
+      return;
+    }
     const job = await post("/exports", {
       resume_id: resume.id,
       revision: resume.revision,
@@ -663,7 +730,7 @@ async function downloadPDF() {
     );
   } finally {
     btn.disabled = false;
-    btn.textContent = "Download PDF ↓";
+    btn.textContent = previous;
   }
 }
 let memberRows = [];
@@ -782,10 +849,46 @@ async function act(el) {
       accountNav();
       auth();
       break;
+    case "google-login": {
+      const remember = document.querySelector('[name="remember"]')?.checked;
+      await post("/auth/google", { remember: remember ? "yes" : "" });
+      location.assign(returnPath());
+      break;
+    }
+    case "resend-verify":
+      await post("/auth/verify");
+      toast("Verification email sent. Check your inbox and spam folder.");
+      break;
+    case "refresh-verify":
+      me = await post("/auth/refresh");
+      accountNav();
+      if (me.email_verified) {
+        closeDialog();
+        toast("Email verified. Cloud saving is on.");
+        if (route === "my-resumes") await dashboard();
+        else if (route === "editor") editor();
+        else if (route === "account") await account();
+      } else toast("Not verified yet. Open the email link, then tap again.");
+      break;
+    case "download-data": {
+      const payload = await api("/me/data");
+      const blob = new Blob([JSON.stringify(payload, null, 2)], {
+        type: "application/json",
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "infoparkdaily-career-tools-data.json";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 30000);
+      break;
+    }
     case "account-help":
       showDialog(
         "Help with your account",
-        `<p>This preview uses accounts saved on this computer. Use the same email and password you used when creating the account.</p><p>Email password recovery is not connected in this local preview. The Firebase launch plan includes verified email, password-reset links, and the same drafts on every device.</p><p>Your saved drafts are kept when you sign out. Signing into a different account shows that account’s own drafts.</p>${button("Back to sign in", "close")}`,
+        useLocalApi()
+          ? `<p>This preview uses accounts saved on this computer. Use the same email and password you used when creating the account.</p><p>Email password recovery is not connected in this local preview.</p><p>Your saved drafts are kept when you sign out. Signing into a different account shows that account’s own drafts.</p>${button("Back to sign in", "close")}`
+          : `<p>Use Continue with Google, or the email and password you used to create this InfoparkDaily account.</p><form id="reset-form"><div class="field"><label for="reset-email">Email for a reset link</label><input id="reset-email" name="email" type="email" required maxlength="254" value="${esc(authDraft.email)}"></div><button class="button" type="submit">Send reset email</button></form><p class="hint">We send a generic confirmation so reset requests cannot be used to check whether an email has an account.</p>${button("Back to sign in", "close")}`,
       );
       break;
     case "logout-all":
@@ -839,8 +942,8 @@ async function act(el) {
       break;
     case "delete-account":
       showDialog(
-        "Delete your local account?",
-        `<p>Your resumes and local test purchases will be permanently removed from this computer.</p><form id="delete-account-form"><div class="field"><label for="delete-confirm">Type DELETE to confirm</label><input id="delete-confirm" name="confirm" required pattern="DELETE" autocomplete="off"></div><button class="button danger" type="submit">Delete local account</button></form>`,
+        "Delete this account?",
+        `<p>${useLocalApi() ? "Your resumes and local test purchases will be permanently removed from this computer." : "Your Firebase account and cloud-saved resumes will be permanently deleted. This cannot be undone."}</p><form id="delete-account-form"><div class="field"><label for="delete-confirm">Type DELETE to confirm</label><input id="delete-confirm" name="confirm" required pattern="DELETE" autocomplete="off"></div><button class="button danger" type="submit">${useLocalApi() ? "Delete local account" : "Delete account"}</button></form>`,
       );
       break;
     case "edit-section":
@@ -1028,6 +1131,7 @@ document.addEventListener("click", (event) => {
   if (!el || el.disabled) return;
   event.preventDefault();
   const disable = [
+    "google-login",
     "local-login",
     "checkout",
     "template-select",
@@ -1089,6 +1193,7 @@ document.addEventListener("submit", async (event) => {
       "rename-form",
       "delete-account-form",
       "template-admin-form",
+      "reset-form",
     ].includes(form.id)
   )
     return;
@@ -1097,6 +1202,11 @@ document.addEventListener("submit", async (event) => {
   submit.disabled = true;
   try {
     const fields = Object.fromEntries(new FormData(form));
+    if (form.id === "reset-form") {
+      await post("/auth/reset", { email: fields.email });
+      closeDialog();
+      toast("If an account exists for that email, a reset link is on its way.");
+    }
     if (form.id === "auth-form") {
       if (authMode === "signup" && fields.password !== fields.confirmPassword)
         throw Error(
@@ -1171,18 +1281,33 @@ window.addEventListener("online", () => {
 });
 async function boot() {
   try {
-    if ("serviceWorker" in navigator) {
-      const registration = await navigator.serviceWorker.getRegistration("/");
-      if (registration) await registration.update().catch(() => {});
+    const notice = document.querySelector(".local-notice");
+    if (notice) {
+      notice.innerHTML = useLocalApi()
+        ? "LOCAL PREVIEW <span>Accounts on this computer. Add ?local=0 to use Firebase.</span>"
+        : "CAREER TOOLS <span>Sign in to save resumes in your InfoparkDaily account.</span>";
     }
-    [templates, config, me] = await Promise.all([
-      api("/templates"),
-      api("/config"),
-      api("/me").catch((e) => {
+    if ("serviceWorker" in navigator)
+      void navigator.serviceWorker.getRegistration("/").then((registration) => {
+        registration?.update().catch(() => {});
+      });
+    if (useLocalApi()) {
+      [templates, config, me] = await Promise.all([
+        api("/templates"),
+        api("/config"),
+        api("/me").catch((e) => {
+          if (e.status === 401) return null;
+          throw e;
+        }),
+      ]);
+    } else {
+      templates = publicTemplates();
+      config = { payments: "unavailable", cloud: true, key_id: null };
+      me = await api("/me").catch((e) => {
         if (e.status === 401) return null;
         throw e;
-      }),
-    ]);
+      });
+    }
     templates.sort(
       (a, b) =>
         Number(b.tags.includes("Studio collection")) -
@@ -1236,27 +1361,5 @@ async function boot() {
     main.innerHTML = `<div class="rb-width section"><div class="empty"><h1>Let’s get you back on track.</h1><p>${esc(e.message)}</p><a class="button" href="${base}">Back to Career Tools</a></div></div>`;
   }
 }
-// GitHub Pages has no local API. Keep the public ATS workspace usable without it.
-function publicCareerTools() {
-  const notice = document.querySelector(".local-notice");
-  if (notice) notice.textContent = "FREE ATS CHECKER · Resume Builder and member accounts are coming soon.";
-  document.getElementById("account-nav").innerHTML = '<a class="button small secondary" href="/jobs/">Find jobs ↗</a>';
-  if (!route && !location.pathname.startsWith("/admin/")) {
-    for (const child of [...main.children]) {
-      if (child.id !== "ats-checker") child.remove();
-    }
-    main.insertAdjacentHTML("afterbegin", `<section class="rb-width section"><div class="eyebrow">INFOPARKDAILY CAREER TOOLS</div><h1>Make your next<br>application stronger.</h1><p>Check your resume’s readability, structure and job keywords. Free, on your device, with no account needed.</p><div class="actions"><a class="button" href="#ats-checker">Check my resume ↓</a><a class="text-link" href="/guides/resume-guide-kerala-it-jobs/">Read the resume guide →</a></div><p class="hint">Resume Builder, templates and saved member work are still in development.</p></section>`);
-  } else {
-    main.className = "page-bg";
-    main.innerHTML = `<section class="rb-width section"><div class="empty"><div class="eyebrow">CAREER TOOLS</div><h1>Resume Builder is coming soon.</h1><p>Member login, cloud-saved resumes and template downloads are not available yet. You can use the free ATS checker today without signing in.</p><a class="button" href="/resume-builder/#ats-checker">Check my resume →</a></div></section>`;
-  }
-  for (const link of document.querySelectorAll('.footer a[href="/resume-builder/pricing/"]')) {
-    link.href = "/resume-builder/#ats-checker";
-    link.textContent = "Free ATS checker";
-  }
-}
-if (["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)) {
-  void boot();
-} else {
-  publicCareerTools();
-}
+void boot();
+

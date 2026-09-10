@@ -1,0 +1,74 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+    function verified(uid) {
+      return isOwner(uid) && request.auth.token.email_verified == true;
+    }
+    function resumeKeys() {
+      return ['title', 'data', 'templateId', 'templateVersion', 'lastSection',
+        'revision', 'createdAt', 'updatedAt', 'status', 'jobId'];
+    }
+    function validResume(data) {
+      return data.keys().hasOnly(resumeKeys())
+        && data.title is string
+        && data.title.size() > 0
+        && data.title.size() <= 120
+        && data.data is map
+        && data.templateId is string
+        && data.templateId.size() <= 80
+        && data.templateVersion is int
+        && data.lastSection is string
+        && data.lastSection.size() <= 80
+        && data.revision is int
+        && data.revision > 0
+        && data.status in ['draft', 'ready']
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp
+        && (data.jobId == null || (data.jobId is string && data.jobId.size() <= 150));
+    }
+
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+      allow create: if verified(uid)
+        && request.resource.data.keys().hasOnly(['displayName', 'email', 'createdAt', 'lastLoginAt', 'lastOpenedResumeId', 'schemaVersion'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 100
+        && request.resource.data.schemaVersion == 1;
+      allow update: if verified(uid)
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['displayName', 'email', 'lastLoginAt', 'lastOpenedResumeId'])
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() <= 100;
+      allow delete: if verified(uid);
+
+      match /resumes/{resumeId} {
+        allow read: if isOwner(uid);
+        allow create: if verified(uid)
+          && validResume(request.resource.data)
+          && request.resource.data.revision == 1;
+        allow update: if verified(uid)
+          && validResume(request.resource.data)
+          && request.resource.data.revision == resource.data.revision + 1
+          && request.resource.data.createdAt == resource.data.createdAt;
+        allow delete: if verified(uid);
+      }
+    }
+
+    match /memberAccess/{uid} {
+      allow read, write: if false;
+    }
+    match /templateCatalog/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

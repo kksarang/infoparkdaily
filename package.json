@@ -7,15 +7,19 @@
   },
   "scripts": {
     "dev": "node --experimental-strip-types services/resume-api/server.ts",
-    "check": "tsc --noEmit && node --check js/resume-builder/app.js && node --check js/resume-builder/render.js",
+    "check": "tsc --noEmit && node --check js/resume-builder/app.js && node --check js/resume-builder/render.js && node --check js/resume-builder/catalog.js && node --check js/resume-builder/firebase-config.js && node --check js/resume-builder/cloud.js",
+    "build:cloud": "esbuild js/resume-builder/cloud.js --bundle --minify --format=esm --outfile=js/resume-builder/cloud.bundle.js --external:./catalog.js --external:./schema.js --external:./firebase-config.js",
     "test": "node --experimental-strip-types --test tests/resume-builder/*.test.ts",
     "resume:fixtures": "node --experimental-strip-types scripts/resume-fixtures.ts"
   },
   "dependencies": {
+    "firebase": "^12.19.0",
     "playwright": "^1.55.0"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^5.0.2",
     "@types/node": "^24.0.0",
+    "esbuild": "^0.28.2",
     "prettier": "^3.9.6",
     "typescript": "^5.9.2"
   }

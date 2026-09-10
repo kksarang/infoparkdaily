@@ -1,6 +1,15 @@
 # Career Tools: Firebase setup and member-management guide
 
-Prepared 10 September 2026. This is a setup guide, not a completed Firebase integration. The current local website still uses its local authentication server and SQLite database. Creating a Firebase project alone will not change that. Nothing in this guide requires updating the live website now.
+Prepared 10 September 2026. This is a setup guide. The website uses the public web config in
+`js/resume-builder/firebase-config.js`. Deploy Firestore rules after changing them:
+
+```sh
+npx firebase-tools deploy --only firestore:rules,firestore:indexes
+```
+
+Enable Google and Email/Password in Authentication, add authorised domains
+`localhost` and `infoparkdaily.online`, then create a Firestore database in
+production mode and install the rules in `firebase/firestore.rules`.
 
 Recommended first release: existing website hosting + Firebase Authentication + Cloud Firestore, on Spark with no billing account. Use Google and email/password login. Save structured resume documents in Firestore. The architecture and saving rules are described in [the member plan](career-tools-firebase-plan.md).
 
