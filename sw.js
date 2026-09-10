@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v363-ats-page";
+const CACHE_NAME = "infoparkdaily-v364-ats-equal-panes";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -45,8 +45,8 @@ const PRELOAD_ASSETS = [
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
   "./css/contact-premium.css?v=20260905a",
-  "./css/ats-checker.css?v=20260911d",
-  "./css/resume-builder.css?v=20260911d",
+  "./css/ats-checker.css?v=20260911e",
+  "./css/resume-builder.css?v=20260911e",
   "./css/job-detail-premium.css?v=20260910a",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",

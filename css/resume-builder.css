@@ -2719,13 +2719,15 @@ body.career-tools-ats .ats-bench-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+  align-items: stretch;
 }
 body.career-tools-ats .ats-pane {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-height: 460px;
-  padding: 22px;
+  min-height: 248px;
+  height: 100%;
+  padding: 18px;
   background: #fff;
   border: 1px solid rgba(14, 23, 38, 0.06);
   border-radius: 24px;
@@ -2751,8 +2753,9 @@ body.career-tools-ats .ats-opt {
   color: #7c5c00;
 }
 body.career-tools-ats .ats-drop {
-  flex: 1;
-  min-height: 280px;
+  flex: 1 1 auto;
+  min-height: 148px;
+  height: auto;
   border-radius: 18px;
   border: 1.5px dashed #e8c547;
   background: #fffdf5;
@@ -2767,12 +2770,12 @@ body.career-tools-ats .ats-drop strong {
   color: #9a7400;
 }
 body.career-tools-ats .ats-icon {
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   background: var(--gold);
   color: var(--gold-ink);
-  font-size: 1.35rem;
-  margin-bottom: 6px;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
 }
 body.career-tools-ats .ats-drop.is-ready {
   border-color: #4ade80;
@@ -2794,16 +2797,14 @@ body.career-tools-ats .ats-paste-details summary {
   font-size: 14px;
 }
 body.career-tools-ats .ats-pane textarea,
-body.career-tools-ats .ats-panel textarea {
-  flex: 1;
+body.career-tools-ats .ats-panel textarea,
+body.career-tools-ats #ats-jd {
+  flex: 1 1 auto;
   background: #fafafa;
   border-color: var(--line);
   color: var(--ink);
-  min-height: 280px;
-}
-body.career-tools-ats #ats-jd {
-  min-height: 280px;
-  height: 100%;
+  min-height: 148px !important;
+  height: auto;
 }
 body.career-tools-ats .ats-actions {
   display: flex;
@@ -2863,12 +2864,10 @@ body.career-tools-ats.ats-has-report .ats-how,
 body.career-tools-ats.ats-has-report .ats-split-wrap {
   display: none;
 }
-body.career-tools-ats.ats-has-report .ats-pane {
-  min-height: 0;
-}
+body.career-tools-ats.ats-has-report .ats-pane,
 body.career-tools-ats.ats-has-report .ats-drop,
 body.career-tools-ats.ats-has-report #ats-jd {
-  min-height: 120px;
+  min-height: 148px;
 }
 body.career-tools-ats .ats-empty {
   display: none !important;
@@ -2919,7 +2918,7 @@ body.career-tools-ats .ats-help {
   body.career-tools-ats .ats-pane,
   body.career-tools-ats .ats-drop,
   body.career-tools-ats #ats-jd {
-    min-height: 220px;
+    min-height: 148px;
   }
   body.career-tools-ats .ats-actions {
     flex-direction: column;
