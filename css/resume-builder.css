@@ -1968,3 +1968,19 @@ dialog::backdrop {
 .career-ats-faq summary { cursor: pointer; font-weight: 700; line-height: 1.5; }
 .career-ats-faq p { max-width: 850px; margin-bottom: 0; }
 @media (max-width: 760px) { .career-ats-guide { grid-template-columns: 1fr; } }
+
+body.career-tools-ats .ats-career-hero {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding-top: 48px;
+  padding-bottom: 8px;
+}
+body.career-tools-ats .final-call .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+body.career-tools-ats #ats-tool {
+  scroll-margin-top: 12px;
+}

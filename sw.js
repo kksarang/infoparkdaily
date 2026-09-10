@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v351-career-firebase";
+const CACHE_NAME = "infoparkdaily-v352-ats-page";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -45,7 +45,7 @@ const PRELOAD_ASSETS = [
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
   "./css/contact-premium.css?v=20260905a",
-  "./css/ats-checker.css?v=20260910b",
+  "./css/ats-checker.css?v=20260910d",
   "./css/job-detail-premium.css?v=20260910a",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",
