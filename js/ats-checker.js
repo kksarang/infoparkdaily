@@ -921,6 +921,7 @@
     result.removeAttribute("hidden");
     const layout = document.querySelector(".ats-layout");
     if (layout) layout.classList.add("is-scored");
+    document.body.classList.add("ats-has-report");
     const ranking = report.ranking || [];
     const phrasing = report.phrasing || [];
     const suggested = report.suggested || [];
@@ -1065,6 +1066,7 @@
         }
       });
     }
+    if (resultPanel) resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function fitWhy(fix) {
