@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v346";
+const CACHE_NAME = "infoparkdaily-v349-career-ats";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -89,7 +89,7 @@ async function networkFirst(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
     const response = await fetch(request);
-    if (response && response.ok) {
+    if (response && response.ok && !/no-store/i.test(response.headers.get("Cache-Control") || "")) {
       cache.put(request, response.clone());
     }
     return response;
@@ -105,7 +105,7 @@ async function staleWhileRevalidate(request) {
   const cached = await cache.match(request);
   const networkPromise = fetch(request)
     .then((response) => {
-      if (response && response.ok) {
+      if (response && response.ok && !/no-store/i.test(response.headers.get("Cache-Control") || "")) {
         cache.put(request, response.clone());
       }
       return response;
@@ -134,6 +134,12 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+  const requestUrl = new URL(event.request.url);
+  if (requestUrl.origin !== self.location.origin ||
+      requestUrl.pathname.startsWith("/v1/") ||
+      requestUrl.pathname.startsWith("/resume-builder/") ||
+      requestUrl.pathname.startsWith("/admin/resume-templates/") ||
+      requestUrl.pathname.startsWith("/admin/members/")) return;
 
   const { destination, mode } = event.request;
   if (mode === "navigate" || destination === "style" || destination === "script" || destination === "document") {

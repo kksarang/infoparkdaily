@@ -7,6 +7,7 @@ Serves 404.html for /job/* and /company/* so job detail pages work locally.
 from __future__ import annotations
 
 import argparse
+import os
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -41,6 +42,12 @@ def main() -> None:
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8080)
     args = parser.parse_args()
+    # The full local server supplies auth/API/PDF routes and keeps private files
+    # out of the static response surface. Preserve this familiar entry point.
+    resume_server = ROOT / "services" / "resume-api" / "server.ts"
+    if resume_server.is_file():
+        os.environ["PORT"] = str(args.port)
+        os.execvp("node", ["node", "--experimental-strip-types", str(resume_server)])
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     print(f"Serving {ROOT} at http://{args.host}:{args.port}/")
     print("SPA routes enabled: /job/<id> and /company/<id>")

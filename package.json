@@ -1,0 +1,22 @@
+{
+  "name": "infoparkdaily-local",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node --experimental-strip-types services/resume-api/server.ts",
+    "check": "tsc --noEmit && node --check js/resume-builder/app.js && node --check js/resume-builder/render.js",
+    "test": "node --experimental-strip-types --test tests/resume-builder/*.test.ts",
+    "resume:fixtures": "node --experimental-strip-types scripts/resume-fixtures.ts"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.2"
+  }
+}

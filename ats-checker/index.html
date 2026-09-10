@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>ATS Checker | InfoparkDaily Jobs</title>
+    <title>ATS Checker | InfoparkDaily Career Tools</title>
     <meta
       name="description"
       content="Check if your resume can pass ATS screening for Infopark, Technopark, and Cyberpark jobs. Upload a PDF or DOCX, paste a job description, and get a local score — files stay on your device."
@@ -72,6 +72,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="/recruit/">Recruit</a>
         <a href="/jobs/">Jobs</a>
+        <a href="/resume-builder/">Career Tools</a>
         <a href="/news/">News</a>
         <a href="/services/">Services</a>
         <a href="/media/">About Us</a>
@@ -88,6 +89,7 @@
 
     <main id="main-content" class="ats-page">
       <header class="ats-head">
+        <p><a href="/resume-builder/#ats-checker">← Career Tools</a></p>
         <p class="ats-kicker">Free · Private · On-device</p>
         <h1>ATS Checker</h1>
         <p>
@@ -117,7 +119,7 @@
             </div>
             <details class="ats-paste-details">
               <summary>Or paste resume text instead</summary>
-              <textarea id="ats-resume-text" aria-describedby="ats-resume-error" placeholder="Paste resume text if the file does not read…"></textarea>
+              <textarea id="ats-resume-text" aria-label="Resume text" aria-describedby="ats-resume-error" placeholder="Paste resume text if the file does not read…"></textarea>
             </details>
             <p id="ats-resume-error" class="ats-error" role="alert" hidden></p>
           </section>
@@ -127,7 +129,7 @@
               <p class="ats-step" id="ats-step2-title">Step 2 · Job description <span class="ats-opt">Optional</span></p>
               <span id="ats-step2-status" class="ats-status">Waiting</span>
             </div>
-            <textarea id="ats-jd" aria-describedby="ats-jd-error" placeholder="Optional. Paste a job description only if you want a keyword match. Leave blank to check whether this resume is ATS-friendly."></textarea>
+            <textarea id="ats-jd" aria-label="Job description (optional)" aria-describedby="ats-jd-error" placeholder="Optional. Paste a job description only if you want a keyword match. Leave blank to check whether this resume is ATS-friendly."></textarea>
             <p id="ats-jd-error" class="ats-error" role="alert" hidden></p>
           </section>
 

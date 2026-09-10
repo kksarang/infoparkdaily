@@ -1,0 +1,21 @@
+# GitHub Pages copies public static assets while excluding local development files.
+# HTML/JS files have no front matter and remain static.
+exclude:
+  - node_modules
+  - .local
+  - .env
+  - .env.example
+  - .tmp-recruit-shots
+  - artifacts
+  - docs
+  - database
+  - tests
+  - scripts
+  - services/resume-api
+  - services/resume-worker
+  - admin/members
+  - admin/resume-templates
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - README.md

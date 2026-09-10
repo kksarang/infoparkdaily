@@ -558,14 +558,11 @@
                   : `<p class="jd-apply-note">Always verify on the official company site or email before you apply.</p>`
           }
         </section>
-        <a class="jd-ats-card" href="/ats-checker/">
-          <div class="jd-ats-top">
-            <p class="jd-ats-kicker">Resume match</p>
-            <span class="jd-ats-free">Free</span>
-          </div>
-          <strong>Check your ATS score for this job</strong>
-          <p class="jd-ats-chance">See keyword gaps before you apply — analysis runs in your browser.</p>
-          <span class="jd-ats-cta">Open ATS checker →</span>
+        <a class="jd-ats-card" href="/resume-builder/templates/?job=${encodeURIComponent(job.id)}">
+          <div class="jd-ats-top"><p class="jd-ats-kicker">Your next application</p><span class="jd-ats-free">Career Tools</span></div>
+          <strong>Create a resume for this job</strong>
+          <p class="jd-ats-chance">Choose a template and tell your story. Your draft keeps this job reference.</p>
+          <span class="jd-ats-cta">Build your resume →</span>
         </a>
         <a class="jd-company-link-card" href="${escapeAttr(companyPath(job.company))}">
           <div class="jd-co-card">
@@ -1040,39 +1037,6 @@
       seen.add(key);
       return true;
     });
-  }
-
-  function jobDescriptionForAts(job) {
-    const lines = [
-      `Role: ${(job.roles || []).filter(Boolean).join(", ")}`,
-      `Company: ${job.companyLegalName || job.company || ""}`,
-      job.location ? `Location: ${job.location}` : "",
-      job.experienceRange || job.experienceYears
-        ? `Experience: ${job.experienceRange || job.experienceYears}`
-        : "",
-      job.employmentType || job.workStatus ? `Type: ${job.employmentType || job.workStatus}` : "",
-      job.workMode ? `Work mode: ${job.workMode}` : "",
-      qualificationText(job) ? `Qualification: ${qualificationText(job)}` : "",
-      job.jobSummary,
-      job.companyDetails,
-      job.workDetails,
-      job.description,
-      usefulItems(job.responsibilities).length
-        ? `Responsibilities:\n- ${usefulItems(job.responsibilities).join("\n- ")}`
-        : "",
-      usefulItems(job.requirements).length
-        ? `Requirements:\n- ${usefulItems(job.requirements).join("\n- ")}`
-        : "",
-      usefulItems(job.whoCanApply).length
-        ? `Who can apply:\n- ${usefulItems(job.whoCanApply).join("\n- ")}`
-        : "",
-      usefulItems(job.technicalSkills).length
-        ? `Technical skills: ${usefulItems(job.technicalSkills).join(", ")}`
-        : "",
-      usefulItems(job.skills).length ? `Skills: ${usefulItems(job.skills).join(", ")}` : "",
-      isKnown(job.howToApply) ? `How to apply: ${job.howToApply}` : ""
-    ];
-    return uniqueKnownTexts(lines).join("\n\n");
   }
 
   function usefulItems(items) {
@@ -2353,18 +2317,6 @@
           setTimeout(() => (copyBtn.textContent = "Share this job"), 2000);
         } catch (_e) {
           copyBtn.textContent = window.location.href;
-        }
-      });
-    }
-
-    const atsCard = root.querySelector(".jd-ats-card");
-    if (atsCard) {
-      atsCard.addEventListener("click", () => {
-        try {
-          sessionStorage.setItem("ipd-ats-jd", jobDescriptionForAts(job));
-          sessionStorage.setItem("ipd-ats-title", (job.roles || [])[0] || job.company || "this job");
-        } catch (_e) {
-          /* ignore */
         }
       });
     }

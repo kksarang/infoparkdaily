@@ -889,7 +889,7 @@
       notes.push("Avoid tables, text boxes, and multi-column layouts. Use simple headings and bullets.");
     }
     if (r.coverage < 0.35 && r.missing.length) {
-      notes.push("Mirror the job title and required tools near the top — ATS scores the first screen heavily.");
+      notes.push("Make relevant experience and tools easy to find near the top; include only claims you can support.");
     }
 
     return { overall, notes };
@@ -1012,8 +1012,8 @@
           <h3>Ranking issues</h3>
           <span class="ats-count">${(report.ranking || []).length} issue${(report.ranking || []).length === 1 ? "" : "s"}</span>
         </div>
-        <p class="ats-lede">Issues that may lower your ATS ranking</p>
-        ${rankingHtml || `<p class="ats-chip-empty">No ranking blockers detected in the extracted text.</p>`}
+        <p class="ats-lede">Resume issues to review</p>
+        ${rankingHtml || `<p class="ats-chip-empty">No flagged structure issues detected in the extracted text.</p>`}
       </section>
 
       <div class="ats-grid-2">

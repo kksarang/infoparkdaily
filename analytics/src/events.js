@@ -4,6 +4,15 @@
  */
 
 export const EVENTS = {
+  RESUME_BUILDER_VIEW: "resume_builder_view",
+  RESUME_TEMPLATE_VIEW: "resume_template_view",
+  RESUME_CREATE_CLICK: "resume_create_click",
+  RESUME_CREATED: "resume_created",
+  RESUME_PREMIUM_SELECTED: "resume_premium_selected",
+  RESUME_CHECKOUT_STARTED: "resume_checkout_started",
+  RESUME_PAYMENT_SUCCESSFUL: "resume_payment_successful",
+  RESUME_EXPORT_READY: "resume_export_ready",
+  RESUME_DOWNLOAD_SERVED: "resume_download_served",
   PAGE_VIEW: "page_view",
   JOB_VIEW: "job_view",
   JOB_SEARCH: "job_search",

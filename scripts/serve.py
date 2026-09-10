@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import http.server
 import re
 import socketserver
@@ -41,6 +42,12 @@ def main():
     parser = argparse.ArgumentParser(description="Serve InfoparkDaily with /job/<id> and /company/<slug> routes")
     parser.add_argument("--port", "-p", type=int, default=8080)
     args = parser.parse_args()
+    # The full local server supplies auth/API/PDF routes and keeps private files
+    # out of the static response surface. Preserve this familiar entry point.
+    resume_server = ROOT / "services" / "resume-api" / "server.ts"
+    if resume_server.is_file():
+        os.environ["PORT"] = str(args.port)
+        os.execvp("node", ["node", "--experimental-strip-types", str(resume_server)])
 
     class ThreadingHTTPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
         allow_reuse_address = True
