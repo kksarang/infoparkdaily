@@ -1,6 +1,643 @@
 /** Generated from services/resume-api/catalog.ts. Free configs are public; premium configs stay omitted. */
 export const catalog = [
   {
+    "id": "linea",
+    "name": "Linea",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "Gallery collection",
+      "classic",
+      "Linea"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#1a365d",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "quiet-page",
+    "name": "Quiet Page",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "Gallery collection",
+      "compact",
+      "Quiet",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#2d3748",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "atlas",
+    "name": "Atlas",
+    "category": "ATS-Friendly",
+    "access": "premium",
+    "tags": [
+      "ATS-Friendly",
+      "Gallery collection",
+      "folio",
+      "Atlas"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "folio",
+      "accent": "#1e3a5f",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 42,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "beacon",
+    "name": "Beacon",
+    "category": "ATS-Friendly",
+    "access": "premium",
+    "tags": [
+      "ATS-Friendly",
+      "Gallery collection",
+      "ribbon",
+      "Beacon"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ribbon",
+      "accent": "#0f766e",
+      "font": "sans",
+      "style": "smallcaps",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "kochi-classic",
+    "name": "Kochi Classic",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "classic",
+      "Kochi",
+      "Classic"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#17334d",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "marine-drive",
+    "name": "Marine Drive",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "rail",
+      "Marine",
+      "Drive"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "rail",
+      "accent": "#0b3d5c",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "linen",
+    "name": "Linen",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "ledger",
+      "Linen"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#6b5344",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "vesper",
+    "name": "Vesper",
+    "category": "Professional",
+    "access": "premium",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "masthead",
+      "Vesper"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "masthead",
+      "accent": "#1f2937",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 38,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "copperline",
+    "name": "Copperline",
+    "category": "Professional",
+    "access": "premium",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "ribbon",
+      "Copperline"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ribbon",
+      "accent": "#8b5a2b",
+      "font": "serif",
+      "style": "band",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "bright-start",
+    "name": "Bright Start",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "Gallery collection",
+      "ribbon",
+      "Bright",
+      "Start"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ribbon",
+      "accent": "#b8860b",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "campus-ink",
+    "name": "Campus Ink",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "Gallery collection",
+      "masthead",
+      "Campus",
+      "Ink"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "masthead",
+      "accent": "#0f766e",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 38,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "first-light",
+    "name": "First Light",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "Gallery collection",
+      "split",
+      "First",
+      "Light"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "split",
+      "accent": "#3b6ea5",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "open-desk",
+    "name": "Open Desk",
+    "category": "Freshers",
+    "access": "premium",
+    "tags": [
+      "Freshers",
+      "Gallery collection",
+      "centered",
+      "Open",
+      "Desk"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "centered",
+      "accent": "#2563eb",
+      "font": "sans",
+      "style": "airy",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "pixel-note",
+    "name": "Pixel Note",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "Gallery collection",
+      "compact",
+      "Pixel",
+      "Note"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#1e40af",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "soft-grid",
+    "name": "Soft Grid",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "Gallery collection",
+      "ledger",
+      "Soft",
+      "Grid"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#155e75",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "terminal",
+    "name": "Terminal",
+    "category": "Technology",
+    "access": "premium",
+    "tags": [
+      "Technology",
+      "Gallery collection",
+      "rail",
+      "Terminal"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "rail",
+      "accent": "#111827",
+      "font": "mono",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "relay",
+    "name": "Relay",
+    "category": "Technology",
+    "access": "premium",
+    "tags": [
+      "Technology",
+      "Gallery collection",
+      "split",
+      "Relay"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "split",
+      "accent": "#4338ca",
+      "font": "sans",
+      "style": "timeline",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "paper-studio",
+    "name": "Paper Studio",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "folio",
+      "Paper",
+      "Studio"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "folio",
+      "accent": "#9a5b4a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 42,
+      "tracking": 0,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "ink-well",
+    "name": "Ink Well",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "split",
+      "Ink",
+      "Well"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "split",
+      "accent": "#3f3f46",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "blush-column",
+    "name": "Blush Column",
+    "category": "Creative",
+    "access": "premium",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "rail",
+      "Blush",
+      "Column"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "rail",
+      "accent": "#9f4d6a",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "sage-panel",
+    "name": "Sage Panel",
+    "category": "Creative",
+    "access": "premium",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "sidebar",
+      "Sage",
+      "Panel"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "sidebar",
+      "accent": "#4d6b57",
+      "font": "serif",
+      "style": "band",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "canopy",
+    "name": "Canopy",
+    "category": "Creative",
+    "access": "premium",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "masthead",
+      "Canopy"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "masthead",
+      "accent": "#365c45",
+      "font": "sans",
+      "style": "smallcaps",
+      "spacing": 18,
+      "nameSize": 38,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "charter",
+    "name": "Charter",
+    "category": "Executive",
+    "access": "premium",
+    "tags": [
+      "Executive",
+      "Gallery collection",
+      "executive",
+      "Charter"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "executive",
+      "accent": "#1c2b3a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "manor",
+    "name": "Manor",
+    "category": "Executive",
+    "access": "premium",
+    "tags": [
+      "Executive",
+      "Gallery collection",
+      "ribbon",
+      "Manor"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ribbon",
+      "accent": "#2c241e",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
     "id": "ats-essential",
     "name": "ATS Essential",
     "category": "ATS-Friendly",
@@ -1532,16 +2169,28 @@ export const catalog = [
 ];
 export function thumbnail(t) {
   const accent = (t.config && t.config.accent) || "#17334d";
-  const name = String(t.name || "Resume").slice(0, 22);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="707" viewBox="0 0 500 707"><rect width="500" height="707" fill="#f4f6f8"/><rect x="48" y="48" width="404" height="611" fill="#fff" stroke="${accent}" stroke-width="2"/><rect x="48" y="48" width="404" height="72" fill="${accent}"/><text x="72" y="92" fill="#fff" font-family="Georgia,serif" font-size="22">${name.replace(/[<&]/g, "")}</text><rect x="72" y="160" width="220" height="10" fill="#d5dde5"/><rect x="72" y="184" width="280" height="8" fill="#e6ebf0"/><rect x="72" y="204" width="250" height="8" fill="#e6ebf0"/><rect x="72" y="248" width="140" height="8" fill="${accent}" opacity=".45"/><rect x="72" y="276" width="310" height="8" fill="#e6ebf0"/><rect x="72" y="296" width="290" height="8" fill="#e6ebf0"/><rect x="72" y="316" width="270" height="8" fill="#e6ebf0"/></svg>`;
+  const family = (t.config && t.config.family) || "classic";
+  const name = String(t.name || "Resume").slice(0, 22).replace(/[<&]/g, "");
+  const header =
+    family === "ribbon" || family === "executive"
+      ? `<rect x="48" y="48" width="404" height="92" fill="${accent}"/>`
+      : family === "rail" || family === "sidebar" || family === "split"
+        ? `<rect x="48" y="48" width="118" height="611" fill="${accent}"/><rect x="166" y="48" width="286" height="611" fill="#fff"/>`
+        : `<rect x="48" y="48" width="404" height="72" fill="${accent}"/>`;
+  const titleX = family === "rail" || family === "sidebar" || family === "split" ? 186 : 72;
+  const lineX = family === "rail" || family === "sidebar" || family === "split" ? 186 : 72;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="707" viewBox="0 0 500 707"><rect width="500" height="707" fill="#eef1f4"/><rect x="40" y="40" width="420" height="627" fill="#fff" rx="8"/><rect x="48" y="48" width="404" height="611" fill="#fff" stroke="${accent}" stroke-width="1.5"/>${header}<text x="${titleX}" y="${family === "rail" || family === "sidebar" || family === "split" ? 92 : 92}" fill="${family === "rail" || family === "sidebar" || family === "split" ? accent : "#fff"}" font-family="Georgia,serif" font-size="20">${name}</text><rect x="${lineX}" y="160" width="200" height="10" fill="#d5dde5"/><rect x="${lineX}" y="184" width="240" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="204" width="210" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="248" width="120" height="8" fill="${accent}" opacity=".45"/><rect x="${lineX}" y="276" width="250" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="296" width="230" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="316" width="210" height="8" fill="#e6ebf0"/></svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
 export function publicTemplates() {
   return catalog.map((t) => {
     const { config, ...meta } = t;
+    const thumb = config
+      ? { accent: config.accent, family: config.family }
+      : null;
     return {
       ...meta,
-      thumbnail: thumbnail({ ...t, config: t.access === "free" ? config : null }),
+      thumbnail: thumbnail({ ...t, config: thumb }),
       ...(t.access === "free" ? { config } : {}),
     };
   });

@@ -79,11 +79,11 @@ test("local Resume Builder security and complete purchase/export flow", async (t
       assert.equal(r.headers.get("Cache-Control"), "no-store");
     });
     await t.test(
-      "public catalog has 60 designs and 20 free with no premium config",
+      "public catalog has 84 designs and 32 free with no premium config",
       async () => {
         const r = await request("/v1/templates");
-        assert.equal(r.data.length, 60);
-        assert.equal(r.data.filter((x: any) => x.access === "free").length, 20);
+        assert.equal(r.data.length, 84);
+        assert.equal(r.data.filter((x: any) => x.access === "free").length, 32);
         assert.ok(
           r.data
             .filter((x: any) => x.access === "premium")

@@ -246,6 +246,56 @@ catalog.push(
   })),
 );
 
+const gallery: [string, string, string, string, string, string, string][] = [
+  ["Linea", "ATS-Friendly", "free", "classic", "#1a365d", "sans", "plain"],
+  ["Quiet Page", "ATS-Friendly", "free", "compact", "#2d3748", "sans", "label"],
+  ["Atlas", "ATS-Friendly", "premium", "folio", "#1e3a5f", "sans", "rule"],
+  ["Beacon", "ATS-Friendly", "premium", "ribbon", "#0f766e", "sans", "smallcaps"],
+  ["Kochi Classic", "Professional", "free", "classic", "#17334d", "sans", "plain"],
+  ["Marine Drive", "Professional", "free", "rail", "#0b3d5c", "sans", "label"],
+  ["Linen", "Professional", "free", "ledger", "#6b5344", "serif", "rule"],
+  ["Vesper", "Professional", "premium", "masthead", "#1f2937", "sans", "label"],
+  ["Copperline", "Professional", "premium", "ribbon", "#8b5a2b", "serif", "band"],
+  ["Bright Start", "Freshers", "free", "ribbon", "#b8860b", "sans", "plain"],
+  ["Campus Ink", "Freshers", "free", "masthead", "#0f766e", "sans", "rule"],
+  ["First Light", "Freshers", "free", "split", "#3b6ea5", "sans", "label"],
+  ["Open Desk", "Freshers", "premium", "centered", "#2563eb", "sans", "airy"],
+  ["Pixel Note", "Technology", "free", "compact", "#1e40af", "sans", "plain"],
+  ["Soft Grid", "Technology", "free", "ledger", "#155e75", "sans", "rule"],
+  ["Terminal", "Technology", "premium", "rail", "#111827", "mono", "label"],
+  ["Relay", "Technology", "premium", "split", "#4338ca", "sans", "timeline"],
+  ["Paper Studio", "Creative", "free", "folio", "#9a5b4a", "serif", "plain"],
+  ["Ink Well", "Creative", "free", "split", "#3f3f46", "serif", "rule"],
+  ["Blush Column", "Creative", "premium", "rail", "#9f4d6a", "sans", "label"],
+  ["Sage Panel", "Creative", "premium", "sidebar", "#4d6b57", "serif", "band"],
+  ["Canopy", "Creative", "premium", "masthead", "#365c45", "sans", "smallcaps"],
+  ["Charter", "Executive", "premium", "executive", "#1c2b3a", "serif", "plain"],
+  ["Manor", "Executive", "premium", "ribbon", "#2c241e", "serif", "label"],
+];
+catalog.unshift(
+  ...gallery.map(([name, category, access, family, accent, font, style], i) => ({
+    id: name.toLowerCase().replaceAll(" ", "-"),
+    name,
+    category,
+    access,
+    tags: [category, "Gallery collection", family, ...name.split(" ")],
+    version: 1,
+    status: "published",
+    config: {
+      family,
+      accent,
+      font,
+      style,
+      spacing: i % 2 ? 18 : 21,
+      nameSize: family === "folio" ? 42 : family === "masthead" ? 38 : 34,
+      tracking: font === "serif" ? 0 : 0.7,
+      heading: i % 2 ? "caps" : "title",
+      rule: i % 3 ? "line" : "double",
+      sideWidth: 28 + (i % 3),
+    },
+  })),
+);
+
 export function validateConfig(c: TemplateConfig) {
   if (
     !c ||

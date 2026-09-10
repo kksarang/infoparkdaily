@@ -6,7 +6,7 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
-import { publicTemplates } from "./catalog.js?v=20260910e";
+import { publicTemplates } from "./catalog.js?v=20260911a";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20260910e";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
@@ -1371,11 +1371,15 @@ async function boot() {
         throw e;
       });
     }
-    templates.sort(
-      (a, b) =>
-        Number(b.tags.includes("Studio collection")) -
-        Number(a.tags.includes("Studio collection")),
-    );
+    templates.sort((a, b) => {
+      const rank = (t) =>
+        t.tags.includes("Gallery collection")
+          ? 2
+          : t.tags.includes("Studio collection")
+            ? 1
+            : 0;
+      return rank(b) - rank(a);
+    });
     accountNav();
     if (params.get("access") === "free") access = "free";
     if (location.pathname.startsWith("/admin/members/")) return members();
