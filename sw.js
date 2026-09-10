@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v361-ats-studio";
+const CACHE_NAME = "infoparkdaily-v362-ats-bench";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -45,8 +45,8 @@ const PRELOAD_ASSETS = [
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
   "./css/contact-premium.css?v=20260905a",
-  "./css/ats-checker.css?v=20260911a",
-  "./css/resume-builder.css?v=20260911a",
+  "./css/ats-checker.css?v=20260911c",
+  "./css/resume-builder.css?v=20260911c",
   "./css/job-detail-premium.css?v=20260910a",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",
@@ -62,7 +62,7 @@ const PRELOAD_ASSETS = [
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
   "./js/jobs.js?v=20260905w",
-  "./js/ats-checker.js?v=20260911a",
+  "./js/ats-checker.js?v=20260911c",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
