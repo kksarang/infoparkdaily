@@ -537,7 +537,7 @@
       step1Status.classList.toggle("is-ready", resumeReady);
     }
     if (step2Status) {
-      step2Status.textContent = jdReady ? "Added" : "Optional";
+      step2Status.textContent = jdReady ? "Added" : "Waiting";
       step2Status.classList.toggle("is-ready", jdReady);
     }
 

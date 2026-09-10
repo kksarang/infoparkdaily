@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v356-ats-report";
+const CACHE_NAME = "infoparkdaily-v360-ats-live";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -45,14 +45,14 @@ const PRELOAD_ASSETS = [
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
   "./css/contact-premium.css?v=20260905a",
-  "./css/ats-checker.css?v=20260910j",
-  "./css/resume-builder.css?v=20260910i",
+  "./css/ats-checker.css?v=20260910n",
+  "./css/resume-builder.css?v=20260910n",
   "./css/job-detail-premium.css?v=20260910a",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
-  "./js/site.js?v=20260905k",
+  "./js/site.js?v=20260911a",
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
@@ -62,7 +62,7 @@ const PRELOAD_ASSETS = [
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
   "./js/jobs.js?v=20260905w",
-  "./js/ats-checker.js?v=20260910c",
+  "./js/ats-checker.js?v=20260910e",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
@@ -140,6 +140,7 @@ self.addEventListener("fetch", (event) => {
       requestUrl.pathname.startsWith("/v1/") ||
       requestUrl.pathname.startsWith("/resume-builder/") ||
       requestUrl.pathname.startsWith("/js/resume-builder/") ||
+      requestUrl.pathname.startsWith("/ats-checker") ||
       requestUrl.pathname.startsWith("/admin/resume-templates/") ||
       requestUrl.pathname.startsWith("/admin/members/")) return;
 
