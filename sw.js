@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v349-career-ats";
+const CACHE_NAME = "infoparkdaily-v351-career-firebase";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -41,7 +41,7 @@ const PRELOAD_ASSETS = [
   "./css/sarang.css?v=20260905p",
   "./js/sarang.js?v=20260905g",
   "./css/onam.css?v=20260904v",
-  "./css/jobs-marketplace.css?v=20260905b",
+  "./css/jobs-marketplace.css?v=20260910c",
   "./css/recruit-premium.css?v=20260905g",
   "./css/product-theme.css?v=20260905c",
   "./css/contact-premium.css?v=20260905a",
@@ -138,6 +138,7 @@ self.addEventListener("fetch", (event) => {
   if (requestUrl.origin !== self.location.origin ||
       requestUrl.pathname.startsWith("/v1/") ||
       requestUrl.pathname.startsWith("/resume-builder/") ||
+      requestUrl.pathname.startsWith("/js/resume-builder/") ||
       requestUrl.pathname.startsWith("/admin/resume-templates/") ||
       requestUrl.pathname.startsWith("/admin/members/")) return;
 

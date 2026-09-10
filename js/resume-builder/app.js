@@ -6,8 +6,8 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
-import { publicTemplates } from "./catalog.js";
-import { request as cloudRequest } from "./cloud.bundle.js";
+import { publicTemplates } from "./catalog.js?v=20260910d";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20260910d";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
