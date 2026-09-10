@@ -87,7 +87,16 @@
     "user stories",
     "micro services",
     "next js",
-    "vue js"
+    "vue js",
+    "customer service",
+    "conflict resolution",
+    "escalation management",
+    "performance metrics",
+    "data entry",
+    "client retention",
+    "technical support",
+    "process improvement",
+    "cross functional"
   ];
 
   const SKILL_HINTS = new Set([
@@ -288,6 +297,198 @@
     });
 
     return unique.slice(0, 40);
+  }
+
+  function resumeLines(resume) {
+    return String(resume || "")
+      .split(/\n+/)
+      .map((line) => line.replace(/^[\s•\-–—*·]+/, "").trim())
+      .filter((line) => line.length >= 18 && line.length <= 280);
+  }
+
+  function guessEducation(resume) {
+    const m = String(resume || "").match(
+      /\b(b\.?\s*tech|b\.?\s*e\.?|b\.?\s*com|bcom|mba|mca|bca|m\.?\s*tech|bsc|msc|ba|ma)(?:\s+(?:in|of)\s+([a-z][a-z\s]{2,32}))?/i
+    );
+    if (!m) return "";
+    return m[0].replace(/\s+/g, " ").trim();
+  }
+
+  function guessTenure(resume) {
+    const months = String(resume || "").match(/(\d+)\s*(?:\+|plus)?\s*months?/i);
+    const years = String(resume || "").match(/(\d+(?:\.\d)?)\s*(?:\+|plus)?\s*years?/i);
+    if (months) return `${months[1]} months of experience`;
+    if (years) return `${years[1]} years of experience`;
+    return "";
+  }
+
+  function profileBadge(resume, matched) {
+    const blob = `${resume} ${matched.join(" ")}`.toLowerCase();
+    const finance = /finance|accounting|tally|gst|b\.?\s*com|bcom/.test(blob);
+    const support = /customer|crm|support|inbound|outbound|service/.test(blob);
+    const qa = /selenium|playwright|cypress|testing|qa\b/.test(blob);
+    const dev = /java|python|javascript|react|node|angular|\.net|full stack/.test(blob);
+    if (support && finance) return "Entry-level candidate with potential for finance-integrated support roles.";
+    if (qa) return "QA-focused profile — emphasise tools, coverage, and defect metrics.";
+    if (dev) return "Engineering profile — match exact stack names from the job description.";
+    if (support) return "Customer support profile — add KPIs and process keywords from the JD.";
+    if (finance) return "Finance background — map accounting tools to the job’s required skills.";
+    return "Tailor this resume to the job’s required tools and outcomes.";
+  }
+
+  function rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount) {
+    const issues = [];
+    const personalHit = resume.match(
+      /father'?s?\s*name|date of birth|\bdob\b|personal details|permanent address|religion|caste|marital status|nationality|passport size/i
+    );
+    if (personalHit) {
+      issues.push({
+        title: "Use of personal details",
+        severity: "Low",
+        why: "Personal info like Father’s Name, Date of Birth, or address can trigger bias or ATS parsing errors.",
+        evidence: `Personal-details text includes “${personalHit[0]}”.`
+      });
+    }
+    if (!hasEmail) {
+      issues.push({
+        title: "Missing email in plain text",
+        severity: "High",
+        why: "ATS systems look for an email as selectable text, not inside a header image.",
+        evidence: "No email address was detected in the extracted resume text."
+      });
+    }
+    if (!hasPhone) {
+      issues.push({
+        title: "Missing phone number",
+        severity: "Medium",
+        why: "Recruiters and parsers expect a mobile number in the contact line.",
+        evidence: "No Indian mobile number (+91 / 10 digits) was detected as text."
+      });
+    }
+    if (foundSections.length < 4) {
+      issues.push({
+        title: "Incomplete standard sections",
+        severity: "Medium",
+        why: "Many ATS templates look for Summary, Skills, Experience, Education, and Projects.",
+        evidence: `Detected headings: ${foundSections.join(", ") || "none"}.`
+      });
+    }
+    if (hasTablesHint) {
+      issues.push({
+        title: "Complex layout",
+        severity: "Medium",
+        why: "Tables and tab columns often scramble parsing order.",
+        evidence: "Table or heavy tab characters were detected in the file text."
+      });
+    }
+    if (wordCount < 180) {
+      issues.push({
+        title: "Resume too short",
+        severity: "Medium",
+        why: "Thin resumes score poorly on keyword coverage and impact.",
+        evidence: `About ${wordCount} words extracted.`
+      });
+    }
+    return issues;
+  }
+
+  function weakPhrasingItems(lines, missing) {
+    const weak = /^(handled|responsible for|worked on|helped with|assisted in|performed|did|was involved in|looked after)\b/i;
+    const items = [];
+    const insert = missing.slice(0, 2).map(displayName);
+    lines.forEach((line) => {
+      if (items.length >= 3) return;
+      if (!weak.test(line) || /\d/.test(line)) return;
+      let rewrite = line.replace(weak, "Delivered");
+      if (insert.length) {
+        rewrite = rewrite.replace(/\.$/, "");
+        rewrite += `, using ${insert.join(" and ")} to meet process KPIs.`;
+      } else if (!/consistently|volume|quality|sla/i.test(rewrite)) {
+        rewrite = rewrite.replace(/\.$/, "") + ", consistently meeting response-time KPIs.";
+      }
+      items.push({
+        original: line,
+        issue: "Passive / duty language",
+        fix: "Focus on the outcome of the interactions.",
+        rewrite,
+        tags: insert.length ? insert : ["KPIs"]
+      });
+    });
+    return items;
+  }
+
+  function sectionRecommendations(foundSections) {
+    const recs = [];
+    const have = new Set(foundSections);
+    if (!have.has("summary")) recs.push("Add a 3-line professional summary at the top with the job title and 4–6 exact tools.");
+    if (!have.has("skills")) recs.push("Group skills into categories such as Technical proficiency, Software, and Soft skills.");
+    if (!have.has("experience")) recs.push("Use an Experience heading with company, role, dates, and 3–5 outcome bullets.");
+    if (!have.has("education")) recs.push("Keep Education as plain text (degree, college, year) — not inside a sidebar graphic.");
+    if (!have.has("project")) recs.push("Add a Projects section if you are a fresher — list tools used, not only the project name.");
+    if (!recs.length) recs.push("Keep headings as plain text. Avoid putting Skills only inside icons or a two-column table.");
+    return recs.slice(0, 4);
+  }
+
+  function jobFitItems(resume, matched, missing) {
+    const blob = resume.toLowerCase();
+    const strengths = [];
+    const gaps = [];
+    if (matched.some((k) => /crm|salesforce/.test(k)) || /\bcrm\b/.test(blob)) strengths.push("Relevant CRM experience");
+    if (/finance|b\.?\s*com|accounting|tally/.test(blob)) strengths.push("Educational background in Finance");
+    if (/sap|tally/.test(blob) || matched.some((k) => /sap|tally/.test(k))) {
+      strengths.push("Technical certifications or tools (SAP, Tally, or similar)");
+    }
+    if (matched.some((k) => /customer|support|communication/.test(k))) {
+      strengths.push("Customer service / communication keywords present");
+    }
+    if (matched.length >= 5) strengths.push("Core JD skills already appear in the resume");
+    if (!strengths.length) strengths.push("Some overlapping terms with this job description");
+
+    if (!/\d+%|\d+\+|kpi|sla|volume|reduced|increased|handled \d+/i.test(resume)) {
+      gaps.push("Quantified achievements");
+    }
+    if (missing.some((k) => /kpi|metric|escalat|conflict|accuracy/.test(k))) {
+      gaps.push("Process, KPI, or quality language from the JD");
+    }
+    if (missing.filter((k) => SKILL_HINTS.has(k) || k.includes(" ")).length >= 3) {
+      gaps.push("Specific software / platform names beyond general tools");
+    }
+    if (!/\bsummary\b|\bprofile\b|\bobjective\b/i.test(resume)) {
+      gaps.push("In-depth professional summary");
+    }
+    if (!gaps.length) gaps.push("Deeper mirroring of the job’s required tools");
+    return { strengths: strengths.slice(0, 4), gaps: gaps.slice(0, 4) };
+  }
+
+  function optimizedSummary(resume, matched, missing) {
+    const edu = guessEducation(resume);
+    const tenure = guessTenure(resume);
+    const tools = [...matched.slice(0, 3), ...missing.slice(0, 2)].map(displayName);
+    const uniqueTools = [];
+    tools.forEach((t) => {
+      if (t && !uniqueTools.includes(t)) uniqueTools.push(t);
+    });
+    const toolBit = uniqueTools.slice(0, 4).join(", ");
+    const who = edu ? `professional with ${edu}` : "professional";
+    const exp = tenure ? ` and ${tenure}` : "";
+    return `Customer-focused ${who}${exp}. Adept at using ${
+      toolBit || "the tools listed in this job"
+    } to improve service quality, streamline support, and ensure long-term customer satisfaction.`;
+  }
+
+  function recruiterNotes(ranking, fit, missing) {
+    const notes = [];
+    if (fit.strengths[0]) notes.push(`${fit.strengths[0]} is a useful selling point — keep it near the top.`);
+    if (ranking.some((i) => /personal/i.test(i.title))) {
+      notes.push("Remove personal declarations and static headers to free space for impact statements.");
+    }
+    if (missing.length) {
+      notes.push(
+        `If true, add these JD terms in Skills or bullets: ${missing.slice(0, 5).map(displayName).join(", ")}.`
+      );
+    }
+    notes.push("Use a text PDF. Scanned or image-only resumes often score near zero in ATS.");
+    return notes.slice(0, 4);
   }
 
   function resumeHasKeyword(resumeNorm, resumeTokSet, keyword) {
@@ -535,17 +736,41 @@
       hasTablesHint
     });
 
+    const ranking = rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount);
+    const phrasing = weakPhrasingItems(resumeLines(resume), missing);
+    const fit = jobFitItems(resume, matched, missing);
+    const summaryText = optimizedSummary(resume, matched, missing);
+    const suggested = missing.slice(0, 8).map(displayName);
+    const topFixes = [];
+    if (ranking[0]) topFixes.push({ title: ranking[0].title, why: ranking[0].why });
+    if (phrasing[0]) topFixes.push({ title: "Rewrite weak bullets", why: phrasing[0].fix });
+    if (missing.length) {
+      topFixes.push({
+        title: "Add missing JD keywords",
+        why: `Mirror ${missing.slice(0, 3).map(displayName).join(", ")} in Skills if they are true for you.`
+      });
+    }
+
     return {
       score,
       label,
       tone,
       missing: missing.slice(0, 12).map(displayName),
       matched: matched.slice(0, 12).map(displayName),
+      suggested,
       issues,
       tips,
       coverage,
       foundSections,
-      comments
+      comments,
+      ranking,
+      phrasing,
+      fit,
+      summaryText,
+      sections: sectionRecommendations(foundSections),
+      recruiter: recruiterNotes(ranking, fit, missing),
+      badge: profileBadge(resume, matched),
+      topFixes: topFixes.slice(0, 3)
     };
   }
 
@@ -611,61 +836,172 @@
   }
 
   function chips(list, kind) {
-    if (!list.length) return `<p class="ats-chip-empty">${kind === "ok" ? "No overlapping skills detected yet." : "No major keyword gaps detected."}</p>`;
-    return list.map((k) => `<span class="ats-chip${kind === "ok" ? " ats-chip--ok" : ""}">${escapeHtml(k)}</span>`).join("");
+    if (!list.length) {
+      return `<p class="ats-chip-empty">${
+        kind === "ok" ? "No overlapping skills detected yet." : kind === "suggest" ? "No extra suggestions." : "No major keyword gaps detected."
+      }</p>`;
+    }
+    const cls = kind === "ok" ? " ats-chip--ok" : kind === "suggest" ? " ats-chip--suggest" : " ats-chip--miss";
+    return list.map((k) => `<span class="ats-chip${cls}">${escapeHtml(k)}</span>`).join("");
   }
 
   function renderReport(report) {
     empty.hidden = true;
     result.hidden = false;
+    if (document.querySelector(".ats-layout")) document.querySelector(".ats-layout").classList.add("is-scored");
     const deg = Math.round((report.score / 100) * 360);
     const color = ringColor(report.score);
-    const notes = report.comments.notes.length
-      ? `<ul class="ats-comments">${report.comments.notes.map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>`
-      : "";
+    const rankingHtml = (report.ranking || [])
+      .map(
+        (item) => `
+        <article class="ats-issue-card">
+          <div class="ats-issue-top">
+            <h4>${escapeHtml(item.title)}</h4>
+            <span class="ats-sev ats-sev--${escapeHtml(String(item.severity || "Low").toLowerCase())}">${escapeHtml(
+              item.severity || "Low"
+            )}</span>
+          </div>
+          <p>${escapeHtml(item.why)}</p>
+          <p class="ats-evidence"><span>Evidence</span>${escapeHtml(item.evidence)}</p>
+        </article>`
+      )
+      .join("");
+    const phrasingHtml = (report.phrasing || [])
+      .map(
+        (item) => `
+        <article class="ats-phrase-card">
+          <p class="ats-orig">${escapeHtml(item.original)}</p>
+          <p class="ats-phrase-flag">${escapeHtml(item.issue)}</p>
+          <p class="ats-phrase-fix"><strong>Suggested fix</strong> ${escapeHtml(item.fix)}</p>
+        </article>`
+      )
+      .join("");
+    const rewriteHtml = (report.phrasing || [])
+      .map(
+        (item) => `
+        <article class="ats-rewrite-card">
+          <p class="ats-orig">${escapeHtml(item.original)}</p>
+          <p class="ats-rewrite">${escapeHtml(item.rewrite)}</p>
+          <div>${(item.tags || []).map((t) => `<span class="ats-chip ats-chip--ok">${escapeHtml(t)}</span>`).join("")}</div>
+        </article>`
+      )
+      .join("");
+    const topFixes = (report.topFixes || [])
+      .map(
+        (fix, i) => `
+        <li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p></div></li>`
+      )
+      .join("");
+
     result.innerHTML = `
-      <div class="ats-score-row">
-        <div class="ats-ring" style="background: conic-gradient(${color} ${deg}deg, var(--ats-track, #e2e8f0) 0deg)">
+      <div class="ats-hero-card">
+        <div class="ats-score-row">
+          <div class="ats-ring" style="background: conic-gradient(${color} ${deg}deg, var(--ats-track, #e2e8f0) 0deg)">
+            <div>
+              <strong style="color:${color}">${report.score}</strong>
+              <small>${escapeHtml(report.label)}</small>
+            </div>
+          </div>
           <div>
-            <strong style="color:${color}">${report.score}</strong>
-            <small>${escapeHtml(report.label)}</small>
+            <p class="ats-badge">${escapeHtml(report.badge || "")}</p>
+            <h2>${escapeHtml(report.comments.overall)}</h2>
+            <p>Keyword coverage ${Math.round(report.coverage * 100)}% · local estimate, not the employer’s official ATS.</p>
+            ${
+              topFixes
+                ? `<div class="ats-top-fixes"><p>Top fixes</p><ol>${topFixes}</ol></div>`
+                : ""
+            }
           </div>
         </div>
-        <div>
-          <h2>ATS compatibility score</h2>
-          <p>Keyword coverage ${Math.round(report.coverage * 100)}% · sections found: ${escapeHtml(
-            report.foundSections.join(", ") || "none"
-          )}.</p>
-          <p>Local estimate for Kerala IT applications — not the employer’s official ATS.</p>
-        </div>
       </div>
-      <aside class="ats-comment ats-comment--${escapeHtml(report.tone)}">
-        <p class="ats-comment-kicker">Overall comment</p>
-        <p>${escapeHtml(report.comments.overall)}</p>
-        ${notes}
-      </aside>
-      <div class="ats-lists">
-        <div>
-          <h3>Matched keywords</h3>
+
+      <div class="ats-grid-2">
+        <section class="ats-insight">
+          <h3>Keyword alignment</h3>
+          <p class="ats-sub">Matched (${report.matched.length})</p>
           <div>${chips(report.matched, "ok")}</div>
-        </div>
-        <div>
-          <h3>Missing keywords</h3>
+          <p class="ats-sub">Missing (${report.missing.length})</p>
           <div>${chips(report.missing, "gap")}</div>
-        </div>
-        <div>
-          <h3>Formatting issues</h3>
-          <ul>${(report.issues.length ? report.issues : ["No obvious formatting blockers detected."])
-            .map((i) => `<li>${escapeHtml(i)}</li>`)
+          <p class="ats-sub">Suggested (${(report.suggested || []).length})</p>
+          <div>${chips(report.suggested || [], "suggest")}</div>
+        </section>
+        <section class="ats-insight">
+          <h3>Job fit</h3>
+          <p class="ats-sub">Strengths</p>
+          <ul class="ats-fit ats-fit--ok">${(report.fit.strengths || [])
+            .map((s) => `<li>${escapeHtml(s)}</li>`)
             .join("")}</ul>
-        </div>
-        <div>
-          <h3>Resume improvement tips</h3>
-          <ul>${report.tips.map((i) => `<li>${escapeHtml(i)}</li>`).join("")}</ul>
-        </div>
+          <p class="ats-sub">Gaps</p>
+          <ul class="ats-fit ats-fit--gap">${(report.fit.gaps || []).map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+        </section>
       </div>
+
+      <section class="ats-insight">
+        <div class="ats-insight-head">
+          <h3>Ranking issues</h3>
+          <span class="ats-count">${(report.ranking || []).length} issue${(report.ranking || []).length === 1 ? "" : "s"}</span>
+        </div>
+        <p class="ats-lede">Issues that may lower your ATS ranking</p>
+        ${rankingHtml || `<p class="ats-chip-empty">No ranking blockers detected in the extracted text.</p>`}
+      </section>
+
+      <div class="ats-grid-2">
+        <section class="ats-insight">
+          <h3>Weak phrasing</h3>
+          ${phrasingHtml || `<p class="ats-chip-empty">No obviously passive bullets detected.</p>`}
+        </section>
+        <section class="ats-insight">
+          <h3>Recruiter notes</h3>
+          <ul class="ats-notes">${(report.recruiter || []).map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
+        </section>
+      </div>
+
+      <div class="ats-grid-2">
+        <section class="ats-insight">
+          <h3>Priority actions</h3>
+          <ol class="ats-priority">${(report.topFixes || [])
+            .map((fix) => `<li><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fix.why)}</p></li>`)
+            .join("")}</ol>
+        </section>
+        <section class="ats-insight ats-insight--summary">
+          <div class="ats-insight-head">
+            <h3>Optimized summary</h3>
+            <button type="button" class="ats-copy" data-ats-copy>Copy</button>
+          </div>
+          <p class="ats-summary-text" data-ats-summary>${escapeHtml(report.summaryText || "")}</p>
+          <p class="ats-summary-ok">Optimized for ATS keyword matching</p>
+        </section>
+      </div>
+
+      <section class="ats-insight">
+        <h3>Bullet rewrites</h3>
+        ${rewriteHtml || `<p class="ats-chip-empty">No rewrite suggestions — your bullets already look action-led.</p>`}
+      </section>
+
+      <section class="ats-insight">
+        <h3>Section recommendations</h3>
+        <ul class="ats-notes">${(report.sections || []).map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
+      </section>
       <a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a>
     `;
+
+    const copyBtn = result.querySelector("[data-ats-copy]");
+    const summaryEl = result.querySelector("[data-ats-summary]");
+    if (copyBtn && summaryEl) {
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(summaryEl.textContent || "");
+          copyBtn.textContent = "Copied";
+          setTimeout(() => (copyBtn.textContent = "Copy"), 1600);
+        } catch (_e) {
+          copyBtn.textContent = "Copy failed";
+        }
+      });
+    }
+  }
+
+  function fitWhy(fix) {
+    return fix.why || "";
   }
 
   async function handleFile(file) {
