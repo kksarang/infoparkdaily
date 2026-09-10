@@ -325,6 +325,26 @@ body.dark .ats-req {
   color: #fecaca;
 }
 
+.ats-opt {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.08rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+html.theme-dark .ats-opt,
+body.dark .ats-opt {
+  background: rgba(147, 197, 253, 0.18);
+  color: #93c5fd;
+}
+
 .ats-error {
   margin: 0;
   color: var(--ats-error, #b91c1c);

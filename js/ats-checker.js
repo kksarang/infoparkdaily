@@ -21,6 +21,21 @@
   const MIN_RESUME = 80;
   const MIN_JD = 80;
 
+  function hasJobDescription(text) {
+    const jd = String(text || "").trim();
+    if (jd.length < MIN_JD) return false;
+    if (
+      jd.length < 280 &&
+      /ats\s*friendly|check.{0,60}resume|is (this|the|my) resume|resume is ats/i.test(jd)
+    ) {
+      return false;
+    }
+    const hits = (jd.match(
+      /experience|responsib|qualif|requirement|skill|opening|vacanc|role|position|years|looking for|must have|job description/gi
+    ) || []).length;
+    return hits >= 2 || jd.length >= 280;
+  }
+
   const GENERIC = new Set(
     (
       "a an the and or of to for in on with from by at as is are was were be been being this that those these you your we our they their it its i me my about into over after before than then also can will just not no yes if but so such any all more most other some only own same too very using use used " +
@@ -514,15 +529,15 @@
 
   function syncEnabled() {
     const resumeReady = currentResume().length >= MIN_RESUME;
-    const jdReady = String(jdInput.value || "").trim().length >= MIN_JD;
-    checkBtn.disabled = readingFile;
+    const jdReady = hasJobDescription(jdInput.value);
+    checkBtn.disabled = readingFile || !resumeReady;
 
     if (step1Status) {
       step1Status.textContent = resumeReady ? "Ready" : "Waiting";
       step1Status.classList.toggle("is-ready", resumeReady);
     }
     if (step2Status) {
-      step2Status.textContent = jdReady ? "Ready" : "Waiting";
+      step2Status.textContent = jdReady ? "Added" : "Optional";
       step2Status.classList.toggle("is-ready", jdReady);
     }
 
@@ -536,7 +551,7 @@
         if (jdReady) el.classList.add("is-done");
         else if (resumeReady) el.classList.add("is-active");
       } else if (step === "3") {
-        if (resumeReady && jdReady) el.classList.add("is-active");
+        if (resumeReady) el.classList.add("is-active");
         if (result && !result.hidden) {
           el.classList.remove("is-active");
           el.classList.add("is-done");
@@ -547,24 +562,17 @@
 
   function validateRequired() {
     const resume = currentResume();
-    const jd = String(jdInput.value || "").trim();
     let resumeMsg = "";
-    let jdMsg = "";
 
     if (!resume) resumeMsg = "Resume is required. Upload a PDF, DOCX or TXT, or paste the text.";
     else if (resume.length < MIN_RESUME) {
       resumeMsg = "Resume is too short to score. Add more text or try another file.";
     }
 
-    if (!jd) jdMsg = "Job description is required. Paste the full JD you are targeting.";
-    else if (jd.length < MIN_JD) {
-      jdMsg = "Paste a fuller job description so keyword matching can work.";
-    }
-
     setFieldError(resumeError, resumeBlock, resumeMsg);
-    setFieldError(jdError, jdBlock, jdMsg);
+    setFieldError(jdError, jdBlock, "");
     if (drop) drop.setAttribute("aria-invalid", resumeMsg ? "true" : "false");
-    jdInput.setAttribute("aria-invalid", jdMsg ? "true" : "false");
+    jdInput.setAttribute("aria-invalid", "false");
     if (pasteResume) pasteResume.setAttribute("aria-invalid", resumeMsg ? "true" : "false");
 
     if (resumeMsg && pasteResume && !currentResume()) {
@@ -572,7 +580,7 @@
       if (pasteDetails) pasteDetails.open = true;
     }
 
-    return { ok: !resumeMsg && !jdMsg, resumeMsg, jdMsg };
+    return { ok: !resumeMsg, resumeMsg, jdMsg: "" };
   }
 
   function loadScript(src) {
@@ -659,11 +667,17 @@
   }
 
   function scoreResume(resume, jd) {
+    const jdMode = hasJobDescription(jd);
     const resumeNorm = normalize(resume);
     const resumeTokSet = new Set(rawTokens(resume));
-    const jdKeywords = extractKeywords(jd);
-    const matched = jdKeywords.filter((k) => resumeHasKeyword(resumeNorm, resumeTokSet, k));
-    const missing = jdKeywords.filter((k) => !resumeHasKeyword(resumeNorm, resumeTokSet, k));
+    const resumeSkills = extractKeywords(resume);
+    const jdKeywords = jdMode ? extractKeywords(jd) : [];
+    const matched = jdMode
+      ? jdKeywords.filter((k) => resumeHasKeyword(resumeNorm, resumeTokSet, k))
+      : resumeSkills;
+    const missing = jdMode
+      ? jdKeywords.filter((k) => !resumeHasKeyword(resumeNorm, resumeTokSet, k))
+      : [];
     const coverage = jdKeywords.length ? matched.length / jdKeywords.length : 0;
 
     const lower = resume.toLowerCase();
@@ -673,6 +687,10 @@
     const hasPhone = /(\+91[\s-]?)?[6-9]\d{9}/.test(resume.replace(/\s/g, ""));
     const wordCount = resume.trim().split(/\s+/).filter(Boolean).length;
     const hasTablesHint = lower.includes("<table") || (resume.match(/\t/g) || []).length > 12;
+    const hasPersonal = /father'?s?\s*name|date of birth|\bdob\b|personal details|marital status|religion|caste/i.test(
+      resume
+    );
+    const bulletCount = resumeLines(resume).length;
 
     const issues = [];
     if (!hasEmail) issues.push("No email address detected — ATS systems look for contact details as plain text.");
@@ -683,7 +701,7 @@
       issues.push("Missing common sections (Summary, Skills, Experience, Education, Projects).");
     }
     if (wordCount < 180) {
-      issues.push("Resume looks too short. Add measurable bullets and tools from the job description.");
+      issues.push("Resume looks too short. Add measurable bullets and tools.");
     }
     if (wordCount > 1200) {
       issues.push("Resume may be too long for a fresher/mid-level ATS pass — aim for 1–2 pages.");
@@ -691,36 +709,53 @@
     if (hasTablesHint) {
       issues.push("Complex tables or tab layouts can break ATS parsing. Prefer simple headings and bullets.");
     }
-    if (missing.length > 6) {
+    if (jdMode && missing.length > 6) {
       issues.push("Many job keywords are missing. Mirror the job’s tools and skills in your Skills section.");
+    }
+    if (hasPersonal) {
+      issues.push("Personal details (DOB, father’s name, etc.) can confuse ATS and look outdated.");
     }
 
     const tips = [
       "Put skills as a comma-separated list in plain text.",
-      "Repeat the exact job-title phrasing if it is true (e.g. Software Engineer, QA Engineer).",
       "Use a text PDF (not a scanned image) when you apply.",
-      "Keep dates, company names, and role titles as text — not in text boxes or logos."
+      "Keep dates, company names, and role titles as text — not in text boxes or logos.",
+      "Use headings: Summary, Skills, Experience, Education."
     ];
 
-    let score = Math.round(coverage * 55 + foundSections.length * 4);
-    if (hasEmail) score += 8;
-    if (hasPhone) score += 7;
-    if (wordCount >= 220 && wordCount <= 900) score += 8;
-    if (matched.length >= 6) score += 5;
-    if (!hasTablesHint) score += 4;
+    let score;
+    if (jdMode) {
+      score = Math.round(coverage * 55 + foundSections.length * 4);
+      if (hasEmail) score += 8;
+      if (hasPhone) score += 7;
+      if (wordCount >= 220 && wordCount <= 900) score += 8;
+      if (matched.length >= 6) score += 5;
+      if (!hasTablesHint) score += 4;
+    } else {
+      score = foundSections.length * 9;
+      if (hasEmail) score += 12;
+      if (hasPhone) score += 10;
+      if (wordCount >= 220 && wordCount <= 900) score += 10;
+      if (!hasTablesHint) score += 8;
+      if (!hasPersonal) score += 8;
+      if (bulletCount >= 4) score += 6;
+      if (resumeSkills.length >= 6) score += 6;
+    }
     score = Math.max(12, Math.min(96, score));
 
     let label = "Needs work";
     let tone = "weak";
     if (score >= 80) {
-      label = "Strong";
+      label = jdMode ? "Strong" : "ATS-friendly";
       tone = "strong";
     } else if (score >= 60) {
-      label = "Good";
+      label = jdMode ? "Good" : "Mostly ATS-friendly";
       tone = "good";
     } else if (score >= 40) {
-      label = "Fair";
+      label = jdMode ? "Fair" : "Partly ATS-friendly";
       tone = "fair";
+    } else {
+      label = jdMode ? "Needs work" : "Not ATS-friendly yet";
     }
 
     const comments = buildComments({
@@ -733,21 +768,36 @@
       hasPhone,
       foundSections,
       wordCount,
-      hasTablesHint
+      hasTablesHint,
+      jdMode
     });
 
     const ranking = rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount);
     const phrasing = weakPhrasingItems(resumeLines(resume), missing);
     const fit = jobFitItems(resume, matched, missing);
     const summaryText = optimizedSummary(resume, matched, missing);
-    const suggested = missing.slice(0, 8).map(displayName);
+    const resumeGaps = [];
+    if (!hasEmail) resumeGaps.push("Plain-text email");
+    if (!hasPhone) resumeGaps.push("Phone number");
+    if (foundSections.length < 4) resumeGaps.push("Standard headings");
+    if (hasTablesHint) resumeGaps.push("Simple one-column layout");
+    if (hasPersonal) resumeGaps.push("No personal-detail fields");
+    if (!/\d+%|\d+\+|kpi|sla/i.test(resume)) resumeGaps.push("Measurable KPIs");
+    const suggested = jdMode
+      ? missing.slice(0, 8).map(displayName)
+      : ["text PDF", "comma-separated Skills", "3–5 outcome bullets"];
     const topFixes = [];
     if (ranking[0]) topFixes.push({ title: ranking[0].title, why: ranking[0].why });
     if (phrasing[0]) topFixes.push({ title: "Rewrite weak bullets", why: phrasing[0].fix });
-    if (missing.length) {
+    if (jdMode && missing.length) {
       topFixes.push({
         title: "Add missing JD keywords",
         why: `Mirror ${missing.slice(0, 3).map(displayName).join(", ")} in Skills if they are true for you.`
+      });
+    } else if (!jdMode && foundSections.length < 4) {
+      topFixes.push({
+        title: "Use ATS headings",
+        why: "Add Summary, Skills, Experience, and Education as plain text headings."
       });
     }
 
@@ -755,7 +805,8 @@
       score,
       label,
       tone,
-      missing: missing.slice(0, 12).map(displayName),
+      jdMode,
+      missing: jdMode ? missing.slice(0, 12).map(displayName) : resumeGaps,
       matched: matched.slice(0, 12).map(displayName),
       suggested,
       issues,
@@ -769,14 +820,30 @@
       summaryText,
       sections: sectionRecommendations(foundSections),
       recruiter: recruiterNotes(ranking, fit, missing),
-      badge: profileBadge(resume, matched),
+      badge: jdMode
+        ? profileBadge(resume, matched)
+        : "ATS-friendliness check from the resume file — no job description needed.",
       topFixes: topFixes.slice(0, 3)
     };
   }
 
   function buildComments(r) {
     let overall = "";
-    if (r.score >= 80) {
+    if (!r.jdMode) {
+      if (r.score >= 80) {
+        overall =
+          "This resume looks ATS-friendly. Headings, contact text, and length are in a good range. Keep Skills as plain text and avoid tables.";
+      } else if (r.score >= 60) {
+        overall =
+          "Mostly ATS-friendly, with a few parsing risks. Fix the ranking issues below so more Kerala IT ATS forms can read it.";
+      } else if (r.score >= 40) {
+        overall =
+          "Partly ATS-friendly. An ATS may skip parts of this file. Use standard headings, a text PDF, and a clear Skills line.";
+      } else {
+        overall =
+          "Not ATS-friendly yet. The file is hard for parsers (missing contact text, headings, or a simple layout). Apply the top fixes first.";
+      }
+    } else if (r.score >= 80) {
       overall =
         "Strong match. Your resume already shares most of this job’s tool names. Keep those exact spellings in Skills and in 2–3 recent bullets before you apply.";
     } else if (r.score >= 60) {
@@ -905,7 +972,11 @@
           <div>
             <p class="ats-badge">${escapeHtml(report.badge || "")}</p>
             <h2>${escapeHtml(report.comments.overall)}</h2>
-            <p>Keyword coverage ${Math.round(report.coverage * 100)}% · local estimate, not the employer’s official ATS.</p>
+            <p>${
+              report.jdMode
+                ? `Keyword coverage ${Math.round(report.coverage * 100)}% · local estimate, not the employer’s official ATS.`
+                : "ATS-friendliness of this resume file · local estimate, not an employer ATS."
+            }</p>
             ${
               topFixes
                 ? `<div class="ats-top-fixes"><p>Top fixes</p><ol>${topFixes}</ol></div>`
@@ -917,16 +988,16 @@
 
       <div class="ats-grid-2">
         <section class="ats-insight">
-          <h3>Keyword alignment</h3>
-          <p class="ats-sub">Matched (${report.matched.length})</p>
+          <h3>${report.jdMode ? "Keyword alignment" : "What’s on the resume"}</h3>
+          <p class="ats-sub">${report.jdMode ? `Matched (${report.matched.length})` : `Skills detected (${report.matched.length})`}</p>
           <div>${chips(report.matched, "ok")}</div>
-          <p class="ats-sub">Missing (${report.missing.length})</p>
+          <p class="ats-sub">${report.jdMode ? `Missing (${report.missing.length})` : `ATS gaps (${report.missing.length})`}</p>
           <div>${chips(report.missing, "gap")}</div>
           <p class="ats-sub">Suggested (${(report.suggested || []).length})</p>
           <div>${chips(report.suggested || [], "suggest")}</div>
         </section>
         <section class="ats-insight">
-          <h3>Job fit</h3>
+          <h3>${report.jdMode ? "Job fit" : "ATS fit"}</h3>
           <p class="ats-sub">Strengths</p>
           <ul class="ats-fit ats-fit--ok">${(report.fit.strengths || [])
             .map((s) => `<li>${escapeHtml(s)}</li>`)
@@ -1057,10 +1128,8 @@
     if (fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
   });
   jdInput.addEventListener("input", () => {
-    if (String(jdInput.value || "").trim().length >= MIN_JD) {
-      setFieldError(jdError, jdBlock, "");
-      jdInput.setAttribute("aria-invalid", "false");
-    }
+    setFieldError(jdError, jdBlock, "");
+    jdInput.setAttribute("aria-invalid", "false");
     syncEnabled();
   });
   if (pasteResume) {

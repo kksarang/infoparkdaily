@@ -48,7 +48,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="/css/styles.css?v=20260910a" />
-    <link rel="stylesheet" href="/css/ats-checker.css?v=20260910a" />
+    <link rel="stylesheet" href="/css/ats-checker.css?v=20260910b" />
     
   </head>
   <body class="jobs-body dark ats-body">
@@ -91,13 +91,14 @@
         <p class="ats-kicker">Free · Private · On-device</p>
         <h1>ATS Checker</h1>
         <p>
-          Resume and job description are both required. You get a local score, keyword alignment, job fit, ranking
-          issues, phrasing fixes, and an optimized summary. Nothing is uploaded to our servers.
+          Upload a resume to see if it is ATS-friendly: sections, contact details, layout, and phrasing.
+          A job description is optional — add one only if you also want keyword match against a specific role.
+          Nothing is uploaded to our servers.
         </p>
         <ol class="ats-flow" aria-label="How it works">
           <li class="is-active" data-ats-flow="1"><span>1</span> Resume</li>
-          <li data-ats-flow="2"><span>2</span> Job description</li>
-          <li data-ats-flow="3"><span>3</span> Score</li>
+          <li data-ats-flow="2"><span>2</span> Job (optional)</li>
+          <li data-ats-flow="3"><span>3</span> ATS score</li>
         </ol>
       </header>
 
@@ -123,15 +124,15 @@
 
           <section id="ats-jd-block" class="ats-block" aria-labelledby="ats-step2-title">
             <div class="ats-block-head">
-              <p class="ats-step" id="ats-step2-title">Step 2 · Job description <span class="ats-req">Required</span></p>
+              <p class="ats-step" id="ats-step2-title">Step 2 · Job description <span class="ats-opt">Optional</span></p>
               <span id="ats-step2-status" class="ats-status">Waiting</span>
             </div>
-            <textarea id="ats-jd" required aria-describedby="ats-jd-error" placeholder="Paste the full job description you’re targeting…"></textarea>
+            <textarea id="ats-jd" aria-describedby="ats-jd-error" placeholder="Optional. Paste a job description only if you want a keyword match. Leave blank to check whether this resume is ATS-friendly."></textarea>
             <p id="ats-jd-error" class="ats-error" role="alert" hidden></p>
           </section>
 
           <div class="ats-actions">
-            <button id="ats-check" class="ats-check" type="button">Check ATS score</button>
+            <button id="ats-check" class="ats-check" type="button">Check if resume is ATS friendly</button>
             <p class="ats-secure">Analyzed on your device · never stored · not an official ATS</p>
           </div>
         </aside>
@@ -143,11 +144,11 @@
               <small>Score</small>
             </div>
             <h2>Your score will show here</h2>
-            <p>Both fields are required. Then tap <strong>Check ATS score</strong> for a comment and fixes.</p>
+            <p>Upload a resume, then tap <strong>Check if resume is ATS friendly</strong>. A job description is optional.</p>
             <ul class="ats-empty-points">
-              <li>Keyword match, missing skills, and suggested terms</li>
-              <li>Job fit strengths and gaps</li>
+              <li>Is the file readable by ATS (text, headings, contact)?</li>
               <li>Ranking issues, weak phrasing, and bullet rewrites</li>
+              <li>Optional: keyword match if you paste a job description</li>
             </ul>
             <a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a>
           </div>
@@ -169,6 +170,6 @@
       </div>
     </footer>
     <script src="/js/site.js?v=20260905k" defer></script>
-    <script src="/js/ats-checker.js?v=20260910a" defer></script>
+    <script src="/js/ats-checker.js?v=20260910b" defer></script>
   </body>
 </html>
