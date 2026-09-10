@@ -1219,19 +1219,18 @@ var JOBS = [
     benefits: ["Walk-in hiring at Aabasoft Kakkanad"],
     applySteps: [
       "Scan the QR code on this page to register",
-      "If you have any issue registering with the QR code, email jobs@aabasoft.in",
+      "Or email your resume to jobs@aabasoft.in",
       "Attend the walk-in on 14 September 2026 between 9:00 AM and 5:00 PM",
       "Carry your updated resume / CV",
       "Venue: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kakkanad"
     ],
     documentsRequired: ["Updated resume / CV"],
     importantNotes: [
-      "Register by scanning the QR code on this page",
-      "If you have any issue registering with this QR code, send mail to jobs@aabasoft.in",
+      "Register by scanning the QR code on this page, or email your resume to jobs@aabasoft.in",
       "Confirm venue and timing with Aabasoft before travelling",
       "Never pay anyone for an application or interview"
     ],
-    howToApply: "Register first by scanning the QR code on this page. If you have any issue registering with this QR code, send mail to jobs@aabasoft.in. Walk in on 14 September 2026, 9:00 AM – 5:00 PM at Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kakkanad, Kerala 682037. Always verify with Aabasoft before travelling.",
+    howToApply: "Register by scanning the QR code on this page, or email your resume to jobs@aabasoft.in. Walk in on 14 September 2026, 9:00 AM – 5:00 PM at Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, Chittethukara, Kakkanad, Kerala 682037. Always verify with Aabasoft before travelling.",
     hiringNotes: "Walk-in drive · 14 Sep 2026 · 9:00 AM – 5:00 PM · Register via QR / Google Form. InfoparkDaily is not the employer.",
     description: "Aabasoft HR Trainee & HR Executive walk-in on 14 Sep 2026 at Chakolas Heights, Kakkanad — register via QR / Google Form.",
     startingDate: "",

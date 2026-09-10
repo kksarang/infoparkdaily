@@ -1039,7 +1039,9 @@ html.theme-dark .job-detail-page .job-sheet-fact {
   }
 
   .jd-mobile-cta {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
     position: sticky;
     bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
     z-index: 30;

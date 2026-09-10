@@ -494,6 +494,13 @@
     `;
   }
 
+  function extraEmailApplyHtml(job, primaryHref, extraClass) {
+    const href = mailApplyHref(job);
+    if (!href) return "";
+    if (String(primaryHref || "").toLowerCase().startsWith("mailto:")) return "";
+    return `<a class="btn btn-secondary ${extraClass || ""}" href="${escapeAttr(href)}">Email resume</a>`;
+  }
+
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
     const st = listingStatusMeta(job);
     const deadline =
@@ -515,9 +522,12 @@
           <p class="jd-apply-note">Use the application form on this page — resume, portfolio / LinkedIn, and contact details.</p>`;
       }
       if (applyCtaHref) {
-        return `<a class="btn btn-primary jd-apply-btn" href="${escapeAttr(applyCtaHref)}" ${
-          applyUrl ? 'target="_blank" rel="noopener noreferrer"' : ""
-        }>${escapeHtml(applyCtaLabel || "Apply now")}</a>`;
+        return `<div class="job-apply-cta-row">
+          <a class="btn btn-primary jd-apply-btn" href="${escapeAttr(applyCtaHref)}" ${
+            applyUrl ? 'target="_blank" rel="noopener noreferrer"' : ""
+          }>${escapeHtml(applyCtaLabel || "Apply now")}</a>
+          ${extraEmailApplyHtml(job, applyCtaHref, "jd-apply-btn")}
+        </div>`;
       }
       return `<a class="btn btn-secondary jd-apply-btn" href="/jobs/">Browse live jobs</a>`;
     })();
@@ -544,7 +554,7 @@
               : onSite
                 ? ""
                 : isRegisterApply(job)
-                  ? `<p class="jd-apply-note">Scan the QR or open the registration form before you walk in. Always verify with the company.</p>`
+                  ? `<p class="jd-apply-note">Scan the QR, open the registration form, or email your resume. Always verify with the company.</p>`
                   : `<p class="jd-apply-note">Always verify on the official company site or email before you apply.</p>`
           }
         </section>
@@ -1706,9 +1716,12 @@
         }
         ${
           applyCtaHref
-            ? `<a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyCtaHref)}" ${
-                externalApply ? 'target="_blank" rel="noopener noreferrer"' : ""
-              }>${escapeHtml(sheetApplyLabel)}</a>`
+            ? `<div class="job-apply-cta-row">
+                <a class="btn btn-primary job-alert-apply" href="${escapeAttr(applyCtaHref)}" ${
+                  externalApply ? 'target="_blank" rel="noopener noreferrer"' : ""
+                }>${escapeHtml(sheetApplyLabel)}</a>
+                ${extraEmailApplyHtml(job, applyCtaHref, "job-alert-apply")}
+              </div>`
             : ""
         }
         ${registerQrBlock(job)}
@@ -2260,9 +2273,12 @@
           <div class="jd-hero-actions">
             ${
               !expired && applyCtaHref
-                ? `<a class="btn btn-primary jd-apply-btn" href="${escapeAttr(applyCtaHref)}" ${
-                    applyUrl && !onSiteApply ? 'target="_blank" rel="noopener noreferrer"' : ""
-                  }>${escapeHtml(applyCtaLabel)}</a>`
+                ? `<div class="job-apply-cta-row">
+                    <a class="btn btn-primary jd-apply-btn" href="${escapeAttr(applyCtaHref)}" ${
+                      applyUrl && !onSiteApply ? 'target="_blank" rel="noopener noreferrer"' : ""
+                    }>${escapeHtml(applyCtaLabel)}</a>
+                    ${extraEmailApplyHtml(job, applyCtaHref, "jd-apply-btn")}
+                  </div>`
                 : `<a class="btn btn-secondary jd-apply-btn" href="/jobs/">${expired ? "See live jobs" : "Browse jobs"}</a>`
             }
             ${!expired ? registerQrBlock(job) : ""}
@@ -2307,6 +2323,7 @@
                 <a class="btn btn-primary" href="${escapeAttr(applyCtaHref)}" ${
                   applyUrl && !onSiteApply ? 'target="_blank" rel="noopener noreferrer"' : ""
                 }>${escapeHtml(applyCtaLabel)}</a>
+                ${extraEmailApplyHtml(job, applyCtaHref)}
               </div>`
             : ""
         }
