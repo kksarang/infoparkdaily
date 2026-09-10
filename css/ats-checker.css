@@ -1279,33 +1279,21 @@ body.dark .ats-copy {
 }
 
 body.career-tools-ats {
-  --ats-blue: #245de0;
-  --ats-blue-ink: #245de0;
+  --ats-blue: #1f4fd8;
+  --ats-blue-ink: #1f4fd8;
   --ats-soft: #edf3ff;
-  --ats-ink: #132639;
-  --ats-muted: #647383;
-  --ats-line: #e0e7ed;
-  --ats-bg: #ffffff;
+  --ats-ink: #121820;
+  --ats-muted: #5c6b7a;
+  --ats-line: #e6ebf1;
+  --ats-bg: transparent;
   --ats-card: #ffffff;
   --ats-track: #e0e7ed;
   --ats-error: #a33445;
   --ats-shadow: none;
-  background: #fff;
-  color: var(--ink, #132639);
+  color: var(--ink, #121820);
 }
 body.career-tools-ats .page-bg {
-  background: #fff;
-}
-body.career-tools-ats .ats-career-hero {
-  padding-top: 48px;
-  padding-bottom: 12px;
-  grid-template-columns: minmax(0, 1fr);
-  min-height: 0;
-  gap: 0;
-}
-body.career-tools-ats .ats-career-hero h1 em {
-  font-style: italic;
-  color: var(--blue);
+  background: transparent;
 }
 body.career-tools-ats #ats-tool {
   scroll-margin-top: 24px;
@@ -1476,6 +1464,183 @@ body.career-tools-ats .section-heading p a.text-link {
   .ats-stat-strip,
   .ats-story-grid,
   .ats-score-bands {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ats-empty[hidden],
+#ats-result-body[hidden] {
+  display: none !important;
+}
+
+.ats-layout.is-scored {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  align-items: stretch;
+}
+.ats-layout.is-scored .ats-panel,
+.ats-layout.is-scored .ats-result {
+  max-width: 760px;
+  width: 100%;
+  margin: 0 auto;
+}
+.ats-layout.is-scored .ats-result {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.ats-layout.is-scored .ats-result #ats-result-body {
+  padding: 0;
+  display: block;
+}
+
+.ats-report {
+  display: grid;
+  gap: 14px;
+}
+.ats-report-head {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 24px;
+  border: 1px solid var(--ats-line, #e6ebf1);
+  border-radius: 18px;
+  background: #fff;
+}
+.ats-report-score {
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+.ats-report--good .ats-report-score {
+  background: #ecfdf5;
+  color: #166534;
+}
+.ats-report--ok .ats-report-score {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+.ats-report--fair .ats-report-score {
+  background: #fffbeb;
+  color: #b45309;
+}
+.ats-report--weak .ats-report-score {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+.ats-report-score strong {
+  font-family: "Space Grotesk", Manrope, Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.ats-report-score span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.ats-report-verdict h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+.ats-report-verdict > p {
+  margin: 0;
+  color: var(--ats-muted, #64748b);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.ats-report-block {
+  padding: 20px 22px;
+  border: 1px solid var(--ats-line, #e6ebf1);
+  border-radius: 16px;
+  background: #fff;
+}
+.ats-report-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+.ats-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ats-report-fit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.ats-report-fixes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.ats-report-fixes li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.ats-report-fixes li span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 800;
+}
+.ats-report-fixes p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--ats-muted, #64748b);
+  font-weight: 400;
+}
+.ats-report-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+.ats-report-issue > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+.ats-report-issue p,
+.ats-report-rewrite p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.ats-report-foot {
+  margin: 4px 0 8px;
+}
+@media (max-width: 700px) {
+  .ats-report-head,
+  .ats-report-fit {
     grid-template-columns: 1fr;
   }
 }

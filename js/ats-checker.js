@@ -913,147 +913,143 @@
   }
 
   function renderReport(report) {
-    empty.hidden = true;
+    if (empty) {
+      empty.hidden = true;
+      empty.setAttribute("hidden", "");
+    }
     result.hidden = false;
-    if (document.querySelector(".ats-layout")) document.querySelector(".ats-layout").classList.add("is-scored");
-    const deg = Math.round((report.score / 100) * 360);
-    const color = ringColor(report.score);
-    const rankingHtml = (report.ranking || [])
+    result.removeAttribute("hidden");
+    const layout = document.querySelector(".ats-layout");
+    if (layout) layout.classList.add("is-scored");
+    const ranking = report.ranking || [];
+    const phrasing = report.phrasing || [];
+    const suggested = report.suggested || [];
+    const recruiter = report.recruiter || [];
+    const sections = report.sections || [];
+    const topFixes = report.topFixes || [];
+    const tone = report.score >= 80 ? "good" : report.score >= 60 ? "ok" : report.score >= 40 ? "fair" : "weak";
+
+    const rankingHtml = ranking
       .map(
         (item) => `
-        <article class="ats-issue-card">
-          <div class="ats-issue-top">
-            <h4>${escapeHtml(item.title)}</h4>
-            <span class="ats-sev ats-sev--${escapeHtml(String(item.severity || "Low").toLowerCase())}">${escapeHtml(
-              item.severity || "Low"
-            )}</span>
-          </div>
+        <li class="ats-report-issue">
+          <div><strong>${escapeHtml(item.title)}</strong><span class="ats-sev ats-sev--${escapeHtml(String(item.severity || "Low").toLowerCase())}">${escapeHtml(item.severity || "Low")}</span></div>
           <p>${escapeHtml(item.why)}</p>
-          <p class="ats-evidence"><span>Evidence</span>${escapeHtml(item.evidence)}</p>
-        </article>`
+        </li>`
       )
       .join("");
-    const phrasingHtml = (report.phrasing || [])
+    const phrasingHtml = phrasing
       .map(
         (item) => `
-        <article class="ats-phrase-card">
+        <li class="ats-report-rewrite">
           <p class="ats-orig">${escapeHtml(item.original)}</p>
-          <p class="ats-phrase-flag">${escapeHtml(item.issue)}</p>
-          <p class="ats-phrase-fix"><strong>Suggested fix</strong> ${escapeHtml(item.fix)}</p>
-        </article>`
-      )
-      .join("");
-    const rewriteHtml = (report.phrasing || [])
-      .map(
-        (item) => `
-        <article class="ats-rewrite-card">
-          <p class="ats-orig">${escapeHtml(item.original)}</p>
-          <p class="ats-rewrite">${escapeHtml(item.rewrite)}</p>
-          <div>${(item.tags || []).map((t) => `<span class="ats-chip ats-chip--ok">${escapeHtml(t)}</span>`).join("")}</div>
-        </article>`
-      )
-      .join("");
-    const topFixes = (report.topFixes || [])
-      .map(
-        (fix, i) => `
-        <li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p></div></li>`
+          <p class="ats-rewrite">${escapeHtml(item.rewrite || item.fix || "")}</p>
+        </li>`
       )
       .join("");
 
     result.innerHTML = `
-      <div class="ats-hero-card">
-        <div class="ats-score-row">
-          <div class="ats-ring" style="background: conic-gradient(${color} ${deg}deg, var(--ats-track, #e2e8f0) 0deg)">
-            <div>
-              <strong style="color:${color}">${report.score}</strong>
-              <small>${escapeHtml(report.label)}</small>
-            </div>
+      <article class="ats-report ats-report--${tone}">
+        <header class="ats-report-head">
+          <div class="ats-report-score">
+            <strong>${report.score}</strong>
+            <span>${escapeHtml(report.label)}</span>
           </div>
-          <div>
-            <p class="ats-badge">${escapeHtml(report.badge || "")}</p>
+          <div class="ats-report-verdict">
+            ${report.badge ? `<p class="ats-badge">${escapeHtml(report.badge)}</p>` : ""}
             <h2>${escapeHtml(report.comments.overall)}</h2>
             <p>${
               report.jdMode
-                ? `Keyword coverage ${Math.round(report.coverage * 100)}% · local estimate, not the employer’s official ATS.`
-                : "ATS-friendliness of this resume file · local estimate, not an employer ATS."
+                ? `Keyword coverage ${Math.round(report.coverage * 100)}%. Local estimate — not the employer’s ATS.`
+                : "File readability and structure. Local estimate — not an employer ATS."
             }</p>
-            ${
-              topFixes
-                ? `<div class="ats-top-fixes"><p>Top fixes</p><ol>${topFixes}</ol></div>`
-                : ""
-            }
           </div>
-        </div>
-      </div>
-
-      <div class="ats-grid-2">
-        <section class="ats-insight">
-          <h3>${report.jdMode ? "Keyword alignment" : "What’s on the resume"}</h3>
-          <p class="ats-sub">${report.jdMode ? `Matched (${report.matched.length})` : `Skills detected (${report.matched.length})`}</p>
-          <div>${chips(report.matched, "ok")}</div>
-          <p class="ats-sub">${report.jdMode ? `Missing (${report.missing.length})` : `ATS gaps (${report.missing.length})`}</p>
-          <div>${chips(report.missing, "gap")}</div>
-          <p class="ats-sub">Suggested (${(report.suggested || []).length})</p>
-          <div>${chips(report.suggested || [], "suggest")}</div>
+        </header>
+        ${
+          topFixes.length
+            ? `<section class="ats-report-block">
+                <h3>Fix these first</h3>
+                <ol class="ats-report-fixes">${topFixes
+                  .map(
+                    (fix, i) =>
+                      `<li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p></div></li>`
+                  )
+                  .join("")}</ol>
+              </section>`
+            : ""
+        }
+        <section class="ats-report-block">
+          <h3>${report.jdMode ? "Keywords" : "Skills found"}</h3>
+          <p class="ats-sub">${report.jdMode ? "Matched" : "On the resume"}</p>
+          <div class="ats-chip-row">${chips(report.matched, "ok")}</div>
+          ${
+            report.missing.length
+              ? `<p class="ats-sub">${report.jdMode ? "Missing from the resume" : "Possible ATS gaps"}</p><div class="ats-chip-row">${chips(report.missing, "gap")}</div>`
+              : ""
+          }
+          ${
+            suggested.length
+              ? `<p class="ats-sub">Optional extras</p><div class="ats-chip-row">${chips(suggested, "suggest")}</div>`
+              : ""
+          }
         </section>
-        <section class="ats-insight">
+        <section class="ats-report-block">
           <h3>${report.jdMode ? "Job fit" : "ATS fit"}</h3>
-          <p class="ats-sub">Strengths</p>
-          <ul class="ats-fit ats-fit--ok">${(report.fit.strengths || [])
-            .map((s) => `<li>${escapeHtml(s)}</li>`)
-            .join("")}</ul>
-          <p class="ats-sub">Gaps</p>
-          <ul class="ats-fit ats-fit--gap">${(report.fit.gaps || []).map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
-        </section>
-      </div>
-
-      <section class="ats-insight">
-        <div class="ats-insight-head">
-          <h3>Ranking issues</h3>
-          <span class="ats-count">${(report.ranking || []).length} issue${(report.ranking || []).length === 1 ? "" : "s"}</span>
-        </div>
-        <p class="ats-lede">Resume issues to review</p>
-        ${rankingHtml || `<p class="ats-chip-empty">No flagged structure issues detected in the extracted text.</p>`}
-      </section>
-
-      <div class="ats-grid-2">
-        <section class="ats-insight">
-          <h3>Weak phrasing</h3>
-          ${phrasingHtml || `<p class="ats-chip-empty">No obviously passive bullets detected.</p>`}
-        </section>
-        <section class="ats-insight">
-          <h3>Recruiter notes</h3>
-          <ul class="ats-notes">${(report.recruiter || []).map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
-        </section>
-      </div>
-
-      <div class="ats-grid-2">
-        <section class="ats-insight">
-          <h3>Priority actions</h3>
-          <ol class="ats-priority">${(report.topFixes || [])
-            .map((fix) => `<li><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fix.why)}</p></li>`)
-            .join("")}</ol>
-        </section>
-        <section class="ats-insight ats-insight--summary">
-          <div class="ats-insight-head">
-            <h3>Optimized summary</h3>
-            <button type="button" class="ats-copy" data-ats-copy>Copy</button>
+          <div class="ats-report-fit">
+            <div>
+              <p class="ats-sub">Strengths</p>
+              <ul class="ats-fit ats-fit--ok">${(report.fit.strengths || []).map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+            </div>
+            ${(report.fit.gaps || []).length
+              ? `<div><p class="ats-sub">Gaps</p><ul class="ats-fit ats-fit--gap">${report.fit.gaps.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul></div>`
+              : ""}
           </div>
-          <p class="ats-summary-text" data-ats-summary>${escapeHtml(report.summaryText || "")}</p>
-          <p class="ats-summary-ok">Optimized for ATS keyword matching</p>
         </section>
-      </div>
-
-      <section class="ats-insight">
-        <h3>Bullet rewrites</h3>
-        ${rewriteHtml || `<p class="ats-chip-empty">No rewrite suggestions — your bullets already look action-led.</p>`}
-      </section>
-
-      <section class="ats-insight">
-        <h3>Section recommendations</h3>
-        <ul class="ats-notes">${(report.sections || []).map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
-      </section>
-      <a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a>
+        ${
+          rankingHtml
+            ? `<section class="ats-report-block">
+                <h3>Structure issues <span class="ats-count">${ranking.length}</span></h3>
+                <ul class="ats-report-list">${rankingHtml}</ul>
+              </section>`
+            : ""
+        }
+        ${
+          phrasingHtml
+            ? `<section class="ats-report-block">
+                <h3>Clearer bullets</h3>
+                <ul class="ats-report-list">${phrasingHtml}</ul>
+              </section>`
+            : ""
+        }
+        ${
+          recruiter.length
+            ? `<section class="ats-report-block">
+                <h3>Recruiter notes</h3>
+                <ul class="ats-notes">${recruiter.map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
+              </section>`
+            : ""
+        }
+        ${
+          report.summaryText
+            ? `<section class="ats-report-block">
+                <div class="ats-insight-head">
+                  <h3>Suggested summary</h3>
+                  <button type="button" class="ats-copy" data-ats-copy>Copy</button>
+                </div>
+                <p class="ats-summary-text" data-ats-summary>${escapeHtml(report.summaryText)}</p>
+              </section>`
+            : ""
+        }
+        ${
+          sections.length
+            ? `<section class="ats-report-block">
+                <h3>Sections</h3>
+                <ul class="ats-notes">${sections.map((n) => `<li>${escapeHtml(n)}</li>`).join("")}</ul>
+              </section>`
+            : ""
+        }
+        <p class="ats-report-foot"><a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a></p>
+      </article>
     `;
 
     const copyBtn = result.querySelector("[data-ats-copy]");
@@ -1157,8 +1153,8 @@
     const report = scoreResume(currentResume(), jdInput.value);
     renderReport(report);
     syncEnabled();
-    if (resultPanel) {
-      resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (result) {
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 

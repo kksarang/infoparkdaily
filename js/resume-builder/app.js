@@ -140,24 +140,44 @@ function closeDialog() {
 const button = (text, action, extra = "", kind = "secondary") =>
   `<button class="button small ${kind}" data-action="${action}" ${extra}>${text}</button>`;
 function accountNav() {
-  document.getElementById("account-nav").innerHTML = me
-    ? `<a class="button small secondary" href="${base}my-resumes/">My resumes <span>↗</span></a>`
-    : `<a class="button small secondary" href="${base}sign-in/">Sign in</a>`;
+  const nav = document.getElementById("account-nav");
+  if (nav) {
+    if (location.pathname.includes("/sign-in"))
+      nav.innerHTML = `<a class="button small secondary" href="${base}">Home</a>`;
+    else
+      nav.innerHTML = me
+        ? `<a class="button small secondary" href="${base}my-resumes/">My resumes</a>`
+        : `<a class="button small secondary" href="${base}sign-in/">Sign in</a>`;
+  }
+  document.querySelectorAll(".topbar nav a").forEach((a) => {
+    const href = a.getAttribute("href") || "";
+    const path = location.pathname;
+    let on = false;
+    if (href === "/ats-checker/") on = path.startsWith("/ats-checker");
+    else if (href.includes("/templates")) on = path.includes("/templates");
+    else if (href === "/jobs/") on = false;
+    else if (href === "/resume-builder/")
+      on =
+        path.startsWith("/resume-builder") &&
+        !path.includes("/templates") &&
+        !path.includes("/sign-in");
+    a.classList.toggle("active", on);
+  });
 }
 function subnav() {
-  return `<nav class="subnav" aria-label="Career Tools"><a href="${base}">Overview</a><a href="${base}#ats-checker">ATS Checker</a>${[
+  return `<nav class="subnav" aria-label="Resume workspace">${[
+    ["", "Home"],
     ["templates", "Templates"],
     ["my-resumes", "My resumes"],
     ["pricing", "Pricing"],
     ["account", "Account"],
   ]
-    .map(
-      ([r, l]) =>
-        `<a href="${base}${r}/" class="${route === r ? "active" : ""}">${l}</a>`,
-    )
-    .join(
-      "",
-    )}${me?.admin ? '<a href="/admin/resume-templates/">Templates admin</a><a href="/admin/members/">Members</a>' : ""}</nav>`;
+    .map(([r, l]) => {
+      const href = r ? `${base}${r}/` : base;
+      const on = r ? route === r : !route;
+      return `<a href="${href}" class="${on ? "active" : ""}">${l}</a>`;
+    })
+    .join("")}${me?.admin ? '<a href="/admin/resume-templates/">Templates admin</a><a href="/admin/members/">Members</a>' : ""}</nav>`;
 }
 function page(title, subtitle, body, action = "") {
   main.className = "page-bg";
@@ -181,25 +201,29 @@ function templateCard(t) {
   return `<article class="template-card"><button class="template-image" data-action="template-preview" data-id="${esc(t.id)}" aria-label="Preview ${esc(t.name)}"><span class="template-badge ${t.access === "premium" ? "premium" : ""}">${t.access === "premium" ? "✦ PRO" : "FREE"}</span><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} resume design" loading="lazy" width="500" height="707"></button><div class="template-info"><div><h3>${esc(t.name)}</h3><p>${esc(t.category)}</p>${t.tags.includes("Studio collection") ? '<span class="studio-tag">NEW · Studio collection</span>' : ""}</div><button class="template-use" data-action="template-select" data-id="${esc(t.id)}" aria-label="Use ${esc(t.name)}">↗</button></div></article>`;
 }
 function landing() {
+  const picks = ["harbor", "atelier", "spark"]
+    .map((id) => templates.find((t) => t.id === id))
+    .filter(Boolean);
   const target = document.getElementById("featured-templates");
-  if (target)
-    target.innerHTML = ["harbor", "atelier", "spark"]
-      .map((id) => templates.find((t) => t.id === id))
-      .filter(Boolean)
-      .map(templateCard)
+  if (target) target.innerHTML = picks.map(templateCard).join("");
+  const stack = document.getElementById("ct-hero-previews");
+  if (stack && picks.length)
+    stack.innerHTML = picks
+      .map(
+        (t, i) =>
+          `<figure class="ct-sheet ct-sheet-${i}"><img src="${esc(t.thumbnail)}" alt=""></figure>`,
+      )
       .join("");
   const count = templates.length,
     free = templates.filter((t) => t.access === "free").length;
-  document.querySelector(".benefit-strip strong").textContent = count;
-  document.querySelectorAll(".benefit-strip strong")[1].textContent =
-    free + " free";
-  document.querySelector(".paper-title span:last-child").textContent =
-    `01 / ${count}`;
+  const tally = document.getElementById("template-count");
+  if (tally)
+    tally.textContent = `${count} designs · ${free} free. Change the layout anytime without rewriting.`;
 }
 function gallery() {
   page(
-    "Find your fit.",
-    "Choose a starting point. You can change your template at any time.",
+    "Templates",
+    "Choose a starting point. You can change the design later without rewriting.",
     `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"><select id="access-filter" aria-label="Template access"><option value="all">Free & Pro</option><option value="free">Free only</option><option value="premium">Pro only</option></select></div><div class="filters"><div class="chips">${categories.map((c) => `<button class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid" style="padding-bottom:50px"></div>`,
   );
   filterGallery();
@@ -290,40 +314,46 @@ async function selectTemplate(id) {
   location.assign(base + "editor/?id=" + r.id);
 }
 function auth() {
-  main.className = "member-auth-page";
+  document.body.classList.add("career-tools-auth");
+  main.className = "auth-page";
   const signup = authMode === "signup";
-  const target = params.get("next")?.includes("templates")
-    ? "Your selected template will be waiting after sign-in."
-    : "Sign in to find your saved resumes and continue editing.";
-  main.innerHTML = `<div class="member-auth-layout">
-    <aside class="member-auth-story"><a href="${base}" class="auth-back">← Explore Career Tools</a><div class="eyebrow">A WORKSPACE FOR YOUR NEXT CHAPTER</div><h1>Your next move.<br><em>Already in progress.</em></h1><p>Keep your story together. Come back to your drafts, make the next edit, and get ready for the right opportunity.</p><div class="auth-document-stage"><img src="${esc(templates.find((t) => t.id === "harbor")?.thumbnail || "")}" alt="Harbor resume template with fictional example content"><div class="auth-document-label"><span>▤</span><div>One account. Your resumes.<small>Pick up where you left off.</small></div></div></div><div class="auth-story-footer"><span>Free to start</span><span>Your drafts, in one place</span></div></aside>
-    <section class="member-auth-panel" aria-label="Member sign-in"><div class="member-auth-inner">
-      <div class="auth-product-label">INFOPARKDAILY <span>/ CAREER TOOLS</span></div>
+  const waitingTemplate = params.get("next")?.includes("templates");
+  const lead = me
+    ? ""
+    : signup
+      ? "Free to create. Come back on any device to keep editing."
+      : waitingTemplate
+        ? "Your template is waiting. Sign in to start that resume."
+        : "Needed only to save drafts. The ATS checker does not need an account.";
+  main.innerHTML = `<div class="auth-shell"><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
-          ? `<div class="signed-in-symbol">✓</div><h2>You’re already signed in.</h2><p>Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue to my workspace →</a><button class="auth-switch" data-action="auth-signout">Use a different account</button>`
-          : `
-      <div class="auth-mode-tabs" aria-label="Account access"><button type="button" data-action="auth-mode" data-mode="login" aria-pressed="${!signup}" class="${!signup ? "active" : ""}">Sign in</button><button type="button" data-action="auth-mode" data-mode="signup" aria-pressed="${signup}" class="${signup ? "active" : ""}">Create account</button></div>
-      <h2>${signup ? "A place for your next chapter." : "Good to see you again."}</h2><p>${signup ? "Create your account to save resumes and return to them later." : target}</p>
+          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Open my resumes</a><button class="auth-switch" data-action="auth-signout">Use a different account</button>`
+          : `<p class="ct-kicker">Career Tools account</p>
+      <h1>${signup ? "Create an account" : "Sign in"}</h1>
+      <p class="auth-lead">${lead}</p>
+      <div class="auth-mode-tabs" role="tablist" aria-label="Account access">
+        <button type="button" role="tab" data-action="auth-mode" data-mode="login" aria-selected="${!signup}" class="${!signup ? "active" : ""}">Sign in</button>
+        <button type="button" role="tab" data-action="auth-mode" data-mode="signup" aria-selected="${signup}" class="${signup ? "active" : ""}">Create account</button>
+      </div>
       <div id="auth-error" role="alert" tabindex="-1"></div>
-      ${useLocalApi() ? "" : `<button type="button" class="button secondary" data-action="google-login" style="width:100%">Continue with Google</button><p class="auth-switch-copy">or use email</p>`}
+      ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login">Continue with Google</button><p class="auth-or">or email</p>`}
       <form id="auth-form">
-      ${signup ? `<div class="field"><label for="auth-name">Your name</label><input id="auth-name" name="name" autocomplete="name" placeholder="e.g. Ananya Menon" required maxlength="100" value="${esc(authDraft.name)}"></div>` : ""}
-      <div class="field"><label for="auth-email">Email address</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
-      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "Create a password" : "Enter your password"}" required minlength="10" maxlength="128" aria-describedby="password-help"><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div><small id="password-help">${signup ? "Use at least 10 characters." : "Your password is case-sensitive."}</small></div>
-      ${signup ? '<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Enter your password again"></div>' : ""}
-      <div class="auth-form-options"><label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me on this device</label>${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
-      <button class="button auth-primary" type="submit">${signup ? "Create my account" : "Sign in and continue"} <span>→</span></button>
-      </form><p class="auth-switch-copy">${signup ? "Already have an account?" : "New to Career Tools?"} <button class="auth-switch" data-action="auth-mode" data-mode="${signup ? "login" : "signup"}">${signup ? "Sign in" : "Create an account"}</button></p>`
+      ${signup ? `<div class="field"><label for="auth-name">Name</label><input id="auth-name" name="name" autocomplete="name" placeholder="Your name" required maxlength="100" value="${esc(authDraft.name)}"></div>` : ""}
+      <div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
+      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "At least 10 characters" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">Use at least 10 characters.</small>' : ""}</div>
+      ${signup ? '<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Enter it again"></div>' : ""}
+      <div class="auth-form-options">${signup ? "<span></span>" : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
+      <button class="button auth-primary" type="submit">${signup ? "Create account" : "Sign in"}</button>
+      </form>`
       }
       ${
         useLocalApi()
-          ? `<div class="auth-local-caption"><span class="auth-local-tag">LOCAL PREVIEW</span><p>This tab is using local accounts on this computer, not Firebase.</p></div><details class="preview-tools"><summary>Preview tools for the site owner</summary><p>Use the shared demo to inspect the product and administration. Use a personal account for your own draft.</p><button type="button" class="button secondary small" data-action="local-login">Open shared demo workspace</button></details>`
-          : `<div class="auth-local-caption"><p>Your account and saved resumes are stored with Firebase for InfoparkDaily Career Tools. You can return on any device after you sign in.</p></div>`
+          ? `<div class="auth-note"><span class="auth-local-tag">LOCAL</span><p>Accounts on this computer only — not Firebase.</p></div><details class="preview-tools"><summary>Owner preview</summary><p>Shared demo for product checks. Use your own account for drafts.</p><button type="button" class="button secondary small" data-action="local-login">Open demo workspace</button></details>`
+          : `<p class="auth-note">Drafts are stored in your InfoparkDaily account. ATS checks never leave this browser.</p>`
       }
-      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates without signing in</a><a href="/privacy/">Privacy</a></div>
-    </div></section>
-  </div>`;
+      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/privacy/">Privacy</a></div>
+    </section></div>`;
 }
 function verifyBanner() {
   if (useLocalApi() || !me || me.email_verified) return "";
@@ -333,20 +363,20 @@ async function dashboard() {
   if (!ensureAuth()) return;
   const resumes = await api("/resumes");
   page(
-    `Welcome back, ${me.name === "Local preview" ? "Explorer" : me.name.split(" ")[0]}.`,
-    "Your saved work is here. Pick up where you left off.",
+    `My resumes`,
+    "Continue a draft or start a new one.",
     verifyBanner() +
     (resumes.length
       ? `<section class="continue-draft"><div class="continue-icon">▤</div><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>${esc(resumes[0].title)}</h2><p>${esc(sections[resumes[0].last_section]?.name || (resumes[0].last_section === "appearance" ? "Design & order" : "Personal details"))} · Last saved ${date(resumes[0].updated_at)}</p></div><a class="button" href="${base}editor/?id=${resumes[0].id}">Continue editing →</a></section><div class="dashboard-section-title"><h2>All your resumes</h2><span>${resumes.length} saved ${resumes.length === 1 ? "resume" : "resumes"}</span></div><div class="dashboard-grid">${resumes.map((r) => `<article class="resume-card"><div class="document-icon">▤</div><h2>${esc(r.title)}</h2><p>${esc(templates.find((t) => t.id === r.template_id)?.name || r.template_id)} · Updated ${date(r.updated_at)}</p>${r.job_id ? "<p>Created for a job application</p>" : ""}<div class="actions"><a class="button small" href="${base}editor/?id=${r.id}">Edit resume ↗</a>${button("Duplicate", "duplicate", `data-id="${r.id}"`)}${button("Rename", "rename", `data-id="${r.id}" data-title="${esc(r.title)}"`)}${button("Delete", "delete-resume", `data-id="${r.id}"`)}</div></article>`).join("")}</div>`
-      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>A blank page. A new beginning.</h2><p>Your saved resumes will appear here. Start with a template you love.</p><a class="button" href="${base}templates/">Create my first resume ↗</a></div>`),
+      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>No saved resumes yet</h2><p>Start with a free template. Sign-in keeps drafts in your account.</p><a class="button" href="${base}templates/">Browse templates</a></div>`),
     `<a class="button" href="${base}templates/">＋ Create new resume</a>`,
   );
 }
 function pricing() {
   const free = templates.filter((t) => t.access === "free").length;
   page(
-    "Start free. Go further when you’re ready.",
-    "A simple pass for your job search. No subscription. No automatic renewal.",
+    "Pricing",
+    "Free templates include PDF export. Pro is a 7-day pass — no subscription.",
     `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">A STRONG START</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">MORE WAYS TO TELL YOUR STORY</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Find the right expression for your next opportunity.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul>${useLocalApi() ? `<button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>` : `${proWhatsAppButton("Message InfoparkDaily on WhatsApp")}<p class="hint" style="margin-top:12px">₹99 for 7 days. Send a WhatsApp message to 9497725429 and we’ll help you with Pro resume templates.</p>`}${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">${useLocalApi() ? "This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here." : "Live Career Tools includes free templates, cloud-saved resumes, and WhatsApp requests for Pro templates."}</p></div>`,
   );
 }
@@ -1302,9 +1332,15 @@ async function boot() {
   try {
     const notice = document.querySelector(".local-notice");
     if (notice) {
-      notice.innerHTML = useLocalApi()
-        ? "LOCAL PREVIEW <span>Accounts on this computer. Add ?local=0 to use Firebase.</span>"
-        : "CAREER TOOLS <span>Sign in to save resumes in your InfoparkDaily account.</span>";
+      if (useLocalApi()) {
+        notice.hidden = false;
+        notice.classList.add("is-local");
+        notice.innerHTML =
+          "LOCAL PREVIEW <span>Accounts on this computer. Add ?local=0 to use Firebase.</span>";
+      } else {
+        notice.hidden = true;
+        notice.classList.remove("is-local");
+      }
     }
     if ("serviceWorker" in navigator)
       void navigator.serviceWorker.getRegistration("/").then((registration) => {
