@@ -6,8 +6,8 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
-import { publicTemplates } from "./catalog.js?v=20260910d";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20260910d";
+import { publicTemplates } from "./catalog.js?v=20260910e";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20260910e";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
@@ -104,6 +104,24 @@ const date = (v) =>
     dateStyle: "medium",
     timeStyle: "short",
   });
+const PRO_WHATSAPP = "919497725429";
+function proWhatsAppUrl(templateName) {
+  const who = me?.name && me.name !== "Local preview" ? me.name : "";
+  const message = [
+    "Hello InfoparkDaily,",
+    who ? `This is ${who}.` : "",
+    templateName
+      ? `I would like to use the Pro resume template “${templateName}”.`
+      : "I would like Pro access to the premium resume templates.",
+    "Please let me know how I can activate the Pro variants. Thank you.",
+  ]
+    .filter(Boolean)
+    .join(" ");
+  return `https://wa.me/${PRO_WHATSAPP}?text=${encodeURIComponent(message)}`;
+}
+function proWhatsAppButton(label, templateName) {
+  return `<a class="button" href="${esc(proWhatsAppUrl(templateName))}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+}
 function toast(message) {
   const t = document.getElementById("toast");
   t.textContent = message;
@@ -243,7 +261,7 @@ async function selectTemplate(id) {
       "Make it yours with Pro",
       useLocalApi()
         ? `<p><strong>${esc(t.name)}</strong> is a Pro template. Get seven days of access to all ${templates.length} designs for ₹99.</p><p class="hint">Your existing content stays saved. Free templates include a clean PDF without a watermark.</p><div class="warning">Local test checkout · no money will be charged.</div><div class="actions">${button("Try the Pro Pass", "checkout", `data-template="${esc(id)}"`, "")}${button("Browse free templates", "browse-free")}</div>`
-        : `<p><strong>${esc(t.name)}</strong> is a Pro template. Paid Pro access is not live on the public site yet.</p><p class="hint">Your content stays saved. Choose a free template to keep editing and download a PDF.</p><div class="actions">${button("Browse free templates", "browse-free")}</div>`,
+        : `<p><strong>${esc(t.name)}</strong> is a Pro template. Message InfoparkDaily on WhatsApp to request Pro access.</p><p class="hint">Your saved content stays with you. You can keep editing with a free template until Pro is activated.</p><div class="actions">${proWhatsAppButton("Message InfoparkDaily on WhatsApp", t.name)}${button("Browse free templates", "browse-free")}</div>`,
     );
     return;
   }
@@ -329,12 +347,13 @@ function pricing() {
   page(
     "Start free. Go further when you’re ready.",
     "A simple pass for your job search. No subscription. No automatic renewal.",
-    `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">A STRONG START</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">MORE WAYS TO TELL YOUR STORY</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Find the right expression for your next opportunity.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul>${useLocalApi() ? `<button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>` : '<p class="hint" style="margin-top:12px">Pro checkout is not live on the public site yet. Free templates and PDF export are available now.</p>'}${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">${useLocalApi() ? "This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here." : "Live Career Tools currently includes free templates, Firebase member accounts and browser PDF export."}</p></div>`,
+    `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">A STRONG START</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">MORE WAYS TO TELL YOUR STORY</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Find the right expression for your next opportunity.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul>${useLocalApi() ? `<button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>` : `${proWhatsAppButton("Message InfoparkDaily on WhatsApp")}<p class="hint" style="margin-top:12px">₹99 for 7 days. Send a WhatsApp message to 9497725429 and we’ll help you with Pro resume templates.</p>`}${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">${useLocalApi() ? "This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here." : "Live Career Tools includes free templates, cloud-saved resumes, and WhatsApp requests for Pro templates."}</p></div>`,
   );
 }
 async function checkout(templateId) {
   if (!useLocalApi()) {
-    toast("Pro checkout is not live on the public site yet.");
+    const t = templates.find((x) => x.id === templateId);
+    window.open(proWhatsAppUrl(t?.name), "_blank", "noopener,noreferrer");
     return;
   }
   if (!me) {
