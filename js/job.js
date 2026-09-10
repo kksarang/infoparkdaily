@@ -498,7 +498,7 @@
     const href = mailApplyHref(job);
     if (!href) return "";
     if (String(primaryHref || "").toLowerCase().startsWith("mailto:")) return "";
-    return `<a class="btn btn-secondary ${extraClass || ""}" href="${escapeAttr(href)}">Email resume</a>`;
+    return `<a class="btn btn-secondary ${extraClass || ""}" href="${escapeAttr(href)}">Apply to Email</a>`;
   }
 
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
