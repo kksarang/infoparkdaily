@@ -730,9 +730,35 @@ function renderPreview() {
     }
   }, 500);
 }
+function printResumeHtml(html) {
+  document.getElementById("resume-print-frame")?.remove();
+  const frame = document.createElement("iframe");
+  frame.id = "resume-print-frame";
+  frame.title = "Print resume";
+  frame.setAttribute("aria-hidden", "true");
+  Object.assign(frame.style, {
+    position: "fixed",
+    right: "0",
+    bottom: "0",
+    width: "0",
+    height: "0",
+    border: "0",
+  });
+  document.body.appendChild(frame);
+  const doc = frame.contentDocument;
+  if (!doc || !frame.contentWindow)
+    throw Error("Could not open the print view. Please try again.");
+  doc.open();
+  doc.write(html);
+  doc.close();
+  const win = frame.contentWindow;
+  const cleanup = () => frame.remove();
+  win.addEventListener("afterprint", cleanup);
+  win.focus();
+  win.print();
+  setTimeout(cleanup, 120000);
+}
 async function downloadPDF() {
-  await save();
-  if (dirty) throw Error("Please resolve the save issue before exporting.");
   const btn = document.getElementById("export-button");
   btn.disabled = true;
   const previous = btn.textContent;
@@ -743,18 +769,13 @@ async function downloadPDF() {
         templates.find((x) => x.id === resume.template_id) || resume.template;
       if (!t?.config)
         throw Error("Choose a free template to export a PDF on the live site.");
-      const popup = window.open("", "_blank", "noopener,noreferrer");
-      if (!popup)
-        throw Error(
-          "Allow pop-ups, then choose Print → Save as PDF in your browser.",
-        );
-      popup.document.write(renderResume(resume.data, t.config));
-      popup.document.close();
-      popup.focus();
-      popup.print();
+      printResumeHtml(renderResume(resume.data, t.config));
       toast("In the print dialog, choose Save as PDF.");
+      save().catch((e) => toast(e.message));
       return;
     }
+    await save();
+    if (dirty) throw Error("Please resolve the save issue before exporting.");
     const job = await post("/exports", {
       resume_id: resume.id,
       revision: resume.revision,
