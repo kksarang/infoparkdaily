@@ -1,0 +1,56 @@
+body.career-tools-auth { background: #fafaf7; }
+.career-tools-auth .auth-page { min-height: 0; padding: 40px 24px; }
+.career-tools-auth .auth-shell { display: grid; grid-template-columns: 1fr 1fr; max-width: 1050px; padding: 0; margin: 0 auto; border: 1px solid #e4e6de; border-radius: 22px; overflow: hidden; background: #fff; }
+.auth-story { display: flex; flex-direction: column; justify-content: space-between; padding: 32px 40px; background: #eef0e6; color: #293426; }
+.auth-back { font-size: 12px; color: #5e6954; display: inline-block; margin-bottom: 48px; }
+.auth-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: .12em; color: #647052; margin-bottom: 18px; }
+.auth-story h2 { font-size: 40px; line-height: 1.15; font-weight: 600; margin: 0 0 18px; }
+.auth-story-lead { font-size: 14px; line-height: 1.8; color: #697360; max-width: 320px; }
+.auth-workspace-preview { margin: 30px 0; border: 1px solid #dde2d2; background: #ffffffb8; border-radius: 14px; padding: 22px; transform: rotate(-2deg); box-shadow: 0 10px 25px #35412408; }
+.auth-preview-top { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .1em; color: #727b67; }
+.auth-preview-document { display: flex; align-items: center; gap: 14px; margin: 22px 0; }
+.auth-document-icon { background: #ffedaa; width: 40px; height: 50px; display: grid; place-items: center; font-size: 28px; border-radius: 5px; }
+.auth-preview-document strong { display: block; font-size: 14px; }
+.auth-preview-document small { display: block; font-size: 10px; color: #7b8272; margin-top: 5px; }
+.auth-preview-progress { display: flex; gap: 5px; margin-bottom: 10px; }
+.auth-preview-progress i { height: 4px; background: #9da987; flex: 1; border-radius: 3px; }
+.auth-preview-progress i:last-child { background: #e2e6d9; }
+.auth-preview-foot { font-size: 10px; color: #747d68; }
+.auth-benefits { padding: 0; list-style: none; display: grid; gap: 13px; font-size: 12px; color: #55624c; }
+.auth-benefits li::before { content: '✓'; margin-right: 10px; }
+.auth-story-bottom { margin: 40px 0 0; color: #7c8572; font-size: 10px; }
+.career-tools-auth .auth-card { padding: 40px 44px 28px; border: 0; border-radius: 0; }
+.career-tools-auth .auth-card .ct-kicker { color: #747e64; font-size: 9px; letter-spacing: .12em; }
+.career-tools-auth .auth-card h1 { font-size: 30px; line-height: 1.15; margin-bottom: 12px; }
+.career-tools-auth .auth-lead { font-size: 13px; color: #767b82; margin-bottom: 24px; }
+.career-tools-auth .auth-mode-tabs { background: transparent; border-bottom: 1px solid #e7e9e3; border-radius: 0; padding: 0; gap: 24px; margin-bottom: 22px; }
+.career-tools-auth .auth-mode-tabs button { border-radius: 0; padding: 12px 0; background: transparent; box-shadow: none; color: #7a8088; }
+.career-tools-auth .auth-mode-tabs button.active { color: #222830; box-shadow: inset 0 -2px #ffc107; }
+.career-tools-auth .auth-google { border: 1px solid #dfe2e6; border-radius: 9px; background: #fff; min-height: 46px; font-size: 13px; gap: 12px; box-shadow: none; }
+.auth-google-mark { font-family: Arial, sans-serif; color: #4285f4; font-size: 19px; font-weight: 700; }
+.career-tools-auth .auth-or { display: flex; align-items: center; gap: 12px; font-size: 10px; color: #90949a; margin: 20px 0; }
+.career-tools-auth .auth-or::before,.career-tools-auth .auth-or::after { content: ''; flex: 1; height: 1px; background: #eceef0; }
+.career-tools-auth .auth-card label { font-size: 12px; color: #434952; }
+.career-tools-auth .auth-card input:not([type="checkbox"]) { background: #fafbfc; border: 1px solid #dfe3e8; border-radius: 8px; height: 46px; font-size: 14px; }
+.career-tools-auth .password-field input { padding-right: 64px; }
+.career-tools-auth .auth-card input:focus { background: #fff; }
+.career-tools-auth .auth-card .check-label { display: flex; flex-wrap: nowrap; align-items: flex-start; font-size: 11px; line-height: 1.6; font-weight: 400; }
+.career-tools-auth .check-label input { margin-top: 2px; }
+.career-tools-auth .auth-help-link { font-size: 11px; color: #59634f; min-height: 32px; }
+.career-tools-auth .auth-primary { border-radius: 9px; box-shadow: none; font-size: 13px; }
+.career-tools-auth .auth-note { display: block; border: 0; margin: 16px 0; padding: 0; font-size: 10px; text-align: center; color: #868b93; }
+.career-tools-auth .auth-note a { text-decoration: underline; text-underline-offset: 2px; }
+.career-tools-auth .auth-bottom-links { border-top: 1px solid #eceee8; padding-top: 18px; gap: 14px; justify-content: center; font-size: 10px; }
+@media (max-width: 800px) {
+  .career-tools-auth .auth-page { padding: 24px 16px; }
+  .career-tools-auth .auth-shell { max-width: 480px; grid-template-columns: 1fr; }
+  .auth-story { display: none; }
+  .career-tools-auth .auth-card { padding: 28px; }
+  .career-tools-auth .auth-card input:not([type="checkbox"]) { font-size: 16px; }
+}
+@media (max-width: 380px) {
+  .career-tools-auth .auth-page { padding: 16px 10px; }
+  .career-tools-auth .auth-card { padding: 24px 18px; }
+  .career-tools-auth .auth-card h1 { font-size: 27px; }
+  .career-tools-auth .auth-bottom-links { gap: 10px; }
+}

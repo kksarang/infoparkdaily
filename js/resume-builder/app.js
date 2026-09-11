@@ -329,36 +329,36 @@ function auth() {
   const lead = me
     ? ""
     : signup
-      ? "Free to create. Come back on any device to keep editing."
+      ? "One account for your resumes. Pick up where you left off."
       : waitingTemplate
         ? "Your template is waiting. Sign in to start that resume."
-        : "Needed only to save drafts. The ATS checker does not need an account.";
-  main.innerHTML = `<div class="auth-shell"><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
+        : "Sign in to save your work and keep your next application moving.";
+  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your Career Tools workspace"><a class="auth-back" href="${base}">← Back to Career Tools</a><div><p class="auth-eyebrow">A LITTLE PREPARATION. A BIG NEXT STEP.</p><h2>Your next chapter<br>starts with you.</h2><p class="auth-story-lead">Give your experience a place to shine. We’ll help you put it on the page.</p><div class="auth-workspace-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR WORKSPACE</span><span>✦</span></div><div class="auth-preview-document"><span class="auth-document-icon">≡</span><div><strong>My next opportunity</strong><small>A resume that tells your story</small></div></div><div class="auth-preview-progress"><i></i><i></i><i></i><i></i></div><span class="auth-preview-foot">Your experience. Your pace.</span></div><ul class="auth-benefits"><li>Save drafts and come back anytime</li><li>Switch templates without starting over</li><li>Keep your resumes in one place</li></ul></div><p class="auth-story-bottom">Built for your next move · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
           ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Open my resumes</a><button class="auth-switch" data-action="auth-signout">Use a different account</button>`
-          : `<p class="ct-kicker">Career Tools account</p>
-      <h1>${signup ? "Create an account" : "Sign in"}</h1>
+          : `<p class="ct-kicker">YOUR CAREER, ONE STEP FORWARD</p>
+      <h1>${signup ? "Make it your workspace." : "Welcome back."}</h1>
       <p class="auth-lead">${lead}</p>
-      <div class="auth-mode-tabs" role="tablist" aria-label="Account access">
-        <button type="button" role="tab" data-action="auth-mode" data-mode="login" aria-selected="${!signup}" class="${!signup ? "active" : ""}">Sign in</button>
-        <button type="button" role="tab" data-action="auth-mode" data-mode="signup" aria-selected="${signup}" class="${signup ? "active" : ""}">Create account</button>
+      <div class="auth-mode-tabs" role="group" aria-label="Account access">
+        <button type="button" data-action="auth-mode" data-mode="login" aria-pressed="${!signup}" class="${!signup ? "active" : ""}">Sign in</button>
+        <button type="button" data-action="auth-mode" data-mode="signup" aria-pressed="${signup}" class="${signup ? "active" : ""}">Create account</button>
       </div>
       <div id="auth-error" role="alert" tabindex="-1"></div>
-      ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login">Continue with Google</button><p class="auth-or">or email</p>`}
+      ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login"><span class="auth-google-mark" aria-hidden="true">G</span>Continue with Google</button><p class="auth-or">or continue with email</p>`}
       <form id="auth-form">
       ${signup ? `<div class="field"><label for="auth-name">Name</label><input id="auth-name" name="name" autocomplete="name" placeholder="Your name" required maxlength="100" value="${esc(authDraft.name)}"></div>` : ""}
       <div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
       <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "At least 10 characters" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">Use at least 10 characters.</small>' : ""}</div>
       ${signup ? '<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Enter it again"></div>' : ""}
-      <div class="auth-form-options">${signup ? `<label class="check-label"><input type="checkbox" name="agree" value="yes" required> I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a></label>` : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
+      <div class="auth-form-options">${signup ? `<label class="check-label"><input type="checkbox" name="agree" value="yes" required><span>I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</span></label>` : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
       <button class="button auth-primary" type="submit">${signup ? "Create account" : "Sign in"}</button>
       </form>`
       }
       ${
         useLocalApi()
           ? `<div class="auth-note"><span class="auth-local-tag">LOCAL</span><p>Accounts on this computer only — not Firebase.</p></div><details class="preview-tools"><summary>Owner preview</summary><p>Shared demo for product checks. Use your own account for drafts.</p><button type="button" class="button secondary small" data-action="local-login">Open demo workspace</button></details>`
-          : `<p class="auth-note">Drafts are stored in your InfoparkDaily account. ATS checks never leave this browser. By signing in you agree to our <a href="/terms/#career-tools">Terms</a> (login, resume making, ATS, templates) and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
+          : `<p class="auth-note">By continuing, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
       }
       <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/">Privacy</a></div>
     </section></div>`;
