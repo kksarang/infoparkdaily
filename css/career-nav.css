@@ -1,0 +1,45 @@
+/* Shared Career Tools navigation. */
+.career-tools .topbar {
+  background: #fff;
+  color: #20251f;
+  border-bottom: 1px solid #e7e8e0;
+  padding: 16px max(28px, calc((100vw - 1172px) / 2));
+  gap: 28px;
+  min-height: 88px;
+}
+.career-tools .brand img { width: 38px; height: 38px; }
+.career-tools .brand small { color: #74796c; letter-spacing: .12em; }
+.career-tools .topbar nav {
+  margin: 0 auto;
+  padding: 5px;
+  gap: 4px;
+  border: 1px solid #eaece4;
+  border-radius: 12px;
+  background: #f5f6f1;
+}
+.career-tools .topbar nav a {
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #62665f;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.career-tools .topbar nav a:hover { background: #e9ece2; color: #22281e; }
+.career-tools .topbar nav a.active,
+.career-tools .topbar nav a[aria-current="page"] {
+  background: #fff;
+  color: #20251f;
+  box-shadow: 0 1px 4px #20251f12;
+}
+.career-tools #account-nav .button { border-radius: 9px; box-shadow: none; }
+@media (max-width: 1050px) {
+  .career-tools .topbar { padding: 14px 24px; gap: 14px; }
+  .career-tools .topbar nav a { padding: 9px 10px; font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .career-tools .topbar { display: flex; flex-wrap: wrap; padding: 12px 16px; gap: 12px; }
+  .career-tools .brand { flex: 1; }
+  .career-tools #account-nav { margin-left: auto; }
+  .career-tools .topbar nav { order: 3; width: 100%; justify-content: space-between; overflow: visible; margin: 0; }
+  .career-tools .topbar nav a { flex: 1; text-align: center; padding: 9px 5px; font-size: 11px; }
+}

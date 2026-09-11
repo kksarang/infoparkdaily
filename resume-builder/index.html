@@ -11,9 +11,11 @@
     <title>Career Tools · Resume Builder | InfoparkDaily</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260911i" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260911a" />
+    <link rel="stylesheet" href="/css/career-home.css?v=20260911b" />
     <script type="module" src="/js/resume-builder/app.js?v=20260911i"></script>
   </head>
-  <body class="career-tools">
+  <body class="career-tools career-home">
     <a class="skip" href="#main">Skip to content</a>
     <header class="topbar">
       <a class="brand" href="/"
@@ -22,8 +24,8 @@
         ></a
       >
       <nav aria-label="Career Tools">
-        <a href="/resume-builder/">Resume</a
-        ><a href="/ats-checker/">ATS</a
+        <a href="/resume-builder/" aria-current="page">Resume builder</a
+        ><a href="/ats-checker/">ATS checker</a
         ><a href="/resume-builder/templates/">Templates</a
         ><a href="/jobs/">Jobs</a>
       </nav>
@@ -41,14 +43,14 @@
       <section class="ct-stage">
         <div class="ct-stage-inner rb-width">
           <div class="ct-stage-copy">
-            <p class="ct-kicker">InfoparkDaily Career Tools</p>
-            <h1>Build it. Check it. Apply.</h1>
+            <p class="ct-kicker">Your next chapter starts here</p>
+            <h1>A better resume.<br /><span>A fresh start.</span></h1>
             <p class="ct-lede">
-              Resume templates and a private ATS check for Infopark, Technopark and Cyberpark jobs. Free to start. Files you check never leave this browser.
+              Make your experience stand out with a resume you’re proud to send. Build it here, check it privately, and take your next step.
             </p>
             <div class="ct-cta">
               <a class="button" href="/resume-builder/templates/">Create a resume</a>
-              <a class="button secondary" href="/ats-checker/">Check a file</a>
+              <a class="button secondary" href="/ats-checker/">Check my resume <span aria-hidden="true">↗</span></a>
             </div>
             <ul class="ct-pills">
               <li>32 free templates</li>
@@ -57,11 +59,13 @@
             </ul>
           </div>
           <div class="ct-stage-art" aria-hidden="true">
+            <div class="ct-preview-label"><span class="ct-preview-dot"></span> Your experience. Beautifully presented.</div>
             <div id="ct-hero-previews" class="ct-stack">
               <figure class="ct-sheet ct-sheet-0"></figure>
               <figure class="ct-sheet ct-sheet-1"></figure>
               <figure class="ct-sheet ct-sheet-2"></figure>
             </div>
+            <div class="ct-preview-caption"><span>MADE FOR YOUR NEXT MOVE</span><strong>Find a layout that feels like you ↗</strong></div>
           </div>
         </div>
       </section>
