@@ -1,0 +1,66 @@
+/* Shared Enitexa invitation for the storefront and illustrative template demos. */
+.enitexa-promo {
+  background: #0b1020;
+  color: #f7f8fa;
+  margin: 0;
+  padding: 58px 24px;
+  border-top: 1px solid #27314a;
+  font: 400 15px/1.75 Inter, Arial, sans-serif;
+}
+.enitexa-promo * { box-sizing: border-box; }
+.enitexa-promo-inner {
+  width: 100%;
+  max-width: 1172px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 56px;
+}
+.enitexa-promo .enitexa-promo-brand {
+  margin: 0 0 18px;
+  color: #b7c2de;
+  font: 600 11px/1.7 Inter, Arial, sans-serif;
+  letter-spacing: .09em;
+}
+.enitexa-promo-brand span { color: #8f9dff; }
+.enitexa-promo h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font: 600 32px/1.2 Inter, Arial, sans-serif;
+  letter-spacing: -.035em;
+  word-spacing: normal;
+  text-wrap: initial;
+  max-width: 650px;
+}
+.enitexa-promo p:not(.enitexa-promo-brand) {
+  color: #adb9d2;
+  margin: 0;
+  font: inherit;
+  max-width: 690px;
+}
+.enitexa-promo-actions { display: grid; gap: 8px; min-width: 210px; }
+.enitexa-promo-actions a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #d5dcf0;
+  padding: 13px 18px;
+  min-height: 48px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.enitexa-promo-actions .enitexa-promo-primary { background: #4255ff; color: #fff; }
+.enitexa-promo-actions a:hover { background: #1b2740; color: #fff; }
+.enitexa-promo-actions .enitexa-promo-primary:hover { background: #3345e8; }
+.enitexa-promo a:focus-visible { outline: 3px solid #43d9e6; outline-offset: 4px; }
+@media (max-width: 700px) {
+  .enitexa-promo { padding: 36px 20px; }
+  .enitexa-promo-inner { grid-template-columns: 1fr; gap: 26px; }
+  .enitexa-promo h2 { font-size: 26px; }
+  .enitexa-promo-actions { width: 100%; min-width: 0; }
+}
