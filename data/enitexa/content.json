@@ -1,0 +1,369 @@
+{
+  "services": [
+    [
+      "Product engineering",
+      "From a first release to a product people rely on.",
+      "Founders, product teams, and businesses building customer experiences.",
+      [
+        [
+          "Android & iOS applications",
+          "Customer and team apps with platform-specific experiences.",
+          "Reach customers on the devices they use."
+        ],
+        [
+          "Flutter & React Native",
+          "Shared-code mobile applications and platform integrations.",
+          "Keep mobile delivery coordinated across platforms."
+        ],
+        [
+          "Corporate websites",
+          "Responsive company websites with clear content and enquiries.",
+          "Give your business a credible digital home."
+        ],
+        [
+          "Custom web applications",
+          "Purpose-built workflows, roles, and browser-based tools.",
+          "Support the way your team actually works."
+        ],
+        [
+          "Ecommerce",
+          "Product catalogues, checkout, and commerce integrations.",
+          "Make browsing and buying easier."
+        ],
+        [
+          "Customer & partner portals",
+          "Account areas, self-service tools, and secure access.",
+          "Reduce repetitive support and coordination."
+        ],
+        [
+          "SaaS product development",
+          "Tenant architecture, subscriptions, and product workflows.",
+          "Build a foundation for a recurring service."
+        ],
+        [
+          "MVP planning & development",
+          "Release priorities, prototypes, and a focused first build.",
+          "Test the essential idea before expanding."
+        ],
+        [
+          "API & third-party integrations",
+          "Connected payments, data, and external services.",
+          "Help systems work together."
+        ]
+      ]
+    ],
+    [
+      "Business systems",
+      "Bring everyday operations into focus.",
+      "Operational teams and growing businesses managing complex workflows.",
+      [
+        [
+          "Custom ERP",
+          "Connected modules for your agreed operational needs.",
+          "Bring business information into one place."
+        ],
+        [
+          "CRM & lead management",
+          "Sales pipelines, contact records, and follow-up workflows.",
+          "Give each opportunity a clear next step."
+        ],
+        [
+          "Inventory & billing",
+          "Stock movements, invoices, and billing workflows.",
+          "Reduce duplicate entry and improve visibility."
+        ],
+        [
+          "Booking & scheduling",
+          "Availability, reservations, and appointment workflows.",
+          "Simplify planning for customers and staff."
+        ],
+        [
+          "Reporting & dashboards",
+          "Role-based reports and operational views.",
+          "Make important information easier to act on."
+        ],
+        [
+          "Workflow automation",
+          "Connected triggers, approvals, and routine tasks.",
+          "Reduce repetitive manual work."
+        ],
+        [
+          "AI integrations & assistants",
+          "Knowledge assistants and AI-supported workflows with review controls.",
+          "Help people find information and complete tasks."
+        ],
+        [
+          "Software modernization",
+          "Architecture review, refactoring, and phased migration.",
+          "Improve maintainability of existing systems."
+        ],
+        [
+          "Technical maintenance & support",
+          "Agreed updates, fixes, and operational support.",
+          "Keep your product supported after launch."
+        ]
+      ]
+    ],
+    [
+      "Design & creative",
+      "Make the useful feel unmistakably yours.",
+      "Brands and product teams that need clear, consistent communication.",
+      [
+        [
+          "UI/UX research & design",
+          "User journeys, interaction design, and interface research.",
+          "Make products easier to understand and use."
+        ],
+        [
+          "Wireframes & prototypes",
+          "Screen structures and clickable concepts.",
+          "Explore decisions before development."
+        ],
+        [
+          "Design systems",
+          "Reusable components, styles, and interface guidance.",
+          "Keep a growing product consistent."
+        ],
+        [
+          "Logo & brand identity",
+          "Logo development, visual direction, and brand guidelines.",
+          "Create a recognizable identity."
+        ],
+        [
+          "Graphic design",
+          "Digital and print communication assets.",
+          "Present ideas clearly across touchpoints."
+        ],
+        [
+          "Social media creatives",
+          "Campaign templates and platform-ready graphics.",
+          "Keep brand communication consistent."
+        ],
+        [
+          "Presentations & brochures",
+          "Decks, company profiles, and sales materials.",
+          "Explain your offering with clarity."
+        ],
+        [
+          "Video editing",
+          "Edited footage, sound, captions, and delivery formats.",
+          "Turn raw footage into a useful story."
+        ],
+        [
+          "Motion graphics",
+          "Animated graphics and brand motion elements.",
+          "Explain ideas through movement."
+        ],
+        [
+          "Explainers & promotional videos",
+          "Product walkthroughs and promotional content.",
+          "Help audiences understand your offering."
+        ]
+      ]
+    ],
+    [
+      "Digital support & growth",
+      "Keep your digital presence moving forward.",
+      "Businesses and agencies maintaining websites and ongoing campaigns.",
+      [
+        [
+          "Website management",
+          "Content updates, routine checks, and site upkeep.",
+          "Keep your website current."
+        ],
+        [
+          "SEO foundations",
+          "Metadata, site structure, and technical SEO basics.",
+          "Make content easier to discover."
+        ],
+        [
+          "Social media management",
+          "Content planning, publishing support, and channel coordination.",
+          "Maintain a consistent presence."
+        ],
+        [
+          "Campaign creative support",
+          "Campaign assets and landing-page creative.",
+          "Connect your message across channels."
+        ],
+        [
+          "Digital marketing",
+          "Campaign planning and execution against agreed objectives.",
+          "Reach relevant audiences with a clear plan."
+        ],
+        [
+          "Analytics & conversion tracking",
+          "Measurement plans, events, and reporting setup.",
+          "Understand how visitors interact."
+        ],
+        [
+          "Landing-page optimization",
+          "Content, layout, and enquiry-flow improvements.",
+          "Make the next step clearer for visitors."
+        ],
+        [
+          "Ongoing digital support",
+          "A coordinated backlog of digital improvements.",
+          "Keep improvements moving beyond launch."
+        ]
+      ]
+    ]
+  ],
+  "projects": [
+    {
+      "name": "InfoparkDaily",
+      "filter": "Web Platforms",
+      "category": "Community & jobs platform",
+      "description": "Job opportunities, walk-in updates, technology news, and business visibility for the Infopark community.",
+      "stack": "HTML · CSS · JavaScript · Firebase · SEO",
+      "image": "infopark-desktop.webp",
+      "url": "/",
+      "attribution": "Enitexa.ai is credited as technology partner in the published portfolio. Stack shown here reflects this repository; the source lists React, Tailwind and Vite.",
+      "scope": "A responsive community destination connecting jobs, news, media services, and business enquiries."
+    },
+    {
+      "name": "KK Traveler",
+      "filter": "Web Platforms",
+      "category": "Travel web platform",
+      "description": "A Canadian travel platform presenting Cape Breton tours and supporting the customer booking journey.",
+      "stack": "Next.js · GSAP · Framer Motion · Three.js",
+      "image": "traveler.webp",
+      "url": "https://kk-travel-company.vercel.app/",
+      "attribution": "Published as an Enitexa.ai web delivery. Technology stack is source-published.",
+      "scope": "Tour discovery and a travel website. The source also describes booking, availability, visa assistance, and customer dashboards; end-to-end transactions have not been verified."
+    },
+    {
+      "name": "Zaffabit",
+      "filter": "Mobile Apps",
+      "category": "Cross-platform mobile application",
+      "description": "A mobile application developed for Android and iOS experiences.",
+      "stack": "Flutter · Dart · Firebase · REST API",
+      "mark": "Z",
+      "attribution": "Listed in the Enitexa.ai portfolio. Detailed contribution and ownership have not been independently established.",
+      "scope": "Cross-platform mobile development is documented; further product details and verified store links are not available."
+    },
+    {
+      "name": "Expenser",
+      "filter": "Mobile Apps",
+      "category": "Personal finance application",
+      "description": "An application for tracking everyday expenses and organizing personal finances.",
+      "stack": "Flutter · Firebase · REST API · Riverpod",
+      "mark": "ex.",
+      "attribution": "Listed in the Enitexa.ai portfolio. Separate from the employment responsibilities described below.",
+      "scope": "Everyday expense tracking. Budgeting and bill-splitting are not attributed to this project without supporting records. The preview shows the published product landing page, not an in-app screenshot.",
+      "image": "expenser.webp",
+      "url": "https://sarangrajan.in/expenser"
+    },
+    {
+      "name": "HOLY BRO INTERNATIONAL",
+      "filter": "Web Platforms",
+      "category": "Corporate website",
+      "description": "A digital presence for a diversified service business in Qatar.",
+      "stack": "React.js · Tailwind CSS · Vite · Framer Motion",
+      "attribution": "Published as an Enitexa.ai corporate website delivery. Technology stack is source-published.",
+      "scope": "A unified website presenting the company’s services and contact pathways. The published live destination did not render correctly during verification, so no live link is offered here.",
+      "mark": "HB"
+    },
+    {
+      "name": "Business & Utility Suite",
+      "filter": "Business Tools",
+      "category": "Internal tools & productivity",
+      "description": "A collection of business tools and productivity applications described in the existing portfolio.",
+      "stack": "React Native · Node.js · Enterprise Cloud · AWS",
+      "mark": "B/U",
+      "attribution": "Professional portfolio entry; client identity, ownership, and publishable contribution remain unconfirmed. Not presented as a verified Enitexa.ai client engagement.",
+      "scope": "Internal business and productivity tools. Deployment scale and claimed outcomes are not independently verified."
+    },
+    {
+      "name": "Sarang Connect Chat",
+      "filter": "Mobile Apps",
+      "category": "Real-time communication",
+      "description": "A chat application demonstrating messaging, presence, and real-time communication features.",
+      "stack": "Flutter · Firebase · WebSockets",
+      "mark": "S↗",
+      "attribution": "Engineering demonstration listed in Sarang’s portfolio. Studio, personal, or client ownership has not been confirmed.",
+      "scope": "Messaging and presence concepts; no deployed commercial service or performance claims are implied."
+    }
+  ],
+  "team": [
+    {
+      "name": "Sarang R",
+      "role": "Chief Executive Officer",
+      "image": "sarang.webp",
+      "linkedin": "sarang-rajan",
+      "bio": "Guides company direction, partnerships, and product planning with a practical mobile development and team leadership perspective."
+    },
+    {
+      "name": "Irshad KP",
+      "role": "Chief Technology Officer",
+      "image": "irshad.webp",
+      "linkedin": "irshad1212",
+      "bio": "Leads technical architecture and engineering direction, focusing on maintainable systems and consistent implementation quality."
+    },
+    {
+      "name": "Russel VK",
+      "role": "Chief Operating Officer",
+      "image": "russel.webp",
+      "linkedin": "russel-vk-7327152a3",
+      "bio": "Coordinates delivery operations and client communication through clear priorities, milestones, and handovers."
+    }
+  ],
+  "experience": [
+    [
+      "October 2023 – Present",
+      "Application Development Team Lead & Project Head",
+      "Viewy Digital Pvt Ltd",
+      "Mobile architecture and team leadership; expense tracking, budget planning, financial dashboards, guided bill splitting, light and dark interfaces, and Provider/Riverpod."
+    ],
+    [
+      "March 2023 – October 2023",
+      "Mobile Application Developer",
+      "Viewy Digital Pvt Ltd",
+      "Flutter and React Native development, REST APIs, Firebase, local storage, performance improvements, and UI architecture."
+    ],
+    [
+      "February 2022 – September 2022",
+      "Assistant Software Engineer",
+      "VAAS Intelligent Technology Services Pvt. Ltd",
+      "Android and React Native development; collaboration on enterprise application delivery."
+    ],
+    [
+      "January 2021 – February 2022",
+      "Native Android Developer",
+      "Svaro Wellness | Ayurveda",
+      "Native Android development for consumer-facing mobile applications."
+    ]
+  ],
+  "faqs": [
+    [
+      "Can you help shape an early idea?",
+      "Yes. We can begin with discovery, release priorities, and a prototype before agreeing on a development scope."
+    ],
+    [
+      "Can you improve an existing product?",
+      "Yes. An initial review helps identify technical constraints, useful improvements, and a practical modernization plan."
+    ],
+    [
+      "How long will a project take?",
+      "Duration depends on scope, integrations, feedback, and release requirements. Milestones and estimates are agreed after discovery."
+    ],
+    [
+      "Who owns the source code?",
+      "Source code ownership, repository access, third-party licences, and handover deliverables are documented in the project agreement."
+    ],
+    [
+      "Do you offer support after launch?",
+      "Yes. Maintenance, improvements, and support responsibilities can be agreed separately or included in the engagement."
+    ],
+    [
+      "How do we get started?",
+      "Share your business need, selected services, and preferred timeline. The enquiry form prepares a draft for you to send through email or WhatsApp."
+    ]
+  ],
+  "contact": {
+    "email": "info.enitexa@gmail.com",
+    "phone": "+91 99952 54290",
+    "tel": "+919995254290",
+    "location": "Kakkanad, Kochi, India"
+  }
+}

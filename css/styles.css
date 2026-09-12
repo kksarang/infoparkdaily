@@ -14006,6 +14006,19 @@ body.guides-body {
   font-weight: 600;
 }
 
+.guide-portfolio-note {
+  max-width: 1100px;
+  margin: 2rem auto 2.5rem;
+  padding: 0 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: inherit;
+}
+.guide-portfolio-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .guide-lead {
   margin: 1rem 0 0;
   font-size: clamp(1.02rem, 1.5vw, 1.12rem);

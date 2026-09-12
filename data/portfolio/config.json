@@ -1,0 +1,28 @@
+{
+  "whatsapp": "919995254290",
+  "site": "https://infoparkdaily.online",
+  "packages": [
+    {
+      "id": "website",
+      "name": "Portfolio Website",
+      "price": 2999,
+      "description": "Personalised website without a new custom domain."
+    },
+    {
+      "id": "domain",
+      "name": "Portfolio + Domain",
+      "price": 3999,
+      "description": "Personalised website with an eligible domain for the first year."
+    }
+  ],
+  "scope": [
+    "Personalised one-page website using any listed template",
+    "Responsive desktop, tablet, and mobile layouts",
+    "About, skills, education, experience, and relevant optional sections",
+    "Up to 6 project entries — proposed scope, confirmed in your quote",
+    "Resume download and approved public contact/social links",
+    "Basic page SEO and social sharing preview"
+  ],
+  "policy": "Domain eligibility, registration-cost cap, hosting period and charges, renewal estimates, taxes, revisions, delivery, support, and cancellation terms are confirmed in a written quote before payment. No domain is reserved by this enquiry.",
+  "domainPolicy": "One eligible standard-price domain for the first year, subject to availability and written confirmation. Premium domains and higher-priced extensions require a separate quote. Eligible extensions, covered registration limit, and domain/hosting renewals must be confirmed before ordering."
+}

@@ -1,0 +1,1559 @@
+[
+  {
+    "id": "PF-001",
+    "slug": "developer-pro",
+    "name": "Developer Pro",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "terminal",
+    "person": "Arjun Nair",
+    "profession": "Software developer",
+    "headline": "Good software. Thoughtfully built.",
+    "description": "Developer Pro pairs a technical introduction with project stories.",
+    "thumbnail": "/assets/portfolio/previews/developer-pro.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/developer-pro-mobile.webp",
+    "previewPath": "/portfolio/preview/developer-pro/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Atlas API",
+        "description": "A dependable foundation for a reading-list application."
+      },
+      {
+        "title": "Field Notes",
+        "description": "An offline-first notes experiment."
+      },
+      {
+        "title": "Common Ground",
+        "description": "An accessible community directory."
+      }
+    ],
+    "skills": [
+      "TypeScript",
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "visual": "code"
+  },
+  {
+    "id": "PF-002",
+    "slug": "flutter-studio",
+    "name": "Flutter Studio",
+    "category": "Developers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "devices",
+    "person": "Neha Menon",
+    "profession": "Flutter & mobile developer",
+    "headline": "Small screens. Big possibilities.",
+    "description": "Flutter Studio pairs mobile app showcases with device frames.",
+    "thumbnail": "/assets/portfolio/previews/flutter-studio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/flutter-studio-mobile.webp",
+    "previewPath": "/portfolio/preview/flutter-studio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Daylight",
+        "description": "A daily planning app built around calm routines."
+      },
+      {
+        "title": "Trailbook",
+        "description": "An offline travel journal with local storage."
+      },
+      {
+        "title": "Pocket Pantry",
+        "description": "A pantry organiser with friendly reminders."
+      }
+    ],
+    "skills": [
+      "Flutter",
+      "Dart",
+      "Firebase",
+      "Riverpod"
+    ],
+    "visual": "phones"
+  },
+  {
+    "id": "PF-003",
+    "slug": "frontend-canvas",
+    "name": "Frontend Canvas",
+    "category": "Developers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "oversize",
+    "person": "Riya Das",
+    "profession": "Frontend engineer",
+    "headline": "Interfaces worth interacting with.",
+    "description": "Frontend Canvas pairs oversized typography with interactive previews.",
+    "thumbnail": "/assets/portfolio/previews/frontend-canvas.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/frontend-canvas-mobile.webp",
+    "previewPath": "/portfolio/preview/frontend-canvas/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Forma",
+        "description": "A component library with keyboard-first patterns."
+      },
+      {
+        "title": "Index Studio",
+        "description": "A responsive editorial website."
+      },
+      {
+        "title": "Weather Window",
+        "description": "A small weather interface exploring transitions."
+      }
+    ],
+    "skills": [
+      "React",
+      "TypeScript",
+      "CSS",
+      "Accessibility"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-004",
+    "slug": "backend-architect",
+    "name": "Backend Architect",
+    "category": "Developers",
+    "styleTags": [
+      "Minimal",
+      "Light"
+    ],
+    "layout": "blueprint",
+    "person": "Dev Anand",
+    "profession": "Backend engineer",
+    "headline": "Behind every good product, a dependable system.",
+    "description": "Backend Architect pairs system diagrams with structured case studies.",
+    "thumbnail": "/assets/portfolio/previews/backend-architect.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/backend-architect-mobile.webp",
+    "previewPath": "/portfolio/preview/backend-architect/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Order Ledger",
+        "description": "An order-processing service with idempotent writes."
+      },
+      {
+        "title": "Event Bridge",
+        "description": "A queued notification architecture."
+      },
+      {
+        "title": "Access Layer",
+        "description": "A role-based authorization study."
+      }
+    ],
+    "skills": [
+      "Go",
+      "PostgreSQL",
+      "Redis",
+      "REST APIs"
+    ],
+    "visual": "diagram"
+  },
+  {
+    "id": "PF-005",
+    "slug": "full-stack-grid",
+    "name": "Full Stack Grid",
+    "category": "Developers",
+    "styleTags": [
+      "Bold",
+      "Dark"
+    ],
+    "layout": "bento",
+    "person": "Alex Thomas",
+    "profession": "Full-stack developer",
+    "headline": "From first click to final query.",
+    "description": "Full Stack Grid pairs a modular workspace with detailed project cards.",
+    "thumbnail": "/assets/portfolio/previews/full-stack-grid.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/full-stack-grid-mobile.webp",
+    "previewPath": "/portfolio/preview/full-stack-grid/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Studio Desk",
+        "description": "A booking application with an admin workspace."
+      },
+      {
+        "title": "Reading Room",
+        "description": "A searchable book catalogue and API."
+      },
+      {
+        "title": "Team Board",
+        "description": "A collaboration prototype with live updates."
+      }
+    ],
+    "skills": [
+      "React",
+      "Node.js",
+      "SQL",
+      "WebSockets"
+    ],
+    "visual": "dashboard"
+  },
+  {
+    "id": "PF-006",
+    "slug": "open-source",
+    "name": "Open Source",
+    "category": "Developers",
+    "styleTags": [
+      "Editorial",
+      "Light"
+    ],
+    "layout": "readme",
+    "person": "Sam Joseph",
+    "profession": "Open-source contributor",
+    "headline": "Built in the open. Better together.",
+    "description": "Open Source pairs repository stories with readable documentation.",
+    "thumbnail": "/assets/portfolio/previews/open-source.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/open-source-mobile.webp",
+    "previewPath": "/portfolio/preview/open-source/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Plain UI",
+        "description": "Accessible interface primitives with usage examples."
+      },
+      {
+        "title": "Tiny Queue",
+        "description": "A small task queue with clear documentation."
+      },
+      {
+        "title": "Good First Issue",
+        "description": "A guide to welcoming new contributors."
+      }
+    ],
+    "skills": [
+      "Git",
+      "TypeScript",
+      "Documentation",
+      "Testing"
+    ],
+    "visual": "code"
+  },
+  {
+    "id": "PF-007",
+    "slug": "data-story",
+    "name": "Data Story",
+    "category": "Professionals",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "report",
+    "person": "Meera Roy",
+    "profession": "Data analyst",
+    "headline": "Turning information into understanding.",
+    "description": "Data Story pairs data dashboards with findings and context.",
+    "thumbnail": "/assets/portfolio/previews/data-story.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/data-story-mobile.webp",
+    "previewPath": "/portfolio/preview/data-story/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Retail Signals",
+        "description": "An exploratory study of a sample retail dataset."
+      },
+      {
+        "title": "City Journeys",
+        "description": "A dashboard describing open transit data."
+      },
+      {
+        "title": "Service Patterns",
+        "description": "A research notebook on sample support categories."
+      }
+    ],
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI",
+      "Data visualisation"
+    ],
+    "visual": "chart"
+  },
+  {
+    "id": "PF-008",
+    "slug": "ai-research",
+    "name": "AI Research",
+    "category": "Developers",
+    "styleTags": [
+      "Editorial",
+      "Minimal"
+    ],
+    "layout": "paper",
+    "person": "Kiran Shah",
+    "profession": "Machine learning researcher",
+    "headline": "Questions first. Models second.",
+    "description": "AI Research pairs research abstracts with experiments and reading notes.",
+    "thumbnail": "/assets/portfolio/previews/ai-research.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/ai-research-mobile.webp",
+    "previewPath": "/portfolio/preview/ai-research/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Retrieval Notes",
+        "description": "A reproducible experiment in document retrieval."
+      },
+      {
+        "title": "Model Cards",
+        "description": "A study in communicating model limitations."
+      },
+      {
+        "title": "Vision Lab",
+        "description": "An image-classification learning experiment."
+      }
+    ],
+    "skills": [
+      "Python",
+      "PyTorch",
+      "Evaluation",
+      "Research"
+    ],
+    "visual": "research"
+  },
+  {
+    "id": "PF-009",
+    "slug": "cloud-engineer",
+    "name": "Cloud Engineer",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "layout": "console",
+    "person": "Aditya Rao",
+    "profession": "Cloud & DevOps engineer",
+    "headline": "Infrastructure with a clear path forward.",
+    "description": "Cloud Engineer pairs infrastructure maps with technical journals.",
+    "thumbnail": "/assets/portfolio/previews/cloud-engineer.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/cloud-engineer-mobile.webp",
+    "previewPath": "/portfolio/preview/cloud-engineer/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Release Rail",
+        "description": "A sample continuous-delivery pipeline."
+      },
+      {
+        "title": "Service Map",
+        "description": "An infrastructure-as-code learning environment."
+      },
+      {
+        "title": "Signal Room",
+        "description": "An observability dashboard for a demo service."
+      }
+    ],
+    "skills": [
+      "AWS",
+      "Terraform",
+      "Docker",
+      "CI/CD"
+    ],
+    "visual": "diagram"
+  },
+  {
+    "id": "PF-010",
+    "slug": "security-profile",
+    "name": "Security Profile",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Editorial"
+    ],
+    "layout": "dossier",
+    "person": "Ananya Paul",
+    "profession": "Security professional",
+    "headline": "Trust starts with the details.",
+    "description": "Security Profile pairs restrained dark typography with research highlights.",
+    "thumbnail": "/assets/portfolio/previews/security-profile.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/security-profile-mobile.webp",
+    "previewPath": "/portfolio/preview/security-profile/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Threat Notes",
+        "description": "A threat-model exercise for a sample application."
+      },
+      {
+        "title": "Secure Defaults",
+        "description": "A guide to safer application configuration."
+      },
+      {
+        "title": "Review Log",
+        "description": "An ethical security-review learning journal."
+      }
+    ],
+    "skills": [
+      "Threat modelling",
+      "OWASP",
+      "AppSec",
+      "Python"
+    ],
+    "visual": "code"
+  },
+  {
+    "id": "PF-011",
+    "slug": "qa-precision",
+    "name": "QA Precision",
+    "category": "Developers",
+    "styleTags": [
+      "Minimal",
+      "Light"
+    ],
+    "layout": "checklist",
+    "person": "Vivek Das",
+    "profession": "Quality assurance engineer",
+    "headline": "Confidence in every release.",
+    "description": "QA Precision pairs test plans with quality case studies.",
+    "thumbnail": "/assets/portfolio/previews/qa-precision.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/qa-precision-mobile.webp",
+    "previewPath": "/portfolio/preview/qa-precision/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Checkout Checks",
+        "description": "A test strategy for a demonstration storefront."
+      },
+      {
+        "title": "Access Audit",
+        "description": "An accessibility review of a sample interface."
+      },
+      {
+        "title": "Release Gate",
+        "description": "A browser-test suite with clear failure reports."
+      }
+    ],
+    "skills": [
+      "Playwright",
+      "API testing",
+      "Test strategy",
+      "Accessibility"
+    ],
+    "visual": "checklist"
+  },
+  {
+    "id": "PF-012",
+    "slug": "product-designer",
+    "name": "Product Designer",
+    "category": "Designers",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "casebook",
+    "person": "Maya Iyer",
+    "profession": "Product designer",
+    "headline": "Useful by design. Human by default.",
+    "description": "Product Designer pairs large case studies with problem, process, and outcome.",
+    "thumbnail": "/assets/portfolio/previews/product-designer.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/product-designer-mobile.webp",
+    "previewPath": "/portfolio/preview/product-designer/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Gather",
+        "description": "Rethinking a community event discovery flow."
+      },
+      {
+        "title": "Daybook",
+        "description": "A gentler approach to daily planning."
+      },
+      {
+        "title": "Open Doors",
+        "description": "An inclusive service-onboarding concept."
+      }
+    ],
+    "skills": [
+      "Figma",
+      "Prototyping",
+      "User research",
+      "Design systems"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-013",
+    "slug": "design-journal",
+    "name": "Design Journal",
+    "category": "Designers",
+    "styleTags": [
+      "Editorial",
+      "Minimal"
+    ],
+    "layout": "journal",
+    "person": "Leena Mathew",
+    "profession": "UX researcher",
+    "headline": "Listening closely. Designing with care.",
+    "description": "Design Journal pairs editorial research stories with careful synthesis.",
+    "thumbnail": "/assets/portfolio/previews/design-journal.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/design-journal-mobile.webp",
+    "previewPath": "/portfolio/preview/design-journal/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Everyday Friction",
+        "description": "A diary-study concept about household planning."
+      },
+      {
+        "title": "First Steps",
+        "description": "An interview synthesis on new-user onboarding."
+      },
+      {
+        "title": "Shared Language",
+        "description": "A research repository for a sample product team."
+      }
+    ],
+    "skills": [
+      "Interviews",
+      "Synthesis",
+      "Usability testing",
+      "Research planning"
+    ],
+    "visual": "research"
+  },
+  {
+    "id": "PF-014",
+    "slug": "creative-folio",
+    "name": "Creative Folio",
+    "category": "Designers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "poster",
+    "person": "Isha Roy",
+    "profession": "Graphic designer",
+    "headline": "A little unexpected. Entirely intentional.",
+    "description": "Creative Folio pairs bold poster compositions with image-led projects.",
+    "thumbnail": "/assets/portfolio/previews/creative-folio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/creative-folio-mobile.webp",
+    "previewPath": "/portfolio/preview/creative-folio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "COMMON",
+        "description": "A visual identity for an imagined cultural space."
+      },
+      {
+        "title": "TYPE / PLAY",
+        "description": "An experimental poster series."
+      },
+      {
+        "title": "Sunday Market",
+        "description": "A packaging concept for a fictional local brand."
+      }
+    ],
+    "skills": [
+      "Typography",
+      "Illustrator",
+      "Art direction",
+      "Print design"
+    ],
+    "visual": "poster"
+  },
+  {
+    "id": "PF-015",
+    "slug": "brand-atelier",
+    "name": "Brand Atelier",
+    "category": "Designers",
+    "styleTags": [
+      "Editorial",
+      "Minimal"
+    ],
+    "layout": "atelier",
+    "person": "Tara Sen",
+    "profession": "Brand designer",
+    "headline": "Identity, with intention.",
+    "description": "Brand Atelier pairs premium typography with identity presentations.",
+    "thumbnail": "/assets/portfolio/previews/brand-atelier.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/brand-atelier-mobile.webp",
+    "previewPath": "/portfolio/preview/brand-atelier/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Aure",
+        "description": "A botanical skincare identity concept."
+      },
+      {
+        "title": "Maison Paper",
+        "description": "A tactile stationery brand exploration."
+      },
+      {
+        "title": "Still House",
+        "description": "A visual language for an imagined retreat."
+      }
+    ],
+    "skills": [
+      "Brand strategy",
+      "Identity",
+      "Typography",
+      "Packaging"
+    ],
+    "visual": "brand"
+  },
+  {
+    "id": "PF-016",
+    "slug": "motion-house",
+    "name": "Motion House",
+    "category": "Creators",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "cinema",
+    "person": "Nikhil Varma",
+    "profession": "Motion designer & editor",
+    "headline": "Ideas, set in motion.",
+    "description": "Motion House pairs a playable sample showreel with motion studies.",
+    "thumbnail": "/assets/portfolio/previews/motion-house.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/motion-house-mobile.webp",
+    "previewPath": "/portfolio/preview/motion-house/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Moving Type",
+        "description": "A kinetic typography study."
+      },
+      {
+        "title": "Shape / Shift",
+        "description": "A short abstract motion experiment."
+      },
+      {
+        "title": "A New Frame",
+        "description": "An editorial title-sequence concept."
+      }
+    ],
+    "skills": [
+      "After Effects",
+      "Editing",
+      "Storyboarding",
+      "Motion design"
+    ],
+    "visual": "motion"
+  },
+  {
+    "id": "PF-017",
+    "slug": "photo-journal",
+    "name": "Photo Journal",
+    "category": "Creators",
+    "styleTags": [
+      "Editorial",
+      "Light"
+    ],
+    "layout": "photo",
+    "person": "Diya George",
+    "profession": "Photographer",
+    "headline": "The quiet between moments.",
+    "description": "Photo Journal pairs large landscape photographs with curated galleries.",
+    "thumbnail": "/assets/portfolio/previews/photo-journal.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/photo-journal-mobile.webp",
+    "previewPath": "/portfolio/preview/photo-journal/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Far From Here",
+        "description": "An illustrative landscape collection."
+      },
+      {
+        "title": "Under the Canopy",
+        "description": "A forest-light editorial study."
+      },
+      {
+        "title": "Tide Notes",
+        "description": "A coastal colour and texture series."
+      }
+    ],
+    "skills": [
+      "Photography",
+      "Composition",
+      "Lightroom",
+      "Editorial"
+    ],
+    "visual": "photo"
+  },
+  {
+    "id": "PF-018",
+    "slug": "marketing-impact",
+    "name": "Marketing Impact",
+    "category": "Professionals",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "campaign",
+    "person": "Rahul Sen",
+    "profession": "Digital marketer",
+    "headline": "Clear strategy. Meaningful connection.",
+    "description": "Marketing Impact pairs campaign narratives with measurement plans.",
+    "thumbnail": "/assets/portfolio/previews/marketing-impact.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/marketing-impact-mobile.webp",
+    "previewPath": "/portfolio/preview/marketing-impact/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Local Stories",
+        "description": "A campaign-planning concept for a neighbourhood shop."
+      },
+      {
+        "title": "Search Intent",
+        "description": "A sample search-content strategy."
+      },
+      {
+        "title": "Launch Notes",
+        "description": "A measurement plan for a fictional product launch."
+      }
+    ],
+    "skills": [
+      "Content strategy",
+      "SEO",
+      "Analytics",
+      "Campaign planning"
+    ],
+    "visual": "chart"
+  },
+  {
+    "id": "PF-019",
+    "slug": "social-studio",
+    "name": "Social Studio",
+    "category": "Freelancers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "social",
+    "person": "Sara Ali",
+    "profession": "Social media manager",
+    "headline": "Good stories deserve good company.",
+    "description": "Social Studio pairs content samples with service offerings.",
+    "thumbnail": "/assets/portfolio/previews/social-studio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/social-studio-mobile.webp",
+    "previewPath": "/portfolio/preview/social-studio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "The Daily Edit",
+        "description": "A sample social content series."
+      },
+      {
+        "title": "Community First",
+        "description": "A community engagement playbook."
+      },
+      {
+        "title": "In Season",
+        "description": "A seasonal creative campaign concept."
+      }
+    ],
+    "skills": [
+      "Social strategy",
+      "Copywriting",
+      "Content planning",
+      "Creative direction"
+    ],
+    "visual": "social"
+  },
+  {
+    "id": "PF-020",
+    "slug": "content-voice",
+    "name": "Content Voice",
+    "category": "Creators",
+    "styleTags": [
+      "Editorial",
+      "Minimal"
+    ],
+    "layout": "writer",
+    "person": "Asha Menon",
+    "profession": "Writer & editor",
+    "headline": "Words that make room for ideas.",
+    "description": "Content Voice pairs article previews with topic-led reading.",
+    "thumbnail": "/assets/portfolio/previews/content-voice.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/content-voice-mobile.webp",
+    "previewPath": "/portfolio/preview/content-voice/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "The Art of Noticing",
+        "description": "A sample essay about everyday observation."
+      },
+      {
+        "title": "Designing for Attention",
+        "description": "An illustrative article on digital reading."
+      },
+      {
+        "title": "A Place to Begin",
+        "description": "A sample profile of a fictional creative studio."
+      }
+    ],
+    "skills": [
+      "Editorial",
+      "Essays",
+      "Interviews",
+      "Brand writing"
+    ],
+    "visual": "article"
+  },
+  {
+    "id": "PF-021",
+    "slug": "creator-space",
+    "name": "Creator Space",
+    "category": "Creators",
+    "styleTags": [
+      "Bold",
+      "Dark"
+    ],
+    "layout": "creator",
+    "person": "Noel Joseph",
+    "profession": "Content creator",
+    "headline": "Curiosity is the starting point.",
+    "description": "Creator Space pairs featured content with collaboration enquiries.",
+    "thumbnail": "/assets/portfolio/previews/creator-space.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/creator-space-mobile.webp",
+    "previewPath": "/portfolio/preview/creator-space/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Everyday Places",
+        "description": "An illustrative travel-content series."
+      },
+      {
+        "title": "On the Desk",
+        "description": "A sample creative-process journal."
+      },
+      {
+        "title": "Small Discoveries",
+        "description": "A format concept for short educational stories."
+      }
+    ],
+    "skills": [
+      "Video",
+      "Storytelling",
+      "Photography",
+      "Collaboration"
+    ],
+    "visual": "photo"
+  },
+  {
+    "id": "PF-022",
+    "slug": "product-leader",
+    "name": "Product Leader",
+    "category": "Professionals",
+    "styleTags": [
+      "Minimal",
+      "Light"
+    ],
+    "layout": "roadmap",
+    "person": "Priya Nair",
+    "profession": "Product manager",
+    "headline": "Build the right thing. Make it matter.",
+    "description": "Product Leader pairs product decisions with launch narratives.",
+    "thumbnail": "/assets/portfolio/previews/product-leader.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/product-leader-mobile.webp",
+    "previewPath": "/portfolio/preview/product-leader/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "North Star",
+        "description": "A discovery and prioritisation case study."
+      },
+      {
+        "title": "First Mile",
+        "description": "An onboarding roadmap for a sample product."
+      },
+      {
+        "title": "Decision Log",
+        "description": "A framework for transparent product decisions."
+      }
+    ],
+    "skills": [
+      "Discovery",
+      "Roadmaps",
+      "Product strategy",
+      "Facilitation"
+    ],
+    "visual": "roadmap"
+  },
+  {
+    "id": "PF-023",
+    "slug": "business-profile",
+    "name": "Business Profile",
+    "category": "Professionals",
+    "styleTags": [
+      "Minimal",
+      "Light"
+    ],
+    "layout": "corporate",
+    "person": "Arun Menon",
+    "profession": "Business professional",
+    "headline": "Bringing structure to possibility.",
+    "description": "Business Profile pairs a formal introduction with a career timeline.",
+    "thumbnail": "/assets/portfolio/previews/business-profile.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/business-profile-mobile.webp",
+    "previewPath": "/portfolio/preview/business-profile/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Operations Review",
+        "description": "A sample operating-model review."
+      },
+      {
+        "title": "Partner Plan",
+        "description": "A partnership planning exercise."
+      },
+      {
+        "title": "Clarity Workshop",
+        "description": "A stakeholder-alignment facilitation concept."
+      }
+    ],
+    "skills": [
+      "Operations",
+      "Planning",
+      "Communication",
+      "Analysis"
+    ],
+    "visual": "diagram"
+  },
+  {
+    "id": "PF-024",
+    "slug": "people-professional",
+    "name": "People Professional",
+    "category": "Professionals",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "people",
+    "person": "Anu Thomas",
+    "profession": "People & talent professional",
+    "headline": "Better workplaces begin with people.",
+    "description": "People Professional pairs a welcoming profile with people initiatives.",
+    "thumbnail": "/assets/portfolio/previews/people-professional.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/people-professional-mobile.webp",
+    "previewPath": "/portfolio/preview/people-professional/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Welcome Together",
+        "description": "An employee onboarding initiative concept."
+      },
+      {
+        "title": "Hiring With Care",
+        "description": "A structured interview toolkit."
+      },
+      {
+        "title": "Team Conversations",
+        "description": "A manager feedback guide."
+      }
+    ],
+    "skills": [
+      "Recruitment",
+      "People operations",
+      "Facilitation",
+      "Communication"
+    ],
+    "visual": "people"
+  },
+  {
+    "id": "PF-025",
+    "slug": "fresh-start",
+    "name": "Fresh Start",
+    "category": "Freshers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "graduate",
+    "person": "Akhil Raj",
+    "profession": "Computer science graduate",
+    "headline": "Ready to learn. Ready to contribute.",
+    "description": "Fresh Start pairs education with practical project work.",
+    "thumbnail": "/assets/portfolio/previews/fresh-start.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/fresh-start-mobile.webp",
+    "previewPath": "/portfolio/preview/fresh-start/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Campus Connect",
+        "description": "A student society event-listing project."
+      },
+      {
+        "title": "Study Circle",
+        "description": "A collaborative study-planning prototype."
+      },
+      {
+        "title": "Library Finder",
+        "description": "A searchable catalogue built for coursework."
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "Python",
+      "HTML & CSS",
+      "Teamwork"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-026",
+    "slug": "campus-portfolio",
+    "name": "Campus Portfolio",
+    "category": "Freshers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "campus",
+    "person": "Zoya Khan",
+    "profession": "Student & aspiring designer",
+    "headline": "Learning by making things.",
+    "description": "Campus Portfolio pairs academic work with clubs and creative projects.",
+    "thumbnail": "/assets/portfolio/previews/campus-portfolio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/campus-portfolio-mobile.webp",
+    "previewPath": "/portfolio/preview/campus-portfolio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Design Society",
+        "description": "A student club identity exploration."
+      },
+      {
+        "title": "Campus Map",
+        "description": "An accessible campus-navigation concept."
+      },
+      {
+        "title": "Reading Week",
+        "description": "A poster and event-planning project."
+      }
+    ],
+    "skills": [
+      "Figma",
+      "Design thinking",
+      "Research",
+      "Collaboration"
+    ],
+    "visual": "poster"
+  },
+  {
+    "id": "PF-027",
+    "slug": "career-switch",
+    "name": "Career Switch",
+    "category": "Freshers",
+    "styleTags": [
+      "Editorial",
+      "Light"
+    ],
+    "layout": "bridge",
+    "person": "Rohan Mathew",
+    "profession": "Operations professional → UX designer",
+    "headline": "A new direction. A broader perspective.",
+    "description": "Career Switch pairs transferable skills with new project work.",
+    "thumbnail": "/assets/portfolio/previews/career-switch.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/career-switch-mobile.webp",
+    "previewPath": "/portfolio/preview/career-switch/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "From Desk to Screen",
+        "description": "A service-design exercise informed by operations."
+      },
+      {
+        "title": "Booking Better",
+        "description": "A scheduling-interface redesign concept."
+      },
+      {
+        "title": "Listening Lab",
+        "description": "A practice interview and synthesis project."
+      }
+    ],
+    "skills": [
+      "Operations",
+      "User research",
+      "Figma",
+      "Problem solving"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-028",
+    "slug": "independent-pro",
+    "name": "Independent Pro",
+    "category": "Freelancers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "services",
+    "person": "Aditi Rao",
+    "profession": "Independent web designer",
+    "headline": "Your next idea. My next collaboration.",
+    "description": "Independent Pro pairs services with selected work and enquiries.",
+    "thumbnail": "/assets/portfolio/previews/independent-pro.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/independent-pro-mobile.webp",
+    "previewPath": "/portfolio/preview/independent-pro/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Oak & Co.",
+        "description": "A fictional small-business website concept."
+      },
+      {
+        "title": "The Local Edit",
+        "description": "An editorial ecommerce exploration."
+      },
+      {
+        "title": "Solo Studio",
+        "description": "A service website for an independent maker."
+      }
+    ],
+    "skills": [
+      "Web design",
+      "Web development",
+      "Brand direction",
+      "SEO basics"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-029",
+    "slug": "consultant-signature",
+    "name": "Consultant Signature",
+    "category": "Freelancers",
+    "styleTags": [
+      "Editorial",
+      "Minimal"
+    ],
+    "layout": "signature",
+    "person": "Vikram Shah",
+    "profession": "Strategy consultant",
+    "headline": "Perspective that moves things forward.",
+    "description": "Consultant Signature pairs a signed introduction with expertise and insights.",
+    "thumbnail": "/assets/portfolio/previews/consultant-signature.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/consultant-signature-mobile.webp",
+    "previewPath": "/portfolio/preview/consultant-signature/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "A Clearer Offer",
+        "description": "A service-positioning engagement concept."
+      },
+      {
+        "title": "Next Chapter",
+        "description": "A scenario-planning workshop outline."
+      },
+      {
+        "title": "Working Better",
+        "description": "A practical operating-rhythm framework."
+      }
+    ],
+    "skills": [
+      "Strategy",
+      "Facilitation",
+      "Operations",
+      "Research"
+    ],
+    "visual": "article"
+  },
+  {
+    "id": "PF-030",
+    "slug": "executive-minimal",
+    "name": "Executive Minimal",
+    "category": "Professionals",
+    "styleTags": [
+      "Minimal",
+      "Dark"
+    ],
+    "layout": "executive",
+    "person": "Nandita Rao",
+    "profession": "Business & technology leader",
+    "headline": "A considered approach to what comes next.",
+    "description": "Executive Minimal pairs an elegant introduction with a leadership story.",
+    "thumbnail": "/assets/portfolio/previews/executive-minimal.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/executive-minimal-mobile.webp",
+    "previewPath": "/portfolio/preview/executive-minimal/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Purpose & Product",
+        "description": "A leadership reflection on product direction."
+      },
+      {
+        "title": "Teams That Learn",
+        "description": "An essay on building a learning culture."
+      },
+      {
+        "title": "Stewardship",
+        "description": "A framework for responsible technical decisions."
+      }
+    ],
+    "skills": [
+      "Leadership",
+      "Technology strategy",
+      "Mentoring",
+      "Governance"
+    ],
+    "visual": "article"
+  }
+]

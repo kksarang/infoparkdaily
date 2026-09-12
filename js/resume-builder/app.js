@@ -758,6 +758,22 @@ function printResumeHtml(html) {
   win.print();
   setTimeout(cleanup, 120000);
 }
+function showPortfolioSuggestion() {
+  if (document.getElementById("portfolio-after-export")) return;
+  const footer = document.querySelector(".editor-footer");
+  if (!footer) return;
+  const note = document.createElement("p");
+  note.id = "portfolio-after-export";
+  note.className = "hint";
+  note.style.cssText = "padding:16px 24px;margin:0";
+  note.append("Give your projects a home. ");
+  const link = document.createElement("a");
+  link.href = "/portfolio/";
+  link.textContent = "Explore portfolio websites personalised by our team →";
+  link.style.textDecoration = "underline";
+  note.append(link);
+  footer.after(note);
+}
 async function downloadPDF() {
   const btn = document.getElementById("export-button");
   btn.disabled = true;
@@ -771,6 +787,7 @@ async function downloadPDF() {
         throw Error("Choose a free template to export a PDF on the live site.");
       printResumeHtml(renderResume(resume.data, t.config));
       toast("In the print dialog, choose Save as PDF.");
+      showPortfolioSuggestion();
       save().catch((e) => toast(e.message));
       return;
     }
@@ -796,6 +813,7 @@ async function downloadPDF() {
         a.click();
         setTimeout(() => URL.revokeObjectURL(url), 30000);
         toast("Your PDF is ready.");
+        showPortfolioSuggestion();
         return;
       }
       if (result.status === "failed")

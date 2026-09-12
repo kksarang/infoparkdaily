@@ -45,3 +45,8 @@
   .career-tools .brand img { width: 28px; height: 28px; }
   .career-tools .brand span { font-size: 12px; }
 }
+@media (min-width: 801px) and (max-width: 1150px) {
+  .career-tools .topbar { padding-inline: 20px; gap: 18px; }
+  .career-tools .topbar nav { gap: 12px; }
+  .career-tools .topbar nav a { font-size: 11px; }
+}

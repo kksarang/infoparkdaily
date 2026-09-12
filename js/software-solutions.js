@@ -33,33 +33,41 @@
     setMenu(false),
   );
 
-  const tabs = [...document.querySelectorAll('.en-tabs [role="tab"]')];
-  const showTab = (tab, focus = false) => {
-    tabs.forEach((item) => {
-      const selected = item === tab;
-      item.setAttribute("aria-selected", String(selected));
-      item.tabIndex = selected ? 0 : -1;
-      document.getElementById(item.getAttribute("aria-controls")).hidden =
-        !selected;
-    });
-    if (focus) tab.focus();
+  const filters = [...document.querySelectorAll("[data-filter]")];
+  const projects = [...document.querySelectorAll(".project[data-category]")];
+  const filterProjects = (value) => {
+    filters.forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.filter === value),
+      ),
+    );
+    projects.forEach(
+      (project) =>
+        (project.hidden =
+          value !== "All" && project.dataset.category !== value),
+    );
+    document.getElementById("project-count").textContent =
+      `${projects.filter((p) => !p.hidden).length} projects`;
   };
-  showTab(tabs[0]);
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => showTab(tab));
-    tab.addEventListener("keydown", (event) => {
-      let next;
-      if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
-      if (event.key === "ArrowLeft")
-        next = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === "Home") next = 0;
-      if (event.key === "End") next = tabs.length - 1;
-      if (next !== undefined) {
-        event.preventDefault();
-        showTab(tabs[next], true);
-      }
-    });
-  });
+  filters.forEach((button) =>
+    button.addEventListener("click", () =>
+      filterProjects(button.dataset.filter),
+    ),
+  );
+  document
+    .querySelectorAll(".preview")
+    .forEach((link) =>
+      link.addEventListener("click", () => filterProjects("All")),
+    );
+  document.querySelectorAll("img").forEach((img) =>
+    img.addEventListener("error", () => {
+      const note = document.createElement("p");
+      note.className = "source-note";
+      note.textContent = img.alt + " — image temporarily unavailable.";
+      img.replaceWith(note);
+    }),
+  );
 
   const form = document.getElementById("en-enquiry");
   const status = document.getElementById("en-form-status");
@@ -164,16 +172,16 @@
       values.description.trim(),
     ];
     brief = rows.filter((row) => row !== "").join("\n");
-    const mailto = `mailto:infoparkstorieskochi@gmail.com?subject=${encodeURIComponent("Enitexa.ai project enquiry")}&body=${encodeURIComponent(brief)}`;
+    const mailto = `mailto:info.enitexa@gmail.com?subject=${encodeURIComponent("Enitexa.ai project enquiry")}&body=${encodeURIComponent(brief)}`;
     emailDraft.href = mailto;
     whatsappDraft.href = `https://wa.me/919995254290?text=${encodeURIComponent(brief)}`;
     handoff.hidden = false;
     setStatus(
-      "Your draft is ready, but has not been sent. Review and send it in your email app. If no app opens, use WhatsApp or copy the details below.",
+      "Your draft is ready, but has not been sent. Choose email or WhatsApp below, review the draft, and send it to complete your enquiry.",
     );
     status.focus();
     // There is no configured server submission endpoint. Never claim receipt.
-    window.location.href = mailto;
+    // The user chooses email or WhatsApp after reviewing the prepared draft.
   });
   document.getElementById("en-copy").addEventListener("click", async () => {
     try {

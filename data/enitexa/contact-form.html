@@ -1,0 +1,210 @@
+<form id="en-enquiry" class="en-form">
+  <div class="en-form-pair">
+    <div class="en-field">
+      <label for="en-name">Name <span>*</span></label
+      ><input
+        id="en-name"
+        name="name"
+        autocomplete="name"
+        required
+        maxlength="100"
+        placeholder="Your name"
+      />
+    </div>
+    <div class="en-field">
+      <label for="en-email">Work email <span>*</span></label
+      ><input
+        id="en-email"
+        name="email"
+        type="email"
+        autocomplete="email"
+        required
+        maxlength="254"
+        placeholder="you@company.com"
+      />
+    </div>
+  </div>
+  <div class="en-form-pair">
+    <div class="en-field">
+      <label for="en-company">Company <small>Optional</small></label
+      ><input
+        id="en-company"
+        name="company"
+        autocomplete="organization"
+        maxlength="150"
+        placeholder="Company or team"
+      />
+    </div>
+    <div class="en-field">
+      <label for="en-phone">Phone / WhatsApp <small>Optional</small></label
+      ><input
+        id="en-phone"
+        name="phone"
+        type="tel"
+        autocomplete="tel"
+        maxlength="40"
+        placeholder="Include country code"
+      />
+    </div>
+  </div>
+  <fieldset class="en-field en-service-field">
+    <legend>Services required <span>*</span></legend>
+    <details id="en-service-picker">
+      <summary>
+        <span id="en-service-count">Choose one or more services</span
+        ><span aria-hidden="true">⌄</span>
+      </summary>
+      <div class="en-service-options">
+        <label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Mobile App Development"
+          />
+          <span>Mobile App Development</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Websites &amp; Web Applications"
+          />
+          <span>Websites &amp; Web Applications</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="SaaS Product Development"
+          />
+          <span>SaaS Product Development</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="ERP, CRM &amp; Business Software"
+          />
+          <span>ERP, CRM &amp; Business Software</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Automation &amp; AI Integrations"
+          />
+          <span>Automation &amp; AI Integrations</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Maintenance &amp; Technical Support"
+          />
+          <span>Maintenance &amp; Technical Support</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="UI/UX &amp; Product Design"
+          />
+          <span>UI/UX &amp; Product Design</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Branding &amp; Graphic Design"
+          />
+          <span>Branding &amp; Graphic Design</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Video &amp; Motion Content"
+          />
+          <span>Video &amp; Motion Content</span></label
+        ><label
+          ><input
+            type="checkbox"
+            name="services"
+            value="Digital Presence &amp; Growth Support"
+          />
+          <span>Digital Presence &amp; Growth Support</span></label
+        ><label
+          ><input type="checkbox" name="services" value="Help me choose" /><span
+            >Help me choose</span
+          ></label
+        >
+      </div>
+    </details>
+    <p id="en-services-error" class="en-field-error" hidden>
+      Select a service, or choose “Help me choose”.
+    </p>
+  </fieldset>
+  <div id="en-engagement-note" class="en-engagement-note" hidden></div>
+  <input name="engagement" type="hidden" />
+  <div class="en-field">
+    <label for="en-description">Project description <span>*</span></label
+    ><textarea
+      id="en-description"
+      name="description"
+      required
+      minlength="20"
+      maxlength="4000"
+      rows="4"
+      placeholder="What would you like to build or improve? Tell us about your users and the problem you’re solving."
+    ></textarea>
+  </div>
+  <div class="en-form-pair">
+    <div class="en-field">
+      <label for="en-budget">Budget range <small>Optional</small></label
+      ><select id="en-budget" name="budget">
+        <option value="">Select a range</option>
+        <option>Need guidance</option>
+        <option>Under ₹1 lakh</option>
+        <option>₹1–3 lakh</option>
+        <option>₹3–10 lakh</option>
+        <option>₹10 lakh or more</option>
+      </select>
+    </div>
+    <div class="en-field">
+      <label for="en-timeline">Preferred timeline <small>Optional</small></label
+      ><input
+        id="en-timeline"
+        name="timeline"
+        maxlength="100"
+        placeholder="e.g. This quarter / flexible"
+      />
+    </div>
+  </div>
+  <p class="en-form-explainer">
+    This prepares an email draft with your project details. Review it and press
+    send in your email app to complete your enquiry.
+  </p>
+  <button
+    class="en-button en-button-primary"
+    id="en-send"
+    type="submit"
+    disabled
+  >
+    Prepare Project Enquiry <span aria-hidden="true">↗</span>
+  </button>
+  <p class="en-form-privacy">
+    Your details are only shared when you send your message.
+    <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a>
+  </p>
+  <p id="en-form-status" role="status" aria-live="polite" tabindex="-1"></p>
+  <div id="en-form-handoff" class="en-form-handoff" hidden>
+    <a id="en-email-draft" href="mailto:info.enitexa@gmail.com"
+      >Open email draft ↗</a
+    ><a
+      id="en-whatsapp-draft"
+      href="https://wa.me/919995254290"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Send via WhatsApp ↗</a
+    ><button id="en-copy" type="button">Copy project details</button>
+  </div>
+  <noscript
+    ><p class="en-noscript">
+      Please email your project details to
+      <a href="mailto:info.enitexa@gmail.com">info.enitexa@gmail.com</a>
+      or use the WhatsApp link. This form needs JavaScript to prepare a draft.
+    </p></noscript
+  >
+</form>
