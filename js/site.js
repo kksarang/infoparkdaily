@@ -383,8 +383,8 @@ function initMobileNav() {
     if (window.innerWidth >= 1100) setOpen(false);
   });
 
-  window.addEventListener("pageshow", () => {
-    if (document.body.classList.contains("nav-locked")) {
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted && document.body.classList.contains("nav-locked")) {
       setOpen(false);
     }
   });
@@ -607,10 +607,16 @@ initWhatsAppJobsPrompt();
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./sw.js?v=20260911a")
+      .register("./sw.js?v=20260914a")
       .then((registration) => registration.update())
       .catch(() => {
         // Service worker registration should not block core rendering.
       });
   });
+}
+
+// The About submenu works with keyboard, touch and the mobile drawer.
+for (const menu of document.querySelectorAll('.nav-about')) {
+  document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
+  menu.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); event.stopPropagation(); } });
 }

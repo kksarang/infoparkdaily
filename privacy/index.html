@@ -56,7 +56,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260910a" />
+    <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
     
   </head>
   <body class="jobs-body dark">
@@ -83,7 +83,7 @@
         <a href="/resume-builder/">Career Tools</a>
         <a href="/news/">News</a>
         <a href="/services/">Services</a>
-        <a href="/media/">About Us</a>
+        <details class="nav-about"><summary>About Us <span aria-hidden="true">⌄</span></summary><div class="nav-about-links"><a href="/media/">About our community</a><a href="/infoparkdaily/">InfoparkDaily <span>Jobs, people &amp; opportunities</span></a></div></details>
         <a href="/contact/">Contact</a>
         <a href="/software-solutions/" class="nav-enitexa">Enitexa.ai</a>
       </nav>
@@ -118,7 +118,7 @@
           <strong>not</strong> Infopark official, not any park authority, and not a recruitment agency.
           <strong>Enitexa</strong> is our freelance software service provider.
         </p>
-        <p class="privacy-updated">Last updated: 11 September 2026</p>
+        <p class="privacy-updated">Last updated: 14 September 2026</p>
         <div class="privacy-pill-row">
           <span>Not official Infopark</span>
           <span>Website + mobile app</span>
@@ -131,6 +131,7 @@
         <nav class="privacy-toc" aria-label="On this page">
           <a href="#scope">Scope</a>
           <a href="#mobile-app">Mobile app</a>
+          <a href="#community">InfoparkDaily community</a>
           <a href="#career-tools">Career Tools</a>
           <a href="#guest-login">Guest login</a>
           <a href="#job-data">Job data sources</a>
@@ -232,6 +233,15 @@
             if enabled, follow the same consent idea as this website where we can offer a choice.
           </li>
         </ul>
+      </section>
+
+      <section class="privacy-panel glass" id="community">
+        <h2>InfoparkDaily community accounts</h2>
+        <p>The InfoparkDaily jobs and worker section uses Firebase Authentication for sign-in and Firestore for account details, profiles, community job posts, applications, messages and reviews.</p>
+        <p>Your approved worker profile is public and may include your name, photo, title, skills, location, experience, availability and expected rate. Community job posts become public after review. Editing a profile or job post returns it to review.</p>
+        <p>Your account email, phone number and uploaded documents are accessible to you and authorised administrators. Documents are limited to three private slots, up to 700 KB each. If you choose to attach a resume to an application, a copy is shared with that employer and remains with the application if you later replace or remove the original file.</p>
+        <p>Community applications are visible to their worker, employer and authorised administrators. Private chat opens after hire approval; administrators can access conversations for support and moderation. Reviews following completed hires are public. Saved jobs and your personal record of applications to external employers are private to your account.</p>
+        <p>To request removal of your community profile, account information or shared documents, email <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a> from your registered email and identify any active hires. Firebase sign-in and account services are also subject to Google's applicable privacy terms.</p>
       </section>
 
       <section class="privacy-panel glass" id="career-tools">
@@ -646,7 +656,7 @@
 
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
-    <script src="/js/site.js?v=20260911a" defer></script>
+    <script src="/js/site.js?v=20260914a" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
   </body>
 </html>

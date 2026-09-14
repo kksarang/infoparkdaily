@@ -67,6 +67,158 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+    // InfoparkDaily marketplace: independent from private Career Tools resumes.
+    function marketMember() { return signedIn() && request.auth.token.email_verified == true; }
+    function marketAdmin() {
+      return marketMember()
+        && exists(/databases/$(database)/documents/marketAdmins/$(request.auth.token.email.lower()))
+        && get(/databases/$(database)/documents/marketAdmins/$(request.auth.token.email.lower())).data.active == true;
+    }
+    function shortText(value, maximum) { return value is string && value.size() <= maximum; }
+    function marketParty(data) { return marketMember() && (data.workerUid == request.auth.uid || data.employerUid == request.auth.uid); }
+    function marketApplication(id) { return get(/databases/$(database)/documents/marketApplications/$(id)).data; }
+    function chatOpen(data) { return data.status in ['approved', 'completion_requested', 'completed']; }
+    function validMarketFile(data) {
+      return data.keys().hasOnly(['name', 'type', 'size', 'data', 'updatedAt'])
+        && shortText(data.name, 150) && shortText(data.type, 120)
+        && data.size is int && data.size > 0 && data.size <= 700000
+        && data.data is bytes && data.data.size() == data.size
+        && data.updatedAt is timestamp;
+    }
+    match /marketAdmins/{email} {
+      allow get: if marketMember() && request.auth.token.email.lower() == email;
+      allow list, write: if false;
+    }
+    match /marketMembers/{uid} {
+      allow read: if isOwner(uid) || marketAdmin();
+      allow create, update: if verified(uid)
+        && request.resource.data.keys().hasOnly(['name','email','phone','company','role','createdAt','updatedAt','lastReadAt'])
+        && shortText(request.resource.data.name,100) && shortText(request.resource.data.company,120)
+        && shortText(request.resource.data.phone,30) && request.resource.data.email == request.auth.token.email
+        && request.resource.data.role in ['worker','employer']
+        && request.resource.data.createdAt is timestamp && request.resource.data.updatedAt is timestamp
+        && request.resource.data.lastReadAt is timestamp
+        && (resource == null || request.resource.data.createdAt == resource.data.createdAt);
+      match /documents/{slot} {
+        allow read: if verified(uid) || marketAdmin();
+        allow create, update: if verified(uid) && slot in ['resume','certificate','other']
+          && validMarketFile(request.resource.data) && request.resource.data.updatedAt == request.time;
+        allow delete: if verified(uid);
+      }
+      match /saved/{id} {
+        allow read, delete: if verified(uid);
+        allow create: if verified(uid) && request.resource.data.keys().hasOnly(['jobId','title','company','kind','createdAt','applied'])
+          && request.resource.data.jobId == id && shortText(request.resource.data.title,200)
+          && shortText(request.resource.data.company,150) && request.resource.data.kind in ['curated','community']
+          && request.resource.data.applied == false && request.resource.data.createdAt == request.time;
+        allow update: if verified(uid) && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['applied'])
+          && request.resource.data.applied is bool;
+      }
+    }
+    function validMarketProfile(data) {
+      return data.keys().hasOnly(['uid','name','title','sector','location','skills','about','experience','rate','basis','available','availableFrom','photo','status','createdAt','updatedAt'])
+        && shortText(data.name,100) && data.name.size()>0 && shortText(data.title,150) && data.title.size()>0
+        && shortText(data.sector,50) && shortText(data.location,150) && shortText(data.about,3000)
+        && shortText(data.experience,100) && data.skills is list && data.skills.size()<=20
+        && data.rate is number && data.rate>=0 && data.rate<=10000000
+        && data.basis in ['hour','day','week','month','year','project','contract']
+        && data.available is bool && shortText(data.availableFrom,10)
+        && shortText(data.photo,100000) && (data.photo=='' || data.photo.matches('data:image/(jpeg|png|webp);base64,.*'))
+        && data.createdAt is timestamp && data.updatedAt == request.time;
+    }
+    match /marketProfiles/{uid} {
+      allow read: if resource.data.status=='approved' || isOwner(uid) || marketAdmin();
+      allow create: if verified(uid) && request.resource.data.uid==uid && validMarketProfile(request.resource.data)
+        && request.resource.data.status=='pending' && request.resource.data.createdAt==request.time;
+      allow update: if verified(uid) && validMarketProfile(request.resource.data)
+        && request.resource.data.uid==resource.data.uid && request.resource.data.createdAt==resource.data.createdAt
+        && request.resource.data.status=='pending';
+      allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
+        && request.resource.data.status in ['approved','rejected','pending'] && request.resource.data.updatedAt==request.time;
+    }
+    function validMarketJob(data) {
+      return data.keys().hasOnly(['ownerUid','kind','title','company','sector','location','description','requirements','skills','experience','pay','basis','employmentType','workMode','vacancies','urgent','closingDate','status','createdAt','updatedAt'])
+        && data.kind=='community' && shortText(data.title,200) && data.title.size()>0
+        && shortText(data.company,150) && data.company.size()>0 && shortText(data.sector,50)
+        && shortText(data.location,150) && shortText(data.description,6000) && data.description.size()>=30
+        && data.requirements is list && data.requirements.size()<=20 && data.skills is list && data.skills.size()<=20
+        && shortText(data.experience,100) && data.pay is number && data.pay>=0 && data.pay<=10000000
+        && data.basis in ['hour','day','week','month','year','project','contract']
+        && shortText(data.employmentType,50) && shortText(data.workMode,50)
+        && data.vacancies is int && data.vacancies>=1 && data.vacancies<=10000 && data.urgent is bool
+        && shortText(data.closingDate,10) && data.createdAt is timestamp && data.updatedAt==request.time;
+    }
+    match /marketJobs/{id} {
+      allow read: if resource.data.status=='approved' || (marketMember() && request.auth.uid==resource.data.ownerUid) || marketAdmin();
+      allow create: if marketMember() && request.resource.data.ownerUid==request.auth.uid
+        && get(/databases/$(database)/documents/marketMembers/$(request.auth.uid)).data.role=='employer'
+        && validMarketJob(request.resource.data) && request.resource.data.status=='pending' && request.resource.data.createdAt==request.time;
+      allow update: if marketMember() && resource.data.ownerUid==request.auth.uid
+        && validMarketJob(request.resource.data) && request.resource.data.ownerUid==resource.data.ownerUid
+        && request.resource.data.createdAt==resource.data.createdAt && request.resource.data.status in ['pending','closed'];
+      allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
+        && request.resource.data.status in ['approved','rejected','pending','closed'] && request.resource.data.updatedAt==request.time;
+    }
+    function validMarketApplication(data,id) {
+      let job=get(/databases/$(database)/documents/marketJobs/$(data.jobId)).data;
+      let profile=get(/databases/$(database)/documents/marketProfiles/$(data.workerUid)).data;
+      return data.keys().hasOnly(['jobId','jobTitle','employerUid','workerUid','workerName','company','status','coverLetter','createdAt','updatedAt','initiatedBy'])
+        && id==data.jobId+'_'+data.workerUid && data.employerUid!=data.workerUid
+        && job.status=='approved' && data.employerUid==job.ownerUid && data.jobTitle==job.title && data.company==job.company
+        && profile.status=='approved' && data.workerName==profile.name && shortText(data.coverLetter,2500)
+        && data.createdAt==request.time && data.updatedAt==request.time;
+    }
+    match /marketApplications/{id} {
+      allow read: if marketParty(resource.data) || marketAdmin();
+      allow create: if marketMember() && validMarketApplication(request.resource.data,id)
+        && ((request.resource.data.workerUid==request.auth.uid && request.resource.data.status=='submitted' && request.resource.data.initiatedBy=='worker')
+        || (request.resource.data.employerUid==request.auth.uid && request.resource.data.status=='invited' && request.resource.data.initiatedBy=='employer'
+          && get(/databases/$(database)/documents/marketProfiles/$(request.resource.data.workerUid)).data.status=='approved'));
+      allow update: if marketParty(resource.data)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt']) && request.resource.data.updatedAt==request.time
+        && ((request.auth.uid==resource.data.workerUid &&
+          ((resource.data.status=='invited' && request.resource.data.status=='submitted')
+          || (resource.data.status in ['invited','submitted','shortlisted','hire_requested'] && request.resource.data.status=='withdrawn')
+          || (resource.data.status=='approved' && request.resource.data.status=='completion_requested')))
+        || (request.auth.uid==resource.data.employerUid &&
+          ((resource.data.status in ['submitted','shortlisted'] && request.resource.data.status in ['shortlisted','declined','hire_requested'])
+          || (resource.data.status in ['invited','hire_requested'] && request.resource.data.status=='declined')
+          || (resource.data.status in ['approved','completion_requested'] && request.resource.data.status=='completed'))));
+      allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
+        && request.resource.data.updatedAt==request.time
+        && ((resource.data.status=='hire_requested' && request.resource.data.status=='approved'
+          && get(/databases/$(database)/documents/marketProfiles/$(resource.data.workerUid)).data.status=='approved')
+        || request.resource.data.status=='declined');
+      match /messages/{messageId} {
+        allow read: if (marketParty(marketApplication(id)) && chatOpen(marketApplication(id))) || marketAdmin();
+        allow create: if marketParty(marketApplication(id)) && chatOpen(marketApplication(id))
+          && request.resource.data.keys().hasOnly(['senderUid','text','createdAt'])
+          && request.resource.data.senderUid==request.auth.uid && shortText(request.resource.data.text,3000)
+          && request.resource.data.text.size()>0 && request.resource.data.createdAt==request.time;
+      }
+      match /documents/{slot} {
+        allow read: if marketParty(marketApplication(id)) || marketAdmin();
+        allow create: if marketMember() && slot=='resume'
+          && getAfter(/databases/$(database)/documents/marketApplications/$(id)).data.workerUid==request.auth.uid
+          && getAfter(/databases/$(database)/documents/marketApplications/$(id)).data.status=='submitted'
+          && validMarketFile(request.resource.data);
+        allow delete: if marketMember() && marketApplication(id).workerUid==request.auth.uid;
+      }
+    }
+    match /marketReviews/{id} {
+      allow read: if true;
+      allow create: if marketMember() && request.resource.data.keys().hasOnly(['applicationId','authorUid','authorName','recipientUid','rating','text','createdAt'])
+        && id==request.resource.data.applicationId+'_'+request.auth.uid
+        && marketParty(marketApplication(request.resource.data.applicationId))
+        && marketApplication(request.resource.data.applicationId).status=='completed'
+        && request.resource.data.authorUid==request.auth.uid
+        && request.resource.data.recipientUid!=request.auth.uid
+        && request.resource.data.recipientUid in [marketApplication(request.resource.data.applicationId).workerUid,marketApplication(request.resource.data.applicationId).employerUid]
+        && shortText(request.resource.data.authorName,100) && shortText(request.resource.data.text,1000)
+        && request.resource.data.rating is int && request.resource.data.rating>=1 && request.resource.data.rating<=5
+        && request.resource.data.createdAt==request.time;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }

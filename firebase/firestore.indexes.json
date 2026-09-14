@@ -5,6 +5,16 @@
       "collectionGroup": "resumes",
       "fieldPath": "data",
       "indexes": []
+    },
+    {
+      "collectionGroup": "documents",
+      "fieldPath": "data",
+      "indexes": []
+    },
+    {
+      "collectionGroup": "marketProfiles",
+      "fieldPath": "photo",
+      "indexes": []
     }
   ]
 }

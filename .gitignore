@@ -6,3 +6,6 @@ node_modules/
 artifacts/resume-builder/
 __pycache__/
 *.pyc
+
+# Local Firebase emulator output
+*-debug.log

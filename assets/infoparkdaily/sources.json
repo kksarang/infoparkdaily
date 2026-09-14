@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Software and office professionals",
+    "path": "/assets/infoparkdaily/office.webp",
+    "dimensions": [
+      3000,
+      2000
+    ],
+    "author": "Fiqih Alfarish",
+    "source_page": "https://unsplash.com/photos/team-collaborating-on-laptops-in-modern-office-N3Bf0ArT5J0",
+    "alt": "Four office colleagues collaborate around two laptops beside tall windows.",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "reuse": "Source page marks photo free under Unsplash License. Commercial and non-commercial download, copy, modification and use allowed; attribution appreciated but not required. Cannot sell unmodified images or compile a competing image service."
+  },
+  {
+    "category": "Skilled trades",
+    "path": "/assets/infoparkdaily/trades.webp",
+    "dimensions": [
+      3000,
+      2003
+    ],
+    "author": "Saad Ahmad",
+    "source_page": "https://unsplash.com/photos/a-carpenter-is-using-a-saw-to-cut-wood-tvoxfUSV_fg",
+    "alt": "A carpenter in Pune guides a piece of wood at a workshop saw.",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "reuse": "Source page marks photo free under Unsplash License. Commercial and non-commercial download, copy, modification and use allowed; attribution appreciated but not required. Cannot sell unmodified images or compile a competing image service."
+  },
+  {
+    "category": "Hospitality and service",
+    "path": "/assets/infoparkdaily/hospitality.webp",
+    "dimensions": [
+      3000,
+      1989
+    ],
+    "author": "JC Gellidon",
+    "source_page": "https://unsplash.com/photos/a-group-of-chefs-preparing-food-in-a-kitchen-80GJUuOhXgA",
+    "alt": "Chefs in white uniforms prepare food in a restaurant kitchen.",
+    "license": "Unsplash License",
+    "license_url": "https://unsplash.com/license",
+    "reuse": "Source page marks photo free under Unsplash License. Commercial and non-commercial download, copy, modification and use allowed; attribution appreciated but not required. Cannot sell unmodified images or compile a competing image service."
+  }
+]

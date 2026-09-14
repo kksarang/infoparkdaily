@@ -16030,3 +16030,9 @@ main img:not(.brand-logo):not([width]) {
 
 
 
+
+/* About menu: keep the existing media page and the separate community section. */
+.nav-about{position:relative;flex-shrink:0}.nav-about summary{display:flex;align-items:center;gap:7px;cursor:pointer;list-style:none;min-height:34px;padding:0 .72rem;border:1px solid transparent;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.08em;line-height:1;text-transform:uppercase;color:var(--muted);white-space:nowrap}.nav-about summary::-webkit-details-marker{display:none}.nav-about summary:hover,.nav-about[open] summary{background:var(--surface-2);color:var(--text)}.nav-about summary:focus-visible{outline:2px solid #60a5fa;outline-offset:3px}.nav-about-links{position:absolute;top:calc(100% + 12px);right:0;min-width:250px;padding:8px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:15px;box-shadow:0 16px 40px #0003;z-index:90}.site-nav .nav-about-links a{display:flex;align-items:flex-start;flex-direction:column;justify-content:center;gap:7px;min-height:48px;width:100%;padding:13px 14px;letter-spacing:0;text-transform:none;font-size:.875rem;line-height:1.4;border-radius:8px;white-space:normal}.nav-about-links a span{font-size:.75rem;font-weight:400;color:var(--muted)}
+@media(max-width:1099px){.nav-about{width:100%}.nav-about summary{min-height:48px;padding:12px 14px;font-size:.9rem;border-radius:10px}.nav-about-links{position:static;min-width:0;box-shadow:none;margin:5px 10px 10px}.site-nav .nav-about-links a{min-height:48px}}
+
+html.theme-dark .nav-about-links,body.dark .nav-about-links{background:#111722}html.theme-light .nav-about-links,body.light .nav-about-links{background:white}

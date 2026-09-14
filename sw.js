@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v368-contact-terms-59k";
+const CACHE_NAME = "infoparkdaily-v369-community";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -37,7 +37,7 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20260910a",
+  "./css/styles.css?v=20260914a",
   "./css/sarang.css?v=20260905p",
   "./js/sarang.js?v=20260905g",
   "./css/onam.css?v=20260904v",
@@ -52,7 +52,7 @@ const PRELOAD_ASSETS = [
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
-  "./js/site.js?v=20260911a",
+  "./js/site.js?v=20260914a",
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
@@ -138,6 +138,8 @@ self.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
   if (requestUrl.origin !== self.location.origin ||
       requestUrl.pathname.startsWith("/v1/") ||
+      requestUrl.pathname.startsWith("/infoparkdaily/") ||
+      requestUrl.pathname.startsWith("/js/infoparkdaily/") ||
       requestUrl.pathname.startsWith("/resume-builder/") ||
       requestUrl.pathname.startsWith("/js/resume-builder/") ||
       requestUrl.pathname.startsWith("/ats-checker") ||
