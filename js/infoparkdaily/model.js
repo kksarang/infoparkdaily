@@ -214,7 +214,7 @@ export function csv(rows) {
           (v) =>
             '"' +
             String(v ?? "")
-              .replace(/^[=+@-]/, "'$&")
+              .replace(/^\s*[=+@-]/, "'$&")
               .replace(/"/g, '""') +
             '"',
         )
