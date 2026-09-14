@@ -2942,14 +2942,7 @@ body {
 .hero h1 em {
   font-style: normal;
   color: var(--ink);
-  background: linear-gradient(
-    transparent 72%,
-    color-mix(in srgb, var(--brand) 88%, white) 72%,
-    color-mix(in srgb, var(--brand) 88%, white) 92%,
-    transparent 92%
-  );
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  background: none;
 }
 .hero-tag {
   display: inline-flex;
