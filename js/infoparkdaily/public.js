@@ -31,16 +31,16 @@ import {
 } from "./ui.js";
 export function home(state) {
   const jobs = state.jobs.slice(0, 8);
-  return `<section class="hero"><div class="container hero-grid"><div class="hero-copy"><div class="hero-tag">${icon("briefcase")} KERALA’S PEOPLE & OPPORTUNITIES</div><h1>Good work.<br>Great people.<br><em>Your next chapter.</em></h1><p>Find work that fits your skills. Meet people who can move your business forward. A fresh start begins with the right connection.</p><div class="row">${link("Find a job " + icon("right"), "jobs")}${link("Hire a professional", "workers", "btn secondary")}</div><div class="hero-foot"><span>${icon("check")} Free to get started</span><span>${icon("shield")} Reviewed community posts</span></div></div><div class="hero-jobs"><div class="hero-board-label"><span>YOUR NEXT OPPORTUNITY</span><span>Fresh from the job board</span></div>${jobs
+  return `<section class="hero"><div class="hero-atmosphere" aria-hidden="true"><span class="hero-orb hero-orb-a"></span><span class="hero-orb hero-orb-b"></span><span class="hero-grid-lines"></span></div><div class="container hero-grid"><div class="hero-copy"><p class="hero-wordmark">InfoparkDaily</p><div class="hero-tag">${icon("briefcase")} Kerala’s people &amp; opportunities</div><h1>Good work.<br>Great people.<br><em>Your next chapter.</em></h1><p class="hero-lede">Find work that fits your skills. Meet people who can move your business forward.</p><div class="row hero-actions">${link("Find a job " + icon("right"), "jobs")}${link("Hire a professional", "workers", "btn secondary")}</div><div class="hero-foot"><span>${icon("check")} Free to get started</span><span>${icon("shield")} Reviewed community posts</span></div></div><aside class="hero-jobs" aria-label="Fresh openings"><div class="hero-board-label"><span>Live board</span><span>Fresh from the job board</span></div>${jobs
     .filter((j, i, a) => a.findIndex((k) => k.company === j.company) === i)
     .slice(0, 3)
     .map(
       (j, i) =>
-        `<a class="hero-job" href="${href("jobs", "?id=" + encodeURIComponent(j.id))}">${mark(j.company, i)}<div><h3>${esc(j.title)}</h3><p>${esc(j.company)} · ${esc(j.location)}</p><span class="tag ${i === 1 ? "neutral" : ""}">${esc(j.sector)}</span></div></a>`,
+        `<a class="hero-job" style="--i:${i}" href="${href("jobs", "?id=" + encodeURIComponent(j.id))}">${mark(j.company, i)}<div><h3>${esc(j.title)}</h3><p>${esc(j.company)} · ${esc(j.location)}</p><span class="tag ${i === 1 ? "neutral" : ""}">${esc(j.sector)}</span></div></a>`,
     )
     .join(
       "",
-    )}<div class="hero-count">${icon("briefcase")} <span><strong data-job-count>${state.jobs.length}</strong> opportunities to explore</span></div></div></div></section><nav class="category-ribbon" aria-label="Browse jobs by category"><div class="container"><span class="ribbon-label">Find your field</span><div class="ribbon-links">${SECTORS.map((sector) => `<a href="${href("jobs", "?sector=" + encodeURIComponent(sector))}">${esc(sector)}</a>`).join("")}</div></div></nav><section class="promos"><div class="container"><div class="section-head"><div><p class="eyebrow">A LITTLE HELP ALONG THE WAY</p><h2>Make your next move count.</h2></div><div class="row"><button class="icon-btn" data-promos="-1" aria-label="Previous resources">${icon("right", "flip")}</button><button class="icon-btn" data-promos="1" aria-label="Next resources">${icon("right")}</button></div></div><div class="promo-grid" id="promo-grid">${promos()}</div></div></section><div class="container"><div class="stats-bar"><div class="stat"><strong data-job-count>${state.jobs.length}</strong><span>Open job listings</span></div><div class="stat"><strong data-company-count>${new Set(state.jobs.map((j) => j.company)).size}</strong><span>Companies with openings</span></div><div class="stat"><strong>${SECTORS.length}</strong><span>Work categories</span></div><div class="stat"><strong>Free</strong><span>To create your account</span></div></div></div><section class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">FIND YOUR NEXT OPPORTUNITY</p><h2>Good work starts here.</h2><p>Fresh openings, across skills and experience levels.</p></div>${link("View all jobs " + icon("right"), "jobs", "text-link")}</div><div class="pills" id="home-job-filters" aria-label="Filter featured jobs">${["All", "Technology", "Sales & Marketing", "Office & Admin", "Design & Creative", "Finance"].map((s, i) => `<button class="pill ${i === 0 ? "active" : ""}" data-home-sector="${i ? esc(s) : ""}" aria-pressed="${i === 0}">${esc(s)}</button>`).join("")}</div><div class="grid four home-jobs" id="home-job-grid">${jobs.map((j, i) => jobCard(j, i, state.savedIds.has(j.id))).join("")}</div></div></section><section class="section soft"><div class="container"><div class="section-head"><div><p class="eyebrow">THE RIGHT SKILLS. THE RIGHT PEOPLE.</p><h2>Find the people behind great work.</h2><p>From your first hire to your next specialist.</p></div>${link("Find workers " + icon("right"), "workers", "text-link")}</div><div class="category-cards">${[
+    )}<div class="hero-count">${icon("briefcase")} <span><strong data-job-count>${state.jobs.length}</strong> opportunities to explore</span></div></aside></div></section><nav class="category-ribbon" aria-label="Browse jobs by category"><div class="container"><span class="ribbon-label">Find your field</span><div class="ribbon-links">${SECTORS.map((sector) => `<a href="${href("jobs", "?sector=" + encodeURIComponent(sector))}">${esc(sector)}</a>`).join("")}</div></div></nav><section class="promos reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">A little help along the way</p><h2>Make your next move count.</h2></div><div class="row"><button class="icon-btn" data-promos="-1" aria-label="Previous resources">${icon("right", "flip")}</button><button class="icon-btn" data-promos="1" aria-label="Next resources">${icon("right")}</button></div></div><div class="promo-grid" id="promo-grid">${promos()}</div></div></section><div class="container"><div class="stats-bar reveal-section"><div class="stat"><strong data-job-count>${state.jobs.length}</strong><span>Open job listings</span></div><div class="stat"><strong data-company-count>${new Set(state.jobs.map((j) => j.company)).size}</strong><span>Companies with openings</span></div><div class="stat"><strong>${SECTORS.length}</strong><span>Work categories</span></div><div class="stat"><strong>Free</strong><span>To create your account</span></div></div></div><section class="section reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Find your next opportunity</p><h2>Good work starts here.</h2><p>Fresh openings, across skills and experience levels.</p></div>${link("View all jobs " + icon("right"), "jobs", "text-link")}</div><div class="pills" id="home-job-filters" aria-label="Filter featured jobs">${["All", "Technology", "Sales & Marketing", "Office & Admin", "Design & Creative", "Finance"].map((s, i) => `<button class="pill ${i === 0 ? "active" : ""}" data-home-sector="${i ? esc(s) : ""}" aria-pressed="${i === 0}">${esc(s)}</button>`).join("")}</div><div class="grid four home-jobs" id="home-job-grid">${jobs.map((j, i) => jobCard(j, i, state.savedIds.has(j.id))).join("")}</div></div></section><section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">The right skills. The right people.</p><h2>Find the people behind great work.</h2><p>From your first hire to your next specialist.</p></div>${link("Find workers " + icon("right"), "workers", "text-link")}</div><div class="category-cards">${[
     [
       "office",
       "Technology",
@@ -66,7 +66,7 @@ export function home(state) {
     )
     .join(
       "",
-    )}</div><div id="home-worker-grid">${workersHome(state.workers)}</div></div></section>${discovery(state.jobs)}${howItWorks()}<section class="section soft"><div class="container"><div class="section-head"><div><p class="eyebrow">BUILT AROUND THE CONNECTION</p><h2>A clearer way to find each other.</h2></div></div><div class="grid two" style="gap:38px">${[
+    )}</div><div id="home-worker-grid">${workersHome(state.workers)}</div></div></section>${discovery(state.jobs)}${howItWorks()}<section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Built around the connection</p><h2>A clearer way to find each other.</h2></div></div><div class="grid two feature-grid">${[
     [
       "shield",
       "A considered first introduction",
@@ -94,7 +94,7 @@ export function home(state) {
     )
     .join(
       "",
-    )}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>Something good could start today.</h2><p>Bring your skills. Bring your ambition. We’ll help you find the next connection.</p></div>${link("Let’s get started " + icon("right"), "register")}</div></div></section>`;
+    )}</div></div></section><section class="section reveal-section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start today</p><h2>Something good could start today.</h2><p>Bring your skills. Bring your ambition. We’ll help you find the next connection.</p></div>${link("Let’s get started " + icon("right"), "register")}</div></div></section>`;
 }
 const promoItems = [
   [
@@ -150,7 +150,7 @@ export const workersHome = (workers) =>
         "users",
       );
 export function howItWorks() {
-  return `<section class="section" id="how-it-works"><div class="container"><div class="section-head"><div><p class="eyebrow">FROM HELLO TO HIRED</p><h2>Your next chapter, in three steps.</h2></div></div><div class="grid three">${[
+  return `<section class="section reveal-section" id="how-it-works"><div class="container"><div class="section-head"><div><p class="eyebrow">From hello to hired</p><h2>Your next chapter, in three steps.</h2></div></div><div class="grid three steps-grid">${[
     [
       "01",
       "Tell us what you bring",
@@ -362,7 +362,7 @@ export function discovery(jobs) {
       /remote|work from home/i.test(j.workMode + " " + j.location),
     ).length,
     closing = jobs.filter((j) => j.urgent).length;
-  return `<section class="section discovery-section"><div class="container"><div class="section-head"><div><p class="eyebrow">A FEW WAYS TO FIND YOUR FIT</p><h2>A role for the chapter you’re in.</h2></div></div><div class="grid three discovery-grid">${[
+  return `<section class="section discovery-section reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">A few ways to find your fit</p><h2>A role for the chapter you’re in.</h2></div></div><div class="grid three discovery-grid">${[
     [
       "01",
       "A fresh beginning",
