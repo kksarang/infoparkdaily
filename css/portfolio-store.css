@@ -377,13 +377,22 @@ summary::-webkit-details-marker{display:none}
 .pricing-band .eyebrow{color:#a4a8ba}
 .pricing-band .section-heading>p{color:#a4a8ba}
 .pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem}
+.pricing-grid-plans{grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
 .pricing-grid article{
   border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:1.75rem;
-  background:rgba(255,255,255,.04);
+  background:rgba(255,255,255,.04);display:flex;flex-direction:column;
 }
-.pricing-grid article:last-child{
+.pricing-grid article.is-featured{
   background:rgba(255,193,7,.08);border-color:rgba(255,193,7,.35);
 }
+.pricing-grid article .button,.pricing-grid article .button.secondary{margin-top:auto}
+.pricing-grid .button.secondary{
+  background:transparent;color:#f5f6fa;border-color:rgba(255,255,255,.25);
+}
+.pricing-grid .button.secondary:hover{background:rgba(255,255,255,.08);color:#fff}
+.plan-examples{margin-top:.85rem;padding-top:.85rem;border-top:1px solid rgba(255,255,255,.12)}
+.plan-examples-label{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#a4a8ba;margin:0 0 .45rem}
+.plan-examples ul{padding-left:1rem;margin:0;color:#9aa0b4;font-size:.74rem;line-height:1.55}
 .pricing-grid h3{font-size:clamp(2rem,4vw,2.85rem);margin:.85rem 0}
 .pricing-grid article>p:not(.eyebrow){color:#a4a8ba;font-size:.9rem}
 .pricing-grid ul{padding-left:1.1rem;color:#c8ccd8;font-size:.86rem;line-height:1.85;margin:1.1rem 0}
@@ -528,7 +537,16 @@ dialog legend{font-size:.75rem;font-weight:700;margin-bottom:.65rem;letter-spaci
 .package-option>span{flex:1;min-width:0}
 .package-option strong{font-size:.86rem}
 .package-option small{display:block;font-size:.72rem;color:var(--muted);margin-top:.25rem}
-dialog label:not(.package-option){display:block;margin-top:.9rem;font-size:.78rem}
+#extra-page-fieldset{border:0;padding:0;margin:1rem 0 0}
+#extra-page-fieldset legend{font-size:.75rem;font-weight:700;margin-bottom:.45rem;letter-spacing:.04em;text-transform:uppercase}
+.fieldset-note{font-size:.72rem;color:var(--muted);line-height:1.5;margin:0 0 .65rem}
+.extra-page-option{display:flex!important;align-items:center;gap:.55rem;font-size:.78rem;margin:.35rem 0}
+.extra-page-option input{width:1rem;height:1rem;accent-color:#c9a000}
+dialog label:not(.package-option):not(.extra-page-option){display:block;margin-top:.9rem;font-size:.78rem}
+dialog textarea{
+  display:block;width:100%;border:1px solid var(--line);border-radius:.45rem;
+  padding:.7rem;margin-top:.4rem;background:var(--white);font-size:.92rem;resize:vertical;
+}
 dialog label>input:not([type=checkbox]):not([type=radio]){
   display:block;width:100%;border:1px solid var(--line);border-radius:.45rem;
   padding:.7rem;margin-top:.4rem;background:var(--white);font-size:.92rem;

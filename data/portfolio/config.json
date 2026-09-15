@@ -1,26 +1,123 @@
 {
   "whatsapp": "919995254290",
   "site": "https://infoparkdaily.online",
+  "enitexaContact": "https://infoparkdaily.online/software-solutions/#contact",
   "packages": [
     {
       "id": "website",
       "name": "Portfolio Website",
-      "price": 2999,
-      "description": "Personalised website without a new custom domain."
+      "price": 999,
+      "description": "One-page portfolio personalised from any listed template.",
+      "cta": "whatsapp",
+      "includesDomain": false,
+      "features": [
+        "One-page portfolio from any of our 30 templates",
+        "Responsive desktop, tablet & mobile layouts",
+        "About, skills, projects, experience & contact sections",
+        "Resume download and approved LinkedIn / GitHub links",
+        "Basic SEO and social sharing preview",
+        "Hosted subdomain or connect a domain you already own"
+      ],
+      "examples": [
+        "Developer Pro for a software engineer in Kochi",
+        "Fresh Start for a CS graduate with internship projects",
+        "Independent Pro for a freelance designer’s service page"
+      ]
     },
     {
       "id": "domain",
       "name": "Portfolio + Domain",
-      "price": 3999,
-      "description": "Personalised website with an eligible domain for the first year."
+      "price": 1999,
+      "description": "Portfolio website plus an eligible custom domain for the first year.",
+      "cta": "whatsapp",
+      "includesDomain": true,
+      "features": [
+        "Everything in Portfolio Website",
+        "One eligible standard-price domain for the first year",
+        "DNS setup and HTTPS on your chosen name",
+        "Professional link to share on resumes and LinkedIn",
+        "Domain renewal estimate confirmed before you pay"
+      ],
+      "examples": [
+        "yourname.com for a product designer portfolio",
+        "arun.dev for a full-stack developer showcase",
+        "studio-name.in for a creative freelancer"
+      ]
+    },
+    {
+      "id": "shop",
+      "name": "Shop Portfolio + Domain",
+      "price": 3499,
+      "description": "Portfolio with a simple product or catalogue section, plus domain.",
+      "cta": "whatsapp",
+      "includesDomain": true,
+      "features": [
+        "Everything in Portfolio + Domain",
+        "Product or service catalogue section on your site",
+        "WhatsApp / enquiry links for orders (no payment gateway)",
+        "Gallery-style shop layout within your chosen template",
+        "Ideal for home bakers, boutiques, makers & side hustles"
+      ],
+      "examples": [
+        "Handmade jewellery catalogue with WhatsApp order links",
+        "Home bakery menu with flavours, prices & enquiry button",
+        "Freelance design packages listed as shoppable services"
+      ]
+    },
+    {
+      "id": "pages",
+      "name": "Portfolio + Extra Pages + Domain",
+      "price": 4999,
+      "description": "Multi-page site with separate About, Services & Contact pages, plus domain.",
+      "cta": "whatsapp",
+      "includesDomain": true,
+      "extraPages": true,
+      "features": [
+        "Everything in Portfolio + Domain",
+        "Separate About, Services & Contact pages",
+        "Dedicated navigation — not one long scrolling page",
+        "Room for team bios, service lists & enquiry forms",
+        "Best for consultants, agencies & growing freelancers"
+      ],
+      "examples": [
+        "About + Services + Contact for a strategy consultant",
+        "Studio site with team page, work & a contact form",
+        "Agency site with service tiers and case-study pages"
+      ]
+    },
+    {
+      "id": "business",
+      "name": "Business Website + Domain + Mail",
+      "price": null,
+      "priceLabel": "Custom quote",
+      "description": "Full business website with domain, hosting and professional email — via Enitexa.ai.",
+      "cta": "enitexa",
+      "includesDomain": true,
+      "features": [
+        "Multi-page business website (beyond template personalisation)",
+        "Domain registration, DNS & hosting setup",
+        "Business email configuration (e.g. hello@yourcompany.com)",
+        "Custom integrations, ERP/CRM and ongoing support",
+        "Scoped and quoted by the Enitexa.ai team"
+      ],
+      "examples": [
+        "Company site with About, Services, Team & Contact",
+        "SaaS landing pages with docs and support mailboxes",
+        "Retail or clinic site with booking and staff email"
+      ]
     }
   ],
+  "extraPageOptions": [
+    { "id": "about", "label": "Separate About page" },
+    { "id": "services", "label": "Services / offerings page" },
+    { "id": "contact", "label": "Dedicated Contact page" },
+    { "id": "shop", "label": "Shop / product catalogue section" }
+  ],
   "scope": [
-    "Personalised one-page website using any listed template",
+    "Personalised website using any listed portfolio template",
     "Responsive desktop, tablet, and mobile layouts",
-    "About, skills, education, experience, and relevant optional sections",
-    "Up to 6 project entries — proposed scope, confirmed in your quote",
-    "Resume download and approved public contact/social links",
+    "Your approved content, images, and public contact links",
+    "Up to 6 project entries — scope confirmed in your quote",
     "Basic page SEO and social sharing preview"
   ],
   "policy": "Domain eligibility, registration-cost cap, hosting period and charges, renewal estimates, taxes, revisions, delivery, support, and cancellation terms are confirmed in a written quote before payment. No domain is reserved by this enquiry.",

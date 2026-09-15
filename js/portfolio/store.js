@@ -76,10 +76,74 @@ $$('[data-back-gallery]').forEach(a=>{const state=safeRead(stateKey,{});const pa
 
 /* --- Order / enquire dialog --------------------------------------------- */
 const dialog=$('#order-dialog'),form=$('#order-form');let selected=null,lastFocus=null;
-function domainVisibility(){if(!form)return;const domain=form.elements.package.value==='domain';if(domain){form.elements.existing.checked=false;}form.elements.existing.disabled=domain;$('#domain-field').hidden=!domain&&!form.elements.existing.checked;}
+function selectedPackage(){
+  if(!form)return null;
+  return config.packages.find(p=>p.id===form.elements.package.value)||null;
+}
+function packagePriceLabel(p){
+  if(!p)return '';
+  return p.priceLabel||(p.price!=null?`₹${p.price.toLocaleString('en-IN')}`:'Custom quote');
+}
+function selectedExtraPages(){
+  if(!form)return [];
+  return [...form.querySelectorAll('input[name="extra"]:checked')].map(el=>{
+    const opt=config.extraPageOptions?.find(o=>o.id===el.value);
+    return opt?.label||el.value;
+  });
+}
+function syncOrderForm(){
+  if(!form)return;
+  const pack=selectedPackage();
+  const submit=$('#order-submit');
+  const note=$('#order-submit-note');
+  const includesDomain=pack?.includesDomain;
+  if(includesDomain&&form.elements.existing){
+    form.elements.existing.checked=false;
+    form.elements.existing.disabled=true;
+  }else if(form.elements.existing){
+    form.elements.existing.disabled=false;
+  }
+  const showDomain=includesDomain||form.elements.existing?.checked;
+  const domainField=$('#domain-field');
+  if(domainField)domainField.hidden=!showDomain;
+  if(submit&&pack){
+    if(pack.cta==='enitexa'){
+      submit.textContent='Contact Enitexa.ai ↗';
+      submit.type='button';
+      submit.dataset.action='enitexa';
+    }else{
+      submit.textContent=`Continue on WhatsApp — ${pack.name} ↗`;
+      submit.type='submit';
+      delete submit.dataset.action;
+    }
+  }
+  if(note){
+    note.textContent=pack?.cta==='enitexa'
+      ? 'This plan is scoped and quoted by Enitexa.ai — domain, hosting, business email and custom integrations.'
+      : 'WhatsApp opens with your chosen subscription pre-filled. You send the message yourself. No payment is taken here.';
+  }
+}
 function openOrder(slug,pack){
   if(!dialog||!form)return;
-  selected=templates.find(t=>t.slug===slug)||null;lastFocus=document.activeElement;form.reset();if(pack&&config.packages.some(p=>p.id===pack))form.elements.package.value=pack;const target=$('#selected-template');target.replaceChildren();if(selected){const img=new Image();img.src=selected.thumbnail;img.alt=selected.name+' demo';const span=document.createElement('span');span.textContent=`${selected.name} · ${selected.id} · v${selected.version}`;target.append(img,span);}else{target.textContent='Need a hand choosing? We can help you find your design.';}domainVisibility();dialog.showModal();track('package_selected',{template_id:selected?.id,package:form.elements.package.value});
+  selected=templates.find(t=>t.slug===slug)||null;
+  lastFocus=document.activeElement;
+  form.reset();
+  if(pack&&config.packages.some(p=>p.id===pack))form.elements.package.value=pack;
+  const target=$('#selected-template');
+  target.replaceChildren();
+  if(selected){
+    const img=new Image();
+    img.src=selected.thumbnail;
+    img.alt=selected.name+' demo';
+    const span=document.createElement('span');
+    span.textContent=`${selected.name} · ${selected.id} · v${selected.version}`;
+    target.append(img,span);
+  }else{
+    target.textContent='Need a hand choosing? We can help you find your design.';
+  }
+  syncOrderForm();
+  dialog.showModal();
+  track('package_selected',{template_id:selected?.id,package:form.elements.package.value});
 }
 document.addEventListener('click',(ev)=>{
   const order=ev.target.closest('[data-order]');
@@ -87,10 +151,62 @@ document.addEventListener('click',(ev)=>{
   const enquire=ev.target.closest('[data-general-enquiry]');
   if(enquire){
     track('whatsapp_clicked');
-    window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent('Hi InfoparkDaily! I’m interested in a portfolio website. Please help me choose a suitable template and explain the ₹2,999 and ₹3,999 packages, including scope, domain eligibility, hosting, renewals, taxes, and delivery.')}`,'_blank','noopener,noreferrer');
+    const plans=config.packages.filter(p=>p.cta!=='enitexa').map(p=>`${p.name} (${packagePriceLabel(p)})`).join(', ');
+    window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(`Hi InfoparkDaily! I’m interested in a portfolio website.\n\nPlease help me choose a plan. Current options: ${plans}.\n\nI’d like to understand scope, domain eligibility, extra pages, shop sections, hosting, renewals, taxes, and delivery.`)}`,'_blank','noopener,noreferrer');
+  }
+  const enitexaBtn=ev.target.closest('#order-submit[data-action="enitexa"]');
+  if(enitexaBtn){
+    ev.preventDefault();
+    const pack=selectedPackage();
+    track('enitexa_clicked',{package:pack?.id});
+    window.open(config.enitexaContact||'/software-solutions/#contact','_blank','noopener,noreferrer');
   }
 });
-if(dialog){$('.close-dialog',dialog).addEventListener('click',()=>dialog.close());dialog.addEventListener('click',ev=>{if(ev.target===dialog){const r=dialog.getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)dialog.close();}});dialog.addEventListener('close',()=>lastFocus?.focus());form.addEventListener('change',ev=>{if(ev.target.name==='package'){domainVisibility();track('package_selected',{template_id:selected?.id,package:form.elements.package.value});}if(ev.target.name==='existing')domainVisibility();});form.addEventListener('submit',ev=>{ev.preventDefault();const pack=config.packages.find(p=>p.id===form.elements.package.value);const name=form.elements.name.value.trim();const domain=form.elements.domain.value.trim();const rows=['Hi InfoparkDaily! I’d like to enquire about a portfolio website.','',selected?`Template: ${selected.name}`:'Template: Please help me choose',selected?`Template ID: ${selected.id}`:'',selected?`Template version: ${selected.version}`:'',`Package: ${pack.name}`,`Listed price: ₹${pack.price.toLocaleString('en-IN')}`,!$('#domain-field').hidden&&domain?`${form.elements.existing.checked?'Existing':'Preferred'} domain: ${domain}`:'',name?`Name: ${name}`:'',selected?`Preview: ${config.site}${selected.previewPath}`:'','Please confirm domain eligibility and availability, package inclusions, hosting and renewal charges, taxes, revisions, payment details, cancellation terms, and delivery timeline.'];const url=`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(rows.filter(Boolean).join('\n'))}`;track('whatsapp_clicked',{template_id:selected?.id,package:pack.id});window.open(url,'_blank','noopener,noreferrer');});}
+if(dialog){
+  $('.close-dialog',dialog).addEventListener('click',()=>dialog.close());
+  dialog.addEventListener('click',ev=>{if(ev.target===dialog){const r=dialog.getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)dialog.close();}});
+  dialog.addEventListener('close',()=>lastFocus?.focus());
+  form.addEventListener('change',ev=>{
+    if(['package','existing'].includes(ev.target.name)||ev.target.name==='extra'){
+      syncOrderForm();
+      if(ev.target.name==='package')track('package_selected',{template_id:selected?.id,package:form.elements.package.value});
+    }
+  });
+  form.addEventListener('submit',ev=>{
+    ev.preventDefault();
+    const pack=selectedPackage();
+    if(!pack)return;
+    if(pack.cta==='enitexa'){
+      window.open(config.enitexaContact||'/software-solutions/#contact','_blank','noopener,noreferrer');
+      track('enitexa_clicked',{package:pack.id});
+      return;
+    }
+    const name=form.elements.name.value.trim();
+    const domain=form.elements.domain.value.trim();
+    const notes=form.elements.notes?.value.trim()||'';
+    const extras=selectedExtraPages();
+    const rows=[
+      'Hi InfoparkDaily! I’d like to enquire about a portfolio website.',
+      '',
+      `Selected subscription: ${pack.name}`,
+      `Plan ID: ${pack.id}`,
+      `Listed price: ${packagePriceLabel(pack)}`,
+      selected?`Template: ${selected.name}`:'Template: Please help me choose',
+      selected?`Template ID: ${selected.id}`:'',
+      selected?`Template version: ${selected.version}`:'',
+      extras.length?`Extra pages requested: ${extras.join(', ')}`:'',
+      !$('#domain-field').hidden&&domain?`${form.elements.existing.checked?'Existing':'Preferred'} domain: ${domain}`:'',
+      name?`Name: ${name}`:'',
+      notes?`Notes: ${notes}`:'',
+      selected?`Preview: ${config.site}${selected.previewPath}`:'',
+      '',
+      'Please confirm domain eligibility, package inclusions, hosting and renewal charges, taxes, revisions, payment details, cancellation terms, and delivery timeline.',
+    ];
+    const url=`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(rows.filter(Boolean).join('\n'))}`;
+    track('whatsapp_clicked',{template_id:selected?.id,package:pack.id});
+    window.open(url,'_blank','noopener,noreferrer');
+  });
+}
 
 /* --- Preview shell chrome ----------------------------------------------- */
 $$('[data-device]').forEach(button=>button.addEventListener('click',()=>{const device=button.dataset.device;$('#preview-site').style.width=device==='desktop'?'100%':device==='tablet'?'768px':'390px';$$('[data-device]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));track('preview_device_selected',{device});}));
