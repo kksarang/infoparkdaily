@@ -149,7 +149,7 @@ function accountNav() {
         ? `<a class="button small secondary" href="${base}my-resumes/">My resumes</a>`
         : `<a class="button small secondary" href="${base}sign-in/">Sign in</a>`;
   }
-  document.querySelectorAll(".topbar nav a").forEach((a) => {
+  document.querySelectorAll(".career-tools-nav a, .topbar nav[aria-label='Career Tools'] a").forEach((a) => {
     const href = a.getAttribute("href") || "";
     const path = location.pathname;
     let on = false;
