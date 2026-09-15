@@ -21,7 +21,7 @@ const isLocal = detectLocal();
 /** @type {Readonly<Record<string, unknown>>} */
 export const config = Object.freeze({
   gtmId: "",
-  gaMeasurementId: "G-PWD80WZ7Q2",
+  gaMeasurementId: "G-747MYSVW6K",
   clarityId: "xtwgj04rm6",
   /**
    * Google AdSense publisher client (ca-pub-…)

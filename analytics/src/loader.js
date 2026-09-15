@@ -30,14 +30,6 @@ export function pushDataLayer(payload) {
   log("dataLayer", payload);
 }
 
-function ensureGtag() {
-  if (typeof globalThis.gtag === "function") return;
-  globalThis.dataLayer = ensureDataLayer();
-  globalThis.gtag = function gtag() {
-    globalThis.dataLayer.push(arguments);
-  };
-}
-
 export function loadGtm() {
   const id = config.gtmId;
   if (!id || globalThis.__IPD_GTM_LOADED__) return;
@@ -55,21 +47,11 @@ export function loadGtm() {
   log("GTM loading", id);
 }
 
-/** Advanced Consent Mode: may load with denied analytics_storage. */
-export function loadGaDirect() {
-  const id = config.gaMeasurementId;
-  if (!id || globalThis.__IPD_GA_DIRECT__) return;
-  if (!remoteAllowed()) return;
-  if (config.gtmId) return;
-  globalThis.__IPD_GA_DIRECT__ = true;
-  ensureGtag();
-  const s = document.createElement("script");
-  s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
-  document.head.appendChild(s);
-  globalThis.gtag("js", new Date());
-  globalThis.gtag("config", id, { send_page_view: false });
-  log("GA4 loading", id);
+let firebaseBridgePromise;
+function firebaseBridge() {
+  if (!firebaseBridgePromise)
+    firebaseBridgePromise = import("/analytics/firebase-bridge.bundle.js?v=20260915a");
+  return firebaseBridgePromise;
 }
 
 export function loadClarity() {
@@ -127,17 +109,27 @@ export function loadAdSense() {
 export function sendToGa(name, params) {
   if (!remoteAllowed() || !hasAnalyticsConsent()) return;
   if (config.gtmId) return; // GTM owns delivery
-  if (!config.gaMeasurementId || typeof globalThis.gtag !== "function") return;
-  try {
-    globalThis.gtag("event", name, params || {});
-  } catch {
-    /* ignore */
-  }
+  if (!config.gaMeasurementId) return;
+  void firebaseBridge()
+    .then((bridge) => {
+      if (hasAnalyticsConsent()) return bridge.sendEvent(name, params);
+    })
+    .catch(() => {});
+}
+
+export function setFirebaseAnalyticsUser(uid, props) {
+  if (!remoteAllowed() || !hasAnalyticsConsent()) return;
+  void firebaseBridge()
+    .then((bridge) => {
+      if (hasAnalyticsConsent()) return bridge.setAnalyticsUserId(uid, props);
+    })
+    .catch(() => {});
 }
 
 export function loadRemoteTags() {
   loadGtm();
-  loadGaDirect();
+  if (remoteAllowed() && hasAnalyticsConsent() && !config.gtmId)
+    void firebaseBridge().catch(() => {});
   loadClarity();
   loadAdSense();
 }
