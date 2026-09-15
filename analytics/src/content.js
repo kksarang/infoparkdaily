@@ -119,6 +119,11 @@ export function contentTypeFromPath(path) {
   if (/^\/news\/?$/i.test(path) || path === "/news") return "news_list";
   if (/^\/jobs\/?$/i.test(path) || path.indexOf("/jobs") === 0) return "jobs_list";
   if (/infopark-jobs|technopark-jobs|cyberpark-jobs/i.test(path)) return "park_jobs";
+  if (/^\/resume-builder/i.test(path)) return "resume_builder";
+  if (/^\/ats-checker/i.test(path)) return "ats_checker";
+  if (/^\/portfolio/i.test(path)) return "portfolio";
+  if (/^\/infoparkdaily/i.test(path)) return "hiring_hub";
+  if (/^\/recruit/i.test(path)) return "recruit";
   if (/^\/media/i.test(path)) return "media";
   if (/^\/sarang/i.test(path)) return "profile";
   if (/^\/contact/i.test(path)) return "contact";

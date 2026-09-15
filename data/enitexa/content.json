@@ -365,5 +365,18 @@
     "phone": "+91 99952 54290",
     "tel": "+919995254290",
     "location": "Kakkanad, Kochi, India"
+  },
+  "officialSite": {
+    "url": "https://sarangrajan.in/enitexa.ai/",
+    "label": "sarangrajan.in/enitexa.ai",
+    "title": "Official Enitexa.ai website",
+    "tagline": "Mobile apps, websites & digital product studio",
+    "summary": "The complete Enitexa.ai studio site — company overview, product demos (ERP, SaaS, AI assistant), service catalogue, and live project context — is published on the official domain.",
+    "highlights": [
+      ["Studio home", "Brand story, services, and how to start a project."],
+      ["Product demos", "ERP prototype, SaaS console demos, and AI assistant preview."],
+      ["Selected work", "Published captures and stack notes for shipped products."],
+      ["Contact", "Reach the team for scoped builds and ongoing support."]
+    ]
   }
 }

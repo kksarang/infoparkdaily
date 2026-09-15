@@ -59,8 +59,15 @@ const seekerPrivateRoutes = ["profile", "saved"];
 const params = new URLSearchParams(location.search);
 const redirect = () => {
   const next = params.get("next");
-  location.href =
-    next?.startsWith(ROOT) && !next.includes("://") ? next : href("dashboard");
+  const safe =
+    next?.startsWith(ROOT) &&
+    !next.includes("://") &&
+    !next.includes("//") &&
+    !next.includes("\\") &&
+    !next.includes("..")
+      ? next
+      : href("dashboard");
+  location.href = safe;
 };
 const employerFields = () =>
   `<input type="hidden" name="role" value="employer"><div class="notice">This hub is for employers and hiring teams. Job seekers should use the <a class="accent" href="/jobs/">jobs board</a> and <a class="accent" href="/resume-builder/">Career Tools</a>.</div>`;
@@ -841,6 +848,10 @@ export async function start(state, target) {
       if (b.hasAttribute("data-reload")) location.reload();
       if (b.hasAttribute("data-logout")) {
         if (chatUnsubscribe) chatUnsubscribe();
+        try {
+          window.IPDAnalytics?.track?.("logout", { feature: "hiring_hub" });
+          window.IPDAnalytics?.clearUserId?.();
+        } catch (_e) {}
         await C.logOut();
         location.href = ROOT;
       }

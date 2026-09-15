@@ -2361,4 +2361,44 @@
   if (ogUrl) ogUrl.setAttribute("content", `https://infoparkdaily.online${cleanPath}`);
 
   renderJob(job);
+
+  try {
+    if (window.IPDAnalytics && typeof window.IPDAnalytics.trackJobView === "function") {
+      window.IPDAnalytics.trackJobView({
+        id: job.id,
+        company: job.company,
+        location: job.location || job.park || "",
+        experience: job.experience || "",
+        category: (job.tags && job.tags[0]) || job.employmentType || "",
+      });
+    }
+  } catch (_e) {
+    /* ignore */
+  }
+
+  document.addEventListener(
+    "click",
+    (ev) => {
+      const a = ev.target.closest?.("a.jd-apply-btn, .jd-apply-card a.btn-primary");
+      if (!a) return;
+      try {
+        const href = a.getAttribute("href") || "";
+        const method = href.startsWith("mailto:")
+          ? "email"
+          : href.startsWith("#")
+            ? "on_page"
+            : "url";
+        window.IPDAnalytics?.trackJobApply?.(
+          {
+            id: job.id,
+            company: job.company,
+          },
+          method,
+        );
+      } catch (_e) {
+        /* ignore */
+      }
+    },
+    true,
+  );
 })();

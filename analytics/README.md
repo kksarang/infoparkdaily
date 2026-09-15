@@ -72,7 +72,13 @@ analytics/
 
 Localhost: remote tags are **skipped** by default (`disableRemoteOnLocalhost`); `dataLayer` still receives events when `debug: true`.
 
-## Public API
+## Career Tools / Portfolio / Hiring hub
+
+These shells bootstrap `/analytics/main.js` via `js/career-nav.js`, `js/portfolio/store.js`, or `js/infoparkdaily/app.js` when not already present.
+
+Journey events (auth, resume, portfolio, jobs) are documented in [`docs/production-auth-analytics.md`](../docs/production-auth-analytics.md).
+
+## Setup
 
 ```js
 IPDAnalytics.trackEvent("job_apply", { job_id: "aceware", company: "Aceware" });

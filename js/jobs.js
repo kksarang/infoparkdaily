@@ -1319,14 +1319,28 @@
     });
   }
 
-  bindChipGroup(filterBar, "filter", (value) => (activeFilter = value));
+  bindChipGroup(filterBar, "filter", (value) => {
+    activeFilter = value;
+    try {
+      window.IPDAnalytics?.trackJobFilter?.({ status: value });
+    } catch (_e) {}
+  });
   bindChipGroup(statusBar, "status", (value) => (activeStatus = value));
   bindChipGroup(tagBar, "tag", (value) => (activeTag = value));
 
   if (searchInput) {
+    let searchTimer = 0;
     searchInput.addEventListener("input", () => {
       searchQuery = searchInput.value.trim().toLowerCase();
       resetVisibleAndRender();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        if (searchQuery.length >= 2) {
+          try {
+            window.IPDAnalytics?.trackJobSearch?.(searchQuery);
+          } catch (_e) {}
+        }
+      }, 600);
     });
   }
 

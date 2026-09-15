@@ -25,8 +25,44 @@ const safeWrite=(key,value)=>{try{localStorage.setItem(key,JSON.stringify(value)
 const report=message=>{const status=$('#store-status');if(status)status.textContent=message;};
 // This consent-neutral hook contains no personal fields and sends no network requests.
 // An approved analytics adapter may listen after obtaining the site's analytics consent.
-export function track(event,fields={}){const allowed={};for(const key of ['template_id','category','package','device'])if(fields[key])allowed[key]=fields[key];document.dispatchEvent(new CustomEvent('portfolio:analytics',{detail:{event,...allowed}}));}
-track('portfolio_page_viewed');
+export function track(event,fields={}){
+  const allowed={};
+  for(const key of ['template_id','category','package','device','package_id','placement','domain_option','feature','template_category','button_id'])
+    if(fields[key]!=null&&fields[key]!=='')allowed[key]=fields[key];
+  document.dispatchEvent(new CustomEvent('portfolio:analytics',{detail:{event,...allowed}}));
+  try{
+    const map={
+      portfolio_page_viewed:'portfolio_gallery_view',
+      template_previewed:'portfolio_template_preview',
+      template_selected:'portfolio_template_select',
+      template_shortlisted:'portfolio_try_click',
+      package_selected:'package_select',
+      whatsapp_enquiry:'whatsapp_click',
+      whatsapp_clicked:'whatsapp_click',
+      order_started:'portfolio_start',
+      pricing_viewed:'pricing_view',
+      login_start:'login_start',
+      login:'login',
+      login_error:'login_error',
+      logout:'logout',
+      password_reset_request:'password_reset_request',
+      sign_up:'sign_up'
+    };
+    const name=map[event]||event;
+    const params={...allowed,feature:'portfolio'};
+    if(fields.package&&!params.package_id)params.package_id=fields.package;
+    globalThis.IPDAnalytics?.track?.(name,params);
+  }catch{/* ignore */}
+}
+track('portfolio_page_viewed',{page_type:'portfolio'});
+/* Load centralized analytics if this shell did not already. */
+if(!document.querySelector('script[data-ipd-analytics]')&&!globalThis.IPDAnalytics){
+  const s=document.createElement('script');
+  s.type='module';
+  s.src='/analytics/main.js?v=20260915prod';
+  s.dataset.ipdAnalytics='1';
+  document.head.appendChild(s);
+}
 /* Header logo always goes to the main InfoparkDaily home. */
 document.querySelectorAll('.store-header .store-brand').forEach((a)=>{
   a.setAttribute('href','/');
@@ -143,7 +179,8 @@ function openOrder(slug,pack){
   }
   syncOrderForm();
   dialog.showModal();
-  track('package_selected',{template_id:selected?.id,package:form.elements.package.value});
+  track('package_selected',{template_id:selected?.id,package:form.elements.package.value,package_id:form.elements.package.value});
+  track('order_started',{template_id:selected?.id,package_id:form.elements.package.value});
 }
 document.addEventListener('click',(ev)=>{
   const order=ev.target.closest('[data-order]');
@@ -234,8 +271,9 @@ $$('[data-personalise]').forEach(button=>button.addEventListener('click',()=>{co
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const nextParam=new URLSearchParams(location.search).get('next')||'';
 function safeNext(){
-  if(nextParam.startsWith('/portfolio/')&&!nextParam.includes('//')&&!nextParam.includes('\\'))return nextParam;
-  return '/portfolio/';
+  if(!nextParam.startsWith('/portfolio/'))return '/portfolio/';
+  if(nextParam.includes('//')||nextParam.includes('\\')||nextParam.includes('://')||nextParam.includes('..'))return '/portfolio/';
+  return nextParam;
 }
 function signInHref(){
   const next=encodeURIComponent(location.pathname+location.search);
@@ -265,7 +303,7 @@ function paintAccount(me){
     return;
   }
   nav.innerHTML=me
-    ?`<a class="store-signin" href="/resume-builder/account/">${esc((me.name||'Account').split(' ')[0])}</a>`
+    ?`<a class="store-signin" href="/resume-builder/account/">${esc((me.name||'Account').split(' ')[0])}</a><button type="button" class="store-signin" data-auth="signout" style="margin-left:.35rem">Log out</button>`
     :`<a class="store-signin" href="${signInHref()}">Sign in</a>`;
 }
 function renderAuth(me){
@@ -307,13 +345,25 @@ if(authRoot||$('#account-nav')){
       }
       if(action==='help'){$('#auth-help').hidden=!$('#auth-help').hidden;}
       if(action==='google'){
-        await (await loadCloud())('/auth/google',{method:'POST',body:{remember:true}});
+        track('login_start',{feature:'portfolio',placement:'google'});
+        try{
+          await (await loadCloud())('/auth/google',{method:'POST',body:{remember:true}});
+          track('login',{feature:'portfolio'});
+        }catch(error){
+          track('login_error',{feature:'portfolio'});
+          throw error;
+        }
         location.assign(safeNext());
       }
       if(action==='signout'){
-        await (await loadCloud())('/auth/logout',{method:'POST'});
-        paintAccount(null);
-        renderAuth(null);
+        try{
+          await (await loadCloud())('/auth/logout',{method:'POST'});
+          track('logout',{feature:'portfolio'});
+          globalThis.IPDAnalytics?.clearUserId?.();
+          paintAccount(null);
+          renderAuth(null);
+          if(!$('#auth-app'))location.assign('/portfolio/');
+        }catch(error){showAuthError(error.message||'Sign-out failed. Please try again.');}
       }
     }catch(error){showAuthError(error.message);}
   });

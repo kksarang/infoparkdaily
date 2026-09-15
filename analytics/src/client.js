@@ -3,7 +3,7 @@
  */
 import { config } from "./config.js";
 import { EVENTS, STORAGE, SOCIAL } from "./events.js";
-import { track, captureUtmFromLocation, sessionGet, sessionSet, readJson } from "./track.js";
+import { track, captureUtmFromLocation, sessionGet, sessionSet, readJson, sanitizeUrl } from "./track.js";
 import { initConsent, hasAnalyticsConsent, openConsentPreferences } from "./consent.js";
 import { loadRemoteTags, loadClarity, loadAdSense, pushDataLayer } from "./loader.js";
 import { classify as classifyChannel } from "./acquisition.js";
@@ -16,12 +16,22 @@ const pageStartedAt = Date.now();
 
 function pageContext(extra = {}) {
   const loc = globalThis.location || {};
+  const path = String(loc.pathname || "");
   return Object.assign(
     {
-      page_location: String(loc.href || ""),
-      page_path: String(loc.pathname || ""),
-      page_title: String(globalThis.document?.title || ""),
-      page_referrer: String(globalThis.document?.referrer || "")
+      page_location: sanitizeUrl(String(loc.href || path)),
+      page_path: path,
+      page_title: String(globalThis.document?.title || "").slice(0, 120),
+      page_referrer: (() => {
+        try {
+          const ref = String(globalThis.document?.referrer || "");
+          if (!ref) return "";
+          const u = new URL(ref);
+          return u.origin === loc.origin ? u.pathname : u.origin;
+        } catch {
+          return "";
+        }
+      })()
     },
     extra
   );
@@ -380,10 +390,18 @@ export const api = {
       company: extra.company || ""
     }),
   trackNewsletterSubmit: () => track(EVENTS.NEWSLETTER_SIGNUP, {}),
+  setUserId: (uid, props) =>
+    import("./identity.js")
+      .then((Id) => Id.setAnalyticsUser(uid, props))
+      .catch(() => {}),
+  clearUserId: () =>
+    import("./identity.js")
+      .then((Id) => Id.clearAnalyticsUser())
+      .catch(() => {}),
   openConsentPreferences,
   getConfig: () => config,
   EVENTS,
-  version: "2.0.0"
+  version: "2.1.0"
 };
 
 export function init() {

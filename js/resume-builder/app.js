@@ -144,10 +144,39 @@ function accountNav() {
   if (nav) {
     if (location.pathname.includes("/sign-in"))
       nav.innerHTML = `<a class="store-signin" href="${base}">Home</a>`;
+    else if (me)
+      nav.innerHTML = `<a class="store-signin" href="${base}my-resumes/">My resumes</a><button type="button" class="store-signin" data-action="logout" style="margin-left:.35rem">Log out</button>`;
     else
-      nav.innerHTML = me
-        ? `<a class="store-signin" href="${base}my-resumes/">My resumes</a>`
-        : `<a class="store-signin" href="${base}sign-in/">Sign in</a>`;
+      nav.innerHTML = `<a class="store-signin" href="${base}sign-in/">Sign in</a>`;
+  }
+}
+function returnPath() {
+  const next = params.get("next") || base + "my-resumes/";
+  try {
+    if (!next.startsWith(base)) return base + "my-resumes/";
+    if (next.includes("\\") || next.includes("//") || next.includes("://"))
+      return base + "my-resumes/";
+    if (next.includes("..")) return base + "my-resumes/";
+    return next;
+  } catch {
+    return base + "my-resumes/";
+  }
+}
+function analyticsTrack(name, params = {}) {
+  try {
+    globalThis.IPDAnalytics?.track?.(name, params);
+  } catch {
+    /* ignore */
+  }
+}
+function analyticsSetUser(uid) {
+  try {
+    globalThis.IPDAnalytics?.setUserId?.(uid, {
+      auth_state: uid ? "signed_in" : "signed_out",
+      account_area: "resume_builder",
+    });
+  } catch {
+    /* ignore */
   }
 }
 function subnav() {
@@ -185,12 +214,6 @@ function ensureAuth() {
   location.assign(base + "sign-in/?next=" + encodeURIComponent(next));
   return false;
 }
-function returnPath() {
-  const next = params.get("next") || base + "my-resumes/";
-  return next.startsWith(base) && !next.includes("\\")
-    ? next
-    : base + "my-resumes/";
-}
 function templateCard(t) {
   return `<article class="template-card"><button type="button" class="template-image" data-action="template-preview" data-id="${esc(t.id)}" aria-label="Preview ${esc(t.name)}"><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} resume design" loading="lazy" width="500" height="707"></button><div class="template-info"><div class="template-meta"><h3>${esc(t.name)}</h3><p>${esc(t.category)}</p>${t.tags.includes("Studio collection") ? '<span class="studio-tag">New · Studio</span>' : ""}</div></div></article>`;
 }
@@ -220,6 +243,10 @@ function gallery() {
     `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"></div><div class="filters"><div class="chips">${categories.map((c) => `<button type="button" class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid"></div>`,
   );
   filterGallery();
+  analyticsTrack("resume_gallery_view", {
+    page_type: "resume_gallery",
+    feature: "resume_builder",
+  });
   if (params.get("select"))
     void selectTemplate(params.get("select")).catch((e) => toast(e.message));
 }
@@ -241,6 +268,10 @@ function filterGallery() {
 function previewTemplate(id) {
   const t = templates.find((x) => x.id === id);
   if (!t) return;
+  analyticsTrack("resume_template_preview", {
+    template_id: t.id,
+    template_category: t.category,
+  });
   showDialog(
     t.name,
     `<p>${esc(t.category)} · Free to use and download</p><div class="template-preview-frame"><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} sample resume"></div><p class="hint" style="margin-top:16px">Fictional sample content. Your resume will contain only the information you add.</p><p class="hint">Sign in to start editing — your draft saves so you can pause and continue later.</p><button class="button" data-action="template-select" data-id="${esc(t.id)}" style="width:100%">${resume ? "Apply this design" : me ? "Start this resume" : "Sign in & start"} →</button>`,
@@ -249,7 +280,16 @@ function previewTemplate(id) {
 async function selectTemplate(id) {
   const t = templates.find((x) => x.id === id);
   if (!t) return;
+  analyticsTrack("resume_template_select", {
+    template_id: t.id,
+    template_category: t.category,
+  });
   if (!me) {
+    analyticsTrack("login_start", {
+      method: "redirect",
+      feature: "resume_builder",
+      placement: "template_select",
+    });
     location.assign(
       base +
         "sign-in/?next=" +
@@ -293,6 +333,7 @@ async function selectTemplate(id) {
     data,
     job_id: params.get("job") || undefined,
   });
+  analyticsTrack("resume_start", { template_id: id });
   location.assign(base + "editor/?id=" + r.id);
 }
 function auth() {
@@ -620,6 +661,9 @@ async function save() {
         dirty = false;
         saveError = false;
         setStatus("Saved · " + date(saved.updated_at));
+        analyticsTrack("resume_save_success", {
+          template_id: resume.template_id || "",
+        });
       } else {
         setStatus("Unsaved changes");
         clearTimeout(saveTimer);
@@ -727,6 +771,9 @@ async function downloadPDF() {
   btn.disabled = true;
   const previous = btn.textContent;
   btn.textContent = useLocalApi() ? "Preparing PDF…" : "Opening print dialog…";
+  analyticsTrack("resume_export_start", {
+    template_id: resume?.template_id || "",
+  });
   try {
     if (!useLocalApi()) {
       const t =
@@ -735,6 +782,9 @@ async function downloadPDF() {
         throw Error("This template cannot export yet. Choose another design.");
       printResumeHtml(renderResume(resume.data, t.config));
       toast("In the print dialog, choose Save as PDF.");
+      analyticsTrack("resume_export_success", {
+        template_id: resume?.template_id || "",
+      });
       showPortfolioSuggestion();
       save().catch((e) => toast(e.message));
       return;
@@ -761,6 +811,9 @@ async function downloadPDF() {
         a.click();
         setTimeout(() => URL.revokeObjectURL(url), 30000);
         toast("Your PDF is ready.");
+        analyticsTrack("resume_export_success", {
+          template_id: resume?.template_id || "",
+        });
         showPortfolioSuggestion();
         return;
       }
@@ -772,6 +825,11 @@ async function downloadPDF() {
     throw Error(
       "Your PDF is taking longer than expected. Please try again shortly.",
     );
+  } catch (e) {
+    analyticsTrack("resume_export_error", {
+      error_category: "export_failed",
+    });
+    throw e;
   } finally {
     btn.disabled = false;
     btn.textContent = previous;
@@ -889,13 +947,30 @@ async function act(el) {
     }
     case "auth-signout":
       await post("/auth/logout");
+      analyticsTrack("logout", { feature: "resume_builder" });
+      analyticsSetUser(null);
       me = null;
       accountNav();
       auth();
       break;
     case "google-login": {
       const remember = document.querySelector('[name="remember"]')?.checked;
-      await post("/auth/google", { remember: remember ? "yes" : "" });
+      analyticsTrack("login_start", {
+        method: "google",
+        feature: "resume_builder",
+        placement: "google_button",
+      });
+      try {
+        await post("/auth/google", { remember: remember ? "yes" : "" });
+        analyticsTrack("login", { method: "google", feature: "resume_builder" });
+      } catch (err) {
+        analyticsTrack("login_error", {
+          method: "google",
+          feature: "resume_builder",
+          error_category: "auth_failed",
+        });
+        throw err;
+      }
       location.assign(returnPath());
       break;
     }
@@ -937,6 +1012,8 @@ async function act(el) {
       break;
     case "logout-all":
       await post("/auth/logout-all");
+      analyticsTrack("logout", { feature: "resume_builder" });
+      analyticsSetUser(null);
       location.assign(base + "sign-in/");
       break;
     case "local-login":
@@ -944,8 +1021,16 @@ async function act(el) {
       location.assign(returnPath());
       break;
     case "logout":
-      await post("/auth/logout");
-      location.assign(base);
+      try {
+        await post("/auth/logout");
+        analyticsTrack("logout", { feature: "resume_builder" });
+        analyticsSetUser(null);
+        me = null;
+        accountNav();
+        location.assign(base);
+      } catch (e) {
+        toast(e.message || "Sign-out failed. Please try again.");
+      }
       break;
     case "duplicate":
       await post("/resumes/" + id + "/duplicate");
@@ -1242,6 +1327,7 @@ document.addEventListener("submit", async (event) => {
     const fields = Object.fromEntries(new FormData(form));
     if (form.id === "reset-form") {
       await post("/auth/reset", { email: fields.email });
+      analyticsTrack("password_reset_request", { feature: "resume_builder" });
       closeDialog();
       toast("If an account exists for that email, a reset link is on its way.");
     }
@@ -1250,10 +1336,29 @@ document.addEventListener("submit", async (event) => {
         throw Error(
           "Your passwords do not match. Enter the same password in both fields.",
         );
-      await post("/auth/" + authMode, {
-        ...fields,
-        remember: fields.remember === "yes",
+      const method = "email";
+      analyticsTrack("login_start", {
+        method,
+        feature: "resume_builder",
+        placement: "auth_form",
       });
+      try {
+        await post("/auth/" + authMode, {
+          ...fields,
+          remember: fields.remember === "yes",
+        });
+        analyticsTrack(authMode === "signup" ? "sign_up" : "login", {
+          method,
+          feature: "resume_builder",
+        });
+      } catch (err) {
+        analyticsTrack("login_error", {
+          method,
+          feature: "resume_builder",
+          error_category: "auth_failed",
+        });
+        throw err;
+      }
       location.assign(returnPath());
     }
     if (form.id === "rename-form") {
@@ -1363,6 +1468,7 @@ async function boot() {
       return rank(b) - rank(a);
     });
     accountNav();
+    if (me?.id || me?.uid) analyticsSetUser(me.id || me.uid);
     if (location.pathname.startsWith("/admin/members/")) return members();
     if (location.pathname.startsWith("/admin/resume-templates/"))
       return admin();

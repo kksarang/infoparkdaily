@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { getApp, getApps, initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
   browserLocalPersistence,
@@ -36,7 +36,7 @@ import { publicTemplates } from "./catalog.js";
 import { validateResume } from "./schema.js";
 
 const MAX_RESUMES = 20;
-const app = initializeApp(firebaseConfig);
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
@@ -428,7 +428,19 @@ export async function request(path, options = {}) {
       (path === "/auth/logout" || path === "/auth/logout-all") &&
       method === "POST"
     ) {
-      sessionStorage.removeItem("ipd_cloud_login_touch");
+      try {
+        sessionStorage.removeItem("ipd_cloud_login_touch");
+        sessionStorage.removeItem("ipd_market_signup");
+        sessionStorage.removeItem("ipd_use_local_api");
+      } catch {
+        /* ignore */
+      }
+      try {
+        const { clearAnalyticsUser } = await import("/analytics/src/identity.js");
+        clearAnalyticsUser();
+      } catch {
+        /* analytics optional */
+      }
       await signOut(auth);
       return { ok: true };
     }

@@ -1,0 +1,10 @@
+rules_version = '2';
+// Default deny — Career Tools store files as Firestore Bytes, not Cloud Storage.
+// Keep Storage locked until an intentional upload product ships.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

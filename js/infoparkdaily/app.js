@@ -16,6 +16,15 @@ import {
   contact,
 } from "./public.js";
 
+/* Central analytics for hiring hub */
+if (!document.querySelector("script[data-ipd-analytics]") && !globalThis.IPDAnalytics) {
+  const s = document.createElement("script");
+  s.type = "module";
+  s.src = "/analytics/main.js?v=20260915prod";
+  s.dataset.ipdAnalytics = "1";
+  document.head.appendChild(s);
+}
+
 const route = location.pathname
   .replace(/^\/infoparkdaily\/?/, "")
   .replace(/\/$/, "");

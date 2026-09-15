@@ -420,6 +420,112 @@ h1 .hero-asterisk {
   font-size: 22px;
   margin-top: 6px;
 }
+.official-band {
+  background: var(--forest);
+  color: var(--paper);
+}
+.official-band .section-head p,
+.official-band .section-head .muted {
+  color: #c2ccbf;
+}
+.official-band .eyebrow {
+  color: #a8b89f;
+}
+.official-panel {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 48px;
+  align-items: start;
+  border-top: 1px solid #667969;
+  padding-top: 36px;
+}
+.official-panel-main h3 {
+  font-size: clamp(28px, 3.2vw, 42px);
+  margin: 14px 0 10px;
+  letter-spacing: -0.05em;
+}
+.official-url {
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--green);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.official-panel-main > p:not(.official-url):not(.eyebrow) {
+  max-width: 520px;
+  color: #c2ccbf;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+.official-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  align-items: center;
+}
+.official-band .button {
+  background: var(--green);
+  color: var(--forest);
+}
+.official-band .text-link {
+  color: var(--paper);
+}
+.official-highlights {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+.official-highlights li {
+  display: grid;
+  gap: 4px;
+  padding: 16px 0;
+  border-bottom: 1px solid #667969;
+}
+.official-highlights li:first-child {
+  border-top: 1px solid #667969;
+}
+.official-highlights strong {
+  font-family: Manrope, sans-serif;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.official-highlights span {
+  font-size: 13px;
+  color: #c2ccbf;
+}
+.official-iframe-note {
+  margin-top: 28px;
+  border: 1px solid #667969;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1f3228;
+}
+.official-iframe-note .browser-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: #a8b89f;
+  border-bottom: 1px solid #667969;
+  background: #24382d;
+}
+.official-iframe-note p {
+  padding: 18px 16px;
+  font-size: 13px;
+  color: #c2ccbf;
+}
+.official-demos-note {
+  margin-top: 36px;
+  font-size: 13px;
+  color: #c2ccbf;
+}
+.official-demos-note a {
+  color: var(--green);
+  font-weight: 600;
+}
 .about-band {
   background: #e9ebdf;
 }
@@ -1072,12 +1178,21 @@ h1 .hero-asterisk {
   align-items: center;
   justify-content: space-between;
   gap: 25px;
+  flex-wrap: wrap;
   padding-block: 40px;
   border-bottom: 1px solid var(--line);
 }
 .footer-top p {
   font-size: 13px;
   color: var(--muted);
+}
+.footer-official {
+  font-size: 13px;
+  font-weight: 600;
+}
+.footer-official a {
+  color: var(--forest);
+  border-bottom: 1px solid var(--line);
 }
 .footer-top > a:last-child {
   font-size: 12px;
@@ -1259,6 +1374,10 @@ h1 .hero-asterisk {
   .about-body {
     grid-template-columns: 1fr;
   }
+  .official-panel {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
   .location-stamp {
     display: none;
   }
@@ -1366,18 +1485,59 @@ h1 .hero-asterisk {
     font-size: 13px;
   }
   .hero-actions {
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
   }
   .hero-actions .button {
-    padding: 13px 17px;
-    font-size: 11px;
+    width: 100%;
+    justify-content: center;
+    padding: 14px 17px;
+    font-size: 12px;
     gap: 15px;
   }
   .hero-actions .text-link {
-    font-size: 11px;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 12px;
     gap: 12px;
+    min-height: 44px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 10px;
+  }
+  .hero-actions .text-link:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .official-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .official-band .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .official-band .text-link {
+    width: 100%;
+    justify-content: space-between;
+    min-height: 44px;
+  }
+  .official-panel-main h3 {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+  .official-url {
+    font-size: 13px;
+    word-break: break-all;
+  }
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .footer-official {
+    font-size: 12px;
+    word-break: break-word;
   }
   .hero-showcase {
     height: 292px;
@@ -1709,13 +1869,10 @@ h1 .hero-asterisk {
     font-size: 43px;
   }
   .hero-actions {
-    gap: 14px;
+    gap: 10px;
   }
   .hero-actions .button {
-    padding-inline: 12px;
-  }
-  .hero-actions .text-link {
-    gap: 6px;
+    padding-inline: 14px;
   }
   .service-group strong {
     font-size: 21px;

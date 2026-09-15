@@ -1555,5 +1555,630 @@
       "Governance"
     ],
     "visual": "article"
+  },
+  {
+    "id": "PF-031",
+    "slug": "sidebar-folio",
+    "name": "Sidebar Folio",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "sidebar",
+    "person": "Aditya Rao",
+    "profession": "Full-stack developer",
+    "headline": "Build. Ship. Learn again.",
+    "description": "Sidebar Folio pairs a fixed left navigation with a dark, developer-first story.",
+    "thumbnail": "/assets/portfolio/previews/sidebar-folio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/sidebar-folio-mobile.webp",
+    "previewPath": "/portfolio/preview/sidebar-folio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Pulse Board",
+        "description": "A realtime ops dashboard for small teams."
+      },
+      {
+        "title": "Ledger Lite",
+        "description": "A focused expense tracker for freelancers."
+      },
+      {
+        "title": "Route Kit",
+        "description": "API tooling for cleaner service boundaries."
+      }
+    ],
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "AWS"
+    ],
+    "visual": "code"
+  },
+  {
+    "id": "PF-032",
+    "slug": "split-portrait",
+    "name": "Split Portrait",
+    "category": "Designers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "split",
+    "person": "Meera Iyer",
+    "profession": "UI designer",
+    "headline": "Clarity in every interface.",
+    "description": "Split Portrait places your story beside a strong portrait panel — clean and personal.",
+    "thumbnail": "/assets/portfolio/previews/split-portrait.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/split-portrait-mobile.webp",
+    "previewPath": "/portfolio/preview/split-portrait/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Harbor App",
+        "description": "A calm onboarding flow for a travel product."
+      },
+      {
+        "title": "Studio Kit",
+        "description": "A modular design system for a creative agency."
+      },
+      {
+        "title": "Quiet Forms",
+        "description": "Accessible form patterns that feel effortless."
+      }
+    ],
+    "skills": [
+      "Figma",
+      "Prototyping",
+      "Design systems",
+      "User research"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-033",
+    "slug": "neon-dev",
+    "name": "Neon Dev",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "neon",
+    "person": "Karthik S",
+    "profession": "Frontend developer",
+    "headline": "Interfaces with energy.",
+    "description": "Neon Dev is a dark portfolio with vivid accents, stats, and project cards built for coders.",
+    "thumbnail": "/assets/portfolio/previews/neon-dev.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/neon-dev-mobile.webp",
+    "previewPath": "/portfolio/preview/neon-dev/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Glow UI Kit",
+        "description": "Reusable components with motion-friendly defaults."
+      },
+      {
+        "title": "Clip Board",
+        "description": "A snappy clipboard manager for power users."
+      },
+      {
+        "title": "Frame Lab",
+        "description": "Experimentation sandbox for layout ideas."
+      }
+    ],
+    "skills": [
+      "TypeScript",
+      "Next.js",
+      "CSS",
+      "Framer Motion"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-034",
+    "slug": "resume-light",
+    "name": "Resume Light",
+    "category": "Freshers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "resume",
+    "person": "Ananya Krishnan",
+    "profession": "Computer science graduate",
+    "headline": "Ready for the next chapter.",
+    "description": "Resume Light is a calm, centered portfolio that reads like a modern digital resume.",
+    "thumbnail": "/assets/portfolio/previews/resume-light.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/resume-light-mobile.webp",
+    "previewPath": "/portfolio/preview/resume-light/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Campus Connect",
+        "description": "A student club directory with simple search."
+      },
+      {
+        "title": "Study Timer",
+        "description": "A focused Pomodoro tool for exam weeks."
+      },
+      {
+        "title": "Portfolio Notes",
+        "description": "A writing space for project reflections."
+      }
+    ],
+    "skills": [
+      "Python",
+      "HTML",
+      "CSS",
+      "Git"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-035",
+    "slug": "bold-stats",
+    "name": "Bold Stats",
+    "category": "Freelancers",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "stats",
+    "person": "Riya Thomas",
+    "profession": "Freelance designer",
+    "headline": "Results you can count.",
+    "description": "Bold Stats leads with impact numbers, services, and a bright accent for freelancers.",
+    "thumbnail": "/assets/portfolio/previews/bold-stats.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/bold-stats-mobile.webp",
+    "previewPath": "/portfolio/preview/bold-stats/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Brand Refresh",
+        "description": "A visual system for a neighbourhood café."
+      },
+      {
+        "title": "Launch Kit",
+        "description": "Landing pages for three product launches."
+      },
+      {
+        "title": "Pitch Deck",
+        "description": "A crisp investor story for an early-stage startup."
+      }
+    ],
+    "skills": [
+      "Branding",
+      "Web design",
+      "Illustration",
+      "Presentation"
+    ],
+    "visual": "poster"
+  },
+  {
+    "id": "PF-036",
+    "slug": "type-mono",
+    "name": "Type Mono",
+    "category": "Creators",
+    "styleTags": [
+      "Dark",
+      "Editorial"
+    ],
+    "layout": "mono",
+    "person": "Vivek Menon",
+    "profession": "Creative director",
+    "headline": "Words. Form. Presence.",
+    "description": "Type Mono is a dark, typography-led portfolio for creators who want presence over clutter.",
+    "thumbnail": "/assets/portfolio/previews/type-mono.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/type-mono-mobile.webp",
+    "previewPath": "/portfolio/preview/type-mono/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Night Editorial",
+        "description": "A magazine concept around late-night cities."
+      },
+      {
+        "title": "Stage Marks",
+        "description": "Identity work for a performing arts festival."
+      },
+      {
+        "title": "Signal Series",
+        "description": "Poster studies exploring rhythm and contrast."
+      }
+    ],
+    "skills": [
+      "Art direction",
+      "Typography",
+      "Campaigns",
+      "Storytelling"
+    ],
+    "visual": "poster"
+  },
+  {
+    "id": "PF-037",
+    "slug": "agency-landing",
+    "name": "Agency Landing",
+    "category": "Professionals",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "agency",
+    "person": "Priya Nambiar",
+    "profession": "Product consultant",
+    "headline": "Elevate how teams ship.",
+    "description": "Agency Landing is a polished enterprise-style site for consultants and small studios.",
+    "thumbnail": "/assets/portfolio/previews/agency-landing.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/agency-landing-mobile.webp",
+    "previewPath": "/portfolio/preview/agency-landing/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": true,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Ops Clarity",
+        "description": "A delivery playbook for a mid-size product team."
+      },
+      {
+        "title": "North Star",
+        "description": "Roadmap workshops that align product and sales."
+      },
+      {
+        "title": "Launch Desk",
+        "description": "Go-to-market support for a SaaS release."
+      }
+    ],
+    "skills": [
+      "Strategy",
+      "Workshops",
+      "Roadmapping",
+      "Stakeholder alignment"
+    ],
+    "visual": "roadmap"
+  },
+  {
+    "id": "PF-038",
+    "slug": "orbit-studio",
+    "name": "Orbit Studio",
+    "category": "Professionals",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "orbit",
+    "person": "Sanjay Pillai",
+    "profession": "Digital marketer",
+    "headline": "Transform your digital presence.",
+    "description": "Orbit Studio surrounds your offer with service nodes — ideal for marketers and agencies.",
+    "thumbnail": "/assets/portfolio/previews/orbit-studio.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/orbit-studio-mobile.webp",
+    "previewPath": "/portfolio/preview/orbit-studio/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Signal Sprint",
+        "description": "A 6-week SEO and content reset for a B2B site."
+      },
+      {
+        "title": "Audience Map",
+        "description": "Persona work that clarified paid social spend."
+      },
+      {
+        "title": "Launch Wave",
+        "description": "A coordinated campaign for a product release."
+      }
+    ],
+    "skills": [
+      "SEO",
+      "Content",
+      "Paid social",
+      "Analytics"
+    ],
+    "visual": "chart"
+  },
+  {
+    "id": "PF-039",
+    "slug": "hero-journey",
+    "name": "Hero Journey",
+    "category": "Creators",
+    "styleTags": [
+      "Bold",
+      "Dark"
+    ],
+    "layout": "hero",
+    "person": "Lakshmi Devi",
+    "profession": "Travel content creator",
+    "headline": "Stories beyond the ordinary.",
+    "description": "Hero Journey uses a full-bleed cinematic intro — perfect for travel, lifestyle, and creators.",
+    "thumbnail": "/assets/portfolio/previews/hero-journey.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/hero-journey-mobile.webp",
+    "previewPath": "/portfolio/preview/hero-journey/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Coast Road",
+        "description": "A week-long coastal series across Kerala."
+      },
+      {
+        "title": "Hill Quiet",
+        "description": "Photo essays from monsoon hill towns."
+      },
+      {
+        "title": "City Pause",
+        "description": "Short films about everyday city rituals."
+      }
+    ],
+    "skills": [
+      "Photography",
+      "Editing",
+      "Storytelling",
+      "Social series"
+    ],
+    "visual": "photo"
+  },
+  {
+    "id": "PF-040",
+    "slug": "picto-profile",
+    "name": "Picto Profile",
+    "category": "Designers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "picto",
+    "person": "Nisha George",
+    "profession": "Product designer",
+    "headline": "Design that feels human.",
+    "description": "Picto Profile pairs a soft portrait with clear stats and project highlights.",
+    "thumbnail": "/assets/portfolio/previews/picto-profile.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/picto-profile-mobile.webp",
+    "previewPath": "/portfolio/preview/picto-profile/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Care Loop",
+        "description": "A patient check-in experience for clinics."
+      },
+      {
+        "title": "Nest Finance",
+        "description": "A calmer money app for first-time savers."
+      },
+      {
+        "title": "Desk Mate",
+        "description": "Productivity patterns for hybrid teams."
+      }
+    ],
+    "skills": [
+      "UX research",
+      "Interface design",
+      "Prototyping",
+      "Accessibility"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-041",
+    "slug": "shop-window",
+    "name": "Shop Window",
+    "category": "Freelancers",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "shop",
+    "person": "Asha Rajan",
+    "profession": "Maker & seller",
+    "headline": "Work you can browse.",
+    "description": "Shop Window adds a catalogue-style product grid — ideal for makers, bakers, and side hustles.",
+    "thumbnail": "/assets/portfolio/previews/shop-window.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/shop-window-mobile.webp",
+    "previewPath": "/portfolio/preview/shop-window/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience",
+      "Shop"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Clay Series",
+        "description": "Handmade ceramics with WhatsApp enquiry links."
+      },
+      {
+        "title": "Weekend Bakes",
+        "description": "A rotating menu of cakes and cookies."
+      },
+      {
+        "title": "Print Pack",
+        "description": "Limited-run posters and greeting cards."
+      }
+    ],
+    "skills": [
+      "Product photography",
+      "Catalogue layout",
+      "WhatsApp sales",
+      "Brand basics"
+    ],
+    "visual": "browser"
+  },
+  {
+    "id": "PF-042",
+    "slug": "dev-dashboard",
+    "name": "Dev Dashboard",
+    "category": "Developers",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "layout": "dash",
+    "person": "Rohan Das",
+    "profession": "Software engineer",
+    "headline": "Systems, clearly shown.",
+    "description": "Dev Dashboard presents work like an ops console — cards, metrics, and crisp project panels.",
+    "thumbnail": "/assets/portfolio/previews/dev-dashboard.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/dev-dashboard-mobile.webp",
+    "previewPath": "/portfolio/preview/dev-dashboard/",
+    "supportedSections": [
+      "Introduction",
+      "About",
+      "Skills",
+      "Projects",
+      "Education",
+      "Certifications",
+      "Resume",
+      "Contact",
+      "Experience"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Metric Hub",
+        "description": "A unified view of service health for a SaaS team."
+      },
+      {
+        "title": "Deploy Trail",
+        "description": "Release notes that engineers actually read."
+      },
+      {
+        "title": "Alert Quiet",
+        "description": "Noise-reducing alert rules for night shifts."
+      }
+    ],
+    "skills": [
+      "Go",
+      "Kubernetes",
+      "Observability",
+      "SQL"
+    ],
+    "visual": "dashboard"
   }
 ]
