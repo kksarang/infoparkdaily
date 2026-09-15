@@ -149,7 +149,7 @@ export async function saveMember(data) {
       name: data.name || u.displayName || "",
       phone: data.phone || "",
       company: data.company || "",
-      role: data.role || "worker",
+      role: data.role === "worker" ? "worker" : "employer",
       email: u.email,
       updatedAt: now(),
       ...(!old.exists() ? { createdAt: now(), lastReadAt: now() } : {}),

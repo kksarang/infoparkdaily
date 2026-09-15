@@ -396,7 +396,13 @@ if (year) {
 
 initMobileNav();
 
-if (themeToggle) {
+if (document.body.classList.contains("career-tools")) {
+  // Career Tools match Portfolio: always light, no theme switcher.
+  applyTheme(true);
+  document.documentElement.style.backgroundColor = "#fafaf7";
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  if (themeColor) themeColor.setAttribute("content", "#fafaf7");
+} else if (themeToggle) {
   // Fresh storage key: old "theme" values from the light-default era are ignored.
   const preferredTheme = localStorage.getItem("ipd-theme");
   applyTheme(preferredTheme === "light");

@@ -646,3 +646,143 @@ body.news-body .home-guides-grid a span {
     animation: none;
   }
 }
+
+/* ----- Services category jump + product cards ----- */
+body.services-body .svcx-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+  width: min(1172px, calc(100% - 2rem));
+  margin: -0.35rem auto 1.25rem;
+  padding: 0.85rem 0 0.25rem;
+  position: relative;
+  z-index: 2;
+}
+body.services-body .svcx-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid var(--pt-line);
+  background: var(--pt-card);
+  color: var(--pt-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+body.services-body .svcx-jump a:hover,
+body.services-body .svcx-jump a:focus-visible {
+  color: #bfdbfe;
+  border-color: color-mix(in srgb, var(--pt-blue) 55%, transparent);
+  background: var(--pt-soft);
+}
+html.theme-light body.services-body .svcx-jump a:hover,
+body.services-body.light .svcx-jump a:hover {
+  color: var(--pt-blue-ink);
+}
+body.services-body .svcx-section-lede {
+  margin: 0.65rem 0 0;
+  max-width: 46rem;
+  color: var(--pt-muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+body.services-body .svcx-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+body.services-body .svcx-product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.35rem 1.25rem 1.25rem;
+  border-radius: var(--pt-radius);
+  border: 1px solid var(--pt-line);
+  background: var(--pt-card);
+  box-shadow: var(--pt-shadow);
+  min-width: 0;
+}
+body.services-body .svcx-product-kicker {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+body.services-body .svcx-product h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  color: var(--pt-ink);
+  line-height: 1.2;
+}
+body.services-body .svcx-product > p {
+  margin: 0;
+  color: var(--pt-muted);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  flex: 1;
+}
+body.services-body .svcx-product-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+body.services-body .svcx-product-points li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--pt-ink);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+body.services-body .svcx-product-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background: var(--pt-blue);
+}
+body.services-body .svcx-product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+body.services-body .svcx-product-actions .btn {
+  min-height: 42px;
+  padding: 0.65rem 1.05rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+body.services-body .svcx-products--software .svcx-product {
+  background:
+    linear-gradient(165deg, rgba(37, 99, 235, 0.1), transparent 42%),
+    var(--pt-card);
+}
+@media (max-width: 960px) {
+  body.services-body .svcx-products {
+    grid-template-columns: 1fr;
+  }
+  body.services-body .svcx-jump {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: calc(100% - 1.5rem);
+    padding-bottom: 0.55rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  body.services-body .svcx-jump a {
+    flex: 0 0 auto;
+  }
+}

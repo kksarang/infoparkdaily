@@ -6,7 +6,7 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
-import { publicTemplates } from "./catalog.js?v=20260911a";
+import { publicTemplates } from "./catalog.js?v=20260915h";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20260910e";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
@@ -143,26 +143,12 @@ function accountNav() {
   const nav = document.getElementById("account-nav");
   if (nav) {
     if (location.pathname.includes("/sign-in"))
-      nav.innerHTML = `<a class="button small secondary" href="${base}">Home</a>`;
+      nav.innerHTML = `<a class="store-signin" href="${base}">Home</a>`;
     else
       nav.innerHTML = me
-        ? `<a class="button small secondary" href="${base}my-resumes/">My resumes</a>`
-        : `<a class="button small secondary" href="${base}sign-in/">Sign in</a>`;
+        ? `<a class="store-signin" href="${base}my-resumes/">My resumes</a>`
+        : `<a class="store-signin" href="${base}sign-in/">Sign in</a>`;
   }
-  document.querySelectorAll(".career-tools-nav a, .topbar nav[aria-label='Career Tools'] a").forEach((a) => {
-    const href = a.getAttribute("href") || "";
-    const path = location.pathname;
-    let on = false;
-    if (href === "/ats-checker/") on = path.startsWith("/ats-checker");
-    else if (href.includes("/templates")) on = path.includes("/templates");
-    else if (href === "/jobs/") on = false;
-    else if (href === "/resume-builder/")
-      on =
-        path.startsWith("/resume-builder") &&
-        !path.includes("/templates") &&
-        !path.includes("/sign-in");
-    a.classList.toggle("active", on);
-  });
 }
 function subnav() {
   return `<nav class="subnav" aria-label="Resume workspace">${[
@@ -206,7 +192,7 @@ function returnPath() {
     : base + "my-resumes/";
 }
 function templateCard(t) {
-  return `<article class="template-card"><button class="template-image" data-action="template-preview" data-id="${esc(t.id)}" aria-label="Preview ${esc(t.name)}"><span class="template-badge ${t.access === "premium" ? "premium" : ""}">${t.access === "premium" ? "✦ PRO" : "FREE"}</span><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} resume design" loading="lazy" width="500" height="707"></button><div class="template-info"><div><h3>${esc(t.name)}</h3><p>${esc(t.category)}</p>${t.tags.includes("Studio collection") ? '<span class="studio-tag">NEW · Studio collection</span>' : ""}</div><button class="template-use" data-action="template-select" data-id="${esc(t.id)}" aria-label="Use ${esc(t.name)}">↗</button></div></article>`;
+  return `<article class="template-card"><button type="button" class="template-image" data-action="template-preview" data-id="${esc(t.id)}" aria-label="Preview ${esc(t.name)}"><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} resume design" loading="lazy" width="500" height="707"></button><div class="template-info"><div class="template-meta"><h3>${esc(t.name)}</h3><p>${esc(t.category)}</p>${t.tags.includes("Studio collection") ? '<span class="studio-tag">New · Studio</span>' : ""}</div></div></article>`;
 }
 function landing() {
   const picks = ["harbor", "atelier", "spark"]
@@ -222,17 +208,16 @@ function landing() {
           `<figure class="ct-sheet ct-sheet-${i}"><img src="${esc(t.thumbnail)}" alt=""></figure>`,
       )
       .join("");
-  const count = templates.length,
-    free = templates.filter((t) => t.access === "free").length;
+  const count = templates.length;
   const tally = document.getElementById("template-count");
   if (tally)
-    tally.textContent = `${count} designs · ${free} free. Change the layout anytime without rewriting.`;
+    tally.textContent = `${count} free designs. Sign in to save and continue anytime.`;
 }
 function gallery() {
   page(
     "Templates",
-    "Choose a starting point. You can change the design later without rewriting.",
-    `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"><select id="access-filter" aria-label="Template access"><option value="all">Free & Pro</option><option value="free">Free only</option><option value="premium">Pro only</option></select></div><div class="filters"><div class="chips">${categories.map((c) => `<button class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid" style="padding-bottom:50px"></div>`,
+    "All designs are free. Sign in to edit and save — pause anytime, continue later.",
+    `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"></div><div class="filters"><div class="chips">${categories.map((c) => `<button type="button" class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid"></div>`,
   );
   filterGallery();
   if (params.get("select"))
@@ -242,14 +227,13 @@ function filterGallery() {
   const filtered = templates.filter(
     (t) =>
       (category === "All" || t.category === category) &&
-      (access === "all" || t.access === access) &&
       [t.name, t.category, ...t.tags]
         .join(" ")
         .toLowerCase()
         .includes(search.toLowerCase()),
   );
   document.getElementById("gallery-count").textContent =
-    `${filtered.length} templates · ${templates.filter((t) => t.access === "free").length} always free`;
+    `${filtered.length} of ${templates.length} free templates · sign in to save your work`;
   document.getElementById("gallery-results").innerHTML = filtered.length
     ? filtered.map(templateCard).join("")
     : '<div class="empty"><h2>No templates found</h2><p>Try another search or choose a different category.</p></div>';
@@ -259,7 +243,7 @@ function previewTemplate(id) {
   if (!t) return;
   showDialog(
     t.name,
-    `<p>${esc(t.category)} · ${t.access === "free" ? "Free, including PDF download" : "Included in the ₹99 Pro Pass"}</p><div style="background:#edf1f6;padding:20px;text-align:center;border-radius:8px;max-height:48vh;overflow:auto"><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} sample resume" style="width:100%;max-width:350px"></div><p class="hint" style="margin-top:16px">Fictional sample content. Your resume will contain only the information you add.</p><button class="button" data-action="template-select" data-id="${esc(t.id)}" style="width:100%">${resume ? "Use this template" : "Create with this template"} ↗</button>`,
+    `<p>${esc(t.category)} · Free to use and download</p><div class="template-preview-frame"><img src="${esc(t.thumbnail)}" alt="${esc(t.name)} sample resume"></div><p class="hint" style="margin-top:16px">Fictional sample content. Your resume will contain only the information you add.</p><p class="hint">Sign in to start editing — your draft saves so you can pause and continue later.</p><button class="button" data-action="template-select" data-id="${esc(t.id)}" style="width:100%">${resume ? "Apply this design" : me ? "Start this resume" : "Sign in & start"} →</button>`,
   );
 }
 async function selectTemplate(id) {
@@ -284,16 +268,6 @@ async function selectTemplate(id) {
     showDialog(
       "Verify your email first",
       `<p>We sent a verification link to <strong>${esc(me.email)}</strong>. Cloud saving starts after you verify.</p><div class="actions">${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify")}</div>`,
-    );
-    return;
-  }
-  if (t.access === "premium" && !pro()) {
-    if (resume) await save();
-    showDialog(
-      "Make it yours with Pro",
-      useLocalApi()
-        ? `<p><strong>${esc(t.name)}</strong> is a Pro template. Get seven days of access to all ${templates.length} designs for ₹99.</p><p class="hint">Your existing content stays saved. Free templates include a clean PDF without a watermark.</p><div class="warning">Local test checkout · no money will be charged.</div><div class="actions">${button("Try the Pro Pass", "checkout", `data-template="${esc(id)}"`, "")}${button("Browse free templates", "browse-free")}</div>`
-        : `<p><strong>${esc(t.name)}</strong> is a Pro template. Message InfoparkDaily on WhatsApp to request Pro access.</p><p class="hint">Your saved content stays with you. You can keep editing with a free template until Pro is activated.</p><div class="actions">${proWhatsAppButton("Message InfoparkDaily on WhatsApp", t.name)}${button("Browse free templates", "browse-free")}</div>`,
     );
     return;
   }
@@ -331,8 +305,8 @@ function auth() {
     : signup
       ? "One account for your resumes. Pick up where you left off."
       : waitingTemplate
-        ? "Your template is waiting. Sign in to start that resume."
-        : "Sign in to save your work and keep your next application moving.";
+        ? "Your template is waiting. Sign in so we can save your draft and let you continue later."
+        : "Sign in to save your work. Pause anytime and pick up where you left off.";
   main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your Career Tools workspace"><a class="auth-back" href="${base}">← Back to Career Tools</a><div><p class="auth-eyebrow">A LITTLE PREPARATION. A BIG NEXT STEP.</p><h2>Your next chapter<br>starts with you.</h2><p class="auth-story-lead">Give your experience a place to shine. We’ll help you put it on the page.</p><div class="auth-workspace-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR WORKSPACE</span><span>✦</span></div><div class="auth-preview-document"><span class="auth-document-icon">≡</span><div><strong>My next opportunity</strong><small>A resume that tells your story</small></div></div><div class="auth-preview-progress"><i></i><i></i><i></i><i></i></div><span class="auth-preview-foot">Your experience. Your pace.</span></div><ul class="auth-benefits"><li>Save drafts and come back anytime</li><li>Switch templates without starting over</li><li>Keep your resumes in one place</li></ul></div><p class="auth-story-bottom">Built for your next move · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
@@ -376,16 +350,15 @@ async function dashboard() {
     verifyBanner() +
     (resumes.length
       ? `<section class="continue-draft"><div class="continue-icon">▤</div><div><div class="eyebrow">PICK UP WHERE YOU LEFT OFF</div><h2>${esc(resumes[0].title)}</h2><p>${esc(sections[resumes[0].last_section]?.name || (resumes[0].last_section === "appearance" ? "Design & order" : "Personal details"))} · Last saved ${date(resumes[0].updated_at)}</p></div><a class="button" href="${base}editor/?id=${resumes[0].id}">Continue editing →</a></section><div class="dashboard-section-title"><h2>All your resumes</h2><span>${resumes.length} saved ${resumes.length === 1 ? "resume" : "resumes"}</span></div><div class="dashboard-grid">${resumes.map((r) => `<article class="resume-card"><div class="document-icon">▤</div><h2>${esc(r.title)}</h2><p>${esc(templates.find((t) => t.id === r.template_id)?.name || r.template_id)} · Updated ${date(r.updated_at)}</p>${r.job_id ? "<p>Created for a job application</p>" : ""}<div class="actions"><a class="button small" href="${base}editor/?id=${r.id}">Edit resume ↗</a>${button("Duplicate", "duplicate", `data-id="${r.id}"`)}${button("Rename", "rename", `data-id="${r.id}" data-title="${esc(r.title)}"`)}${button("Delete", "delete-resume", `data-id="${r.id}"`)}</div></article>`).join("")}</div>`
-      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>No saved resumes yet</h2><p>Start with a free template. Sign-in keeps drafts in your account.</p><a class="button" href="${base}templates/">Browse templates</a></div>`),
+      : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>No saved resumes yet</h2><p>Pick any free template. Sign in keeps your draft saved so you can pause and continue later.</p><a class="button" href="${base}templates/">Browse templates</a></div>`),
     `<a class="button" href="${base}templates/">＋ Create new resume</a>`,
   );
 }
 function pricing() {
-  const free = templates.filter((t) => t.access === "free").length;
   page(
     "Pricing",
-    "Free templates include PDF export. Pro is a 7-day pass — no subscription.",
-    `<div class="pricing-grid"><section class="card price-card"><div class="eyebrow">Always free</div><h2>Free</h2><div class="price">₹0 <small>always</small></div><p>Everything you need for a clear, professional resume.</p><ul><li>${free} free templates</li><li>Save up to 20 resumes</li><li>Live editing and template switching</li><li>A4 PDF without a watermark</li><li>Free local ATS checker</li></ul><a class="button secondary" href="${base}templates/">Choose a free template</a></section><section class="card price-card pro"><div class="eyebrow">Seven-day pass</div><h2>Pro Pass</h2><div class="price">₹99 <small>/ 7 days</small></div><p>Unlock every published design when you need a stronger first page.</p><ul><li>All ${templates.length} published templates</li><li>Premium PDF downloads</li><li>Additional fonts and spacing</li><li>Everything included in Free</li><li>Your resumes stay after expiry</li></ul>${useLocalApi() ? `<button class="button" data-action="checkout">${pro() ? "Extend Pro by 7 days" : "Try Pro in local test mode"}</button>` : `${proWhatsAppButton("Message InfoparkDaily on WhatsApp")}<p class="hint" style="margin-top:12px">₹99 for 7 days. Send a WhatsApp message to 9497725429 and we’ll help you with Pro resume templates.</p>`}${pro() ? `<p class="hint" style="margin-top:12px">Current pass ends ${date(me.entitlements.find((e) => e.feature === "template.premium").expires_at)}.</p>` : ""}</section></div><div class="card" style="max-width:850px;margin:0 auto 50px"><h3 style="font-size:18px">A few things to know</h3><p style="font-size:14px">After your pass expires, you can still edit every resume and export it with a free template. PDFs you already downloaded are yours to keep. Downloads are limited to 30 per hour to keep the service reliable.</p><p class="hint">${useLocalApi() ? "This is a local preview. The ₹99 price is a proposed launch price. No real payments are collected here." : "Live Career Tools includes free templates, cloud-saved resumes, and WhatsApp requests for Pro templates."}</p></div>`,
+    "All resume templates are free. Create an account so your drafts stay saved.",
+    `<div class="pricing-grid pricing-grid-single"><section class="card price-card"><div class="eyebrow">Always free</div><h2>Career Tools</h2><div class="price">₹0 <small>always</small></div><p>Build, save, and download a resume you are proud to send.</p><ul><li>All ${templates.length} templates included</li><li>Sign in to save drafts and resume later</li><li>Live A4 preview while you edit</li><li>Download a text-based PDF anytime</li><li>Free on-device ATS checker</li></ul><a class="button" href="${base}templates/">Browse templates</a></section></div><div class="card pricing-note"><h3 style="font-size:18px">Why sign in?</h3><p style="font-size:14px">Editing requires an account so your work is saved. Pause mid-way, close the tab, or come back tomorrow — open My resumes and continue from where you left off.</p><p class="hint">${useLocalApi() ? "Local preview · accounts stay on this computer." : "Cloud saves start after you verify your email."}</p></div>`,
   );
 }
 async function checkout(templateId) {
@@ -487,8 +460,8 @@ async function account() {
   const orders = await api("/orders");
   page(
     "Your account",
-    "Your resumes, your access, your choice.",
-    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Verify your email to enable cloud saving."}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>${pro() ? "Your Pro Pass is active" : "You’re on the Free plan"}</h2><p>${pro() ? "Access until " + date(me.entitlements.find((e) => e.feature === "template.premium").expires_at) : "Create, save and download resumes with our free templates."}</p><a class="button small secondary" href="${base}pricing/">View plans</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
+    "Your resumes, saved so you can continue anytime.",
+    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Verify your email to enable cloud saving."}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
   );
 }
 function fieldLabel(key) {
@@ -544,7 +517,7 @@ function sectionForm() {
   const panel = document.getElementById("edit-panel");
   const d = resume.data;
   if (activeSection === "appearance") {
-    panel.innerHTML = `<h2>Make it yours.</h2><p>Presentation changes never remove your content.</p><div class="field"><label for="accent">Accent colour</label><select id="accent" data-appearance="accent">${["default", "navy", "blue", "teal", "charcoal", "burgundy"].map((v) => `<option value="${v}" ${d.appearance.accent === v ? "selected" : ""}>${v === "default" ? "Template default" : v[0].toUpperCase() + v.slice(1)}</option>`).join("")}</select></div><div class="field"><label for="font">Font ${pro() ? "" : "· Pro"}</label><select id="font" data-appearance="font" ${pro() ? "" : "disabled"}>${["default", "sans", "serif", "mono"].map((v) => `<option value="${v}" ${d.appearance.font === v ? "selected" : ""}>${v === "default" ? "Template default" : v}</option>`).join("")}</select></div><div class="field"><label for="density">Spacing ${pro() ? "" : "· Pro"}</label><select id="density" data-appearance="density" ${pro() ? "" : "disabled"}>${["standard", "compact", "relaxed"].map((v) => `<option value="${v}" ${d.appearance.density === v ? "selected" : ""}>${v}</option>`).join("")}</select></div><h3 style="font-size:16px;margin-top:30px">Section order & visibility</h3><div>${d.sectionOrder.map((s, i) => `<div class="admin-row"><span>${esc(sections[s]?.name || d.customSections.find((x) => x.id === s)?.heading || "Custom section")}</span><div style="display:flex;gap:3px"><button class="icon-button" data-action="section-up" data-index="${i}" aria-label="Move section up" ${i === 0 ? "disabled" : ""}>↑</button><button class="icon-button" data-action="section-down" data-index="${i}" aria-label="Move section down" ${i === d.sectionOrder.length - 1 ? "disabled" : ""}>↓</button><button class="icon-button" data-action="section-hide" data-id="${s}" aria-pressed="${d.hiddenSections.includes(s)}">${d.hiddenSections.includes(s) ? "Show" : "Hide"}</button></div></div>`).join("")}</div>`;
+    panel.innerHTML = `<h2>Make it yours.</h2><p>Presentation changes never remove your content.</p><div class="field"><label for="accent">Accent colour</label><select id="accent" data-appearance="accent">${["default", "navy", "blue", "teal", "charcoal", "burgundy"].map((v) => `<option value="${v}" ${d.appearance.accent === v ? "selected" : ""}>${v === "default" ? "Template default" : v[0].toUpperCase() + v.slice(1)}</option>`).join("")}</select></div><div class="field"><label for="font">Font</label><select id="font" data-appearance="font">${["default", "sans", "serif", "mono"].map((v) => `<option value="${v}" ${d.appearance.font === v ? "selected" : ""}>${v === "default" ? "Template default" : v}</option>`).join("")}</select></div><div class="field"><label for="density">Spacing</label><select id="density" data-appearance="density">${["standard", "compact", "relaxed"].map((v) => `<option value="${v}" ${d.appearance.density === v ? "selected" : ""}>${v[0].toUpperCase() + v.slice(1)}</option>`).join("")}</select></div><h3 style="font-size:16px;margin-top:30px">Section order & visibility</h3><div>${d.sectionOrder.map((s, i) => `<div class="admin-row"><span>${esc(sections[s]?.name || d.customSections.find((x) => x.id === s)?.heading || "Custom section")}</span><div style="display:flex;gap:3px"><button class="icon-button" data-action="section-up" data-index="${i}" aria-label="Move section up" ${i === 0 ? "disabled" : ""}>↑</button><button class="icon-button" data-action="section-down" data-index="${i}" aria-label="Move section down" ${i === d.sectionOrder.length - 1 ? "disabled" : ""}>↓</button><button class="icon-button" data-action="section-hide" data-id="${s}" aria-pressed="${d.hiddenSections.includes(s)}">${d.hiddenSections.includes(s) ? "Show" : "Hide"}</button></div></div>`).join("")}</div>`;
     return;
   }
   const section = sections[activeSection];
@@ -652,10 +625,7 @@ async function save() {
         clearTimeout(saveTimer);
         saveTimer = setTimeout(() => void save(), 800);
       }
-      if (
-        templates.find((t) => t.id === resume.template_id)?.access === "premium"
-      )
-        renderPreview();
+      renderPreview();
     } catch (e) {
       saveError = e.status || true;
       setStatus(e.message, true);
@@ -692,7 +662,7 @@ function renderPreview() {
       '<div class="empty"><p>This template is archived or unavailable. Choose another template to preview your content.</p></div>';
     return;
   }
-  if (t.access === "free" && t.config) {
+  if (t.config) {
     clearTimeout(previewTimer);
     let frame = wrap.querySelector("iframe");
     if (!frame) {
@@ -705,30 +675,8 @@ function renderPreview() {
     requestAnimationFrame(fitPreview);
     return;
   }
-  if (!pro()) {
-    wrap.innerHTML =
-      '<div class="empty"><h2>Your content is safe.</h2><p>Switch to a free template or renew Pro to preview this design.</p><button class="button small" data-action="change-template">Choose a template</button></div>';
-    return;
-  }
-  if (dirty) return;
-  clearTimeout(previewTimer);
-  const rev = ++previewGeneration;
-  previewTimer = setTimeout(async () => {
-    try {
-      const blob = await api("/previews", {
-        method: "POST",
-        body: { resume_id: resume.id, revision: resume.revision },
-        blob: true,
-      });
-      if (rev !== previewGeneration) return;
-      if (previewURL) URL.revokeObjectURL(previewURL);
-      previewURL = URL.createObjectURL(blob);
-      wrap.style.height = "auto";
-      wrap.innerHTML = `<img src="${previewURL}" alt="Your premium resume preview">`;
-    } catch (e) {
-      if (rev === previewGeneration) toast(e.message);
-    }
-  }, 500);
+  wrap.innerHTML =
+    '<div class="empty"><h2>Preview unavailable</h2><p>Choose another template to continue editing this resume.</p><button class="button small" data-action="change-template">Choose a template</button></div>';
 }
 function printResumeHtml(html) {
   document.getElementById("resume-print-frame")?.remove();
@@ -784,7 +732,7 @@ async function downloadPDF() {
       const t =
         templates.find((x) => x.id === resume.template_id) || resume.template;
       if (!t?.config)
-        throw Error("Choose a free template to export a PDF on the live site.");
+        throw Error("This template cannot export yet. Choose another design.");
       printResumeHtml(renderResume(resume.data, t.config));
       toast("In the print dialog, choose Save as PDF.");
       showPortfolioSuggestion();
@@ -880,7 +828,7 @@ async function admin() {
       .map((x) => `<option>${x}</option>`)
       .join(
         "",
-      )}</select></div><div class="field"><label for="admin-access">Access</label><select id="admin-access" name="access"><option value="free">Free</option><option value="premium">Premium</option></select></div><div class="field"><label for="admin-family">Layout family</label><select id="admin-family" name="family">${["classic", "compact", "centered", "editorial", "sidebar", "executive", "ribbon", "rail", "ledger", "folio", "masthead", "split"].map((x) => `<option>${x}</option>`).join("")}</select></div><div class="field"><label for="admin-style">Section treatment</label><select id="admin-style" name="style">${["plain", "label", "smallcaps", "rule", "timeline", "band", "airy"].map((x) => `<option>${x}</option>`).join("")}</select></div><div class="field"><label for="admin-accent">Accent</label><input id="admin-accent" name="accent" type="color" value="#17334d"></div><div class="field"><label for="admin-font">Font</label><select id="admin-font" name="font"><option value="sans">Sans serif</option><option value="serif">Serif</option><option value="mono">Monospace</option></select></div><div class="field"><label for="admin-tags">Tags</label><input id="admin-tags" name="tags" placeholder="Developer, IT, Fresher"></div><div class="field"><label for="admin-status">Status</label><select id="admin-status" name="status"><option value="draft">Draft</option><option value="published">Published</option></select></div><div id="admin-error"></div><button class="button" type="submit">Save template version</button><p class="hint" style="margin-top:15px">Published versions pass a sample PDF render. Sample previews are generated automatically from fictional data.</p></form></section><section class="card admin-list"><h2 style="font-size:23px">${rows.length} templates</h2>${rows.map((t) => `<div class="admin-row"><div><strong>${esc(t.name)}</strong><small>${esc(t.id)} · v${t.version} · ${t.access} · ${t.status}</small></div><div style="display:flex;gap:5px">${button("Edit", "admin-edit", `data-id="${t.id}"`)}${button("Archive", "archive-template", `data-id="${t.id}"`)}</div></div>`).join("")}</section></div>`,
+      )}</select></div><div class="field"><label for="admin-access">Access</label><select id="admin-access" name="access"><option value="free">Free</option><option value="premium">Premium</option></select></div><div class="field"><label for="admin-family">Layout family</label><select id="admin-family" name="family">${["classic", "compact", "centered", "editorial", "sidebar", "executive", "ribbon", "rail", "ledger", "folio", "masthead", "split", "gallery"].map((x) => `<option>${x}</option>`).join("")}</select></div><div class="field"><label for="admin-style">Section treatment</label><select id="admin-style" name="style">${["plain", "label", "smallcaps", "rule", "timeline", "band", "airy"].map((x) => `<option>${x}</option>`).join("")}</select></div><div class="field"><label for="admin-accent">Accent</label><input id="admin-accent" name="accent" type="color" value="#17334d"></div><div class="field"><label for="admin-font">Font</label><select id="admin-font" name="font"><option value="sans">Sans serif</option><option value="serif">Serif</option><option value="mono">Monospace</option></select></div><div class="field"><label for="admin-tags">Tags</label><input id="admin-tags" name="tags" placeholder="Developer, IT, Fresher"></div><div class="field"><label for="admin-status">Status</label><select id="admin-status" name="status"><option value="draft">Draft</option><option value="published">Published</option></select></div><div id="admin-error"></div><button class="button" type="submit">Save template version</button><p class="hint" style="margin-top:15px">Published versions pass a sample PDF render. Sample previews are generated automatically from fictional data.</p></form></section><section class="card admin-list"><h2 style="font-size:23px">${rows.length} templates</h2>${rows.map((t) => `<div class="admin-row"><div><strong>${esc(t.name)}</strong><small>${esc(t.id)} · v${t.version} · ${t.access} · ${t.status}</small></div><div style="display:flex;gap:5px">${button("Edit", "admin-edit", `data-id="${t.id}"`)}${button("Archive", "archive-template", `data-id="${t.id}"`)}</div></div>`).join("")}</section></div>`,
   );
   window.rbAdminTemplates = rows;
 }
@@ -1125,16 +1073,10 @@ async function act(el) {
     case "conflict-copy": {
       const copy = await post("/resumes", {
         title: (resume.title + " (recovered copy)").slice(0, 120),
-        template_id: pro() ? resume.template_id : "ats-essential",
+        template_id: resume.template_id,
         data: {
           ...resume.data,
-          appearance: pro()
-            ? resume.data.appearance
-            : {
-                ...resume.data.appearance,
-                font: "default",
-                density: "standard",
-              },
+          appearance: resume.data.appearance,
         },
       });
       dirty = false;
@@ -1410,6 +1352,7 @@ async function boot() {
         throw e;
       });
     }
+    templates = templates.map((t) => ({ ...t, access: "free" }));
     templates.sort((a, b) => {
       const rank = (t) =>
         t.tags.includes("Gallery collection")
@@ -1420,17 +1363,12 @@ async function boot() {
       return rank(b) - rank(a);
     });
     accountNav();
-    if (params.get("access") === "free") access = "free";
     if (location.pathname.startsWith("/admin/members/")) return members();
     if (location.pathname.startsWith("/admin/resume-templates/"))
       return admin();
     switch (route) {
       case "templates":
         gallery();
-        if (access === "free") {
-          document.getElementById("access-filter").value = "free";
-          filterGallery();
-        }
         break;
       case "sign-in":
         auth();

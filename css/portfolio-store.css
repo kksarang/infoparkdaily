@@ -221,15 +221,19 @@ summary::-webkit-details-marker{display:none}
   aspect-ratio:4/3;
   border:1px solid var(--line);
 }
-.template-thumb{display:block;height:100%;position:relative}
+.template-thumb{
+  display:block;height:100%;position:relative;z-index:1;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+}
 .template-thumb img{
   width:100%;height:100%;object-fit:cover;object-position:top;
   transition:transform .45s var(--ease),filter .3s;
+  pointer-events:none;
 }
 .template-thumb::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 45%,#0005 100%);
-  opacity:0;transition:opacity .25s;
+  opacity:0;transition:opacity .25s;pointer-events:none;
 }
 .preview-pill{
   position:absolute;left:50%;top:50%;
@@ -242,15 +246,23 @@ summary::-webkit-details-marker{display:none}
   opacity:0;pointer-events:none;
   transition:opacity .25s,transform .3s var(--ease);
 }
-.template-image:hover .template-thumb img{transform:scale(1.03);filter:brightness(.85)}
-.template-image:hover .template-thumb::after{opacity:1}
-.template-image:hover .preview-pill{opacity:1;transform:translate(-50%,-50%) scale(1)}
+/* Desktop-only hover; touch devices must not need a first “hover tap”. */
+@media (hover:hover) and (pointer:fine){
+  .template-image:hover .template-thumb img{transform:scale(1.03);filter:brightness(.85)}
+  .template-image:hover .template-thumb::after{opacity:1}
+  .template-image:hover .preview-pill{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
+@media (hover:none), (pointer:coarse){
+  .template-thumb::after{opacity:.45}
+  .preview-pill{opacity:1;transform:translate(-50%,-50%) scale(1)}
+}
 .favourite{
   position:absolute;right:.65rem;top:.65rem;z-index:3;
   background:#fffc;border:0;
   border-radius:50%;width:2.25rem;height:2.25rem;
   font-size:1rem;display:grid;place-items:center;
   backdrop-filter:blur(8px);
+  touch-action:manipulation;
 }
 .favourite[aria-pressed=true]{color:#c2410c;background:#fff}
 .editorial-tag{
@@ -258,6 +270,7 @@ summary::-webkit-details-marker{display:none}
   background:var(--accent);color:var(--accent-ink);
   font-size:.6rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase;
   padding:.3rem .5rem;border-radius:.3rem;
+  pointer-events:none;
 }
 .template-meta{display:flex;flex-direction:column;flex:1;padding-top:.85rem}
 .template-title{display:flex;justify-content:space-between;gap:.75rem;align-items:baseline}
@@ -633,7 +646,7 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
   .preview-stage{padding:0}
   .preview-mobile-action{
     display:block;padding:.6rem .7rem calc(.6rem + env(safe-area-inset-bottom));
-    background:var(--bg);border-top:1px solid var(--line);
+    background:var(--bg);border-top:1px solid var(--line);flex-shrink:0;
   }
   .preview-mobile-action .button{width:100%}
   dialog{padding:1.25rem 1rem}
@@ -672,8 +685,10 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
   .preview-toolbar .preview-control-label{display:none}
   .preview-toolbar .preview-compact-label{display:inline}
   .preview-toolbar>a:first-child span:first-child{display:inline}
-  .preview-toolbar>.button{display:inline-flex;padding:8px 12px;min-height:40px}
+  /* Choose stays in the dedicated mobile action bar below the iframe. */
+  .preview-toolbar>.button{display:none}
   .preview-toolbar>strong{font-size:13px}
   .preview-back,.preview-open,.preview-fullscreen{width:36px;min-width:36px;min-height:44px;height:44px}
   .preview-back,.preview-open{font-size:18px}
+  .preview-mobile-action{display:block}
 }

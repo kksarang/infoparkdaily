@@ -9,7 +9,7 @@
       content="Free on-device ATS checker for Kerala IT jobs. Upload a PDF or DOCX, optionally paste a job description, and get a detailed readability, structure, phrasing, and keyword report. Files never leave your browser."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
-    <meta name="theme-color" content="#0b0b0f" />
+    <meta name="theme-color" content="#fafaf7" />
     <meta property="og:site_name" content="InfoparkDaily" />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:title" content="ATS Resume Checker · Career Tools" />
@@ -22,10 +22,40 @@
     <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
     <link rel="canonical" href="https://infoparkdaily.online/ats-checker/" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/css/ats-checker.css?v=20260911g" />
-    <link rel="stylesheet" href="/css/resume-builder.css?v=20260911i" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20260915a" />
-    <script defer src="/js/career-nav.js?v=20260915a"></script>
+    <script>
+      (function () {
+        /* Career Tools: always light (Portfolio store look). */
+        var light = true;
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", "#fafaf7");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
+<link rel="stylesheet" href="/css/ats-checker.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/career-home.css?v=20260915v" />
+    <script defer src="/js/career-nav.js?v=20260915w"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -39,26 +69,26 @@
       }
     </script>
   </head>
-  <body class="career-tools career-tools-ats">
+  <body class="career-tools career-tools-ats light">
     <a class="skip" href="#ats-tool">Skip to ATS checker</a>
-    <header class="topbar">
-      <a class="brand" href="/"
-        ><img src="/assets/logo-infoparkdaily.png" alt="" /><span
-          >InfoparkDaily<small>Career Tools</small></span
-        ></a
-      >
-      <nav aria-label="Career Tools">
-        <a href="/resume-builder/">Resume builder</a
-        ><a class="active" href="/ats-checker/" aria-current="page">ATS checker</a
-        ><a href="/resume-builder/templates/">Templates</a
-        ><a href="/portfolio/">Portfolio Websites</a><a href="/jobs/">Jobs</a>
-      </nav>
-      <div id="account-nav">
-        <a class="button small secondary" href="/resume-builder/sign-in/">Sign in</a>
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav">Menu</button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/portfolio/templates/">Templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/">Sign in</a></span>
+        </nav>
       </div>
     </header>
-
-    <main id="main">
+<main id="main">
       <section class="ct-stage ats-hero">
         <div class="ct-stage-inner rb-width">
           <div class="ct-stage-copy">
@@ -226,5 +256,6 @@
       </div>
     </footer>
     <script src="/js/ats-checker.js?v=20260911d" defer></script>
+      <script src="/js/site.js?v=20260915u" defer></script>
   </body>
 </html>

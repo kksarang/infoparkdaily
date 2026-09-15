@@ -55,21 +55,22 @@ const privateRoutes = [
   "account",
   "admin",
 ];
+const seekerPrivateRoutes = ["profile", "saved"];
 const params = new URLSearchParams(location.search);
 const redirect = () => {
   const next = params.get("next");
   location.href =
     next?.startsWith(ROOT) && !next.includes("://") ? next : href("dashboard");
 };
-const roleOptions = (role) =>
-  `<fieldset><legend>I’m here to…</legend><div class="role-options"><label class="role-option"><input type="radio" name="role" value="worker" ${role !== "employer" ? "checked" : ""}><span><strong>Find work</strong><small>Showcase my skills</small></span></label><label class="role-option"><input type="radio" name="role" value="employer" ${role === "employer" ? "checked" : ""}><span><strong>Hire people</strong><small>Build my team</small></span></label></div></fieldset>`;
+const employerFields = () =>
+  `<input type="hidden" name="role" value="employer"><div class="notice">This hub is for employers and hiring teams. Job seekers should use the <a class="accent" href="/jobs/">jobs board</a> and <a class="accent" href="/resume-builder/">Career Tools</a>.</div>`;
 const password = () =>
   `<div class="field"><label for="password">Password</label><div class="password-field"><input id="password" name="password" type="password" required minlength="${S.route === "register" ? 10 : 1}" maxlength="128" autocomplete="${S.route === "register" ? "new-password" : "current-password"}"><button type="button" class="icon-btn" data-password aria-label="Show password">${icon("eye")}</button></div></div>`;
 function authView(register = false) {
-  return `<div class="auth-layout"><section class="auth-story"><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h1>${register ? "Good people.<br>New possibilities." : "Welcome back.<br>Let’s move forward."}</h1><p>${register ? "Bring your skills or find your next hire. Let’s make the right connection." : "Your saved opportunities, conversations and next steps—all together."}</p><div class="auth-benefits"><span>${icon("check")} Opportunities across Kerala</span><span>${icon("check")} One profile, more ways to connect</span><span>${icon("shield")} Your documents stay private</span></div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues collaborating in an office" width="600" height="350"></section><section class="auth-main"><div class="auth-box"><h2>${register ? "Create your account" : "Sign in to InfoparkDaily"}</h2><p>${register ? "Already part of the community? " + link("Sign in", "sign-in", "text-link") : "New around here? " + link("Create an account", "register", "text-link")}</p><form class="stack" id="auth-form">${register ? roleOptions(params.get("role")) + field("Full name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) : ""}${field("Email address", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}${password()}${register ? '<small class="muted">Use at least 10 characters. You’ll verify your email before posting or applying.</small>' : `<div class="row spread">${check("Remember me", "remember")}<button type="button" class="btn quiet small" data-reset>Forgot password?</button></div>`}${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}${message()}<button class="btn wide" type="submit">${register ? "Create account" : "Sign in"} ${icon("right")}</button></form><div class="divider">or continue with</div><button class="btn secondary wide" data-google><span style="font-weight:800;font-size:1.1rem;color:#4285f4">G</span> Google</button><p class="small muted" style="text-align:center;margin:24px 0 0">${icon("shield")} Your Career Tools account works here too.</p></div></section></div>`;
+  return `<div class="auth-layout"><section class="auth-story"><p class="eyebrow">EMPLOYER HIRING HUB</p><h1>${register ? "Hire with<br>clarity." : "Welcome back,<br>hiring team."}</h1><p>${register ? "Create an employer account to post roles, discover talent and manage hiring conversations." : "Your roles, applications and talent conversations — ready when you are."}</p><div class="auth-benefits"><span>${icon("check")} Post roles for review</span><span>${icon("check")} Browse the talent directory</span><span>${icon("shield")} Private hiring workspace</span></div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues collaborating in an office" width="600" height="350"></section><section class="auth-main"><div class="auth-box"><h2>${register ? "Create your employer account" : "Sign in to hire"}</h2><p>${register ? "Already have an account? " + link("Sign in", "sign-in", "text-link") : "New hiring team? " + link("Create an employer account", "register", "text-link")}</p><form class="stack" id="auth-form">${register ? employerFields() + field("Your name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) + field("Company name", "company", "", { required: true, max: 120, extra: 'autocomplete="organization"' }) : ""}${field("Work email", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}${password()}${register ? '<small class="muted">Use at least 10 characters. You’ll verify your email before posting roles.</small>' : `<div class="row spread">${check("Remember me", "remember")}<button type="button" class="btn quiet small" data-reset>Forgot password?</button></div>`}${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}${message()}<button class="btn wide" type="submit">${register ? "Create employer account" : "Sign in"} ${icon("right")}</button></form><div class="divider">or continue with</div><button class="btn secondary wide" data-google><span style="font-weight:800;font-size:1.1rem;color:#4285f4">G</span> Google</button><p class="small muted" style="text-align:center;margin:24px 0 0">${icon("shield")} Looking for a job? <a class="accent" href="/jobs/">Browse the jobs board</a> instead.</p></div></section></div>`;
 }
 function verifyView() {
-  main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel stack"><span class="feature-icon" style="width:max-content">${icon("mail")}</span><h1 style="font-size:2rem;margin:0">Check your inbox.</h1><p class="muted" style="margin:0">Open the verification link sent to <strong>${esc(S.user.email)}</strong>. Then come back here to finish your account.</p><div class="notice">Your email needs to be verified before you can post a job, create a profile or contact another member.</div><form id="verify-form" class="stack">${message()}<button class="btn" type="submit">I’ve verified my email ${icon("right")}</button><button type="button" class="btn secondary" data-resend>Resend verification email</button></form><button class="btn quiet" data-logout>Use another account</button></div></div></section>`;
+  main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel stack"><span class="feature-icon" style="width:max-content">${icon("mail")}</span><h1 style="font-size:2rem;margin:0">Check your inbox.</h1><p class="muted" style="margin:0">Open the verification link sent to <strong>${esc(S.user.email)}</strong>. Then come back here to finish your employer account.</p><div class="notice">Your email needs to be verified before you can post a role or contact talent.</div><form id="verify-form" class="stack">${message()}<button class="btn" type="submit">I’ve verified my email ${icon("right")}</button><button type="button" class="btn secondary" data-resend>Resend verification email</button></form><button class="btn quiet" data-logout>Use another account</button></div></div></section>`;
   document.querySelector("#verify-form").onsubmit = (e) =>
     run(e, async () => {
       if (!(await C.verifyAgain()))
@@ -84,11 +85,12 @@ function onboarding() {
   try {
     draft = JSON.parse(sessionStorage.getItem("ipd_market_signup") || "{}");
   } catch {}
-  main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel"><p class="eyebrow">A FEW DETAILS, THEN YOU’RE IN</p><h1 style="font-size:2rem">Make yourself at home.</h1><p class="muted">Tell us how you’d like to use InfoparkDaily. You can update these details later.</p><form class="stack" id="onboarding-form">${roleOptions(draft.role || params.get("role"))}${field("Your name", "name", S.user.displayName || draft.name || "", { required: true, max: 100 })}${field("Phone number (private, optional)", "phone", "", { type: "tel", max: 30, extra: 'autocomplete="tel"' })}${field("Company name (for employers)", "company", "", { max: 120 })}<div class="notice">Your email and phone number are not listed on your public profile.</div>${message()}<button class="btn" type="submit">Continue to my workspace ${icon("right")}</button></form></div></div></section>`;
+  main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel"><p class="eyebrow">EMPLOYER ONBOARDING</p><h1 style="font-size:2rem">Set up your hiring workspace.</h1><p class="muted">Add your details so candidates and the review team know who is hiring.</p><form class="stack" id="onboarding-form">${employerFields()}${field("Your name", "name", S.user.displayName || draft.name || "", { required: true, max: 100 })}${field("Phone number (private, optional)", "phone", "", { type: "tel", max: 30, extra: 'autocomplete="tel"' })}${field("Company name", "company", draft.company || "", { required: true, max: 120 })}${message()}<button class="btn" type="submit">Continue to my workspace ${icon("right")}</button></form></div></div></section>`;
   document.querySelector("#onboarding-form").onsubmit = (e) =>
     run(e, async (data) => {
-      if (data.role === "employer" && !data.company.trim())
+      if (!data.company.trim())
         throw Error("Add your company name to continue as an employer.");
+      data.role = "employer";
       await C.saveMember(data);
       sessionStorage.removeItem("ipd_market_signup");
       if (["sign-in", "register"].includes(S.route)) redirect();
@@ -111,27 +113,23 @@ async function run(event, task, success) {
 }
 function nav() {
   document.querySelector("#nav-account").innerHTML = S.user
-    ? `${link("Post a job", "post-job", "btn secondary")}${link("My workspace", "dashboard", "btn")}`
-    : `${link("Sign in", "sign-in", "btn quiet")}${link("Post a job", "post-job", "btn secondary")}${link("Get started", "register")}`;
+    ? `${link("Post a role", "post-job", "btn secondary")}${link("My workspace", "dashboard", "btn")}`
+    : `${link("Sign in", "sign-in", "btn quiet")}${link("Post a role", "post-job", "btn secondary")}${link("Get started", "register")}`;
 }
 function workspace(title, text, body) {
   const links = [
     ["dashboard", "home", "Overview"],
-    ["profile", "users", "My profile"],
-    ["saved", "bookmark", "Saved jobs"],
     [
       "applications",
       "briefcase",
-      S.member.role === "employer"
-        ? "Hiring & applications"
-        : "My applications",
+      "Hiring & applications",
     ],
     ["messages", "chat", "Messages"],
-    ["post-job", "plus", "Post a job"],
-    ["account", "settings", "Account & documents"],
+    ["post-job", "plus", "Post a role"],
+    ["account", "settings", "Account"],
     ...(S.admin ? [["admin", "shield", "Community review"]] : []),
   ];
-  main.innerHTML = `<section class="workspace"><div class="container workspace-grid"><nav class="workspace-nav" aria-label="Your workspace"><div class="member-name">${esc(S.member.name)}<small>${S.member.role === "employer" ? "Employer workspace" : "Worker workspace"}</small></div>${links.map(([r, i, l]) => `<a href="${href(r)}" ${S.route === r ? 'aria-current="page"' : ""}>${icon(i)}${l}</a>`).join("")}<button data-logout>${icon("logout")}Sign out</button></nav><div><div class="workspace-head"><h1>${title}</h1><p>${text}</p></div><div id="workspace-content">${body}</div></div></div></section>`;
+  main.innerHTML = `<section class="workspace"><div class="container workspace-grid"><nav class="workspace-nav" aria-label="Hiring workspace"><div class="member-name">${esc(S.member.name)}<small>${S.member.company ? esc(S.member.company) + " · " : ""}Employer workspace</small></div>${links.map(([r, i, l]) => `<a href="${href(r)}" ${S.route === r ? 'aria-current="page"' : ""}>${icon(i)}${l}</a>`).join("")}<button data-logout>${icon("logout")}Sign out</button></nav><div><div class="workspace-head"><h1>${title}</h1><p>${text}</p></div><div id="workspace-content">${body}</div></div></div></section>`;
 }
 async function authChanged(user) {
   unsubscribe.forEach((fn) => fn());
@@ -147,7 +145,7 @@ async function authChanged(user) {
       main.innerHTML = authView(S.route === "register");
       bindAuth();
     } else if (privateRoutes.includes(S.route)) {
-      main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px">${empty("Your next step starts here.", "Sign in to save opportunities, apply to community jobs and manage your profile.", link("Sign in", "sign-in", "btn", "?next=" + encodeURIComponent(location.pathname + location.search)) + " " + link("Create an account", "register", "btn secondary"), "users")}</div></section>`;
+      main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px">${empty("Sign in to your hiring workspace.", "Post roles, browse talent and manage applications from your employer dashboard.", link("Sign in", "sign-in", "btn", "?next=" + encodeURIComponent(location.pathname + location.search)) + " " + link("Create employer account", "register", "btn secondary"), "users")}</div></section>`;
     }
     return;
   }
@@ -199,7 +197,11 @@ function bindAuth() {
         registering = true;
         sessionStorage.setItem(
           "ipd_market_signup",
-          JSON.stringify({ role: data.role, name: data.name }),
+          JSON.stringify({
+            role: "employer",
+            name: data.name,
+            company: data.company,
+          }),
         );
         try {
           await C.register(data);
@@ -247,12 +249,12 @@ function refreshSavedButtons() {
 }
 async function renderPrivate() {
   const r = S.route;
-  if (r === "profile") {
-    profile = await C.getRecord("profiles", S.user.uid);
-    renderProfile();
-  } else if (r === "account") await renderAccount();
+  if (seekerPrivateRoutes.includes(r)) {
+    location.replace(href("dashboard"));
+    return;
+  }
+  if (r === "account") await renderAccount();
   else if (r === "post-job") await renderJobForm();
-  else if (r === "saved") await renderSaved();
   else if (r === "admin") await renderAdmin();
   else if (["dashboard", "applications", "messages"].includes(r)) {
     workspace(
@@ -369,9 +371,9 @@ async function resizePhoto(file) {
 async function renderAccount() {
   const docs = await C.documentList();
   workspace(
-    "Your account, your control.",
-    "Keep your details current and choose which documents to share.",
-    `<form id="account-form" class="panel stack"><h2>Account details</h2>${roleOptions(S.member.role)}<div class="form-grid">${field("Name", "name", S.member.name, { required: true, max: 100 })}${field("Phone (private, optional)", "phone", S.member.phone, { type: "tel", max: 30 })}${field("Company name", "company", S.member.company, { max: 120 })}<div class="field"><label>Email address</label><p class="small muted" style="margin:5px 0">${esc(S.user.email)} · Verified</p></div></div>${message()}<div class="row"><button class="btn" type="submit">Save changes</button><button type="button" class="btn secondary" data-reset>Reset password</button></div></form><div class="panel account-docs"><h2>Private documents</h2><p class="small muted">Only you and the review team can access these files. You can choose to share a copy of your resume when applying to a community job.</p>${[
+    "Your employer account.",
+    "Keep your hiring details current. Private documents stay with your workspace.",
+    `<form id="account-form" class="panel stack"><h2>Company &amp; contact</h2>${employerFields()}<div class="form-grid">${field("Name", "name", S.member.name, { required: true, max: 100 })}${field("Phone (private, optional)", "phone", S.member.phone, { type: "tel", max: 30 })}${field("Company name", "company", S.member.company, { required: true, max: 120 })}<div class="field"><label>Email address</label><p class="small muted" style="margin:5px 0">${esc(S.user.email)} · Verified</p></div></div>${message()}<div class="row"><button class="btn" type="submit">Save changes</button><button type="button" class="btn secondary" data-reset>Reset password</button></div></form><div class="panel account-docs"><h2>Private documents</h2><p class="small muted">Only you and the review team can access these files.</p>${[
       "resume",
       "certificate",
       "other",
@@ -392,12 +394,13 @@ async function renderAccount() {
       ],
       "resume",
       null,
-    )}<div class="field"><label for="document">Choose a file</label><input name="document" id="document" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required><small>PDF, Word, JPG or PNG · Up to 700 KB per file. Uploading replaces that document.</small></div>${message()}<button class="btn secondary" type="submit">Upload private document</button></form></div><div class="panel account-docs"><h2>Privacy & account help</h2><p class="small muted">To request removal of your profile or account data, contact the team from your registered email. Include any active hires that need to be resolved.</p>${link("Contact support", "contact", "text-link")}</div>`,
+    )}<div class="field"><label for="document">Choose a file</label><input name="document" id="document" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required><small>PDF, Word, JPG or PNG · Up to 700 KB per file. Uploading replaces that document.</small></div>${message()}<button class="btn secondary" type="submit">Upload private document</button></form></div><div class="panel account-docs"><h2>Privacy & account help</h2><p class="small muted">To request removal of your account data, contact the team from your registered email. Looking for work? Use the <a class="accent" href="/jobs/">jobs board</a>.</p>${link("Contact support", "contact", "text-link")}</div>`,
   );
   document.querySelector("#account-form").onsubmit = (e) =>
     run(e, async (data) => {
-      if (data.role === "employer" && !data.company.trim())
+      if (!data.company.trim())
         throw Error("Add your company name for an employer account.");
+      data.role = "employer";
       await C.saveMember(data);
       S.member = await C.getMember();
       showMessage(
@@ -419,9 +422,10 @@ async function renderJobForm() {
       "Build your next great team.",
       "Post a role for the InfoparkDaily community.",
       empty(
-        "Switch to an employer account.",
-        "Add your company details in account settings to post a role. Your existing profile and applications stay with your account.",
-        link("Open account settings", "account"),
+        "Finish your employer setup.",
+        "Add your company name in account settings to post roles. Job seekers should use the public jobs board.",
+        link("Open account settings", "account") +
+          ' <a class="btn secondary" href="/jobs/">Browse jobs board</a>',
         "briefcase",
       ),
     );
@@ -479,8 +483,12 @@ function renderDashboard() {
   const newUpdates = applications.filter(
     (a) => stamp(a.updatedAt) > stamp(S.member.lastReadAt),
   );
+  const workerNotice =
+    S.member.role !== "employer"
+      ? `<div class="notice warn">This hub is for hiring teams. Add your company in Account to continue as an employer, or browse jobs on the <a class="accent" href="/jobs/">public board</a>.</div>`
+      : "";
   document.querySelector("#workspace-content").innerHTML =
-    `${params.get("posted") ? '<div class="notice">Your job was submitted. It will appear publicly after review.</div>' : ""}<div class="grid three metrics"><a class="metric" href="${href("saved")}">${icon("bookmark")}<strong>${S.savedIds.size}</strong><span>Saved opportunities</span></a><a class="metric" href="${href("applications")}">${icon("briefcase")}<strong>${active.length}</strong><span>Active connections</span></a><a class="metric" href="${href("applications")}">${icon("bell")}<strong>${newUpdates.length}</strong><span>Recent updates</span></a></div><div class="panel" style="margin-top:24px"><div class="row spread"><h2 style="margin:0">${S.member.role === "employer" ? "Your job posts" : "Your worker profile"}</h2>${S.member.role === "employer" ? link("Post a job " + icon("plus"), "post-job", "text-link") : link(profile ? "Edit profile" : "Create profile", "profile", "text-link")}</div><div class="stack" style="margin-top:24px">${S.member.role === "employer" ? (ownJobs.length ? ownJobs.map((j) => `<article class="record"><div class="row spread"><h3 style="margin:0">${esc(j.title)}</h3>${statusTag(j.status)}</div><p>${esc(j.company)} · ${esc(j.location)}</p><div class="row">${link("View post", "jobs", "btn secondary small", "?id=" + encodeURIComponent(j.id))}${link("Edit", "post-job", "btn secondary small", "?edit=" + encodeURIComponent(j.id))}${j.status !== "closed" ? `<button class="btn quiet small" data-close-job="${esc(j.id)}">Close post</button>` : ""}</div></article>`).join("") : empty("Your next great hire starts here.", "Post a clear role and receive applications from the community.", link("Create a job post", "post-job"))) : profile ? `<div class="row">${avatar(profile)}<div><h3>${esc(profile.name)}</h3><p class="small muted" style="margin:0 0 8px">${esc(profile.title)}</p>${statusTag(profile.status)}</div></div>` : empty("Let employers discover your skills.", "Add your experience, skills and location. Submit your profile to join the public directory.", link("Create my profile", "profile"), "users")}</div></div><div class="panel" style="margin-top:24px"><div class="row spread"><h2 style="margin:0">Latest activity</h2>${link("View all", "applications", "text-link")}</div><div class="stack" style="margin-top:24px">${
+    `${params.get("posted") ? '<div class="notice">Your role was submitted. It will appear publicly after review.</div>' : ""}${workerNotice}<div class="grid three metrics"><a class="metric" href="${href("workers")}">${icon("users")}<strong>${S.workers?.length || "—"}</strong><span>Talent directory</span></a><a class="metric" href="${href("applications")}">${icon("briefcase")}<strong>${active.length}</strong><span>Active hiring</span></a><a class="metric" href="${href("applications")}">${icon("bell")}<strong>${newUpdates.length}</strong><span>Recent updates</span></a></div><div class="panel" style="margin-top:24px"><div class="row spread"><h2 style="margin:0">Your job posts</h2>${link("Post a role " + icon("plus"), "post-job", "text-link")}</div><div class="stack" style="margin-top:24px">${ownJobs.length ? ownJobs.map((j) => `<article class="record"><div class="row spread"><h3 style="margin:0">${esc(j.title)}</h3>${statusTag(j.status)}</div><p>${esc(j.company)} · ${esc(j.location)}</p><div class="row">${link("Edit", "post-job", "btn secondary small", "?edit=" + encodeURIComponent(j.id))}${j.status !== "closed" ? `<button class="btn quiet small" data-close-job="${esc(j.id)}">Close post</button>` : ""}</div></article>`).join("") : empty("Your next great hire starts here.", "Post a clear role and invite talent from the directory.", link("Post a role", "post-job"))}</div></div><div class="panel" style="margin-top:24px"><div class="row spread"><h2 style="margin:0">Latest hiring activity</h2>${link("View all", "applications", "text-link")}</div><div class="stack" style="margin-top:24px">${
       applications.length
         ? applications
             .slice(0, 4)
@@ -489,7 +497,7 @@ function renderDashboard() {
                 `<a class="record" href="${href("applications")}"><div class="row spread"><strong>${esc(a.jobTitle)}</strong>${statusTag(a.status)}</div><p style="margin:10px 0 0">${esc(a.company)} · ${formatDate(a.updatedAt, true)}</p></a>`,
             )
             .join("")
-        : '<p class="small muted" style="margin:0">Your applications, invitations and hiring updates will appear here.</p>'
+        : '<p class="small muted" style="margin:0">Invitations, applications and hire updates will appear here.</p>'
     }</div></div>`;
 }
 async function renderSaved() {
@@ -502,7 +510,7 @@ async function renderSaved() {
       : empty(
           "Keep your next possibilities here.",
           "Save jobs as you explore. They’ll be here when you come back.",
-          link("Explore jobs", "jobs"),
+          link("Find talent", "workers"),
           "bookmark",
         ),
   );
@@ -558,7 +566,7 @@ function renderApplications() {
         "Your next connection starts with a hello.",
         "Apply to a community job or invite a worker to one of your approved roles. Curated IT park applications can be tracked in Saved jobs.",
         link(
-          S.member.role === "employer" ? "Find workers" : "Explore jobs",
+          "Find talent",
           S.member.role === "employer" ? "workers" : "jobs",
         ),
         "briefcase",
@@ -696,7 +704,7 @@ async function applyModal(id) {
   const p = await C.getRecord("profiles", S.user.uid);
   if (!p) {
     dialog(
-      `<h2>Introduce yourself first.</h2><p>Create your worker profile, then come back to apply for this role.</p>${link("Create my profile", "profile")}`,
+      `<h2>Looking for work?</h2><p>This hub is for hiring teams. Browse openings on the public jobs board, or use Career Tools for your resume.</p><a class="btn" href="/jobs/">Browse jobs board</a> <a class="btn secondary" href="/resume-builder/">Career Tools</a>`,
     );
     return;
   }
@@ -1057,7 +1065,7 @@ async function loadPublicDetail() {
           ? "This opportunity is unavailable."
           : "This profile is unavailable.",
         "It may be waiting for review. Sign in if this is your own submission.",
-        link(S.route === "jobs" ? "Explore jobs" : "Find workers", S.route) +
+        link("Find talent", "workers") +
           " " +
           link("Sign in", "sign-in", "btn secondary"),
       );

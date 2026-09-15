@@ -9,33 +9,62 @@
     />
     <meta name="robots" content="noindex,nofollow" />
     <title>Career Tools · Resume Builder | InfoparkDaily</title>
+    <meta name="theme-color" content="#fafaf7" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/css/resume-builder.css?v=20260911i" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20260915a" />
-    <script defer src="/js/career-nav.js?v=20260915a"></script>
-    <script type="module" src="/js/resume-builder/app.js?v=20260915a"></script>
+    <script>
+      (function () {
+        /* Career Tools: always light (Portfolio store look). */
+        var light = true;
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", "#fafaf7");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
+<link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260915u" />
+    <script defer src="/js/career-nav.js?v=20260915w"></script>
+    <script type="module" src="/js/resume-builder/app.js?v=20260915p"></script>
   </head>
-  <body class="career-tools">
+  <body class="career-tools light">
     <a class="skip" href="#main">Skip to content</a>
-    <header class="topbar">
-      <a class="brand" href="/"
-        ><img src="/assets/logo-infoparkdaily.png" alt="" /><span
-          >InfoparkDaily<small>Career Tools</small></span
-        ></a
-      >
-      <nav aria-label="Career Tools">
-        <a href="/resume-builder/">Resume</a
-        ><a href="/ats-checker/">ATS</a
-        ><a href="/resume-builder/templates/">Templates</a
-        ><a href="/portfolio/">Portfolio Websites</a><a href="/jobs/">Jobs</a>
-      </nav>
-      <div id="account-nav">
-        <a class="button small secondary" href="/resume-builder/sign-in/"
-          >Sign in</a
-        >
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav">Menu</button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/portfolio/templates/">Templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/">Sign in</a></span>
+        </nav>
       </div>
     </header>
-    <div class="local-notice" hidden>
+<div class="local-notice" hidden>
       LOCAL PREVIEW
       <span>Your work stays on this computer.</span>
     </div>
@@ -52,5 +81,6 @@
     </footer>
     <div id="toast" role="status" aria-live="polite"></div>
     <dialog id="modal"></dialog>
+      <script src="/js/site.js?v=20260915u" defer></script>
   </body>
 </html>

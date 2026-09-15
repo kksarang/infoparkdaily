@@ -148,6 +148,11 @@ export function sampleResume() {
       ],
     },
   ];
+  d.languages = [
+    { id: "lang-en", name: "English", proficiency: "Fluent" },
+    { id: "lang-ml", name: "Malayalam", proficiency: "Native" },
+    { id: "lang-hi", name: "Hindi", proficiency: "Intermediate" },
+  ];
   return d;
 }
 export function validateResume(d) {

@@ -9,34 +9,63 @@
     />
     <meta name="robots" content="noindex,nofollow" />
     <title>Career Tools · Resume Builder | InfoparkDaily</title>
+    <meta name="theme-color" content="#fafaf7" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/css/resume-builder.css?v=20260911i" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20260915a" />
-    <script defer src="/js/career-nav.js?v=20260915a"></script>
-    <link rel="stylesheet" href="/css/career-home.css?v=20260911b" />
-    <script type="module" src="/js/resume-builder/app.js?v=20260915a"></script>
+    <script>
+      (function () {
+        /* Career Tools: always light (Portfolio store look). */
+        var light = true;
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", "#fafaf7");
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
+<link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260915u" />
+    <script defer src="/js/career-nav.js?v=20260915w"></script>
+    <link rel="stylesheet" href="/css/career-home.css?v=20260915v" />
+    <script type="module" src="/js/resume-builder/app.js?v=20260915p"></script>
   </head>
-  <body class="career-tools career-home">
+  <body class="career-tools career-home light">
     <a class="skip" href="#main">Skip to content</a>
-    <header class="topbar">
-      <a class="brand" href="/"
-        ><img src="/assets/logo-infoparkdaily.png" alt="" /><span
-          >InfoparkDaily<small>Career Tools</small></span
-        ></a
-      >
-      <nav aria-label="Career Tools">
-        <a href="/resume-builder/" aria-current="page">Resume builder</a
-        ><a href="/ats-checker/">ATS checker</a
-        ><a href="/resume-builder/templates/">Templates</a
-        ><a href="/portfolio/">Portfolio Websites</a><a href="/jobs/">Jobs</a>
-      </nav>
-      <div id="account-nav">
-        <a class="button small secondary" href="/resume-builder/sign-in/"
-          >Sign in</a
-        >
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav">Menu</button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/">Portfolio</a>
+          <a href="/portfolio/templates/">Templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/">Sign in</a></span>
+        </nav>
       </div>
     </header>
-    <div class="local-notice" hidden>
+<div class="local-notice" hidden>
       LOCAL PREVIEW
       <span>Your work stays on this computer.</span>
     </div>
@@ -54,7 +83,7 @@
               <a class="button secondary" href="/ats-checker/">Check my resume <span aria-hidden="true">↗</span></a>
             </div>
             <ul class="ct-pills">
-              <li>32 free templates</li>
+              <li>All templates free</li>
               <li>Selectable PDF text</li>
               <li>Private ATS check</li>
             </ul>
@@ -96,7 +125,7 @@
         </a>
       </div>
 
-      <section class="rb-width" style="margin-block:36px"><a href="/portfolio/" class="ct-path" style="display:block;background:#f5edce;border:1px solid #dfd4ab;border-radius:12px;padding:30px"><span class="ct-path-mark">03 · Portfolio Websites</span><h2>Give your projects a home.</h2><p>Complete your professional profile with a portfolio website. Explore 30 complete designs and let our team personalise your choice.</p><p>Website ₹2,999 · With eligible first-year domain ₹3,999</p><span class="ct-tool-go">Explore portfolio websites →</span></a></section>
+      <section class="rb-width" style="margin-block:36px"><a href="/portfolio/" class="ct-path" style="display:block;border-radius:16px;padding:30px"><span class="ct-path-mark" style="width:auto;height:auto;padding:8px 12px;display:inline-flex">03 · Portfolio Websites</span><h2>Give your projects a home.</h2><p>Complete your professional profile with a portfolio website. Explore 30 complete designs and let our team personalise your choice.</p><p>Website ₹2,999 · With eligible first-year domain ₹3,999</p><span class="ct-tool-go">Explore portfolio websites →</span></a></section>
       <section class="rb-width ct-band" aria-labelledby="how-title">
         <p class="ct-kicker">How it works</p>
         <h2 id="how-title">From a blank page to a file you can send.</h2>
@@ -124,7 +153,7 @@
           <div>
             <p class="ct-kicker">Gallery</p>
             <h2 id="templates-title">Templates</h2>
-            <p id="template-count">Free and Pro designs. Switch layout anytime without rewriting.</p>
+            <p id="template-count">All designs free. Sign in to save and continue anytime.</p>
           </div>
           <a class="text-link" href="/resume-builder/templates/">View all →</a>
         </div>
@@ -166,5 +195,6 @@
     </footer>
     <div id="toast" role="status" aria-live="polite"></div>
     <dialog id="modal"></dialog>
+      <script src="/js/site.js?v=20260915u" defer></script>
   </body>
 </html>

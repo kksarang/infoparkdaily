@@ -50,8 +50,9 @@ function publicTemplate(t: Template) {
   const { config, ...meta } = t;
   return {
     ...meta,
+    access: "free",
     thumbnail: `/v1/templates/${t.id}/thumbnail?v=${t.version}`,
-    ...(t.access === "free" ? { config } : {}),
+    ...(config ? { config } : {}),
   };
 }
 const mime: Record<string, string> = {
@@ -177,15 +178,9 @@ export function createApp(
     return value.trim();
   }
   function checkAppearance(data: any, uid: string) {
-    if (
-      (data.appearance.font !== "default" ||
-        data.appearance.density !== "standard") &&
-      !store.allowed(uid, "customize.advanced")
-    )
-      throw new HttpError(
-        403,
-        "Advanced typography needs an active Pro Pass. Select the default font and standard spacing.",
-      );
+    // All design controls are free; keep the hook for future entitlement checks.
+    void data;
+    void uid;
   }
   async function processWebhookRow(row: any) {
     if (processingEvents.has(row.id)) return;

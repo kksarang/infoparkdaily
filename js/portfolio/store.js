@@ -1,3 +1,22 @@
+/**
+ * Portfolio storefront + preview chrome.
+ *
+ * Functional flow
+ * ---------------
+ * Gallery (/portfolio/, /portfolio/templates/)
+ *   1. Card image / "Preview Website" = native <a href="/portfolio/preview/{slug}/">
+ *   2. JS never intercepts that navigation (analytics only).
+ *   3. Favourite is a sibling button (outside the link) — toggles localStorage shortlist.
+ *
+ * Preview shell (/portfolio/preview/{slug}/)
+ *   1. Page chrome (back, device, open, fullscreen, choose).
+ *   2. iframe loads /portfolio/demo/{slug}/ (the real demo site).
+ *   3. Fullscreen enlarges the stage; if unsupported, open demo in a new tab
+ *      (never navigate away from the preview shell).
+ *
+ * Order dialog
+ *   data-order opens WhatsApp enquire modal — separate from preview navigation.
+ */
 import {templates,config} from './catalog.js';
 const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
@@ -8,32 +27,90 @@ const report=message=>{const status=$('#store-status');if(status)status.textCont
 // An approved analytics adapter may listen after obtaining the site's analytics consent.
 export function track(event,fields={}){const allowed={};for(const key of ['template_id','category','package','device'])if(fields[key])allowed[key]=fields[key];document.dispatchEvent(new CustomEvent('portfolio:analytics',{detail:{event,...allowed}}));}
 track('portfolio_page_viewed');
+/* Header logo always goes to the main InfoparkDaily home. */
+document.querySelectorAll('.store-header .store-brand').forEach((a)=>{
+  a.setAttribute('href','/');
+  a.setAttribute('aria-label','Infopark Daily home');
+});
 const menu=$('#store-menu');
 if(menu){const header=$('.store-header');header.classList.add('menu-ready');const open=value=>{header.classList.toggle('menu-open',value);menu.setAttribute('aria-expanded',String(value));};menu.addEventListener('click',()=>open(menu.getAttribute('aria-expanded')!=='true'));header.addEventListener('keydown',ev=>{if(ev.key==='Escape'){open(false);menu.focus();}});$('#store-nav').addEventListener('click',()=>open(false));document.addEventListener('click',ev=>{if(!header.contains(ev.target))open(false);});}
+
+/* --- Favourites + gallery filters --------------------------------------- */
 const favouriteKey='ipd.portfolio.favourites.v1';const rawSaved=safeRead(favouriteKey,[]);let saved=new Set(Array.isArray(rawSaved)?rawSaved.filter(slug=>templates.some(t=>t.slug===slug)):[]);
 function syncSaved(){for(const button of $$('[data-favourite]')){const chosen=saved.has(button.dataset.favourite);button.setAttribute('aria-pressed',String(chosen));button.textContent=chosen?'♥':'♡';button.setAttribute('aria-label',`${chosen?'Remove':'Save'} ${templates.find(t=>t.slug===button.dataset.favourite)?.name} ${chosen?'from':'to'} favourites`);}}
-$$('[data-favourite]').forEach(button=>button.addEventListener('click',()=>{const slug=button.dataset.favourite;saved.has(slug)?saved.delete(slug):saved.add(slug);const persisted=safeWrite(favouriteKey,[...saved]);syncSaved();applyFilters(false);report(persisted?'Shortlist updated on this device.':'Shortlist updated for this visit. Browser storage is unavailable.');track('template_shortlisted',{template_id:templates.find(t=>t.slug===slug).id});}));syncSaved();
+function toggleFavourite(slug){
+  if(!slug||!templates.some(t=>t.slug===slug))return;
+  saved.has(slug)?saved.delete(slug):saved.add(slug);
+  const persisted=safeWrite(favouriteKey,[...saved]);
+  syncSaved();
+  applyFilters(false);
+  report(persisted?'Shortlist updated on this device.':'Shortlist updated for this visit. Browser storage is unavailable.');
+  track('template_shortlisted',{template_id:templates.find(t=>t.slug===slug)?.id});
+}
+syncSaved();
 const controls=$('#gallery-controls'),grid=$('#template-grid');const stateKey='ipd.portfolio.gallery.v1';
 function getState(){if(!controls)return {};return {q:controls.elements.q.value,category:controls.elements.category.value,style:controls.elements.style.value,sort:controls.elements.sort.value,saved:controls.elements.saved.checked};}
 function restore(){if(!controls)return;const params=new URLSearchParams(location.search);const state=params.size?Object.fromEntries(params):safeRead(stateKey,{});for(const key of ['q','category','style','sort'])if(typeof state[key]==='string')controls.elements[key].value=state[key];controls.elements.sort.value ||= 'featured';controls.elements.saved.checked=state.saved===true||state.saved==='true';applyFilters(false);}
 function applyFilters(update=true){if(!controls)return;const state=getState();const q=state.q.trim().toLowerCase();let list=templates.filter(t=>(!state.category||t.category===state.category)&&(!state.style||t.styleTags.includes(state.style))&&(!state.saved||saved.has(t.slug))&&(!q||[t.name,t.profession,t.description,...t.supportedSections,...t.skills].join(' ').toLowerCase().includes(q)));list.sort(state.sort==='az'?(a,b)=>a.name.localeCompare(b.name):state.sort==='newest'?(a,b)=>b.id.localeCompare(a.id):(a,b)=>Number(b.featured)-Number(a.featured)||a.id.localeCompare(b.id));const slugs=new Set(list.map(t=>t.slug));$$('.template-card',grid).forEach(card=>card.hidden=!slugs.has(card.dataset.slug));list.forEach(t=>grid.append($(`[data-slug="${t.slug}"]`,grid)));$('#result-count').textContent=`${list.length} ${list.length===1?'template':'templates'}`;$('#empty-state').hidden=!!list.length;if(update){safeWrite(stateKey,state);const query=new URLSearchParams();for(const [key,value] of Object.entries(state))if(value&&!(key==='sort'&&value==='featured'))query.set(key,String(value));history.replaceState(null,'',location.pathname+(query.size?'?'+query:'')+location.hash);}}
 if(controls){controls.addEventListener('submit',e=>e.preventDefault());controls.addEventListener('input',()=>applyFilters());controls.elements.category.addEventListener('change',()=>track('category_selected',{category:controls.elements.category.value}));const reset=()=>{controls.reset();applyFilters();};controls.addEventListener('reset',()=>setTimeout(()=>applyFilters(),0));$$('[data-reset]').forEach(b=>b.addEventListener('click',reset));restore();window.addEventListener('popstate',restore);}
-$$('a[href^="/portfolio/preview/"]').forEach(a=>a.addEventListener('click',()=>{const t=templates.find(t=>t.previewPath===a.getAttribute('href'));track('template_preview_opened',{template_id:t?.id});}));
+
+/* Delegated gallery actions — survives filter DOM reordering. */
+document.addEventListener('click',(ev)=>{
+  const fav=ev.target.closest('[data-favourite]');
+  if(fav){
+    ev.preventDefault();
+    ev.stopPropagation();
+    toggleFavourite(fav.dataset.favourite);
+    return;
+  }
+  const previewLink=ev.target.closest('a[href^="/portfolio/preview/"]');
+  if(previewLink){
+    const href=previewLink.getAttribute('href');
+    const t=templates.find(t=>t.previewPath===href);
+    track('template_preview_opened',{template_id:t?.id});
+    /* Native navigation continues — do not preventDefault. */
+  }
+});
+
 $$('[data-back-gallery]').forEach(a=>{const state=safeRead(stateKey,{});const params=new URLSearchParams();for(const [key,val] of Object.entries(state))if(val&&!(key==='sort'&&val==='featured'))params.set(key,String(val));a.href='/portfolio/templates/'+(params.size?'?'+params:'');});
+
+/* --- Order / enquire dialog --------------------------------------------- */
 const dialog=$('#order-dialog'),form=$('#order-form');let selected=null,lastFocus=null;
 function domainVisibility(){if(!form)return;const domain=form.elements.package.value==='domain';if(domain){form.elements.existing.checked=false;}form.elements.existing.disabled=domain;$('#domain-field').hidden=!domain&&!form.elements.existing.checked;}
-function openOrder(slug,pack){selected=templates.find(t=>t.slug===slug)||null;lastFocus=document.activeElement;form.reset();if(pack&&config.packages.some(p=>p.id===pack))form.elements.package.value=pack;const target=$('#selected-template');target.replaceChildren();if(selected){const img=new Image();img.src=selected.thumbnail;img.alt=selected.name+' demo';const span=document.createElement('span');span.textContent=`${selected.name} · ${selected.id} · v${selected.version}`;target.append(img,span);}else{target.textContent='Need a hand choosing? We can help you find your design.';}domainVisibility();dialog.showModal();track('package_selected',{template_id:selected?.id,package:form.elements.package.value});}
-$$('[data-order]').forEach(button=>button.addEventListener('click',()=>openOrder(button.dataset.order,button.dataset.package)));
+function openOrder(slug,pack){
+  if(!dialog||!form)return;
+  selected=templates.find(t=>t.slug===slug)||null;lastFocus=document.activeElement;form.reset();if(pack&&config.packages.some(p=>p.id===pack))form.elements.package.value=pack;const target=$('#selected-template');target.replaceChildren();if(selected){const img=new Image();img.src=selected.thumbnail;img.alt=selected.name+' demo';const span=document.createElement('span');span.textContent=`${selected.name} · ${selected.id} · v${selected.version}`;target.append(img,span);}else{target.textContent='Need a hand choosing? We can help you find your design.';}domainVisibility();dialog.showModal();track('package_selected',{template_id:selected?.id,package:form.elements.package.value});
+}
+document.addEventListener('click',(ev)=>{
+  const order=ev.target.closest('[data-order]');
+  if(order){openOrder(order.dataset.order,order.dataset.package);return;}
+  const enquire=ev.target.closest('[data-general-enquiry]');
+  if(enquire){
+    track('whatsapp_clicked');
+    window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent('Hi InfoparkDaily! I’m interested in a portfolio website. Please help me choose a suitable template and explain the ₹2,999 and ₹3,999 packages, including scope, domain eligibility, hosting, renewals, taxes, and delivery.')}`,'_blank','noopener,noreferrer');
+  }
+});
 if(dialog){$('.close-dialog',dialog).addEventListener('click',()=>dialog.close());dialog.addEventListener('click',ev=>{if(ev.target===dialog){const r=dialog.getBoundingClientRect();if(ev.clientX<r.left||ev.clientX>r.right||ev.clientY<r.top||ev.clientY>r.bottom)dialog.close();}});dialog.addEventListener('close',()=>lastFocus?.focus());form.addEventListener('change',ev=>{if(ev.target.name==='package'){domainVisibility();track('package_selected',{template_id:selected?.id,package:form.elements.package.value});}if(ev.target.name==='existing')domainVisibility();});form.addEventListener('submit',ev=>{ev.preventDefault();const pack=config.packages.find(p=>p.id===form.elements.package.value);const name=form.elements.name.value.trim();const domain=form.elements.domain.value.trim();const rows=['Hi InfoparkDaily! I’d like to enquire about a portfolio website.','',selected?`Template: ${selected.name}`:'Template: Please help me choose',selected?`Template ID: ${selected.id}`:'',selected?`Template version: ${selected.version}`:'',`Package: ${pack.name}`,`Listed price: ₹${pack.price.toLocaleString('en-IN')}`,!$('#domain-field').hidden&&domain?`${form.elements.existing.checked?'Existing':'Preferred'} domain: ${domain}`:'',name?`Name: ${name}`:'',selected?`Preview: ${config.site}${selected.previewPath}`:'','Please confirm domain eligibility and availability, package inclusions, hosting and renewal charges, taxes, revisions, payment details, cancellation terms, and delivery timeline.'];const url=`https://wa.me/${config.whatsapp}?text=${encodeURIComponent(rows.filter(Boolean).join('\n'))}`;track('whatsapp_clicked',{template_id:selected?.id,package:pack.id});window.open(url,'_blank','noopener,noreferrer');});}
-$$('[data-general-enquiry]').forEach(button=>button.addEventListener('click',()=>{track('whatsapp_clicked');window.open(`https://wa.me/${config.whatsapp}?text=${encodeURIComponent('Hi InfoparkDaily! I’m interested in a portfolio website. Please help me choose a suitable template and explain the ₹2,999 and ₹3,999 packages, including scope, domain eligibility, hosting, renewals, taxes, and delivery.')}`,'_blank','noopener,noreferrer');}));
+
+/* --- Preview shell chrome ----------------------------------------------- */
 $$('[data-device]').forEach(button=>button.addEventListener('click',()=>{const device=button.dataset.device;$('#preview-site').style.width=device==='desktop'?'100%':device==='tablet'?'768px':'390px';$$('[data-device]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));track('preview_device_selected',{device});}));
 const fullPreview=$('.preview-fullscreen');
 if(fullPreview){
   const stage=$('.preview-stage'),frame=$('#preview-site');
+  const openDemoTab=()=>{
+    const src=frame?.getAttribute('src')||'';
+    if(!src)return;
+    window.open(src,'_blank','noopener,noreferrer');
+    report('Opened the full website in a new tab.');
+  };
   fullPreview.addEventListener('click',async()=>{
-    if(!stage.requestFullscreen){location.assign(frame.src);return;}
+    if(!stage||!stage.requestFullscreen){openDemoTab();return;}
     try{await stage.requestFullscreen();}
-    catch{location.assign(frame.src);}
+    catch{openDemoTab();}
+  });
+  /* If the iframe fails to load, keep chrome usable and surface a clear action. */
+  frame?.addEventListener('error',()=>{
+    report('Preview could not load. Use Open website to view the demo.');
   });
 }
 $$('[data-personalise]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.personalise;$('#personalise-frame').src='/portfolio/demo/flutter-studio/'+(mode==='alternate'?'?personalise=alternate':'');$$('[data-personalise]').forEach(b=>{b.setAttribute('aria-pressed',String(b===button));b.classList.toggle('active',b===button);});}));

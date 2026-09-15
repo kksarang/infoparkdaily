@@ -1,4 +1,4 @@
-/** Generated from services/resume-api/catalog.ts. Free configs are public; premium configs stay omitted. */
+/** Generated from services/resume-api/catalog.ts. All published templates are free; configs are public. */
 export const catalog = [
   {
     "id": "linea",
@@ -57,7 +57,7 @@ export const catalog = [
     "id": "atlas",
     "name": "Atlas",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "Gallery collection",
@@ -83,7 +83,7 @@ export const catalog = [
     "id": "beacon",
     "name": "Beacon",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "Gallery collection",
@@ -189,7 +189,7 @@ export const catalog = [
     "id": "vesper",
     "name": "Vesper",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Gallery collection",
@@ -215,7 +215,7 @@ export const catalog = [
     "id": "copperline",
     "name": "Copperline",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Gallery collection",
@@ -322,7 +322,7 @@ export const catalog = [
     "id": "open-desk",
     "name": "Open Desk",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Gallery collection",
@@ -403,7 +403,7 @@ export const catalog = [
     "id": "terminal",
     "name": "Terminal",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Gallery collection",
@@ -429,7 +429,7 @@ export const catalog = [
     "id": "relay",
     "name": "Relay",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Gallery collection",
@@ -509,7 +509,7 @@ export const catalog = [
     "id": "blush-column",
     "name": "Blush Column",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Gallery collection",
@@ -536,7 +536,7 @@ export const catalog = [
     "id": "sage-panel",
     "name": "Sage Panel",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Gallery collection",
@@ -563,7 +563,7 @@ export const catalog = [
     "id": "canopy",
     "name": "Canopy",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Gallery collection",
@@ -589,7 +589,7 @@ export const catalog = [
     "id": "charter",
     "name": "Charter",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Gallery collection",
@@ -615,7 +615,7 @@ export const catalog = [
     "id": "manor",
     "name": "Manor",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Gallery collection",
@@ -635,6 +635,300 @@ export const catalog = [
       "heading": "caps",
       "rule": "line",
       "sideWidth": 30
+    }
+  },
+  {
+    "id": "nova-frame",
+    "name": "Nova Frame",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "sidebar",
+      "Nova",
+      "Frame"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "sidebar",
+      "accent": "#1e3a5f",
+      "font": "sans",
+      "style": "label",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "soft-peach",
+    "name": "Soft Peach",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "rail",
+      "Soft",
+      "Peach"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "rail",
+      "accent": "#b07d7a",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "ivory-line",
+    "name": "Ivory Line",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "classic",
+      "Ivory",
+      "Line"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#334155",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "sky-band",
+    "name": "Sky Band",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "Gallery collection",
+      "ribbon",
+      "Sky",
+      "Band"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ribbon",
+      "accent": "#3b82f6",
+      "font": "sans",
+      "style": "smallcaps",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "meridian-pro",
+    "name": "Meridian Pro",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "Gallery collection",
+      "split",
+      "Meridian",
+      "Pro"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "split",
+      "accent": "#312e81",
+      "font": "sans",
+      "style": "timeline",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "arcadia",
+    "name": "Arcadia",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "Gallery collection",
+      "executive",
+      "Arcadia"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "executive",
+      "accent": "#0f172a",
+      "font": "sans",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "paperfold",
+    "name": "Paperfold",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "folio",
+      "Paperfold"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "folio",
+      "accent": "#7c5c46",
+      "font": "serif",
+      "style": "airy",
+      "spacing": 21,
+      "nameSize": 42,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "clearpath",
+    "name": "Clearpath",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "Gallery collection",
+      "ledger",
+      "Clearpath"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#1e293b",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "rivera-soft",
+    "name": "Rivera Soft",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "gallery",
+      "Rivera",
+      "Soft"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "gallery",
+      "accent": "#57534e",
+      "font": "serif",
+      "style": "airy",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "pearl-panel",
+    "name": "Pearl Panel",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "Gallery collection",
+      "gallery",
+      "Pearl",
+      "Panel"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "gallery",
+      "accent": "#6b7280",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 34,
+      "tracking": 0,
+      "heading": "caps",
+      "rule": "double",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "ash-band",
+    "name": "Ash Band",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "Gallery collection",
+      "gallery",
+      "Ash",
+      "Band"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "gallery",
+      "accent": "#44403c",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 21,
+      "nameSize": 34,
+      "tracking": 0.7,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 29
     }
   },
   {
@@ -716,7 +1010,7 @@ export const catalog = [
     "id": "ats-technical",
     "name": "ATS Technical",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "ATS",
@@ -741,7 +1035,7 @@ export const catalog = [
     "id": "ats-finance",
     "name": "ATS Finance",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "ATS",
@@ -766,7 +1060,7 @@ export const catalog = [
     "id": "ats-management",
     "name": "ATS Management",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "ATS",
@@ -791,7 +1085,7 @@ export const catalog = [
     "id": "ats-specialist",
     "name": "ATS Specialist",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "ATS",
@@ -816,7 +1110,7 @@ export const catalog = [
     "id": "ats-executive",
     "name": "ATS Executive",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "ATS",
@@ -916,7 +1210,7 @@ export const catalog = [
     "id": "corporate-edit",
     "name": "Corporate Edit",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Corporate",
@@ -941,7 +1235,7 @@ export const catalog = [
     "id": "business-class",
     "name": "Business Class",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Business",
@@ -966,7 +1260,7 @@ export const catalog = [
     "id": "the-consultant",
     "name": "The Consultant",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "The",
@@ -991,7 +1285,7 @@ export const catalog = [
     "id": "precision",
     "name": "Precision",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Precision"
@@ -1015,7 +1309,7 @@ export const catalog = [
     "id": "professional-outline",
     "name": "Professional Outline",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Professional",
@@ -1115,7 +1409,7 @@ export const catalog = [
     "id": "engineering-start",
     "name": "Engineering Start",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Engineering",
@@ -1140,7 +1434,7 @@ export const catalog = [
     "id": "mba-launch",
     "name": "MBA Launch",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "MBA",
@@ -1165,7 +1459,7 @@ export const catalog = [
     "id": "internship-edit",
     "name": "Internship Edit",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Internship",
@@ -1190,7 +1484,7 @@ export const catalog = [
     "id": "early-career",
     "name": "Early Career",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Early",
@@ -1240,7 +1534,7 @@ export const catalog = [
     "id": "full-stack",
     "name": "Full Stack",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Full",
@@ -1265,7 +1559,7 @@ export const catalog = [
     "id": "data-story",
     "name": "Data Story",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Data",
@@ -1290,7 +1584,7 @@ export const catalog = [
     "id": "cloud-engineer",
     "name": "Cloud Engineer",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Cloud",
@@ -1315,7 +1609,7 @@ export const catalog = [
     "id": "product-designer",
     "name": "Product Designer",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Product",
@@ -1390,7 +1684,7 @@ export const catalog = [
     "id": "portfolio-edit",
     "name": "Portfolio Edit",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Portfolio",
@@ -1415,7 +1709,7 @@ export const catalog = [
     "id": "creative-direction",
     "name": "Creative Direction",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Creative",
@@ -1440,7 +1734,7 @@ export const catalog = [
     "id": "modern-identity",
     "name": "Modern Identity",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Modern",
@@ -1465,7 +1759,7 @@ export const catalog = [
     "id": "the-director",
     "name": "The Director",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "The",
@@ -1490,7 +1784,7 @@ export const catalog = [
     "id": "leadership",
     "name": "Leadership",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Leadership"
@@ -1514,7 +1808,7 @@ export const catalog = [
     "id": "executive-brief",
     "name": "Executive Brief",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Executive",
@@ -1593,7 +1887,7 @@ export const catalog = [
     "id": "ats-meridian",
     "name": "ATS Meridian",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "Studio collection",
@@ -1620,7 +1914,7 @@ export const catalog = [
     "id": "ats-structure",
     "name": "ATS Structure",
     "category": "ATS-Friendly",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "ATS-Friendly",
       "Studio collection",
@@ -1673,7 +1967,7 @@ export const catalog = [
     "id": "meridian",
     "name": "Meridian",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Studio collection",
@@ -1699,7 +1993,7 @@ export const catalog = [
     "id": "northstar",
     "name": "Northstar",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Studio collection",
@@ -1725,7 +2019,7 @@ export const catalog = [
     "id": "signature",
     "name": "Signature",
     "category": "Professional",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Professional",
       "Studio collection",
@@ -1803,7 +2097,7 @@ export const catalog = [
     "id": "new-horizons",
     "name": "New Horizons",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Studio collection",
@@ -1830,7 +2124,7 @@ export const catalog = [
     "id": "campus-portfolio",
     "name": "Campus Portfolio",
     "category": "Freshers",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Freshers",
       "Studio collection",
@@ -1883,7 +2177,7 @@ export const catalog = [
     "id": "stack-studio",
     "name": "Stack Studio",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Studio collection",
@@ -1910,7 +2204,7 @@ export const catalog = [
     "id": "systems",
     "name": "Systems",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Studio collection",
@@ -1936,7 +2230,7 @@ export const catalog = [
     "id": "interface",
     "name": "Interface",
     "category": "Technology",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Technology",
       "Studio collection",
@@ -2014,7 +2308,7 @@ export const catalog = [
     "id": "chromatic",
     "name": "Chromatic",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Studio collection",
@@ -2040,7 +2334,7 @@ export const catalog = [
     "id": "neue",
     "name": "Neue",
     "category": "Creative",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Creative",
       "Studio collection",
@@ -2066,7 +2360,7 @@ export const catalog = [
     "id": "boardroom",
     "name": "Boardroom",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Studio collection",
@@ -2092,7 +2386,7 @@ export const catalog = [
     "id": "principal",
     "name": "Principal",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Studio collection",
@@ -2118,7 +2412,7 @@ export const catalog = [
     "id": "summit",
     "name": "Summit",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Studio collection",
@@ -2144,7 +2438,7 @@ export const catalog = [
     "id": "pinnacle",
     "name": "Pinnacle",
     "category": "Executive",
-    "access": "premium",
+    "access": "free",
     "tags": [
       "Executive",
       "Studio collection",
@@ -2170,16 +2464,44 @@ export const catalog = [
 export function thumbnail(t) {
   const accent = (t.config && t.config.accent) || "#17334d";
   const family = (t.config && t.config.family) || "classic";
-  const name = String(t.name || "Resume").slice(0, 22).replace(/[<&]/g, "");
-  const header =
-    family === "ribbon" || family === "executive"
-      ? `<rect x="48" y="48" width="404" height="92" fill="${accent}"/>`
-      : family === "rail" || family === "sidebar" || family === "split"
-        ? `<rect x="48" y="48" width="118" height="611" fill="${accent}"/><rect x="166" y="48" width="286" height="611" fill="#fff"/>`
-        : `<rect x="48" y="48" width="404" height="72" fill="${accent}"/>`;
-  const titleX = family === "rail" || family === "sidebar" || family === "split" ? 186 : 72;
-  const lineX = family === "rail" || family === "sidebar" || family === "split" ? 186 : 72;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="707" viewBox="0 0 500 707"><rect width="500" height="707" fill="#eef1f4"/><rect x="40" y="40" width="420" height="627" fill="#fff" rx="8"/><rect x="48" y="48" width="404" height="611" fill="#fff" stroke="${accent}" stroke-width="1.5"/>${header}<text x="${titleX}" y="${family === "rail" || family === "sidebar" || family === "split" ? 92 : 92}" fill="${family === "rail" || family === "sidebar" || family === "split" ? accent : "#fff"}" font-family="Georgia,serif" font-size="20">${name}</text><rect x="${lineX}" y="160" width="200" height="10" fill="#d5dde5"/><rect x="${lineX}" y="184" width="240" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="204" width="210" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="248" width="120" height="8" fill="${accent}" opacity=".45"/><rect x="${lineX}" y="276" width="250" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="296" width="230" height="8" fill="#e6ebf0"/><rect x="${lineX}" y="316" width="210" height="8" fill="#e6ebf0"/></svg>`;
+  const name = String(t.name || "Resume")
+    .slice(0, 22)
+    .replace(/[<&]/g, "");
+  const gallery = family === "gallery";
+  const rail = family === "rail" || family === "sidebar" || family === "split";
+  let header = `<rect x="48" y="48" width="404" height="72" fill="${accent}"/>`;
+  if (gallery) {
+    header = `<rect x="48" y="48" width="404" height="110" rx="8" fill="#ececea"/><circle cx="98" cy="103" r="28" fill="${accent}" opacity=".25"/><text x="140" y="98" fill="#1c1917" font-family="Georgia,serif" font-size="20">${name}</text>`;
+  } else if (family === "ribbon" || family === "executive") {
+    header = `<rect x="48" y="48" width="404" height="92" fill="${accent}"/>`;
+  } else if (rail) {
+    header = `<rect x="48" y="48" width="118" height="611" fill="${accent}"/><rect x="166" y="48" width="286" height="611" fill="#fff"/>`;
+  }
+  const titleX = rail ? 186 : 72;
+  const lineX = gallery ? 72 : rail ? 186 : 72;
+  const bandY = gallery ? 180 : 160;
+  const titleFill = rail ? accent : "#fff";
+  const title =
+    gallery
+      ? ""
+      : `<text x="${titleX}" y="92" fill="${titleFill}" font-family="Georgia,serif" font-size="20">${name}</text>`;
+  const bandFill = gallery ? "#ececea" : "#d5dde5";
+  const accentBar = gallery ? "#ececea" : accent;
+  const accentOpacity = gallery ? "1" : "0.45";
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="707" viewBox="0 0 500 707">` +
+    `<rect width="500" height="707" fill="#eef1f4"/>` +
+    `<rect x="40" y="40" width="420" height="627" fill="#fff" rx="8"/>` +
+    `<rect x="48" y="48" width="404" height="611" fill="#fff" stroke="${accent}" stroke-width="1.5"/>` +
+    header +
+    title +
+    `<rect x="${lineX}" y="${bandY}" width="${gallery ? 356 : 200}" height="${gallery ? 18 : 10}" fill="${bandFill}"/>` +
+    `<rect x="${lineX}" y="${bandY + 36}" width="${gallery ? 280 : 240}" height="8" fill="#e6ebf0"/>` +
+    `<rect x="${lineX}" y="${bandY + 56}" width="${gallery ? 250 : 210}" height="8" fill="#e6ebf0"/>` +
+    `<rect x="${lineX}" y="${bandY + 100}" width="${gallery ? 356 : 120}" height="${gallery ? 18 : 8}" fill="${accentBar}" opacity="${accentOpacity}"/>` +
+    `<rect x="${lineX}" y="${bandY + 136}" width="${gallery ? 280 : 250}" height="8" fill="#e6ebf0"/>` +
+    `<rect x="${lineX}" y="${bandY + 156}" width="${gallery ? 240 : 230}" height="8" fill="#e6ebf0"/>` +
+    `</svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
 export function publicTemplates() {
@@ -2190,8 +2512,9 @@ export function publicTemplates() {
       : null;
     return {
       ...meta,
+      access: "free",
       thumbnail: thumbnail({ ...t, config: thumb }),
-      ...(t.access === "free" ? { config } : {}),
+      ...(config ? { config } : {}),
     };
   });
 }

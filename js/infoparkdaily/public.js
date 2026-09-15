@@ -30,34 +30,35 @@ import {
   toast,
 } from "./ui.js";
 export function home(state) {
-  const jobs = state.jobs.slice(0, 8);
-  return `<section class="hero"><div class="hero-atmosphere" aria-hidden="true"><span class="hero-orb hero-orb-a"></span><span class="hero-orb hero-orb-b"></span><span class="hero-grid-lines"></span></div><div class="container hero-grid"><div class="hero-copy"><p class="hero-wordmark">InfoparkDaily</p><div class="hero-tag">${icon("briefcase")} Kerala’s people &amp; opportunities</div><h1>Good work.<br>Great people.<br><em>Your next chapter.</em></h1><p class="hero-lede">Find work that fits your skills. Meet people who can move your business forward.</p><div class="row hero-actions">${link("Find a job " + icon("right"), "jobs")}${link("Hire a professional", "workers", "btn secondary")}</div><div class="hero-foot"><span>${icon("check")} Free to get started</span><span>${icon("shield")} Reviewed community posts</span></div></div><aside class="hero-jobs" aria-label="Fresh openings"><div class="hero-board-label"><span>Live board</span><span>Fresh from the job board</span></div>${jobs
+  const companies = new Set(state.jobs.map((j) => j.company)).size;
+  const sample = state.jobs
     .filter((j, i, a) => a.findIndex((k) => k.company === j.company) === i)
-    .slice(0, 3)
+    .slice(0, 3);
+  return `<section class="hero"><div class="hero-atmosphere" aria-hidden="true"><span class="hero-orb hero-orb-a"></span><span class="hero-orb hero-orb-b"></span><span class="hero-grid-lines"></span></div><div class="container hero-grid"><div class="hero-copy"><p class="hero-wordmark">InfoparkDaily</p><div class="hero-tag">${icon("users")} Built for HR &amp; talent teams</div><h1>Hire with<br>clarity.<br><em>Build your team.</em></h1><p class="hero-lede">Post roles, discover reviewed talent, and manage hiring conversations — made for employers in Kerala.</p><div class="row hero-actions">${link("Post a role " + icon("right"), "post-job")}${link("Find talent", "workers", "btn secondary")}</div><div class="hero-foot"><span>${icon("check")} Free employer accounts</span><span>${icon("shield")} Reviewed talent &amp; posts</span></div></div><aside class="hero-jobs" aria-label="Market snapshot"><div class="hero-board-label"><span>Live market</span><span>From the InfoparkDaily board</span></div>${sample
     .map(
       (j, i) =>
-        `<a class="hero-job" style="--i:${i}" href="${href("jobs", "?id=" + encodeURIComponent(j.id))}">${mark(j.company, i)}<div><h3>${esc(j.title)}</h3><p>${esc(j.company)} · ${esc(j.location)}</p><span class="tag ${i === 1 ? "neutral" : ""}">${esc(j.sector)}</span></div></a>`,
+        `<div class="hero-job" style="--i:${i}">${mark(j.company, i)}<div><h3>${esc(j.sector)}</h3><p>${esc(j.company)} · ${esc(j.location)}</p><span class="tag ${i === 1 ? "neutral" : ""}">Active hiring signal</span></div></div>`,
     )
     .join(
       "",
-    )}<div class="hero-count">${icon("briefcase")} <span><strong data-job-count>${state.jobs.length}</strong> opportunities to explore</span></div></aside></div></section><nav class="category-ribbon" aria-label="Browse jobs by category"><div class="container"><span class="ribbon-label">Find your field</span><div class="ribbon-links">${SECTORS.map((sector) => `<a href="${href("jobs", "?sector=" + encodeURIComponent(sector))}">${esc(sector)}</a>`).join("")}</div></div></nav><section class="promos reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">A little help along the way</p><h2>Make your next move count.</h2></div><div class="row"><button class="icon-btn" data-promos="-1" aria-label="Previous resources">${icon("right", "flip")}</button><button class="icon-btn" data-promos="1" aria-label="Next resources">${icon("right")}</button></div></div><div class="promo-grid" id="promo-grid">${promos()}</div></div></section><div class="container"><div class="stats-bar reveal-section"><div class="stat"><strong data-job-count>${state.jobs.length}</strong><span>Open job listings</span></div><div class="stat"><strong data-company-count>${new Set(state.jobs.map((j) => j.company)).size}</strong><span>Companies with openings</span></div><div class="stat"><strong>${SECTORS.length}</strong><span>Work categories</span></div><div class="stat"><strong>Free</strong><span>To create your account</span></div></div></div><section class="section reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Find your next opportunity</p><h2>Good work starts here.</h2><p>Fresh openings, across skills and experience levels.</p></div>${link("View all jobs " + icon("right"), "jobs", "text-link")}</div><div class="pills" id="home-job-filters" aria-label="Filter featured jobs">${["All", "Technology", "Sales & Marketing", "Office & Admin", "Design & Creative", "Finance"].map((s, i) => `<button class="pill ${i === 0 ? "active" : ""}" data-home-sector="${i ? esc(s) : ""}" aria-pressed="${i === 0}">${esc(s)}</button>`).join("")}</div><div class="grid four home-jobs" id="home-job-grid">${jobs.map((j, i) => jobCard(j, i, state.savedIds.has(j.id))).join("")}</div></div></section><section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">The right skills. The right people.</p><h2>Find the people behind great work.</h2><p>From your first hire to your next specialist.</p></div>${link("Find workers " + icon("right"), "workers", "text-link")}</div><div class="category-cards">${[
+    )}<div class="hero-count">${icon("briefcase")} <span><strong data-job-count>${state.jobs.length}</strong> open roles on the public board</span></div></aside></div></section><nav class="category-ribbon" aria-label="Browse talent by category"><div class="container"><span class="ribbon-label">Find talent by field</span><div class="ribbon-links">${SECTORS.map((sector) => `<a href="${href("workers", "?sector=" + encodeURIComponent(sector))}">${esc(sector)}</a>`).join("")}</div></div></nav><section class="promos reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Your hiring toolkit</p><h2>Everything your team needs to hire.</h2></div><div class="row"><button class="icon-btn" data-promos="-1" aria-label="Previous resources">${icon("right", "flip")}</button><button class="icon-btn" data-promos="1" aria-label="Next resources">${icon("right")}</button></div></div><div class="promo-grid" id="promo-grid">${promos()}</div></div></section><div class="container"><div class="stats-bar reveal-section"><div class="stat"><strong data-job-count>${state.jobs.length}</strong><span>Open roles on the board</span></div><div class="stat"><strong data-company-count>${companies}</strong><span>Companies hiring</span></div><div class="stat"><strong>${SECTORS.length}</strong><span>Talent categories</span></div><div class="stat"><strong>Free</strong><span>Employer workspace</span></div></div></div><section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">The right skills. The right people.</p><h2>Discover talent ready to join your team.</h2><p>Browse reviewed professionals by skill, location and availability.</p></div>${link("Open talent directory " + icon("right"), "workers", "text-link")}</div><div class="category-cards">${[
     [
       "office",
       "Technology",
       "Technology & office",
-      "People who keep ideas moving.",
+      "Builders, operators and specialists.",
     ],
     [
       "trades",
       "Construction",
       "Skilled trades",
-      "Practical skills. Real experience.",
+      "Practical skills. Proven experience.",
     ],
     [
       "hospitality",
       "Hospitality",
       "Hospitality & service",
-      "People who make every detail matter.",
+      "People who deliver every detail.",
     ],
   ]
     .map(
@@ -66,26 +67,26 @@ export function home(state) {
     )
     .join(
       "",
-    )}</div><div id="home-worker-grid">${workersHome(state.workers)}</div></div></section>${discovery(state.jobs)}${howItWorks()}<section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Built around the connection</p><h2>A clearer way to find each other.</h2></div></div><div class="grid two feature-grid">${[
+    )}</div><div id="home-worker-grid">${workersHome(state.workers)}</div></div></section>${howItWorks()}<section class="section soft reveal-section"><div class="container"><div class="section-head"><div><p class="eyebrow">Built for hiring teams</p><h2>A clearer way to hire.</h2></div></div><div class="grid two feature-grid">${[
     [
       "shield",
-      "A considered first introduction",
-      "Community profiles and jobs are reviewed before they appear in the directory.",
+      "Reviewed before it goes live",
+      "Community talent profiles and employer job posts are checked before they appear publicly.",
     ],
     [
       "chat",
-      "Keep the conversation together",
-      "After a hire is approved, talk directly in your private workspace.",
+      "Conversations in one workspace",
+      "After a hire is approved, talk with candidates in your private employer workspace.",
     ],
     [
-      "file",
-      "Your experience, in one place",
-      "Create a skills profile, keep your documents private and choose when to share a resume.",
+      "briefcase",
+      "Post roles your way",
+      "Publish openings for review, track applications and invite people from the talent directory.",
     ],
     [
       "star",
       "Feedback from real work",
-      "Reviews are tied to completed community hires, so every rating has a real connection.",
+      "Reviews stay tied to completed community hires, so ratings reflect real engagements.",
     ],
   ]
     .map(
@@ -94,34 +95,34 @@ export function home(state) {
     )
     .join(
       "",
-    )}</div></div></section><section class="section reveal-section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start today</p><h2>Something good could start today.</h2><p>Bring your skills. Bring your ambition. We’ll help you find the next connection.</p></div>${link("Let’s get started " + icon("right"), "register")}</div></div></section>`;
+    )}</div></div></section><section class="section reveal-section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start hiring</p><h2>Ready to build your next team?</h2><p>Create a free employer account, post a role, and start discovering talent today.</p></div>${link("Create employer account " + icon("right"), "register")}</div></div></section>`;
 }
 const promoItems = [
   [
-    "file",
-    "A resume that opens doors",
-    "Build a clear, professional resume with Career Tools.",
-    "Create your resume",
-    "/resume-builder/",
+    "plus",
+    "Post a role in minutes",
+    "Share an opening with your company details. It goes live after a quick review.",
+    "Post a role",
+    href("post-job"),
   ],
   [
-    "shield",
-    "Give your resume a check",
-    "See how well a tracker can read your existing file.",
-    "Try the ATS checker",
-    "/ats-checker/",
+    "users",
+    "Browse reviewed talent",
+    "Explore professionals by skill, location and availability — then invite the right fit.",
+    "Find talent",
+    href("workers"),
   ],
   [
-    "home",
-    "Your work deserves a home",
-    "Put your story and projects on a personal website.",
-    "Explore portfolios",
-    "/portfolio/",
+    "briefcase",
+    "Run hiring in one place",
+    "Track applications, invites and messages from your employer dashboard.",
+    "Open workspace",
+    href("dashboard"),
   ],
   [
     "settings",
-    "An idea worth building",
-    "Custom software, websites and AI with Enitexa.ai.",
+    "Need custom software?",
+    "Websites, apps and AI tools for growing teams — with Enitexa.ai.",
     "Meet Enitexa.ai",
     "/software-solutions/",
   ],
@@ -144,27 +145,29 @@ export const workersHome = (workers) =>
   workers.length
     ? `<div class="grid four">${workers.slice(0, 4).map(workerCard).join("")}</div>`
     : empty(
-        "Make yourself discoverable.",
-        "Our worker directory is opening to the community. Create your profile and be ready for your next opportunity.",
-        link("Create a worker profile", "register", "btn", "?role=worker"),
+        "Talent directory is opening up.",
+        "Reviewed professionals will appear here. Meanwhile, post a role and start hiring from your workspace.",
+        link("Post a role", "post-job") +
+          " " +
+          link("Create employer account", "register", "btn secondary"),
         "users",
       );
 export function howItWorks() {
-  return `<section class="section reveal-section" id="how-it-works"><div class="container"><div class="section-head"><div><p class="eyebrow">From hello to hired</p><h2>Your next chapter, in three steps.</h2></div></div><div class="grid three steps-grid">${[
+  return `<section class="section reveal-section" id="how-it-works"><div class="container"><div class="section-head"><div><p class="eyebrow">From brief to hire</p><h2>Hire in three clear steps.</h2></div></div><div class="grid three steps-grid">${[
     [
       "01",
-      "Tell us what you bring",
-      "Create an account as a job seeker or employer. Add your skills, or tell us about your team.",
+      "Create your employer account",
+      "Sign in with your work email, add your company, and open your hiring workspace.",
     ],
     [
       "02",
-      "Find the right connection",
-      "Explore openings, apply to a community job or invite a professional to your role.",
+      "Post a role or invite talent",
+      "Publish openings for review, or invite people from the talent directory to a role you own.",
     ],
     [
       "03",
-      "Make good work happen",
-      "For community hires, approval opens your conversation. Complete the work and share your experience.",
+      "Manage hiring in one place",
+      "Track applications, request a hire, and continue the conversation after approval.",
     ],
   ]
     .map(
@@ -189,7 +192,7 @@ export function directory(state, kind) {
     fresher: qs.get("fresher") === "1",
   };
   state.page = Number(qs.get("page")) || 1;
-  return `${pageHero(workers ? "Find your next great hire." : "Find work that fits you.", workers ? "Explore people, skills and possibilities. Connect through a role that fits." : "Explore opportunities from Kerala’s IT parks and the InfoparkDaily community.", `<form class="search-bar" id="directory-search">${icon("search")}<input name="q" value="${esc(state.filters.q)}" aria-label="${workers ? "Search name, skill or location" : "Search job title, skill or company"}" placeholder="${workers ? "Name, skill or location" : "Job title, skill or company"}"><button class="btn">Search</button></form>`)}<div class="container directory"><button class="btn secondary filter-mobile" data-filter-toggle aria-expanded="false" aria-controls="directory-filters">${icon("filter")} Filter ${workers ? "workers" : "jobs"} ${icon("plus")}</button><form id="directory-filters" class="filter-panel"><div class="row spread"><h3>Filters</h3><button class="btn quiet" type="reset">Reset all</button></div>${select("Category", "sector", SECTORS, state.filters.sector, "All categories")}${select("Location", "location", [...new Set((workers ? state.workers : state.jobs).map((j) => j.location))].sort(), state.filters.location, "All locations")}${!workers ? select("Listing source", "source", [...new Set(state.jobs.map((j) => j.source || "Community"))].sort(), state.filters.source, "All sources") : ""}${select(
+  return `${pageHero(workers ? "Find your next great hire." : "Find work that fits you.", workers ? "Explore reviewed professionals by skill, location and availability. Invite the right person to your role." : "Explore opportunities from Kerala’s IT parks and the InfoparkDaily community.", `<form class="search-bar" id="directory-search">${icon("search")}<input name="q" value="${esc(state.filters.q)}" aria-label="${workers ? "Search name, skill or location" : "Search job title, skill or company"}" placeholder="${workers ? "Name, skill or location" : "Job title, skill or company"}"><button class="btn">Search</button></form>`)}<div class="container directory"><button class="btn secondary filter-mobile" data-filter-toggle aria-expanded="false" aria-controls="directory-filters">${icon("filter")} Filter ${workers ? "workers" : "jobs"} ${icon("plus")}</button><form id="directory-filters" class="filter-panel"><div class="row spread"><h3>Filters</h3><button class="btn quiet" type="reset">Reset all</button></div>${select("Category", "sector", SECTORS, state.filters.sector, "All categories")}${select("Location", "location", [...new Set((workers ? state.workers : state.jobs).map((j) => j.location))].sort(), state.filters.location, "All locations")}${!workers ? select("Listing source", "source", [...new Set(state.jobs.map((j) => j.source || "Community"))].sort(), state.filters.source, "All sources") : ""}${select(
     workers ? "Rate basis" : "Pay basis",
     "basis",
     BASES.map((b) => [b, "Per " + b]),
@@ -219,10 +222,12 @@ export function updateDirectory(state, kind) {
           ? "Your next connection is on its way."
           : "No matches just yet.",
         workers
-          ? "Profiles appear here after review. Join the directory, or try another category."
+          ? "Talent profiles appear here after review. Post a role while the directory grows, or try another category."
           : "Try a different keyword or clear a filter to see more opportunities.",
         workers
-          ? link("Create your profile", "register", "btn", "?role=worker")
+          ? link("Post a role", "post-job") +
+              " " +
+              link("Employer sign-in", "sign-in", "btn secondary")
           : '<button class="btn secondary" data-clear-filters>Clear filters</button>',
         workers ? "users" : "search",
       );
@@ -315,43 +320,89 @@ export function workerDetail(w, reviews = []) {
     )}</div><div class="panel prose"><h2>Meet ${esc(w.name.split(" ")[0])}</h2><p>${esc(w.about)}</p><h3>Skills & expertise</h3><div class="tags">${w.skills.map((s) => `<span class="tag neutral">${esc(s)}</span>`).join("")}</div></div><div class="panel" style="margin-top:24px"><h2>Reviews from completed work</h2>${reviews.length ? reviews.map((r) => `<div class="record"><div class="row spread"><strong>${esc(r.authorName)}</strong><span class="accent">${"★".repeat(r.rating)} <span class="muted">${r.rating}/5</span></span></div><p style="margin-top:12px">${esc(r.text)}</p><small class="muted">${formatDate(r.createdAt)}</small></div>`).join("") : '<p class="small muted" style="margin:0">Reviews appear here after a community hire is completed.</p>'}</div></div><aside class="panel"><h2>Good work starts with hello.</h2><div class="pay">${w.rate ? money(w.rate, w.basis) : "Rate open for discussion"}</div>${w.availableFrom ? `<p class="small muted">Available from ${formatDate(w.availableFrom)}</p>` : ""}<button class="btn wide" data-invite="${esc(w.uid)}">Invite to a job ${icon("right")}</button><p class="small muted" style="margin:20px 0 0">Choose one of your approved job posts. Once the invitation is accepted and the hire is approved, your private conversation opens.</p></aside></div></div>`;
 }
 export function about() {
-  return `${pageHero("People first. Possibilities next.", "InfoparkDaily connects Kerala’s community with work, useful tools and the people who make things happen.")}<section class="section"><div class="container grid two" style="align-items:center;gap:50px"><div><p class="eyebrow">OUR COMMUNITY, A NEW CHAPTER</p><h2>More ways to move forward, together.</h2><p class="muted">InfoparkDaily began with a simple purpose: make useful information easier to find for Kerala’s tech and business community.</p><p class="muted">This is a new place to bring people and opportunities together. Explore curated IT park openings, post a role for your own business, or let employers discover the skills you bring.</p>${link("Find your next opportunity " + icon("right"), "jobs")}</div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues working together around laptops in an office" style="border-radius:20px" width="1200" height="800"></div></section>${howItWorks()}<section class="section soft" id="guidelines"><div class="container"><p class="eyebrow">CLEAR EXPECTATIONS, BETTER CONNECTIONS</p><h2>How this community works.</h2><div class="faq">${[
+  const proof = [
+    ["60K+", "Community across Kerala IT"],
+    ["Reels", "Daily stories & hiring tips"],
+    ["3 parks", "Infopark · Technopark · Cyberpark"],
+    ["Free", "Employer workspace to start"],
+  ]
+    .map(
+      ([n, l]) =>
+        `<div class="about-proof-item"><strong>${n}</strong><span>${l}</span></div>`,
+    )
+    .join("");
+  const jumps = [
+    ["#how-it-works", "How hiring works"],
+    ["#community", "Our community"],
+    ["#what-you-get", "What you get"],
+    ["#guidelines", "FAQ"],
+  ]
+    .map(([h, l]) => `<a class="about-jump" href="${h}">${l}</a>`)
+    .join("");
+  return `${pageHero(
+    "How hiring works here.",
+    "A clear path for HR and talent teams: post a role, discover people, and manage conversations — backed by Kerala’s largest independent IT community.",
+    `<div class="row about-hero-actions">${link("Post a role " + icon("right"), "post-job")}${link("Find talent", "workers", "btn secondary")}</div><nav class="about-jumps" aria-label="On this page">${jumps}</nav>`,
+    "How it works",
+  )}<section class="about-proof" aria-label="Community reach"><div class="container about-proof-grid">${proof}</div></section><section class="section" id="community"><div class="container about-split"><div class="about-split-copy"><p class="eyebrow">FROM OUR 60K+ COMMUNITY</p><h2>Built where Kerala’s tech community already gathers.</h2><p class="muted">InfoparkDaily is an independent community — not the parks, not company HR. We share jobs, walk-ins, campus stories and now short <strong>reels</strong> so hiring signals travel farther and faster.</p><ul class="about-bullets"><li>${icon("users")} <span><strong>60K+</strong> people in the InfoparkDaily community family</span></li><li>${icon("star")} <span><strong>Reels</strong> for quick hiring tips, openings and campus moments</span></li><li>${icon("pin")} <span>Reach across <strong>Infopark, Technopark and Cyberpark</strong></span></li><li>${icon("shield")} <span>Community posts and talent profiles are <strong>reviewed</strong> before they go live</span></li></ul><div class="row about-links">${link("Create employer account", "register")}<a class="text-link" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Watch reels on Instagram ${icon("arrow")}</a></div></div><figure class="about-split-media"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Trusted by teams hiring across Kerala’s IT parks.</figcaption></figure></div></section>${howItWorks()}<section class="section soft" id="what-you-get"><div class="container"><div class="section-head"><div><p class="eyebrow">YOUR EMPLOYER TOOLKIT</p><h2>What hiring teams get.</h2><p>Everything you need to post, discover and follow up — in one workspace.</p></div></div><div class="grid two feature-grid">${[
     [
-      "What happens after I create a profile?",
-      "Verify your email, complete your worker profile and submit it for review. Approved profiles appear in the directory. Editing a public profile sends it back for review. Your phone number and documents stay private.",
+      "plus",
+      "Post a role",
+      "Share a clear opening with company details. It appears after a short review.",
     ],
     [
-      "How do community applications work?",
-      "Apply to an approved community role with a short introduction. The employer can shortlist you and request a hire. An administrator reviews the hire before a private conversation opens. You can follow every step in your applications page.",
+      "users",
+      "Find talent",
+      "Browse reviewed professionals by skill, location and availability, then invite a fit.",
     ],
     [
-      "How are IT park job applications different?",
-      "Curated listings from Infopark, Technopark and other official sources link to the employer’s own application channel. InfoparkDaily does not submit these applications or decide their outcome. Save a listing and mark it as applied to keep your own record.",
+      "briefcase",
+      "Hiring workspace",
+      "Track applications, invites and updates from your employer dashboard.",
     ],
     [
-      "When can I leave a review?",
-      "Both parties can leave one review after the employer marks a community hire as completed. Reviews are connected to that hire and cannot be submitted by unrelated visitors.",
+      "chat",
+      "Private conversations",
+      "After a hire is approved, talk directly in your secure workspace.",
+    ],
+  ]
+    .map(
+      ([i, t, d]) =>
+        `<div class="feature"><span class="feature-icon">${icon(i)}</span><div><h3>${t}</h3><p>${d}</p></div></div>`,
+    )
+    .join("")}</div></div></section><section class="section"><div class="container"><div class="about-seeker-note"><div><p class="eyebrow">LOOKING FOR WORK?</p><h2>Job seekers use a different door.</h2><p>Browse openings on the public jobs board, and use Career Tools for resumes, ATS checks and portfolios. This hub stays focused on hiring teams.</p></div><div class="row">${'<a class="btn secondary" href="/jobs/">Browse jobs board</a>'}<a class="btn quiet" href="/resume-builder/">Career Tools</a></div></div></div></section><section class="section soft" id="guidelines"><div class="container"><p class="eyebrow">CLEAR EXPECTATIONS</p><h2>Common questions from hiring teams.</h2><div class="faq">${[
+    [
+      "Who is this hub for?",
+      "Employers, HR and talent acquisition teams. Job seekers should use the public jobs board and Career Tools.",
     ],
     [
-      "What should I include in a job post?",
-      "Use an accurate role title, your real company name, a clear description, location, pay basis and closing date. Do not post training advertisements as jobs or ask applicants for payment. Misleading posts and discriminatory or abusive content may be rejected.",
+      "How do I post a role?",
+      "Create an employer account, verify your email, add your company name, then submit from Post a role. Posts appear after review.",
+    ],
+    [
+      "How does Find talent work?",
+      "Approved professional profiles appear in the directory. Invite someone to one of your open roles. Conversations open after a hire request is approved.",
+    ],
+    [
+      "What is the 60K+ community?",
+      "InfoparkDaily’s independent Instagram and community family across Infopark, Technopark and Cyberpark — jobs, stories and reels people already follow.",
     ],
     [
       "Is there a fee?",
-      "Creating an account, a worker profile and a community job post is currently free. Any salary, contract terms and payment arrangement are agreed directly between the worker and employer. InfoparkDaily does not process wages.",
+      "Employer accounts and community role posts are currently free. Pay and contract terms are agreed directly between you and the professional.",
     ],
     [
       "How can I report a problem?",
-      "Contact the InfoparkDaily team with the job or profile link and a description of the concern. Never send passwords or verification codes. We can review community content and hiring requests.",
+      "Contact us with the listing or profile link and a short description. Never send passwords or verification codes.",
     ],
   ]
     .map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`)
     .join(
       "",
-    )}</div></div></section><section class="section"><div class="container"><div class="cta"><div><h2>Bring your next chapter to life.</h2><p>There’s a place here for your skills, your team and your next idea.</p></div>${link("Join InfoparkDaily " + icon("right"), "register")}</div></div></section>`;
+    )}</div></div></section><section class="section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start hiring</p><h2>Ready to hire with the community behind you?</h2><p>Open a free employer account and post your next role today.</p></div>${link("Get started " + icon("right"), "register")}</div></div></section>`;
 }
 export function contact() {
-  return `${pageHero("We’re here to help.", "Questions about your account, a listing or a community hire? Get in touch with the InfoparkDaily team.")}<section class="section soft"><div class="container grid three"><div class="contact-card">${icon("mail")}<h3>Send us an email</h3><p>For account support, listing corrections and reports. Include the page link so we can take a look.</p><a class="text-link" href="mailto:infoparkstorieskochi@gmail.com">Email InfoparkDaily ${icon("arrow")}</a></div><div class="contact-card">${icon("chat")}<h3>Start a conversation</h3><p>Prefer WhatsApp? Tell us what you need help with and share the relevant listing.</p><a class="text-link" href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">Open WhatsApp ${icon("arrow")}</a></div><div class="contact-card">${icon("settings")}<h3>Build something custom</h3><p>For websites, business software or an AI solution, explore what Enitexa.ai can help you create.</p><a class="text-link" href="/software-solutions/">Meet Enitexa.ai ${icon("arrow")}</a></div></div></section>`;
+  return `${pageHero("We’re here to help hiring teams.", "Questions about your employer account, a job post or a community hire? Get in touch with the InfoparkDaily team.")}<section class="section soft"><div class="container grid three"><div class="contact-card">${icon("mail")}<h3>Send us an email</h3><p>For employer account support, listing corrections and reports. Include the page link so we can take a look.</p><a class="text-link" href="mailto:infoparkstorieskochi@gmail.com">Email InfoparkDaily ${icon("arrow")}</a></div><div class="contact-card">${icon("chat")}<h3>Start a conversation</h3><p>Prefer WhatsApp? Tell us what your hiring team needs help with and share the relevant listing.</p><a class="text-link" href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">Open WhatsApp ${icon("arrow")}</a></div><div class="contact-card">${icon("settings")}<h3>Build something custom</h3><p>For websites, business software or an AI solution, explore what Enitexa.ai can help you create.</p><a class="text-link" href="/software-solutions/">Meet Enitexa.ai ${icon("arrow")}</a></div></div></section>`;
 }
 
 export function discovery(jobs) {

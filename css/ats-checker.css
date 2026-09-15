@@ -1278,19 +1278,23 @@ body.dark .ats-copy {
   color: #e2e8f0;
 }
 
-body.career-tools-ats {
-  --ats-blue: #1f4fd8;
-  --ats-blue-ink: #1f4fd8;
-  --ats-soft: #edf3ff;
-  --ats-ink: #121820;
-  --ats-muted: #5c6b7a;
-  --ats-line: #e6ebf1;
+body.career-tools-ats,
+html.theme-dark body.career-tools-ats,
+body.career-tools-ats.dark,
+html.theme-light body.career-tools-ats,
+body.career-tools-ats.light {
+  --ats-blue: #171c24;
+  --ats-blue-ink: #171c24;
+  --ats-soft: #f0f1eb;
+  --ats-ink: #171c24;
+  --ats-muted: #69707b;
+  --ats-line: #e5e7dd;
   --ats-bg: transparent;
   --ats-card: #ffffff;
-  --ats-track: #e0e7ed;
+  --ats-track: #e5e7dd;
   --ats-error: #a33445;
   --ats-shadow: none;
-  color: var(--ink, #121820);
+  color: #171c24;
 }
 body.career-tools-ats .page-bg {
   background: transparent;

@@ -35,13 +35,13 @@ export const href = (route = "", query = "") =>
 export const link = (label, route, cls = "btn", query = "") =>
   `<a class="${cls}" href="${href(route, query)}">${label}</a>`;
 export const brand = () =>
-  `<a class="market-brand" href="/" aria-label="InfoparkDaily home"><img src="/assets/logo-infoparkdaily.png" width="40" height="40" alt=""><span><strong>InfoparkDaily</strong><small>Good people. Great possibilities.</small></span></a>`;
+  `<a class="market-brand" href="/" aria-label="InfoparkDaily home"><img src="/assets/logo-infoparkdaily.png" width="40" height="40" alt=""><span><strong>InfoparkDaily</strong><small>Hiring &amp; talent for Kerala teams</small></span></a>`;
 export function header(route) {
-  return `<a class="skip" href="#main">Skip to content</a><header class="market-header"><div class="container header-inner">${brand()}<button class="icon-btn menu-toggle" id="market-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="market-nav">${icon("menu")}</button><nav class="market-nav" id="market-nav" aria-label="InfoparkDaily section">${[
+  return `<a class="skip" href="#main">Skip to content</a><header class="market-header"><div class="container header-inner">${brand()}<button class="icon-btn menu-toggle" id="market-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="market-nav">${icon("menu")}</button><nav class="market-nav" id="market-nav" aria-label="Hiring hub">${[
     ["", "Home"],
-    ["jobs", "Browse jobs"],
-    ["workers", "Find workers"],
-    ["about", "About"],
+    ["workers", "Find talent"],
+    ["about", "How it works"],
+    ["contact", "Contact"],
   ]
     .map(
       ([r, l]) =>
@@ -49,10 +49,10 @@ export function header(route) {
     )
     .join(
       "",
-    )}<div class="nav-account" id="nav-account">${link("Sign in", "sign-in", "btn quiet")}${link("Post a job", "post-job", "btn secondary")}${link("Get started", "register")}</div></nav></div></header>`;
+    )}<div class="nav-account" id="nav-account">${link("Sign in", "sign-in", "btn quiet")}${link("Post a role", "post-job", "btn secondary")}${link("Get started", "register")}</div></nav></div></header>`;
 }
 export function footer() {
-  return `<footer class="market-footer"><div class="container"><div class="footer-grid"><div class="footer-brand">${brand()}<p>Connecting Kerala’s people, skills and opportunities. Find your next role or the right person for your team.</p><a href="/" class="text-link" >Back to InfoparkDaily ${icon("arrow")}</a></div><div><h3>Find your next step</h3><div class="footer-links">${link("Browse jobs", "jobs", "")}${link("Find workers", "workers", "")}${link("Create your profile", "register", "", "?role=worker")}<a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a></div></div><div><h3>For employers</h3><div class="footer-links">${link("Post a job", "post-job", "")}${link("Employer dashboard", "dashboard", "")}${link("How it works", "about", "", "#how-it-works")}${link("Contact us", "contact", "")}</div></div><div><h3>Let’s stay connected</h3><div class="footer-links"><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a><a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">WhatsApp · +91 99952 54290</a><a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram ${icon("arrow")}</a></div></div></div><div class="footer-custom"><div><strong>Have something bigger in mind?</strong><p>For custom software, websites and AI solutions, meet Enitexa.ai.</p></div><a href="/software-solutions/">Explore Enitexa.ai ${icon("arrow")}</a></div><div class="footer-base"><span>© ${new Date().getFullYear()} InfoparkDaily. All rights reserved.</span><span><a href="/privacy/">Privacy policy</a> &nbsp; · &nbsp; <a href="/terms/">Terms of use</a> &nbsp; · &nbsp; ${link("Community guidelines", "about", "", "#guidelines")}</span></div></div></footer>`;
+  return `<footer class="market-footer"><div class="container"><div class="footer-grid"><div class="footer-brand">${brand()}<p>Built for HR and hiring teams in Kerala. Post roles, discover talent, and manage hiring in one place.</p><a href="/" class="text-link" >Back to InfoparkDaily ${icon("arrow")}</a></div><div><h3>For hiring teams</h3><div class="footer-links">${link("Find talent", "workers", "")}${link("Post a role", "post-job", "")}${link("Employer dashboard", "dashboard", "")}${link("How it works", "about", "", "#how-it-works")}${link("Contact us", "contact", "")}</div></div><div><h3>Looking for a job?</h3><div class="footer-links"><a href="/jobs/">Browse jobs on InfoparkDaily</a><a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/portfolio/">Portfolio websites</a></div></div><div><h3>Let’s stay connected</h3><div class="footer-links"><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a><a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">WhatsApp · +91 99952 54290</a><a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram ${icon("arrow")}</a></div></div></div><div class="footer-custom"><div><strong>Have something bigger in mind?</strong><p>For custom software, websites and AI solutions, meet Enitexa.ai.</p></div><a href="/software-solutions/">Explore Enitexa.ai ${icon("arrow")}</a></div><div class="footer-base"><span>© ${new Date().getFullYear()} InfoparkDaily. All rights reserved.</span><span><a href="/privacy/">Privacy policy</a> &nbsp; · &nbsp; <a href="/terms/">Terms of use</a> &nbsp; · &nbsp; ${link("Hiring guidelines", "about", "", "#guidelines")}</span></div></div></footer>`;
 }
 export const statusLabel = (s) =>
   ({
@@ -79,8 +79,8 @@ export const empty = (title, text, action = "", glyph = "briefcase") =>
   `<div class="empty">${icon(glyph)}<h3>${title}</h3><p>${text}</p>${action}</div>`;
 export const loading = (text = "Loading your workspace…") =>
   `<div class="loading" role="status">${text}</div>`;
-export const pageHero = (title, text, extra = "") =>
-  `<section class="page-hero"><div class="container"><div class="breadcrumb">${link("Home", "", "")}<span>/</span><span>${esc(title)}</span></div><h1>${title}</h1><p>${text}</p>${extra}</div></section>`;
+export const pageHero = (title, text, extra = "", crumb = "") =>
+  `<section class="page-hero"><div class="container"><div class="breadcrumb">${link("Home", "", "")}<span aria-hidden="true">/</span><span>${esc(crumb || title)}</span></div><h1>${title}</h1><p>${text}</p>${extra}</div></section>`;
 export const photoFor = (sector) =>
   ["Construction", "Driving", "Logistics"].includes(sector)
     ? "trades"

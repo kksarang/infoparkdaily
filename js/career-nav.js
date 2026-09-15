@@ -1,101 +1,76 @@
-/* Shared Career Tools chrome: main InfoparkDaily menu + tools strip. */
+/* Career Tools: Portfolio-style store header (text links + yellow underline). */
 (function () {
-  const header = document.querySelector(".career-tools .topbar");
-  if (!header || header.dataset.mainMenu === "1") return;
-  header.dataset.mainMenu = "1";
+  const header = document.querySelector(".store-header");
+  if (!header) return;
 
-  const toolsNav = header.querySelector('nav[aria-label="Career Tools"]');
-  if (!toolsNav) return;
+  /* Header logo → main site home */
+  header.querySelectorAll(".store-brand").forEach((a) => {
+    a.setAttribute("href", "/");
+    a.setAttribute("aria-label", "Infopark Daily home");
+  });
 
-  const path = location.pathname;
-  const primary = document.createElement("nav");
-  primary.className = "career-primary-nav";
-  primary.id = "career-primary-nav";
-  primary.setAttribute("aria-label", "Primary");
-  primary.innerHTML = [
-    ["Recruit", "/recruit/"],
-    ["Jobs", "/jobs/"],
-    ["Career Tools", "/resume-builder/"],
-    ["News", "/news/"],
-    ["Services", "/services/"],
-  ]
-    .map(([label, href]) => {
-      const current =
-        href === "/resume-builder/"
-          ? path.startsWith("/resume-builder") || path.startsWith("/ats-checker")
-          : path === href || path.startsWith(href);
-      return `<a href="${href}"${current ? ' aria-current="page"' : ""}>${label}</a>`;
-    })
-    .join("") +
-    `<details class="career-about"><summary>About Us <span aria-hidden="true">⌄</span></summary><div class="career-about-links"><a href="/media/">About our community</a><a href="/infoparkdaily/">InfoparkDaily <span>Jobs, people &amp; opportunities</span></a></div></details>` +
-    `<a href="/contact/"${path.startsWith("/contact") ? ' aria-current="page"' : ""}>Contact</a>` +
-    `<a href="/software-solutions/" class="nav-enitexa">Enitexa.ai</a>`;
+  /* Career Tools stay light — no theme toggle; neutralize any leftover button. */
+  document.querySelectorAll("#theme-toggle, .store-header .theme-toggle").forEach((el) => {
+    el.remove();
+  });
 
-  const account = header.querySelector("#account-nav");
-  header.insertBefore(primary, account || null);
+  const siteHeader = document.querySelector("body.career-tools > .site-header");
+  if (siteHeader) {
+    siteHeader.hidden = true;
+    siteHeader.setAttribute("aria-hidden", "true");
+  }
 
-  const strip = document.createElement("div");
-  strip.className = "career-tools-strip";
-  toolsNav.classList.add("career-tools-nav");
-  strip.append(toolsNav);
-  header.after(strip);
+  const path = location.pathname.replace(/\/$/, "") || "/";
+  header.querySelectorAll("#store-nav > a, .career-tools-nav > a").forEach((a) => {
+    const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
+    let on = false;
+    if (href === "/ats-checker") on = path.startsWith("/ats-checker");
+    else if (href === "/resume-builder/templates")
+      on =
+        path.startsWith("/resume-builder/templates") ||
+        path.startsWith("/resume-builder/editor");
+    else if (href === "/portfolio/templates")
+      on = path.startsWith("/portfolio/templates");
+    else if (href === "/portfolio")
+      on =
+        path.startsWith("/portfolio") &&
+        !path.startsWith("/portfolio/templates");
+    else if (href === "/resume-builder")
+      on =
+        path.startsWith("/resume-builder") &&
+        !path.startsWith("/resume-builder/templates") &&
+        !path.startsWith("/resume-builder/editor") &&
+        !path.includes("/sign-in") &&
+        !path.includes("/pricing") &&
+        !path.includes("/my-resumes") &&
+        !path.includes("/account") &&
+        !path.includes("/payment-status");
+    a.classList.toggle("active", on);
+    if (on) a.setAttribute("aria-current", "page");
+    else a.removeAttribute("aria-current");
+  });
 
-  const about = primary.querySelector(".career-about");
-  if (about) {
-    document.addEventListener("click", (event) => {
-      if (!about.contains(event.target)) about.open = false;
+  const menu = header.querySelector("#store-menu");
+  const nav = header.querySelector("#store-nav");
+  if (menu && nav) {
+    header.classList.add("menu-ready");
+    const open = (value) => {
+      header.classList.toggle("menu-open", value);
+      menu.setAttribute("aria-expanded", String(value));
+    };
+    menu.addEventListener("click", (e) => {
+      e.stopPropagation();
+      open(menu.getAttribute("aria-expanded") !== "true");
     });
-    about.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && about.open) {
-        about.open = false;
-        about.querySelector("summary")?.focus();
-        event.stopPropagation();
+    nav.addEventListener("click", () => open(false));
+    document.addEventListener("click", (ev) => {
+      if (!header.contains(ev.target)) open(false);
+    });
+    header.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") {
+        open(false);
+        menu.focus();
       }
     });
   }
-
-  const toggle = document.createElement("button");
-  toggle.type = "button";
-  toggle.className = "career-menu-toggle";
-  toggle.setAttribute("aria-controls", "career-primary-nav");
-  toggle.innerHTML =
-    '<span aria-hidden="true"></span><span aria-hidden="true"></span>';
-  const setOpen = (open) => {
-    header.classList.toggle("menu-open", open);
-    document.body.classList.toggle("career-menu-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute(
-      "aria-label",
-      open ? "Close navigation menu" : "Open navigation menu",
-    );
-  };
-  setOpen(false);
-  header.append(toggle);
-  header.classList.add("menu-ready");
-  toggle.addEventListener("click", () =>
-    setOpen(!header.classList.contains("menu-open")),
-  );
-  header.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && header.classList.contains("menu-open")) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-  document.addEventListener("click", (event) => {
-    if (
-      !header.contains(event.target) &&
-      !strip.contains(event.target) &&
-      header.classList.contains("menu-open")
-    )
-      setOpen(false);
-  });
-  primary.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setOpen(false);
-  });
-  toolsNav.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setOpen(false);
-  });
-  matchMedia("(max-width: 980px)").addEventListener("change", () =>
-    setOpen(false),
-  );
 })();
