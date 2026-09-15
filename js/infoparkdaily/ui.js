@@ -35,7 +35,7 @@ export const href = (route = "", query = "") =>
 export const link = (label, route, cls = "btn", query = "") =>
   `<a class="${cls}" href="${href(route, query)}">${label}</a>`;
 export const brand = () =>
-  `<a class="market-brand" href="${ROOT}" aria-label="InfoparkDaily community home"><img src="/assets/logo-infoparkdaily.png" width="40" height="40" alt=""><span><strong>InfoparkDaily</strong><small>Good people. Great possibilities.</small></span></a>`;
+  `<a class="market-brand" href="/" aria-label="InfoparkDaily home"><img src="/assets/logo-infoparkdaily.png" width="40" height="40" alt=""><span><strong>InfoparkDaily</strong><small>Good people. Great possibilities.</small></span></a>`;
 export function header(route) {
   return `<a class="skip" href="#main">Skip to content</a><header class="market-header"><div class="container header-inner">${brand()}<button class="icon-btn menu-toggle" id="market-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="market-nav">${icon("menu")}</button><nav class="market-nav" id="market-nav" aria-label="InfoparkDaily section">${[
     ["", "Home"],
