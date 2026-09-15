@@ -39,10 +39,20 @@
   const MAX_ROLES_ON_CARD = 2;
   const DAY_MS = 24 * 60 * 60 * 1000;
 
+  function parkPageLocation() {
+    const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
+    if (path.endsWith("/infopark-jobs")) return "Infopark, Kochi";
+    if (path.endsWith("/technopark-jobs")) return "Technopark, Trivandrum";
+    if (path.endsWith("/cyberpark-jobs")) return "Cyberpark, Calicut";
+    return "";
+  }
+
+  const defaultLocation = parkPageLocation() || "all";
+
   let activeFilter = "all";
   let activeStatus = "open";
   let activeTag = "all";
-  let activeLocation = "all";
+  let activeLocation = defaultLocation;
   let activeCompany = "all";
   let companyQuery = "";
   let searchQuery = "";
@@ -1034,13 +1044,19 @@
 
   /* ---------- hero stats + dynamic controls ---------- */
 
+  function parkJobs(list) {
+    if (defaultLocation === "all") return list;
+    return list.filter((job) => jobRegion(job) === defaultLocation);
+  }
+
   function updateHeroStats() {
-    const active = JOBS.filter((job) => deadlineStatus(job) !== "expired");
+    const scoped = parkJobs(JOBS);
+    const active = scoped.filter((job) => deadlineStatus(job) !== "expired");
     const roleCount = active.reduce((sum, job) => sum + (job.roles || []).length, 0);
     const fresherFriendly = active.filter(
       (job) => job.experience === "fresher" || job.experience === "both"
     ).length;
-    const closingWeek = JOBS.filter((job) => deadlineStatus(job) === "closing").length;
+    const closingWeek = scoped.filter((job) => deadlineStatus(job) === "closing").length;
 
     if (statCompanies) statCompanies.textContent = String(active.length);
     if (statRoles) statRoles.textContent = String(roleCount);
@@ -1081,7 +1097,7 @@
     const root = document.getElementById("jobs-category-browse");
     if (!root) return;
     const counts = new Map();
-    JOBS.forEach((job) => {
+    parkJobs(JOBS).forEach((job) => {
       if (deadlineStatus(job) === "expired") return;
       (job.tags || []).forEach((tag) => {
         const key = String(tag);
@@ -1278,14 +1294,14 @@
     activeFilter = "all";
     activeStatus = "open";
     activeTag = "all";
-    activeLocation = "all";
+    activeLocation = defaultLocation;
     searchQuery = "";
     sortMode = "newest";
     clearCompanyFilter();
 
     if (searchInput) searchInput.value = "";
     if (sortSelect) sortSelect.value = "newest";
-    if (locationSelect) locationSelect.value = "all";
+    if (locationSelect) locationSelect.value = defaultLocation;
 
     const syncGroup = (bar, attr, value) => {
       if (!bar) return;
@@ -1444,10 +1460,18 @@
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
+  if (locationSelect && defaultLocation !== "all") {
+    locationSelect.value = defaultLocation;
+    activeLocation = defaultLocation;
+  }
   buildCategoryBrowse();
   buildLocationBrowse();
   buildCompanyOptions();
   applyFiltersFromUrl();
+  if (locationSelect && defaultLocation !== "all" && !new URLSearchParams(window.location.search).get("location")) {
+    locationSelect.value = defaultLocation;
+    activeLocation = defaultLocation;
+  }
   updateNonITVisibility();
   updateStatusFilterLabels();
   render();

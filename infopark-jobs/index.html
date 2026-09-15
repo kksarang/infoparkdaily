@@ -6,7 +6,7 @@
     <title>Infopark Jobs | InfoparkDaily</title>
     <meta
       name="description"
-      content="Hand-verified Infopark Kochi job openings checked against the official Infopark job portal — verified roles and upcoming alerts with correct titles and closing dates."
+      content="Verified Infopark Kochi job openings from the official Infopark portal — search, filter, and open full details before you apply."
     />
     <meta
       name="keywords"
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Infopark Jobs | InfoparkDaily" />
     <meta
       property="og:description"
-      content="Verified Infopark Kochi openings with correct titles and closing dates — curated for InfoparkDaily."
+      content="Verified Infopark Kochi openings with search and filters — curated for InfoparkDaily."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://infoparkdaily.online/infopark-jobs/" />
@@ -28,7 +28,7 @@
     <meta name="twitter:title" content="Infopark Jobs | InfoparkDaily" />
     <meta
       name="twitter:description"
-      content="Verified Infopark Kochi openings and upcoming alerts — curated for InfoparkDaily."
+      content="Verified Infopark Kochi openings — search, filter, and apply from the listing."
     />
     <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
     <link rel="canonical" href="https://infoparkdaily.online/infopark-jobs/" />
@@ -43,6 +43,10 @@
           "@type": "WebSite",
           "name": "InfoparkDaily",
           "url": "https://infoparkdaily.online/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Infopark Kochi employment and hiring"
         }
       }
     </script>
@@ -85,9 +89,16 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260910c" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
+      crossorigin="anonymous"
+    ></script>
+    <meta name="google-adsense-account" content="ca-pub-4593359890362954" />
     
   </head>
-  <body class="jobs-body dark">
+  <body class="jobs-body jobs-marketplace dark">
     <script>
       (function () {
         var light = document.documentElement.classList.contains("theme-light");
@@ -132,95 +143,316 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page infopark-jobs-page">
-      <section class="jobs-hero" aria-labelledby="jobs-hero-title">
-        <div class="jobs-hero-glow" aria-hidden="true"></div>
-        <div class="jobs-hero-copy">
-          <p class="jobs-kicker">Infopark Kochi openings</p>
+    <main id="main-content" class="jobs-page">
+      <section class="ej-hero" aria-labelledby="jobs-hero-title">
+        <div class="ej-hero-inner">
+          <p class="ej-hero-kicker">Infopark Kochi · Kakkanad</p>
           <h1 id="jobs-hero-title">Infopark Jobs</h1>
-          <p class="jobs-intro">
-            Verified Job Openings at Infopark Kochi (Kakkanad). Poster claims without confirmation are not published as active hiring. Always re-check the employer listing before applying.
-          </p>
-          <div class="jobs-support">
-            <p class="jobs-support-label">Job support · interview help</p>
-            <nav class="jobs-guide-links" aria-label="Job support and interview help">
-              <a href="/guides/how-to-apply-infopark-technopark-jobs/">
-                <span class="jobs-guide-full">How to apply</span>
-                <span class="jobs-guide-short">Apply</span>
-              </a>
-              <a href="/guides/resume-guide-kerala-it-jobs/">
-                <span class="jobs-guide-full">Resume guide</span>
-                <span class="jobs-guide-short">Resume</span>
-              </a>
-              <a href="/guides/interview-preparation-kerala-it/">
-                <span class="jobs-guide-full">Interview prep</span>
-                <span class="jobs-guide-short">Interview</span>
-              </a>
-              <a href="/guides/kerala-it-salary-guide/">
-                <span class="jobs-guide-full">Salary guide</span>
-                <span class="jobs-guide-short">Salary</span>
-              </a>
-              <a href="/guides/working-in-infopark-kochi-life/">
-                <span class="jobs-guide-full">Working in Infopark</span>
-                <span class="jobs-guide-short">Campus</span>
-              </a>
-              <a href="/guides/fresher-guide-kochi-it-parks/">
-                <span class="jobs-guide-full">Fresher guide</span>
-                <span class="jobs-guide-short">Freshers</span>
-              </a>
-              <a href="/guides/">
-                <span class="jobs-guide-full">All guides</span>
-                <span class="jobs-guide-short">Guides</span>
-              </a>
+          <p class="ej-hero-lead">Search verified Infopark Kochi openings — then filter by type, deadline, and company.</p>
+
+          <form class="ej-search-bar" action="/infopark-jobs/" method="get" role="search">
+            <label class="ej-search-field ej-search-field--query">
+              <span class="ej-field-label">Search</span>
+              <span class="ej-field-control">
+                <svg class="jobs-search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                </svg>
+                <input
+                  id="jobs-search"
+                  class="jobs-search"
+                  type="search"
+                  name="q"
+                  placeholder="Job title, skill, or company"
+                  autocomplete="off"
+                />
+              </span>
+            </label>
+            <label class="ej-search-field ej-search-field--location">
+              <span class="ej-field-label">Location</span>
+              <span class="ej-field-control">
+                <select id="jobs-location" class="jobs-sort" aria-label="Location">
+                  <option value="all" selected>All locations</option>
+                </select>
+              </span>
+            </label>
+            <button class="ej-search-submit" type="submit">Search jobs</button>
+          </form>
+
+          <div class="ej-hero-meta">
+            <ul class="ej-hero-stats" aria-label="Digest snapshot">
+              <li>
+                <a class="jobs-stat-link" href="/companies/">
+                  <strong id="stat-companies">0</strong>
+                  listings
+                </a>
+              </li>
+              <li><strong id="stat-roles">0</strong> open roles</li>
+              <li><strong id="stat-freshers">0</strong> fresher-friendly</li>
+              <li><strong id="stat-closing">0</strong> closing this week</li>
+            </ul>
+            <nav class="ej-hero-links" aria-label="Park job boards">
+              <a href="/jobs/today/">Today</a>
+              <a href="/infopark-jobs/" aria-current="page">Infopark</a>
+              <a href="/technopark-jobs/">Technopark</a>
+              <a href="/cyberpark-jobs/">Cyberpark</a>
+              <a href="/companies/?park=infopark">Companies</a>
             </nav>
           </div>
-          <p class="tp-hero-meta"><strong id="ip-count">0</strong> curated verified roles · Source checked 28 Jul 2026</p>
         </div>
-        <aside class="jobs-hero-panel glass" aria-label="Verification rules">
-          <p class="jobs-panel-label">Our rule</p>
-          <ol class="jobs-panel-steps">
-            <li>Lead posters are <strong>not</strong> the source of truth</li>
-            <li>We publish only after matching official Infopark Kochi listings</li>
-            <li>Wrong fresher / internship labels are corrected</li>
-          </ol>
-          <p class="jobs-panel-note">InfoparkDaily is not a recruiter. Never pay for a job application or interview.</p>
+      </section>
+
+      <section class="ej-board" id="job-listings" aria-label="Job listings">
+      <aside class="ej-filters" id="jobs-filters-sheet">
+        <div class="ej-filters-head">
+          <div>
+            <h2>Filters</h2>
+            <p id="jobs-filter-count" class="ej-filter-meta">0 filters applied</p>
+          </div>
+          <div class="ej-filters-head-actions">
+            <button type="button" id="jobs-clear" class="ej-clear-btn">Clear all</button>
+            <button type="button" id="jobs-filter-done" class="ej-filter-done">Done</button>
+          </div>
+        </div>
+      <section class="content-section jobs-controls-section">
+        <div class="jobs-toolbar glass">
+          <div class="ej-filter-block">
+            <div class="jobs-toolbar-row jobs-toolbar-row--top">
+              <label class="jobs-select-label jobs-company-combobox">
+                <span class="jobs-select-caption">Company</span>
+                <input
+                  id="jobs-company"
+                  class="jobs-sort"
+                  type="search"
+                  placeholder="Type company name…"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-autocomplete="list"
+                  aria-controls="jobs-company-suggest"
+                  aria-expanded="false"
+                  aria-describedby="jobs-company-hint"
+                />
+                <ul id="jobs-company-suggest" class="jobs-company-suggest" role="listbox" hidden></ul>
+              </label>
+              <label class="jobs-select-label">
+                <span class="jobs-select-caption">Sort by</span>
+                <select id="jobs-sort" class="jobs-sort">
+                  <option value="newest" selected>Date of Posting (newest)</option>
+                  <option value="deadline">Deadline soonest</option>
+                  <option value="closing">Closing soon first</option>
+                  <option value="company">Company A–Z</option>
+                  <option value="roles">Most open roles</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Experience &amp; type</p>
+            <div
+              id="jobs-filters"
+              class="jobs-filters"
+              role="group"
+              aria-label="Filter by experience and type"
+            >
+              <button type="button" class="jobs-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--mass" data-filter="masshiring" aria-pressed="false">Mass Hiring</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--referral" data-filter="referral" aria-pressed="false">Referral</button>
+              <button type="button" class="jobs-filter-btn" data-filter="walkin" aria-pressed="false">Walk-in Interview</button>
+              <button type="button" class="jobs-filter-btn" data-filter="fresher" aria-pressed="false">Freshers</button>
+              <button type="button" class="jobs-filter-btn" data-filter="remote" aria-pressed="false">Remote</button>
+              <button type="button" class="jobs-filter-btn" data-filter="nonit" aria-pressed="false">Non IT</button>
+              <button type="button" class="jobs-filter-btn" data-filter="experienced" aria-pressed="false">Experienced</button>
+              <button type="button" class="jobs-filter-btn" data-filter="both" aria-pressed="false">Both</button>
+              <button type="button" class="jobs-filter-btn" data-filter="internship" aria-pressed="false">Internships</button>
+              <button type="button" class="jobs-filter-btn" data-filter="verified" aria-pressed="false">Verified</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Deadline status</p>
+            <div
+              id="jobs-status"
+              class="jobs-filters"
+              role="group"
+              aria-label="Filter by deadline status"
+            >
+              <button type="button" class="jobs-filter-btn is-active" data-status="open" aria-pressed="true">Open jobs</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--urgent" data-status="closing" aria-pressed="false">Closing soon</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--expired" data-status="expired" aria-pressed="false">Expired only</button>
+              <button type="button" class="jobs-filter-btn" data-status="all" aria-pressed="false">Open + Expired</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Category</p>
+            <div id="jobs-tags" class="jobs-tags" role="group" aria-label="Filter by category"></div>
+          </div>
+
+          <div class="jobs-toolbar-foot">
+            <p id="jobs-count" class="jobs-count" aria-live="polite"></p>
+          </div>
+          <p id="jobs-share-hint" class="jobs-share-hint" hidden>
+            Share this filtered view — the page URL updates when you pick a company.
+          </p>
+        </div>
+      </section>
+      </aside>
+
+      <div class="ej-listings">
+      <section
+        id="jobs-mass-hiring"
+        class="content-section jobs-mass-hiring-section"
+        aria-labelledby="jobs-mass-hiring-title"
+        hidden
+      >
+        <div class="jobs-mass-hiring-head">
+          <div>
+            <p class="jobs-kicker">Premium placement</p>
+            <h2 id="jobs-mass-hiring-title">🔥 High Volume Hiring</h2>
+            <p class="jobs-mass-hiring-intro">
+              Companies hiring 100+ roles — swipe on mobile, apply fast.
+            </p>
+          </div>
+          <p id="jobs-mass-hiring-count" class="jobs-mass-hiring-count" aria-live="polite"></p>
+        </div>
+        <div id="jobs-mass-hiring-track" class="jobs-mass-hiring-track" tabindex="0"></div>
+      </section>
+
+      <section class="content-section jobs-listings-section" aria-label="Job listings">
+        <div id="jobs-company-banner" class="jobs-company-banner glass" hidden role="status"></div>
+        <div id="jobs-expired-banner" class="jobs-expired-mode-banner" hidden role="status">
+          <strong>You are viewing expired listings</strong>
+          <p>
+            These openings have passed their apply / walk-in date. Do <em>not</em> travel or apply unless the
+            company confirms the role is still open. Switch back to <strong>Open jobs</strong> for current hiring.
+          </p>
+        </div>
+        <aside class="jobs-ad ipd-ad-slot" id="jobs-ad-slot" data-ad-slot="jobs-listing" hidden aria-hidden="true"></aside>
+        <div class="ej-listings-head">
+          <div class="ej-listings-head-copy">
+            <h2 class="ej-listings-title">Open roles</h2>
+            <p class="ej-listings-note">Live / Closing / Expired status · open a card for full details</p>
+          </div>
+          <button type="button" id="jobs-filter-open" class="ej-filter-open-btn" aria-controls="jobs-filters-sheet" aria-expanded="false">
+            Filters
+            <span id="jobs-filter-fab-count" class="ej-fab-count" hidden>0</span>
+          </button>
+        </div>
+        <div id="jobs-grid" class="jobs-grid"></div>
+        <p id="jobs-empty" class="jobs-empty glass" hidden>
+          No listings match — check back soon or follow our
+          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
+          for live updates.
+        </p>
+        <div class="jobs-load-more-wrap">
+          <button type="button" id="jobs-load-more" class="btn btn-secondary" hidden>Load more</button>
+        </div>
+      </section>
+      </div>
+      </section>
+
+      <section class="ej-section ej-section--secondary" aria-labelledby="ej-cat-title">
+        <h2 id="ej-cat-title">Explore Infopark jobs by category</h2>
+        <div id="jobs-category-browse" class="ej-cats"></div>
+      </section>
+
+      <section class="ej-section ej-hire ej-section--secondary" aria-labelledby="ej-hire-title">
+        <div class="ej-hire-copy">
+          <p class="ej-hire-kicker">For recruiters</p>
+          <h2 id="ej-hire-title">Want to hire?</h2>
+          <p class="ej-hire-lead">
+            Share vacancies with Kerala’s largest tech community. Post a role, reach park talent, and manage hiring from one request.
+          </p>
+          <ul class="ej-hire-list">
+            <li>Reach Infopark, Technopark, and Cyberpark talent</li>
+            <li>Simple recruit request for founders &amp; HR</li>
+            <li>Walk-ins, internships, and full-time roles</li>
+            <li>Listed after a quick review</li>
+          </ul>
+          <div class="ej-hire-actions">
+            <a class="btn ej-hire-cta" href="/recruit/">Post a job</a>
+            <a class="ej-hire-secondary" href="/contact/">Talk to us</a>
+          </div>
+        </div>
+        <aside class="ej-hire-panel" aria-label="Hiring highlights">
+          <p class="ej-hire-panel-kicker">Why post here</p>
+          <ul class="ej-hire-panel-stats">
+            <li>
+              <strong>59K+</strong>
+              <span>community reach</span>
+            </li>
+            <li>
+              <strong>3 parks</strong>
+              <span>Infopark · Technopark · Cyberpark</span>
+            </li>
+            <li>
+              <strong>Fast listing</strong>
+              <span>Reviewed and published quickly</span>
+            </li>
+            <li>
+              <strong>Direct apply</strong>
+              <span>Candidates open official links</span>
+            </li>
+          </ul>
         </aside>
       </section>
 
-      <section class="content-section" aria-labelledby="ip-verified-title">
-        <div class="section-heading">
-          <p class="eyebrow">Verified Job Openings</p>
-          <h2 id="ip-verified-title">Poster-verified roles confirmed on the Infopark portal</h2>
-        </div>
-        <div id="ip-verified-grid" class="jobs-grid"></div>
-      </section>
-
-      <section class="content-section" aria-labelledby="ip-upcoming-title">
-        <div class="section-heading">
-          <p class="eyebrow">Upcoming Infopark Alerts</p>
-          <h2 id="ip-upcoming-title">Additional open listings from the Infopark portal</h2>
-        </div>
-        <div id="ip-upcoming-grid" class="jobs-grid"></div>
-      </section>
-
-      <section class="content-section tp-verify-banner" aria-label="Verification disclaimer">
-        <div class="jobs-notice-card glass">
-          <div class="jobs-notice-copy">
-            <p class="eyebrow">Verification note</p>
-            <h2>Always re-check before you apply</h2>
-            <p id="tp-verify-note">
-              Job details can change after publishing. Always verify the opening on the employer’s official
-              channel before applying. InfoparkDaily is an independent community page — not a recruiter, not the
-              hiring company, and we never collect money for jobs. Never pay anyone for an application,
-              registration, or interview. Closing dates, eligibility, and contacts may update without notice, so
-              treat every listing as a lead and confirm it yourself before you proceed.
+      <section class="content-section jobs-companies-section" aria-labelledby="jobs-companies-title">
+        <div class="jobs-companies-card glass">
+          <div class="jobs-companies-copy">
+            <p class="jobs-kicker">Official park tenants</p>
+            <h2 id="jobs-companies-title">Browse the company directory</h2>
+            <p class="jobs-companies-lead">
+              Infopark Kochi tenant directory — profiles, contact details, and official job links.
             </p>
+          </div>
+          <div class="jobs-companies-actions">
+            <a class="btn btn-primary" href="/companies/?park=infopark">Infopark companies</a>
+            <a class="btn btn-secondary" href="/jobs/">All park jobs</a>
           </div>
         </div>
       </section>
 
-      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="full"></div>
-    </main>
+      <section class="content-section jobs-cta-banner" aria-label="Community feedback">
+        <a href="/review/" class="jobs-review-teaser glass">
+          <div class="jobs-review-teaser-copy">
+            <p class="eyebrow">Community feedback</p>
+            <h2>InfoparkDaily Reviews</h2>
+            <p>
+              If you’re happy with our support, leave us a Google review — or read community feedback on our review
+              page.
+            </p>
+            <p class="google-review-stars" aria-hidden="true">★★★★★</p>
+          </div>
+          <span class="jobs-review-teaser-cta btn btn-primary">View review page →</span>
+        </a>
+      </section>
+
+      <div class="ipd-disclaimer-mount" data-ipd-disclaimer="limited"></div>
+    <aside class="jobs-portfolio-promo" aria-label="Portfolio websites"><p><strong>Your work deserves a place of its own.</strong> Explore portfolio designs for freshers, developers, and professionals — personalised by our team from ₹2,999. <a href="/portfolio/">Explore Portfolio Websites →</a></p></aside></main>
+
+    <div id="jobs-filter-overlay" class="ej-filter-overlay" hidden></div>
+
+    <aside id="jobs-sticky-cta" class="jobs-sticky-cta" aria-label="InfoparkDaily jobs on WhatsApp">
+      <div class="jobs-sticky-copy">
+        <p class="jobs-sticky-title">Get daily job alerts on WhatsApp</p>
+        <p class="jobs-sticky-meta">
+          Free InfoparkDaily jobs channel · Infopark, Technopark &amp; Kerala IT openings
+        </p>
+      </div>
+      <a
+        class="btn btn-primary"
+        href="https://www.whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Join channel
+      </a>
+      <button type="button" id="jobs-sticky-dismiss" class="jobs-sticky-dismiss" aria-label="Close WhatsApp jobs prompt">
+        ×
+      </button>
+    </aside>
 
     <footer class="site-footer">
       <div class="footer-grid">
@@ -302,9 +534,11 @@
 
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260730e"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
     <script src="/js/site.js?v=20260914a" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/data/infopark-jobs-data.js?v=20260915a" defer></script>
-    <script src="/js/infopark-jobs.js?v=20260805p" defer></script>
+    <script src="/data/jobs-data.js?v=20260916c" defer></script>
+    <script src="/js/jobs.js?v=20260916a" defer></script>
+    <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

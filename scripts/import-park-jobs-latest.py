@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 9, 11)  # bump when re-importing
+TODAY = date(2026, 9, 16)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -618,16 +618,32 @@ INFOPARK_ROW_RE = re.compile(
     r'<a href="https://infopark.in/company-jobs/details/(\d+)/(\d+)"',
     re.I,
 )
-INFOPARK_LAST_IMPORTED_ID = 25423
+def infopark_max_pages() -> int:
+    html = fetch("https://infopark.in/companies-job")
+    pages = [int(p) for p in re.findall(r"companies-job\?page=(\d+)", html)]
+    return max(pages) if pages else 1
 
 
-def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, str]]:
+def existing_infopark_job_ids() -> set[str]:
+    ids: set[str] = set()
+    for path in (ROOT / "data" / "jobs-data.js", ROOT / "data" / "infopark-jobs-data.js"):
+        if not path.exists():
+            continue
+        ids.update(re.findall(r"company-jobs/details/\d+/(\d+)", path.read_text(encoding="utf-8")))
+    return ids
+
+
+def scrape_infopark_rows(pages: int | None = None) -> list[tuple[str, str, str, str, str, str]]:
     rows: list[tuple[str, str, str, str, str, str]] = []
     seen: set[str] = set()
-    for page in range(1, pages + 1):
+    total_pages = pages or infopark_max_pages()
+    for page in range(1, total_pages + 1):
         url = "https://infopark.in/companies-job" if page == 1 else f"https://infopark.in/companies-job?page={page}"
         html = fetch(url)
-        for posted, title, company, deadline, company_id, job_id in INFOPARK_ROW_RE.findall(html):
+        found = INFOPARK_ROW_RE.findall(html)
+        if not found and page > 1:
+            break
+        for posted, title, company, deadline, company_id, job_id in found:
             if job_id in seen:
                 continue
             seen.add(job_id)
@@ -641,13 +657,17 @@ def scrape_infopark_rows(pages: int = 3) -> list[tuple[str, str, str, str, str, 
                     deadline.strip(),
                 )
             )
+        time.sleep(0.1)
     return rows
 
 
 def build_infopark() -> list[dict]:
     out = []
-    for company_id, job_id, title, company, posted, deadline in scrape_infopark_rows(4):
-        if int(job_id) <= INFOPARK_LAST_IMPORTED_ID:
+    known = existing_infopark_job_ids()
+    rows = scrape_infopark_rows()
+    print(f"  Infopark portal: {len(rows)} listings · {len(known)} already in DB", flush=True)
+    for company_id, job_id, title, company, posted, deadline in rows:
+        if job_id in known:
             continue
         exp, exp_range = infer_exp(title)
         link = f"https://infopark.in/company-jobs/details/{company_id}/{job_id}"
@@ -714,38 +734,68 @@ def build_infopark() -> list[dict]:
     return out
 
 
-def build_technopark(limit: int = 160) -> list[dict]:
-    rows = []
-    for page in range(1, 9):
+def existing_technopark_job_ids() -> set[str]:
+    ids: set[str] = set()
+    for path in (ROOT / "data" / "jobs-data.js", ROOT / "data" / "technopark-jobs-data.js"):
+        if not path.exists():
+            continue
+        ids.update(re.findall(r"job-details/(\d+)\?", path.read_text(encoding="utf-8")))
+    return ids
+
+
+def fetch_technopark_rows() -> list[dict]:
+    rows: list[dict] = []
+    last_page = 1
+    for page in range(1, 50):
         data = json.loads(fetch(f"https://technopark.in/api/paginated-jobs?page={page}&search=&type="))
-        rows.extend(data.get("data") or [])
+        batch = data.get("data") or []
+        if not batch:
+            break
+        rows.extend(batch)
+        last_page = int(data.get("last_page") or page)
+        if page >= last_page:
+            break
+        time.sleep(0.1)
+    return rows
+
+
+def build_technopark() -> list[dict]:
+    known = existing_technopark_job_ids()
+    rows = fetch_technopark_rows()
+    print(f"  Technopark portal: {len(rows)} listings · {len(known)} already in DB", flush=True)
     out = []
     for j in rows:
         posted = (j.get("posted_date") or "")[:10]
         closing = (j.get("closing_date") or "")[:10]
         try:
-            p = datetime.strptime(posted, "%Y-%m-%d").date() if posted else None
             c = datetime.strptime(closing, "%Y-%m-%d").date() if closing else None
         except ValueError:
             continue
         if c and c < TODAY:
             continue
-        if p and p < date(2026, 9, 3):
+        tid = str(j["id"])
+        if tid in known:
             continue
         company = ((j.get("company") or {}).get("company")) or "Technopark company"
         title = j.get("job_title") or "Open role"
-        tid = j["id"]
         exp, exp_range = infer_exp(title)
         link = f"https://technopark.in/job-details/{tid}?job={quote(title)}"
         walk = bool(j.get("is_walk_in"))
         walk_date = ""
         if walk and j.get("walk_in_start_date"):
             walk_date = str(j["walk_in_start_date"])[:10]
+        logo_path = (j.get("company") or {}).get("logo") or ""
+        if logo_path.startswith("/"):
+            logo = f"https://technopark.in{logo_path}"
+        elif logo_path:
+            logo = logo_path
+        else:
+            logo = ""
         out.append(
             {
                 "id": f"tpv-{slugify(company)}-{slugify(title)}-{tid}",
                 "company": company,
-                "logo": "",
+                "logo": logo,
                 "companyBlurb": f"Official Technopark listing · closes {closing or 'see portal'}.",
                 "location": "Technopark, Trivandrum",
                 "roles": [title],
@@ -784,10 +834,9 @@ def build_technopark(limit: int = 160) -> list[dict]:
                 "hiringNotes": f"Verified {tid} · Imported {TODAY.isoformat()}. Re-check with the employer before applying.",
                 "description": f"{title} at {company} — Technopark official portal.",
                 "startingDate": "",
+                "officialLinks": {"technoparkJob": link},
             }
         )
-        if len(out) >= limit:
-            break
     return out
 
 
@@ -1037,7 +1086,7 @@ def main(parks: set[str] | None = None) -> None:
         return
     print("Fetching portals…")
     ip = build_infopark() if "infopark" in parks else []
-    tp = build_technopark(160) if "technopark" in parks else []
+    tp = build_technopark() if "technopark" in parks else []
     cp = build_cyberpark() if "cyberpark" in parks else []
     print(f"Built Infopark={len(ip)} Technopark={len(tp)} Cyberpark={len(cp)}")
 
