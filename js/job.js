@@ -2326,6 +2326,10 @@
     }
 
     bindCityRoleFilter(root);
+
+    if (typeof window.IPD_ANCHOR_JOB_DISCLAIMER === "function") {
+      window.IPD_ANCHOR_JOB_DISCLAIMER();
+    }
   }
 
   if (typeof JOBS === "undefined") {

@@ -1,6 +1,7 @@
 /* Job detail — Entri Jobs card layout */
 
 .job-detail-page {
+  padding-bottom: 0;
   --jd-blue: #2563eb;
   --jd-blue-hover: #1d4ed8;
   --jd-blue-soft: #dbeafe;
@@ -28,7 +29,7 @@ html.theme-dark .job-detail-page {
 
 .jd-page {
   width: var(--container);
-  margin: 0 auto 3rem;
+  margin: 0 auto;
   padding-top: 1rem;
 }
 
@@ -1017,6 +1018,14 @@ html.theme-dark .job-detail-page .job-sheet-fact {
 }
 
 .job-detail-page .job-related {
+  margin-top: 1rem;
+}
+
+.job-detail-page .ipd-disclaimer-mount {
+  margin-top: 0.85rem;
+}
+
+body.jobs-body:has(.job-detail-page) .site-footer {
   margin-top: 1.25rem;
 }
 

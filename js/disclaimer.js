@@ -83,6 +83,15 @@
     });
   }
 
+  /** Pull limited disclaimer into job detail content so it sits flush above the footer. */
+  window.IPD_ANCHOR_JOB_DISCLAIMER = function () {
+    var page = document.querySelector(".job-detail-page");
+    if (!page) return;
+    var mount = page.querySelector(":scope > .ipd-disclaimer-mount");
+    var anchor = page.querySelector("#job-detail-root .jd-page");
+    if (mount && anchor) anchor.appendChild(mount);
+  };
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", inject);
   } else {
