@@ -3934,22 +3934,26 @@ body:not(.light) .jobs-notice-chips span {
 }
 
 .ipd-disclaimer--limited {
-  padding: 0.85rem 1rem;
+  padding: 1rem 1.15rem;
   border-radius: 16px;
 }
 
 .ipd-disclaimer-compact {
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem 0.65rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "label action"
+    "body body";
+  gap: 0.45rem 1rem;
+  align-items: start;
   color: var(--muted);
   font-size: 0.88rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .ipd-disclaimer-compact strong {
+  grid-area: label;
   color: var(--text);
   font-size: 0.78rem;
   font-weight: 750;
@@ -3958,19 +3962,42 @@ body:not(.light) .jobs-notice-chips span {
 }
 
 .ipd-disclaimer-compact span {
-  flex: 1 1 16rem;
+  grid-area: body;
   min-width: 0;
+  max-width: 72ch;
 }
 
 .ipd-disclaimer-compact-link {
+  grid-area: action;
+  justify-self: end;
+  align-self: start;
   color: var(--accent);
   font-weight: 650;
+  font-size: 0.84rem;
   text-decoration: none;
   white-space: nowrap;
+  padding-top: 0.05rem;
 }
 
 .ipd-disclaimer-compact-link:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .ipd-disclaimer--limited {
+    padding: 0.9rem 1rem;
+  }
+  .ipd-disclaimer-compact {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "label"
+      "body"
+      "action";
+    gap: 0.4rem;
+  }
+  .ipd-disclaimer-compact-link {
+    justify-self: start;
+  }
 }
 
 .ipd-disclaimer-footer-links {
