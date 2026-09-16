@@ -45,7 +45,7 @@ service cloud.firestore {
           .hasOnly(['displayName', 'email', 'lastLoginAt', 'lastOpenedResumeId'])
         && request.resource.data.displayName is string
         && request.resource.data.displayName.size() <= 100;
-      allow delete: if verified(uid);
+      allow delete: if isOwner(uid);
 
       match /resumes/{resumeId} {
         allow read: if isOwner(uid);
@@ -56,7 +56,7 @@ service cloud.firestore {
           && validResume(request.resource.data)
           && request.resource.data.revision == resource.data.revision + 1
           && request.resource.data.createdAt == resource.data.createdAt;
-        allow delete: if verified(uid);
+        allow delete: if isOwner(uid);
       }
     }
 

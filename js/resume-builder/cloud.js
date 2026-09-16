@@ -1,5 +1,6 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
 import {
+  EmailAuthProvider,
   GoogleAuthProvider,
   applyActionCode,
   browserLocalPersistence,
@@ -9,6 +10,8 @@ import {
   deleteUser,
   getAuth,
   onAuthStateChanged,
+  reauthenticateWithCredential,
+  reauthenticateWithPopup,
   reload,
   sendEmailVerification,
   sendPasswordResetEmail,
@@ -347,14 +350,63 @@ async function exportAccount() {
   return { member: me, resumes };
 }
 
-async function deleteAccount() {
-  const user = requireUser();
-  if (user.emailVerified) {
-    const resumes = await listResumes();
-    for (const resume of resumes) await deleteDoc(resumeRef(resume.id));
-    await deleteDoc(userRef()).catch(() => {});
+function clearCareerLocalData() {
+  try {
+    sessionStorage.removeItem("ipd_cloud_login_touch");
+    sessionStorage.removeItem("ipd_market_signup");
+    sessionStorage.removeItem("ipd_use_local_api");
+    sessionStorage.removeItem("ipd_resume_checkout_key");
+  } catch {
+    /* ignore */
   }
-  await deleteUser(user);
+}
+
+async function reauthenticateForDelete(password) {
+  const user = requireUser();
+  const hasGoogle = user.providerData.some((p) => p.providerId === "google.com");
+  const hasPassword = user.providerData.some((p) => p.providerId === "password");
+  try {
+    if (hasGoogle) {
+      await reauthenticateWithPopup(user, googleProvider);
+    } else if (hasPassword) {
+      if (!password) throw Error("Enter your password to delete this account.");
+      await reauthenticateWithCredential(
+        user,
+        EmailAuthProvider.credential(user.email, password),
+      );
+    }
+  } catch (e) {
+    fail(e, "Please confirm your sign-in again to delete this account.");
+  }
+}
+
+async function deleteCloudDocuments() {
+  const user = requireUser();
+  try {
+    const snap = await getDocs(resumesCol(user.uid));
+    await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+  } catch {
+    /* Unverified accounts usually have no cloud drafts. */
+  }
+  await deleteDoc(userRef(user.uid)).catch(() => {});
+}
+
+async function deleteAccount(body = {}) {
+  await reauthenticateForDelete(body.password);
+  await deleteCloudDocuments();
+  const user = requireUser();
+  try {
+    await deleteUser(user);
+  } catch (e) {
+    fail(e, "Could not delete the Firebase login. Try again.");
+  }
+  clearCareerLocalData();
+  try {
+    const { clearAnalyticsUser } = await import("/analytics/src/identity.js");
+    clearAnalyticsUser();
+  } catch {
+    /* analytics optional */
+  }
   return { ok: true };
 }
 
@@ -392,7 +444,7 @@ export async function request(path, options = {}) {
     if (path === "/me" && method === "DELETE") {
       if (body.confirm !== "DELETE")
         throw Error("Type DELETE to confirm account deletion.");
-      return deleteAccount();
+      return deleteAccount(body);
     }
     if (path === "/me/data" && method === "GET") return exportAccount();
     if (path === "/me/entitlements" && method === "GET") return [];
@@ -446,13 +498,7 @@ export async function request(path, options = {}) {
       (path === "/auth/logout" || path === "/auth/logout-all") &&
       method === "POST"
     ) {
-      try {
-        sessionStorage.removeItem("ipd_cloud_login_touch");
-        sessionStorage.removeItem("ipd_market_signup");
-        sessionStorage.removeItem("ipd_use_local_api");
-      } catch {
-        /* ignore */
-      }
+      clearCareerLocalData();
       try {
         const { clearAnalyticsUser } = await import("/analytics/src/identity.js");
         clearAnalyticsUser();

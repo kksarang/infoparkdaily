@@ -232,13 +232,51 @@ function bindPageExit() {
   if (!config.trackPageExit) return;
   addEventListener("pagehide", () => {
     const path = location.pathname || "";
+    const engaged = Math.round((Date.now() - pageStartedAt) / 1000);
+    if (engaged < 5) return;
     track(EVENTS.PAGE_EXIT, {
       page_path: path,
-      engaged_sec: Math.round((Date.now() - pageStartedAt) / 1000),
+      engaged_sec: engaged,
       content_type: contentTypeFromPath(path),
       is_exit: true
     });
   });
+}
+
+function bindVisitorEngaged() {
+  let sent = false;
+  const send = (reason) => {
+    if (sent) return;
+    sent = true;
+    const path = location.pathname || "";
+    track(EVENTS.VISITOR_ENGAGED, {
+      engaged_sec: Math.round((Date.now() - pageStartedAt) / 1000),
+      content_type: contentTypeFromPath(path),
+      page_path: path,
+      reason
+    });
+  };
+  setTimeout(() => {
+    if (document.visibilityState !== "hidden") send("time_on_page");
+  }, 10000);
+  setTimeout(() => {
+    const onUse = () => send("interaction");
+    addEventListener("scroll", onUse, { once: true, passive: true });
+    addEventListener("pointerdown", onUse, { once: true });
+    addEventListener("keydown", onUse, { once: true });
+  }, 3000);
+}
+
+function trackProductLanding() {
+  const path = location.pathname || "";
+  const type = contentTypeFromPath(path);
+  if (type === "jobs_list" || type === "park_jobs") {
+    track(EVENTS.JOBS_BROWSE, { page_path: path, content_type: type, feature: "jobs" });
+  } else if (type === "resume_builder" && /^\/resume-builder\/?$/.test(path)) {
+    track(EVENTS.RESUME_BUILDER_VIEW, { feature: "resume_builder", page_path: path });
+  } else if (type === "ats_checker") {
+    track(EVENTS.ATS_CHECKER_VIEW, { feature: "ats_checker", page_path: path });
+  }
 }
 
 async function runPerformanceAudit() {
@@ -350,6 +388,17 @@ export const api = {
       content_type: "job",
       content_id: job.id || ""
     }),
+  trackJobsBrowse: (extra = {}) =>
+    track(EVENTS.JOBS_BROWSE, Object.assign({ feature: "jobs" }, extra)),
+  trackAtsCheckStart: (fileKind = "") =>
+    track(EVENTS.ATS_CHECK_START, { file_kind: String(fileKind || "").slice(0, 20), feature: "ats_checker" }),
+  trackAtsCheckComplete: (report = {}) =>
+    track(EVENTS.ATS_CHECK_COMPLETE, {
+      score_band:
+        report.score >= 80 ? "80_plus" : report.score >= 60 ? "60_79" : report.score >= 40 ? "40_59" : "under_40",
+      has_job_description: Boolean(report.jdMode),
+      feature: "ats_checker"
+    }),
   trackJobSearch: (term) => track(EVENTS.JOB_SEARCH, { search_term: String(term || "").slice(0, 100) }),
   trackJobFilter: (filters) => track(EVENTS.JOB_FILTER, filters || {}),
   trackJobShare: (job = {}, network = "copy_link") =>
@@ -401,7 +450,7 @@ export const api = {
   openConsentPreferences,
   getConfig: () => config,
   EVENTS,
-  version: "2.1.0"
+  version: "2.2.0"
 };
 
 export function init() {
@@ -415,12 +464,14 @@ export function init() {
   loadRemoteTags();
 
   if (config.autoPageView) trackPageView();
+  trackProductLanding();
   trackUserContext();
 
   bindClicks();
   bindScroll();
   bindErrors();
   bindPageExit();
+  bindVisitorEngaged();
   bindWebVitals();
 
   addEventListener("load", () => {

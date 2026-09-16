@@ -7,7 +7,7 @@ import {
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
 import { publicTemplates } from "./catalog.js?v=20260915h";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20260916mail";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20260916del";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
@@ -143,9 +143,9 @@ function accountNav() {
   const nav = document.getElementById("account-nav");
   if (nav) {
     if (location.pathname.includes("/sign-in"))
-      nav.innerHTML = `<a class="store-signin" href="${base}">Home</a>`;
+      nav.innerHTML = "";
     else if (me)
-      nav.innerHTML = `<a class="store-signin" href="${base}my-resumes/">My resumes</a><button type="button" class="store-signin" data-action="logout" style="margin-left:.35rem">Log out</button>`;
+      nav.innerHTML = `<button type="button" class="store-signin" data-action="logout">Log out</button>`;
     else
       nav.innerHTML = `<a class="store-signin" href="${base}sign-in/">Sign in</a>`;
   }
@@ -343,9 +343,10 @@ function auth() {
   main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your Career Tools workspace"><a class="auth-back" href="${base}">← Back to Career Tools</a><div><p class="auth-eyebrow">A LITTLE PREPARATION. A BIG NEXT STEP.</p><h2>Your next chapter<br>starts with you.</h2><p class="auth-story-lead">Give your experience a place to shine. We’ll help you put it on the page.</p><div class="auth-workspace-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR WORKSPACE</span><span>✦</span></div><div class="auth-preview-document"><span class="auth-document-icon">≡</span><div><strong>My next opportunity</strong><small>A resume that tells your story</small></div></div><div class="auth-preview-progress"><i></i><i></i><i></i><i></i></div><span class="auth-preview-foot">Your experience. Your pace.</span></div><ul class="auth-benefits"><li>Save drafts and come back anytime</li><li>Switch templates without starting over</li><li>Keep your resumes in one place</li></ul></div><p class="auth-story-bottom">Built for your next move · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
-          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Open my resumes</a><button class="auth-switch" data-action="auth-signout">Use a different account</button>`
-          : `<p class="ct-kicker">YOUR CAREER, ONE STEP FORWARD</p>
+          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Open my resumes</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
+      : `<p class="ct-kicker">YOUR CAREER, ONE STEP FORWARD</p>
       <h1>${signup ? "Make it your workspace." : "Welcome back."}</h1>
+      ${params.get("deleted") === "1" ? `<p class="auth-deleted" role="status">Your account and cloud-saved resumes were deleted. You can create a new account anytime.</p>` : ""}
       <p class="auth-lead">${lead}</p>
       <div class="auth-mode-tabs" role="group" aria-label="Account access">
         <button type="button" data-action="auth-mode" data-mode="login" aria-pressed="${!signup}" class="${!signup ? "active" : ""}">Sign in</button>
@@ -363,11 +364,13 @@ function auth() {
       </form>`
       }
       ${
-        useLocalApi()
+        me
+          ? ""
+          : useLocalApi()
           ? `<div class="auth-note"><span class="auth-local-tag">LOCAL</span><p>Accounts on this computer only — not Firebase.</p></div><details class="preview-tools"><summary>Owner preview</summary><p>Shared demo for product checks. Use your own account for drafts.</p><button type="button" class="button secondary small" data-action="local-login">Open demo workspace</button></details>`
           : `<p class="auth-note">By continuing, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
       }
-      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/">Privacy</a></div>
+      <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/#career-tools">Privacy</a></div>
     </section></div>`;
 }
 function verifyCopy(inDialog = false) {
@@ -395,6 +398,7 @@ async function dashboard() {
       : `<div class="empty" style="margin-bottom:60px"><div class="document-icon" style="margin:0 auto 20px">▤</div><h2>No saved resumes yet</h2><p>Pick any free template. Sign in keeps your draft saved so you can pause and continue later.</p><a class="button" href="${base}templates/">Browse templates</a></div>`),
     `<a class="button" href="${base}templates/">＋ Create new resume</a>`,
   );
+  analyticsTrack("resume_workspace_view", { feature: "resume_builder" });
 }
 function pricing() {
   page(
@@ -503,7 +507,7 @@ async function account() {
   page(
     "Your account",
     "Your resumes, saved so you can continue anytime.",
-    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Confirm your email to enable cloud saving. (Check Spam or Promotions if the mail is missing.)"}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
+    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · drafts saved in the cloud" : "Confirm your email to enable cloud saving. (Check Spam or Promotions if the mail is missing.)"}</p><div class="actions">${button("Log out", "logout")}</div></section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a> <a class="button small secondary" href="${base}my-resumes/">My resumes</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Delete account</h2><p>${useLocalApi() ? "This removes this local account, saved resumes, and test purchases from this computer. It cannot be undone." : "This permanently deletes your Firebase login and every cloud-saved resume under this account. This device’s session is also cleared. It cannot be undone."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button("Delete account", "delete-account", "", "danger")}</div></section></div>`,
   );
 }
 function fieldLabel(key) {
@@ -1070,12 +1074,42 @@ async function act(el) {
       me = await api("/me");
       await paymentStatus();
       break;
-    case "delete-account":
+    case "delete-account": {
+      const google = (me?.providers || []).includes("google.com");
+      const password = (me?.providers || []).includes("password");
       showDialog(
         "Delete this account?",
-        `<p>${useLocalApi() ? "Your resumes and local test purchases will be permanently removed from this computer." : "Your Firebase account and cloud-saved resumes will be permanently deleted. This cannot be undone."}</p><form id="delete-account-form"><div class="field"><label for="delete-confirm">Type DELETE to confirm</label><input id="delete-confirm" name="confirm" required pattern="DELETE" autocomplete="off"></div><button class="button danger" type="submit">${useLocalApi() ? "Delete local account" : "Delete account"}</button></form>`,
+        `<p>${
+          useLocalApi()
+            ? "This permanently removes this local account, its resumes, and test purchases from this computer."
+            : "This permanently deletes your <strong>Firebase login</strong> and every <strong>cloud-saved resume</strong> stored for this account. Your session on this device is cleared. This cannot be undone."
+        }</p>
+        <ul class="dialog-delete-list">
+          <li>Cloud resume drafts in Firebase</li>
+          <li>Your Career Tools login (email or Google)</li>
+          <li>This browser’s signed-in session</li>
+        </ul>
+        <p class="hint">Download a copy first if you still need your drafts. ATS checker files were never uploaded.</p>
+        <form id="delete-account-form">
+          <div id="delete-account-error" role="alert"></div>
+          <div class="field"><label for="delete-confirm">Type DELETE to confirm</label><input id="delete-confirm" name="confirm" required pattern="DELETE" autocomplete="off" placeholder="DELETE"></div>
+          ${
+            useLocalApi() || google
+              ? ""
+              : password
+                ? `<div class="field"><label for="delete-password">Password</label><input id="delete-password" name="password" type="password" required autocomplete="current-password" minlength="10" maxlength="128"></div>`
+                : ""
+          }
+          ${
+            !useLocalApi() && google
+              ? `<p class="hint">Google will ask you to confirm before we delete the account.</p>`
+              : ""
+          }
+          <button class="button danger" type="submit">${useLocalApi() ? "Delete local account" : "Delete account and cloud data"}</button>
+        </form>`,
       );
       break;
+    }
     case "edit-section":
       await save();
       activeSection = el.dataset.section;
@@ -1373,7 +1407,12 @@ document.addEventListener("submit", async (event) => {
     }
     if (form.id === "delete-account-form") {
       await api("/me", { method: "DELETE", body: fields });
-      location.assign(base);
+      analyticsTrack("logout", { feature: "resume_builder", method: "delete_account" });
+      analyticsSetUser(null);
+      me = null;
+      closeDialog();
+      location.assign(base + "sign-in/?deleted=1");
+      return;
     }
     if (form.id === "template-admin-form") {
       const original = form.dataset.original
@@ -1400,7 +1439,9 @@ document.addEventListener("submit", async (event) => {
     const box = document.getElementById(
       form.id === "auth-form"
         ? "auth-error"
-        : form.id === "template-admin-form"
+        : form.id === "delete-account-form"
+          ? "delete-account-error"
+          : form.id === "template-admin-form"
           ? "admin-error"
           : "nonexistent",
     );

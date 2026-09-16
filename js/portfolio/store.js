@@ -59,7 +59,7 @@ track('portfolio_page_viewed',{page_type:'portfolio'});
 if(!document.querySelector('script[data-ipd-analytics]')&&!globalThis.IPDAnalytics){
   const s=document.createElement('script');
   s.type='module';
-  s.src='/analytics/main.js?v=20260915prod';
+  s.src='/analytics/main.js?v=20260916act';
   s.dataset.ipdAnalytics='1';
   document.head.appendChild(s);
 }
@@ -283,7 +283,7 @@ let authMode='login';
 let cloudRequest=null;
 async function loadCloud(){
   if(cloudRequest)return cloudRequest;
-  const mod=await import('/js/resume-builder/cloud.bundle.js?v=20260910e');
+  const mod=await import('/js/resume-builder/cloud.bundle.js?v=20260916del');
   cloudRequest=mod.request;
   return cloudRequest;
 }
@@ -303,18 +303,20 @@ function paintAccount(me){
     return;
   }
   nav.innerHTML=me
-    ?`<a class="store-signin" href="/resume-builder/account/">${esc((me.name||'Account').split(' ')[0])}</a><button type="button" class="store-signin" data-auth="signout" style="margin-left:.35rem">Log out</button>`
+    ?`<button type="button" class="store-signin" data-auth="signout">Log out</button>`
     :`<a class="store-signin" href="${signInHref()}">Sign in</a>`;
 }
+let lastMe=null;
 function renderAuth(me){
+  lastMe=me;
   const root=$('#auth-app');
   if(!root)return;
   if(me){
-    root.innerHTML=`<div class="auth-shell"><aside class="auth-story"><p class="eyebrow">Same InfoparkDaily account</p><h2>You’re already <em>signed in.</em></h2><p class="auth-story-lead">Use this account for resumes, ATS checks, and portfolio enquiries.</p></aside><section class="auth-card"><p class="eyebrow">Signed in</p><h1>Welcome back.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br>${esc(me.email)}</p><a class="button" href="${esc(safeNext())}">Continue</a><button class="auth-switch" type="button" data-auth="signout">Use a different account</button></section></div>`;
+    root.innerHTML=`<div class="auth-shell"><aside class="auth-story"><p class="eyebrow">Same InfoparkDaily account</p><h2>You’re already <em>signed in.</em></h2><p class="auth-story-lead">Use this account for resumes, ATS checks, and portfolio enquiries.</p></aside><section class="auth-card"><p class="eyebrow">Signed in</p><h1>Welcome back.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br>${esc(me.email)}</p><a class="button" href="${esc(safeNext())}">Continue</a><button class="button secondary auth-logout" type="button" data-auth="signout">Log out</button><button class="auth-delete" type="button" data-auth="delete">Delete account</button></section></div>`;
     return;
   }
   const signup=authMode==='signup';
-  root.innerHTML=`<div class="auth-shell"><aside class="auth-story"><p class="eyebrow">One account. Your next chapter.</p><h2>The same login you use for <em>resumes.</em></h2><p class="auth-story-lead">Google or email. Favourites and enquiries stay with your InfoparkDaily account.</p><ul class="auth-benefits"><li>One sign-in for Career Tools</li><li>Save templates you like</li><li>Come back to your enquiry</li></ul><p class="auth-story-bottom">InfoparkDaily Portfolios</p></aside><section class="auth-card"><p class="eyebrow">${signup?'Create your workspace':'Welcome back'}</p><h1>${signup?'Make this yours.':'Sign in.'}</h1><p class="auth-lead">${signup?'Create the same InfoparkDaily account used for Resume Builder.':'Use Google or the email and password from Resume Builder.'}</p><div class="auth-mode-tabs" role="group" aria-label="Account access"><button type="button" data-auth="mode" data-mode="login" class="${signup?'':'active'}" aria-pressed="${!signup}">Sign in</button><button type="button" data-auth="mode" data-mode="signup" class="${signup?'active':''}" aria-pressed="${signup}">Create account</button></div><div id="auth-error" hidden></div><button type="button" class="button auth-google" data-auth="google"><span class="auth-google-mark" aria-hidden="true">G</span>Continue with Google</button><p class="auth-or">or continue with email</p><form id="auth-form">${signup?'<div class="field"><label for="auth-name">Name</label><input id="auth-name" name="name" autocomplete="name" required maxlength="100"></div>':''}<div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" required maxlength="254"></div><div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup?'new-password':'current-password'}" required minlength="10" maxlength="128"><button type="button" data-auth="password">Show</button></div></div>${signup?'<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128"></div>':''}<div class="auth-form-options">${signup?'<label class="check-label"><input type="checkbox" name="agree" value="yes" required><span>I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</span></label>':'<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label><button type="button" class="auth-help-link" data-auth="help">Need help?</button>'}</div><button class="button" type="submit">${signup?'Create account':'Sign in'}</button></form><p class="auth-note">By continuing, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p><div class="auth-bottom-links"><a href="/portfolio/templates/">Browse templates</a><a href="/resume-builder/sign-in/">Resume Builder sign in</a></div><div id="auth-help" hidden class="auth-help-box"><h2>Reset your password</h2><p class="auth-lead">We’ll send a reset link if this email has an InfoparkDaily account.</p><form id="reset-form"><div class="field"><label for="reset-email">Email</label><input id="reset-email" name="email" type="email" required maxlength="254"></div><button class="button" type="submit">Send reset email</button></form></div></section></div>`;
+  root.innerHTML=`<div class="auth-shell"><aside class="auth-story"><p class="eyebrow">One account. Your next chapter.</p><h2>The same login you use for <em>resumes.</em></h2><p class="auth-story-lead">Google or email. Favourites and enquiries stay with your InfoparkDaily account.</p><ul class="auth-benefits"><li>One sign-in for Career Tools</li><li>Save templates you like</li><li>Come back to your enquiry</li></ul><p class="auth-story-bottom">InfoparkDaily Portfolios</p></aside><section class="auth-card"><p class="eyebrow">${signup?'Create your workspace':'Welcome back'}</p><h1>${signup?'Make this yours.':'Sign in.'}</h1><p class="auth-lead">${signup?'Create the same InfoparkDaily account used for Resume Builder.':'Use Google or the email and password from Resume Builder.'}</p><div class="auth-mode-tabs" role="group" aria-label="Account access"><button type="button" data-auth="mode" data-mode="login" class="${signup?'':'active'}" aria-pressed="${!signup}">Sign in</button><button type="button" data-auth="mode" data-mode="signup" class="${signup?'active':''}" aria-pressed="${signup}">Create account</button></div><div id="auth-error" hidden></div><button type="button" class="button auth-google" data-auth="google"><span class="auth-google-mark" aria-hidden="true">G</span>Continue with Google</button><p class="auth-or">or continue with email</p><form id="auth-form">${signup?'<div class="field"><label for="auth-name">Name</label><input id="auth-name" name="name" autocomplete="name" required maxlength="100"></div>':''}<div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" required maxlength="254"></div><div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup?'new-password':'current-password'}" required minlength="10" maxlength="128"><button type="button" data-auth="password">Show</button></div></div>${signup?'<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128"></div>':''}<div class="auth-form-options">${signup?'<label class="check-label"><input type="checkbox" name="agree" value="yes" required><span>I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</span></label>':'<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label><button type="button" class="auth-help-link" data-auth="help">Need help?</button>'}</div><button class="button" type="submit">${signup?'Create account':'Sign in'}</button></form><p class="auth-note">By continuing, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</p><div class="auth-bottom-links"><a href="/portfolio/templates/">Browse templates</a><a href="/resume-builder/sign-in/">Resume Builder sign in</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/#career-tools">Privacy</a></div><div id="auth-help" hidden class="auth-help-box"><h2>Reset your password</h2><p class="auth-lead">We’ll send a reset link if this email has an InfoparkDaily account.</p><form id="reset-form"><div class="field"><label for="reset-email">Email</label><input id="reset-email" name="email" type="email" required maxlength="254"></div><button class="button" type="submit">Send reset email</button></form></div></section></div>`;
 }
 function showAuthError(message){
   const box=$('#auth-error');
@@ -360,21 +362,39 @@ if(authRoot||$('#account-nav')){
           await (await loadCloud())('/auth/logout',{method:'POST'});
           track('logout',{feature:'portfolio'});
           globalThis.IPDAnalytics?.clearUserId?.();
+          lastMe=null;
           paintAccount(null);
           renderAuth(null);
           if(!$('#auth-app'))location.assign('/portfolio/');
         }catch(error){showAuthError(error.message||'Sign-out failed. Please try again.');}
       }
+      if(action==='delete'){
+        const me=lastMe;
+        if(!me)return;
+        const google=(me.providers||[]).includes('google.com');
+        const password=(me.providers||[]).includes('password');
+        const card=$('.auth-card');
+        if(!card)return;
+        if($('#delete-account-panel')){$('#delete-account-panel').hidden=!$('#delete-account-panel').hidden;return;}
+        card.insertAdjacentHTML('beforeend',`<div id="delete-account-panel" class="auth-help-box"><h2>Delete this account?</h2><p class="auth-lead">This permanently deletes your Firebase login and every cloud-saved resume. This cannot be undone.</p><ul class="auth-delete-list"><li>Cloud resume drafts in Firebase</li><li>Your Career Tools login</li><li>This browser’s signed-in session</li></ul><form id="delete-account-form"><div id="delete-account-error" role="alert"></div><div class="field"><label for="delete-confirm">Type DELETE to confirm</label><input id="delete-confirm" name="confirm" required pattern="DELETE" autocomplete="off" placeholder="DELETE"></div>${!google&&password?'<div class="field"><label for="delete-password">Password</label><input id="delete-password" name="password" type="password" required autocomplete="current-password" minlength="10" maxlength="128"></div>':''}${google?'<p class="auth-lead">Google will ask you to confirm before we delete the account.</p>':''}<button class="button" type="submit">Delete account and cloud data</button></form></div>`);
+      }
     }catch(error){showAuthError(error.message);}
   });
   document.addEventListener('submit',async ev=>{
-    if(!['auth-form','reset-form'].includes(ev.target.id))return;
+    if(!['auth-form','reset-form','delete-account-form'].includes(ev.target.id))return;
     ev.preventDefault();
     const fields=Object.fromEntries(new FormData(ev.target));
     const submit=ev.target.querySelector('[type=submit]');
     submit.disabled=true;
     try{
       const request=await loadCloud();
+      if(ev.target.id==='delete-account-form'){
+        await request('/me',{method:'DELETE',body:fields});
+        track('logout',{feature:'portfolio'});
+        globalThis.IPDAnalytics?.clearUserId?.();
+        location.assign('/resume-builder/sign-in/?deleted=1');
+        return;
+      }
       if(ev.target.id==='reset-form'){
         await request('/auth/reset',{method:'POST',body:{email:fields.email}});
         showAuthError('If an account exists for that email, a reset link is on its way.');
@@ -383,7 +403,11 @@ if(authRoot||$('#account-nav')){
       if(authMode==='signup'&&fields.password!==fields.confirmPassword)throw Error('Your passwords do not match.');
       await request('/auth/'+authMode,{method:'POST',body:{...fields,remember:fields.remember==='yes'}});
       location.assign(safeNext());
-    }catch(error){showAuthError(error.message);}
+    }catch(error){
+      const del=$('#delete-account-error');
+      if(ev.target.id==='delete-account-form'&&del)del.textContent=error.message;
+      else showAuthError(error.message);
+    }
     finally{submit.disabled=false;}
   });
 }

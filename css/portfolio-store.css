@@ -644,6 +644,7 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
 
 /* Auth */
 .auth-body{background:var(--bg);color:var(--ink);min-height:100dvh}
+.auth-body .store-header{display:none!important}
 .auth-main{width:min(980px,calc(100% - 2 * var(--page-gutter)));margin:0 auto;padding:2.5rem 0 4rem}
 .auth-loading{color:var(--muted)}
 .auth-shell{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:1.15rem;overflow:hidden;background:var(--white)}
@@ -680,6 +681,11 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
 .auth-note{font-size:.7rem;color:var(--muted);line-height:1.55;margin-top:.9rem}
 .auth-note a{text-decoration:underline}
 .auth-switch{display:block;width:100%;margin-top:.9rem;color:var(--muted);font-size:.8rem;font-weight:650}
+.auth-logout{margin-top:.75rem}
+.auth-delete{display:block;width:100%;margin-top:.55rem;padding:.75rem 0 0;border:0;background:none;color:#a92e36;font-size:.8rem;font-weight:650;cursor:pointer}
+.auth-delete-list{margin:.75rem 0;padding-left:1.1rem;font-size:.82rem;line-height:1.55}
+#delete-account-error:empty{display:none}
+#delete-account-error{background:#fde8e8;color:#8a1f1f;padding:.7rem .85rem;border-radius:.5rem;margin-bottom:.9rem;font-size:.82rem}
 .auth-bottom-links{display:flex;flex-wrap:wrap;gap:.75rem 1rem;margin-top:1.15rem;font-size:.74rem;color:var(--muted)}
 .auth-help-box{background:var(--bg);border:1px solid var(--line);border-radius:.65rem;padding:1rem;margin-top:.9rem}
 .auth-help-box h2{font-size:1.05rem;margin-bottom:.55rem}

@@ -80,7 +80,7 @@
   if (!document.querySelector('script[data-ipd-analytics]') && !window.IPDAnalytics) {
     const s = document.createElement("script");
     s.type = "module";
-    s.src = "/analytics/main.js?v=20260915prod";
+    s.src = "/analytics/main.js?v=20260916act";
     s.dataset.ipdAnalytics = "1";
     document.head.appendChild(s);
   }
@@ -88,15 +88,15 @@
   /* ATS checker account nav — Firebase Auth as source of truth. */
   const accountNav = document.getElementById("account-nav");
   if (accountNav && location.pathname.startsWith("/ats-checker")) {
-    import("/js/resume-builder/cloud.bundle.js?v=20260915prod")
+    import("/js/resume-builder/cloud.bundle.js?v=20260916del")
       .then((mod) => mod.request("/me"))
       .then((me) => {
         accountNav.innerHTML = me
-          ? '<a class="store-signin" href="/resume-builder/account/">Account</a><button type="button" class="store-signin" id="ats-logout" style="margin-left:.35rem">Log out</button>'
+          ? '<button type="button" class="store-signin" id="ats-logout">Log out</button>'
           : '<a class="store-signin" href="/resume-builder/sign-in/?next=%2Fats-checker%2F">Sign in</a>';
         document.getElementById("ats-logout")?.addEventListener("click", async () => {
           try {
-            const mod = await import("/js/resume-builder/cloud.bundle.js?v=20260915prod");
+            const mod = await import("/js/resume-builder/cloud.bundle.js?v=20260916del");
             await mod.request("/auth/logout", { method: "POST" });
             window.IPDAnalytics?.track?.("logout", { feature: "ats_checker" });
             window.IPDAnalytics?.clearUserId?.();

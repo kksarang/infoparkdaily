@@ -7,7 +7,15 @@ import { UTM_KEYS, STORAGE } from "./events.js";
 import { hasAnalyticsConsent } from "./consent.js";
 import { pushDataLayer, sendToGa } from "./loader.js";
 
-const SENSITIVE_QUERY = /^(email|e-mail|password|token|id_token|access_token|refresh_token|code|next|name|phone|tel|message|notes|resume|content)$/i;
+const DIAGNOSTIC_EVENTS = new Set([
+  "performance",
+  "seo_audit",
+  "seo_issue",
+  "user_context",
+  "image_error",
+  "resource_fail",
+  "api_fail"
+]);
 const recent = new Map();
 
 function sessionGet(key) {
@@ -132,7 +140,7 @@ export function track(name, params = {}) {
     const payload = sanitizeParams(mergeSessionParams(params));
     if (dedupe(eventName, payload)) return;
     pushDataLayer(Object.assign({ event: eventName }, payload));
-    if (hasAnalyticsConsent()) {
+    if (hasAnalyticsConsent() && !DIAGNOSTIC_EVENTS.has(eventName)) {
       sendToGa(eventName, payload);
     }
     if (config.clarityMirrorEvents && config.clarityId && hasAnalyticsConsent()) {

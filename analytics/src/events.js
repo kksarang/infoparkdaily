@@ -14,6 +14,10 @@ export const EVENTS = {
   RESUME_EXPORT_READY: "resume_export_ready",
   RESUME_DOWNLOAD_SERVED: "resume_download_served",
   RESUME_GALLERY_VIEW: "resume_gallery_view",
+  RESUME_WORKSPACE_VIEW: "resume_workspace_view",
+  ATS_CHECKER_VIEW: "ats_checker_view",
+  ATS_CHECK_START: "ats_check_start",
+  ATS_CHECK_COMPLETE: "ats_check_complete",
   RESUME_TEMPLATE_PREVIEW: "resume_template_preview",
   RESUME_TEMPLATE_SELECT: "resume_template_select",
   RESUME_START: "resume_start",
@@ -43,7 +47,9 @@ export const EVENTS = {
   FORM_SUBMIT_SUCCESS: "form_submit_success",
   FORM_SUBMIT_ERROR: "form_submit_error",
   PAGE_VIEW: "page_view",
+  VISITOR_ENGAGED: "visitor_engaged",
   JOB_VIEW: "job_view",
+  JOBS_BROWSE: "jobs_browse",
   JOB_SEARCH: "job_search",
   JOB_FILTER: "job_filter",
   JOB_APPLY: "job_apply",
@@ -93,15 +99,15 @@ export const EVENTS = {
 /** GA4 conversions (Phase 2 P0/P1 + Phase 10 commercial) */
 export const CONVERSIONS = [
   EVENTS.JOB_APPLY,
-  EVENTS.SHARE_INSTAGRAM,
-  EVENTS.SHARE_WHATSAPP,
+  EVENTS.ATS_CHECK_COMPLETE,
+  EVENTS.RESUME_START,
+  EVENTS.RESUME_EXPORT_SUCCESS,
+  EVENTS.PORTFOLIO_START,
+  EVENTS.WHATSAPP_CLICK,
+  EVENTS.GENERATE_LEAD,
+  EVENTS.SIGN_UP,
   EVENTS.CONTACT_SUBMIT,
-  EVENTS.NEWSLETTER_SIGNUP,
-  EVENTS.CLICK_TO_CALL,
-  EVENTS.COMPANY_CLICK,
-  EVENTS.AD_CLICK,
-  EVENTS.SPONSOR_CLICK,
-  EVENTS.REVENUE_RECORD
+  EVENTS.SHARE_WHATSAPP
 ];
 
 export const GOALS = {
@@ -194,11 +200,13 @@ const NAME_RE = /^[a-z0-9]+(_[a-z0-9]+)*$/;
 
 /** Canonical event catalog — single source of truth */
 export const CATALOG = [
-  { name: "page_view", object: "page", action: "view", desc: "Any page load / virtual page", params: ["page_path", "page_title"] },
-  { name: "job_view", object: "job", action: "view", desc: "Job detail opened", params: ["job_id", "company"] },
-  { name: "job_search", object: "job", action: "search", desc: "Jobs search query", params: ["search_term"] },
-  { name: "job_filter", object: "job", action: "filter", desc: "Jobs filter/sort change", params: ["status", "company", "location"] },
-  { name: "job_apply", object: "job", action: "apply", desc: "Apply CTA (url or email)", params: ["job_id", "method"] },
+  { name: "page_view", object: "page", action: "view", desc: "Any page load. Count unique users for traffic. Filter page_path or content_type for resume / jobs / portfolio.", params: ["page_path", "page_title", "content_type", "user_type", "returning_visit"] },
+  { name: "visitor_engaged", object: "visitor", action: "engaged", desc: "Person stayed and used the page (10+ seconds visible, or scrolled). This is “how many people staying”, not a bounce.", params: ["engaged_sec", "content_type", "page_path"] },
+  { name: "jobs_browse", object: "jobs", action: "browse", desc: "Opened a jobs list (all jobs or a park list). Job checking starts here.", params: ["page_path", "content_type"] },
+  { name: "job_view", object: "job", action: "view", desc: "Opened one job detail page.", params: ["job_id", "company"] },
+  { name: "job_search", object: "job", action: "search", desc: "Typed a jobs search query.", params: ["search_term"] },
+  { name: "job_filter", object: "job", action: "filter", desc: "Changed a jobs filter (status, location, company).", params: ["status", "company", "location"] },
+  { name: "job_apply", object: "job", action: "apply", desc: "Clicked Apply (official URL, email, or on-page form). Not a confirmed hire.", params: ["job_id", "method"] },
   { name: "job_share", object: "job", action: "share", desc: "Share job detail link", params: ["job_id", "network"] },
   { name: "job_engage", object: "job", action: "engage", desc: "Reading heartbeat / engaged time", params: ["job_id", "engaged_sec", "max_scroll"] },
   { name: "job_exit", object: "job", action: "exit", desc: "Leave job detail", params: ["job_id", "engaged_sec", "max_scroll", "applied"] },
@@ -246,7 +254,11 @@ export const CATALOG = [
   { name: "login_error", object: "login", action: "error", desc: "Sanitized auth failure category", params: ["method", "error_category", "feature"] },
   { name: "logout", object: "logout", action: "success", desc: "Confirmed sign-out", params: ["feature"] },
   { name: "password_reset_request", object: "password", action: "reset_request", desc: "Reset request accepted (no email)", params: ["feature"] },
-  { name: "resume_gallery_view", object: "resume", action: "gallery_view", desc: "Resume template gallery opened", params: ["page_type", "feature"] },
+  { name: "resume_builder_view", object: "resume", action: "builder_view", desc: "Opened Resume Builder home. Count of people entering the resume maker.", params: ["feature"] },
+  { name: "resume_workspace_view", object: "resume", action: "workspace_view", desc: "Opened My resumes after login.", params: ["feature"] },
+  { name: "ats_checker_view", object: "ats", action: "checker_view", desc: "Opened the ATS checker page.", params: ["feature"] },
+  { name: "ats_check_start", object: "ats", action: "check_start", desc: "Chose a resume file to score. File stays in the browser.", params: ["file_kind", "feature"] },
+  { name: "ats_check_complete", object: "ats", action: "check_complete", desc: "Finished an ATS check. score_band only (not the file).", params: ["score_band", "has_job_description", "feature"] },
   { name: "resume_template_preview", object: "resume", action: "template_preview", desc: "Template preview dialog", params: ["template_id", "template_category"] },
   { name: "resume_template_select", object: "resume", action: "template_select", desc: "Template chosen for editing", params: ["template_id", "template_category"] },
   { name: "resume_start", object: "resume", action: "start", desc: "Meaningfully entered resume editor", params: ["template_id"] },

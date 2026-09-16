@@ -86,9 +86,14 @@ export const TAG_KEYS = [
 
 /** Events mirrored as Clarity custom events (for filtering recordings) */
 export const MIRROR_EVENTS = [
-  "page_view",
+  "resume_builder_view",
+  "resume_start",
+  "jobs_browse",
   "job_view",
   "job_apply",
+  "ats_check_complete",
+  "portfolio_gallery_view",
+  "visitor_engaged",
   "job_search",
   "job_filter",
   "contact_start",
@@ -106,6 +111,11 @@ export const MIRROR_EVENTS = [
 
 /** Events that should upgrade the Clarity session (keep full recording) */
 export const UPGRADE_EVENTS = [
+  "resume_start",
+  "resume_export_success",
+  "portfolio_start",
+  "ats_check_complete",
+  "whatsapp_click",
   "job_apply",
   "contact_submit",
   "newsletter_signup",

@@ -1,4 +1,8 @@
 body.career-tools-auth { background: #fafaf7; }
+body.career-tools-auth .store-header,
+body.career-tools-auth > .site-header {
+  display: none !important;
+}
 .career-tools-auth .auth-page { min-height: 0; padding: 40px 24px; }
 .career-tools-auth .auth-shell { display: grid; grid-template-columns: 1fr 1fr; max-width: 1050px; padding: 0; margin: 0 auto; border: 1px solid #e4e6de; border-radius: 22px; overflow: hidden; background: #fff; }
 .auth-story { display: flex; flex-direction: column; justify-content: space-between; padding: 32px 40px; background: #eef0e6; color: #293426; }
@@ -38,13 +42,45 @@ body.career-tools-auth { background: #fafaf7; }
 .career-tools-auth .check-label input { margin-top: 2px; }
 .career-tools-auth .auth-help-link { font-size: 11px; color: #59634f; min-height: 32px; }
 .career-tools-auth .auth-primary { border-radius: 9px; box-shadow: none; font-size: 13px; }
+.career-tools-auth .auth-logout { width: 100%; justify-content: center; margin-top: 10px; border-radius: 9px; }
+.career-tools-auth .auth-delete {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px 0 0;
+  border: 0;
+  background: none;
+  color: #a92e36;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+.career-tools-auth .auth-deleted {
+  background: #eef6ea;
+  color: #2f4a2a;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin: 0 0 16px;
+}
+.dialog-delete-list { margin: 12px 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
+#delete-account-error:empty { display: none; }
+#delete-account-error { background: #fff1f1; color: #a92e36; border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
 .career-tools-auth .auth-note { display: block; border: 0; margin: 16px 0; padding: 0; font-size: 10px; text-align: center; color: #868b93; }
 .career-tools-auth .auth-note a { text-decoration: underline; text-underline-offset: 2px; }
 .career-tools-auth .auth-bottom-links { border-top: 1px solid #eceee8; padding-top: 18px; gap: 14px; justify-content: center; font-size: 10px; }
 @media (max-width: 800px) {
   .career-tools-auth .auth-page { padding: 24px 16px; }
   .career-tools-auth .auth-shell { max-width: 480px; grid-template-columns: 1fr; }
-  .auth-story { display: none; }
+  .auth-story {
+    display: block;
+    padding: 16px 20px 0;
+    background: transparent;
+    min-height: 0;
+  }
+  .auth-story > :not(.auth-back) { display: none; }
+  .auth-back { margin: 0 0 8px; }
   .career-tools-auth .auth-card { padding: 28px; }
   .career-tools-auth .auth-card input:not([type="checkbox"]) { font-size: 16px; }
 }

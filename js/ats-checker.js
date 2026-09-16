@@ -1087,6 +1087,9 @@
       if (pasteResume) pasteResume.value = resumeText.slice(0, 20000);
       setFieldError(resumeError, resumeBlock, "");
       drop.setAttribute("aria-invalid", "false");
+      const name = String(file.name || "").toLowerCase();
+      const kind = name.endsWith(".pdf") ? "pdf" : name.endsWith(".docx") ? "docx" : name.endsWith(".txt") ? "txt" : "other";
+      window.IPDAnalytics?.trackAtsCheckStart?.(kind);
     } catch (err) {
       resumeText = "";
       drop.classList.remove("is-ready");
@@ -1154,6 +1157,11 @@
     }
     const report = scoreResume(currentResume(), jdInput.value);
     renderReport(report);
+    try {
+      window.IPDAnalytics?.trackAtsCheckComplete?.(report);
+    } catch (_e) {
+      /* ignore */
+    }
     syncEnabled();
     if (result) {
       result.scrollIntoView({ behavior: "smooth", block: "start" });

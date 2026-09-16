@@ -20,7 +20,7 @@ import {
 if (!document.querySelector("script[data-ipd-analytics]") && !globalThis.IPDAnalytics) {
   const s = document.createElement("script");
   s.type = "module";
-  s.src = "/analytics/main.js?v=20260915prod";
+  s.src = "/analytics/main.js?v=20260916act";
   s.dataset.ipdAnalytics = "1";
   document.head.appendChild(s);
 }
