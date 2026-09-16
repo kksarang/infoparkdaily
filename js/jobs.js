@@ -48,6 +48,7 @@
   }
 
   const defaultLocation = parkPageLocation() || "all";
+  const jobIndex = new Map(JOBS.map((job, index) => [job, index]));
 
   let activeFilter = "all";
   let activeStatus = "open";
@@ -477,6 +478,26 @@
     return ts === null ? Number.POSITIVE_INFINITY : ts;
   }
 
+  function portalListingId(job) {
+    const fromId = String(job.id || "").match(/-(\d{4,})$/);
+    if (fromId) return Number(fromId[1]);
+    const blob = [
+      job.applyLink,
+      job.howToApply,
+      (job.officialLinks && (job.officialLinks.infoparkJob || job.officialLinks.technoparkJob)) || ""
+    ].join(" ");
+    const fromUrl = blob.match(/\/(?:details\/\d+\/|job-details\/)(\d+)/i);
+    return fromUrl ? Number(fromUrl[1]) : 0;
+  }
+
+  function newestFirst(a, b) {
+    const posted = String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+    if (posted !== 0) return posted;
+    const portal = portalListingId(b) - portalListingId(a);
+    if (portal !== 0) return portal;
+    return (jobIndex.get(a) ?? 0) - (jobIndex.get(b) ?? 0);
+  }
+
   function filteredJobs() {
     const list = JOBS.filter(
       (job) =>
@@ -508,7 +529,7 @@
         const va = la === null || la < 0 ? Number.POSITIVE_INFINITY : la;
         const vb = lb === null || lb < 0 ? Number.POSITIVE_INFINITY : lb;
         if (va !== vb) return va - vb;
-        return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+        return newestFirst(a, b);
       }
       if (sortMode === "company") {
         return String(a.company || "").localeCompare(String(b.company || ""));
@@ -516,10 +537,8 @@
       if (sortMode === "roles") {
         return (b.roles || []).length - (a.roles || []).length;
       }
-      // Default / newest: Date of Posting, newest first
-      const byPosted = String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
-      if (byPosted !== 0) return byPosted;
-      return String(a.company || "").localeCompare(String(b.company || ""));
+      // Latest posted first, then latest park listing id, then original import order.
+      return newestFirst(a, b);
     });
 
     return list;
