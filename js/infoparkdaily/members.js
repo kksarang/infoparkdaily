@@ -824,9 +824,10 @@ export async function start(state, target) {
       S.workers = workers;
       if (S.route === "workers" && !params.get("id"))
         updateDirectory(S, "workers");
-      if (S.route === "")
-        document.querySelector("#home-worker-grid").innerHTML =
-          workersHome(workers);
+      if (S.route === "") {
+        const grid = document.querySelector("#home-worker-grid");
+        if (grid) grid.innerHTML = workersHome(workers);
+      }
       if (S.route === "workers" && params.get("id")) loadPublicDetail();
     },
     publicError,

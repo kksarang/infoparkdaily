@@ -621,8 +621,8 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-// The About submenu works with keyboard, touch and the mobile drawer.
-for (const menu of document.querySelectorAll('.nav-about')) {
+// Recruit (and any leftover About) submenu — keyboard, touch and mobile drawer.
+for (const menu of document.querySelectorAll('.nav-about, .nav-recruit')) {
   document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
   menu.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); event.stopPropagation(); } });
 }

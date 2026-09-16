@@ -1,23 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Figtree:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
 :root {
+  /* Match Career Tools / resume-builder light theme */
   color-scheme: light;
-  --ink: #102a2e;
-  --deep: #0b2428;
-  --brand: #f2c414;
-  --brand-hover: #e0b20a;
-  --muted: #5a6b6e;
-  --accent: #1a7a6e;
-  --accent-dark: #125e55;
-  --accent-soft: #e4f3f0;
-  --line: #d5e0dc;
-  --soft: #e8f0ed;
-  --canvas: #f2f6f4;
+  --ink: #171c24;
+  --deep: #171c24;
+  --brand: #ffc107;
+  --brand-hover: #e6ac00;
+  --muted: #69707b;
+  --accent: #5f6b45;
+  --accent-dark: #4a5436;
+  --accent-soft: #f0f1eb;
+  --line: #e5e7dd;
+  --soft: #f0f1eb;
+  --canvas: #fafaf7;
   --paper: #ffffff;
-  --blue: #1a7a6e;
-  --shadow: 0 22px 55px #102a2e12;
+  --blue: #171c24;
+  --shadow: 0 1px 2px rgba(23, 28, 36, 0.04), 0 12px 28px rgba(23, 28, 36, 0.06);
   --radius: 18px;
-  --font-display: "Bricolage Grotesque", sans-serif;
-  --font-body: Figtree, sans-serif;
+  --font-display: "Space Grotesk", Manrope, sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--canvas);
@@ -150,33 +151,35 @@ small,
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 48px;
-  padding: 12px 24px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  background: var(--brand);
-  color: var(--ink);
-  font-weight: 750;
-  font-size: 0.875rem;
+  min-height: 44px;
+  padding: 0.8rem 1.25rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 650;
+  font-size: 0.84rem;
   line-height: 1.5;
+  box-shadow: none;
   transition:
-    background 0.22s ease,
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 .btn:hover {
-  background: var(--brand-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px #102a2e18;
+  background: #2a3140;
+  border-color: #2a3140;
+  color: #fff;
 }
 .btn.secondary {
-  background: white;
+  background: transparent;
   color: var(--ink);
   border-color: var(--line);
 }
 .btn.secondary:hover {
-  background: var(--soft);
-  border-color: #abb6c7;
+  background: #fff;
+  border-color: var(--ink);
+  color: var(--ink);
 }
 .btn.quiet {
   background: transparent;
@@ -2785,11 +2788,11 @@ h3 {
   }
 }
 
-/* InfoparkDaily community: Kochi lagoon morning — teal ink, sun gold, living atmosphere. */
+/* InfoparkDaily hiring hub — Career Tools light theme (cream, ink, yellow). */
 body {
   background:
-    radial-gradient(ellipse 120% 80% at 100% -10%, #d9efe9 0%, transparent 42%),
-    radial-gradient(ellipse 90% 60% at -10% 30%, #fff1b8 0%, transparent 38%),
+    radial-gradient(ellipse 120% 80% at 100% -10%, rgba(255, 193, 7, 0.12) 0%, transparent 42%),
+    radial-gradient(ellipse 90% 60% at -10% 30%, rgba(95, 107, 69, 0.08) 0%, transparent 38%),
     var(--canvas);
   min-height: 100vh;
 }
@@ -2797,16 +2800,16 @@ body {
   font-family: var(--font-display);
 }
 .market-header {
-  background: #f7faf8e8;
-  border-bottom: 1px solid #c9d8d380;
+  background: rgba(250, 250, 247, 0.92);
+  border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px) saturate(1.1);
 }
 .market-nav > a {
-  color: #3f5458;
+  color: var(--muted);
   font-weight: 650;
 }
 .market-nav > a:hover {
-  color: var(--accent);
+  color: var(--ink);
 }
 .market-nav > a[aria-current] {
   color: var(--ink);
@@ -2814,14 +2817,15 @@ body {
   text-decoration: none;
 }
 .btn {
-  background: var(--brand);
-  color: var(--ink);
-  border-color: var(--brand);
-  box-shadow: 0 1px 0 #102a2e0a;
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  box-shadow: none;
 }
 .btn:hover {
-  background: var(--brand-hover);
-  border-color: var(--brand-hover);
+  background: #2a3140;
+  border-color: #2a3140;
+  color: #fff;
 }
 .btn.secondary {
   background: rgba(255, 255, 255, 0.72);
@@ -2852,10 +2856,10 @@ body {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 70% 55% at 12% 18%, #ffe8a0 0%, transparent 58%),
-    radial-gradient(ellipse 55% 45% at 88% 12%, #9fd9cf 0%, transparent 52%),
-    radial-gradient(ellipse 50% 40% at 70% 95%, #fff4c4 0%, transparent 55%),
-    linear-gradient(168deg, #f8fbf9 0%, #eef6f3 48%, #f4f8f6 100%);
+    radial-gradient(ellipse 70% 55% at 12% 18%, rgba(255, 193, 7, 0.18) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 45% at 88% 12%, rgba(95, 107, 69, 0.1) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 40% at 70% 95%, rgba(255, 193, 7, 0.08) 0%, transparent 55%),
+    linear-gradient(168deg, #fafaf7 0%, #f5f5f0 48%, #fafaf7 100%);
   border-bottom: 0;
   min-height: min(92vh, 760px);
 }
@@ -2870,8 +2874,8 @@ body {
   position: absolute;
   inset: -20%;
   background-image:
-    linear-gradient(#102a2e0a 1px, transparent 1px),
-    linear-gradient(90deg, #102a2e0a 1px, transparent 1px);
+    linear-gradient(rgba(23, 28, 36, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 28, 36, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
   opacity: 0.55;
@@ -2887,7 +2891,7 @@ body {
   height: 340px;
   top: -80px;
   right: 8%;
-  background: radial-gradient(circle at 35% 35%, #fff6c8, #f2c41466 45%, transparent 70%);
+  background: radial-gradient(circle at 35% 35%, #fff6c8, rgba(255, 193, 7, 0.4) 45%, transparent 70%);
   animation: orb-float 14s ease-in-out infinite;
 }
 .hero-orb-b {
@@ -2895,7 +2899,7 @@ body {
   height: 280px;
   bottom: -40px;
   left: 4%;
-  background: radial-gradient(circle at 40% 40%, #b8ebe1, #1a7a6e44 50%, transparent 72%);
+  background: radial-gradient(circle at 40% 40%, #e8eadf, rgba(95, 107, 69, 0.28) 50%, transparent 72%);
   animation: orb-float 18s ease-in-out infinite reverse;
 }
 .hero-grid {
@@ -2960,7 +2964,7 @@ body {
 }
 .hero-lede,
 .hero-copy > p.hero-lede {
-  color: #3f5458;
+  color: var(--muted);
   max-width: 38ch;
   font-size: 1.0625rem;
   line-height: 1.75;
@@ -2971,24 +2975,22 @@ body {
 }
 .hero-foot {
   margin-top: 26px;
-  color: #4d6367;
+  color: var(--muted);
 }
 .hero-foot svg {
   color: var(--accent);
 }
 .hero-jobs {
   position: relative;
+  display: grid;
   max-width: 480px;
   width: 100%;
   gap: 12px;
-  background:
-    linear-gradient(165deg, #14363c 0%, #0b2428 55%, #0e2f34 100%);
-  border: 1px solid #2a5258;
-  border-radius: 28px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
   padding: 28px;
-  box-shadow:
-    0 30px 70px #0b242840,
-    inset 0 1px 0 #ffffff14;
+  box-shadow: var(--shadow);
   animation: rise-in 1s 0.12s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .hero-jobs:before {
@@ -2998,11 +3000,11 @@ body {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: radial-gradient(circle, #f2c41433, transparent 68%);
+  background: radial-gradient(circle, rgba(255, 193, 7, 0.2), transparent 68%);
   pointer-events: none;
 }
 .hero-board-label {
-  color: var(--brand);
+  color: var(--muted);
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -3010,7 +3012,7 @@ body {
   margin-bottom: 8px;
 }
 .hero-board-label span:last-child {
-  color: #9db5b8;
+  color: var(--muted);
   font-size: 0.75rem;
   letter-spacing: 0;
   font-weight: 500;
@@ -3018,13 +3020,13 @@ body {
 }
 .hero-jobs .hero-job {
   margin: 0;
-  border: 1px solid #ffffff12;
-  background: #ffffff0a;
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  background: var(--canvas);
+  backdrop-filter: none;
   border-radius: 16px;
   box-shadow: none;
   padding: 18px;
-  color: #eef6f4;
+  color: var(--ink);
   transition:
     transform 0.25s ease,
     background 0.25s ease,
@@ -3033,24 +3035,24 @@ body {
 }
 .hero-jobs .hero-job:hover {
   transform: translateY(-3px) translateX(2px);
-  background: #ffffff14;
-  border-color: #f2c41455;
+  background: #fff;
+  border-color: #d9ddd0;
 }
 .hero-jobs .hero-job:nth-of-type(2),
 .hero-jobs .hero-job:nth-child(2) {
   margin-left: 14px;
 }
 .hero-job h3 {
-  color: #fff;
+  color: var(--ink);
   font-family: var(--font-display);
 }
 .hero-job p {
-  color: #a7bfc2;
+  color: var(--muted);
 }
 .hero-jobs .hero-count {
-  background: #ffffff0d;
-  border-color: #3d646a;
-  color: #e8f2f0;
+  background: var(--soft);
+  border-color: var(--line);
+  color: var(--ink);
   box-shadow: none;
   justify-self: stretch;
   justify-content: center;
@@ -3351,24 +3353,24 @@ body {
   border-color: #e0b20a;
 }
 .discovery-card:nth-child(2) {
-  background: #e8f6f3;
-  border-color: #1a7a6e;
+  background: #f0f1eb;
+  border-color: #5f6b45;
 }
 .discovery-card:nth-child(3) {
-  background: #eef2f1;
-  border-color: #0b2428;
+  background: #fafaf7;
+  border-color: #171c24;
 }
 .cta {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 80% at 100% 0%, #1a7a6e55 0%, transparent 55%),
-    radial-gradient(ellipse 50% 60% at 0% 100%, #f2c41433 0%, transparent 50%),
-    linear-gradient(135deg, #0e2f34, #0b2428 55%, #14363c);
-  border: 1px solid #2a5258;
+    radial-gradient(ellipse 60% 80% at 100% 0%, rgba(255, 193, 7, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 0% 100%, rgba(95, 107, 69, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #1c222c, #171c24 55%, #2a3140);
+  border: 1px solid #2a3140;
   border-top: 5px solid var(--brand);
-  border-radius: 28px;
-  box-shadow: 0 24px 50px #0b242824;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
   padding: 48px;
 }
 .cta:before {
@@ -3407,8 +3409,8 @@ body {
 }
 .page-hero {
   background:
-    radial-gradient(ellipse 70% 80% at 0% 0%, #ffe9a666 0%, transparent 50%),
-    linear-gradient(120deg, #f6faf8, #e8f3ef);
+    radial-gradient(ellipse 70% 80% at 0% 0%, rgba(255, 193, 7, 0.16) 0%, transparent 50%),
+    linear-gradient(120deg, #fafaf7, #f0f1eb);
   border-top: 0;
   padding: 40px 0 36px;
 }
@@ -3572,9 +3574,9 @@ body {
 }
 .auth-story {
   background:
-    radial-gradient(ellipse at 10% 15%, #1a7a6e66 0%, transparent 55%),
-    radial-gradient(ellipse at 90% 80%, #f2c41422 0%, transparent 45%),
-    linear-gradient(160deg, #14363c, #0b2428);
+    radial-gradient(ellipse at 10% 15%, rgba(255, 193, 7, 0.28) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 80%, rgba(95, 107, 69, 0.2) 0%, transparent 45%),
+    linear-gradient(160deg, #1c222c, #171c24);
   color: white;
   border-right: 5px solid var(--brand);
 }
@@ -3636,6 +3638,23 @@ body {
 .reveal-section.is-visible {
   opacity: 1;
   transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+/* If JS never marks sections visible, show them after a beat */
+@keyframes reveal-fallback {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.reveal-section:not(.is-visible) {
+  animation: reveal-fallback 0.01s 1.2s forwards;
 }
 @keyframes rise-in {
   from {

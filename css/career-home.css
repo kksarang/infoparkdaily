@@ -27,15 +27,24 @@ body.career-tools-ats.light {
   font-family: Inter, system-ui, sans-serif;
 }
 
+.career-home .ct-first-screen {
+  min-height: calc(100svh - var(--ct-header, 4.5rem));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 8px 0 16px;
+}
 .career-home .ct-stage,
 .career-tools-ats .ct-stage {
-  padding: 64px 0 40px;
+  padding: 8px 0 12px;
 }
 .career-home .ct-stage-inner,
 .career-tools-ats .ct-stage-inner {
   display: grid;
-  grid-template-columns: 1.12fr 1fr;
-  gap: 56px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 36px;
   align-items: center;
 }
 .career-home .ct-stage-copy .ct-kicker,
@@ -45,7 +54,7 @@ body.career-tools-ats.light {
   color: var(--home-muted);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-weight: 650;
   text-transform: uppercase;
 }
@@ -53,10 +62,10 @@ body.career-tools-ats.light {
 .career-tools-ats .ct-stage-copy h1 {
   max-width: none;
   font-family: "Space Grotesk", Manrope, sans-serif;
-  font-size: clamp(40px, 4.6vw, 62px);
+  font-size: clamp(34px, 4vw, 52px);
   line-height: 1.05;
   letter-spacing: -0.05em;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   color: var(--home-text);
   font-weight: 700;
 }
@@ -70,14 +79,14 @@ body.career-tools-ats.light {
   font-size: 16px;
   line-height: 1.75;
   max-width: 42ch;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 .career-home .ct-cta,
 .career-tools-ats .ct-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 26px;
+  margin-bottom: 16px;
 }
 .career-home .ct-cta .button,
 .career-tools-ats .ct-cta .button,
@@ -156,7 +165,7 @@ body.career-tools a.button.secondary:hover {
   background: var(--home-surface);
   border: 1px solid var(--home-line);
   border-radius: 18px;
-  padding: 24px;
+  padding: 16px 20px;
   overflow: hidden;
 }
 .career-tools-ats .ats-hero-art {
@@ -292,13 +301,14 @@ body.career-tools a.button.secondary:hover {
 }
 .career-home .ct-hero-lottie-wrap {
   width: 100%;
-  max-width: 380px;
-  margin: 8px auto 4px;
+  max-width: none;
+  margin: 4px auto;
+  min-height: min(26vh, 220px);
 }
 .career-home .ct-hero-lottie {
   display: block;
   width: 100%;
-  height: 280px;
+  height: min(26vh, 220px);
 }
 @media (prefers-reduced-motion: reduce) {
   .career-home .ct-hero-lottie {
@@ -338,7 +348,7 @@ body.career-tools a.button.secondary:hover {
 }
 .ct-preview-caption {
   border-top: 1px solid var(--home-line);
-  padding-top: 17px;
+  padding-top: 12px;
   display: grid;
   gap: 5px;
 }
@@ -354,9 +364,9 @@ body.career-tools a.button.secondary:hover {
 }
 
 .career-home .ct-paths {
-  gap: 20px;
+  gap: 16px;
   width: min(1172px, calc(100% - 48px));
-  margin: 0 auto 28px;
+  margin: 8px auto 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -366,7 +376,7 @@ body.career-tools a.button.secondary:hover {
   border: 1px solid var(--home-line);
   background: var(--home-surface);
   min-height: 0;
-  padding: 28px;
+  padding: 22px;
   color: inherit;
   text-decoration: none;
   transition:
@@ -383,7 +393,7 @@ body.career-tools a.button.secondary:hover {
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   font-size: 12px;
   font-weight: 800;
   display: grid;
@@ -395,18 +405,25 @@ body.career-tools a.button.secondary:hover {
 }
 .career-home .ct-path h2 {
   font-family: "Space Grotesk", Manrope, sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   color: var(--home-text);
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 .career-home .ct-path p,
 .career-home .ct-path ul {
   color: var(--home-muted);
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 0;
+}
+.career-home .ct-path ul {
+  margin-top: 8px;
+  padding: 0;
+  list-style: none;
 }
 .career-home .ct-tool-go {
   display: inline-flex;
-  margin-top: 18px;
+  margin-top: 12px;
   color: var(--home-forest);
   font-weight: 700;
   font-size: 13px;
@@ -523,9 +540,14 @@ body.career-tools a.button.secondary:hover {
   }
 }
 @media (max-width: 760px) {
+  .career-home .ct-first-screen {
+    min-height: 0;
+    padding: 8px 0 20px;
+    justify-content: flex-start;
+  }
   .career-home .ct-stage,
   .career-tools-ats .ct-stage {
-    padding: 36px 0 24px;
+    padding: 16px 0 12px;
   }
   .career-home .ct-stage-inner,
   .career-tools-ats .ct-stage-inner {
@@ -539,6 +561,32 @@ body.career-tools a.button.secondary:hover {
   .career-home .ct-paths {
     grid-template-columns: 1fr;
     width: calc(100% - 32px);
+  }
+  .career-home .ct-hero-lottie-wrap,
+  .career-home .ct-hero-lottie {
+    min-height: 200px;
+    height: 200px;
+  }
+}
+@media (min-width: 761px) and (max-height: 980px) {
+  .career-home .ct-path ul {
+    display: none;
+  }
+  .career-home .ct-preview-caption,
+  .career-home .ct-preview-label {
+    display: none;
+  }
+  .career-home .ct-hero-lottie-wrap,
+  .career-home .ct-hero-lottie {
+    min-height: 200px;
+    height: 200px;
+  }
+  .career-home .ct-path {
+    padding: 18px 20px;
+  }
+  .career-home .ct-first-screen {
+    padding: 4px 0 12px;
+    gap: 4px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
