@@ -290,6 +290,21 @@ body.career-tools a.button.secondary:hover {
   border-radius: 50%;
   background: var(--home-accent);
 }
+.career-home .ct-hero-lottie-wrap {
+  width: 100%;
+  max-width: 380px;
+  margin: 8px auto 4px;
+}
+.career-home .ct-hero-lottie {
+  display: block;
+  width: 100%;
+  height: 280px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .career-home .ct-hero-lottie {
+    animation: none;
+  }
+}
 .career-home .ct-stack {
   position: relative;
   width: 100%;
