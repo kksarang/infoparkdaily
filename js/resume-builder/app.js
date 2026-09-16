@@ -7,7 +7,7 @@ import {
 } from "./schema.js";
 import { renderResume, esc } from "./render.js";
 import { publicTemplates } from "./catalog.js?v=20260915h";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20260910e";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20260916mail";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
@@ -223,14 +223,6 @@ function landing() {
     .filter(Boolean);
   const target = document.getElementById("featured-templates");
   if (target) target.innerHTML = picks.map(templateCard).join("");
-  const stack = document.getElementById("ct-hero-previews");
-  if (stack && picks.length)
-    stack.innerHTML = picks
-      .map(
-        (t, i) =>
-          `<figure class="ct-sheet ct-sheet-${i}"><img src="${esc(t.thumbnail)}" alt=""></figure>`,
-      )
-      .join("");
   const count = templates.length;
   const tally = document.getElementById("template-count");
   if (tally)
@@ -306,8 +298,8 @@ async function selectTemplate(id) {
   }
   if (!useLocalApi() && !me.email_verified) {
     showDialog(
-      "Verify your email first",
-      `<p>We sent a verification link to <strong>${esc(me.email)}</strong>. Cloud saving starts after you verify.</p><div class="actions">${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify")}</div>`,
+      "Confirm your email first",
+      verifyCopy(true),
     );
     return;
   }
@@ -378,9 +370,18 @@ function auth() {
       <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/">Privacy</a></div>
     </section></div>`;
 }
+function verifyCopy(inDialog = false) {
+  const heading = inDialog
+    ? ""
+    : `<p class="eyebrow">One step left</p><h2>Confirm ${esc(me.email)}</h2>`;
+  const lead = inDialog
+    ? `<p>We sent a link to <strong>${esc(me.email)}</strong>. Open it, then tap I’ve verified so cloud saving can start.</p>`
+    : `<p>Open the link we sent, then tap I’ve verified so your resumes can save in the cloud.</p>`;
+  return `<div class="verify-panel-copy">${heading}${lead}<p class="verify-panel-hint">(This mail sometimes goes to Spam or Promotions. Check those folders, then mark it as Not spam.)</p></div><div class="verify-panel-actions">${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify", "", "")}</div>`;
+}
 function verifyBanner() {
   if (useLocalApi() || !me || me.email_verified) return "";
-  return `<div class="warning" style="margin-bottom:22px">Verify ${esc(me.email)} to save resumes in the cloud. Check your inbox, then tap refresh.${button("Resend email", "resend-verify")}${button("I’ve verified", "refresh-verify")}</div>`;
+  return `<aside class="verify-panel" role="status">${verifyCopy()}</aside>`;
 }
 async function dashboard() {
   if (!ensureAuth()) return;
@@ -502,7 +503,7 @@ async function account() {
   page(
     "Your account",
     "Your resumes, saved so you can continue anytime.",
-    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Verify your email to enable cloud saving."}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
+    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · saved in the cloud" : "Confirm your email to enable cloud saving. (Check Spam or Promotions if the mail is missing.)"}</p>${button("Sign out", "logout")}${useLocalApi() ? " " + button("Sign out on all devices", "logout-all") : ""}</section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Your data</h2><p>${useLocalApi() ? "Download your saved resumes as structured data, or delete this local account and its resumes." : "Download a copy of your cloud-saved resumes, or delete your account and its drafts."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button(useLocalApi() ? "Delete local account" : "Delete account", "delete-account", "", "danger")}</div></section></div>`,
   );
 }
 function fieldLabel(key) {
@@ -976,7 +977,7 @@ async function act(el) {
     }
     case "resend-verify":
       await post("/auth/verify");
-      toast("Verification email sent. Check your inbox and spam folder.");
+      toast("Email sent. Check Inbox, Spam, and Promotions, then mark it as Not spam.");
       break;
     case "refresh-verify":
       me = await post("/auth/refresh");
@@ -987,7 +988,7 @@ async function act(el) {
         if (route === "my-resumes") await dashboard();
         else if (route === "editor") editor();
         else if (route === "account") await account();
-      } else toast("Not verified yet. Open the email link, then tap again.");
+      } else toast("Not confirmed yet. Open the email link (check Spam if needed), then tap again.");
       break;
     case "download-data": {
       const payload = await api("/me/data");

@@ -1,8 +1,10 @@
 import { getApp, getApps, initializeApp } from "firebase/app";
 import {
   GoogleAuthProvider,
+  applyActionCode,
   browserLocalPersistence,
   browserSessionPersistence,
+  confirmPasswordReset,
   createUserWithEmailAndPassword,
   deleteUser,
   getAuth,
@@ -15,6 +17,7 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  verifyPasswordResetCode,
 } from "firebase/auth";
 import {
   collection,
@@ -31,7 +34,11 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { firebaseConfig } from "./firebase-config.js";
+import {
+  SITE_ORIGIN,
+  authEmailSettings,
+  firebaseConfig,
+} from "./firebase-config.js";
 import { publicTemplates } from "./catalog.js";
 import { validateResume } from "./schema.js";
 
@@ -362,7 +369,10 @@ async function afterAuth(user, name) {
   if (name && !user.displayName)
     await updateProfile(user, { displayName: name }).catch(() => {});
   if (!user.emailVerified && user.providerData.some((p) => p.providerId === "password"))
-    await sendEmailVerification(user).catch(() => {});
+    await sendEmailVerification(
+      user,
+      authEmailSettings("/resume-builder/my-resumes/"),
+    ).catch(() => {});
   await ensureProfile(user).catch((e) => {
     if (e.code === "permission-denied") return;
     throw e;
@@ -410,12 +420,20 @@ export async function request(path, options = {}) {
       return afterAuth(cred.user);
     }
     if (path === "/auth/reset" && method === "POST") {
-      if (body.email) await sendPasswordResetEmail(auth, body.email).catch(() => {});
+      if (body.email)
+        await sendPasswordResetEmail(
+          auth,
+          body.email,
+          authEmailSettings("/resume-builder/sign-in/"),
+        ).catch(() => {});
       return { ok: true };
     }
     if (path === "/auth/verify" && method === "POST") {
       const user = requireUser();
-      await sendEmailVerification(user);
+      await sendEmailVerification(
+        user,
+        authEmailSettings("/resume-builder/my-resumes/"),
+      );
       return { ok: true };
     }
     if (path === "/auth/refresh" && method === "POST") {
@@ -466,4 +484,76 @@ export async function request(path, options = {}) {
 
 export function cloudEnabled() {
   return true;
+}
+
+export function safeAuthContinuePath(continueUrl) {
+  const fallback = "/resume-builder/my-resumes/";
+  if (!continueUrl) return fallback;
+  try {
+    const url = new URL(continueUrl, SITE_ORIGIN);
+    const hosts = new Set(["infoparkdaily.online", "localhost", "127.0.0.1"]);
+    if (typeof location !== "undefined" && location.hostname)
+      hosts.add(location.hostname);
+    if (!hosts.has(url.hostname)) return fallback;
+    if (url.username || url.password) return fallback;
+    if (!url.pathname.startsWith("/") || url.pathname.includes(".."))
+      return fallback;
+    return url.pathname + url.search + url.hash;
+  } catch {
+    return fallback;
+  }
+}
+
+export async function completeAuthEmailAction({
+  mode,
+  oobCode,
+  newPassword,
+} = {}) {
+  if (!oobCode)
+    throw Error("Open this page from the button in your InfoparkDaily email.");
+  try {
+    if (mode === "verifyEmail") {
+      await applyActionCode(auth, oobCode);
+      if (auth.currentUser) {
+        await reload(auth.currentUser);
+        await auth.currentUser.getIdToken(true);
+      }
+      return {
+        ok: true,
+        mode,
+        title: "Email confirmed",
+        message:
+          "Your InfoparkDaily email is verified. You can save resumes in the cloud.",
+      };
+    }
+    if (mode === "resetPassword") {
+      if (!newPassword) {
+        const email = await verifyPasswordResetCode(auth, oobCode);
+        return { ok: false, mode, needsPassword: true, email };
+      }
+      if (newPassword.length < 10)
+        throw Error("Use at least 10 characters for your password.");
+      await confirmPasswordReset(auth, oobCode, newPassword);
+      return {
+        ok: true,
+        mode,
+        title: "Password updated",
+        message: "Sign in with your new password to continue.",
+      };
+    }
+    if (mode === "recoverEmail" || mode === "revertSecondFactorAddition") {
+      await applyActionCode(auth, oobCode);
+      return {
+        ok: true,
+        mode,
+        title: "Email restored",
+        message: "Your InfoparkDaily account email was restored.",
+      };
+    }
+    throw Error(
+      "This email link is not recognised. Request a new one from the site.",
+    );
+  } catch (e) {
+    fail(e, "This email link is invalid or has expired. Request a new one.");
+  }
 }

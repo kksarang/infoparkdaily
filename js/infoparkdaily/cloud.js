@@ -35,7 +35,10 @@ import {
   Bytes,
   writeBatch,
 } from "firebase/firestore";
-import { firebaseConfig } from "../resume-builder/firebase-config.js";
+import {
+  authEmailSettings,
+  firebaseConfig,
+} from "../resume-builder/firebase-config.js";
 export const localEmulator =
   ["localhost", "127.0.0.1"].includes(location.hostname) &&
   sessionStorage.getItem("ipd_market_emulator") === "1";
@@ -108,9 +111,10 @@ export async function register({ name, email, password, remember = false }) {
   );
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
   await updateProfile(user, { displayName: name });
-  await sendEmailVerification(user, {
-    url: location.origin + "/infoparkdaily/dashboard/",
-  });
+  await sendEmailVerification(
+    user,
+    authEmailSettings("/infoparkdaily/dashboard/"),
+  );
   return user;
 }
 export async function verifyAgain() {
@@ -120,15 +124,18 @@ export async function verifyAgain() {
   return auth.currentUser.emailVerified;
 }
 export async function resendVerification() {
-  await sendEmailVerification(auth.currentUser, {
-    url: location.origin + "/infoparkdaily/dashboard/",
-  });
+  await sendEmailVerification(
+    auth.currentUser,
+    authEmailSettings("/infoparkdaily/dashboard/"),
+  );
 }
 export async function resetPassword(email) {
   try {
-    await sendPasswordResetEmail(auth, email, {
-      url: location.origin + "/infoparkdaily/sign-in/",
-    });
+    await sendPasswordResetEmail(
+      auth,
+      email,
+      authEmailSettings("/infoparkdaily/sign-in/"),
+    );
   } catch (e) {
     if (e.code !== "auth/user-not-found") throw e;
   }

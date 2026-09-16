@@ -1077,6 +1077,131 @@ dialog::backdrop {
   line-height: 1.6;
   margin: 18px 0;
 }
+.verify-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px 32px;
+  background: #fff;
+  border: 1px solid rgba(14, 23, 38, 0.06);
+  border-radius: 20px;
+  padding: 24px 28px;
+  margin: 0 0 28px;
+  box-shadow: 0 1px 2px rgba(14, 23, 38, 0.04), 0 18px 40px rgba(14, 23, 38, 0.05);
+}
+.verify-panel-copy {
+  min-width: 0;
+  flex: 1;
+}
+.verify-panel-copy .eyebrow {
+  margin: 0 0 8px;
+}
+.verify-panel-copy h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.verify-panel-copy p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.verify-panel-hint {
+  margin-top: 10px !important;
+  font-size: 13px !important;
+  color: #6b7280 !important;
+}
+.verify-panel-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.verify-panel-actions .button {
+  margin: 0;
+  min-width: 148px;
+}
+.dialog-body .verify-panel-copy h2 {
+  font-size: 18px;
+}
+.dialog-body .verify-panel-actions {
+  margin-top: 18px;
+  justify-content: flex-start;
+}
+@media (max-width: 720px) {
+  .verify-panel {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 22px;
+    gap: 18px;
+  }
+  .verify-panel-actions,
+  .dialog-body .verify-panel-actions {
+    width: 100%;
+  }
+  .verify-panel-actions .button {
+    flex: 1;
+    min-width: 0;
+  }
+}
+.auth-action-page {
+  min-height: 58vh;
+  display: grid;
+  place-items: center;
+  padding: 40px 0 72px;
+}
+.auth-action-card {
+  width: min(560px, 100%);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 36px 32px;
+  box-shadow: 0 18px 50px rgba(16, 17, 20, 0.06);
+  text-align: center;
+}
+.auth-action-card img {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+.auth-action-card h1 {
+  margin: 18px 0 10px;
+  font-size: 28px;
+}
+.auth-action-card p {
+  margin: 0 0 14px;
+  font-size: 15px;
+}
+.auth-action-card form {
+  text-align: left;
+  margin-top: 8px;
+}
+.auth-action-card .field {
+  margin-bottom: 14px;
+}
+.auth-action-card .button {
+  width: 100%;
+  margin-top: 8px;
+}
+.auth-action-error {
+  background: #fff4f2;
+  border: 1px solid #fecdca;
+  color: #9d261c;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .verify-card {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+}
 #toast {
   position: fixed;
   bottom: 24px;
@@ -2564,7 +2689,8 @@ body.career-tools .studio-tag {
 }
 body.career-tools .card,
 body.career-tools .resume-card,
-body.career-tools .empty {
+body.career-tools .empty,
+body.career-tools .verify-panel {
   border-radius: 20px;
   background: var(--ej-card, rgba(15, 23, 42, 0.72));
   border-color: var(--ej-line, rgba(148, 163, 184, 0.22));
@@ -2573,9 +2699,11 @@ body.career-tools .empty {
 html.theme-light body.career-tools .card,
 html.theme-light body.career-tools .resume-card,
 html.theme-light body.career-tools .empty,
+html.theme-light body.career-tools .verify-panel,
 body.career-tools.light .card,
 body.career-tools.light .resume-card,
-body.career-tools.light .empty {
+body.career-tools.light .empty,
+body.career-tools.light .verify-panel {
   background: #fff;
   border-color: rgba(14, 23, 38, 0.06);
   box-shadow: 0 1px 2px rgba(14, 23, 38, 0.04), 0 18px 40px rgba(14, 23, 38, 0.05);

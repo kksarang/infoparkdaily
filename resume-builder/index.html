@@ -40,11 +40,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
-<link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
+<link rel="stylesheet" href="/css/resume-builder.css?v=20260916v2" />
     <link rel="stylesheet" href="/css/career-nav.css?v=20260916a" />
     <script defer src="/js/career-nav.js?v=20260916a"></script>
-    <link rel="stylesheet" href="/css/career-home.css?v=20260915v" />
-    <script type="module" src="/js/resume-builder/app.js?v=20260915p"></script>
+    <link rel="stylesheet" href="/css/career-home.css?v=20260916c" />
+    <script type="module" src="/js/resume-builder/app.js?v=20260916v2"></script>
   </head>
   <body class="career-tools career-home light">
     <a class="skip" href="#main">Skip to content</a>
@@ -92,10 +92,16 @@
           </div>
           <div class="ct-stage-art" aria-hidden="true">
             <div class="ct-preview-label"><span class="ct-preview-dot"></span> Your experience. Beautifully presented.</div>
-            <div id="ct-hero-previews" class="ct-stack">
-              <figure class="ct-sheet ct-sheet-0"></figure>
-              <figure class="ct-sheet ct-sheet-1"></figure>
-              <figure class="ct-sheet ct-sheet-2"></figure>
+            <div class="ct-hero-lottie-wrap">
+              <lottie-player
+                class="ct-hero-lottie"
+                src="/assets/lottie/resume-builder.json"
+                background="transparent"
+                speed="1"
+                style="width:100%;height:280px"
+                loop
+                autoplay
+              ></lottie-player>
             </div>
             <div class="ct-preview-caption"><span>MADE FOR YOUR NEXT MOVE</span><strong>Find a layout that feels like you ↗</strong></div>
           </div>
@@ -197,6 +203,18 @@
     </footer>
     <div id="toast" role="status" aria-live="polite"></div>
     <dialog id="modal"></dialog>
+      <script src="/vendor/lottiefiles/lottie-player.js" defer></script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          document.querySelectorAll(".ct-hero-lottie").forEach(function (el) {
+            el.removeAttribute("autoplay");
+            el.addEventListener("ready", function () {
+              if (typeof el.pause === "function") el.pause();
+            });
+          });
+        });
+      </script>
       <script src="/js/site.js?v=20260915u" defer></script>
   </body>
 </html>
