@@ -52,10 +52,10 @@
     />
     <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
 <link rel="stylesheet" href="/css/ats-checker.css?v=20260915u" />
-    <link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20260915u" />
-    <link rel="stylesheet" href="/css/career-home.css?v=20260915v" />
-    <script defer src="/js/career-nav.js?v=20260915w"></script>
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260916a" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260916a" />
+    <link rel="stylesheet" href="/css/career-home.css?v=20260916b" />
+    <script defer src="/js/career-nav.js?v=20260916a"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -77,7 +77,9 @@
           <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
           <span>InfoparkDaily<small>CAREER TOOLS</small></span>
         </a>
-        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav">Menu</button>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
         <nav id="store-nav" aria-label="Career tools">
           <a href="/resume-builder/">Resume builder</a>
           <a href="/ats-checker/">ATS checker</a>
@@ -109,20 +111,24 @@
             </ul>
           </div>
           <div class="ats-hero-art" aria-hidden="true">
-            <div class="ats-hero-sheet">
-              <div class="ats-hero-score">
-                <strong>Pass</strong>
-                <span>Readable file</span>
+            <div class="ct-preview-label"><span class="ct-preview-dot"></span> Private check · this browser</div>
+            <div class="ats-scan">
+              <div class="ats-scan-back"></div>
+              <div class="ats-scan-page">
+                <span class="ats-scan-name"></span>
+                <span class="ats-scan-rule"></span>
+                <span class="ats-scan-rule ats-scan-rule-short"></span>
+                <span class="ats-scan-block"></span>
+                <span class="ats-scan-rule"></span>
+                <span class="ats-scan-rule ats-scan-rule-mid"></span>
+                <span class="ats-scan-rule"></span>
+                <span class="ats-scan-rule ats-scan-rule-short"></span>
+                <span class="ats-scan-rule ats-scan-rule-mid"></span>
+                <i class="ats-scan-beam"></i>
               </div>
-              <ul>
-                <li>Contact as real text</li>
-                <li>Experience / Education / Skills</li>
-                <li>No scanned image</li>
-              </ul>
-              <div class="ats-hero-chips">
-                <span>Headings</span><span>Email</span><span>Skills</span>
-              </div>
+              <div class="ats-scan-lens"></div>
             </div>
+            <div class="ct-preview-caption"><span>ON THIS DEVICE</span><strong>Drop a file. We never receive it.</strong></div>
           </div>
         </div>
       </section>

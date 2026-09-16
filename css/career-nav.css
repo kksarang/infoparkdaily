@@ -140,15 +140,44 @@ body.career-tools .theme-toggle {
 }
 #store-menu {
   display: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  padding: 0;
   border: 1px solid var(--ct-line-strong);
-  padding: 0.55rem 0.8rem;
-  border-radius: 0.55rem;
-  font-size: 0.78rem;
-  min-height: 2.5rem;
-  font-weight: 650;
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 0;
   background: var(--ct-white);
   color: var(--ct-ink);
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+#store-menu .store-menu-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 16px;
+}
+#store-menu .store-menu-bars span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  border-radius: 999px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+.store-header.menu-open #store-menu .store-menu-bars span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.store-header.menu-open #store-menu .store-menu-bars span:nth-child(2) {
+  opacity: 0;
+}
+.store-header.menu-open #store-menu .store-menu-bars span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Kill old pill strip if any leftover markup remains */
@@ -168,11 +197,13 @@ body.career-tools .career-tools-strip:not(.store-header) {
   .store-header nav,
   .store-header #store-nav {
     width: 100%;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
     order: 3;
-    gap: 0.65rem 1.15rem;
+    gap: 0.15rem;
     border-top: 1px solid var(--ct-line);
-    padding-top: 0.7rem;
+    padding-top: 0.55rem;
   }
   .store-header.menu-ready nav,
   .store-header.menu-ready #store-nav {
@@ -183,12 +214,13 @@ body.career-tools .career-tools-strip:not(.store-header) {
     display: flex;
   }
   #store-menu {
-    display: block;
+    display: inline-flex;
     margin-left: auto;
   }
   .store-header nav > a:not(.button):not(.store-signin),
   .store-header #store-nav > a:not(.button):not(.store-signin) {
-    padding-block: 0.35rem;
+    padding-block: 0.7rem;
+    white-space: normal;
   }
   .store-header nav a[aria-current="page"]::after,
   .store-header #store-nav a[aria-current="page"]::after,

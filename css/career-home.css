@@ -159,6 +159,124 @@ body.career-tools a.button.secondary:hover {
   padding: 24px;
   overflow: hidden;
 }
+.career-tools-ats .ats-hero-art {
+  overflow: visible;
+}
+.career-tools-ats .ats-scan {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 250px;
+  margin: 18px auto 12px;
+}
+.career-tools-ats .ats-scan-back,
+.career-tools-ats .ats-scan-page {
+  position: absolute;
+  left: 50%;
+  width: 158px;
+  height: 214px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(23, 28, 36, 0.12);
+}
+.career-tools-ats .ats-scan-back {
+  top: 28px;
+  margin-left: -92px;
+  transform: rotate(-8deg);
+  background: #f4f5ef;
+  border: 1px solid var(--home-line);
+}
+.career-tools-ats .ats-scan-page {
+  top: 10px;
+  margin-left: -68px;
+  padding: 20px 16px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(23, 28, 36, 0.06);
+}
+.career-tools-ats .ats-scan-name {
+  width: 52%;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--home-ink);
+}
+.career-tools-ats .ats-scan-rule {
+  display: block;
+  height: 6px;
+  width: 100%;
+  border-radius: 999px;
+  background: #e8eadf;
+}
+.career-tools-ats .ats-scan-rule-short {
+  width: 44%;
+}
+.career-tools-ats .ats-scan-rule-mid {
+  width: 72%;
+}
+.career-tools-ats .ats-scan-block {
+  height: 38px;
+  margin: 2px 0;
+  border-radius: 7px;
+  background: #fff6d6;
+}
+.career-tools-ats .ats-scan-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 46px;
+  background: linear-gradient(180deg, transparent, rgba(255, 193, 7, 0.42), transparent);
+  animation: ats-scan-move 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.career-tools-ats .ats-scan-lens {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 50%;
+  margin-left: 28px;
+  bottom: 8px;
+  border: 2.5px solid var(--home-ink);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 28px rgba(23, 28, 36, 0.12);
+  animation: ats-lens-drift 3.4s ease-in-out infinite;
+}
+.career-tools-ats .ats-scan-lens::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  right: -16px;
+  bottom: 12px;
+  border-radius: 999px;
+  background: var(--home-ink);
+  transform: rotate(40deg);
+}
+@keyframes ats-scan-move {
+  0% {
+    top: -46px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes ats-lens-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-10px, -14px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .career-tools-ats .ats-scan-beam,
+  .career-tools-ats .ats-scan-lens {
+    animation: none;
+  }
+}
 .ct-preview-label {
   display: flex;
   align-items: center;

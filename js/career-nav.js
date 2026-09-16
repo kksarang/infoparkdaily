@@ -57,6 +57,7 @@
     const open = (value) => {
       header.classList.toggle("menu-open", value);
       menu.setAttribute("aria-expanded", String(value));
+      menu.setAttribute("aria-label", value ? "Close menu" : "Open menu");
     };
     menu.addEventListener("click", (e) => {
       e.stopPropagation();

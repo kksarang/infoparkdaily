@@ -41,9 +41,9 @@
     />
     <link rel="stylesheet" href="/css/styles.css?v=20260914a" />
 <link rel="stylesheet" href="/css/resume-builder.css?v=20260915u" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20260915u" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20260916a" />
     <link rel="stylesheet" href="/css/career-auth.css?v=20260915h" />
-    <script defer src="/js/career-nav.js?v=20260915w"></script>
+    <script defer src="/js/career-nav.js?v=20260916a"></script>
     <script type="module" src="/js/resume-builder/app.js?v=20260915p"></script>
   </head>
   <body class="career-tools career-tools-auth light">
@@ -54,7 +54,9 @@
           <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
           <span>InfoparkDaily<small>CAREER TOOLS</small></span>
         </a>
-        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav">Menu</button>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
         <nav id="store-nav" aria-label="Career tools">
           <a href="/resume-builder/">Resume builder</a>
           <a href="/ats-checker/">ATS checker</a>
