@@ -187,10 +187,23 @@ export function renderResume(d, c) {
       achievements: "Achievements",
       interests: "Interests",
     };
+    const docsTitles = {
+      summary: "Professional Summary",
+      experience: "Professional Experience",
+      education: "Education",
+      skills: "Skills",
+      languages: "Languages",
+      projects: "Projects",
+      certifications: "Certifications",
+      achievements: "Achievements",
+      interests: "Interests",
+    };
     const title =
       c.family === "gallery"
         ? galleryTitles[key] || custom?.heading || sections[key]?.name || key
-        : custom?.heading || sections[key]?.name || key;
+        : ["docs", "docs-split"].includes(c.family)
+          ? docsTitles[key] || custom?.heading || sections[key]?.name || key
+          : custom?.heading || sections[key]?.name || key;
     if (key === "summary")
       return d.summary.trim()
         ? `<section class="resume-section"><h2>${esc(title)}</h2><div class="section-body">${para(d.summary)}</div></section>`
@@ -215,7 +228,7 @@ export function renderResume(d, c) {
     "languages",
     "interests",
   ];
-  const body = ["sidebar", "rail", "split"].includes(c.family)
+  const body = ["sidebar", "rail", "split", "docs-split"].includes(c.family)
     ? `<div class="resume-columns"><div class="resume-main-column">${order
         .filter((k) => !sideKeys.includes(k))
         .map(section)
@@ -299,6 +312,23 @@ export function renderResume(d, c) {
  .family-gallery .lang-dots i{width:8px;height:8px;border-radius:50%;background:#d6d3d1;display:inline-block}
  .family-gallery .lang-dots i.on{background:#292524}
  .family-gallery .resume-entry:has(.skills-grid),.family-gallery .resume-entry:has(.lang-row){margin-bottom:4px}
- @media (max-width:640px){.family-gallery .resume-header{grid-template-columns:1fr;justify-items:center;text-align:center}.family-gallery .contact-grid{grid-template-columns:1fr}.family-gallery .gallery-entry{grid-template-columns:1fr}.family-gallery .skills-grid{grid-template-columns:1fr 1fr}}
+ @media (max-width:640px){.family-gallery .resume-header{grid-template-columns:1fr;justify-items:center;text-align:center}.family-gallery .contact-grid{grid-template-columns:1fr}.family-gallery .gallery-entry{grid-template-columns:1fr} .family-gallery .skills-grid{grid-template-columns:1fr 1fr}}
+ .family-docs,.family-docs-split{color:#111;font-family:"Times New Roman",Times,Georgia,serif}
+ .family-docs h1,.family-docs-split h1{color:#111;font-family:"Times New Roman",Times,Georgia,serif;letter-spacing:.4px;font-weight:700}
+ .family-docs .headline,.family-docs-split .headline{color:#222;font-style:italic;font-weight:500;font-size:11pt}
+ .family-docs .contact,.family-docs .links,.family-docs-split .contact,.family-docs-split .links{color:#222;font-size:9.5pt}
+ .family-docs .resume-header{border:0;border-bottom:1px solid #111;padding:0 0 10px;margin:0 0 14px;text-align:center}
+ .family-docs .resume-section>h2,.family-docs-split .resume-section>h2{color:#111;font-family:"Times New Roman",Times,Georgia,serif;font-size:11pt;letter-spacing:1.1px;text-transform:uppercase;border:0;border-bottom:1px solid #111;padding:0 0 3px;margin:0 0 8px}
+ .family-docs .entry-heading strong,.family-docs-split .entry-heading strong{color:#111}
+ .family-docs .entry-heading span,.family-docs-split .entry-heading span{color:#111;font-size:9.5pt}
+ .family-docs .entry-sub,.family-docs-split .entry-sub{color:#333;font-style:italic}
+ .family-docs li,.family-docs p,.family-docs-split li,.family-docs-split p{color:#111}
+ .family-docs-split .resume-header{text-align:left;border-bottom:1px solid #111;padding:0 0 12px}
+ .family-docs-split .resume-columns{grid-template-columns:minmax(0,1fr) 30%;gap:22px}
+ .family-docs-split .resume-columns aside{border:0;padding:8px 0 0 16px;border-left:1px solid #d7dce3;background:transparent}
+ .family-docs-split.style-band .resume-header{background:#eef3f8;border:0;padding:18px 20px;margin:0 0 16px}
+ .family-docs-split.style-band .resume-columns aside{background:#f4f7fb;padding:16px;border:0}
+ .family-docs.style-label .resume-header,.family-docs-split.style-label .resume-header{text-align:left}
+ @media (max-width:640px){.family-docs-split .resume-columns{grid-template-columns:1fr}}
  </style></head><body class="family-${esc(c.family)} style-${esc(c.style)}">${header}${body}</body></html>`;
 }

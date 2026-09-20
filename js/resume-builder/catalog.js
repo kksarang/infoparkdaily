@@ -1,6 +1,1984 @@
 /** Generated from services/resume-api/catalog.ts. All published templates are free; configs are public. */
 export const catalog = [
   {
+    "id": "simple-ats",
+    "name": "Simple ATS",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Simple",
+      "ATS"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "times-ats",
+    "name": "Times ATS",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Times",
+      "ATS"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "scan-ready",
+    "name": "Scan Ready",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Scan",
+      "Ready"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1a1a1a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "plain-text-ats",
+    "name": "Plain Text ATS",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Plain",
+      "Text",
+      "ATS"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "recruiter-times",
+    "name": "Recruiter Times",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Recruiter",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "experience-ledger",
+    "name": "Experience Ledger",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Experience",
+      "Ledger"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "black-rule-ats",
+    "name": "Black Rule ATS",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Black",
+      "Rule",
+      "ATS"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "double-line-ats",
+    "name": "Double Line ATS",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs",
+      "Double",
+      "Line",
+      "ATS"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "highlights-page",
+    "name": "Highlights Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Highlights",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "professional-page",
+    "name": "Professional Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Professional",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "concise-page",
+    "name": "Concise Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Concise",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "harvard-page",
+    "name": "Harvard Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Harvard",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "traditional-page",
+    "name": "Traditional Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Traditional",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "mba-page",
+    "name": "MBA Page",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "MBA",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1e293b",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "finance-times",
+    "name": "Finance Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Finance",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "consultant-times",
+    "name": "Consultant Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Consultant",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "hr-times",
+    "name": "HR Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "HR",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "ops-times",
+    "name": "Ops Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Ops",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "sales-times",
+    "name": "Sales Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Sales",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1a1a1a",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "marketing-times",
+    "name": "Marketing Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Marketing",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "product-times",
+    "name": "Product Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Product",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "analyst-times",
+    "name": "Analyst Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Analyst",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "legal-times",
+    "name": "Legal Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Legal",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "accounting-times",
+    "name": "Accounting Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Accounting",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "entry-page",
+    "name": "Entry Page",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Entry",
+      "Page"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "campus-times",
+    "name": "Campus Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Campus",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "internship-times",
+    "name": "Internship Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Internship",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "graduate-times",
+    "name": "Graduate Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Graduate",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "campus-serif",
+    "name": "Campus Serif",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Campus",
+      "Serif"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "first-role-times",
+    "name": "First Role Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "First",
+      "Role",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1a1a1a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "kochi-times",
+    "name": "Kochi Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Kochi",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "park-times",
+    "name": "Park Times",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs",
+      "Park",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "qa-times",
+    "name": "QA Times",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs",
+      "QA",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "support-times",
+    "name": "Support Times",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs",
+      "Support",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "data-times",
+    "name": "Data Times",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs",
+      "Data",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "engineer-times",
+    "name": "Engineer Times",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs",
+      "Engineer",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "cloud-times",
+    "name": "Cloud Times",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs",
+      "Cloud",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "founder-times",
+    "name": "Founder Times",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "ATS docs",
+      "docs",
+      "Founder",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "board-times",
+    "name": "Board Times",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "ATS docs",
+      "docs",
+      "Board",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1e293b",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "director-times",
+    "name": "Director Times",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "ATS docs",
+      "docs",
+      "Director",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "teacher-times",
+    "name": "Teacher Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Teacher",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "healthcare-times",
+    "name": "Healthcare Times",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs",
+      "Healthcare",
+      "Times"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "label",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-modern",
+    "name": "Two Column Modern",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Modern"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e3a5f",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-clean",
+    "name": "Two Column Clean",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Clean"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#334155",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-soft",
+    "name": "Two Column Soft",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Soft"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#475569",
+      "font": "serif",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-contact",
+    "name": "Two Column Contact",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Contact"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-skills",
+    "name": "Two Column Skills",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Skills"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#0f172a",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-data",
+    "name": "Two Column Data",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Data"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e3a5f",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-eng",
+    "name": "Two Column Eng",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Eng"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#17334d",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-analyst",
+    "name": "Two Column Analyst",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Analyst"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e40af",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-manager",
+    "name": "Two Column Manager",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Manager"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1c2b3a",
+      "font": "serif",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-design",
+    "name": "Two Column Design",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Design"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#44403c",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-product",
+    "name": "Two Column Product",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Product"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#312e81",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-academic",
+    "name": "Two Column Academic",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Academic"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-mba",
+    "name": "Two Column MBA",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "MBA"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-grad",
+    "name": "Two Column Grad",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Grad"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#334155",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-exec",
+    "name": "Two Column Exec",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Exec"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#0f172a",
+      "font": "serif",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-navy",
+    "name": "Two Column Navy",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Navy"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#17334d",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-teal",
+    "name": "Two Column Teal",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Teal"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#134e4a",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-charcoal",
+    "name": "Two Column Charcoal",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Charcoal"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-ivory",
+    "name": "Two Column Ivory",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Ivory"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#57534e",
+      "font": "serif",
+      "style": "airy",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-graphite",
+    "name": "Two Column Graphite",
+    "category": "Executive",
+    "access": "free",
+    "tags": [
+      "Executive",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Graphite"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#27272a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-mint",
+    "name": "Two Column Mint",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Mint"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#115e59",
+      "font": "serif",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-sand",
+    "name": "Two Column Sand",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Sand"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#78716c",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-ink",
+    "name": "Two Column Ink",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Ink"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-sky",
+    "name": "Two Column Sky",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Sky"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e3a5f",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-rose",
+    "name": "Two Column Rose",
+    "category": "Creative",
+    "access": "free",
+    "tags": [
+      "Creative",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Rose"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#9f4d6a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-olive",
+    "name": "Two Column Olive",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Olive"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#3f4f3a",
+      "font": "serif",
+      "style": "band",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-recruiter",
+    "name": "Two Column Recruiter",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Recruiter"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#111827",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
+    "id": "two-column-campus",
+    "name": "Two Column Campus",
+    "category": "Freshers",
+    "access": "free",
+    "tags": [
+      "Freshers",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Campus"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e40af",
+      "font": "serif",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "two-column-tech",
+    "name": "Two Column Tech",
+    "category": "Technology",
+    "access": "free",
+    "tags": [
+      "Technology",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Tech"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1e293b",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 29
+    }
+  },
+  {
+    "id": "two-column-finance",
+    "name": "Two Column Finance",
+    "category": "Professional",
+    "access": "free",
+    "tags": [
+      "Professional",
+      "ATS docs",
+      "docs-split",
+      "Two",
+      "Column",
+      "Finance"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs-split",
+      "accent": "#1c1917",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 30,
+      "tracking": 0.4,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 30
+    }
+  },
+  {
     "id": "linea",
     "name": "Linea",
     "category": "ATS-Friendly",
@@ -2468,10 +4446,15 @@ export function thumbnail(t) {
     .slice(0, 22)
     .replace(/[<&]/g, "");
   const gallery = family === "gallery";
+  const docs = family === "docs" || family === "docs-split";
   const rail = family === "rail" || family === "sidebar" || family === "split";
   let header = `<rect x="48" y="48" width="404" height="72" fill="${accent}"/>`;
   if (gallery) {
     header = `<rect x="48" y="48" width="404" height="110" rx="8" fill="#ececea"/><circle cx="98" cy="103" r="28" fill="${accent}" opacity=".25"/><text x="140" y="98" fill="#1c1917" font-family="Georgia,serif" font-size="20">${name}</text>`;
+  } else if (family === "docs") {
+    header = `<rect x="48" y="48" width="404" height="78" fill="#fff"/><line x1="72" y1="118" x2="428" y2="118" stroke="#111" stroke-width="1.2"/>`;
+  } else if (family === "docs-split") {
+    header = `<rect x="48" y="48" width="404" height="70" fill="#fff"/><rect x="330" y="128" width="122" height="480" fill="#f4f7fb"/>`;
   } else if (family === "ribbon" || family === "executive") {
     header = `<rect x="48" y="48" width="404" height="92" fill="${accent}"/>`;
   } else if (rail) {
@@ -2479,12 +4462,12 @@ export function thumbnail(t) {
   }
   const titleX = rail ? 186 : 72;
   const lineX = gallery ? 72 : rail ? 186 : 72;
-  const bandY = gallery ? 180 : 160;
-  const titleFill = rail ? accent : "#fff";
+  const bandY = gallery ? 180 : docs ? 140 : 160;
+  const titleFill = rail ? accent : docs ? "#111" : "#fff";
   const title =
     gallery
       ? ""
-      : `<text x="${titleX}" y="92" fill="${titleFill}" font-family="Georgia,serif" font-size="20">${name}</text>`;
+      : `<text x="${titleX}" y="92" fill="${titleFill}" font-family="Times New Roman,Georgia,serif" font-size="20">${name}</text>`;
   const bandFill = gallery ? "#ececea" : "#d5dde5";
   const accentBar = gallery ? "#ececea" : accent;
   const accentOpacity = gallery ? "1" : "0.45";
