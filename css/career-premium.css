@@ -1,0 +1,362 @@
+/* Career Tools · shared premium layer.
+   Loaded last on every Career Tools page (resume builder SPA views and the
+   ATS checker). Aligns every section to the header's content column and
+   unifies accents with the resume builder landing. Light-only by design. */
+
+body.career-tools {
+  --cp-col: min(1172px, calc(100% - 40px));
+  --cp-ink: #171c24;
+  --cp-muted: #5f6672;
+  --cp-line: #e5e7dd;
+  --cp-line-strong: #d4d8ca;
+  --cp-surface: #ffffff;
+  --cp-bg-deep: #f0f1eb;
+  --cp-accent: #ffc107;
+  --cp-accent-soft: #fff4cc;
+  --cp-forest: #5f6b45;
+  --cp-shadow: 0 1px 2px rgba(23, 28, 36, 0.04), 0 14px 34px rgba(23, 28, 36, 0.06);
+}
+@media (max-width: 480px) {
+  body.career-tools {
+    --cp-col: calc(100% - 32px);
+  }
+}
+
+/* ── One accent colour for eyebrows (was a stray blue) ───────────── */
+body.career-tools .ct-kicker,
+body.career-tools .page-head .ct-kicker {
+  color: var(--cp-forest);
+}
+body.career-tools .ct-split .ct-kicker-on-dark {
+  color: var(--cp-accent);
+}
+
+/* ── Workspace sub-navigation: same column as the header ─────────── */
+body.career-tools .subnav {
+  padding-inline: max(20px, calc((100% - 1172px) / 2));
+  gap: 6px;
+  background: rgba(250, 250, 247, 0.92);
+  backdrop-filter: saturate(1.4) blur(10px);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+}
+body.career-tools .subnav a {
+  padding: 7px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+body.career-tools .subnav a:hover {
+  background: var(--cp-bg-deep);
+  color: var(--cp-ink);
+}
+body.career-tools .subnav a.active {
+  background: var(--cp-ink);
+  color: #fff;
+  box-shadow: none;
+  text-decoration: none;
+}
+@media (max-width: 640px) {
+  body.career-tools .subnav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  body.career-tools .subnav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ── Page heads (Templates, My resumes, Pricing, Account) ────────── */
+body.career-tools .page-head {
+  padding-top: 40px;
+}
+body.career-tools .page-head h1 {
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(34px, 4.4vw, 52px);
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+body.career-tools .page-head .section-heading p {
+  font-size: 16px;
+  max-width: 60ch;
+}
+
+/* ── Template gallery ────────────────────────────────────────────── */
+body.career-tools .filter-search input,
+html.theme-light body.career-tools .filter-search input {
+  min-height: 50px;
+  padding-left: 46px;
+  border-radius: 14px;
+  border: 1px solid var(--cp-line-strong);
+  background:
+    var(--cp-surface)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6672' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M21 21l-4.3-4.3'/%3E%3C/svg%3E")
+    16px center / 18px no-repeat;
+  font-size: 15px;
+  box-shadow: 0 1px 2px rgba(23, 28, 36, 0.04);
+}
+body.career-tools .filter-search input:focus,
+html.theme-light body.career-tools .filter-search input:focus {
+  outline: none;
+  border-color: var(--cp-ink);
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.28);
+}
+body.career-tools .chip {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+body.career-tools .chip:hover {
+  border-color: var(--cp-ink);
+}
+body.career-tools .count {
+  font-weight: 600;
+  color: var(--cp-muted);
+}
+
+body.career-tools main.page-bg .template-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px 22px;
+}
+body.career-tools main.page-bg .template-image {
+  position: relative;
+  padding: 16px 18px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--cp-line);
+  background: linear-gradient(180deg, #f3f4ef, #e9ebe3);
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+body.career-tools main.page-bg .template-image::after {
+  content: "Preview";
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  translate: -50% 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--cp-ink);
+  color: #fff;
+  font: 650 13px/1 Inter, system-ui, sans-serif;
+  opacity: 0;
+  transition: opacity 0.18s ease, translate 0.18s ease;
+  pointer-events: none;
+}
+body.career-tools main.page-bg .template-card:hover .template-image,
+body.career-tools main.page-bg .template-image:focus-visible {
+  border-color: var(--cp-line-strong);
+  box-shadow: 0 20px 44px rgba(23, 28, 36, 0.12);
+  transform: translateY(-3px);
+}
+body.career-tools main.page-bg .template-card:hover .template-image::after,
+body.career-tools main.page-bg .template-image:focus-visible::after {
+  opacity: 1;
+  translate: -50% 0;
+}
+body.career-tools main.page-bg .template-image:focus-visible {
+  outline: 3px solid var(--cp-accent);
+  outline-offset: 3px;
+}
+body.career-tools main.page-bg .template-info {
+  padding: 12px 2px 0;
+}
+body.career-tools main.page-bg .template-info h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  body.career-tools main.page-bg .template-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  body.career-tools main.page-bg .template-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 14px;
+  }
+  body.career-tools main.page-bg .template-image {
+    padding: 10px 12px 8px;
+    border-radius: 12px;
+  }
+  body.career-tools main.page-bg .template-image::after {
+    display: none;
+  }
+  body.career-tools main.page-bg .template-info h3 {
+    font-size: 14px;
+  }
+  /* Category chips: one swipeable row instead of three wrapped rows. */
+  body.career-tools .filters .chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: -20px;
+    padding: 2px 20px 6px;
+  }
+  body.career-tools .filters .chips::-webkit-scrollbar {
+    display: none;
+  }
+  body.career-tools .chip {
+    flex: none;
+  }
+}
+
+/* ── Pricing ─────────────────────────────────────────────────────── */
+body.career-tools .pricing-grid-career {
+  max-width: none;
+  margin: 8px 0 28px;
+  gap: 22px;
+}
+body.career-tools .pricing-grid-career .price-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid var(--cp-line);
+  box-shadow: var(--cp-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+body.career-tools .pricing-grid-career .price-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(23, 28, 36, 0.1);
+}
+/* The free plan is the one most visitors want: make it the hero card. */
+body.career-tools .pricing-grid-career .price-card:first-child {
+  background: var(--cp-ink);
+  border-color: var(--cp-ink);
+}
+body.career-tools .pricing-grid-career .price-card:first-child :is(h2, .price) {
+  color: #fff;
+}
+body.career-tools .pricing-grid-career .price-card:first-child :is(p, li, small) {
+  color: #c4c9d2;
+}
+body.career-tools .pricing-grid-career .price-card:first-child .button {
+  background: var(--cp-accent);
+  border-color: var(--cp-accent);
+  color: #191204;
+}
+body.career-tools .price-card .eyebrow {
+  align-self: flex-start;
+  color: #7a5900;
+  background: var(--cp-accent-soft);
+  border-color: transparent;
+}
+body.career-tools .pricing-grid-career .price {
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 40px;
+  letter-spacing: -0.03em;
+}
+body.career-tools .pricing-grid-career .price small {
+  font-family: Inter, system-ui, sans-serif;
+}
+body.career-tools .price-card ul {
+  display: grid;
+  gap: 10px;
+  line-height: 1.5;
+  margin: 18px 0 26px;
+}
+body.career-tools .price-card li {
+  display: flex;
+  gap: 10px;
+}
+body.career-tools .price-card li:before {
+  margin-right: 0;
+  font-weight: 800;
+  color: var(--cp-forest);
+}
+body.career-tools .pricing-grid-career .price-card:first-child li:before {
+  color: var(--cp-accent);
+}
+body.career-tools .pricing-grid-career .price-card .button {
+  margin-top: auto;
+}
+body.career-tools .pricing-note {
+  max-width: none;
+  margin: 0 0 56px;
+  padding: 28px;
+  border-radius: 22px;
+  background: var(--cp-bg-deep);
+  border: 1px solid var(--cp-line);
+  box-shadow: none;
+}
+
+/* ── ATS checker ─────────────────────────────────────────────────── */
+body.career-tools-ats #ats-tool.ats-stage,
+body.career-tools-ats .ats-how {
+  width: var(--cp-col);
+  max-width: none;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+body.career-tools-ats .ats-how {
+  padding-inline: 0;
+}
+body.career-tools-ats #ats-tool.ats-stage {
+  border-radius: 24px;
+  box-shadow: var(--cp-shadow);
+}
+body.career-tools-ats .ats-how h2 {
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+body.career-tools-ats .ats-how .ct-how {
+  gap: 20px;
+}
+body.career-tools-ats .ats-how .ct-how li {
+  padding: 26px;
+  border: 1px solid var(--cp-line);
+  border-radius: 20px;
+  background: var(--cp-surface);
+}
+body.career-tools-ats .ats-how .ct-how span {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cp-accent-soft);
+  color: #7a5900;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+/* Build-a-resume band: dark panel, visible yellow button. */
+body.career-tools-ats .ats-split-wrap .ct-split {
+  border-radius: 28px;
+  padding: 44px;
+}
+body.career-tools-ats .ats-split-wrap .ct-split .button {
+  background: var(--cp-accent) !important;
+  border-color: var(--cp-accent) !important;
+  color: #191204 !important;
+  margin-top: 8px;
+}
+body.career-tools-ats .ats-split-wrap .ct-split .button:hover {
+  background: #ffcd38 !important;
+  border-color: #ffcd38 !important;
+}
+@media (max-width: 760px) {
+  /* Get people to the tool faster: the illustration is decorative. */
+  body.career-tools-ats .ats-hero-art {
+    display: none;
+  }
+  body.career-tools-ats .ats-how .ct-how {
+    grid-template-columns: 1fr;
+  }
+  body.career-tools-ats .ats-split-wrap .ct-split {
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.career-tools .subnav a,
+  body.career-tools .chip,
+  body.career-tools main.page-bg .template-image,
+  body.career-tools main.page-bg .template-image::after {
+    transition: none;
+  }
+}

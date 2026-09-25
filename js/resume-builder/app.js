@@ -227,6 +227,9 @@ function landing() {
   const tally = document.getElementById("template-count");
   if (tally)
     tally.textContent = `${count} free designs. Sign in to save and continue anytime.`;
+  document
+    .querySelectorAll("[data-template-count]")
+    .forEach((el) => (el.textContent = String(count)));
 }
 function gallery() {
   page(
