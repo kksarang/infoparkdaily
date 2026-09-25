@@ -610,6 +610,7 @@ html.theme-light .site-nav a.nav-enitexa {
 
 .hero-visual {
   position: relative;
+  overflow: clip; /* contain ::before glow so it never widens the page */
 }
 
 .hero-visual::before {
