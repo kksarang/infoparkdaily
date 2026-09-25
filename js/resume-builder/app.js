@@ -546,11 +546,70 @@ function fieldLabel(key) {
     }[key] || key
   );
 }
+const fieldHints = {
+  personal: {
+    name: "e.g. Sarang R",
+    headline: "e.g. Software Developer",
+    email: "you@example.com",
+    phone: "e.g. +91 98765 43210",
+    location: "e.g. Kochi, Kerala",
+    linkedin: "linkedin.com/in/your-name",
+    github: "github.com/your-name",
+    portfolio: "yourname.dev",
+  },
+  summary: {
+    summary:
+      "2–4 lines: who you are, your strongest skills and the role you want.\ne.g. Frontend developer with 2 years of experience building fast, accessible React apps. Looking for a product role in Kochi.",
+  },
+  experience: {
+    role: "e.g. Frontend Developer",
+    employer: "e.g. UST Global",
+    location: "e.g. Infopark, Kochi",
+    bullets:
+      "One achievement per line. Start with an action verb and add a result.\ne.g. Built a React dashboard that cut report time by 40%",
+  },
+  education: {
+    qualification: "e.g. B.Tech",
+    institution: "e.g. Cochin University of Science and Technology",
+    field: "e.g. Computer Science",
+    grade: "e.g. 8.2 CGPA",
+    details: "Optional: honours, final-year project or relevant coursework",
+  },
+  skills: {
+    label: "e.g. Technical",
+    items: "One skill per line, e.g.\nReact\nTypeScript\nSQL",
+  },
+  projects: {
+    name: "e.g. Infopark Jobs Tracker",
+    role: "e.g. Lead developer",
+    url: "github.com/you/project",
+    technologies: "One per line, e.g.\nReact\nNode.js",
+    bullets: "What you built and the result, one per line",
+  },
+  certifications: {
+    name: "e.g. AWS Certified Cloud Practitioner",
+    issuer: "e.g. Amazon Web Services",
+    url: "Link to verify the credential (optional)",
+  },
+  achievements: {
+    title: "e.g. Winner, college hackathon 2025",
+    details: "One or two lines on what you did and why it mattered",
+  },
+  languages: { name: "e.g. Malayalam", proficiency: "e.g. Native / Fluent / Basic" },
+};
+const linkFields = ["linkedin", "github", "portfolio", "url"];
+function fieldAttrs(section, field) {
+  if (field === "phone") return 'type="tel" inputmode="tel"';
+  if (field === "email") return 'type="email" inputmode="email" autocapitalize="off" spellcheck="false"';
+  if (linkFields.includes(field))
+    return 'type="text" inputmode="url" autocapitalize="off" spellcheck="false"';
+  if (["start", "end", "issued", "expiry"].includes(field)) return 'type="month"';
+  return 'type="text"';
+}
 function inputField(section, field, value, index) {
   const isList = arrayFields.includes(field),
     long = isList || field === "details" || section === "summary";
   const id = `field-${section}-${index ?? "single"}-${field}`;
-  const dateField = ["start", "end", "issued", "expiry"].includes(field);
   const personal = section === "personal";
   const label =
     section === "summary"
@@ -559,18 +618,51 @@ function inputField(section, field, value, index) {
         ? "Name"
         : fieldLabel(field);
   const val = isList ? (value || []).join("\n") : value || "";
+  const hint =
+    fieldHints[section]?.[field] || (isList ? "One item per line" : "");
   const attr = `id="${id}" data-field="${field}" data-section="${section}" ${index !== undefined ? `data-index="${index}"` : ""}`;
-  return `<div class="field ${["name", "headline", "email", "bullets", "details", "items", "technologies", "portfolio", "linkedin", "github", "summary"].includes(field) ? "full" : ""}"><label for="${id}">${label}</label>${long ? `<textarea ${attr} maxlength="${section === "summary" ? 5000 : 60000}" rows="${section === "summary" ? 8 : 4}" placeholder="${isList ? "One item per line" : ""}">${esc(val)}</textarea>` : `<input ${attr} value="${esc(val)}" ${dateField ? 'type="month"' : field === "email" ? 'type="email"' : 'type="text"'} maxlength="${personal ? 500 : 2000}" placeholder="${field === "headline" ? "e.g. Software Developer" : field === "location" ? "e.g. Kochi, Kerala" : ""}" ${personal ? `autocomplete="${field === "email" ? "email" : field === "phone" ? "tel" : field === "name" ? "name" : "off"}"` : ""}>`}${isList ? "<small>One item per line. Use only skills and achievements that are true for you.</small>" : field === "end" ? "<small>Leave empty if this is your current role or course.</small>" : ""}</div>`;
+  return `<div class="field ${["name", "headline", "email", "bullets", "details", "items", "technologies", "portfolio", "linkedin", "github", "summary"].includes(field) ? "full" : ""}"><label for="${id}">${label}</label>${long ? `<textarea ${attr} maxlength="${section === "summary" ? 5000 : 6000}" rows="${section === "summary" ? 6 : 4}" placeholder="${esc(hint)}">${esc(val)}</textarea>` : `<input ${attr} value="${esc(val)}" ${fieldAttrs(section, field)} maxlength="${personal ? 500 : 2000}" placeholder="${esc(hint)}" ${personal ? `autocomplete="${field === "email" ? "email" : field === "phone" ? "tel" : field === "name" ? "name" : "off"}"` : ""}>`}${isList ? "<small>One item per line. Use only skills and achievements that are true for you.</small>" : field === "end" ? "<small>Leave empty if this is your current role or course.</small>" : ""}</div>`;
+}
+const stepOrder = () => [...Object.keys(sections), "appearance"];
+function stepNav() {
+  const order = stepOrder();
+  const i = order.indexOf(activeSection);
+  const name = (k) =>
+    k === "appearance" ? "Design & order" : sections[k]?.name || k;
+  const prev = order[i - 1],
+    next = order[i + 1];
+  return `<nav class="step-nav" aria-label="Resume sections"><span class="step-count">Step ${i + 1} of ${order.length}</span><div class="step-buttons">${prev ? `<button type="button" class="button secondary" data-action="edit-section" data-section="${prev}">← Back</button>` : ""}${next ? `<button type="button" class="button" data-action="edit-section" data-section="${next}">Next: ${esc(name(next))} →</button>` : `<button type="button" class="button" data-action="export">Download PDF ↓</button>`}</div></nav>`;
+}
+function sectionFilled(key) {
+  const d = resume?.data;
+  if (!d) return false;
+  if (key === "personal") return Boolean(d.personal?.name && d.personal?.email);
+  if (key === "summary") return Boolean(String(d.summary || "").trim());
+  if (!Array.isArray(d[key])) return false;
+  return d[key].some((entry) =>
+    Object.entries(entry).some(
+      ([k, v]) =>
+        k !== "id" && (Array.isArray(v) ? v.some((x) => String(x).trim()) : String(v || "").trim()),
+    ),
+  );
+}
+function updateProgress() {
+  document
+    .querySelectorAll('.section-nav [data-action="edit-section"]')
+    .forEach((b) => b.classList.toggle("is-done", sectionFilled(b.dataset.section)));
 }
 function sectionForm() {
   const panel = document.getElementById("edit-panel");
   const d = resume.data;
   if (activeSection === "appearance") {
     panel.innerHTML = `<h2>Make it yours.</h2><p>Presentation changes never remove your content.</p><div class="field"><label for="accent">Accent colour</label><select id="accent" data-appearance="accent">${["default", "navy", "blue", "teal", "charcoal", "burgundy"].map((v) => `<option value="${v}" ${d.appearance.accent === v ? "selected" : ""}>${v === "default" ? "Template default" : v[0].toUpperCase() + v.slice(1)}</option>`).join("")}</select></div><div class="field"><label for="font">Font</label><select id="font" data-appearance="font">${["default", "sans", "serif", "mono"].map((v) => `<option value="${v}" ${d.appearance.font === v ? "selected" : ""}>${v === "default" ? "Template default" : v}</option>`).join("")}</select></div><div class="field"><label for="density">Spacing</label><select id="density" data-appearance="density">${["standard", "compact", "relaxed"].map((v) => `<option value="${v}" ${d.appearance.density === v ? "selected" : ""}>${v[0].toUpperCase() + v.slice(1)}</option>`).join("")}</select></div><h3 style="font-size:16px;margin-top:30px">Section order & visibility</h3><div>${d.sectionOrder.map((s, i) => `<div class="admin-row"><span>${esc(sections[s]?.name || d.customSections.find((x) => x.id === s)?.heading || "Custom section")}</span><div style="display:flex;gap:3px"><button class="icon-button" data-action="section-up" data-index="${i}" aria-label="Move section up" ${i === 0 ? "disabled" : ""}>↑</button><button class="icon-button" data-action="section-down" data-index="${i}" aria-label="Move section down" ${i === d.sectionOrder.length - 1 ? "disabled" : ""}>↓</button><button class="icon-button" data-action="section-hide" data-id="${s}" aria-pressed="${d.hiddenSections.includes(s)}">${d.hiddenSections.includes(s) ? "Show" : "Hide"}</button></div></div>`).join("")}</div>`;
+    panel.insertAdjacentHTML("beforeend", stepNav());
     return;
   }
   const section = sections[activeSection];
   panel.innerHTML = `<h2>${section.name}</h2><p>${activeSection === "personal" ? "A few details to help employers reach you." : activeSection === "summary" ? "A brief introduction to your experience and strengths." : "Add what matters for the opportunity you want."}</p>${activeSection === "personal" ? `<div class="field-grid">${section.fields.map((f) => inputField(activeSection, f, d.personal[f])).join("")}</div>` : activeSection === "summary" ? inputField("summary", "summary", d.summary) : `${d[activeSection].map((entry, i) => `<section class="entry-form"><div class="entry-form-top"><strong>${esc(activeSection === "customSections" ? entry.heading || "Custom section" : section.name.slice(0, 30))} ${i + 1}</strong><div><button class="icon-button" data-action="entry-up" data-index="${i}" aria-label="Move entry up" ${i === 0 ? "disabled" : ""}>↑</button><button class="icon-button" data-action="remove-entry" data-index="${i}" aria-label="Remove entry">×</button></div></div>${section.fields.map((f) => inputField(activeSection, f, entry[f], i)).join("")}</section>`).join("")}<button class="add-entry" data-action="add-entry">＋ Add ${activeSection === "customSections" ? "custom section" : section.name.toLowerCase()}</button>`}`;
+  panel.insertAdjacentHTML("beforeend", stepNav());
+  updateProgress();
 }
 function editor() {
   main.className = "editor-main";
@@ -632,6 +724,7 @@ function markDirty() {
       : delay;
   saveTimer = setTimeout(() => void save(), wait);
   renderPreview();
+  updateProgress();
 }
 async function save() {
   clearTimeout(saveTimer);
@@ -1124,6 +1217,14 @@ async function act(el) {
           b.classList.toggle("active", b.dataset.section === activeSection),
         );
       sectionForm();
+      {
+        const panel = document.getElementById("edit-panel");
+        if (panel && panel.getBoundingClientRect().top < 0)
+          panel.scrollIntoView({ block: "start", behavior: "smooth" });
+        document
+          .querySelector(".section-nav button.active")
+          ?.scrollIntoView({ block: "nearest", inline: "center" });
+      }
       break;
     case "add-entry": {
       const arr = resume.data[activeSection];
