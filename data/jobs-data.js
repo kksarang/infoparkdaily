@@ -117,7 +117,7 @@ var JOBS = [
     tags: ["Finance", "Accounts Payable", "Operations", "Infopark"],
     isWalkIn: false,
     walkInDate: "",
-    email: "Kochi.Recruitment@exlservice.com",
+    email: "",
     phone: "0484 408 6000",
     website: "https://www.exlservice.com",
     address: "9th Floor, Carnival Infopark 2, Infopark Kakkanad, Kochi, Kerala",
