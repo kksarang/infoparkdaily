@@ -123,7 +123,7 @@ var JOBS = [
     address: "9th Floor, Carnival Infopark 2, Infopark Kakkanad, Kochi, Kerala",
     industry: "BPO / Finance Operations",
     companyDetails: "EXL Service is a global analytics and digital solutions company. Their Kochi office at Carnival Infopark 2, Infopark Kakkanad handles finance and operations processes for international clients.",
-    workDetails: "Procure to Pay – Invoice Processing (Complex) role handling NON-PO and PO invoice processing, exceptions management, time-sensitive utility invoices, and month-end close. SLA-driven environment with US-shift probability given the client base.",
+    workDetails: "Associate – Procure to Pay / Invoice Processing role at EXL Service, Infopark Kochi. Handling NON-PO and PO invoice processing, exceptions management, time-sensitive utility invoices, and month-end close. SLA-driven environment.",
     workStatus: "Full-time",
     workMode: "On-site · Infopark Kochi",
     experienceYears: "0–3 years (0–1 year AP experience minimum)",
