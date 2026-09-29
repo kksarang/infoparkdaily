@@ -224,6 +224,13 @@
     return mode.includes("remote") || tags.includes("remote");
   }
 
+  function isHospitalJob(job) {
+    const ind = String(job.industry || "").toLowerCase();
+    if (ind.includes("hospital") || ind.includes("healthcare")) return true;
+    const tags = (job.tags || []).map((t) => String(t).toLowerCase());
+    return tags.includes("hospital") || tags.includes("healthcare");
+  }
+
   function isNonITJob(job) {
     const tags = (job.tags || []).map((t) => String(t).toLowerCase());
     const hay = [
@@ -288,6 +295,7 @@
     if (activeFilter === "walkin") return isWalkInJob(job);
     if (activeFilter === "remote") return isRemoteJob(job);
     if (activeFilter === "nonit") return isNonITJob(job);
+    if (activeFilter === "hospital") return isHospitalJob(job);
     if (activeFilter === "verified") return Boolean(job.verified);
     if (activeFilter === "internship") {
       const type = employmentType(job);
