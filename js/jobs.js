@@ -22,6 +22,9 @@
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
   const statClosing = document.getElementById("stat-closing");
+  const parkBar = document.getElementById("jobs-park");
+  const postedBar = document.getElementById("jobs-posted");
+  const activeChipsEl = document.getElementById("jobs-active-chips");
 
   if (!grid || typeof JOBS === "undefined") return;
 
@@ -58,6 +61,8 @@
   let companyQuery = "";
   let searchQuery = "";
   let sortMode = "newest";
+  let activePark = "all";
+  let activePosted = "all";
   let visibleCount = PAGE_SIZE;
   /** @type {{ key: string, label: string, count: number }[]} */
   let companyCatalog = [];
@@ -321,6 +326,26 @@
     return jobRegion(job) === activeLocation;
   }
 
+  function matchesPark(job) {
+    if (activePark === "all") return true;
+    const region = jobRegion(job).toLowerCase();
+    if (activePark === "infopark") return region.includes("infopark");
+    if (activePark === "technopark") return region.includes("technopark");
+    if (activePark === "cyberpark") return region.includes("cyberpark");
+    return true;
+  }
+
+  function matchesPosted(job) {
+    if (activePosted === "all") return true;
+    const posted = parseIso(job.postedDate);
+    if (posted === null) return false;
+    const today = todayStart();
+    if (activePosted === "today") return posted >= today;
+    if (activePosted === "week") return posted >= today - 6 * DAY_MS;
+    if (activePosted === "month") return posted >= today - 29 * DAY_MS;
+    return true;
+  }
+
   function companySlug(name) {
     return String(name || "")
       .trim()
@@ -365,6 +390,8 @@
     if (activeTag !== "all") params.set("tag", activeTag);
     if (sortMode !== "newest") params.set("sort", sortMode);
     if (searchQuery) params.set("q", searchQuery);
+    if (activePark !== "all") params.set("park", activePark);
+    if (activePosted !== "all") params.set("posted", activePosted);
 
     const qs = params.toString();
     const path = window.location.pathname || "/jobs/";
@@ -389,6 +416,8 @@
       const tagParam = (params.get("tag") || "").trim().toLowerCase();
       const sortParam = (params.get("sort") || "").trim().toLowerCase();
       const qParam = (params.get("q") || "").trim();
+      const parkParam = (params.get("park") || "").trim().toLowerCase();
+      const postedParam = (params.get("posted") || "").trim().toLowerCase();
 
       if (companyParam) {
         const match = companyCatalog.find((item) => {
@@ -432,6 +461,8 @@
       ];
       if (typeParam && knownTypes.includes(typeParam)) activeFilter = typeParam;
       if (tagParam) activeTag = tagParam;
+      if (parkParam && ["infopark", "technopark", "cyberpark"].includes(parkParam)) activePark = parkParam;
+      if (postedParam && ["today", "week", "month"].includes(postedParam)) activePosted = postedParam;
       if (sortParam) {
         sortMode = sortParam;
         if (sortSelect) sortSelect.value = sortParam;
@@ -452,6 +483,8 @@
       syncGroup(filterBar, "filter", activeFilter);
       syncGroup(statusBar, "status", activeStatus);
       syncGroup(tagBar, "tag", activeTag);
+      syncGroup(parkBar, "park", activePark);
+      syncGroup(postedBar, "posted", activePosted);
     } catch (_e) {
       /* ignore bad query */
     }
@@ -514,7 +547,9 @@
         matchesTag(job) &&
         matchesLocation(job) &&
         matchesCompany(job) &&
-        matchesSearch(job)
+        matchesSearch(job) &&
+        matchesPark(job) &&
+        matchesPosted(job)
     );
 
     const expiredWeight = (job) =>
@@ -877,7 +912,9 @@
       activeCompany !== "all" ||
       companyQuery !== "" ||
       searchQuery !== "" ||
-      sortMode !== "newest"
+      sortMode !== "newest" ||
+      activePark !== "all" ||
+      activePosted !== "all"
     );
   }
 
@@ -1033,7 +1070,9 @@
         activeLocation !== "all",
         activeCompany !== "all",
         Boolean(companyQuery),
-        Boolean(searchQuery)
+        Boolean(searchQuery),
+        activePark !== "all",
+        activePosted !== "all"
       ].filter(Boolean).length;
       const filterCount = document.getElementById("jobs-filter-count");
       if (filterCount) filterCount.textContent = `${n} filter${n === 1 ? "" : "s"} applied`;
@@ -1045,6 +1084,8 @@
       clearBtn.hidden = false;
       clearBtn.disabled = n === 0;
     }
+
+    renderActiveChips();
 
     if (emptyState) {
       emptyState.hidden = jobs.length > 0;
@@ -1324,6 +1365,8 @@
     activeLocation = defaultLocation;
     searchQuery = "";
     sortMode = "newest";
+    activePark = "all";
+    activePosted = "all";
     clearCompanyFilter();
 
     if (searchInput) searchInput.value = "";
@@ -1341,8 +1384,55 @@
     syncGroup(filterBar, "filter", "all");
     syncGroup(statusBar, "status", "open");
     syncGroup(tagBar, "tag", "all");
+    syncGroup(parkBar, "park", "all");
+    syncGroup(postedBar, "posted", "all");
 
     resetVisibleAndRender();
+  }
+
+  function renderActiveChips() {
+    if (!activeChipsEl) return;
+    const parkLabels = { infopark: "Infopark", technopark: "Technopark", cyberpark: "Cyberpark" };
+    const postedLabels = { today: "Today", week: "This week", month: "This month" };
+    const filterLabels = { masshiring: "Mass Hiring", referral: "Referral", walkin: "Walk-in", fresher: "Freshers", remote: "Remote", nonit: "Non IT", hospital: "Hospital", experienced: "Experienced", both: "Both", internship: "Internship", verified: "Verified" };
+    const chips = [];
+    if (activePark !== "all") chips.push({ key: "park", label: `Park: ${parkLabels[activePark] || activePark}` });
+    if (activePosted !== "all") chips.push({ key: "posted", label: `Posted: ${postedLabels[activePosted] || activePosted}` });
+    if (activeFilter !== "all") chips.push({ key: "filter", label: filterLabels[activeFilter] || activeFilter });
+    if (activeTag !== "all") chips.push({ key: "tag", label: `Category: ${activeTag}` });
+    if (activeLocation !== "all") chips.push({ key: "location", label: activeLocation });
+    if (activeStatus !== "open") {
+      const sl = { closing: "Closing soon", expired: "Expired only", all: "Open + Expired" };
+      chips.push({ key: "status", label: sl[activeStatus] || activeStatus });
+    }
+    if (!chips.length) { activeChipsEl.hidden = true; activeChipsEl.innerHTML = ""; return; }
+    activeChipsEl.hidden = false;
+    activeChipsEl.innerHTML = chips.map(chip =>
+      `<button type="button" class="ej-active-chip" data-chip-key="${escapeAttr(chip.key)}" role="listitem">${escapeHtml(chip.label)} <span aria-hidden="true">&times;</span></button>`
+    ).join("") + `<button type="button" class="ej-active-chip ej-active-chip--clear-all">Clear all</button>`;
+
+    const syncSidebar = (bar, attr, value) => {
+      if (!bar) return;
+      bar.querySelectorAll(`[data-${attr}]`).forEach(btn => {
+        const on = btn.dataset[attr] === value;
+        btn.classList.toggle("is-active", on);
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    };
+    const clearActions = {
+      park: () => { activePark = "all"; syncSidebar(parkBar, "park", "all"); },
+      posted: () => { activePosted = "all"; syncSidebar(postedBar, "posted", "all"); },
+      filter: () => { activeFilter = "all"; syncFilterChip("all"); },
+      tag: () => { activeTag = "all"; syncSidebar(tagBar, "tag", "all"); },
+      location: () => { activeLocation = defaultLocation; if (locationSelect) locationSelect.value = defaultLocation; },
+      status: () => { activeStatus = "open"; syncSidebar(statusBar, "status", "open"); }
+    };
+    activeChipsEl.querySelectorAll("[data-chip-key]").forEach(btn => {
+      const key = btn.dataset.chipKey;
+      if (clearActions[key]) btn.addEventListener("click", () => { clearActions[key](); resetVisibleAndRender(); });
+    });
+    const clearAllChip = activeChipsEl.querySelector(".ej-active-chip--clear-all");
+    if (clearAllChip) clearAllChip.addEventListener("click", clearAllFilters);
   }
 
   /* ---------- events ---------- */
@@ -1370,6 +1460,8 @@
   });
   bindChipGroup(statusBar, "status", (value) => (activeStatus = value));
   bindChipGroup(tagBar, "tag", (value) => (activeTag = value));
+  bindChipGroup(parkBar, "park", (value) => (activePark = value));
+  bindChipGroup(postedBar, "posted", (value) => (activePosted = value));
 
   if (searchInput) {
     let searchTimer = 0;

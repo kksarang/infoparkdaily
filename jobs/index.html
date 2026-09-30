@@ -89,7 +89,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20260916note" />
-    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260930b" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
@@ -286,6 +286,36 @@
           </div>
 
           <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Park</p>
+            <div
+              id="jobs-park"
+              class="jobs-filters"
+              role="group"
+              aria-label="Filter by tech park"
+            >
+              <button type="button" class="jobs-filter-btn is-active" data-park="all" aria-pressed="true">All Parks</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--infopark" data-park="infopark" aria-pressed="false">Infopark</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--technopark" data-park="technopark" aria-pressed="false">Technopark</button>
+              <button type="button" class="jobs-filter-btn jobs-filter-btn--cyberpark" data-park="cyberpark" aria-pressed="false">Cyberpark</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Posted</p>
+            <div
+              id="jobs-posted"
+              class="jobs-filters"
+              role="group"
+              aria-label="Filter by date posted"
+            >
+              <button type="button" class="jobs-filter-btn is-active" data-posted="all" aria-pressed="true">Any time</button>
+              <button type="button" class="jobs-filter-btn" data-posted="today" aria-pressed="false">Today</button>
+              <button type="button" class="jobs-filter-btn" data-posted="week" aria-pressed="false">This week</button>
+              <button type="button" class="jobs-filter-btn" data-posted="month" aria-pressed="false">This month</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
             <p class="jobs-filter-caption">Category</p>
             <div id="jobs-tags" class="jobs-tags" role="group" aria-label="Filter by category"></div>
           </div>
@@ -340,6 +370,7 @@
             <span id="jobs-filter-fab-count" class="ej-fab-count" hidden>0</span>
           </button>
         </div>
+        <div id="jobs-active-chips" class="ej-active-chips" hidden aria-label="Active filters" role="list"></div>
         <div id="jobs-grid" class="jobs-grid"></div>
         <p id="jobs-empty" class="jobs-empty glass" hidden>
           No listings match — check back soon or follow our
@@ -556,7 +587,7 @@
     <script src="/js/site.js?v=20260916nav2" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script src="/data/jobs-data.js?v=20260930a" defer></script>
-    <script src="/js/jobs.js?v=20260929h" defer></script>
+    <script src="/js/jobs.js?v=20260930a" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

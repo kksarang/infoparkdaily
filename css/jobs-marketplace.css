@@ -2910,3 +2910,104 @@ body.jobs-marketplace .jobs-load-more-wrap {
   }
 }
 .jobs-portfolio-promo a{text-decoration:underline;text-underline-offset:3px}
+
+/* ===== Park filter button colors ===== */
+body.jobs-marketplace .jobs-filter-btn--infopark {
+  border-color: #16a34a;
+  color: #16a34a;
+}
+body.jobs-marketplace .jobs-filter-btn--infopark.is-active {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+body.jobs-marketplace .jobs-filter-btn--technopark {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+body.jobs-marketplace .jobs-filter-btn--technopark.is-active {
+  background: #7c3aed;
+  color: #fff;
+  border-color: #7c3aed;
+}
+body.jobs-marketplace .jobs-filter-btn--cyberpark {
+  border-color: #0891b2;
+  color: #0891b2;
+}
+body.jobs-marketplace .jobs-filter-btn--cyberpark.is-active {
+  background: #0891b2;
+  color: #fff;
+  border-color: #0891b2;
+}
+
+/* ===== Active filter chips strip ===== */
+body.jobs-marketplace .ej-active-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.5rem 0 0.75rem;
+  min-height: 0;
+}
+body.jobs-marketplace .ej-active-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.7rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--ej-blue);
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--ej-blue);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 1.3;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+body.jobs-marketplace .ej-active-chip:hover {
+  background: rgba(59, 130, 246, 0.2);
+}
+body.jobs-marketplace .ej-active-chip--clear-all {
+  border-color: var(--ej-muted);
+  background: transparent;
+  color: var(--ej-muted);
+}
+body.jobs-marketplace .ej-active-chip--clear-all:hover {
+  border-color: var(--ej-ink);
+  color: var(--ej-ink);
+  background: transparent;
+}
+
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--infopark,
+body.jobs-marketplace.dark .jobs-filter-btn--infopark {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--infopark.is-active,
+body.jobs-marketplace.dark .jobs-filter-btn--infopark.is-active {
+  background: #16a34a;
+  color: #fff;
+  border-color: #16a34a;
+}
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--technopark,
+body.jobs-marketplace.dark .jobs-filter-btn--technopark {
+  border-color: #a78bfa;
+  color: #a78bfa;
+}
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--technopark.is-active,
+body.jobs-marketplace.dark .jobs-filter-btn--technopark.is-active {
+  background: #7c3aed;
+  color: #fff;
+  border-color: #7c3aed;
+}
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--cyberpark,
+body.jobs-marketplace.dark .jobs-filter-btn--cyberpark {
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+html.theme-dark body.jobs-marketplace .jobs-filter-btn--cyberpark.is-active,
+body.jobs-marketplace.dark .jobs-filter-btn--cyberpark.is-active {
+  background: #0891b2;
+  color: #fff;
+  border-color: #0891b2;
+}
