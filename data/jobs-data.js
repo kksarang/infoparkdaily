@@ -2242,7 +2242,6 @@ var JOBS = [
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/25777"},
   },
   {
-  {
     id: "sky-ocean-shipping-videographer-digital-marketing-walkin-calicut-01oct2026",
     company: "Sky Ocean Shipping",
     logo: "",
