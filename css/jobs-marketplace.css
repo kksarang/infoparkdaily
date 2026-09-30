@@ -221,7 +221,8 @@ body.jobs-marketplace.dark .ej-search-bar .jobs-sort {
   margin-top: 0.9rem;
 }
 
-.ej-hero-links a {
+.ej-hero-links a,
+.ej-hero-park-btn {
   text-decoration: none;
   font-size: 0.82rem;
   font-weight: 650;
@@ -230,10 +231,33 @@ body.jobs-marketplace.dark .ej-search-bar .jobs-sort {
   border-radius: 999px;
   background: #fff;
   border: 1px solid var(--ej-line);
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.ej-hero-park-btn:hover {
+  border-color: var(--ej-blue);
+}
+.ej-hero-park-btn[data-hero-park="infopark"].is-active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+.ej-hero-park-btn[data-hero-park="technopark"].is-active {
+  background: #7c3aed;
+  border-color: #7c3aed;
+  color: #fff;
+}
+.ej-hero-park-btn[data-hero-park="cyberpark"].is-active {
+  background: #0891b2;
+  border-color: #0891b2;
+  color: #fff;
 }
 
 html.theme-dark body.jobs-marketplace .ej-hero-links a,
-body.jobs-marketplace.dark .ej-hero-links a {
+body.jobs-marketplace.dark .ej-hero-links a,
+html.theme-dark body.jobs-marketplace .ej-hero-park-btn,
+body.jobs-marketplace.dark .ej-hero-park-btn {
   background: var(--surface);
   border-color: var(--line);
   color: var(--accent);

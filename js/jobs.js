@@ -1386,6 +1386,7 @@
     syncGroup(tagBar, "tag", "all");
     syncGroup(parkBar, "park", "all");
     syncGroup(postedBar, "posted", "all");
+    syncHeroParkButtons();
 
     resetVisibleAndRender();
   }
@@ -1460,7 +1461,34 @@
   });
   bindChipGroup(statusBar, "status", (value) => (activeStatus = value));
   bindChipGroup(tagBar, "tag", (value) => (activeTag = value));
-  bindChipGroup(parkBar, "park", (value) => (activePark = value));
+  const heroParkBtns = document.querySelectorAll("[data-hero-park]");
+
+  function syncHeroParkButtons() {
+    heroParkBtns.forEach(btn => {
+      const on = btn.dataset.heroPark === activePark;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  heroParkBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const park = btn.dataset.heroPark;
+      activePark = activePark === park ? "all" : park;
+      if (parkBar) {
+        parkBar.querySelectorAll("[data-park]").forEach(b => {
+          const on = b.dataset.park === activePark;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+      syncHeroParkButtons();
+      document.getElementById("job-listings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      resetVisibleAndRender();
+    });
+  });
+
+  bindChipGroup(parkBar, "park", (value) => { activePark = value; syncHeroParkButtons(); });
   bindChipGroup(postedBar, "posted", (value) => (activePosted = value));
 
   if (searchInput) {
@@ -1587,6 +1615,7 @@
   buildLocationBrowse();
   buildCompanyOptions();
   applyFiltersFromUrl();
+  syncHeroParkButtons();
   if (locationSelect && defaultLocation !== "all" && !new URLSearchParams(window.location.search).get("location")) {
     locationSelect.value = defaultLocation;
     activeLocation = defaultLocation;
