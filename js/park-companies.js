@@ -106,9 +106,8 @@
   }
 
   function card(c) {
-    const profile = `/company/${encodeURIComponent(c.slug)}/`;
-    const jobsHref = c.jobsUrl || `/jobs/?company=${encodeURIComponent(c.slug)}`;
-    const jobsExternal = /^https?:\/\//i.test(c.jobsUrl || "");
+    const profileHref = c.website || "";
+    const jobsHref = c.jobsUrl || "";
     const domains = (c.domains || []).filter(Boolean).slice(0, 4);
     const mark = initials(c.name);
     const site = displaySite(c.website);
@@ -117,9 +116,24 @@
       ? `<img src="${escapeAttr(c.logo)}" alt="" width="56" height="56" loading="lazy" />`
       : `<span>${escapeHtml(mark)}</span>`;
 
+    const mainEl = profileHref
+      ? `<a class="co-row-main" href="${escapeAttr(profileHref)}" target="_blank" rel="noopener noreferrer">`
+      : `<div class="co-row-main">`;
+    const mainClose = profileHref ? `</a>` : `</div>`;
+
+    const profileBtn = profileHref
+      ? `<a class="co-row-btn" href="${escapeAttr(profileHref)}" target="_blank" rel="noopener noreferrer">Website</a>`
+      : "";
+    const jobsBtn = jobsHref
+      ? `<a class="co-row-btn co-row-btn--accent" href="${escapeAttr(jobsHref)}" target="_blank" rel="noopener noreferrer">Jobs</a>`
+      : "";
+    const actions = (profileBtn || jobsBtn)
+      ? `<div class="co-row-actions">${profileBtn}${jobsBtn}</div>`
+      : "";
+
     return `
       <article class="co-row">
-        <a class="co-row-main" href="${escapeAttr(profile)}">
+        ${mainEl}
           <div class="co-row-logo">${logo}</div>
           <div class="co-row-copy">
             <h3>${escapeHtml(c.name)}</h3>
@@ -130,11 +144,8 @@
                 : ""
             }
           </div>
-        </a>
-        <div class="co-row-actions">
-          <a class="co-row-btn" href="${escapeAttr(profile)}">Profile</a>
-          <a class="co-row-btn co-row-btn--accent" href="${escapeAttr(jobsHref)}"${jobsExternal ? ' target="_blank" rel="noopener noreferrer"' : ""}>Jobs</a>
-        </div>
+        ${mainClose}
+        ${actions}
       </article>
     `;
   }
