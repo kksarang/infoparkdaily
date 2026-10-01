@@ -133353,11 +133353,11 @@ var JOBS = [
     experience: "experienced",
     experienceRange: "1–2 years",
     employmentType: "Full-time",
-    applyLink: "https://www.ust.com/en/careers",
-    applyDeadline: "2026-10-10",
+    applyLink: "https://www.ust.com/en/jobsearch#jobid=65502",
+    applyDeadline: "",
     postedDate: "2026-09-25",
-    source: "Entri Jobs",
-    verified: false,
+    source: "UST Careers",
+    verified: true,
     verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: [
       "IT",
@@ -133397,8 +133397,8 @@ var JOBS = [
       "Close mandates and account records end to end"
     ],
     benefits: [],
-    howToApply: "Search 'Associate I - Data Analyst' on UST Careers: https://www.ust.com/en/careers",
-    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/associate-i-data-analyst-onboarding-and-event-management-at-ustglobal-in-kochi-d2cb5717-8d11-4d2a-b8f7-1dda1efb3e9b/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    howToApply: "Apply on the official UST job page (Job ID 65502): https://www.ust.com/en/jobsearch#jobid=65502",
+    hiringNotes: "Official UST listing, Job ID 65502. No closing date published — apply early and re-check the posting before applying.",
     description: "Data analyst role in UST's Kochi data team — account / portfolio onboarding for asset-management clients. 1–2 years experience.",
     startingDate: ""
   },
