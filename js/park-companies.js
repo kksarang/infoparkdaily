@@ -107,7 +107,6 @@
 
   function card(c) {
     const profileHref = c.website || "";
-    const jobsHref = c.jobsUrl || "";
     const domains = (c.domains || []).filter(Boolean).slice(0, 4);
     const mark = initials(c.name);
     const site = displaySite(c.website);
@@ -124,11 +123,8 @@
     const profileBtn = profileHref
       ? `<a class="co-row-btn" href="${escapeAttr(profileHref)}" target="_blank" rel="noopener noreferrer">Website</a>`
       : "";
-    const jobsBtn = jobsHref
-      ? `<a class="co-row-btn co-row-btn--accent" href="${escapeAttr(jobsHref)}" target="_blank" rel="noopener noreferrer">Jobs</a>`
-      : "";
-    const actions = (profileBtn || jobsBtn)
-      ? `<div class="co-row-actions">${profileBtn}${jobsBtn}</div>`
+    const actions = profileBtn
+      ? `<div class="co-row-actions">${profileBtn}</div>`
       : "";
 
     return `
