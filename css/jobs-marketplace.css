@@ -248,6 +248,22 @@ body.jobs-marketplace.dark .ej-search-bar .jobs-sort {
   background: #6d28d9 !important;
   border-color: #6d28d9 !important;
 }
+.jobs-sessions-promo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  flex-wrap: wrap;
+}
+.jobs-sessions-promo p {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
 .ej-hero-park-btn[data-hero-park="infopark"].is-active {
   background: #16a34a;
   border-color: #16a34a;
