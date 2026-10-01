@@ -3,38 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Infopark Kochi &amp; Kerala Tech Park News | InfoparkDaily</title>
+    <title>Live Sessions, Workshops &amp; Courses | InfoparkDaily Kerala</title>
     <meta
       name="description"
-      content="Latest Infopark Kochi and Kerala tech park news — campus updates, hiring stories, AI City, Metro progress, Technopark coverage, and Infopark Kakkanad events curated by InfoparkDaily."
+      content="Live sessions, workshops, bootcamps and training programs for Kerala's tech and business community — digital marketing, web dev, HR, finance and more. Curated by InfoparkDaily."
     />
     <meta
       name="keywords"
-      content="Infopark Kochi news, Kerala tech park news, Infopark Kakkanad updates, Technopark news, Kochi IT news, InfoparkDaily news"
+      content="live sessions Kerala, workshops Kochi, online classes Kerala, digital marketing course Kerala, tech training Infopark, InfoparkDaily sessions"
     />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0b0b0f" />
     <meta property="og:site_name" content="InfoparkDaily" />
     <meta property="og:locale" content="en_IN" />
-    <meta property="og:title" content="Infopark Kochi & Kerala Tech Park News | InfoparkDaily" />
+    <meta property="og:title" content="Live Sessions, Workshops &amp; Courses | InfoparkDaily" />
     <meta
       property="og:description"
-      content="Campus updates, hiring stories, and Kerala tech park coverage from Infopark Kochi — curated daily."
+      content="Live classes, workshops and training programs for Kerala's tech and business community — curated by InfoparkDaily."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://infoparkdaily.online/news/" />
+    <meta property="og:url" content="https://infoparkdaily.online/sessions/" />
     <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Infopark Kochi & Kerala Tech Park News" />
+    <meta name="twitter:title" content="Live Sessions, Workshops &amp; Courses | InfoparkDaily" />
     <meta
       name="twitter:description"
-      content="Infopark, Technopark, and Kochi IT news curated by InfoparkDaily."
+      content="Live classes and training programs for Kerala professionals — curated by InfoparkDaily."
     />
     <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
-    <link rel="canonical" href="https://infoparkdaily.online/news/" />
+    <link rel="canonical" href="https://infoparkdaily.online/sessions/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <script>
+    <script>
       (function () {
         var light = false;
         try {
@@ -69,10 +69,63 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-
     <link rel="stylesheet" href="/css/styles.css?v=20260916note" />
     <link rel="stylesheet" href="/css/product-theme.css?v=20260905c" />
-    
+    <style>
+      .sessions-page { --accent-sessions: #7c3aed; }
+      .session-card {
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        padding: 1.25rem 1.5rem;
+        border-radius: 14px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform .18s, box-shadow .18s;
+      }
+      .session-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+      .sessions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem;
+      }
+      .session-top { display: flex; align-items: flex-start; justify-content: space-between; gap: .5rem; }
+      .session-organizer { font-size: .78rem; font-weight: 600; opacity: .65; letter-spacing: .03em; text-transform: uppercase; }
+      .session-title { font-size: 1.05rem; font-weight: 700; line-height: 1.35; margin: .2rem 0 0; }
+      .session-summary { font-size: .875rem; opacity: .8; line-height: 1.5; }
+      .session-meta { display: flex; flex-wrap: wrap; gap: .4rem .6rem; margin-top: .25rem; }
+      .session-badge {
+        font-size: .7rem; font-weight: 700; letter-spacing: .04em; padding: .2em .65em;
+        border-radius: 100px; text-transform: uppercase;
+      }
+      .session-badge--cat { background: rgba(124,58,237,.15); color: #a78bfa; border: 1px solid rgba(124,58,237,.3); }
+      .session-badge--free { background: rgba(16,185,129,.15); color: #34d399; border: 1px solid rgba(16,185,129,.3); }
+      .session-badge--paid { background: rgba(245,158,11,.12); color: #fbbf24; border: 1px solid rgba(245,158,11,.28); }
+      .session-badge--partial { background: rgba(59,130,246,.12); color: #60a5fa; border: 1px solid rgba(59,130,246,.28); }
+      .session-badge--mode { background: rgba(255,255,255,.07); color: inherit; border: 1px solid rgba(255,255,255,.12); }
+      .session-badge--new { background: rgba(239,68,68,.15); color: #f87171; border: 1px solid rgba(239,68,68,.3); }
+      .session-cta { font-size: .82rem; font-weight: 600; color: var(--accent-sessions, #7c3aed); margin-top: auto; padding-top: .25rem; }
+      .session-date-row { font-size: .8rem; opacity: .6; display: flex; align-items: center; gap: .4rem; }
+      .sessions-hero-accent { color: var(--accent-sessions, #7c3aed); display: block; }
+      .sessions-empty { text-align: center; padding: 3rem 1rem; opacity: .6; }
+      .sessions-featured {
+        padding: 1.5rem;
+        border-radius: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform .18s, box-shadow .18s;
+        margin-bottom: .5rem;
+      }
+      .sessions-featured:hover { transform: translateY(-3px); box-shadow: 0 8px 40px rgba(0,0,0,.3); }
+      .sessions-featured .session-title { font-size: 1.4rem; }
+      body.light .session-badge--mode { background: rgba(0,0,0,.06); color: inherit; border-color: rgba(0,0,0,.12); }
+      @media (min-width: 700px) {
+        .sessions-featured { grid-template-columns: 1fr 1fr; align-items: center; }
+      }
+    </style>
   </head>
   <body class="jobs-body news-body dark">
     <script>
@@ -92,12 +145,12 @@
           <p class="brand-tagline">Kerala's Largest Tech &amp; Business Community</p>
         </div>
       </a>
-    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
         <details class="nav-recruit"><summary>Recruit <span aria-hidden="true">⌄</span></summary><div class="nav-about-links"><a href="/recruit/">Post a hiring request <span>Community board</span></a><a href="/infoparkdaily/">InfoparkDaily <span>Hiring &amp; talent</span></a></div></details>
         <a href="/jobs/">Jobs</a>
         <a href="/resume-builder/">Career Tools</a>
-        <a href="/news/" aria-current="page">News</a>
-        <a href="/sessions/">Sessions</a>
+        <a href="/news/">News</a>
+        <a href="/sessions/" aria-current="page">Sessions</a>
         <a href="/services/">Services</a>
         <a href="/media/">About Us</a>
         <a href="/contact/">Contact</a>
@@ -120,69 +173,47 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page news-page">
-      <section class="jobs-hero" aria-labelledby="news-hero-title">
+    <main id="main-content" class="jobs-page news-page sessions-page">
+      <section class="jobs-hero" aria-labelledby="sessions-hero-title">
         <div class="jobs-hero-glow" aria-hidden="true"></div>
         <div class="jobs-hero-copy">
-          <p class="jobs-kicker">News Desk · Kerala Tech Parks</p>
-          <h1 id="news-hero-title">
-            Tech Park News
-            <span class="jobs-hero-accent">Infopark &amp; Beyond</span>
+          <p class="jobs-kicker">Live Sessions · Workshops · Courses</p>
+          <h1 id="sessions-hero-title">
+            Upskill &amp; Grow
+            <span class="sessions-hero-accent">Free &amp; Paid Programmes</span>
           </h1>
           <p class="jobs-intro">
-            Infopark Phase 3, AI City, Kochi Metro progress, campus events, and Technopark updates —
-            curated by InfoparkDaily. Stories are community reports — always verify with official sources.
+            Live classes, bootcamps, workshops and short courses for Kerala's tech and business community —
+            digital marketing, web dev, AI, HR, finance and more. Curated by InfoparkDaily.
           </p>
         </div>
-        <aside class="jobs-hero-panel glass" aria-label="News alerts">
-          <p class="jobs-panel-label">Breaking updates first</p>
+        <aside class="jobs-hero-panel glass" aria-label="Sessions alerts">
+          <p class="jobs-panel-label">Get updates first</p>
           <div class="media-hero-actions">
             <a class="btn btn-primary" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
             <a class="btn btn-secondary" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
-          <p class="jobs-panel-note">Community-curated · Verify with official sources</p>
+          <p class="jobs-panel-note">Community-curated · Verify with organiser before joining</p>
         </aside>
       </section>
 
-      <section class="content-section news-controls-section" aria-label="News filters">
-        <div id="news-filters" class="jobs-filters news-filters" role="group" aria-label="Filter by category">
-          <button type="button" class="jobs-filter-btn is-active" data-category="all" aria-pressed="true">All news</button>
+      <section class="content-section news-controls-section" aria-label="Session filters">
+        <div id="sessions-filters" class="jobs-filters news-filters" role="group" aria-label="Filter by category">
+          <button type="button" class="jobs-filter-btn is-active" data-category="all" aria-pressed="true">All sessions</button>
         </div>
       </section>
 
-      <section class="content-section" aria-label="Featured story">
-        <div id="news-featured"></div>
+      <section class="content-section" aria-label="Featured session">
+        <div id="sessions-featured"></div>
       </section>
 
-      <section class="content-section" aria-label="Latest stories">
-        <div id="news-grid" class="news-grid"></div>
-        <p id="news-empty" class="jobs-empty glass" hidden>
-          No stories in this category yet — follow our
+      <section class="content-section" aria-label="All sessions">
+        <div id="sessions-grid" class="sessions-grid"></div>
+        <p id="sessions-empty" class="sessions-empty" hidden>
+          No sessions in this category yet — follow our
           <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
-          for instant updates.
+          for the latest programmes.
         </p>
-      </section>
-
-      <section class="content-section home-guides" aria-labelledby="news-guides-title">
-        <div class="section-heading">
-          <p class="eyebrow">Related guides</p>
-          <h2 id="news-guides-title">Career guides for Kerala IT parks</h2>
-          <p>Pair campus news with practical apply and safety advice.</p>
-        </div>
-        <div class="home-guides-grid">
-          <a href="/guides/kerala-it-hiring-this-week/">
-            <strong>Hiring this week</strong>
-            <span>Weekly editorial on Infopark &amp; Technopark hiring themes.</span>
-          </a>
-          <a href="/guides/how-to-apply-infopark-technopark-jobs/">
-            <strong>How to apply</strong>
-            <span>Process guide for park portal openings.</span>
-          </a>
-          <a href="/guides/verify-jobs-before-you-apply/">
-            <strong>Verify before you apply</strong>
-            <span>Stay safe when sharing documents or attending walk-ins.</span>
-          </a>
-        </div>
       </section>
     </main>
 
@@ -216,10 +247,6 @@
             <span>Visit</span>
             Thapasya Rd, Infopark Campus, Kakkanad, Kochi, Kerala
           </p>
-          <p class="footer-contact-item">
-            <span>More</span>
-            <a href="/contact/">Open full contact page →</a>
-          </p>
         </div>
         <div class="contact-map footer-map" aria-label="Infopark location map">
           <iframe
@@ -233,13 +260,8 @@
       <nav class="footer-links" aria-label="Social links">
         <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://www.instagram.com/infoparkdaily.jobs/" target="_blank" rel="noopener noreferrer">Jobs Instagram</a>
-        <a href="https://www.instagram.com/infoparkdaily.media/" target="_blank" rel="noopener noreferrer">Media Instagram</a>
-        <a href="https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/" target="_blank" rel="noopener noreferrer">Instagram Broadcast</a>
         <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp Channel</a>
-        <a href="https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB" target="_blank" rel="noopener noreferrer">WhatsApp Group</a>
         <a href="https://www.facebook.com/profile.php?id=61590569168309" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.threads.com/@infoparkdaily?xmt=AQG0aYegSoxHpGC0TH1CGPfl10rG8Z2i_3_m0DlrFvlGbUU" target="_blank" rel="noopener noreferrer">Threads</a>
-        <a href="https://www.instagram.com/enitexa/" target="_blank" rel="noopener noreferrer">Enitexa Instagram</a>
       </nav>
       <div class="footer-bottom">
         <p class="copyright">&copy; <span id="year"></span> Enitexa.ai. All rights reserved.</p>
@@ -248,13 +270,9 @@
           <span aria-hidden="true">·</span>
           <a href="/terms/">Terms &amp; Conditions</a>
           <span aria-hidden="true">·</span>
-          <a href="/privacy/#disclaimer">Disclaimer</a>
-          <span aria-hidden="true">·</span>
           <a href="/media/">About Us</a>
           <span aria-hidden="true">·</span>
           <a href="/contact/">Contact</a>
-          <span aria-hidden="true">·</span>
-          <a href="/guides/">Guides</a>
         </p>
         <p class="footer-credit">
           Made with <span aria-hidden="true">&#10084;</span>
@@ -263,11 +281,9 @@
       </div>
     </footer>
 
-    <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20260916nav2" defer></script>
-    <script src="/js/ads.js?v=20260805a" defer></script>
-    <script src="/data/news-data.js?v=20260905a" defer></script>
-    <script src="/js/news.js?v=20260805x" defer></script>
+    <script src="/data/sessions-data.js?v=20261001a" defer></script>
+    <script src="/js/sessions.js?v=20261001a" defer></script>
   </body>
 </html>
