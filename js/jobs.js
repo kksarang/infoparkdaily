@@ -24,6 +24,7 @@
   const statClosing = document.getElementById("stat-closing");
   const parkBar = document.getElementById("jobs-park");
   const postedBar = document.getElementById("jobs-posted");
+  const cityBar = document.getElementById("jobs-city");
   const activeChipsEl = document.getElementById("jobs-active-chips");
 
   if (!grid || typeof JOBS === "undefined") return;
@@ -63,6 +64,7 @@
   let sortMode = "newest";
   let activePark = "all";
   let activePosted = "all";
+  let activeCity = "all";
   let visibleCount = PAGE_SIZE;
   /** @type {{ key: string, label: string, count: number }[]} */
   let companyCatalog = [];
@@ -336,6 +338,52 @@
     return true;
   }
 
+  const CITY_PATTERNS = {
+    kochi: /kochi|cochin|ernakulam|kakkanad|edappally|vyttila|aluva|kalamassery|thripunithura|tripunithura|perumbavoor|angamaly|vaduthala|ponnurunni|palarivattom|smartcity/,
+    trivandrum: /trivandrum|thiruvananthapuram|technopark|kazhakoottam|kazhakkoottam|karyavattom|eanchakkal|technocity|\btvm\b/,
+    kozhikode: /kozhikode|calicut|cyberpark/,
+    thrissur: /thrissur|koratty/,
+    kannur: /kannur/,
+    bangalore: /bangalore|bengaluru/,
+    chennai: /chennai/,
+    hyderabad: /hyderabad/,
+    pune: /\bpune\b/,
+    mumbai: /mumbai|powai/
+  };
+  const CITY_LABELS = {
+    kochi: "Kochi", trivandrum: "Trivandrum", kozhikode: "Kozhikode", thrissur: "Thrissur", kannur: "Kannur",
+    bangalore: "Bangalore", chennai: "Chennai", hyderabad: "Hyderabad", pune: "Pune", mumbai: "Mumbai"
+  };
+
+  function cityTextMatches(text, city) {
+    if (CITY_PATTERNS[city].test(text)) return true;
+    // Infopark is Kochi unless the listing is for Infopark Thrissur (Koratty)
+    return city === "kochi" && text.includes("infopark") && !/thrissur|koratty/.test(text);
+  }
+
+  function jobInCity(job, city) {
+    const loc = String(job.location || "").toLowerCase();
+    if (Object.keys(CITY_PATTERNS).some((c) => cityTextMatches(loc, c))) return cityTextMatches(loc, city);
+    // Address often lists every company office, so only use it when the location names no city
+    return cityTextMatches(String(job.address || "").toLowerCase(), city);
+  }
+
+  function matchesCity(job) {
+    if (activeCity === "all" || !CITY_PATTERNS[activeCity]) return true;
+    return jobInCity(job, activeCity);
+  }
+
+  function buildCityCounts() {
+    if (!cityBar) return;
+    const open = parkJobs(JOBS).filter((job) => deadlineStatus(job) !== "expired");
+    cityBar.querySelectorAll("[data-city]").forEach((btn) => {
+      const city = btn.dataset.city;
+      if (!CITY_PATTERNS[city]) return;
+      const n = open.filter((job) => jobInCity(job, city)).length;
+      btn.textContent = `${CITY_LABELS[city]} (${n})`;
+    });
+  }
+
   function matchesPosted(job) {
     if (activePosted === "all") return true;
     const posted = parseIso(job.postedDate);
@@ -393,6 +441,7 @@
     if (searchQuery) params.set("q", searchQuery);
     if (activePark !== "all") params.set("park", activePark);
     if (activePosted !== "all") params.set("posted", activePosted);
+    if (activeCity !== "all") params.set("city", activeCity);
 
     const qs = params.toString();
     const path = window.location.pathname || "/jobs/";
@@ -419,6 +468,7 @@
       const qParam = (params.get("q") || "").trim();
       const parkParam = (params.get("park") || "").trim().toLowerCase();
       const postedParam = (params.get("posted") || "").trim().toLowerCase();
+      const cityParam = (params.get("city") || "").trim().toLowerCase();
 
       if (companyParam) {
         const match = companyCatalog.find((item) => {
@@ -464,6 +514,7 @@
       if (tagParam) activeTag = tagParam;
       if (parkParam && ["infopark", "technopark", "cyberpark"].includes(parkParam)) activePark = parkParam;
       if (postedParam && ["today", "week", "month"].includes(postedParam)) activePosted = postedParam;
+      if (cityParam && CITY_PATTERNS[cityParam]) activeCity = cityParam;
       if (sortParam) {
         sortMode = sortParam;
         if (sortSelect) sortSelect.value = sortParam;
@@ -486,6 +537,7 @@
       syncGroup(tagBar, "tag", activeTag);
       syncGroup(parkBar, "park", activePark);
       syncGroup(postedBar, "posted", activePosted);
+      syncGroup(cityBar, "city", activeCity);
     } catch (_e) {
       /* ignore bad query */
     }
@@ -550,6 +602,7 @@
         matchesCompany(job) &&
         matchesSearch(job) &&
         matchesPark(job) &&
+        matchesCity(job) &&
         matchesPosted(job)
     );
 
@@ -915,7 +968,8 @@
       searchQuery !== "" ||
       sortMode !== "newest" ||
       activePark !== "all" ||
-      activePosted !== "all"
+      activePosted !== "all" ||
+      activeCity !== "all"
     );
   }
 
@@ -1073,7 +1127,8 @@
         Boolean(companyQuery),
         Boolean(searchQuery),
         activePark !== "all",
-        activePosted !== "all"
+        activePosted !== "all",
+        activeCity !== "all"
       ].filter(Boolean).length;
       const filterCount = document.getElementById("jobs-filter-count");
       if (filterCount) filterCount.textContent = `${n} filter${n === 1 ? "" : "s"} applied`;
@@ -1368,6 +1423,7 @@
     sortMode = "newest";
     activePark = "all";
     activePosted = "all";
+    activeCity = "all";
     clearCompanyFilter();
 
     if (searchInput) searchInput.value = "";
@@ -1387,6 +1443,7 @@
     syncGroup(tagBar, "tag", "all");
     syncGroup(parkBar, "park", "all");
     syncGroup(postedBar, "posted", "all");
+    syncGroup(cityBar, "city", "all");
     syncHeroParkButtons();
 
     resetVisibleAndRender();
@@ -1400,6 +1457,7 @@
     const chips = [];
     if (activePark !== "all") chips.push({ key: "park", label: `Park: ${parkLabels[activePark] || activePark}` });
     if (activePosted !== "all") chips.push({ key: "posted", label: `Posted: ${postedLabels[activePosted] || activePosted}` });
+    if (activeCity !== "all") chips.push({ key: "city", label: `City: ${CITY_LABELS[activeCity] || activeCity}` });
     if (activeFilter !== "all") chips.push({ key: "filter", label: filterLabels[activeFilter] || activeFilter });
     if (activeTag !== "all") chips.push({ key: "tag", label: `Category: ${activeTag}` });
     if (activeLocation !== "all") chips.push({ key: "location", label: activeLocation });
@@ -1424,6 +1482,7 @@
     const clearActions = {
       park: () => { activePark = "all"; syncSidebar(parkBar, "park", "all"); },
       posted: () => { activePosted = "all"; syncSidebar(postedBar, "posted", "all"); },
+      city: () => { activeCity = "all"; syncSidebar(cityBar, "city", "all"); },
       filter: () => { activeFilter = "all"; syncFilterChip("all"); },
       tag: () => { activeTag = "all"; syncSidebar(tagBar, "tag", "all"); },
       location: () => { activeLocation = defaultLocation; if (locationSelect) locationSelect.value = defaultLocation; },
@@ -1491,6 +1550,7 @@
 
   bindChipGroup(parkBar, "park", (value) => { activePark = value; syncHeroParkButtons(); });
   bindChipGroup(postedBar, "posted", (value) => (activePosted = value));
+  bindChipGroup(cityBar, "city", (value) => (activeCity = value));
 
   if (searchInput) {
     let searchTimer = 0;
@@ -1608,6 +1668,7 @@
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
+  buildCityCounts();
   if (locationSelect && defaultLocation !== "all") {
     locationSelect.value = defaultLocation;
     activeLocation = defaultLocation;
