@@ -132525,4 +132525,3315 @@ var JOBS = [
       identifier: "techwarelab"
     }
   }
+,
+  {
+    id: "conduent-kochi-transaction-processing-associate-1",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Entry-level non-voice transaction processing role at Conduent Kochi — freshers (0–1 yr) can apply. Multiple openings, rotational shifts.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Transaction Processing Associate I"
+    ],
+    experience: "fresher",
+    experienceRange: "0–1 year (Fresher)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25917",
+    applyDeadline: "",
+    postedDate: "2026-09-15",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "BPO",
+      "Non IT",
+      "Operations",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Non-voice back-office role: receive, classify and process client documents (electronic and hard copy), capture data per client rules and verify output from automated extraction tools. 16 openings (Job IDs 25917, 25997, 25706, 25271, 25252, 25254, 25269, 25268, 25272, 25270, 25250, 25274, 25275, 25273, 25156, 24937).",
+    workStatus: "Full-time (regular & temporary openings)",
+    workMode: "On-site · Kochi",
+    experienceYears: "0–1 year (Fresher)",
+    skills: [
+      "Data entry",
+      "Typing speed & accuracy",
+      "Document processing",
+      "Data verification",
+      "Communication"
+    ],
+    requirements: [
+      "0 to 1 year of experience — freshers can apply",
+      "Good typing skill with accuracy",
+      "Good analytical and reasoning skills",
+      "Good verbal and written communication",
+      "Willing to work rotational / night shifts"
+    ],
+    responsibilities: [
+      "Receive, process and classify documents and transmit them to clients",
+      "Sort, image, file and archive documents by form type",
+      "Capture information based on client requirements",
+      "Verify data from automated data extraction tools",
+      "Ensure processed data is sent to the next level"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25917. Other openings for this role: https://careers.conduent.com/us/en/job/25997 , https://careers.conduent.com/us/en/job/25706 , https://careers.conduent.com/us/en/job/25271 , https://careers.conduent.com/us/en/job/25252 , https://careers.conduent.com/us/en/job/25254 , https://careers.conduent.com/us/en/job/25269 , https://careers.conduent.com/us/en/job/25268 , https://careers.conduent.com/us/en/job/25272 , https://careers.conduent.com/us/en/job/25270 , https://careers.conduent.com/us/en/job/25250 , https://careers.conduent.com/us/en/job/25274 , https://careers.conduent.com/us/en/job/25275 , https://careers.conduent.com/us/en/job/25273 , https://careers.conduent.com/us/en/job/25156 , https://careers.conduent.com/us/en/job/24937. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 16 openings (Job IDs 25917, 25997, 25706, 25271, 25252, 25254, 25269, 25268, 25272, 25270, 25250, 25274, 25275, 25273, 25156, 24937). No closing date published; apply early and re-check the posting before applying.",
+    description: "Entry-level non-voice transaction processing role at Conduent Kochi — freshers (0–1 yr) can apply. Multiple openings, rotational shifts.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-transaction-processing-associate-2",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Level II transaction processing role at Conduent Kochi for candidates with prior back-office experience.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Transaction Processing Associate II"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (Level II)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25023",
+    applyDeadline: "",
+    postedDate: "2026-08-06",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "BPO",
+      "Non IT",
+      "Operations"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Captures and validates complex data, pre-adjudicates documents, researches issues and verifies data across multiple source documents. Job ID 25023.",
+    workStatus: "Full-time (temporary)",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced (Level II)",
+    skills: [
+      "Data capture & validation",
+      "Document research",
+      "Attention to detail"
+    ],
+    requirements: [
+      "Prior transaction processing / back-office experience (Level II)",
+      "Ability to solve standard problems without supervisory approval",
+      "Good communication skills"
+    ],
+    responsibilities: [
+      "Capture and validate complex data",
+      "Pre-adjudicate documents and correct data",
+      "Research issues so information is ready for next steps",
+      "Verify data using multiple source documents",
+      "Follow up on pending research documents"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25023. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 25023. No closing date published; apply early and re-check the posting before applying.",
+    description: "Level II transaction processing role at Conduent Kochi for candidates with prior back-office experience.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-accounting-services-associate-1",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Fresher-friendly accounts role at Conduent Kochi for B.Com / Finance graduates (0–1 yr). Night shift, work from office. Multiple openings.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Accounting Services Associate I"
+    ],
+    experience: "fresher",
+    experienceRange: "0–1 year (Fresher)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/26151",
+    applyDeadline: "",
+    postedDate: "2026-09-25",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "BPO",
+      "Non IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "First-level accounting support in a BPO setup: process transactions, review and verify invoices and receipts, reconcile accounts and maintain financial records. 7 openings (Job IDs 26151, 26150, 26211, 26212, 26182, 26183, 25361).",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "0–1 year (Fresher)",
+    skills: [
+      "Accounting basics",
+      "Invoice processing",
+      "Reconciliation",
+      "MS Excel",
+      "SAP / Oracle (basic)"
+    ],
+    requirements: [
+      "Bachelor's degree in Commerce, Accounting or Finance",
+      "0 to 1 year of experience in accounting, finance, shared services or BPO",
+      "Basic understanding of accounting principles",
+      "Proficiency in MS Excel; familiarity with SAP / Oracle",
+      "Willingness to work night shifts and from office (WFO)"
+    ],
+    responsibilities: [
+      "Process accounting transactions accurately and on time",
+      "Review and verify invoices, receipts and supporting documents",
+      "Reconcile accounts and escalate discrepancies",
+      "Support daily and month-end accounting activities",
+      "Meet productivity and quality targets"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/26151. Other openings for this role: https://careers.conduent.com/us/en/job/26150 , https://careers.conduent.com/us/en/job/26211 , https://careers.conduent.com/us/en/job/26212 , https://careers.conduent.com/us/en/job/26182 , https://careers.conduent.com/us/en/job/26183 , https://careers.conduent.com/us/en/job/25361. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 7 openings (Job IDs 26151, 26150, 26211, 26212, 26182, 26183, 25361). No closing date published; apply early and re-check the posting before applying.",
+    description: "Fresher-friendly accounts role at Conduent Kochi for B.Com / Finance graduates (0–1 yr). Night shift, work from office. Multiple openings.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-accounting-services-associate-2",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Level II accounting services role at Conduent Kochi (AP / AR, ledger, reconciliations) for candidates with prior experience.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Accounting Services Associate II"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (Level II)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25422",
+    applyDeadline: "",
+    postedDate: "2026-09-03",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Accounting operations covering AP/AR transactions, vendor invoices and queries, ledger maintenance, reconciliations and financial reports. 2 openings (Job IDs 25422, 25488).",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced (Level II)",
+    skills: [
+      "Accounts payable / receivable",
+      "General ledger",
+      "Reconciliation",
+      "Financial reporting"
+    ],
+    requirements: [
+      "Prior accounting / finance operations experience (Level II)",
+      "Commerce / accounting background",
+      "Works with moderate supervision"
+    ],
+    responsibilities: [
+      "Prepare, verify and report AP / AR transactions",
+      "Pay vendor invoices and respond to vendor queries",
+      "Maintain general ledger and management reports",
+      "Prepare reconciliations and expense analyses"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25422. Other openings for this role: https://careers.conduent.com/us/en/job/25488. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 2 openings (Job IDs 25422, 25488). No closing date published; apply early and re-check the posting before applying.",
+    description: "Level II accounting services role at Conduent Kochi (AP / AR, ledger, reconciliations) for candidates with prior experience.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-accounting-services-associate-3",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Experienced (4–8 yrs) P2P / R2R accounting role at Conduent Kochi. Multiple openings.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Accounting Services Associate III"
+    ],
+    experience: "experienced",
+    experienceRange: "4–8 years (P2P / R2R)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25839",
+    applyDeadline: "",
+    postedDate: "2026-09-10",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Senior associate role across P2P and Record-to-Report: journal entries, ledger and intercompany reconciliations, vendor correspondence and KPI reporting. 3 openings (Job IDs 25839, 25423, 25359).",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "4–8 years (P2P / R2R)",
+    skills: [
+      "Procure-to-Pay (P2P)",
+      "Record-to-Report (R2R)",
+      "Journal entries",
+      "Reconciliation",
+      "Vendor management"
+    ],
+    requirements: [
+      "Bachelor's / Master's degree in Commerce, Accounting or Finance",
+      "4 to 8 years of RTP / S2P experience (for P2P openings)",
+      "Strong Procure-to-Pay process expertise",
+      "Comfortable with vendor email and phone correspondence"
+    ],
+    responsibilities: [
+      "Execute end-to-end P2P: invoices, vendor management, payment support",
+      "Prepare journal entries and reconcile ledger / sub-ledger accounts",
+      "Analyse monthly KPIs and recommend improvements",
+      "Guide junior team members and support quality checks"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25839. Other openings for this role: https://careers.conduent.com/us/en/job/25423 , https://careers.conduent.com/us/en/job/25359. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 3 openings (Job IDs 25839, 25423, 25359). No closing date published; apply early and re-check the posting before applying.",
+    description: "Experienced (4–8 yrs) P2P / R2R accounting role at Conduent Kochi. Multiple openings.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-accounting-services-associate-4",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Team-lead level accounting services role at Conduent Kochi for experienced finance professionals.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Accounting Services Associate IV"
+    ],
+    experience: "experienced",
+    experienceRange: "Team lead (Level IV)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25332",
+    applyDeadline: "",
+    postedDate: "2026-08-23",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Team-lead associate: reviews journal entries and classifications, builds reconciliation dashboards, supports audits and guides the quality team. Job ID 25332.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Team lead (Level IV)",
+    skills: [
+      "Journal entry review",
+      "Reconciliation",
+      "Audit support",
+      "Team leadership"
+    ],
+    requirements: [
+      "Senior accounting operations experience",
+      "Able to lead and allocate work to a team",
+      "Strong process documentation skills"
+    ],
+    responsibilities: [
+      "Review and verify journal entries and accounting classifications",
+      "Extract data for process / reconciliation dashboards",
+      "Support audits with records and documentation",
+      "Lead the team and guide quality verifiers"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25332. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 25332. No closing date published; apply early and re-check the posting before applying.",
+    description: "Team-lead level accounting services role at Conduent Kochi for experienced finance professionals.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-hr-solutions-services-associate-1",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Entry-level HR operations role at Conduent Kochi — suitable for freshers.",
+    location: "Kochi, Kerala",
+    roles: [
+      "HR Solutions Services Associate I"
+    ],
+    experience: "fresher",
+    experienceRange: "Entry level (Fresher)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25796",
+    applyDeadline: "",
+    postedDate: "2026-09-16",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "HR",
+      "BPO",
+      "Non IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Entry-level HR operations: maintain employee records, calculate final payments for exits / leave, coordinate offboarding and compile HR data. Job ID 25796.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Entry level (Fresher)",
+    skills: [
+      "Data entry",
+      "HR records",
+      "MS Excel",
+      "Attention to detail"
+    ],
+    requirements: [
+      "Entry-level role — limited prior training required",
+      "Basic understanding of HR processes",
+      "Good data entry accuracy"
+    ],
+    responsibilities: [
+      "Maintain employee records through data entry",
+      "Calculate outstanding payments on termination or leave",
+      "Coordinate asset return and access revocation for exits",
+      "Compile data for review and reporting"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25796. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 25796. No closing date published; apply early and re-check the posting before applying.",
+    description: "Entry-level HR operations role at Conduent Kochi — suitable for freshers.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-hr-solutions-services-associate-2",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Level II HR / recruitment operations role at Conduent Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "HR Solutions Services Associate II"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (Level II)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25795",
+    applyDeadline: "",
+    postedDate: "2026-09-18",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "HR",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Recruitment and onboarding operations: candidate records, recruiting event logistics, background screening and new-hire paperwork. Job ID 25795.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced (Level II)",
+    skills: [
+      "Recruitment operations",
+      "Pre-employment screening",
+      "Onboarding"
+    ],
+    requirements: [
+      "Prior HR / recruitment operations experience (Level II)",
+      "Good coordination and communication skills"
+    ],
+    responsibilities: [
+      "Manage recruitment records, online tests and travel expenses",
+      "Coordinate recruiting event logistics with vendors",
+      "Administer pre-employment screening checks",
+      "Prepare new hires for their first day"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25795. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 25795. No closing date published; apply early and re-check the posting before applying.",
+    description: "Level II HR / recruitment operations role at Conduent Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-hr-solutions-services-associate-3",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Experienced HR / benefits operations role at Conduent Kochi. Multiple openings.",
+    location: "Kochi, Kerala",
+    roles: [
+      "HR Solutions Services Associate III"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (Level III)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25792",
+    applyDeadline: "",
+    postedDate: "2026-09-18",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "HR",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Experienced HR services role covering benefit calculations and statements, open enrolment, relocation processing and offer letters. 2 openings (Job IDs 25792, 25789).",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced (Level III)",
+    skills: [
+      "Benefits administration",
+      "Relocation",
+      "Offer letters",
+      "HR operations"
+    ],
+    requirements: [
+      "Experience in HR / benefits operations (Level III)",
+      "Able to work with limited supervision and guide juniors"
+    ],
+    responsibilities: [
+      "Prepare benefit calculations, reports and year-end statements",
+      "Support benefit open enrolment and system testing",
+      "Process relocation documentation and payments",
+      "Prepare offer letters and terms"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25792. Other openings for this role: https://careers.conduent.com/us/en/job/25789. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 2 openings (Job IDs 25792, 25789). No closing date published; apply early and re-check the posting before applying.",
+    description: "Experienced HR / benefits operations role at Conduent Kochi. Multiple openings.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-quality-assurance-associate-2",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Process quality audit role at Conduent Kochi (BPO operations, not software QA). Multiple openings.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Quality Assurance Associate II"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced (Level II)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25533",
+    applyDeadline: "",
+    postedDate: "2026-09-22",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "QA",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Process quality role (not software testing): audits transaction work for errors, checks SLA performance, selects audit samples and coaches Level 1 auditors. 2 openings (Job IDs 25533, 25826).",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced (Level II)",
+    skills: [
+      "Process audit",
+      "Sampling",
+      "SLA monitoring",
+      "Reporting"
+    ],
+    requirements: [
+      "Prior BPO process / quality audit experience (Level II)",
+      "Understanding of sampling and SLA metrics"
+    ],
+    responsibilities: [
+      "Review work for errors and identify trends",
+      "Evaluate performance against contractual SLAs",
+      "Select correct samples for auditing",
+      "Coach Level 1 auditors; support SOC 1 audits"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25533. Other openings for this role: https://careers.conduent.com/us/en/job/25826. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — 2 openings (Job IDs 25533, 25826). No closing date published; apply early and re-check the posting before applying.",
+    description: "Process quality audit role at Conduent Kochi (BPO operations, not software QA). Multiple openings.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-senior-finance-analyst",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Experienced finance analyst role at Conduent Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior Finance Analyst"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/22070",
+    applyDeadline: "",
+    postedDate: "2026-05-26",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "FP&A-style role: analyse financial data against forecast / plan and support management with forecasting and ad hoc reporting. Job ID 22070.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced",
+    skills: [
+      "Financial analysis",
+      "Forecasting",
+      "Reporting"
+    ],
+    requirements: [
+      "College / university degree",
+      "Experience in financial analysis and forecasting"
+    ],
+    responsibilities: [
+      "Partner with management on forecasting decisions",
+      "Analyse financial data against forecast / plan",
+      "Prepare ad hoc reports and analysis"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/22070. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 22070. No closing date published; apply early and re-check the posting before applying.",
+    description: "Experienced finance analyst role at Conduent Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-senior-supervisor-accounting-services",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Supervisor-level accounting services role at Conduent Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior Supervisor, Accounting Services"
+    ],
+    experience: "experienced",
+    experienceRange: "Supervisor level",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/24973",
+    applyDeadline: "",
+    postedDate: "2026-09-03",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Supervises an accounting services team: owns review deliverables, checks expense and payment reports and leads the team day to day. Job ID 24973.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Supervisor level",
+    skills: [
+      "Team management",
+      "Expense review",
+      "Client communication"
+    ],
+    requirements: [
+      "Accounting operations experience with team supervision",
+      "Manages hiring, training and appraisals for 3+ employees"
+    ],
+    responsibilities: [
+      "Own single or multiple review deliverables",
+      "Review expense, payment and outstanding reports",
+      "Lead team members day to day",
+      "Work with clients and internal management on improvements"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/24973. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 24973. No closing date published; apply early and re-check the posting before applying.",
+    description: "Supervisor-level accounting services role at Conduent Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "conduent-kochi-senior-accounting-services-analyst",
+    company: "Conduent",
+    logo: "",
+    companyBlurb: "Senior (8+ yrs) finance transformation role at Conduent Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior Accounting Services Analyst"
+    ],
+    experience: "experienced",
+    experienceRange: "8+ years",
+    employmentType: "Full-time",
+    applyLink: "https://careers.conduent.com/us/en/job/25624",
+    applyDeadline: "",
+    postedDate: "2026-09-14",
+    source: "Conduent Careers",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Finance",
+      "Accounts",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.conduent.com",
+    address: "Conduent, Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Conduent is a Fortune 500 business process services company serving Fortune 100 clients and 500+ governments. Its Kochi, Kerala centre runs transaction processing, finance & accounting (P2P / R2R), HR services and quality operations.",
+    workDetails: "Process transformation & technology specialist driving automation and improvement across AP, AR, intercompany, master data and procurement operations. Job ID 25624.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "8+ years",
+    skills: [
+      "Finance transformation",
+      "SAP ECC / S/4HANA",
+      "Process mapping",
+      "Lean Six Sigma",
+      "AP / AR / Procurement"
+    ],
+    requirements: [
+      "Bachelor's in Finance, Accounting, Commerce or Business Administration",
+      "8+ years in finance operations / shared services / GBS / consulting",
+      "3+ years in finance transformation or automation",
+      "Experience with SAP ECC and/or S/4HANA"
+    ],
+    responsibilities: [
+      "Lead process transformation across finance and procurement",
+      "Design future-state processes and automation",
+      "Write requirements, process maps, SOPs and UAT plans",
+      "Drive Lean / Six Sigma adoption"
+    ],
+    benefits: [
+      "Fortune 500 employer",
+      "Structured training and process documentation",
+      "Career progression across Associate levels I–IV"
+    ],
+    howToApply: "Apply on Conduent Careers: https://careers.conduent.com/us/en/job/25624. All Kochi roles: https://careers.conduent.com/us/en/search-results?keywords=Kochi",
+    hiringNotes: "Verified on careers.conduent.com on 1 Oct 2026 — Job ID 25624. No closing date published; apply early and re-check the posting before applying.",
+    description: "Senior (8+ yrs) finance transformation role at Conduent Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "ust-kochi-associate-data-analyst-oct26",
+    company: "UST",
+    logo: "",
+    companyBlurb: "Data analyst role in UST's Kochi data team — account / portfolio onboarding for asset-management clients. 1–2 years experience.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Associate I - Data Analyst (Onboarding and Event Management)"
+    ],
+    experience: "experienced",
+    experienceRange: "1–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.ust.com/en/careers",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-25",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Finance",
+      "Operations"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.ust.com",
+    address: "Kochi, Kerala",
+    industry: "IT Services / Digital Transformation",
+    companyDetails: "UST — IT Services / Digital Transformation.",
+    workDetails: "Maintain accurate account, mandate and portfolio data across investment platforms (Aladdin and internal data masters), run data quality checks and handle onboarding / offboarding.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "1–2 years",
+    skills: [
+      "Data governance",
+      "Data quality",
+      "Asset management operations",
+      "Aladdin (preferred)",
+      "Attention to detail"
+    ],
+    requirements: [
+      "Bachelor's degree in Finance, Data Science, Economics or related field",
+      "1–2 years in data management or operations within financial services",
+      "Understanding of account onboarding data structures",
+      "Asset management experience and Aladdin knowledge preferred"
+    ],
+    responsibilities: [
+      "Configure mandates, portfolios and settlement instructions",
+      "Run data quality assurance across platforms",
+      "Set up custodians, brokers and counterparties",
+      "Resolve data quality exceptions",
+      "Close mandates and account records end to end"
+    ],
+    benefits: [],
+    howToApply: "Search 'Associate I - Data Analyst' on UST Careers: https://www.ust.com/en/careers",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/associate-i-data-analyst-onboarding-and-event-management-at-ustglobal-in-kochi-d2cb5717-8d11-4d2a-b8f7-1dda1efb3e9b/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Data analyst role in UST's Kochi data team — account / portfolio onboarding for asset-management clients. 1–2 years experience.",
+    startingDate: ""
+  },
+  {
+    id: "sutherland-kochi-associate-account-management-oct26",
+    company: "Sutherland",
+    logo: "",
+    companyBlurb: "Benefits administration / claims support role at Sutherland Kochi for candidates with 2+ years in health or life insurance claims.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Associate - Account Management (Benefits Support)"
+    ],
+    experience: "experienced",
+    experienceRange: "2+ years",
+    employmentType: "Full-time",
+    applyLink: "https://jobs.sutherlandglobal.com/",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-22",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "BPO",
+      "Non IT",
+      "Healthcare",
+      "Operations"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.sutherlandglobal.com",
+    address: "Kochi, Kerala",
+    industry: "Business Process Services",
+    companyDetails: "Sutherland — Business Process Services.",
+    workDetails: "Independently handle benefit administration — provider outreach, complex claim support and workflow exceptions — and mentor junior team members.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "2+ years",
+    skills: [
+      "Benefits administration",
+      "Claims processing",
+      "Healthcare operations",
+      "Communication"
+    ],
+    requirements: [
+      "Graduate in any discipline",
+      "2+ years in Health / Life Insurance, Disability Benefits or Claims Processing",
+      "Strong verbal and written communication",
+      "Comfortable working across multiple systems under deadlines"
+    ],
+    responsibilities: [
+      "Process complex benefit administration tasks and claims",
+      "Contact providers to close documentation gaps",
+      "Manage workflow exceptions within SLAs",
+      "Coach junior team members"
+    ],
+    benefits: [],
+    howToApply: "Search 'Associate - Account Management' (Kochi) on Sutherland Careers: https://jobs.sutherlandglobal.com/",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/associate-account-management-at-sutherland-in-kochi-ab7480bb-ec41-4f7b-bdc2-3ffc4536c110/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Benefits administration / claims support role at Sutherland Kochi for candidates with 2+ years in health or life insurance claims.",
+    startingDate: ""
+  },
+  {
+    id: "ey-gds-project-rise-intern-oct26",
+    company: "EY GDS",
+    logo: "",
+    companyBlurb: "EY GDS internship in Bengaluru supporting engagement teams with reporting, billing and documentation. For students and recent graduates.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "Project RISE - Learning Deployment Specialist Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Intern (students / recent graduates)",
+    employmentType: "Internship",
+    applyLink: "https://eyglobal.yello.co/jobs/5hVK1BeChlbcjalJ1R_3iw?locale=en",
+    applyDeadline: "2026-10-15",
+    postedDate: "2026-09-28",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Internship",
+      "Freshers",
+      "Operations"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.ey.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Professional Services",
+    companyDetails: "EY GDS — Professional Services.",
+    workDetails: "Support technical teams and engagement leads with operations, billing and invoicing, reports and dashboards, and documentation.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Intern (students / recent graduates)",
+    skills: [
+      "Reporting",
+      "Project coordination",
+      "MS Office",
+      "Communication"
+    ],
+    requirements: [
+      "Currently pursuing or recently completed UG / PG degree",
+      "Strong analytical and communication skills",
+      "Ability to multi-task and prioritise"
+    ],
+    responsibilities: [
+      "Provide admin and operational support to engagement teams",
+      "Assist with fees, billing, invoicing and budgets",
+      "Prepare reports and dashboards",
+      "Maintain project documentation"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://eyglobal.yello.co/jobs/5hVK1BeChlbcjalJ1R_3iw?locale=en",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/project-rise-learning-deployment-specialist-intern-at-ey-in-bengaluru-b8059d78-669e-4c84-b513-976607e542a9/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-15 is the aggregator's date, not an official deadline. EY routes this internship through college Training & Placement Officers — check with your TPO before applying. Re-check with the employer before applying.",
+    description: "EY GDS internship in Bengaluru supporting engagement teams with reporting, billing and documentation. For students and recent graduates.",
+    startingDate: ""
+  },
+  {
+    id: "pm-internship-scheme-2026-oct26",
+    company: "PM Internship Scheme (MCA, Govt. of India)",
+    logo: "",
+    companyBlurb: "Government of India internship scheme placing 18–25 year olds with leading companies for 6–9 months. Apply only on the official PMIS portal.",
+    location: "Pan India",
+    roles: [
+      "Prime Minister Internship Scheme 2026 Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Freshers · age 18–25",
+    employmentType: "Internship",
+    applyLink: "https://pminternship.mca.gov.in/",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-25",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Internship",
+      "Freshers",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://pminternship.mca.gov.in",
+    address: "Pan India",
+    industry: "Government programme",
+    companyDetails: "PM Internship Scheme (MCA, Govt. of India) — Government programme.",
+    workDetails: "6 or 9-month full-time internship with a host company across sectors, with structured training and live projects.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Freshers · age 18–25",
+    skills: [
+      "Teamwork",
+      "Communication",
+      "Willingness to learn"
+    ],
+    requirements: [
+      "Indian citizen aged 18–25",
+      "High school pass or enrolled in / completed undergraduate studies (check portal for exact eligibility)",
+      "Commitment to a 6 or 9-month full-time internship"
+    ],
+    responsibilities: [
+      "Join structured training at the host organisation",
+      "Work on live projects with professional teams",
+      "Document learning outcomes"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://pminternship.mca.gov.in/",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/prime-minister-internship-scheme-2026-intern-at-ministryofcorporateaffairsmca-in-any-location-a4d773cc-38d0-431b-8579-abd3518d0157/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Government of India internship scheme placing 18–25 year olds with leading companies for 6–9 months. Apply only on the official PMIS portal.",
+    startingDate: ""
+  },
+  {
+    id: "redhat-pune-software-engineering-intern-oct26",
+    company: "Red Hat",
+    logo: "",
+    companyBlurb: "Red Hat engineering internship in Pune for final-year CS / IT students — work on RHEL, OpenShift, Ansible and AI projects.",
+    location: "Pune, Maharashtra",
+    roles: [
+      "Software Engineering Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Final-year students",
+    employmentType: "Internship",
+    applyLink: "https://redhat.wd5.myworkdayjobs.com/Jobs?q=Software%20Engineering%20Intern",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-24",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.redhat.com",
+    address: "Pune, Maharashtra",
+    industry: "Open-source software",
+    companyDetails: "Red Hat — Open-source software.",
+    workDetails: "Join Red Hat's global engineering team, writing and debugging code for products like RHEL and OpenShift alongside a senior mentor.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Final-year students",
+    skills: [
+      "Python",
+      "Golang",
+      "Java",
+      "Git / GitHub",
+      "Linux"
+    ],
+    requirements: [
+      "Final year of B.E / B.Tech in CS, IT or equivalent",
+      "Basic knowledge of Python, Golang or similar",
+      "Good written and spoken English",
+      "Must not need visa sponsorship"
+    ],
+    responsibilities: [
+      "Write and maintain code in Python / Golang",
+      "Add features and debug issues in RHEL / OpenShift",
+      "Collaborate with QE, design and product teams"
+    ],
+    benefits: [],
+    howToApply: "Search 'Software Engineering Intern' (Pune) on Red Hat Careers: https://redhat.wd5.myworkdayjobs.com/Jobs?q=Software%20Engineering%20Intern",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/software-engineering-intern-at-redhat-in-pune-052c72f9-39d6-4473-872b-bebbe1a8c33d/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Red Hat engineering internship in Pune for final-year CS / IT students — work on RHEL, OpenShift, Ansible and AI projects.",
+    startingDate: ""
+  },
+  {
+    id: "hp-bengaluru-college-intern-technical-oct26",
+    company: "HP",
+    logo: "",
+    companyBlurb: "HP technical internship in Bengaluru for students currently enrolled in B.E / B.Tech or equivalent.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "College Intern - Technical"
+    ],
+    experience: "fresher",
+    experienceRange: "Currently enrolled students",
+    employmentType: "Internship",
+    applyLink: "https://hp.wd5.myworkdayjobs.com/ExternalCareerSite?q=College%20Intern",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-25",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.hp.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Technology hardware",
+    companyDetails: "HP — Technology hardware.",
+    workDetails: "Work on technical projects with HP mentors and cross-functional teams while continuing your degree.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Currently enrolled students",
+    skills: [
+      "Programming",
+      "Problem solving",
+      "Technical documentation"
+    ],
+    requirements: [
+      "Currently enrolled in a university degree (B.E / B.Tech or equivalent)",
+      "Foundation in CS, engineering or related field"
+    ],
+    responsibilities: [
+      "Contribute to ongoing technical projects",
+      "Collaborate with cross-functional teams",
+      "Attend training sessions and workshops"
+    ],
+    benefits: [],
+    howToApply: "Search 'College Intern - Technical' (Bengaluru) on HP Careers: https://hp.wd5.myworkdayjobs.com/ExternalCareerSite?q=College%20Intern",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/college-intern-technical-at-hp-in-bengaluru-d47ff280-f4a6-4668-90ed-b49ed27e092d/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "HP technical internship in Bengaluru for students currently enrolled in B.E / B.Tech or equivalent.",
+    startingDate: ""
+  },
+  {
+    id: "stripe-bengaluru-software-engineer-intern-oct26",
+    company: "Stripe",
+    logo: "",
+    companyBlurb: "Stripe software engineering internship in Bengaluru — ship production code on payments infrastructure. For CS / Maths students.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "Software Engineer, Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Students (Bachelor's / Master's / PhD)",
+    employmentType: "Internship",
+    applyLink: "https://stripe.com/jobs/search?gh_jid=8031833",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-23",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://stripe.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Fintech / Payments",
+    companyDetails: "Stripe — Fintech / Payments.",
+    workDetails: "Operate as a full team member: technical design, production code, code reviews and cross-functional collaboration.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Students (Bachelor's / Master's / PhD)",
+    skills: [
+      "Ruby",
+      "Java",
+      "JavaScript",
+      "Go",
+      "Scala",
+      "CS fundamentals"
+    ],
+    requirements: [
+      "Pursuing a Bachelor's / Master's in CS, Maths or related field",
+      "Strong CS fundamentals",
+      "Experience on multi-person projects (internships, open source or academic)"
+    ],
+    responsibilities: [
+      "Write production-ready code",
+      "Participate in technical design",
+      "Give and receive code review feedback"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://stripe.com/jobs/search?gh_jid=8031833",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/software-engineer-intern-at-stripe-in-bengaluru-c71cd91d-febf-42a9-93c7-6e218d4fc1be/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Stripe software engineering internship in Bengaluru — ship production code on payments infrastructure. For CS / Maths students.",
+    startingDate: ""
+  },
+  {
+    id: "zycus-bangalore-it-support-intern-oct26",
+    company: "Zycus",
+    logo: "",
+    companyBlurb: "IT support internship at Zycus Bangalore for 2026 CS / IT graduates — Windows & macOS endpoint support.",
+    location: "Bangalore, Karnataka",
+    roles: [
+      "IT Support Engineer - Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "2026 graduates",
+    employmentType: "Internship",
+    applyLink: "https://zycus.talismatic.com/jobs/J3L4U6PB3",
+    applyDeadline: "2026-10-06",
+    postedDate: "2026-09-22",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers",
+      "Support"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.zycus.com",
+    address: "Bangalore, Karnataka",
+    industry: "Procurement software (SaaS)",
+    companyDetails: "Zycus — Procurement software (SaaS).",
+    workDetails: "Support IT Operations with app installs, Windows / macOS troubleshooting, ITSM ticket handling and SOP documentation.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "2026 graduates",
+    skills: [
+      "Windows",
+      "macOS",
+      "Troubleshooting",
+      "ITSM tools",
+      "Microsoft Entra ID (basic)",
+      "PowerShell"
+    ],
+    requirements: [
+      "2026 graduate in CS, IT or related field",
+      "Working knowledge of Windows and macOS",
+      "Good communication and documentation skills"
+    ],
+    responsibilities: [
+      "Install, update and remove applications on endpoints",
+      "Troubleshoot OS, app and connectivity issues",
+      "Triage tickets in ITSM tools",
+      "Write SOPs and troubleshooting guides"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://zycus.talismatic.com/jobs/J3L4U6PB3",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/it-support-engineer-intern-at-zycus-in-bangalore-f845b246-3881-497b-bd5f-466080e5b3ec/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-06 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "IT support internship at Zycus Bangalore for 2026 CS / IT graduates — Windows & macOS endpoint support.",
+    startingDate: ""
+  },
+  {
+    id: "cisco-india-software-engineer-evergreen-oct26",
+    company: "Cisco",
+    logo: "",
+    companyBlurb: "Cisco entry-level Software Engineer (Evergreen) opening in India for fresh graduates — Bachelor's + 0 years.",
+    location: "Pan India · Cisco India offices",
+    roles: [
+      "Software Engineer (Evergreen)"
+    ],
+    experience: "fresher",
+    experienceRange: "Bachelor's + 0 years",
+    employmentType: "Full-time",
+    applyLink: "https://careers.cisco.com/global/en/job/CISCISGLOBAL2015359EXTERNALENGLOBAL/Software-Engineer-Evergreen-Full-Time-India-Engineering-UHR",
+    applyDeadline: "2026-10-22",
+    postedDate: "2026-10-01",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.cisco.com",
+    address: "Pan India · Cisco India offices",
+    industry: "Networking / Software",
+    companyDetails: "Cisco — Networking / Software.",
+    workDetails: "Write, test and debug code on small features with senior engineers, following secure coding and agile practices.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "Bachelor's + 0 years",
+    skills: [
+      "Programming fundamentals",
+      "Unit testing",
+      "Debugging",
+      "Secure coding",
+      "Agile"
+    ],
+    requirements: [
+      "Bachelor's degree required",
+      "0 years experience — coursework or internship exposure to current technologies"
+    ],
+    responsibilities: [
+      "Code and test small features",
+      "Support debugging with senior engineers",
+      "Write technical design documentation"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://careers.cisco.com/global/en/job/CISCISGLOBAL2015359EXTERNALENGLOBAL/Software-Engineer-Evergreen-Full-Time-India-Engineering-UHR",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/software-engineer-evergreen-at-cisco-in-india-29c4cda7-ea96-4721-988a-b208aa7554b4/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-22 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Cisco entry-level Software Engineer (Evergreen) opening in India for fresh graduates — Bachelor's + 0 years.",
+    startingDate: ""
+  },
+  {
+    id: "tcs-ion-nqt-oct26",
+    company: "TCS iON",
+    logo: "",
+    companyBlurb: "TCS iON NQT — a hiring test whose scorecard is used by TCS and other companies. Not a job opening by itself.",
+    location: "Pan India",
+    roles: [
+      "TCS iON National Qualifier Test (NQT)"
+    ],
+    experience: "fresher",
+    experienceRange: "Students / Freshers / up to 2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.tcsion.com/hub/national-qualifier-test/",
+    applyDeadline: "2026-10-07",
+    postedDate: "2026-09-30",
+    source: "Entri Jobs",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Freshers",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.tcsion.com",
+    address: "Pan India",
+    industry: "Assessment / Hiring test",
+    companyDetails: "TCS iON — Assessment / Hiring test.",
+    workDetails: "Register and take the NQT; your scorecard can be used to apply to roles at TCS and participating companies.",
+    workStatus: "Assessment",
+    workMode: "On-site",
+    experienceYears: "Students / Freshers / up to 2 years",
+    skills: [
+      "Aptitude",
+      "Reasoning",
+      "Programming basics"
+    ],
+    requirements: [
+      "Pre-final / final-year students of any stream",
+      "Graduates (2022–2028 batches as listed)",
+      "Working professionals with up to 2 years experience"
+    ],
+    responsibilities: [
+      "Register for the NQT",
+      "Appear for the test on the scheduled date",
+      "Use the scorecard to apply to participating companies"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://www.tcsion.com/hub/national-qualifier-test/",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/tcs-ion-national-qualifier-test-nqt-at-tataconsultancyservices-in-bengaluru-bbb3e66d-d72b-4139-805a-e2941052d2e2/); official listing checked on 1 Oct 2026. Listing expiry 2026-10-07 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "TCS iON NQT — a hiring test whose scorecard is used by TCS and other companies. Not a job opening by itself.",
+    startingDate: ""
+  },
+  {
+    id: "phonepe-bengaluru-business-operations-analyst-oct26",
+    company: "PhonePe",
+    logo: "",
+    companyBlurb: "Payments business-ops role at PhonePe Bengaluru — work with partner banks and networks. 1–2 years operations / payments experience.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "Business Operations Analyst, Payments Business"
+    ],
+    experience: "experienced",
+    experienceRange: "1–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.phonepe.com/careers/",
+    applyDeadline: "2026-10-15",
+    postedDate: "2026-09-29",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "Operations",
+      "Finance",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.phonepe.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Fintech / Payments",
+    companyDetails: "PhonePe — Fintech / Payments.",
+    workDetails: "Run day-to-day payments operations with partner banks and networks, track transaction success rates, handle escalations and reconciliations.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "1–2 years",
+    skills: [
+      "MS Excel (advanced)",
+      "SQL (basic)",
+      "Payments operations",
+      "Stakeholder management"
+    ],
+    requirements: [
+      "1–2 years in operations or the payments industry",
+      "Advanced Excel and basic SQL",
+      "Strong communication and negotiation skills",
+      "B.Tech or MBA preferred"
+    ],
+    responsibilities: [
+      "Manage bank and network relationships",
+      "Monitor transaction success rates",
+      "Handle escalations with customer support",
+      "Drive reconciliations with finance"
+    ],
+    benefits: [],
+    howToApply: "Search 'Business Operations Analyst' on PhonePe Careers: https://www.phonepe.com/careers/",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/business-operations-analyst-payments-business-at-phonepe-in-bengaluru-8ee89422-205c-4579-9a7e-05062d198faa/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-15 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Payments business-ops role at PhonePe Bengaluru — work with partner banks and networks. 1–2 years operations / payments experience.",
+    startingDate: ""
+  },
+  {
+    id: "microsoft-bangalore-software-engineer-azure-data-oct26",
+    company: "Microsoft",
+    logo: "",
+    companyBlurb: "Entry-level Software Engineer in Microsoft's Azure Data (Fabric Spark / Synapse) infra team, Bangalore. 6+ months experience including internships.",
+    location: "Bangalore, Karnataka",
+    roles: [
+      "Software Engineer (Azure Data)"
+    ],
+    experience: "fresher",
+    experienceRange: "6+ months (incl. internships)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.microsoft.com/v2/global/en/locations/bengaluru.html",
+    applyDeadline: "2026-10-10",
+    postedDate: "2026-09-24",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Cloud",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.microsoft.com",
+    address: "Bangalore, Karnataka",
+    industry: "Software / Cloud",
+    companyDetails: "Microsoft — Software / Cloud.",
+    workDetails: "Build and maintain infrastructure behind Microsoft Fabric Spark, Azure Synapse Spark and Cosmos Analytics, including on-call support.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "6+ months (incl. internships)",
+    skills: [
+      "C#",
+      "Java",
+      "Python",
+      "C++",
+      "Distributed systems",
+      "Apache Spark"
+    ],
+    requirements: [
+      "Associate's degree in CS or related (Bachelor's preferred)",
+      "6+ months software work or internship experience",
+      "Coding in C, C++, C#, Java, JavaScript or Python",
+      "Must pass Microsoft Cloud background check"
+    ],
+    responsibilities: [
+      "Write maintainable code using best practices",
+      "Debug and test using logs and telemetry",
+      "Participate in code reviews",
+      "Join on-call rotations"
+    ],
+    benefits: [],
+    howToApply: "Search 'Software Engineer Azure Data' (Bangalore) on Microsoft Careers: https://careers.microsoft.com/v2/global/en/locations/bengaluru.html",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/software-engineer-at-microsoft-in-bangalore-f2f89c0f-ab56-4416-b49f-e2b801290f3e/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2026-10-10 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "Entry-level Software Engineer in Microsoft's Azure Data (Fabric Spark / Synapse) infra team, Bangalore. 6+ months experience including internships.",
+    startingDate: ""
+  },
+  {
+    id: "lnt-powai-genai-trainee-oct26",
+    company: "Larsen & Toubro (L&T)",
+    logo: "",
+    companyBlurb: "GenAI / Computer Vision trainee at L&T Precision Engineering & Systems, Powai — for B.Tech / M.Tech CS / Data Science freshers.",
+    location: "Powai, Mumbai",
+    roles: [
+      "GenAI Trainee"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher (B.Tech / M.Tech)",
+    employmentType: "Full-time",
+    applyLink: "https://careers.larsentoubro.com/",
+    applyDeadline: "2027-02-09",
+    postedDate: "2026-08-14",
+    source: "Entri Jobs",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "AI",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.larsentoubro.com",
+    address: "Powai, Mumbai",
+    industry: "Engineering & Technology",
+    companyDetails: "Larsen & Toubro (L&T) — Engineering & Technology.",
+    workDetails: "Assist data scientists in building ML / DL models, GenAI workflows (RAG, prompt engineering, fine-tuning) and computer vision solutions.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "Fresher (B.Tech / M.Tech)",
+    skills: [
+      "Python",
+      "Machine learning",
+      "Deep learning",
+      "PyTorch / TensorFlow",
+      "OpenCV",
+      "LLMs / RAG"
+    ],
+    requirements: [
+      "B.Tech / M.Tech in CS, Data Science or related",
+      "Good Python and ML / DL fundamentals",
+      "Projects with TensorFlow, PyTorch or OpenCV",
+      "Interest in LLMs and Generative AI"
+    ],
+    responsibilities: [
+      "Build and train ML / DL models",
+      "Implement GenAI workflows (RAG, fine-tuning)",
+      "Run computer vision tasks",
+      "Maintain data pipelines and documentation"
+    ],
+    benefits: [],
+    howToApply: "Search 'GenAI Trainee' on L&T Careers: https://careers.larsentoubro.com/",
+    hiringNotes: "Spotted on Entri Jobs (https://entrijobs.com/jobs/genai-trainee-at-larsentoubrolimitedlt-in-powai-b9e96e95-47dc-485d-adf4-4c6056ae3329/); official listing not yet confirmed — search the employer's careers page before applying. Listing expiry 2027-02-09 is the aggregator's date, not an official deadline. Re-check with the employer before applying.",
+    description: "GenAI / Computer Vision trainee at L&T Precision Engineering & Systems, Powai — for B.Tech / M.Tech CS / Data Science freshers.",
+    startingDate: ""
+  },
+  {
+    id: "infosys-specialist-programmer-2026-2027-oct26",
+    company: "Infosys",
+    logo: "",
+    companyBlurb: "Infosys Specialist Programmer (L1–L3) hiring for 2026 & 2027 batches — assessment in October, joining in February.",
+    location: "Pan India",
+    roles: [
+      "Specialist Programmer (L1, L2, L3)"
+    ],
+    experience: "fresher",
+    experienceRange: "2026 & 2027 batches",
+    employmentType: "Full-time",
+    applyLink: "https://surveys.infosysapps.com/r/a/SEcampusregistration2027batch",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.infosys.com",
+    address: "Pan India",
+    industry: "IT Services",
+    companyDetails: "Infosys — IT Services.",
+    workDetails: "Selection: online assessment (October) → interview → background verification → offer → joining (February).",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "2026 & 2027 batches",
+    skills: [
+      "Data structures & algorithms",
+      "Programming",
+      "Problem solving"
+    ],
+    requirements: [
+      "2026 or 2027 graduating batch",
+      "Passport-size photo, resume (PDF) and college ID card (PDF) ready before applying",
+      "About 27 minutes to complete the form"
+    ],
+    responsibilities: [
+      "Clear the online assessment and interview",
+      "Complete background verification"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://surveys.infosysapps.com/r/a/SEcampusregistration2027batch",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Infosys Specialist Programmer (L1–L3) hiring for 2026 & 2027 batches — assessment in October, joining in February.",
+    startingDate: ""
+  },
+  {
+    id: "oyo-talent-acquisition-oct26",
+    company: "OYO",
+    logo: "",
+    companyBlurb: "OYO is hiring experienced Talent Acquisition professionals in Gurugram and Bangalore. Apply by email.",
+    location: "Gurugram / Bangalore",
+    roles: [
+      "Talent Acquisition"
+    ],
+    experience: "experienced",
+    experienceRange: "Relevant recruitment experience",
+    employmentType: "Full-time",
+    applyLink: "mailto:moksha.jassal1@oyorooms.com",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "HR",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "moksha.jassal1@oyorooms.com",
+    phone: "",
+    website: "https://www.oyorooms.com",
+    address: "Gurugram / Bangalore",
+    industry: "Hospitality / Travel tech",
+    companyDetails: "OYO — Hospitality / Travel tech.",
+    workDetails: "End-to-end recruitment and sourcing for OYO.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "Relevant recruitment experience",
+    skills: [
+      "Recruitment",
+      "Sourcing",
+      "Communication"
+    ],
+    requirements: [
+      "Experience in Talent Acquisition",
+      "Hands-on recruitment and sourcing experience",
+      "Strong communication and people skills"
+    ],
+    responsibilities: [
+      "Source and screen candidates",
+      "Manage hiring pipelines"
+    ],
+    benefits: [],
+    howToApply: "Email your resume to moksha.jassal1@oyorooms.com.",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "OYO is hiring experienced Talent Acquisition professionals in Gurugram and Bangalore. Apply by email.",
+    startingDate: ""
+  },
+  {
+    id: "ditinus-mohali-qa-software-engineer-oct26",
+    company: "Ditinus Technology",
+    logo: "",
+    companyBlurb: "QA Software Engineer (6 months experience, night shift) at Ditinus Technology, Mohali.",
+    location: "Mohali, Punjab",
+    roles: [
+      "QA Software Engineer"
+    ],
+    experience: "experienced",
+    experienceRange: "6 months",
+    employmentType: "Full-time",
+    applyLink: "mailto:manpreet.jamwal@ditinustechnology.com",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "QA"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "manpreet.jamwal@ditinustechnology.com",
+    phone: "9915678189",
+    website: "",
+    address: "Mohali, Punjab",
+    industry: "IT Services",
+    companyDetails: "Ditinus Technology — IT Services.",
+    workDetails: "Software testing role on night shift.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "6 months",
+    skills: [
+      "Manual testing",
+      "Test cases",
+      "Bug reporting"
+    ],
+    requirements: [
+      "About 6 months QA / testing experience",
+      "Willing to work night shift",
+      "Based in or willing to relocate to Mohali"
+    ],
+    responsibilities: [
+      "Test software and report defects"
+    ],
+    benefits: [],
+    howToApply: "Email your resume to manpreet.jamwal@ditinustechnology.com (WhatsApp: 9915678189).",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "QA Software Engineer (6 months experience, night shift) at Ditinus Technology, Mohali.",
+    startingDate: ""
+  },
+  {
+    id: "rubrik-bengaluru-swe-cpd-winter-intern-oct26",
+    company: "Rubrik",
+    logo: "",
+    companyBlurb: "Rubrik winter software engineering internship (CPD team) in Bengaluru for students.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "Software Engineer (CPD) - Winter Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Students / Intern",
+    employmentType: "Internship",
+    applyLink: "https://www.rubrik.com/company/careers/departments/job.8166537",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.rubrik.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Data security software",
+    companyDetails: "Rubrik — Data security software.",
+    workDetails: "Software engineering internship with Rubrik's CPD engineering team.",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Students / Intern",
+    skills: [
+      "Programming",
+      "CS fundamentals"
+    ],
+    requirements: [
+      "Currently pursuing a degree in CS or related field (check posting for batch)"
+    ],
+    responsibilities: [
+      "Contribute to engineering projects with the CPD team"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://www.rubrik.com/company/careers/departments/job.8166537",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Rubrik winter software engineering internship (CPD team) in Bengaluru for students.",
+    startingDate: ""
+  },
+  {
+    id: "kaleris-chennai-associate-swe-intern-oct26",
+    company: "Kaleris",
+    logo: "",
+    companyBlurb: "Associate Software Engineer Intern at Kaleris, Chennai — for freshers with a relevant bachelor's degree.",
+    location: "Chennai, Tamil Nadu",
+    roles: [
+      "Associate Software Engineer Intern"
+    ],
+    experience: "fresher",
+    experienceRange: "Freshers / Intern",
+    employmentType: "Internship",
+    applyLink: "https://kaleris.wd501.myworkdayjobs.com/en-US/kaleris_careers/job/Chennai/Associate-Software-Engineer-Intern_R-100658",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Internship",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://kaleris.com",
+    address: "Chennai, Tamil Nadu",
+    industry: "Supply chain software",
+    companyDetails: "Kaleris — Supply chain software.",
+    workDetails: "Software engineering internship at Kaleris (supply chain execution software).",
+    workStatus: "Internship",
+    workMode: "On-site",
+    experienceYears: "Freshers / Intern",
+    skills: [
+      "Programming",
+      "CS fundamentals"
+    ],
+    requirements: [
+      "Relevant bachelor's degree"
+    ],
+    responsibilities: [
+      "Work with the engineering team on assigned projects"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://kaleris.wd501.myworkdayjobs.com/en-US/kaleris_careers/job/Chennai/Associate-Software-Engineer-Intern_R-100658",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Associate Software Engineer Intern at Kaleris, Chennai — for freshers with a relevant bachelor's degree.",
+    startingDate: ""
+  },
+  {
+    id: "accenture-bengaluru-hr-service-delivery-associate-oct26",
+    company: "Accenture",
+    logo: "",
+    companyBlurb: "HR Service Delivery Associate at Accenture Bengaluru (Job No. AIOC-S01664927). Any graduate, 0–2 years.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "HR Service Delivery Associate"
+    ],
+    experience: "both",
+    experienceRange: "0–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.accenture.com/in-en/careers/jobdetails?id=AIOC-S01664927_en&title=HR+Service+Delivery+Associate",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "HR",
+      "BPO",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.accenture.com",
+    address: "Bengaluru, Karnataka",
+    industry: "IT & Business Services",
+    companyDetails: "Accenture — IT & Business Services.",
+    workDetails: "HR operations: employee data management, new hire / exit / job change processes and payroll support. Rotational shifts may apply.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "0–2 years",
+    skills: [
+      "HR service delivery",
+      "Employee data management",
+      "Payroll (US / UK / International)",
+      "SuccessFactors (plus)",
+      "English communication"
+    ],
+    requirements: [
+      "Any graduate",
+      "0–2 years (detailed JD mentions 1–3 years)",
+      "Strong written and spoken English",
+      "Open to rotational shifts"
+    ],
+    responsibilities: [
+      "Manage employee and organisation data",
+      "Process new hire, exit and job change requests",
+      "Support payroll processes"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://www.accenture.com/in-en/careers/jobdetails?id=AIOC-S01664927_en&title=HR+Service+Delivery+Associate",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "HR Service Delivery Associate at Accenture Bengaluru (Job No. AIOC-S01664927). Any graduate, 0–2 years.",
+    startingDate: ""
+  },
+  {
+    id: "techmahindra-bengaluru-intl-voice-walkin-oct26",
+    company: "Tech Mahindra",
+    logo: "",
+    companyBlurb: "Tech Mahindra walk-in drive for International Voice Process in Bengaluru — freshers and up to 3 years experience.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "International Voice Process (Walk-in)"
+    ],
+    experience: "both",
+    experienceRange: "0–3 years · Freshers eligible",
+    employmentType: "Full-time",
+    applyLink: "https://www.naukri.com/job-listings-tech-mahindra-walk-in-drive-international-voice-process-tech-mahindra-bengaluru-0-to-3-years-240926041181",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "BPO",
+      "Non IT",
+      "Walk-in",
+      "Freshers"
+    ],
+    isWalkIn: true,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.techmahindra.com",
+    address: "Bengaluru, Karnataka",
+    industry: "IT & BPO Services",
+    companyDetails: "Tech Mahindra — IT & BPO Services.",
+    workDetails: "International customer voice support. Walk-in date, venue and timings are on the Naukri listing.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "0–3 years · Freshers eligible",
+    skills: [
+      "English communication",
+      "Customer service"
+    ],
+    requirements: [
+      "0–3 years experience; freshers eligible",
+      "Good spoken English for international voice"
+    ],
+    responsibilities: [
+      "Handle international customer calls"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://www.naukri.com/job-listings-tech-mahindra-walk-in-drive-international-voice-process-tech-mahindra-bengaluru-0-to-3-years-240926041181",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Tech Mahindra walk-in drive for International Voice Process in Bengaluru — freshers and up to 3 years experience.",
+    startingDate: ""
+  },
+  {
+    id: "deloitte-bengaluru-analyst-itsm-oct26",
+    company: "Deloitte",
+    logo: "",
+    companyBlurb: "Deloitte Analyst - ITSM (Technology Strategy & Transformation), Bengaluru. Any bachelor's degree, 0–2 years.",
+    location: "Bengaluru, Karnataka",
+    roles: [
+      "Analyst - ITSM"
+    ],
+    experience: "both",
+    experienceRange: "0–2 years · Freshers eligible",
+    employmentType: "Full-time",
+    applyLink: "https://southasiacareers.deloitte.com/job/Bengaluru-Analyst-ITSM-Bengaluru-Technology-Strategy-&-Transformation/58839944/",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.deloitte.com",
+    address: "Bengaluru, Karnataka",
+    industry: "Consulting",
+    companyDetails: "Deloitte — Consulting.",
+    workDetails: "IT Service Management analyst role in Deloitte's Technology Strategy & Transformation practice.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "0–2 years · Freshers eligible",
+    skills: [
+      "ITSM / ITIL basics",
+      "ServiceNow (plus)",
+      "Communication"
+    ],
+    requirements: [
+      "Any bachelor's degree",
+      "0–2 years experience; freshers eligible"
+    ],
+    responsibilities: [
+      "Support ITSM process and tooling engagements"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://southasiacareers.deloitte.com/job/Bengaluru-Analyst-ITSM-Bengaluru-Technology-Strategy-&-Transformation/58839944/",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Deloitte Analyst - ITSM (Technology Strategy & Transformation), Bengaluru. Any bachelor's degree, 0–2 years.",
+    startingDate: ""
+  },
+  {
+    id: "virtusa-hyderabad-engineer-oct26",
+    company: "Virtusa",
+    logo: "",
+    companyBlurb: "Virtusa Engineer opening (CREQ265888) in Hyderabad for graduates with 1–2 years experience.",
+    location: "Hyderabad, Telangana",
+    roles: [
+      "Engineer"
+    ],
+    experience: "experienced",
+    experienceRange: "1–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.virtusa.com/careers/job-search/global/en/job/CREQ265888/Engineer",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.virtusa.com",
+    address: "Hyderabad, Telangana",
+    industry: "IT Services",
+    companyDetails: "Virtusa — IT Services.",
+    workDetails: "Engineering role at Virtusa Hyderabad — see the official posting for the technology stack.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "1–2 years",
+    skills: [
+      "Software development"
+    ],
+    requirements: [
+      "Bachelor's / graduate degree",
+      "1–2 years experience"
+    ],
+    responsibilities: [
+      "Deliver engineering work as listed in the official JD"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://www.virtusa.com/careers/job-search/global/en/job/CREQ265888/Engineer",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Virtusa Engineer opening (CREQ265888) in Hyderabad for graduates with 1–2 years experience.",
+    startingDate: ""
+  },
+  {
+    id: "capgemini-sap-virtual-drive-3oct26",
+    company: "Capgemini",
+    logo: "",
+    companyBlurb: "Capgemini SAP S/4HANA Public Cloud virtual recruitment drive on 3 Oct 2026 — only shortlisted (email-invited) candidates attend.",
+    location: "Pan India · Virtual drive",
+    roles: [
+      "Software Engineer - SAP (S/4HANA Public Cloud) Virtual Drive"
+    ],
+    experience: "both",
+    experienceRange: "Freshers & experienced",
+    employmentType: "Full-time",
+    applyLink: "https://join.capgemini.com/us/en/event/6ab0d642707cc1a141c4a6f0/SAP-S-4HANA-Public-Cloud-Virtual-Recruitment-Drive-on-3-October-2026",
+    applyDeadline: "2026-10-03",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.capgemini.com",
+    address: "Pan India · Virtual drive",
+    industry: "IT Services",
+    companyDetails: "Capgemini — IT Services.",
+    workDetails: "Virtual recruitment drive for SAP-domain software engineers. Immediate joiners only.",
+    workStatus: "Full-time",
+    workMode: "Virtual drive",
+    experienceYears: "Freshers & experienced",
+    skills: [
+      "SAP S/4HANA",
+      "SAP basics"
+    ],
+    requirements: [
+      "Freshers and experienced candidates",
+      "Immediate joiners only",
+      "Only candidates shortlisted by Capgemini email are invited — check your inbox first"
+    ],
+    responsibilities: [
+      "Register on the official event page",
+      "Attend the virtual interview on 3 Oct 2026 if invited"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://join.capgemini.com/us/en/event/6ab0d642707cc1a141c4a6f0/SAP-S-4HANA-Public-Cloud-Virtual-Recruitment-Drive-on-3-October-2026",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. Re-check with the employer before applying.",
+    description: "Capgemini SAP S/4HANA Public Cloud virtual recruitment drive on 3 Oct 2026 — only shortlisted (email-invited) candidates attend.",
+    startingDate: ""
+  },
+  {
+    id: "bizpole-palakkad-software-tester-trainee-oct26",
+    company: "Bizpole",
+    logo: "",
+    companyBlurb: "Software Tester Trainee opening at Bizpole, Palakkad. Apply through the company's Google Form.",
+    location: "Palakkad, Kerala",
+    roles: [
+      "Software Tester Trainee"
+    ],
+    experience: "fresher",
+    experienceRange: "Trainee",
+    employmentType: "Full-time",
+    applyLink: "https://docs.google.com/forms/d/e/1FAIpQLSfgBH_HqpXD_0SZGPq9KAebIjWC79Uf8ZlpWEmESYRFKpG_Hg/viewform",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "QA",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Palakkad, Kerala",
+    industry: "Business services",
+    companyDetails: "Bizpole — Business services.",
+    workDetails: "Trainee software testing role in Palakkad.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "Trainee",
+    skills: [
+      "Manual testing basics",
+      "Attention to detail"
+    ],
+    requirements: [
+      "Freshers / trainees interested in software testing"
+    ],
+    responsibilities: [
+      "Test applications and report bugs under guidance"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://docs.google.com/forms/d/e/1FAIpQLSfgBH_HqpXD_0SZGPq9KAebIjWC79Uf8ZlpWEmESYRFKpG_Hg/viewform",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. The Google Form asks you to sign in with a Google account. Re-check with the employer before applying.",
+    description: "Software Tester Trainee opening at Bizpole, Palakkad. Apply through the company's Google Form.",
+    startingDate: ""
+  },
+  {
+    id: "iris-kochi-software-tester-oct26",
+    company: "IRIS",
+    logo: "",
+    companyBlurb: "Software Tester opening at IRIS, Kochi. Apply through the company's Google Form.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Software Tester"
+    ],
+    experience: "both",
+    experienceRange: "As per company",
+    employmentType: "Full-time",
+    applyLink: "https://docs.google.com/forms/d/e/1FAIpQLSdH_AGGtIItZ0b8sJkzIEMIcDFAIC4Cq7zcsdciADjqoKmmwQ/viewform",
+    applyDeadline: "",
+    postedDate: "2026-10-01",
+    source: "Community post",
+    verified: false,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: [
+      "IT",
+      "QA"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "",
+    address: "Kochi, Kerala",
+    industry: "IT",
+    companyDetails: "IRIS — IT.",
+    workDetails: "Software testing role in Kochi.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "As per company",
+    skills: [
+      "Manual testing",
+      "Test cases",
+      "Bug reporting"
+    ],
+    requirements: [
+      "Software testing knowledge / experience (confirm with employer)"
+    ],
+    responsibilities: [
+      "Test applications and report defects"
+    ],
+    benefits: [],
+    howToApply: "Apply on the official page: https://docs.google.com/forms/d/e/1FAIpQLSdH_AGGtIItZ0b8sJkzIEMIcDFAIC4Cq7zcsdciADjqoKmmwQ/viewform",
+    hiringNotes: "Shared as a hiring post; confirm details on the official link before applying. The Google Form asks you to sign in with a Google account. Re-check with the employer before applying.",
+    description: "Software Tester opening at IRIS, Kochi. Apply through the company's Google Form.",
+    startingDate: ""
+  },
+  {
+    id: "aaludra-uiux-designer-coimbatore-oct2026",
+    company: "Aaludra",
+    logo: "",
+    companyBlurb: "Aaludra is hiring a UI/UX Designer (2+ years) in Coimbatore — work from office.",
+    location: "Coimbatore, Tamil Nadu",
+    roles: [
+      "UI/UX Designer"
+    ],
+    experience: "experienced",
+    experienceRange: "2+ years",
+    employmentType: "Full-time",
+    applyLink: "mailto:recruit@aaludra.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Design",
+      "IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "recruit@aaludra.com",
+    phone: "+91 91500 30536",
+    website: "https://aaludra.com",
+    address: "Coimbatore, Tamil Nadu",
+    industry: "Software / Product design",
+    companyDetails: "Aaludra — Software / Product design.",
+    workDetails: "Design user flows, wireframes, prototypes and high-fidelity UI for web and mobile; run user research and maintain design systems.",
+    workStatus: "Full-time",
+    workMode: "Work from office · Coimbatore",
+    experienceYears: "2+ years",
+    qualification: "",
+    skills: [
+      "Figma",
+      "Adobe tools (plus)",
+      "Design systems",
+      "User research",
+      "AI design tools"
+    ],
+    requirements: [
+      "2+ years in UI/UX or product design",
+      "Portfolio showing end-to-end product design",
+      "Proficiency in Figma",
+      "Experience designing ERP, CRM, SaaS or B2B products"
+    ],
+    responsibilities: [
+      "Design flows, wireframes, prototypes and UI",
+      "Run user research and usability testing",
+      "Build and maintain design systems",
+      "Work with developers on implementation"
+    ],
+    howToApply: "Email your resume and portfolio to recruit@aaludra.com or call +91 91500 30536.",
+    description: "Aaludra is hiring a UI/UX Designer (2+ years) in Coimbatore — work from office.",
+    startingDate: ""
+  },
+  {
+    id: "corpxcloud-test-engineer-wfh-oct2026",
+    company: "CorpXCloud Technologies",
+    logo: "",
+    companyBlurb: "CorpXCloud Technologies is hiring 2 Test Engineers (full-time or internship), work from home — freshers can apply.",
+    location: "Remote (Work from home)",
+    roles: [
+      "Test Engineer (Full-time or Internship) — 2 openings"
+    ],
+    experience: "both",
+    experienceRange: "0–2 years · Freshers can apply",
+    employmentType: "Full-time / Internship",
+    applyLink: "mailto:hr@corpxcloud.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "QA",
+      "Freshers",
+      "Internship"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@corpxcloud.com",
+    phone: "",
+    website: "",
+    address: "Remote (Work from home)",
+    industry: "IT Services",
+    companyDetails: "CorpXCloud Technologies — IT Services.",
+    workDetails: "Manual and automation testing of web applications and APIs.",
+    workStatus: "Full-time / Internship",
+    workMode: "Work from home",
+    experienceYears: "0–2 years · Freshers can apply",
+    qualification: "",
+    skills: [
+      "Manual testing",
+      "Selenium / Playwright",
+      "API testing",
+      "Bug reporting"
+    ],
+    requirements: [
+      "0–2 years experience; freshers can apply",
+      "Manual testing: test case design, execution, bug reporting",
+      "Basic automation testing (Selenium, Playwright or similar)",
+      "Basic knowledge of web applications and APIs"
+    ],
+    responsibilities: [
+      "Design and execute test cases",
+      "Report and track bugs",
+      "Contribute to test automation"
+    ],
+    howToApply: "Email your resume to hr@corpxcloud.com.",
+    description: "CorpXCloud Technologies is hiring 2 Test Engineers (full-time or internship), work from home — freshers can apply.",
+    startingDate: ""
+  },
+  {
+    id: "corpxcloud-dotnet-developer-wfh-oct2026",
+    company: "CorpXCloud Technologies",
+    logo: "",
+    companyBlurb: "CorpXCloud Technologies is hiring 4 .NET Developers (0–3 years, freshers can apply), work from home.",
+    location: "Remote (Work from home)",
+    roles: [
+      ".NET Developer — 4 openings"
+    ],
+    experience: "both",
+    experienceRange: "0–3 years · Freshers can apply",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@corpxcloud.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@corpxcloud.com",
+    phone: "",
+    website: "",
+    address: "Remote (Work from home)",
+    industry: "IT Services",
+    companyDetails: "CorpXCloud Technologies — IT Services.",
+    workDetails: "Build applications with .NET Core / Framework, ASP.NET MVC / Web API, Entity Framework and SQL Server.",
+    workStatus: "Full-time",
+    workMode: "Work from home",
+    experienceYears: "0–3 years · Freshers can apply",
+    qualification: "",
+    skills: [
+      ".NET Core / Framework",
+      "C#",
+      "ASP.NET MVC / Web API",
+      "Entity Framework",
+      "SQL Server",
+      "HTML / CSS / JS (plus)"
+    ],
+    requirements: [
+      "0–3 years experience; freshers can apply",
+      "Strong .NET and C# skills",
+      "ASP.NET MVC / Web API, Entity Framework, REST APIs",
+      "SQL Server and query optimisation"
+    ],
+    responsibilities: [
+      "Develop and maintain .NET applications",
+      "Build REST APIs",
+      "Optimise database queries"
+    ],
+    howToApply: "Email your resume to hr@corpxcloud.com.",
+    description: "CorpXCloud Technologies is hiring 4 .NET Developers (0–3 years, freshers can apply), work from home.",
+    startingDate: ""
+  },
+  {
+    id: "cliniqon-it-support-engineer-oct2026",
+    company: "Cliniqon RCM Pvt. Ltd.",
+    logo: "",
+    companyBlurb: "Cliniqon RCM is hiring a full-time IT Support Engineer — first point of contact for IT requests and incidents.",
+    location: "Kerala (location not stated)",
+    roles: [
+      "IT Support Engineer"
+    ],
+    experience: "both",
+    experienceRange: "As per company",
+    employmentType: "Full-time",
+    applyLink: "mailto:careers@cliniqon.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Support"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "careers@cliniqon.com",
+    phone: "",
+    website: "",
+    address: "Kerala (location not stated)",
+    industry: "Healthcare RCM / BPO",
+    companyDetails: "Cliniqon RCM Pvt. Ltd. — Healthcare RCM / BPO.",
+    workDetails: "Handle IT tickets from Teams, email, phone and WhatsApp: triage, password resets, account unlocks, email sync issues and system setup, within SLAs.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "As per company",
+    qualification: "",
+    skills: [
+      "IT support",
+      "Ticketing / SLA",
+      "Windows",
+      "Microsoft 365"
+    ],
+    requirements: [
+      "IT support / helpdesk skills (experience not stated — confirm with employer)"
+    ],
+    responsibilities: [
+      "Log, categorise and triage IT requests",
+      "Resolve common issues (password resets, unlocks, email sync)",
+      "Do first-level root cause analysis",
+      "Escalate complex issues and keep users updated"
+    ],
+    howToApply: "Email your resume to careers@cliniqon.com. Work location is not stated on the post — confirm with the employer.",
+    description: "Cliniqon RCM is hiring a full-time IT Support Engineer — first point of contact for IT requests and incidents.",
+    startingDate: ""
+  },
+  {
+    id: "adviciya-multiple-roles-infopark-oct2026",
+    company: "Adviciya",
+    logo: "",
+    companyBlurb: "Adviciya, Infopark Kochi — hiring QA Engineer, Senior Digital Marketing, Senior SEO, Growth Strategist, HR Intern and Content Writer.",
+    location: "Infopark, Kochi",
+    roles: [
+      "QA Engineer (3–4 yrs)",
+      "Senior Digital Marketing Executive (3–4 yrs)",
+      "Senior SEO Executive (3–4 yrs)",
+      "Growth Strategist (2–5 yrs)",
+      "HR Intern (0–1 yr)",
+      "Content Writer (1–3 yrs)"
+    ],
+    experience: "both",
+    experienceRange: "0–5 years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "mailto:careers@adviciya.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Marketing",
+      "QA",
+      "HR",
+      "Infopark"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "careers@adviciya.com",
+    phone: "+91 77364 77714",
+    website: "",
+    address: "Infopark, Kochi",
+    industry: "Digital marketing / IT",
+    companyDetails: "Adviciya — Digital marketing / IT.",
+    workDetails: "Six open positions at Adviciya's Infopark Kochi office. Experience varies by role (HR Intern 0–1 year; others 1–5 years).",
+    workStatus: "Full-time",
+    workMode: "On-site · Infopark Kochi",
+    experienceYears: "0–5 years (role-wise)",
+    qualification: "",
+    skills: [],
+    requirements: [
+      "Experience as listed against each role",
+      "Based in or willing to work from Infopark Kochi"
+    ],
+    responsibilities: [],
+    howToApply: "Email your resume to careers@adviciya.com (mention the role) or call +91 77364 77714.",
+    description: "Adviciya, Infopark Kochi — hiring QA Engineer, Senior Digital Marketing, Senior SEO, Growth Strategist, HR Intern and Content Writer.",
+    startingDate: ""
+  },
+  {
+    id: "mentor-performance-hr-specialist-cyberpark-oct2026",
+    company: "Mentor Performance Rating Pvt. Ltd.",
+    logo: "",
+    companyBlurb: "Mentor Performance Rating is hiring an HR Specialist (2–3 years) at Govt. Cyberpark, Calicut.",
+    location: "Govt. Cyberpark, Calicut",
+    roles: [
+      "HR Specialist"
+    ],
+    experience: "experienced",
+    experienceRange: "2–3 years",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@mentorperformance.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "HR",
+      "Non IT",
+      "Cyberpark"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@mentorperformance.com",
+    phone: "",
+    website: "",
+    address: "Govt. Cyberpark, Calicut",
+    industry: "Software / Performance management",
+    companyDetails: "Mentor Performance Rating Pvt. Ltd. — Software / Performance management.",
+    workDetails: "HR specialist role at Mentor Performance Rating's Cyberpark office.",
+    workStatus: "Full-time",
+    workMode: "On-site · Cyberpark Calicut",
+    experienceYears: "2–3 years",
+    qualification: "",
+    skills: [],
+    requirements: [
+      "2–3 years HR experience"
+    ],
+    responsibilities: [],
+    howToApply: "Email your CV to hr@mentorperformance.com.",
+    description: "Mentor Performance Rating is hiring an HR Specialist (2–3 years) at Govt. Cyberpark, Calicut.",
+    startingDate: ""
+  },
+  {
+    id: "qcvi-growth-bde-wfh-oct2026",
+    company: "qcvi Growth",
+    logo: "",
+    companyBlurb: "qcvi Growth is hiring a Business Development Executive (0–2 years), work from home, 9 AM – 6 PM.",
+    location: "Remote (Work from home)",
+    roles: [
+      "Business Development Executive"
+    ],
+    experience: "both",
+    experienceRange: "0–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://www.qcvigrowth.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Sales",
+      "Business Development",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.qcvigrowth.com",
+    address: "Remote (Work from home)",
+    industry: "Business growth services",
+    companyDetails: "qcvi Growth — Business growth services.",
+    workDetails: "International client handling, sales pitching and negotiation.",
+    workStatus: "Full-time",
+    workMode: "Work from home · 9 AM – 6 PM",
+    experienceYears: "0–2 years",
+    qualification: "",
+    skills: [
+      "English communication",
+      "International client handling",
+      "Sales pitching",
+      "Negotiation"
+    ],
+    requirements: [
+      "0–2 years experience",
+      "Excellent English communication"
+    ],
+    responsibilities: [],
+    howToApply: "Apply via www.qcvigrowth.com — the post gives no email; contact the company through its website.",
+    description: "qcvi Growth is hiring a Business Development Executive (0–2 years), work from home, 9 AM – 6 PM.",
+    startingDate: ""
+  },
+  {
+    id: "amphenol-seo-specialist-cochin-oct2026",
+    company: "Amphenol",
+    logo: "",
+    companyBlurb: "Amphenol is hiring an SEO Specialist (6–8 years) for its Global Marketing team in Cochin.",
+    location: "Kochi (Cochin), Kerala",
+    roles: [
+      "SEO Specialist — Global Marketing"
+    ],
+    experience: "experienced",
+    experienceRange: "6–8 years",
+    employmentType: "Full-time",
+    applyLink: "mailto:diya.Roy@amphenol-fci.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Marketing",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "diya.Roy@amphenol-fci.com",
+    phone: "",
+    website: "",
+    address: "Kochi (Cochin), Kerala",
+    industry: "Electronics / Connectors",
+    companyDetails: "Amphenol — Electronics / Connectors.",
+    workDetails: "SEO and web analytics for Amphenol's Global Marketing department.",
+    workStatus: "Full-time",
+    workMode: "On-site · Cochin",
+    experienceYears: "6–8 years",
+    qualification: "",
+    skills: [
+      "SEO",
+      "Web analytics",
+      "Search / data / AI"
+    ],
+    requirements: [
+      "Professional degree",
+      "6–8 years of experience",
+      "Strong SEO and web analytics skills"
+    ],
+    responsibilities: [],
+    howToApply: "Email your CV to diya.Roy@amphenol-fci.com.",
+    description: "Amphenol is hiring an SEO Specialist (6–8 years) for its Global Marketing team in Cochin.",
+    startingDate: ""
+  },
+  {
+    id: "sunrise-hospital-kanhangad-general-physician-oct2026",
+    company: "Sunrise Hospitals",
+    logo: "",
+    companyBlurb: "Sunrise Hospital Kanhangad is hiring a Consultant General Physician (MBBS + MD / DNB, 1–3 years).",
+    location: "Kusavankunnu, Kanhangad, Kasaragod",
+    roles: [
+      "Consultant General Physician"
+    ],
+    experience: "experienced",
+    experienceRange: "1–3 years",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@sunrisehospitalkanhangad.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Healthcare",
+      "Hospital"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@sunrisehospitalkanhangad.com",
+    phone: "+91 73064 26546",
+    website: "",
+    address: "Kusavankunnu, Kanhangad, Kasaragod",
+    industry: "Healthcare",
+    companyDetails: "Sunrise Hospitals — Healthcare.",
+    workDetails: "Consultant general physician at Sunrise Hospital, Kanhangad.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kanhangad",
+    experienceYears: "1–3 years",
+    qualification: "MBBS, MD or DNB in General Medicine",
+    skills: [],
+    requirements: [
+      "MBBS with MD / DNB in General Medicine",
+      "1–3 years experience"
+    ],
+    responsibilities: [],
+    howToApply: "Email hr@sunrisehospitalkanhangad.com or call +91 73064 26546 (hospital: 0467 220 8180).",
+    description: "Sunrise Hospital Kanhangad is hiring a Consultant General Physician (MBBS + MD / DNB, 1–3 years).",
+    startingDate: ""
+  },
+  {
+    id: "aabasoft-telecalling-mega-walkin-7oct2026",
+    company: "Aabasoft",
+    logo: "",
+    companyBlurb: "Aabasoft mega walk-in for 50+ telecalling roles on 7 Oct 2026, 9 AM – 4 PM, near Infopark South Gate, Kakkanad.",
+    location: "Chakolas Heights, Chittethukara, Kakkanad · Near Infopark South Gate",
+    roles: [
+      "Telecalling — Domestic Voice Process (50+ vacancies)"
+    ],
+    experience: "fresher",
+    experienceRange: "0–6 months",
+    employmentType: "Full-time",
+    applyLink: "mailto:jobs@aabasoft.in",
+    applyDeadline: "2026-10-07",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "BPO",
+      "Non IT",
+      "Walk-in",
+      "Freshers",
+      "Telecalling"
+    ],
+    isWalkIn: true,
+    walkInDate: "2026-10-07",
+    email: "jobs@aabasoft.in",
+    phone: "8089002222",
+    website: "",
+    address: "Chakolas Heights, Chittethukara, Kakkanad · Near Infopark South Gate",
+    industry: "IT / BPO",
+    companyDetails: "Aabasoft — IT / BPO.",
+    workDetails: "Domestic voice process telecalling. Walk-in on 7 October 2026, 9:00 AM – 4:00 PM at Chakolas Heights, Seaport-Airport Road, Chittethukara, Kakkanad.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kakkanad",
+    experienceYears: "0–6 months",
+    qualification: "Any degree / diploma (back-paper candidates can apply)",
+    skills: [],
+    requirements: [
+      "Any degree or diploma; back-paper candidates can also apply",
+      "0–6 months experience",
+      "Good communication in Malayalam, Tamil, Hindi or English",
+      "Immediate joining preferred"
+    ],
+    responsibilities: [],
+    howToApply: "Walk in on 7 Oct 2026 (9 AM – 4 PM) at Chakolas Heights, near Infopark South Gate, Kakkanad. Queries: 8089002222 / jobs@aabasoft.in.",
+    description: "Aabasoft mega walk-in for 50+ telecalling roles on 7 Oct 2026, 9 AM – 4 PM, near Infopark South Gate, Kakkanad.",
+    startingDate: ""
+  },
+  {
+    id: "sunrise-hospital-kakkanad-sr-seo-content-writer-oct2026",
+    company: "Sunrise Hospitals",
+    logo: "",
+    companyBlurb: "Sunrise Hospitals is hiring a Senior SEO Content Writer (5+ years) at Kakkanad, Kochi.",
+    location: "Sunrise Hospital, Kakkanad, Kochi",
+    roles: [
+      "Senior SEO Content Writer"
+    ],
+    experience: "experienced",
+    experienceRange: "5+ years",
+    employmentType: "Full-time",
+    applyLink: "mailto:corporatehr@sunrisegroupofhospitals.com",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Marketing",
+      "Content",
+      "Healthcare"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "corporatehr@sunrisegroupofhospitals.com",
+    phone: "703 425 8885",
+    website: "",
+    address: "Sunrise Hospital, Kakkanad, Kochi",
+    industry: "Healthcare",
+    companyDetails: "Sunrise Hospitals — Healthcare.",
+    workDetails: "Senior SEO content writing for Sunrise Group of Hospitals.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kakkanad",
+    experienceYears: "5+ years",
+    qualification: "Bachelor's in English, Journalism, Mass Communication, Marketing or related field",
+    skills: [],
+    requirements: [
+      "Bachelor's in English, Journalism, Mass Communication, Marketing or related",
+      "Minimum 5 years experience"
+    ],
+    responsibilities: [],
+    howToApply: "Email corporatehr@sunrisegroupofhospitals.com or call 703 425 8885.",
+    description: "Sunrise Hospitals is hiring a Senior SEO Content Writer (5+ years) at Kakkanad, Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "ecogo-uiux-designer-kochi-oct2026",
+    company: "ecogo",
+    logo: "",
+    companyBlurb: "ecogo (travel tech) is hiring a UI/UX Designer in Kochi — Figma plus HTML / Tailwind / JavaScript, 1+ year.",
+    location: "Kochi, Kerala",
+    roles: [
+      "UI/UX Designer"
+    ],
+    experience: "experienced",
+    experienceRange: "1+ year",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@ecogo.ai",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Design",
+      "IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@ecogo.ai",
+    phone: "",
+    website: "",
+    address: "Kochi, Kerala",
+    industry: "Travel technology",
+    companyDetails: "ecogo — Travel technology.",
+    workDetails: "Design modern, responsive web experiences for ecogo's travel technology products.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "1+ year",
+    qualification: "",
+    skills: [
+      "Figma",
+      "HTML",
+      "CSS / Tailwind CSS",
+      "JavaScript",
+      "React / Next.js (plus)"
+    ],
+    requirements: [
+      "1+ year of relevant experience",
+      "Strong UI/UX skills with Figma",
+      "Good HTML, CSS (Tailwind) and JavaScript",
+      "React / Next.js and travel / SaaS interest are a plus"
+    ],
+    responsibilities: [],
+    howToApply: "Email your resume to hr@ecogo.ai.",
+    description: "ecogo (travel tech) is hiring a UI/UX Designer in Kochi — Figma plus HTML / Tailwind / JavaScript, 1+ year.",
+    startingDate: ""
+  },
+  {
+    id: "medcity-academy-multiple-roles-oct2026",
+    company: "Medcity International Academy",
+    logo: "",
+    companyBlurb: "Medcity International Academy is hiring a German Trainer, HR Assistant, Relationship Officer and Documentation Officer.",
+    location: "Kerala (location not stated)",
+    roles: [
+      "German Trainer",
+      "HR Assistant",
+      "Relationship Officer",
+      "Documentation Officer"
+    ],
+    experience: "both",
+    experienceRange: "As per role",
+    employmentType: "Full-time",
+    applyLink: "mailto:talent.hr@miak.in",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "WhatsApp",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "Education",
+      "HR",
+      "Non IT"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "talent.hr@miak.in",
+    phone: "98473 97555",
+    website: "https://miak.in",
+    address: "Kerala (location not stated)",
+    industry: "Education / Overseas careers",
+    companyDetails: "Medcity International Academy — Education / Overseas careers.",
+    workDetails: "Four open positions. Experience and location are not stated on the post — confirm with the employer.",
+    workStatus: "Full-time",
+    workMode: "On-site",
+    experienceYears: "As per role",
+    qualification: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    howToApply: "Email your CV and portfolio to talent.hr@miak.in or call 98473 97555.",
+    description: "Medcity International Academy is hiring a German Trainer, HR Assistant, Relationship Officer and Documentation Officer.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-it-support-engineer-fresher-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex Recruitment Drive 2026 — IT Support Engineer (0–2 years) in Kochi. Online quiz + interviews.",
+    location: "Kochi, Kerala",
+    roles: [
+      "IT Support Engineer"
+    ],
+    experience: "fresher",
+    experienceRange: "0–2 years",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Support",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Support laptops, Windows / Linux, Microsoft 365 / Entra ID, FortiGate, Cisco networking, EDR tools, AWS / OpenStack and Jira-based IT tickets.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "0–2 years",
+    qualification: "",
+    skills: [
+      "Networking",
+      "Windows / Linux",
+      "Microsoft 365 / Entra ID",
+      "FortiGate / VPN",
+      "AWS",
+      "Jira"
+    ],
+    requirements: [
+      "Bachelor's in IT, Computer Science or related field",
+      "0–2 years IT support / sysadmin experience",
+      "Basic networking, Windows / Linux, M365, security and cloud knowledge",
+      "CompTIA A+ / Network+ / Security+ or AZ-900 preferred"
+    ],
+    responsibilities: [
+      "Provide end-user and device support",
+      "Manage M365 / Entra ID accounts, SSO and MFA",
+      "Support firewalls, VPNs, switches and Wi-Fi",
+      "Handle IT tickets in Jira and maintain documentation"
+    ],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex Recruitment Drive 2026 — IT Support Engineer (0–2 years) in Kochi. Online quiz + interviews.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-embedded-software-engineer-fresher-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex Recruitment Drive 2026 — entry-level Embedded Software Engineer (C/C++) in Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Embedded Software Engineer (C/C++)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher (entry level)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Embedded",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Design, develop, test and debug embedded software for microcontroller and processor-based systems with experienced engineers.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Fresher (entry level)",
+    qualification: "",
+    skills: [
+      "Embedded C / C++",
+      "Microcontrollers",
+      "JTAG / GDB",
+      "Debugging"
+    ],
+    requirements: [
+      "Recent graduate passionate about embedded systems",
+      "Embedded C / C++ fundamentals"
+    ],
+    responsibilities: [
+      "Develop and debug embedded software",
+      "Integrate and validate on target boards",
+      "Join code reviews and testing"
+    ],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex Recruitment Drive 2026 — entry-level Embedded Software Engineer (C/C++) in Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-python-software-engineer-fresher-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex Recruitment Drive 2026 — entry-level Python Software Engineer in Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Software Engineer (Python)"
+    ],
+    experience: "fresher",
+    experienceRange: "Fresher (entry level)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Python",
+      "Freshers"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Write, test and maintain Python applications with experienced engineers.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Fresher (entry level)",
+    qualification: "",
+    skills: [
+      "Python",
+      "Debugging",
+      "Unit testing"
+    ],
+    requirements: [
+      "Recent graduate",
+      "Good Python fundamentals"
+    ],
+    responsibilities: [
+      "Write maintainable Python code",
+      "Fix defects using debugging tools",
+      "Join code reviews and testing"
+    ],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex Recruitment Drive 2026 — entry-level Python Software Engineer in Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-android-automotive-roles-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex is hiring Android Automotive (AOSP) engineers in Kochi — Senior Engineer to Senior Architect, 3–12+ years.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior Software Engineer — Android Automotive (3–5 yrs)",
+      "Lead Software Engineer — Android Automotive (6–8 yrs)",
+      "Software Architect — Android Automotive (9–11 yrs)",
+      "Senior Software Architect — Android Automotive (12+ yrs)"
+    ],
+    experience: "experienced",
+    experienceRange: "3–12+ years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Android",
+      "Automotive",
+      "Embedded"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Android (AOSP) development for automotive products: requirements with customers, Linux-based embedded platforms, Embedded C/C++, board bring-up and debugging.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "3–12+ years (role-wise)",
+    qualification: "",
+    skills: [
+      "Android AOSP",
+      "Embedded C / C++",
+      "Linux",
+      "JTAG / GDB"
+    ],
+    requirements: [
+      "Strong Android (AOSP) knowledge",
+      "Experience as listed for each level"
+    ],
+    responsibilities: [],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex is hiring Android Automotive (AOSP) engineers in Kochi — Senior Engineer to Senior Architect, 3–12+ years.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-embedded-automotive-roles-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex is hiring Embedded Automotive (RTOS / Linux) engineers in Kochi — Senior Engineer, Lead and Architect.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior Software Engineer — Embedded Automotive (3–5 yrs)",
+      "Lead Software Engineer — Embedded Automotive (6–8 yrs)",
+      "Software Architect — Embedded Automotive (9–11 yrs)"
+    ],
+    experience: "experienced",
+    experienceRange: "3–11 years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Embedded",
+      "Automotive"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "RTOS / Linux embedded systems for automotive: Embedded C/C++, hardware integration, debugging and technical leadership.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "3–11 years (role-wise)",
+    qualification: "",
+    skills: [
+      "RTOS",
+      "Embedded Linux",
+      "Embedded C / C++",
+      "JTAG / GDB"
+    ],
+    requirements: [
+      "Strong RTOS / embedded systems knowledge",
+      "Experience as listed for each level"
+    ],
+    responsibilities: [],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex is hiring Embedded Automotive (RTOS / Linux) engineers in Kochi — Senior Engineer, Lead and Architect.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-linux-kernel-roles-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex is hiring Linux Kernel engineers and architects in Kochi — 6 to 12+ years.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Lead Software Engineer — Linux Kernel (6–8 yrs)",
+      "Software Architect — Linux Kernel (9–11 yrs)",
+      "Senior Software Architect — Linux Kernel (12+ yrs)"
+    ],
+    experience: "experienced",
+    experienceRange: "6–12+ years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Linux",
+      "Embedded",
+      "Automotive"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Linux kernel and Linux-based embedded platforms for the automotive domain, with architecture ownership and team leadership.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "6–12+ years (role-wise)",
+    qualification: "",
+    skills: [
+      "Linux kernel",
+      "Embedded C / C++",
+      "JTAG / GDB",
+      "System architecture"
+    ],
+    requirements: [
+      "Strong Linux kernel knowledge",
+      "Experience as listed for each level"
+    ],
+    responsibilities: [],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex is hiring Linux Kernel engineers and architects in Kochi — 6 to 12+ years.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-python-senior-architect-roles-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex is hiring Senior / Lead Python Engineers and a Python Software Architect in Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "Senior / Lead Software Engineer — Python (4–7 yrs)",
+      "Software Architect — Python (8–15 yrs)"
+    ],
+    experience: "experienced",
+    experienceRange: "4–15 years (role-wise)",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "Python"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Build cloud-based automotive software in Python (Django, Flask, FastAPI) with code reviews, testing and performance tuning.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "4–15 years (role-wise)",
+    qualification: "",
+    skills: [
+      "Python",
+      "Django / Flask / FastAPI",
+      "Agile",
+      "Performance optimisation"
+    ],
+    requirements: [
+      "Strong Python experience",
+      "Experience as listed for each level"
+    ],
+    responsibilities: [],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex is hiring Senior / Lead Python Engineers and a Python Software Architect in Kochi.",
+    startingDate: ""
+  },
+  {
+    id: "electrifex-devops-engineer-oct2026",
+    company: "Electrifex",
+    logo: "",
+    companyBlurb: "Electrifex is hiring an experienced DevOps Engineer (Docker / Kubernetes) in Kochi.",
+    location: "Kochi, Kerala",
+    roles: [
+      "DevOps Engineer (Docker / Kubernetes)"
+    ],
+    experience: "experienced",
+    experienceRange: "Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://talents.electrifex.com/",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-01",
+    source: "Company careers",
+    verified: false,
+    verificationNote: "Verify all details directly with the employer before applying. InfoparkDaily is not a recruiter and never collects money for jobs.",
+    tags: [
+      "IT",
+      "DevOps",
+      "Cloud"
+    ],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://www.electrifex.com",
+    address: "Kochi, Kerala",
+    industry: "Automotive & embedded software",
+    companyDetails: "Electrifex builds embedded, Android Automotive, Linux kernel and cloud software for the automotive domain. Recruitment Drive 2026 is run through talents.electrifex.com.",
+    workDetails: "Keep Kubernetes clusters stable and secure: monitoring, troubleshooting, upgrades, patching and performance tuning.",
+    workStatus: "Full-time",
+    workMode: "On-site · Kochi",
+    experienceYears: "Experienced",
+    qualification: "",
+    skills: [
+      "Kubernetes",
+      "Docker",
+      "Monitoring",
+      "Cluster security"
+    ],
+    requirements: [],
+    responsibilities: [
+      "Monitor and optimise Kubernetes clusters",
+      "Resolve network, resource and service issues",
+      "Apply security and compliance controls",
+      "Upgrade and patch clusters"
+    ],
+    howToApply: "Register on talents.electrifex.com, select the role and apply. Process: registration → online quiz (~40 min) → technical interview 1 → technical interview 2 → HR interview, all interviews at the Electrifex office in Kochi.",
+    description: "Electrifex is hiring an experienced DevOps Engineer (Docker / Kubernetes) in Kochi.",
+    startingDate: ""
+  }
 ];

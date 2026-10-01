@@ -288,6 +288,7 @@
     if (loc.includes("thrissur")) return "Thrissur";
     if (loc.includes("malappuram") || loc.includes("kottakkal")) return "Malappuram";
     if (loc.includes("alappuzha")) return "Alappuzha";
+    if (/\b(hyderabad|chennai|pune|mumbai|powai|gurugram|gurgaon|noida|delhi|mohali|kolkata|ahmedabad|coimbatore|mysore|mysuru)\b/.test(loc)) return "Other India";
     return "Other Kerala";
   }
 
