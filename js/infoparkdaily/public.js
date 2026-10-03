@@ -321,7 +321,7 @@ export function workerDetail(w, reviews = []) {
 }
 export function about() {
   const proof = [
-    ["60K+", "Community across Kerala IT"],
+    ["66K+", "Community across Kerala IT"],
     ["Reels", "Daily stories & hiring tips"],
     ["3 parks", "Infopark · Technopark · Cyberpark"],
     ["Free", "Employer workspace to start"],
@@ -344,7 +344,7 @@ export function about() {
     "A clear path for HR and talent teams: post a role, discover people, and manage conversations — backed by Kerala’s largest independent IT community.",
     `<div class="row about-hero-actions">${link("Post a role " + icon("right"), "post-job")}${link("Find talent", "workers", "btn secondary")}</div><nav class="about-jumps" aria-label="On this page">${jumps}</nav>`,
     "How it works",
-  )}<section class="about-proof" aria-label="Community reach"><div class="container about-proof-grid">${proof}</div></section><section class="section" id="community"><div class="container about-split"><div class="about-split-copy"><p class="eyebrow">FROM OUR 60K+ COMMUNITY</p><h2>Built where Kerala’s tech community already gathers.</h2><p class="muted">InfoparkDaily is an independent community — not the parks, not company HR. We share jobs, walk-ins, campus stories and now short <strong>reels</strong> so hiring signals travel farther and faster.</p><ul class="about-bullets"><li>${icon("users")} <span><strong>60K+</strong> people in the InfoparkDaily community family</span></li><li>${icon("star")} <span><strong>Reels</strong> for quick hiring tips, openings and campus moments</span></li><li>${icon("pin")} <span>Reach across <strong>Infopark, Technopark and Cyberpark</strong></span></li><li>${icon("shield")} <span>Community posts and talent profiles are <strong>reviewed</strong> before they go live</span></li></ul><div class="row about-links">${link("Create employer account", "register")}<a class="text-link" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Watch reels on Instagram ${icon("arrow")}</a></div></div><figure class="about-split-media"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Trusted by teams hiring across Kerala’s IT parks.</figcaption></figure></div></section>${howItWorks()}<section class="section soft" id="what-you-get"><div class="container"><div class="section-head"><div><p class="eyebrow">YOUR EMPLOYER TOOLKIT</p><h2>What hiring teams get.</h2><p>Everything you need to post, discover and follow up — in one workspace.</p></div></div><div class="grid two feature-grid">${[
+  )}<section class="about-proof" aria-label="Community reach"><div class="container about-proof-grid">${proof}</div></section><section class="section" id="community"><div class="container about-split"><div class="about-split-copy"><p class="eyebrow">FROM OUR 66K+ COMMUNITY</p><h2>Built where Kerala’s tech community already gathers.</h2><p class="muted">InfoparkDaily is an independent community — not the parks, not company HR. We share jobs, walk-ins, campus stories and now short <strong>reels</strong> so hiring signals travel farther and faster.</p><ul class="about-bullets"><li>${icon("users")} <span><strong>66K+</strong> people in the InfoparkDaily community family</span></li><li>${icon("star")} <span><strong>Reels</strong> for quick hiring tips, openings and campus moments</span></li><li>${icon("pin")} <span>Reach across <strong>Infopark, Technopark and Cyberpark</strong></span></li><li>${icon("shield")} <span>Community posts and talent profiles are <strong>reviewed</strong> before they go live</span></li></ul><div class="row about-links">${link("Create employer account", "register")}<a class="text-link" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Watch reels on Instagram ${icon("arrow")}</a></div></div><figure class="about-split-media"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Trusted by teams hiring across Kerala’s IT parks.</figcaption></figure></div></section>${howItWorks()}<section class="section soft" id="what-you-get"><div class="container"><div class="section-head"><div><p class="eyebrow">YOUR EMPLOYER TOOLKIT</p><h2>What hiring teams get.</h2><p>Everything you need to post, discover and follow up — in one workspace.</p></div></div><div class="grid two feature-grid">${[
     [
       "plus",
       "Post a role",
@@ -384,7 +384,7 @@ export function about() {
       "Approved professional profiles appear in the directory. Invite someone to one of your open roles. Conversations open after a hire request is approved.",
     ],
     [
-      "What is the 60K+ community?",
+      "What is the 66K+ community?",
       "InfoparkDaily’s independent Instagram and community family across Infopark, Technopark and Cyberpark — jobs, stories and reels people already follow.",
     ],
     [
