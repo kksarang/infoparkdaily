@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 9, 25)  # bump when re-importing
+TODAY = date(2026, 10, 3)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -547,6 +547,7 @@ def render_job(job: dict) -> str:
         "emailSubject",
         "officialLinks",
     ]
+    order += [k for k in job if k not in order]
     for key in order:
         if key not in job:
             continue
