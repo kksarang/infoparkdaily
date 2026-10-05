@@ -420,6 +420,45 @@
     return String(job.company || "").toLowerCase().includes(companyQuery);
   }
 
+  /** Open roles for a company slug (ignores location / park scope). */
+  function companyOpenJobs(slug) {
+    if (!slug || slug === "all") return [];
+    return JOBS.filter((job) => companyKey(job) === slug && deadlineStatus(job) !== "expired");
+  }
+
+  /**
+   * Pan-India employers (e.g. Amazon) do not match Infopark/Kochi-only filters.
+   * When a company is selected from the URL or picker, widen scope so listings appear.
+   */
+  function widenScopeForCompanyIfNeeded() {
+    if (activeCompany === "all") return false;
+    if (companyOpenJobs(activeCompany).length === 0) return false;
+    if (filteredJobs().length > 0) return false;
+
+    const hadScope =
+      activeLocation !== "all" || activePark !== "all" || activeCity !== "all" || defaultLocation !== "all";
+    if (!hadScope) return false;
+
+    activeLocation = "all";
+    activePark = "all";
+    activeCity = "all";
+    if (locationSelect) locationSelect.value = "all";
+
+    const syncGroup = (bar, attr, value) => {
+      if (!bar) return;
+      bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
+        const isActive = btn.dataset[attr] === value;
+        btn.classList.toggle("is-active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+    };
+    syncGroup(parkBar, "park", "all");
+    syncGroup(cityBar, "city", "all");
+    syncHeroParkButtons();
+    syncUrlFromFilters();
+    return true;
+  }
+
   function locationSlug(region) {
     return companySlug(region);
   }
@@ -538,6 +577,7 @@
       syncGroup(parkBar, "park", activePark);
       syncGroup(postedBar, "posted", activePosted);
       syncGroup(cityBar, "city", activeCity);
+      widenScopeForCompanyIfNeeded();
     } catch (_e) {
       /* ignore bad query */
     }
@@ -1069,7 +1109,12 @@
       if (activeCompany !== "all") {
         const companyName = companyLabelFromSlug(activeCompany);
         const roleCount = jobs.reduce((sum, job) => sum + (job.roles || []).length, 0);
-        const sharePath = `${window.location.pathname}?company=${encodeURIComponent(activeCompany)}`;
+        const totalOpen = companyOpenJobs(activeCompany).length;
+        const sharePath = `/jobs/?company=${encodeURIComponent(activeCompany)}`;
+        const scopeNote =
+          totalOpen > roleCount
+            ? `<p class="jobs-company-scope-note">Including <strong>all India locations</strong> (${totalOpen} open role${totalOpen === 1 ? "" : "s"}). Amazon and similar employers hire in Bangalore, Chennai, and remote — not only Infopark Kochi.</p>`
+            : "";
         companyBanner.hidden = false;
         companyBanner.innerHTML = `
           <div>
@@ -1080,6 +1125,7 @@
               <code>${escapeHtml(sharePath)}</code>.
               Expired roles appear under <strong>Expired only</strong>.
             </p>
+            ${scopeNote}
           </div>
           <div class="jobs-company-banner-actions">
             <a class="btn btn-primary" href="${escapeAttr(`/company/${activeCompany}/`)}">Company profile</a>
@@ -1147,6 +1193,16 @@
       emptyState.hidden = jobs.length > 0;
       if (jobs.length === 0 && activeStatus === "expired") {
         emptyState.innerHTML = `No expired listings in this filter — great news. Switch to <strong>Open jobs</strong> to browse current openings, or follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>.`;
+      } else if (jobs.length === 0 && activeCompany !== "all") {
+        const total = companyOpenJobs(activeCompany).length;
+        const name = companyLabelFromSlug(activeCompany);
+        if (total > 0) {
+          emptyState.innerHTML = `
+            <p><strong>${escapeHtml(name)}</strong> has <strong>${total}</strong> open role${total === 1 ? "" : "s"}, but none match your current location or park filters (these roles are often in Bangalore, Chennai, or Pan India).</p>
+            <p><a class="btn btn-primary" href="/jobs/?company=${escapeAttr(activeCompany)}">View all ${escapeHtml(name)} jobs (all locations)</a></p>`;
+        } else {
+          emptyState.innerHTML = `No open listings for <strong>${escapeHtml(name)}</strong> right now. Follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a> for updates.`;
+        }
       } else if (jobs.length === 0) {
         emptyState.innerHTML = `No listings match — check back soon or follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a> for live updates.`;
       }
@@ -1389,6 +1445,7 @@
       companyInput.value = activeCompany === "all" ? "" : label || companyLabelFromSlug(key);
     }
     hideCompanySuggestions();
+    if (activeCompany !== "all") widenScopeForCompanyIfNeeded();
     if (shouldRender !== false) resetVisibleAndRender();
   }
 
@@ -1669,7 +1726,9 @@
   buildTagChips();
   buildLocationOptions();
   buildCityCounts();
-  if (locationSelect && defaultLocation !== "all") {
+  const urlParamsEarly = new URLSearchParams(window.location.search);
+  const urlCompanyEarly = urlParamsEarly.get("company");
+  if (locationSelect && defaultLocation !== "all" && !urlCompanyEarly) {
     locationSelect.value = defaultLocation;
     activeLocation = defaultLocation;
   }
@@ -1678,10 +1737,16 @@
   buildCompanyOptions();
   applyFiltersFromUrl();
   syncHeroParkButtons();
-  if (locationSelect && defaultLocation !== "all" && !new URLSearchParams(window.location.search).get("location")) {
+  if (
+    locationSelect &&
+    defaultLocation !== "all" &&
+    activeCompany === "all" &&
+    !new URLSearchParams(window.location.search).get("location")
+  ) {
     locationSelect.value = defaultLocation;
     activeLocation = defaultLocation;
   }
+  widenScopeForCompanyIfNeeded();
   updateNonITVisibility();
   updateStatusFilterLabels();
   render();
