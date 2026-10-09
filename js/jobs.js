@@ -18,6 +18,11 @@
   const massHiringSection = document.getElementById("jobs-mass-hiring");
   const massHiringTrack = document.getElementById("jobs-mass-hiring-track");
   const massHiringCount = document.getElementById("jobs-mass-hiring-count");
+  const urgentSpotlightSection = document.getElementById("jobs-urgent-spotlight");
+  const urgentSpotlightTrack = document.getElementById("jobs-urgent-spotlight-track");
+  const urgentSpotlightCount = document.getElementById("jobs-urgent-spotlight-count");
+  const urgentSpotlightTitle = document.getElementById("jobs-urgent-spotlight-title");
+  const urgentSpotlightIntro = document.getElementById("jobs-urgent-spotlight-intro");
   const statCompanies = document.getElementById("stat-companies");
   const statRoles = document.getElementById("stat-roles");
   const statFreshers = document.getElementById("stat-freshers");
@@ -207,6 +212,10 @@
     if (job.featured === true) return true;
     const text = String(job.vacancyText || "").toLowerCase();
     return text.includes("100+") || text.includes("100 +");
+  }
+
+  function isUrgentSpotlight(job) {
+    return job.urgentSpotlight === true;
   }
 
   function isWalkInJob(job) {
@@ -866,6 +875,70 @@
     `;
   }
 
+  function renderUrgentSpotlightCard(job) {
+    const role = shortCardText(cardRoleLabel((job.roles || [])[0] || "Open role"), 56);
+    const badge = String(job.alertBadge || "Immediate joiners").trim();
+    return `
+      <article class="job-urgent-spotlight-card" role="listitem">
+        <div class="job-urgent-spotlight-card-main">
+          ${logoBlock(job)}
+          <div class="job-urgent-spotlight-card-copy">
+            <p class="job-urgent-spotlight-card-company">${escapeHtml(job.company || "")}</p>
+            <h3 class="job-urgent-spotlight-card-role">
+              <a href="${escapeAttr(jobHref(job))}">${escapeHtml(role)}</a>
+            </h3>
+            <p class="job-urgent-spotlight-card-meta">${escapeHtml(
+              shortCardText(job.experienceRange || job.experienceYears || "", 52)
+            )}</p>
+          </div>
+        </div>
+        <div class="job-urgent-spotlight-card-aside">
+          <span class="job-badge job-badge--urgent job-urgent-spotlight-card-badge">${escapeHtml(
+            shortCardText(badge, 22)
+          )}</span>
+          <a class="btn btn-primary btn-urgent-spotlight-apply" href="${escapeAttr(jobHref(job))}">View &amp; apply</a>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderUrgentSpotlightSection(jobs) {
+    if (!urgentSpotlightSection || !urgentSpotlightTrack) return;
+    const spotlight = jobs
+      .filter((job) => isUrgentSpotlight(job) && deadlineStatus(job) !== "expired")
+      .sort((a, b) => String(b.postedDate || "").localeCompare(String(a.postedDate || "")));
+    const showStrip =
+      spotlight.length > 0 &&
+      activeFilter !== "masshiring" &&
+      activeCompany === "all" &&
+      !searchQuery &&
+      !companyQuery &&
+      activeStatus !== "expired";
+    urgentSpotlightSection.hidden = !showStrip;
+    if (!showStrip) {
+      urgentSpotlightTrack.innerHTML = "";
+      return;
+    }
+    const lead = spotlight[0] || {};
+    if (urgentSpotlightTitle) {
+      urgentSpotlightTitle.textContent = String(
+        lead.spotlightTitle || `${lead.company || "Employer"} · urgent hiring`
+      );
+    }
+    if (urgentSpotlightIntro) {
+      urgentSpotlightIntro.textContent = String(
+        lead.spotlightIntro ||
+          "Priority openings with immediate joining — verify details on the full listing before you apply."
+      );
+    }
+    if (urgentSpotlightCount) {
+      urgentSpotlightCount.textContent =
+        spotlight.length === 1 ? "1 open role" : `${spotlight.length} open roles`;
+    }
+    urgentSpotlightTrack.dataset.count = String(spotlight.length);
+    urgentSpotlightTrack.innerHTML = spotlight.map((job) => renderUrgentSpotlightCard(job)).join("");
+  }
+
   function renderMassHiringSection(jobs) {
     if (!massHiringSection || !massHiringTrack) return;
     const featured = jobs.filter(
@@ -1060,6 +1133,7 @@
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
+    renderUrgentSpotlightSection(jobs);
     renderMassHiringSection(jobs);
 
     if (expiredBanner) {

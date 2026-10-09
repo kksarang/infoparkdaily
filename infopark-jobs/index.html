@@ -88,7 +88,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20260916note" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261009spotlight" />
     <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260930b" />
     <script
       async
@@ -300,6 +300,34 @@
       </aside>
 
       <div class="ej-listings">
+      <section
+        id="jobs-urgent-spotlight"
+        class="content-section jobs-urgent-spotlight-section"
+        aria-labelledby="jobs-urgent-spotlight-title"
+        hidden
+      >
+        <div class="jobs-urgent-spotlight-shell glass">
+          <div class="jobs-urgent-spotlight-head">
+            <div class="jobs-urgent-spotlight-flag" aria-hidden="true">
+              <span class="jobs-urgent-spotlight-flag-icon">⚑</span>
+              <span class="jobs-urgent-spotlight-flag-pulse"></span>
+            </div>
+            <div class="jobs-urgent-spotlight-copy">
+              <p class="jobs-kicker jobs-urgent-spotlight-kicker">Hiring alert</p>
+              <h2 id="jobs-urgent-spotlight-title">Priority roles · immediate joiners</h2>
+              <p id="jobs-urgent-spotlight-intro" class="jobs-urgent-spotlight-intro"></p>
+            </div>
+            <p id="jobs-urgent-spotlight-count" class="jobs-urgent-spotlight-count" aria-live="polite"></p>
+          </div>
+          <div
+            id="jobs-urgent-spotlight-track"
+            class="jobs-urgent-spotlight-track"
+            tabindex="0"
+            role="list"
+          ></div>
+        </div>
+      </section>
+
       <section
         id="jobs-mass-hiring"
         class="content-section jobs-mass-hiring-section"
@@ -537,8 +565,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
     <script src="/js/site.js?v=20260916nav2" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
-    <script src="/data/jobs-data.js?v=20261009a" defer></script>
-    <script src="/js/jobs.js?v=20261009a" defer></script>
+    <script src="/data/jobs-data.js?v=20261009c" defer></script>
+    <script src="/js/jobs.js?v=20261009b" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>
