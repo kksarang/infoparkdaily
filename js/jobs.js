@@ -674,7 +674,9 @@
       if (sortMode === "roles") {
         return (b.roles || []).length - (a.roles || []).length;
       }
-      // Latest posted first, then latest park listing id, then original import order.
+      // Urgent/community alerts first on default sort, then latest posted.
+      const urg = (b.urgentHiring ? 1 : 0) - (a.urgentHiring ? 1 : 0);
+      if (urg !== 0) return urg;
       return newestFirst(a, b);
     });
 
