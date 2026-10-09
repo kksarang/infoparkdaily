@@ -223,16 +223,26 @@ body.jobs-marketplace.dark .ej-search-bar .jobs-sort {
 
 .ej-hero-links a,
 .ej-hero-park-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 36px;
+  margin: 0;
+  padding: 0 0.85rem;
   text-decoration: none;
+  font-family: inherit;
   font-size: 0.82rem;
   font-weight: 650;
+  line-height: 1;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
   color: var(--ej-blue);
-  padding: 0.35rem 0.7rem;
   border-radius: 999px;
   background: #fff;
   border: 1px solid var(--ej-line);
   cursor: pointer;
-  line-height: 1;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 .ej-hero-park-btn:hover {
@@ -1497,11 +1507,13 @@ body.jobs-marketplace.dark .ej-search-bar .jobs-sort {
   margin: 0;
 }
 
-.ej-hero-links a {
-  min-height: 34px;
-  padding: 0.28rem 0.75rem;
-  font-size: 0.78rem;
-  font-weight: 700;
+.ej-hero-links a,
+.ej-hero-park-btn {
+  min-height: 36px;
+  height: 36px;
+  padding: 0 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 650;
   color: var(--ej-ink);
 }
 
