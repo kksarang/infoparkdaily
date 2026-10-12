@@ -139,6 +139,23 @@
     return String(job.referralLabel || "Referral available").trim() || "Referral available";
   }
 
+  function referralWhatsAppHref(job) {
+    const roles = (job.roles || [])
+      .slice(0, 3)
+      .map((role) => String(role || "").split("—")[0].trim())
+      .filter(Boolean);
+    const page = `https://infoparkdaily.online${jobPath(job.id || "")}`;
+    const lines = [
+      "Hi InfoparkDaily, I want a referral for this job.",
+      "",
+      `Company: ${job.company || "Company"}`,
+      `Role: ${roles.join(", ") || "Open role"}`,
+      job.location ? `Location: ${job.location}` : "",
+      page
+    ].filter((line) => line !== "");
+    return `https://wa.me/919995254290?text=${encodeURIComponent(lines.join("\n"))}`;
+  }
+
   function walkInDateText(job) {
     return job.walkinDates || job.walkInDate || "";
   }
@@ -2220,9 +2237,11 @@
               </ul>
               ${
                 isReferralJob(job)
-                  ? `<p class="job-hero-referral-callout">${escapeHtml(
+                  ? `<a class="job-hero-referral-callout" href="${escapeAttr(
+                      referralWhatsAppHref(job)
+                    )}">${escapeHtml(
                       referralLabel(job)
-                    )} · Highlighted by InfoparkDaily · Verify with the company before you apply</p>`
+                    )} · Message on WhatsApp</a>`
                   : ""
               }
               ${

@@ -230,6 +230,23 @@
     return String(job.referralLabel || "Referral available").trim() || "Referral available";
   }
 
+  function referralWhatsAppHref(job) {
+    const roles = (job.roles || [])
+      .slice(0, 3)
+      .map((role) => cardRoleLabel(role))
+      .filter(Boolean);
+    const page = `https://infoparkdaily.online${jobHref(job)}`;
+    const lines = [
+      "Hi InfoparkDaily, I want a referral for this job.",
+      "",
+      `Company: ${job.company || "Company"}`,
+      `Role: ${roles.join(", ") || "Open role"}`,
+      job.location ? `Location: ${job.location}` : "",
+      page
+    ].filter((line) => line !== "");
+    return `https://wa.me/919995254290?text=${encodeURIComponent(lines.join("\n"))}`;
+  }
+
   function walkInDateText(job) {
     return job.walkinDates || job.walkInDate || "";
   }
@@ -736,9 +753,11 @@
   }
 
   function referralRibbonHtml(job) {
-    return `<span class="job-referral-ribbon" aria-label="Referral opportunity">🔥 ${escapeHtml(
+    return `<a class="job-referral-ribbon" href="${escapeAttr(
+      referralWhatsAppHref(job)
+    )}" aria-label="Message InfoparkDaily on WhatsApp for a referral">🔥 ${escapeHtml(
       referralLabel(job)
-    )}</span>`;
+    )}</a>`;
   }
 
   function cardToplineHtml(job, mass, expired) {
@@ -1061,9 +1080,13 @@
         </div>
         <div class="job-tag-row">${tagChips || ""}</div>
         ${
-          mobileBlurb
-            ? `<p class="job-desc">${escapeHtml(shortCardText(mobileBlurb, 72))}</p>`
-            : ""
+          mobileBlurb && isReferralJob(job) && !expired
+            ? `<a class="job-referral-ask" href="${escapeAttr(
+                referralWhatsAppHref(job)
+              )}">${escapeHtml(shortCardText(mobileBlurb, 72))}</a>`
+            : mobileBlurb
+              ? `<p class="job-desc">${escapeHtml(shortCardText(mobileBlurb, 72))}</p>`
+              : ""
         }
         <footer class="job-card-foot">
           <a class="btn ${expired ? "btn-secondary" : "btn-primary"} job-details-btn" href="${escapeAttr(href)}">${ctaLabel}</a>
