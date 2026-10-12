@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 10, 9)  # bump when re-importing
+TODAY = date(2026, 10, 12)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -190,12 +190,29 @@ def format_phone_display(raw: str) -> str:
 def infer_exp_from_text(title: str, body: str) -> tuple[str, str]:
     exp, exp_range = infer_exp(title)
     blob = f"{title}\n{body}"
-    m = re.search(r"(\d+\s*(?:\+|plus)?(?:\s*(?:to|-|–)\s*\d+)?)\s*\+?\s*years?", blob, re.I)
+    year_re = re.compile(
+        r"(\d+\s*(?:\+|plus)?(?:\s*(?:to|-|–)\s*\d+)?)\s*\+?\s*years?",
+        re.I,
+    )
+    m = None
+    for candidate in year_re.finditer(blob):
+        pre = blob[max(0, candidate.start() - 48) : candidate.start()].lower()
+        post = blob[candidate.end() : candidate.end() + 24].lower()
+        company_age = bool(re.search(r"(more than|over|for)\s*$", pre)) and "experience" not in post
+        if company_age:
+            continue
+        m = candidate
+        break
     if m and exp != "fresher":
-        token = re.sub(r"\s+", " ", m.group(1)).replace("plus", "+")
-        exp_range = f"{token} years".replace("years years", "years")
-        if exp == "both":
-            exp = "experienced"
+        token = re.sub(r"\s+", " ", m.group(1)).strip().replace("plus", "+")
+        window = blob[max(0, m.start() - 80) : m.end() + 40].lower()
+        if re.search(r"fresher", window) and re.search(r"up to|upto", window):
+            exp = "both"
+            exp_range = f"Freshers to {token} years"
+        else:
+            exp_range = f"{token} years".replace("years years", "years")
+            if exp == "both":
+                exp = "experienced"
     return exp, exp_range
 
 
