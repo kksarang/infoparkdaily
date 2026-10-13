@@ -784,6 +784,70 @@ body.join-page {
   color: var(--text);
 }
 
+.join-channels-lead--more {
+  margin: 1.1rem 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.join-trust--open {
+  margin-top: 0.25rem;
+}
+
+.join-trust--open .join-trust-kicker {
+  margin: 0 0 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(37, 211, 102, 0.95);
+}
+
+.join-trust-heading {
+  margin: 0.75rem 0 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.join-trust--open .join-trust-details-body {
+  margin-top: 0;
+  font-size: 0.78rem;
+}
+
+.join-trust--open .join-trust-legal {
+  margin-top: 0.85rem;
+}
+
+.join-more-page-title {
+  margin: 0 0 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.join-below-channels {
+  margin-top: 1.75rem;
+}
+
+.join-below-channels > .content-section.join-section,
+.join-below-channels > .join-tip,
+.join-below-channels > .join-url-copy {
+  margin-top: 1.25rem;
+}
+
+.join-below-channels > .content-section.join-section:first-of-type {
+  margin-top: 0;
+}
+
 .join-channel-stack--all {
   gap: 0.95rem;
 }
@@ -824,37 +888,6 @@ body.join-page {
 
 .join-trust--compact .join-trust-legal {
   margin-top: 0.75rem;
-}
-
-.join-below-channels {
-  margin-top: 1.25rem;
-}
-
-.join-below-channels > summary {
-  cursor: pointer;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--muted);
-  list-style: none;
-  padding: 0.65rem 0;
-  border-top: 1px solid var(--line);
-}
-
-.join-below-channels > summary::-webkit-details-marker {
-  display: none;
-}
-
-.join-below-channels > summary::before {
-  content: "▸ ";
-  color: var(--accent);
-}
-
-.join-below-channels[open] > summary::before {
-  content: "▾ ";
-}
-
-.join-below-channels[open] > summary {
-  margin-bottom: 0.5rem;
 }
 
 .join-trust {
@@ -1231,21 +1264,17 @@ body.join-page {
   }
 }
 
-/* Tablet */
+/* Tablet / large — one column width for hero + cards + footer blocks */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .join-top,
-  .join-channels-first,
-  .join-follow-last,
-  .join-tip {
+  .join-page.jobs-page,
+  .join-page#main-content.jobs-page {
     max-width: 40rem;
   }
 }
 
-/* Large screens — comfortable reading width */
 @media (min-width: 1200px) {
-  .join-top,
-  .join-channels-first,
-  .join-follow-last {
+  .join-page.jobs-page,
+  .join-page#main-content.jobs-page {
     max-width: 46rem;
   }
 }
