@@ -465,7 +465,7 @@
       job.registerQr ||
         job.registrationQr ||
         job.applyQr ||
-        /forms\.gle|docs\.google\.com\/forms|register/i.test(link)
+        /forms\.gle|docs\.google\.com\/forms|forms\.cloud\.microsoft|register/i.test(link)
     );
   }
 
