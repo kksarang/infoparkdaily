@@ -259,6 +259,29 @@
   box-shadow: 0 6px 20px rgba(18, 140, 126, 0.35);
 }
 
+.join-channel-card--site {
+  border-color: rgba(255, 193, 7, 0.55);
+  background: linear-gradient(145deg, rgba(255, 193, 7, 0.14), var(--surface) 55%);
+}
+
+.join-channel-card--site:hover,
+.join-channel-card--site:focus-visible {
+  border-color: rgba(255, 193, 7, 0.85);
+}
+
+.join-channel-icon--web {
+  font-size: 1.15rem;
+  line-height: 1;
+  background: rgba(255, 193, 7, 0.2);
+  border-color: rgba(255, 193, 7, 0.4);
+}
+
+.join-channel-action--site {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  color: var(--accent-ink);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.35);
+}
+
 .join-hero-cta {
   display: flex;
   flex-wrap: wrap;

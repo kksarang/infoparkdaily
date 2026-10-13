@@ -1494,7 +1494,11 @@
   function channelsBlock() {
     const channels = [
       ["Instagram", "https://www.instagram.com/infoparkdaily/", "@infoparkdaily"],
-      ["Jobs Instagram", "https://www.instagram.com/infoparkdaily.jobs/", "@infoparkdaily.jobs"],
+      [
+        "Instagram job channel",
+        "https://www.instagram.com/channel/Abb7q7JYGH8FFrJw/",
+        "InfoparkDaily Job Alerts",
+      ],
       ["Media Instagram", "https://www.instagram.com/infoparkdaily.media/", "@infoparkdaily.media"],
       ["Instagram Broadcast", "https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/", "Broadcast channel"],
       ["WhatsApp Channel", "https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22", "Daily job alerts"],

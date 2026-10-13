@@ -23,11 +23,20 @@ var SOCIAL_CHANNELS = [
     cta: "Follow"
   },
   {
+    id: "ig-jobs-channel",
+    badge: "IG",
+    tone: "jobs",
+    name: "InfoparkDaily Job Alerts",
+    blurb: "Job vacancies & career updates — fresher, walk-ins, internships (Instagram channel)",
+    url: "https://www.instagram.com/channel/Abb7q7JYGH8FFrJw/",
+    cta: "Join"
+  },
+  {
     id: "ig-jobs",
     badge: "IG",
     tone: "jobs",
     name: "@infoparkdaily.jobs",
-    blurb: "Daily IT jobs, walk-ins & internships",
+    blurb: "Jobs profile — reels & highlights from the job channel",
     url: "https://www.instagram.com/infoparkdaily.jobs/",
     cta: "Follow"
   },
@@ -44,8 +53,8 @@ var SOCIAL_CHANNELS = [
     id: "ig-broadcast",
     badge: "BC",
     tone: "bc",
-    name: "Instagram Broadcast",
-    blurb: "Instant updates straight to your DMs",
+    name: "Infopark, Kochi & Kerala updates",
+    blurb: "Park news & InfoparkDaily community — Instagram channel",
     url: "https://www.instagram.com/channel/AbYzHp5h-gx5xbu7/",
     cta: "Join"
   },
