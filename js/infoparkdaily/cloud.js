@@ -3,6 +3,8 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendEmailVerification,
@@ -71,6 +73,16 @@ export function failText(error) {
         "This email already has an account. Please sign in.",
       "auth/weak-password": "Choose a password with at least 10 characters.",
       "auth/popup-closed-by-user": "Google sign-in was cancelled.",
+      "auth/popup-blocked":
+        "Your browser blocked the sign-in window. Trying again with a full-page sign-in…",
+      "auth/cancelled-popup-request":
+        "Sign-in was interrupted. Please try Google again.",
+      "auth/unauthorized-domain":
+        "This website domain must be authorised in Firebase (Authentication → Settings → Authorised domains). Use email sign-up or contact infoparkstorieskochi@gmail.com.",
+      "auth/operation-not-allowed":
+        "Google sign-in is not enabled for this app. Use work email and password, or contact support.",
+      "auth/account-exists-with-different-credential":
+        "This email already uses password sign-in. Sign in with email and password instead.",
       "auth/too-many-requests": "Please wait a moment before trying again.",
       "permission-denied":
         "This action is not available for your account. Check your email verification and access.",
@@ -95,12 +107,38 @@ export async function logIn(email, password, remember = false) {
   );
   return signInWithEmailAndPassword(auth, email, password);
 }
+function googleProvider() {
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
+  return provider;
+}
+
+export async function completeGoogleRedirect() {
+  const result = await getRedirectResult(auth);
+  return result?.user || null;
+}
+
 export async function google(remember = false) {
   await setPersistence(
     auth,
     remember ? browserLocalPersistence : browserSessionPersistence,
   );
-  return signInWithPopup(auth, new GoogleAuthProvider());
+  const provider = googleProvider();
+  try {
+    const { user } = await signInWithPopup(auth, provider);
+    return user;
+  } catch (error) {
+    const useRedirect = [
+      "auth/popup-blocked",
+      "auth/cancelled-popup-request",
+      "auth/operation-not-supported-in-this-environment",
+    ].includes(error?.code);
+    if (useRedirect) {
+      await signInWithRedirect(auth, provider);
+      return null;
+    }
+    throw error;
+  }
 }
 export async function register({ name, email, password, remember = false }) {
   if (password.length < 10)

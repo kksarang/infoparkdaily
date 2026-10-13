@@ -74,7 +74,7 @@ const employerFields = () =>
 const password = () =>
   `<div class="field"><label for="password">Password</label><div class="password-field"><input id="password" name="password" type="password" required minlength="${S.route === "register" ? 10 : 1}" maxlength="128" autocomplete="${S.route === "register" ? "new-password" : "current-password"}"><button type="button" class="icon-btn" data-password aria-label="Show password">${icon("eye")}</button></div></div>`;
 function authView(register = false) {
-  return `<div class="auth-layout"><section class="auth-story"><p class="eyebrow">EMPLOYER HIRING HUB</p><h1>${register ? "Hire with<br>clarity." : "Welcome back,<br>hiring team."}</h1><p>${register ? "Create an employer account to post roles, discover talent and manage hiring conversations." : "Your roles, applications and talent conversations — ready when you are."}</p><div class="auth-benefits"><span>${icon("check")} Post roles for review</span><span>${icon("check")} Browse the talent directory</span><span>${icon("shield")} Private hiring workspace</span></div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues collaborating in an office" width="600" height="350"></section><section class="auth-main"><div class="auth-box"><h2>${register ? "Create your employer account" : "Sign in to hire"}</h2><p>${register ? "Already have an account? " + link("Sign in", "sign-in", "text-link") : "New hiring team? " + link("Create an employer account", "register", "text-link")}</p><form class="stack" id="auth-form">${register ? employerFields() + field("Your name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) + field("Company name", "company", "", { required: true, max: 120, extra: 'autocomplete="organization"' }) : ""}${field("Work email", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}${password()}${register ? '<small class="muted">Use at least 10 characters. You’ll verify your email before posting roles.</small>' : `<div class="row spread">${check("Remember me", "remember")}<button type="button" class="btn quiet small" data-reset>Forgot password?</button></div>`}${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}${message()}<button class="btn wide" type="submit">${register ? "Create employer account" : "Sign in"} ${icon("right")}</button></form><div class="divider">or continue with</div><button class="btn secondary wide" data-google><span style="font-weight:800;font-size:1.1rem;color:#4285f4">G</span> Google</button><p class="small muted" style="text-align:center;margin:24px 0 0">${icon("shield")} Looking for a job? <a class="accent" href="/jobs/">Browse the jobs board</a> instead.</p></div></section></div>`;
+  return `<div class="auth-layout"><section class="auth-story"><p class="eyebrow">EMPLOYER HIRING HUB</p><h1>${register ? "Hire with<br>clarity." : "Welcome back,<br>hiring team."}</h1><p>${register ? "Create an employer account to post roles, discover talent and manage hiring conversations." : "Your roles, applications and talent conversations — ready when you are."}</p><div class="auth-benefits"><span>${icon("check")} Post roles for review</span><span>${icon("check")} Browse the talent directory</span><span>${icon("shield")} Private hiring workspace</span></div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues collaborating in an office" width="600" height="350"></section><section class="auth-main"><div class="auth-box"><h2>${register ? "Create your employer account" : "Sign in to hire"}</h2><p>${register ? "Already have an account? " + link("Sign in", "sign-in", "text-link") : "New hiring team? " + link("Create an employer account", "register", "text-link")}</p><form class="stack" id="auth-form">${register ? employerFields() + field("Your name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) + field("Company name", "company", "", { required: true, max: 120, extra: 'autocomplete="organization"' }) : ""}${field("Work email", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}${password()}${register ? '<small class="muted">Use at least 10 characters. You’ll verify your email before posting roles.</small>' : `<div class="row spread">${check("Remember me", "remember")}<button type="button" class="btn quiet small" data-reset>Forgot password?</button></div>`}${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}${message()}<button class="btn wide" type="submit">${register ? "Create employer account" : "Sign in"} ${icon("right")}</button></form><div class="divider">or continue with</div><button class="btn secondary wide" data-google><span style="font-weight:800;font-size:1.1rem;color:#4285f4">G</span> Google</button><div class="auth-workflow" aria-label="Employer hiring workflow"><p class="auth-workflow-title">How hiring works here</p><ol><li><strong>Create</strong> employer account (email or Google)</li><li><strong>Verify</strong> work email (password sign-up only)</li><li><strong>Add</strong> company name in onboarding</li><li><strong>Post</strong> a role → our team reviews → goes live</li></ol></div><p class="small muted" style="text-align:center;margin:24px 0 0">${icon("shield")} Looking for a job? <a class="accent" href="/jobs/">Browse the jobs board</a> instead.</p></div></section></div>`;
 }
 function verifyView() {
   main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel stack"><span class="feature-icon" style="width:max-content">${icon("mail")}</span><h1 style="font-size:2rem;margin:0">Check your inbox.</h1><p class="muted" style="margin:0">Open the confirmation link sent to <strong>${esc(S.user.email)}</strong>. Then come back here to finish your employer account.</p><div class="notice">Your email needs to be verified before you can post a role or contact talent.</div><div class="notice warn">(Sometimes this mail goes to Spam or Promotions. Open that folder, then mark InfoparkDaily as Not spam so the next one reaches Inbox.)</div><form id="verify-form" class="stack">${message()}<button class="btn" type="submit">I’ve verified my email ${icon("right")}</button><button type="button" class="btn secondary" data-resend>Resend verification email</button></form><button class="btn quiet" data-logout>Use another account</button></div></div></section>`;
@@ -188,7 +188,7 @@ async function authChanged(user) {
     refreshSavedButtons();
   } catch {}
   if (["sign-in", "register"].includes(S.route)) {
-    main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px">${empty("You’re signed in.", "Welcome back, " + esc(S.member.name) + ". Your next step is waiting in your workspace.", link("Open my workspace", "dashboard") + ' <button class="btn secondary" data-logout>Sign out</button>', "check")}</div></section>`;
+    redirect();
     return;
   }
   if (privateRoutes.includes(S.route)) {
@@ -220,7 +220,6 @@ function bindAuth() {
         verifyView();
       } else {
         await C.logIn(data.email, data.password, !!data.remember);
-        redirect();
       }
     });
 }
@@ -237,7 +236,7 @@ function guard() {
     return false;
   }
   if (!S.member) {
-    location.href = href("dashboard");
+    onboarding();
     return false;
   }
   return true;
@@ -781,6 +780,11 @@ async function downloadFile(uid, slot, appId) {
 export async function start(state, target) {
   S = state;
   main = target;
+  try {
+    await C.completeGoogleRedirect();
+  } catch (e) {
+    toast(C.failText(e));
+  }
   C.watchAuth((user) =>
     authChanged(user).catch((e) => {
       console.error(e);
@@ -857,21 +861,29 @@ export async function start(state, target) {
         location.href = ROOT;
       }
       if (b.hasAttribute("data-google")) {
+        const form = document.querySelector("#auth-form");
         if (S.route === "register") {
-          const form = document.querySelector("#auth-form");
-          if (!form.elements.consent.checked) {
+          if (!form?.elements.consent?.checked) {
             form.elements.consent.reportValidity();
             return;
           }
           sessionStorage.setItem(
             "ipd_market_signup",
-            JSON.stringify({ role: form.elements.role.value }),
+            JSON.stringify({
+              role: "employer",
+              name: form.elements.name?.value?.trim() || "",
+              company: form.elements.company?.value?.trim() || "",
+            }),
           );
         }
         b.disabled = true;
         try {
-          await C.google();
-          redirect();
+          const remember = !!form?.elements.remember?.checked;
+          const user = await C.google(remember);
+          if (!user) return;
+        } catch (e) {
+          if (form) showMessage(form, C.failText(e));
+          else toast(C.failText(e));
         } finally {
           b.disabled = false;
         }
