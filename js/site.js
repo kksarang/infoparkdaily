@@ -39,6 +39,11 @@ function formatCounter(value, el) {
     return `${Math.floor(value / 1000000)}M+`;
   }
   if (value >= 1000) {
+    if (el?.dataset.format === "tenth") {
+      const tenths = Math.round(value / 100);
+      if (tenths % 10 === 0) return `${tenths / 10}K+`;
+      return `${(tenths / 10).toFixed(1)}K+`;
+    }
     return `${Math.floor(value / 1000)}K+`;
   }
   return `${value}+`;
