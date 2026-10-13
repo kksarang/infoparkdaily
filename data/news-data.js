@@ -43,6 +43,385 @@
 
 var NEWS = [
   {
+    id: "huddle-global-2026-kovalam-festival",
+    title: "Huddle Global 2026: beachside startup festival at Kovalam, 12\u201314 November",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/huddle-global-40-off-2026.jpg",
+    imageAlt: "Huddle Global 2026 poster with 40% off code HUDDLE40",
+    summary: "Kerala Startup Mission\u2019s Huddle Global returns to The Leela Raviz, Kovalam on 12\u201314 November 2026. Gold and Diamond passes are on sale \u2014 poster promo code HUDDLE40 for 40% off was valid until 15 October 2026 on the official site.",
+    body: [
+      "Huddle Global is billed as Asia\u2019s largest beachside startup festival. The 2026 edition is scheduled for 12, 13 and 14 November 2026 at The Leela Raviz, Kovalam, Thiruvananthapuram, with Kerala Startup Mission and Kerala IT as organising partners.",
+      "Passes on the official site include Gold (gateway access, networking, investor matchmaking, mentoring and more) and Diamond (adds business matchmaking, product launch and exhibit slots, and Sundown Huddle). A circulating poster offered 40% off with code HUDDLE40 until 15 October 2026 \u2014 confirm current pricing on huddleglobal.co.in before you pay.",
+      "KSUM has also run Huddle Global roadshows in Thiruvananthapuram, Chennai, Mumbai, Bengaluru, Kozhikode, Gurugram and Kochi ahead of the main festival. InfoparkDaily is independent; we are not the organiser. Verify dates, pass inclusions and refunds only on the official Huddle Global channels."
+    ],
+    highlights: [
+      "Dates: 12\u201314 November 2026",
+      "Venue: The Leela Raviz, Kovalam, Trivandrum",
+      "Official site: huddleglobal.co.in",
+      "Poster promo: HUDDLE40 (40% off \u2014 verify deadline on site)",
+      "Organiser: Kerala Startup Mission / Kerala IT"
+    ],
+    attachments: [
+      { label: "Huddle Global official website", url: "https://www.huddleglobal.co.in/" },
+      { label: "Kerala Startup Mission", url: "https://startupmission.kerala.gov.in/" }
+    ],
+    source: "Kerala Startup Mission / Huddle Global posters",
+    sourceUrl: "https://www.huddleglobal.co.in/",
+    featured: true
+  },
+  {
+    id: "huddle-global-roadshow-2026-schedule",
+    title: "Huddle Global 2026 roadshow: multi-city tour before the Kovalam festival",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/huddle-global-roadshow-2026.jpg",
+    imageAlt: "Huddle Global 2026 roadshow city schedule poster",
+    summary: "Before the November festival, Huddle Global roadshows visited seven cities from 18 September to 3 October 2026 \u2014 including Technopark Trivandrum, CyberPark Kozhikode and KSUM Kochi.",
+    body: [
+      "A Kerala Startup Mission poster listed Huddle Global Roadshow 2026 stops: Thiruvananthapuram (KSUM Technopark, 18 Sept), Chennai (StartupTN), Mumbai (SPJIMR), Bengaluru (BHIVE Platinum Church Street), Kozhikode (KSUM Govt CyberPark, 26 Sept), Gurugram (The Circle Work, 1 Oct) and Kochi (KSUM, 3 Oct).",
+      "The roadshow promoted the main Huddle Global festival on 12\u201314 November 2026 at The Leela Raviz, Kovalam. Registration was advertised at huddleglobal.co.in/Roadshows.",
+      "If you missed a local roadshow, the festival registration page remains the place to check passes and agenda. InfoparkDaily lists community posters for visibility \u2014 confirm any date or venue change with KSUM."
+    ],
+    highlights: [
+      "Roadshow window: 18 Sept \u2013 3 Oct 2026 (seven cities)",
+      "Kerala stops: Technopark TVM, CyberPark Kozhikode, KSUM Kochi",
+      "Main festival: 12\u201314 Nov 2026, Kovalam",
+      "Roadshow URL cited: huddleglobal.co.in/Roadshows"
+    ],
+    attachments: [
+      { label: "Huddle Global roadshows", url: "https://www.huddleglobal.co.in/" }
+    ],
+    source: "Kerala Startup Mission poster",
+    sourceUrl: "https://www.huddleglobal.co.in/",
+    featured: false
+  },
+  {
+    id: "ieee-entrepreneurship-workshop-kochi-nov-2026",
+    title: "IEEE Entrepreneurship Workshop in Kochi, 16\u201317 November 2026",
+    category: "Events",
+    park: "Infopark Kochi",
+    date: "2026-10-13",
+    image: "/assets/news/ieee-entrepreneurship-workshop-2026.jpg",
+    imageAlt: "IEEE Entrepreneurship Workshop Kochi poster",
+    summary: "IEEE Entrepreneurship and Kerala Startup Mission announced a two-day workshop in Kochi on 16\u201317 November 2026 for early-stage founders and academic entrepreneurs. Poster application deadline: 16 October 2026.",
+    body: [
+      "The IEEE Entrepreneurship Workshop is scheduled for 16\u201317 November 2026 in Kochi, Kerala, with Kerala Startup Mission as the local partner. The poster listed an application deadline of 16 October 2026.",
+      "Session experts named on the flyer include Dr. S. Raghu (ET Cube International, USA), Dr. Daniel Renner (Atacama Light, USA) and Dr. K.R. Suresh Nair (Amara Raja Design Alpha, India). The programme overview mentions course directors, key topics, selection process and live Q&A.",
+      "Target participants include early-stage founders and aspiring academic entrepreneurs. Register via the KSUM short link on the poster: ksum.in/ENT_Workshop. InfoparkDaily does not handle applications \u2014 use only official KSUM / IEEE channels."
+    ],
+    highlights: [
+      "Workshop: 16\u201317 November 2026, Kochi",
+      "Apply by: 16 October 2026 (per poster)",
+      "Register: ksum.in/ENT_Workshop",
+      "Partners: IEEE Entrepreneurship + KSUM"
+    ],
+    attachments: [
+      { label: "KSUM registration (ENT_Workshop)", url: "https://ksum.in/ENT_Workshop" },
+      { label: "Kerala Startup Mission", url: "https://startupmission.kerala.gov.in/" }
+    ],
+    source: "IEEE Entrepreneurship / KSUM poster",
+    sourceUrl: "https://ksum.in/ENT_Workshop",
+    featured: false
+  },
+  {
+    id: "maker-sprint-3-fablab-oct-2026",
+    title: "Maker Sprint 3.0: six-day digital fabrication programme at FabLab Kerala",
+    category: "Events",
+    park: "Technopark TVM",
+    date: "2026-10-13",
+    image: "/assets/news/maker-sprint-3-2026.jpg",
+    imageAlt: "Maker Sprint 3.0 FabLab Kerala poster",
+    summary: "FabLab Kerala and KSUM\u2019s Maker Sprint 3.0 runs 26\u201331 October 2026 at Fab Lab Kerala, Technopark Phase 1 \u2014 vinyl, laser, 3D print, PCB, CNC and a final prototype project. Only 10 seats; registration on the FabLab site.",
+    body: [
+      "Maker Sprint 3.0 is a six-day hands-on digital fabrication programme themed \u201cFrom Idea to Prototype in Six Days.\u201d Dates on the poster: 26\u201331 October 2026 at Fab Lab Kerala, Trivandrum, Technopark Phase 1.",
+      "Modules cover vinyl cutting, laser cutting and engraving, 3D design and printing, PCB design and milling, CNC routing, and a capstone prototype project. The flyer notes open participation, no prior fabrication experience required, materials included, mentorship, and a KSUM certificate \u2014 with only 10 seats.",
+      "Registration: startupmission.kerala.gov.in/fablab/maker-sprint (QR on poster). InfoparkDaily is not FabLab \u2014 confirm fees, schedule and cancellation on the official registration page."
+    ],
+    highlights: [
+      "26\u201331 October 2026 \u00b7 Fab Lab Kerala, Technopark Phase 1",
+      "6 modules + final prototype",
+      "10 seats only (per poster)",
+      "Register: startupmission.kerala.gov.in/fablab/maker-sprint"
+    ],
+    attachments: [
+      { label: "Maker Sprint registration", url: "https://startupmission.kerala.gov.in/fablab/maker-sprint" },
+      { label: "FabLab Kerala", url: "https://fablabkerala.in/" }
+    ],
+    source: "FabLab Kerala / KSUM poster",
+    sourceUrl: "https://startupmission.kerala.gov.in/fablab/maker-sprint",
+    featured: false
+  },
+  {
+    id: "fab-d-lite-design-fabrication-2026",
+    title: "FAB D-LITE: design-focused digital fabrication programme by FabLab Kerala",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/fab-d-lite-2026.jpg",
+    imageAlt: "FAB D-LITE FabLab Kerala poster",
+    summary: "FabLab Kerala and KSUM promoted FAB D-LITE \u2014 covering CAD, fabrication, moulding, electronics, textiles and project presentation. Poster last date to apply: 10 October 2026.",
+    body: [
+      "FAB D-LITE is described as a design-focused digital fabrication programme from FabLab Kerala and Kerala Startup Mission. Topics on the poster include digital design and CAD, digital fabrication, moulding and casting, interactive electronics, textile fabrication, and project development and presentation.",
+      "The poster listed a last date to apply of 10 October 2026 and pointed to fabdlite.fablabkerala.in (scan-to-apply QR). If you are reading this after that date, check the FabLab site for the next cohort or waitlist.",
+      "InfoparkDaily shares KSUM community flyers for founders and students \u2014 confirm intake status only with FabLab Kerala."
+    ],
+    highlights: [
+      "Programme: FAB D-LITE (design + fabrication)",
+      "Apply via: fabdlite.fablabkerala.in",
+      "Poster deadline: 10 October 2026",
+      "Partners: FabLab Kerala + KSUM"
+    ],
+    attachments: [
+      { label: "FAB D-LITE", url: "https://fabdlite.fablabkerala.in/" }
+    ],
+    source: "FabLab Kerala / KSUM poster",
+    sourceUrl: "https://fabdlite.fablabkerala.in/",
+    featured: false
+  },
+  {
+    id: "ksum-idea-box-platform-2026",
+    title: "Kerala Startup Mission launches Idea Box for early-stage innovators",
+    category: "Community",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/ksum-idea-box-2026.jpg",
+    imageAlt: "KSUM Idea Box Malayalam launch poster",
+    summary: "KSUM\u2019s Idea Box invites people with new ideas to apply free at ideabox.startupmission.in \u2014 a platform to take concepts toward startup formation with mission support.",
+    body: [
+      "Kerala Startup Mission\u2019s Idea Box poster (Malayalam) introduces a channel for new ideas to find a platform and grow toward recognised startups, with KSUM alongside applicants.",
+      "The call to action is free applications at ideabox.startupmission.in. Details on eligibility, selection and benefits are on that portal \u2014 not reproduced here.",
+      "InfoparkDaily covers KSUM programmes for Kerala\u2019s tech and student community. This is not a job listing and not an Infopark park circular."
+    ],
+    highlights: [
+      "Apply free: ideabox.startupmission.in",
+      "Organiser: Kerala Startup Mission",
+      "Focus: early ideas \u2192 startup pathway"
+    ],
+    attachments: [
+      { label: "Idea Box portal", url: "https://ideabox.startupmission.in/" }
+    ],
+    source: "Kerala Startup Mission poster",
+    sourceUrl: "https://ideabox.startupmission.in/",
+    featured: false
+  },
+  {
+    id: "bio-ai-incubation-coe-kochi-2026",
+    title: "Bio-AI Incubation Program at Bio-AI CoE, Digital Hub Kochi",
+    category: "Events",
+    park: "Infopark Kochi",
+    date: "2026-10-13",
+    image: "/assets/news/bio-ai-incubation-2026.jpg",
+    imageAlt: "Bio-AI Centre of Excellence incubation call poster",
+    summary: "Bio-AI Centre of Excellence (KSUM) called startups for a Bio-AI incubation track in Ayurveda and spices \u2014 GPU/compute, mentoring and funding links. Poster applications open till 20 September 2026.",
+    body: [
+      "The Bio-AI Centre of Excellence under Kerala Startup Mission advertised a Bio-AI Incubation Program advancing AI-driven innovation in Ayurveda and spices, targeting startups.",
+      "Listed benefits include incubation at the Bio-AI CoE at Digital Hub, Kochi; access to compute and GPU infrastructure; industry and institutional connects; domain expert mentoring; and funding opportunities.",
+      "Applications were open till 20 September 2026 at bioai.startupmission.in per the poster. Check the portal for current cohort status if that deadline has passed."
+    ],
+    highlights: [
+      "Location: Bio-AI CoE, Digital Hub, Kochi",
+      "Focus: AI \u00d7 Ayurveda & spices",
+      "Portal: bioai.startupmission.in",
+      "Poster deadline: 20 September 2026"
+    ],
+    attachments: [
+      { label: "Bio-AI applications", url: "https://bioai.startupmission.in/" }
+    ],
+    source: "Bio-AI CoE / KSUM poster",
+    sourceUrl: "https://bioai.startupmission.in/",
+    featured: false
+  },
+  {
+    id: "social-entrepreneurship-conclave-2026",
+    title: "Social Entrepreneurship Conclave 2026 at Hyatt Regency, Thiruvananthapuram",
+    category: "Events",
+    park: "Technopark TVM",
+    date: "2026-10-13",
+    image: "/assets/news/social-entrepreneurship-conclave-2026.jpg",
+    imageAlt: "Social Entrepreneurship Conclave 2026 poster",
+    summary: "KSUM\u2019s SEC 2026 on 30 September 2026 at Hyatt Regency, Thiruvananthapuram \u2014 launches for social entrepreneurship programme, startup literacy, women startup cell and handbook. Register at sec.startupmission.in.",
+    body: [
+      "The Social Entrepreneurship Conclave 2026 (SEC) was scheduled for 30 September 2026 at Hyatt Regency, Thiruvananthapuram, bringing together entrepreneurs, investors, government, academia, NGOs and communities.",
+      "The poster announced launches including a Social Entrepreneurship Programme, Startup Literacy Campaign, Kerala\u2019s first Women Startup Cell, and a Women Startup Handbook.",
+      "Registration was at sec.startupmission.in. InfoparkDaily archives the flyer for readers who want context \u2014 confirm whether follow-on programmes are still open on the KSUM site."
+    ],
+    highlights: [
+      "Date: 30 September 2026",
+      "Venue: Hyatt Regency, Thiruvananthapuram",
+      "Register: sec.startupmission.in",
+      "Women & social enterprise focus"
+    ],
+    attachments: [
+      { label: "SEC 2026", url: "https://sec.startupmission.in/" }
+    ],
+    source: "Kerala Startup Mission poster",
+    sourceUrl: "https://sec.startupmission.in/",
+    featured: false
+  },
+  {
+    id: "iedc-summit-2026-sahrdaya-thrissur",
+    title: "IEDC Summit 2026 at Sahrdaya College, Kodakara \u2014 Asia\u2019s largest aspiring-entrepreneur summit",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/iedc-summit-2026.jpg",
+    imageAlt: "IEDC Summit 2026 Sahrdaya poster",
+    summary: "IEDC Summit 2026 at Sahrdaya College of Engineering & Technology, Kodakara (Thrissur) on 28 September 2026, with a CM\u2019s Wings of Change round table on 26 September. Site: iedcsummit.in.",
+    body: [
+      "IEDC Summit 2026 is hosted at Sahrdaya College of Engineering & Technology, Kodakara, Thrissur, with theme \u201cInnovation Beyond The Future.\u201d The main summit date on the poster is 28 September 2026.",
+      "Kerala Startup Mission\u2019s \u201cChief Minister\u2019s Wings of Change\u201d round table with IEDC district cluster coordinators was listed for 26 September 2026. Chief guest named on the poster: Shri V. D. Satheesan, Chief Minister of Keralam (as printed).",
+      "Tickets and details: iedcsummit.in. Partners include IEDC Sahrdaya, Sahrdaya TBI Hub and KSUM. Verify any programme changes on the official summit site."
+    ],
+    highlights: [
+      "Summit: 28 September 2026 \u00b7 Sahrdaya, Kodakara",
+      "Round table: 26 September 2026 (KSUM Wings of Change)",
+      "Website: iedcsummit.in"
+    ],
+    attachments: [
+      { label: "IEDC Summit 2026", url: "https://iedcsummit.in/" }
+    ],
+    source: "IEDC Sahrdaya / KSUM poster",
+    sourceUrl: "https://iedcsummit.in/",
+    featured: false
+  },
+  {
+    id: "she-tech-3-builds-ksum-kochi-2026",
+    title: "she tech 3.0 </BUILDS> at KSUM Kochi, 16\u201317 October 2026",
+    category: "Events",
+    park: "Infopark Kochi",
+    date: "2026-10-13",
+    image: "/assets/news/she-tech-3-2026.jpg",
+    imageAlt: "she tech 3.0 BUILDS registration poster",
+    summary: "Kerala Startup Mission and Kerala IT\u2019s she tech 3.0 </BUILDS> is on 16\u201317 October 2026 at KSUM Kochi \u2014 team-based AI build track. Poster registration closed 10 September 2026.",
+    body: [
+      "she tech 3.0 </BUILDS> is promoted by Kerala Startup Mission and Kerala IT for 16\u201317 October 2026 at KSUM Kochi, with messaging for teams with AI ideas to build together.",
+      "A registration-closing poster cited 10 September 2026 as the deadline (scan-to-apply QR). If you are past that date, check KSUM / she tech channels for walk-ins, waitlist or the next edition.",
+      "InfoparkDaily shares the flyer for women-in-tech and student founders in the Kochi ecosystem \u2014 not an official registration desk."
+    ],
+    highlights: [
+      "Event: 16\u201317 October 2026",
+      "Venue: KSUM Kochi",
+      "Poster reg. close: 10 September 2026",
+      "Theme: AI ideas + teams"
+    ],
+    attachments: [
+      { label: "Kerala Startup Mission", url: "https://startupmission.kerala.gov.in/" }
+    ],
+    source: "KSUM / Kerala IT poster",
+    sourceUrl: "https://startupmission.kerala.gov.in/",
+    featured: false
+  },
+  {
+    id: "bio-connect-4-life-sciences-expo-2026",
+    title: "BIO CONNECT 4.0 life sciences expo at Hyatt Regency, Thiruvananthapuram",
+    category: "Events",
+    park: "Technopark TVM",
+    date: "2026-10-13",
+    image: "/assets/news/bio-connect-4-2026.jpg",
+    imageAlt: "BIO CONNECT 4.0 expo poster",
+    summary: "BIO CONNECT 4.0 ran 8\u20139 October 2026 at Hyatt Regency, Trivandrum \u2014 life sciences expo and conclave with 30% delegate/exhibitor discount for startups and incubators via ksum.in/bioconnect30.",
+    body: [
+      "BIO CONNECT 4.0: Life Sciences Industries Expo & Conclave was scheduled for 8\u20139 October 2026 at Hyatt Regency, Thiruvananthapuram, with theme \u201cConnecting Science to Business.\u201d",
+      "Partners on the poster included KSIDC, Kerala Lifesciences Industries Parks, bio 360 Life Sciences Park, BioConnect and Kerala Startup Mission. A 30% discount for startups and incubators registering as delegates or exhibitors was advertised at ksum.in/bioconnect30.",
+      "For post-event materials or the next edition, use official BioConnect / KSUM links. InfoparkDaily recorded the community poster for founders in biopharma, medtech and agri-food innovation."
+    ],
+    highlights: [
+      "8\u20139 October 2026 \u00b7 Hyatt Regency, Trivandrum",
+      "Startup/incubator 30% off (poster)",
+      "Apply link cited: ksum.in/bioconnect30"
+    ],
+    attachments: [
+      { label: "BioConnect (KSUM)", url: "https://ksum.in/bioconnect30" }
+    ],
+    source: "KSUM / BioConnect poster",
+    sourceUrl: "https://ksum.in/bioconnect30",
+    featured: false
+  },
+  {
+    id: "bio-connect-product-launch-slot-2026",
+    title: "BioConnect 4.0 product launch slots for life-sciences startups",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/bio-connect-product-launch-2026.jpg",
+    imageAlt: "BioConnect product launch call poster",
+    summary: "KSUM invited life-sciences startups and SMEs to launch products at BioConnect 4.0 (8\u20139 Oct 2026, Hyatt Regency Trivandrum). Poster application deadline: 28 September 2026 \u00b7 ksum.in/BioConnect.",
+    body: [
+      "A BioConnect 4.0 poster invited life-sciences startups and SMEs to launch products at the expo on 8\u20139 October 2026 at Hyatt Regency, Thiruvananthapuram.",
+      "Focus areas listed: biopharma, medtech, nutraceuticals, agri-food innovation and artificial intelligence. Applications were open with deadline 28 September 2026 on ksum.in/BioConnect (QR on poster).",
+      "InfoparkDaily notes this for biotech founders \u2014 confirm whether late applications are accepted on the official portal."
+    ],
+    highlights: [
+      "Product launch track at BioConnect 4.0",
+      "Event: 8\u20139 October 2026",
+      "Poster apply by: 28 September 2026",
+      "ksum.in/BioConnect"
+    ],
+    attachments: [
+      { label: "BioConnect applications", url: "https://ksum.in/BioConnect" }
+    ],
+    source: "KSUM BioConnect poster",
+    sourceUrl: "https://ksum.in/BioConnect",
+    featured: false
+  },
+  {
+    id: "fablab-pcb-designing-workshop-oct-2026",
+    title: "Hands-on PCB designing workshop at KSUM Technopark, 3 October 2026",
+    category: "Events",
+    park: "Technopark TVM",
+    date: "2026-10-13",
+    image: "/assets/news/fablab-pcb-workshop-2026.jpg",
+    imageAlt: "FabLab PCB designing workshop poster",
+    summary: "FabLab Kerala and KSUM ran a full-day PCB workshop on 3 October 2026 at Tejaswini, Technopark \u2014 KiCad, layout, DRC, Gerber and fabrication workflow. Fee \u20b9300; register at ksum.in/Pcb_Designing.",
+    body: [
+      "FabLab Kerala and Kerala Startup Mission advertised a hands-on PCB designing workshop on 3 October 2026, 9:30 AM\u20135:30 PM, at Kerala Startup Mission, G3B, Tejaswini Building, Technopark.",
+      "Topics included Fab Lab intro, basic electronics and PCB design, schematic design in KiCad, PCB layout, design rule check (DRC), Gerber generation and fabrication workflow. Participation fee on the poster: \u20b9300.",
+      "Registration link: ksum.in/Pcb_Designing. Check FabLab Kerala for the next PCB batch if this date has passed."
+    ],
+    highlights: [
+      "3 October 2026 \u00b7 Tejaswini, Technopark",
+      "KiCad + fabrication workflow",
+      "Fee: \u20b9300 (poster)",
+      "ksum.in/Pcb_Designing"
+    ],
+    attachments: [
+      { label: "PCB workshop registration", url: "https://ksum.in/Pcb_Designing" }
+    ],
+    source: "FabLab Kerala / KSUM poster",
+    sourceUrl: "https://ksum.in/Pcb_Designing",
+    featured: false
+  },
+  {
+    id: "rink-ccif-exposure-visit-gcw-2026",
+    title: "RINK exposure visit to CCIF instrumentation at Government College for Women, Vazhuthacaud",
+    category: "Events",
+    park: "Technopark TVM",
+    date: "2026-10-13",
+    image: "/assets/news/rink-ccif-visit-2026.jpg",
+    imageAlt: "RINK CCIF exposure visit poster",
+    summary: "One-day RINK visit to the Centralised Common Instrumentation Facility at GCW Vazhuthacaud on 16 September 2026 \u2014 NMR, Raman, microscopy and more. MoU between KSUM and GCW; fee \u20b9200; apply by 12 Sept at ksum.in/CCIF.",
+    body: [
+      "Research Innovation Network Kerala (RINK) and Kerala Startup Mission promoted a one-day exposure visit to the Centralised Common Instrumentation Facility (CCIF) at Government College for Women, Vazhuthacaud on 16 September 2026, 9:30 AM\u20132:30 PM.",
+      "The poster highlighted 25+ instruments including NMR, fluorescence and confocal Raman microscopes, and a nano fibre electrospinning unit, plus MoU signing between KSUM and GCW for startup support. Registration fee \u20b9200; last date to apply 12 September 2026; ksum.in/CCIF; contact 8301919348.",
+      "InfoparkDaily archives the notice for researchers and hardware founders \u2014 verify future CCIF open days on RINK / KSUM pages."
+    ],
+    highlights: [
+      "16 September 2026 \u00b7 GCW Vazhuthacaud",
+      "CCIF advanced instrumentation tour",
+      "Fee \u20b9200 \u00b7 apply by 12 Sept 2026",
+      "ksum.in/CCIF"
+    ],
+    attachments: [
+      { label: "CCIF visit registration", url: "https://ksum.in/CCIF" }
+    ],
+    source: "RINK / KSUM / GCW poster",
+    sourceUrl: "https://ksum.in/CCIF",
+    featured: false
+  },
+  {
     id: "technopark-quad-350-crore-loan-2026",
     title: "Technopark seeks ₹350 crore loan to finish QUAD IT building in Phase IV",
     category: "Investment",

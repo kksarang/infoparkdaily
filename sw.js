@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v371-community";
+const CACHE_NAME = "infoparkdaily-v372-community";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -52,7 +52,7 @@ const PRELOAD_ASSETS = [
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
-  "./js/site.js?v=20260914a",
+  "./js/site.js?v=20261013live",
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
@@ -79,7 +79,7 @@ const PRELOAD_ASSETS = [
   "./js/social.js?v=20260902a",
   "./js/social-post.js?v=20260815b",
   "./assets/media/onam-bg.svg",
-  "./data/news-data.js?v=20260905a",
+  "./data/news-data.js?v=20261013ksum",
   "./js/news.js?v=20260805x",
   "./js/news-article.js?v=20260805l",
   "./manifest.webmanifest",

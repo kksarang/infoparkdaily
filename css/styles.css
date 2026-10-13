@@ -10230,8 +10230,8 @@ body.light .news-story-hero-media {
     overflow: hidden;
   }
 
-  /* Keep page content clear of the fixed mobile header */
-  body {
+  /* Keep page content clear of the fixed mobile header (not Career Tools — own header) */
+  body:not(.career-tools) {
     padding-top: calc(4.25rem + env(safe-area-inset-top, 0px));
   }
 
@@ -10539,7 +10539,7 @@ body.light .news-story-hero-media {
     justify-content: flex-start;
   }
 
-  body {
+  body:not(.career-tools) {
     padding-top: calc(4rem + env(safe-area-inset-top, 0px));
   }
 

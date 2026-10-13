@@ -1,5 +1,7 @@
 /* Career Tools chrome — same store-header menu as Portfolio (text links + yellow underline). */
 body.career-tools {
+  /* Main site mobile shell adds body padding for .site-header; Career Tools uses .store-header */
+  padding-top: 0;
   --ct-ink: #171c24;
   --ct-muted: #69707b;
   --ct-line: #e5e7dd;

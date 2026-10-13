@@ -613,7 +613,7 @@ initWhatsAppJobsPrompt();
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("./sw.js?v=20260914a")
+      .register("./sw.js?v=20261013live")
       .then((registration) => registration.update())
       .catch(() => {
         // Service worker registration should not block core rendering.
