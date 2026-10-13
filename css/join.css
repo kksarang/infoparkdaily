@@ -179,6 +179,27 @@
   color: var(--text);
 }
 
+.join-job-alerts-block--highlight {
+  border-width: 2px;
+  border-color: rgba(255, 193, 7, 0.55);
+  box-shadow: 0 8px 28px rgba(255, 193, 7, 0.12);
+}
+
+.join-job-alerts-block--highlight .join-job-alerts-brand {
+  font-size: 1.08rem;
+}
+
+.join-job-alerts-tagline a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.join-channel-desc--why strong {
+  color: var(--text);
+}
+
 .join-channel-name {
   display: block;
   font-size: 1.08rem;
@@ -193,6 +214,19 @@
   font-weight: 600;
   color: var(--accent);
   margin-bottom: 0.35rem;
+}
+
+.join-channel-handle strong {
+  color: var(--text);
+}
+
+.join-channel-url {
+  display: block;
+  font-size: 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+  word-break: break-all;
 }
 
 .join-channel-desc {

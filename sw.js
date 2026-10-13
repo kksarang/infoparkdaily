@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v372-community";
+const CACHE_NAME = "infoparkdaily-v373-join-ig-job-channel";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
