@@ -8,7 +8,12 @@
   const root = document.getElementById("job-detail-root");
   if (!root) return;
 
-  const DAY_MS = 24 * 60 * 60 * 1000;
+  const DL = window.IPDJobDeadline;
+  if (!DL) {
+    console.error("IPDJobDeadline is required — load /js/job-deadline.js before company.js");
+    return;
+  }
+  const { daysLeft, deadlineStatus, parseIso } = DL;
   const EXP_LABELS = {
     fresher: "Fresher",
     experienced: "Experienced",
@@ -118,31 +123,6 @@
     if (match && match[1]) return decodeURIComponent(match[1]).toLowerCase();
     const params = new URLSearchParams(window.location.search);
     return companySlug(params.get("company") || params.get("id") || "");
-  }
-
-  function parseIso(iso) {
-    if (!iso || iso === "Rolling") return null;
-    const date = new Date(`${iso}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? null : date.getTime();
-  }
-
-  function todayStart() {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  }
-
-  function daysLeft(job) {
-    const ts = parseIso(job.applyDeadline);
-    if (ts === null) return null;
-    return Math.round((ts - todayStart()) / DAY_MS);
-  }
-
-  function deadlineStatus(job) {
-    const left = daysLeft(job);
-    if (left === null) return "open";
-    if (left < 0) return "expired";
-    if (left <= 7) return "closing";
-    return "open";
   }
 
   function formatDate(iso) {

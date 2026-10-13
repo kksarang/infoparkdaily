@@ -21,7 +21,7 @@
  * ---------------------
  * employmentType  string   "Full-time" | "Internship" | "Apprenticeship" | "Contract"
  * experienceRange string   e.g. "0–2 Years" (shown on cards / detail)
- * applyDeadline   string   ISO "YYYY-MM-DD" or "Rolling"
+ * applyDeadline   string   ISO "YYYY-MM-DD" or "Rolling" (Rolling = auto-expires 45 days after postedDate)
  * tags            string[] e.g. ["IT", "Marketing", "Design", "Sales", "Business"]
  * verified        boolean  Shows "Verified by InfoparkDaily" badge
  * isWalkIn        boolean  Walk-in drive filter + badge (alias: walkin)
@@ -85438,7 +85438,7 @@ var JOBS = [
     experienceRange: "1+ years",
     employmentType: "Full-time",
     applyLink: "mailto:athuldeepv25@gmail.com?subject=Solution%20Consultant%20%E2%80%93%20iTravel",
-    applyDeadline: "Rolling",
+    applyDeadline: "2026-10-12",
     postedDate: "2026-09-05",
     source: "WhatsApp",
     verified: true,
@@ -85488,8 +85488,8 @@ var JOBS = [
     ],
     benefits: ["Referral opportunity via InfoparkDaily community channel"],
     howToApply: "Send your updated CV directly to athuldeepv25@gmail.com with subject line: Solution Consultant – iTravel. This listing highlights a referral path — confirm details with IBS Software before you apply. Never pay for a job or interview.",
-    hiringNotes: "🔥 Referral available — highlighted by InfoparkDaily. Apply by email with subject “Solution Consultant – iTravel”. InfoparkDaily is not the employer.",
-    description: "IBS Software referral: Solution Consultant – iTravel (TnC) in Kochi / Trivandrum — 1+ years, travel required.",
+    hiringNotes: "Listing closed (Oct 2026) — referral no longer active. Confirm with IBS Software before applying. InfoparkDaily is not the employer.",
+    description: "IBS Software referral: Solution Consultant – iTravel (TnC) in Kochi / Trivandrum — 1+ years, travel required. This listing has expired.",
     startingDate: "",
     seoTitle: "IBS Software Solution Consultant iTravel Referral | Kochi Trivandrum | InfoparkDaily",
     seoDescription: "Referral opportunity: Solution Consultant – iTravel (TnC) at IBS Software in Kochi / Trivandrum. 1+ years. Email CV to athuldeepv25@gmail.com."

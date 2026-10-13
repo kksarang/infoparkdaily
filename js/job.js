@@ -9,8 +9,14 @@
     both: "Fresher + Exp"
   };
 
-  const CLOSING_DAYS = 7;
-  const DAY_MS = 24 * 60 * 60 * 1000;
+  const DL = window.IPDJobDeadline;
+  if (!DL) {
+    console.error("IPDJobDeadline is required — load /js/job-deadline.js before job.js");
+    return;
+  }
+  const { daysLeft, deadlineStatus, parseIso, formatDate: formatDeadlineDate, isRollingDeadline, effectiveDeadlineIso } =
+    DL;
+  const DAY_MS = DL.DAY_MS;
   const MASS_HIRING_MIN = 100;
 
   /* ---------- helpers ---------- */
@@ -41,26 +47,22 @@
     return slug ? `/company/${encodeURIComponent(slug)}/` : "/jobs/";
   }
 
-  function todayStart() {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  }
-
-  function parseIso(iso) {
-    if (!iso || iso === "Rolling") return null;
-    const date = new Date(`${iso}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? null : date.getTime();
-  }
-
   function formatDate(iso) {
-    if (!iso || iso === "Rolling") return iso || "";
-    const ts = parseIso(iso);
-    if (ts === null) return iso;
-    return new Date(ts).toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    });
+    if (iso === "Rolling") return "Rolling";
+    return formatDeadlineDate(iso);
+  }
+
+  function listingDeadlineLabel(job) {
+    if (!job) return "";
+    if (isRollingDeadline(job)) {
+      const end = effectiveDeadlineIso(job);
+      if (!end) return "Open listing (45-day window)";
+      const left = daysLeft(job);
+      if (left !== null && left < 0) return `Listing closed ${formatDate(end)}`;
+      return `Open listing · closes ${formatDate(end)}`;
+    }
+    if (!job.applyDeadline) return "";
+    return job.applyDeadline === "Rolling" ? "Rolling" : formatDate(job.applyDeadline);
   }
 
   function formatDateTime(iso) {
@@ -77,29 +79,8 @@
     });
   }
 
-  function daysLeft(job) {
-    const ts = parseIso(job.applyDeadline);
-    if (ts === null) return null;
-    return Math.round((ts - todayStart()) / DAY_MS);
-  }
-
-  function deadlineStatus(job) {
-    const left = daysLeft(job);
-    if (left === null) return "open";
-    if (left < 0) return "expired";
-    if (left <= CLOSING_DAYS) return "closing";
-    return "open";
-  }
-
   function deadlineLabel(job) {
-    const left = daysLeft(job);
-    if (left === null) return job.applyDeadline === "Rolling" ? "Rolling deadline" : "";
-    if (left < -1) return `Expired ${Math.abs(left)} days ago`;
-    if (left === -1) return "Expired yesterday";
-    if (left === 0) return "Last day to apply";
-    if (left === 1) return "1 day left";
-    if (left <= CLOSING_DAYS) return `${left} days left`;
-    return `Apply by ${formatDate(job.applyDeadline)}`;
+    return DL.deadlineLabel(job);
   }
 
   function vacancyCount(job) {
@@ -404,8 +385,8 @@
   function premiumFactTiles(job) {
     const expiredDeadline = deadlineStatus(job) === "expired";
     const deadline =
-      job.applyDeadline === "Rolling"
-        ? "Open / Rolling"
+      isRollingDeadline(job)
+        ? listingDeadlineLabel(job)
         : job.applyDeadline
           ? formatDate(job.applyDeadline)
           : "Not listed";
@@ -521,8 +502,8 @@
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
     const st = listingStatusMeta(job);
     const deadline =
-      job.applyDeadline === "Rolling"
-        ? "Open / Rolling"
+      isRollingDeadline(job)
+        ? listingDeadlineLabel(job)
         : job.applyDeadline
           ? formatDate(job.applyDeadline)
           : "Not listed";
@@ -675,8 +656,8 @@
       ["Salary", qf.salary || job.salaryRange],
       [
         "Deadline",
-        job.applyDeadline === "Rolling"
-          ? "Rolling"
+        isRollingDeadline(job)
+          ? listingDeadlineLabel(job)
           : qf.deadline && qf.deadline !== ND
             ? qf.deadline
             : job.applyDeadline
@@ -726,7 +707,10 @@
       title: s.title || (job.roles || [])[0] || job.company,
       description: job.jobSummary || job.seoDescription || job.companyDetails || "",
       datePosted: s.datePosted || job.postedDate || undefined,
-      validThrough: s.validThrough || (job.applyDeadline && job.applyDeadline !== "Rolling" ? job.applyDeadline : undefined),
+      validThrough:
+        s.validThrough ||
+        effectiveDeadlineIso(job) ||
+        (job.applyDeadline && !isRollingDeadline(job) ? job.applyDeadline : undefined),
       employmentType,
       hiringOrganization: {
         "@type": "Organization",
@@ -1592,7 +1576,7 @@
       ],
       ["Location", panIndia ? "Pan India" : job.location || ""],
       ["Posting start", job.postingStartDate ? formatDate(job.postingStartDate) : ""],
-      ["Deadline", job.applyDeadline === "Rolling" ? "Open / Rolling" : formatDate(job.applyDeadline) || ""],
+      ["Deadline", isRollingDeadline(job) ? listingDeadlineLabel(job) : formatDate(job.applyDeadline) || ""],
       ["Salary / stipend", job.salaryRange || job.salary || ""]
     ].filter(([, v]) => v);
 
@@ -1956,8 +1940,8 @@
       ["Posted", job.postedDate ? formatDate(job.postedDate) : ""],
       [
         "Deadline",
-        job.applyDeadline === "Rolling"
-          ? "Open / Rolling"
+        isRollingDeadline(job)
+          ? listingDeadlineLabel(job)
           : job.applyDeadline
             ? formatDate(job.applyDeadline)
             : ""
@@ -2142,8 +2126,8 @@
       ["Posted", job.postedDate ? formatDate(job.postedDate) : ""],
       [
         "Deadline",
-        job.applyDeadline === "Rolling"
-          ? "Open / Rolling"
+        isRollingDeadline(job)
+          ? listingDeadlineLabel(job)
           : job.applyDeadline
             ? formatDate(job.applyDeadline)
             : ""

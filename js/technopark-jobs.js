@@ -3,9 +3,10 @@
   const experiencedGrid = document.getElementById("tp-experienced-grid");
   const countEl = document.getElementById("tp-count");
   if (!fresherGrid || !experiencedGrid || typeof TECHNOPARK_VERIFIED_JOBS === "undefined") return;
+  if (!window.IPDJobDeadline) return;
 
   const JOBS = TECHNOPARK_VERIFIED_JOBS.slice();
-  const DAY_MS = 24 * 60 * 60 * 1000;
+  const { deadlineStatus, parseIso } = window.IPDJobDeadline;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -55,49 +56,13 @@
       .join("");
   }
 
-  function parseIso(iso) {
-    if (!iso || iso === "Rolling") return null;
-    const date = new Date(`${iso}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? null : date.getTime();
-  }
-
   function formatDate(iso) {
-    const ts = parseIso(iso);
-    if (ts === null) return iso || "";
-    return new Date(ts).toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    });
-  }
-
-  function todayStart() {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  }
-
-  function daysLeft(job) {
-    const ts = parseIso(job.applyDeadline);
-    if (ts === null) return null;
-    return Math.round((ts - todayStart()) / DAY_MS);
-  }
-
-  function deadlineStatus(job) {
-    const left = daysLeft(job);
-    if (left === null) return "open";
-    if (left < 0) return "expired";
-    if (left <= 7) return "closing";
-    return "open";
+    return window.IPDJobDeadline.formatDate(iso, { short: true });
   }
 
   function deadlineLabel(job) {
-    const left = daysLeft(job);
-    if (left === null) return "";
-    if (left < 0) return "Closed";
-    if (left === 0) return "Closes today";
-    if (left === 1) return "1 day left";
-    if (left <= 7) return `${left} days left`;
-    return `Apply by ${formatDate(job.applyDeadline)}`;
+    const label = window.IPDJobDeadline.deadlineLabel(job, { short: true });
+    return label || "";
   }
 
   function jobHref(job) {

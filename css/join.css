@@ -13,10 +13,22 @@ body.join-page {
   box-sizing: border-box;
 }
 
+/* One gutter on main — sections share full column width (matches channel cards). */
+.join-page.jobs-page,
+.join-page#main-content.jobs-page {
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-inline: max(clamp(1rem, 4vw, 1.5rem), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  box-sizing: border-box;
+}
+
 .join-page .content-section {
   box-sizing: border-box;
-  padding-left: max(clamp(1rem, 4vw, 1.5rem), env(safe-area-inset-left, 0px));
-  padding-right: max(clamp(1rem, 4vw, 1.5rem), env(safe-area-inset-right, 0px));
+  width: 100%;
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .join-top {
@@ -26,10 +38,12 @@ body.join-page {
 .join-channels-first,
 .join-follow-last,
 .join-tip,
-.join-url-copy {
+.join-url-copy,
+.join-below-channels,
+.join-channels-panel {
   width: 100%;
-  max-width: 44rem;
-  margin-inline: auto;
+  max-width: none;
+  margin-inline: 0;
   box-sizing: border-box;
 }
 
@@ -48,8 +62,9 @@ body.join-page {
 }
 
 .join-top {
-  max-width: 44rem;
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
   padding-inline: 0;
   text-align: left;
 }
@@ -64,6 +79,9 @@ body.join-page {
   font-size: clamp(0.68rem, 2.8vw, 0.8rem);
   line-height: 1.35;
   word-break: break-word;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .join-hero h1 {
@@ -983,7 +1001,7 @@ body.join-page {
 /* ---------- Mobile: channels first, minimal scroll ---------- */
 @media (max-width: 767px) {
   .join-page .join-top.content-section {
-    margin-top: 0.25rem;
+    margin-top: 0.35rem;
   }
 
   .join-page .content-section {
@@ -992,11 +1010,17 @@ body.join-page {
 
   .join-hero {
     padding-bottom: 0.45rem;
+    padding-top: 0.15rem;
   }
 
   .join-hero .jobs-kicker {
     font-size: 0.72rem;
-    margin-bottom: 0.4rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.55rem;
+    padding-top: 0.35rem;
+    letter-spacing: 0.12em;
+    width: 100%;
+    align-self: stretch;
   }
 
   .join-hero h1 {

@@ -33,6 +33,10 @@
   const activeChipsEl = document.getElementById("jobs-active-chips");
 
   if (!grid || typeof JOBS === "undefined") return;
+  if (!window.IPDJobDeadline) {
+    console.error("IPDJobDeadline is required — load /js/job-deadline.js before jobs.js");
+    return;
+  }
 
   const MASS_HIRING_MIN = 100;
 
@@ -44,9 +48,8 @@
 
   const PAGE_SIZE = 12;
   const NEW_DAYS = 5;
-  const CLOSING_DAYS = 7;
   const MAX_ROLES_ON_CARD = 2;
-  const DAY_MS = 24 * 60 * 60 * 1000;
+  const { daysLeft, deadlineStatus, parseIso, DAY_MS, todayStart } = window.IPDJobDeadline;
 
   function parkPageLocation() {
     const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
@@ -77,55 +80,12 @@
 
   /* ---------- date helpers ---------- */
 
-  function todayStart() {
-    const now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-  }
-
-  function parseIso(iso) {
-    if (!iso || iso === "Rolling") return null;
-    const date = new Date(`${iso}T00:00:00`);
-    return Number.isNaN(date.getTime()) ? null : date.getTime();
-  }
-
   function formatDate(iso) {
-    if (!iso || iso === "Rolling") return iso || "";
-    const ts = parseIso(iso);
-    if (ts === null) return iso;
-    return new Date(ts).toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "short",
-      year: "numeric"
-    });
-  }
-
-  /**
-   * Days from today until deadline. 0 = last day today,
-   * negative = already expired, null = rolling / no deadline.
-   */
-  function daysLeft(job) {
-    const ts = parseIso(job.applyDeadline);
-    if (ts === null) return null;
-    return Math.round((ts - todayStart()) / DAY_MS);
-  }
-
-  function deadlineStatus(job) {
-    const left = daysLeft(job);
-    if (left === null) return "open";
-    if (left < 0) return "expired";
-    if (left <= CLOSING_DAYS) return "closing";
-    return "open";
+    return window.IPDJobDeadline.formatDate(iso, { short: true });
   }
 
   function deadlineLabel(job) {
-    const left = daysLeft(job);
-    if (left === null) return job.applyDeadline === "Rolling" ? "Rolling deadline" : "";
-    if (left < -1) return `Expired ${Math.abs(left)} days ago`;
-    if (left === -1) return "Expired yesterday";
-    if (left === 0) return "Last day to apply";
-    if (left === 1) return "1 day left";
-    if (left <= CLOSING_DAYS) return `${left} days left`;
-    return `Apply by ${formatDate(job.applyDeadline)}`;
+    return window.IPDJobDeadline.deadlineLabel(job, { short: true });
   }
 
   function isNew(job) {
@@ -1165,15 +1125,16 @@
         expiredBanner.innerHTML = `
           <strong>Mixed view: Open + Expired</strong>
           <p>
-            Cards marked <span class="job-badge job-badge--expired">EXPIRED</span> have passed their deadline.
-            Prefer the <strong>Open jobs</strong> filter for current hiring. Always verify with the company.
+            Cards marked <span class="job-badge job-badge--expired">EXPIRED</span> have passed their apply date or
+            45-day listing window. Prefer <strong>Open jobs</strong> for current hiring. Always verify with the company.
           </p>`;
       } else if (activeStatus === "expired") {
         expiredBanner.innerHTML = `
           <strong>You are viewing expired listings only</strong>
           <p>
-            These openings have passed their apply / walk-in date. Do <em>not</em> travel or apply unless the
-            company confirms the role is still open. Switch back to <strong>Open jobs</strong> for current hiring.
+            These openings have passed their apply / walk-in date or 45-day listing period. Do <em>not</em> travel or
+            apply unless the company confirms the role is still open. Switch back to <strong>Open jobs</strong> for
+            current hiring.
           </p>`;
       }
     }

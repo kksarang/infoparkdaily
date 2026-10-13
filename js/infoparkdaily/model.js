@@ -31,6 +31,26 @@ export const esc = (value) =>
       ],
   );
 export const dateISO = () => new Date().toLocaleDateString("en-CA");
+const ROLLING_LISTING_DAYS = 45;
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function parseJobDate(iso) {
+  if (!iso || iso === "Rolling") return null;
+  const t = new Date(`${iso}T00:00:00`).getTime();
+  return Number.isNaN(t) ? null : t;
+}
+
+function isCuratedJobOpen(job) {
+  if (!job?.id) return false;
+  const deadline = job.applyDeadline;
+  if (!deadline || deadline === "Rolling") {
+    const posted = parseJobDate(job.postedDate);
+    const today = parseJobDate(dateISO());
+    if (posted === null || today === null) return true;
+    return today <= posted + ROLLING_LISTING_DAYS * DAY_MS;
+  }
+  return deadline >= dateISO();
+}
 export const stamp = (value) =>
   value?.toMillis
     ? value.toMillis()
@@ -82,13 +102,7 @@ export function sectorFor(job) {
 }
 export function curatedJobs(data = []) {
   return data
-    .filter(
-      (j) =>
-        j.id &&
-        (!j.applyDeadline ||
-          j.applyDeadline === "Rolling" ||
-          j.applyDeadline >= dateISO()),
-    )
+    .filter((j) => isCuratedJobOpen(j))
     .map((j) => ({
       id: j.id,
       kind: "curated",
