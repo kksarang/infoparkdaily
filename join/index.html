@@ -60,10 +60,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="/css/styles.css?v=20261013sitewide" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20261009align" />
     <link rel="stylesheet" href="/css/product-theme.css?v=20260905c" />
-    <link rel="stylesheet" href="/css/join.css?v=20261013flow" />
+    <link rel="stylesheet" href="/css/join.css?v=20261013full" />
   </head>
-  <body class="jobs-body join-page dark">
+  <body class="jobs-body jobs-marketplace join-page dark">
     <script>
       (function () {
         var light = document.documentElement.classList.contains("theme-light");
@@ -113,20 +114,22 @@
     </header>
 
     <main id="main-content" class="jobs-page join-page">
-      <div class="join-top content-section">
-        <header class="join-hero" aria-labelledby="join-title">
-          <p class="jobs-kicker">InfoparkDaily · Jobs · News · Growth</p>
+      <section class="ej-hero join-ej-hero" aria-labelledby="join-title">
+        <div class="ej-hero-inner join-ej-hero-inner">
+          <p class="ej-hero-kicker">InfoparkDaily · Jobs · News · Growth</p>
           <h1 id="join-title">Official job channels</h1>
-          <p class="jobs-intro jobs-intro--short">
+          <p class="ej-hero-lead jobs-intro jobs-intro--short">
             <strong>Tap a button below</strong> → then <strong>Join channel</strong> in Instagram or WhatsApp. These are
             our real links — same URLs as in our bio.
           </p>
-          <p class="jobs-intro jobs-intro--long">
+          <p class="ej-hero-lead jobs-intro jobs-intro--long">
             We add <strong>100+ jobs every day</strong> on <a href="/jobs/">our website</a> and on Job Alerts. Kerala,
             Bengaluru, Tamil Nadu · IT &amp; non-IT.
           </p>
-        </header>
+        </div>
+      </section>
 
+      <section class="join-board content-section" aria-label="Job and community channels">
         <section class="join-channels-panel" aria-labelledby="join-channels-title">
           <h2 id="join-channels-title" class="visually-hidden">Channel links</h2>
           <p class="join-channels-lead join-channels-lead--channels">
@@ -263,9 +266,9 @@
             </a>
           </div>
         </section>
-      </div>
+      </section>
 
-      <div class="content-section join-below-channels">
+      <div class="join-below-channels content-section">
         <h2 class="join-more-page-title">More links — jobs board, tools &amp; follow us</h2>
 
       <section class="content-section join-section join-channels-first" aria-label="Latest jobs and site links">
