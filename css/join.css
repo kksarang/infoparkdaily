@@ -152,12 +152,47 @@
   margin-bottom: 0.2rem;
 }
 
+.join-job-alerts-block {
+  margin-bottom: 1rem;
+  padding: 1rem 1.05rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 193, 7, 0.4);
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.12), transparent 60%);
+}
+
+.join-job-alerts-brand {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.join-job-alerts-tagline {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.join-job-alerts-tagline strong {
+  color: var(--text);
+}
+
 .join-channel-name {
   display: block;
   font-size: 1.08rem;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
+}
+
+.join-channel-handle {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
 }
 
 .join-channel-desc {
