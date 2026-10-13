@@ -1475,6 +1475,23 @@ body.light .about-stage {
   color: var(--accent);
 }
 
+.footer-contact-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.footer-contact-phones small {
+  display: block;
+  margin-top: 0.08rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--muted);
+}
+
 .footer-map {
   border-radius: var(--radius-sm);
   overflow: hidden;
