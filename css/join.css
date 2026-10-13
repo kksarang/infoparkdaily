@@ -249,11 +249,20 @@
   color: var(--text);
 }
 
-.join-why a {
+.join-why p a {
   color: var(--accent);
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.join-contact-actions .btn-primary {
+  color: var(--accent-ink);
+  text-decoration: none;
+}
+
+.join-contact-actions .btn-secondary {
+  text-decoration: none;
 }
 
 .join-why-contact {
@@ -439,4 +448,82 @@
   border: 1px solid var(--line);
   font-size: 0.8rem;
   word-break: break-all;
+}
+
+/* ---------- Follow pages (end of /join/) ---------- */
+.join-follow-last {
+  max-width: 44rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: 2.5rem;
+}
+
+.join-follow-last .section-heading {
+  text-align: left;
+}
+
+.join-follow-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.join-follow-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.join-follow-card:hover,
+.join-follow-card:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+}
+
+.join-follow-meta {
+  min-width: 0;
+  text-align: left;
+}
+
+.join-follow-handle {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.12rem;
+}
+
+.join-follow-blurb {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.join-follow-btn {
+  flex: none;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: var(--accent);
+  color: var(--accent-ink, #0b0b0f);
+  white-space: nowrap;
+}
+
+.join-follow-card--site .join-follow-btn {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--line);
 }
