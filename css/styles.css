@@ -328,14 +328,15 @@ body.light .site-header {
 }
 
 .brand-logo {
-  width: 42px;
-  height: 42px;
-  object-fit: cover;
-  object-position: 20% center;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
+  width: auto;
+  height: 40px;
+  max-width: min(148px, 38vw);
+  object-fit: contain;
+  object-position: left center;
+  border-radius: 8px;
+  border: 0;
   flex-shrink: 0;
-  background: var(--accent);
+  background: transparent;
 }
 
 .brand-name {
@@ -10566,9 +10567,8 @@ body.light .news-story-hero-media {
   }
 
   .brand-logo {
-    width: 38px;
-    height: 38px;
-    object-position: 20% center;
+    height: 34px;
+    max-width: min(128px, 34vw);
   }
 
   .brand > div {
