@@ -185,6 +185,12 @@ li {
 }
 
 /* ---------- Layout shells ---------- */
+#main-content {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 .site-header,
 .hero,
 .counter-section,
@@ -222,6 +228,15 @@ li {
   width: 100%;
   max-width: none;
   margin-inline: 0;
+  min-width: 0;
+}
+
+.join-page .site-footer {
+  width: min(100%, var(--container));
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-left: max(clamp(1rem, 4vw, 1.6rem), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(1rem, 4vw, 1.6rem), env(safe-area-inset-right, 0px));
 }
 
 .content-section {

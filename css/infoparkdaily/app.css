@@ -27,8 +27,20 @@
 * {
   box-sizing: border-box;
 }
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body {
   margin: 0;
+  overflow-x: clip;
+  max-width: 100%;
+}
+#app {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: clip;
 }
 button,
 input,
@@ -108,6 +120,9 @@ small,
 .container {
   width: min(1240px, calc(100% - 64px));
   margin: auto;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 .section {
   padding: 80px 0;
@@ -1907,7 +1922,8 @@ body:has(dialog[open]) {
 }
 @media (max-width: 700px) {
   .container {
-    width: calc(100% - 36px);
+    width: calc(100% - max(36px, env(safe-area-inset-left, 0px) + env(safe-area-inset-right, 0px)));
+    max-width: 100%;
   }
   .section {
     padding: 54px 0;
@@ -2806,7 +2822,7 @@ h3 {
   .market-header .market-brand strong,
   .market-header .market-brand small {
     display: block;
-    max-width: calc(100vw - 150px);
+    max-width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
