@@ -33,6 +33,94 @@
   margin-top: 1.35rem;
 }
 
+.join-channels-first {
+  margin-top: 0.25rem;
+}
+
+.join-channels-first .join-hero-cta {
+  margin-top: 1.5rem;
+}
+
+.join-link--channel {
+  padding: 1.15rem 1.2rem;
+  min-height: 4.25rem;
+}
+
+.join-link--instagram.join-link--channel {
+  border-color: rgba(225, 48, 108, 0.45);
+  background: linear-gradient(135deg, rgba(225, 48, 108, 0.12), var(--surface));
+}
+
+.join-link--whatsapp.join-link--channel {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), var(--surface));
+}
+
+.join-why {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.join-why h3 {
+  font-size: 0.95rem;
+  font-weight: 650;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+
+.join-why p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.join-why strong {
+  color: var(--text);
+}
+
+.join-latest {
+  margin: 1.15rem 0 0;
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  border: 1px dashed var(--line);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+
+.join-latest-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.join-latest a {
+  display: block;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+  margin-bottom: 0.4rem;
+}
+
+.join-latest a:hover,
+.join-latest a:focus-visible {
+  text-decoration: underline;
+}
+
+.join-latest-hint {
+  display: block;
+  font-size: 0.82rem;
+}
+
 .join-tip {
   max-width: 42rem;
   margin: 0 auto 2rem;
