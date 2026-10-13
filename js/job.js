@@ -134,7 +134,7 @@
       job.location ? `Location: ${job.location}` : "",
       page
     ].filter((line) => line !== "");
-    return `https://wa.me/919995254290?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/919497725429?text=${encodeURIComponent(lines.join("\n"))}`;
   }
 
   function walkInDateText(job) {
@@ -448,6 +448,10 @@
         job.applyQr ||
         /forms\.gle|docs\.google\.com\/forms|forms\.cloud\.microsoft|register/i.test(link)
     );
+  }
+
+  function registerApplyLabel(job) {
+    return isWalkInJob(job) ? "Register for walk-in" : "Register to apply";
   }
 
   function registerQrBlock(job) {
@@ -1541,7 +1545,7 @@
       ? externalApply || mailApply || ""
       : mailApply || externalApply || "";
     const applyCtaLabel = isRegisterApply(job)
-      ? "Register for walk-in"
+      ? registerApplyLabel(job)
       : mailApply
         ? "Email resume"
         : externalApply
@@ -1991,7 +1995,7 @@
     const applyCtaLabel = onSiteApply
       ? "Apply now"
       : isRegisterApply(job)
-        ? "Register for walk-in"
+        ? registerApplyLabel(job)
         : isMassHiring(job)
           ? mailApplyHref(job)
             ? "Send resume"
