@@ -27,8 +27,10 @@ body.rh-page {
 }
 
 .rh-wrap {
-  width: min(1180px, calc(100% - 2 * var(--rh-gutter)));
+  box-sizing: border-box;
+  width: min(1180px, 100%);
   margin-inline: auto;
+  padding-inline: max(var(--rh-gutter), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
 }
 
 .rh-page main {
@@ -861,7 +863,7 @@ body.rh-page .rh-templates .template-grid {
 
 @media (max-width: 860px) {
   body.rh-page {
-    --rh-gutter: 20px;
+    --rh-gutter: 18px;
   }
   .rh-hero {
     padding: 36px 0 24px;
@@ -870,6 +872,7 @@ body.rh-page .rh-templates .template-grid {
   .rh-ats,
   .rh-faq-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   .rh-visual {
     min-height: 420px;
@@ -891,10 +894,17 @@ body.rh-page .rh-templates .template-grid {
 
 @media (max-width: 640px) {
   body.rh-page {
-    --rh-gutter: 16px;
+    --rh-gutter: 12px;
+  }
+  .rh-hero {
+    padding: 28px 0 16px;
+  }
+  .rh-hero-grid {
+    gap: 18px;
   }
   .rh-hero h1 {
     font-size: clamp(36px, 11vw, 46px);
+    margin-bottom: 14px;
   }
   .rh-lede {
     font-size: 16px;
@@ -913,7 +923,12 @@ body.rh-page .rh-templates .template-grid {
     font-size: 13px;
   }
   .rh-visual {
-    min-height: 360px;
+    min-height: 0;
+    padding: 8px 0 4px;
+  }
+  .rh-sheet-back {
+    width: min(300px, 88%);
+    transform: rotate(-6deg) translate(-18px, 12px);
   }
   .rh-sheet {
     width: 78%;
@@ -937,7 +952,7 @@ body.rh-page .rh-templates .template-grid {
     font-size: 22px;
   }
   .rh-section {
-    padding: 52px 0;
+    padding: 40px 0;
   }
   .rh-head {
     flex-direction: column;
