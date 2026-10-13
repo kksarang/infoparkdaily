@@ -37,6 +37,10 @@ def fetch(url: str, data: bytes | None = None) -> str:
         return resp.read().decode("utf-8", "replace")
 
 
+def fetch_json(url: str) -> list | dict:
+    return json.loads(fetch(url))
+
+
 def js_str(value: str) -> str:
     return json.dumps(value, ensure_ascii=False)
 
@@ -858,7 +862,139 @@ def build_technopark() -> list[dict]:
     return out
 
 
-def build_cyberpark() -> list[dict]:
+def existing_cyberpark_post_ids() -> set[str]:
+    ids: set[str] = set()
+    for path in (ROOT / "data" / "jobs-data.js", ROOT / "data" / "cyberpark-jobs-data.js"):
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        ids.update(re.findall(r"Imported from cyberparks\.in on [^·]+ · post (\d+)", text))
+        ids.update(re.findall(r"cyberparks\.in/wp-json/wp/v2/job-listings/(\d+)", text))
+        ids.update(re.findall(r'id: "cpv-[^"]+-(\d+)"', text))
+    return ids
+
+
+def clean_cyberpark_html(raw: str) -> str:
+    raw = re.sub(r"<li[^>]*>", "\n• ", raw, flags=re.I)
+    text = strip_html(raw)
+    text = re.sub(r"\n{3,}", "\n\n", text).strip()
+    if len(text) > 1800:
+        text = text[:1800].rsplit(" ", 1)[0].strip()
+    return text
+
+
+def cyberpark_bullet_items(raw: str) -> list[str]:
+    raw = re.sub(r"<li[^>]*>", "\n• ", raw, flags=re.I)
+    return bullets_from(strip_html(raw))[:10]
+
+
+def build_cyberpark_kozhikode() -> list[dict]:
+    """Import open listings from https://cyberparks.in/careers/ (WP Job Manager REST)."""
+    known = existing_cyberpark_post_ids()
+    rows: list[dict] = []
+    for page in range(1, 6):
+        batch = fetch_json(
+            "https://cyberparks.in/wp-json/wp/v2/job-listings"
+            f"?per_page=20&page={page}&orderby=date&order=desc"
+        )
+        if not batch:
+            break
+        rows.extend(batch)
+        if len(batch) < 20:
+            break
+        time.sleep(0.1)
+    print(
+        f"  Cyberpark Kozhikode (cyberparks.in): {len(rows)} listings · {len(known)} ids in DB",
+        flush=True,
+    )
+    out: list[dict] = []
+    for row in rows:
+        pid = str(row["id"])
+        if pid in known:
+            continue
+        meta = row.get("meta") or {}
+        if str(meta.get("_filled") or "0") == "1":
+            continue
+        title = unescape(re.sub(r"<[^>]+>", "", (row.get("title") or {}).get("rendered") or "")).strip()
+        company = unescape(str(meta.get("_company_name") or "Cyberpark company")).strip()
+        location = unescape(str(meta.get("_job_location") or "Cyberpark, Kozhikode")).strip()
+        link = (row.get("link") or "").strip()
+        application = unescape(str(meta.get("_application") or "")).strip()
+        email = application if re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", application) else ""
+        content = (row.get("content") or {}).get("rendered") or ""
+        posted = (row.get("date") or TODAY.isoformat())[:10]
+        exp, exp_range = infer_exp(title)
+        intern = bool(re.search(r"\bintern", title, re.I))
+        if intern:
+            exp = "fresher"
+            if exp_range == "As per official posting":
+                exp_range = "Fresher / Trainee / Intern"
+        bullets = cyberpark_bullet_items(content)
+        details = clean_cyberpark_html(content) or f"Official Cyberpark listing for {title}."
+        if email:
+            apply_link = f"mailto:{email}?subject={quote(title)}"
+            how = f"Email {email}. Official Cyberpark listing: {link}"
+        elif application.startswith("http"):
+            apply_link = application
+            how = f"Apply: {application}. Official Cyberpark listing: {link}"
+        else:
+            apply_link = link
+            how = f"Apply via official Cyberpark listing: {link}"
+        out.append(
+            {
+                "id": f"cpv-{slugify(company)}-{slugify(title)}-{pid}",
+                "company": company,
+                "logo": "",
+                "companyBlurb": f"{company} · {title} · Cyberpark Kozhikode",
+                "location": location if location else "Cyberpark, Kozhikode",
+                "roles": [title or "Open role"],
+                "experience": exp,
+                "experienceRange": exp_range,
+                "employmentType": "Internship" if intern else "Full-time",
+                "applyLink": apply_link,
+                "applyDeadline": "Rolling",
+                "postedDate": posted,
+                "source": "Cyberpark",
+                "verified": True,
+                "cyberparkVerified": True,
+                "verificationNote": NOTE,
+                "tags": infer_tags(title),
+                "isWalkIn": False,
+                "walkInDate": "",
+                "email": email,
+                "phone": "",
+                "website": "https://cyberparks.in/careers/",
+                "address": "Cyberpark, Nellikkode, Kozhikode, Kerala",
+                "industry": "Cyberpark company",
+                "companyDetails": f"{company} — listed on official Cyberpark Kozhikode careers.",
+                "workDetails": details,
+                "workStatus": "Internship" if intern else "Full-time",
+                "workMode": "On-site · Cyberpark Kozhikode",
+                "experienceYears": exp_range,
+                "skills": [],
+                "requirements": bullets
+                or [
+                    "Match experience on the official Cyberpark listing",
+                    "Updated resume as required by the company",
+                ],
+                "responsibilities": bullets[:8]
+                or ["Deliver role outcomes as listed on the official Cyberpark posting"],
+                "benefits": ["Official Cyberpark Kozhikode careers listing", "Verified by InfoparkDaily"],
+                "howToApply": how,
+                "hiringNotes": (
+                    f"Imported from cyberparks.in on {TODAY.isoformat()} · post {pid}. "
+                    "Re-check with the employer before applying."
+                ),
+                "description": f"{title} at {company} — Cyberpark Kozhikode careers.",
+                "startingDate": "",
+                "alertBucket": "upcoming",
+                "officialLinks": {"cyberparkJob": link},
+            }
+        )
+    return out
+
+
+def build_cyberpark_ul() -> list[dict]:
     """Import latest openings from https://www.ulcyberpark.com/jobs (UL CyberPark)."""
     row_re = re.compile(
         r"<tr>\s*<td>\s*<a[^>]*>\s*(.*?)\s*</a>\s*<br>\s*"
@@ -975,6 +1111,10 @@ def build_cyberpark() -> list[dict]:
             }
         )
     return out
+
+
+def build_cyberpark() -> list[dict]:
+    return build_cyberpark_kozhikode() + build_cyberpark_ul()
 
 
 def collect_safe_infopark_targets(text: str) -> list[tuple[str, str]]:
