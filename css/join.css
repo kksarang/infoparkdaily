@@ -192,6 +192,38 @@
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
 }
 
+.join-channel-card--community {
+  border-color: rgba(131, 58, 180, 0.45);
+  background: linear-gradient(145deg, rgba(131, 58, 180, 0.12), var(--surface) 55%);
+}
+
+.join-channel-card--community:hover,
+.join-channel-card--community:focus-visible {
+  border-color: rgba(131, 58, 180, 0.75);
+}
+
+.join-channel-card--community .join-channel-icon {
+  background: rgba(131, 58, 180, 0.18);
+  border-color: rgba(131, 58, 180, 0.35);
+}
+
+.join-channel-card--community .join-channel-action {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d 45%, #fcb045);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(131, 58, 180, 0.3);
+}
+
+.join-channel-card--group {
+  border-color: rgba(18, 140, 126, 0.5);
+  background: linear-gradient(145deg, rgba(18, 140, 126, 0.14), var(--surface) 55%);
+}
+
+.join-channel-card--group .join-channel-action {
+  background: linear-gradient(135deg, #128c7e, #075e54);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(18, 140, 126, 0.35);
+}
+
 .join-hero-cta {
   display: flex;
   flex-wrap: wrap;
