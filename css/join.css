@@ -1,0 +1,167 @@
+/* /join/ — single URL for Instagram DMs & bio links */
+
+.join-page main {
+  padding-bottom: 3rem;
+}
+
+.join-hero {
+  padding: clamp(2rem, 5vw, 3.25rem) 0 1.5rem;
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.join-hero .jobs-kicker {
+  margin-bottom: 0.75rem;
+}
+
+.join-hero h1 {
+  font-size: clamp(1.75rem, 5vw, 2.35rem);
+  margin-bottom: 0.75rem;
+}
+
+.join-hero .jobs-intro {
+  margin-inline: auto;
+  max-width: 36rem;
+}
+
+.join-hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-top: 1.35rem;
+}
+
+.join-tip {
+  max-width: 42rem;
+  margin: 0 auto 2rem;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.join-tip strong {
+  color: var(--text);
+}
+
+.join-section {
+  margin-bottom: 2.25rem;
+}
+
+.join-section .section-heading {
+  margin-bottom: 1rem;
+}
+
+.join-section .section-heading h2 {
+  font-size: 1.35rem;
+}
+
+.join-section .section-heading p {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.join-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+@media (min-width: 640px) {
+  .join-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.join-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  min-height: 3.25rem;
+}
+
+.join-link:hover,
+.join-link:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.join-link-copy {
+  min-width: 0;
+  text-align: left;
+}
+
+.join-link-copy strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 650;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.join-link-copy span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.join-link-arrow {
+  flex: none;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.join-link--primary {
+  border-color: rgba(255, 193, 7, 0.45);
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.14), var(--surface));
+}
+
+.join-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  margin-bottom: 0.35rem;
+  background: var(--surface-2);
+  color: var(--muted);
+}
+
+.join-url-copy {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.join-url-copy code {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  word-break: break-all;
+}

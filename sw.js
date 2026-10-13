@@ -18,6 +18,7 @@ const PRELOAD_ASSETS = [
   "./company.html",
   "./404.html",
   "./contact/",
+  "./join/",
   "./review/",
   "./media/",
   "./sarang/",

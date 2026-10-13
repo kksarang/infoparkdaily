@@ -217,7 +217,8 @@ li {
 .news-page .content-section,
 .media-page .content-section,
 .social-page .content-section,
-.services-page .content-section {
+.services-page .content-section,
+.join-page .content-section {
   width: 100%;
   max-width: none;
   margin-inline: 0;
