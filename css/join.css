@@ -651,3 +651,165 @@
   color: var(--text);
   border: 1px solid var(--line);
 }
+
+/* ---------- Why join (collapsed on mobile) ---------- */
+.join-more-info {
+  margin-top: 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  padding: 0.65rem 0.85rem;
+}
+
+.join-more-info summary {
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--text);
+  line-height: 1.4;
+  list-style: none;
+}
+
+.join-more-info summary::-webkit-details-marker {
+  display: none;
+}
+
+.join-more-info summary::before {
+  content: "▸ ";
+  color: var(--accent);
+}
+
+.join-more-info[open] summary::before {
+  content: "▾ ";
+}
+
+.join-more-info .join-job-alerts-block {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+
+.join-more-info .join-why {
+  margin-top: 0.75rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+.join-channels-lead--desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .jobs-intro--short {
+    display: none;
+  }
+
+  .join-channels-lead--desktop {
+    display: block;
+  }
+}
+
+/* ---------- Mobile: channels first, minimal scroll ---------- */
+@media (max-width: 767px) {
+  .join-page .join-top.content-section {
+    margin-top: 0.25rem;
+  }
+
+  .join-page .content-section {
+    margin-top: 1.15rem;
+  }
+
+  .join-hero {
+    padding-bottom: 0.45rem;
+  }
+
+  .join-hero .jobs-kicker {
+    font-size: 0.72rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .join-hero h1 {
+    font-size: 1.42rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .jobs-intro--long {
+    display: none;
+  }
+
+  .jobs-intro--short {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .join-channels-panel {
+    margin-top: 0.15rem;
+  }
+
+  .join-channels-title {
+    font-size: 0.98rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .join-channel-stack--priority {
+    gap: 0.55rem;
+  }
+
+  .join-channel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.7rem 0.8rem 0.75rem;
+    gap: 0;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+  }
+
+  .join-channel-card--jobs {
+    border-width: 2px;
+  }
+
+  .join-channel-icon {
+    display: none;
+  }
+
+  .join-channel-body {
+    order: 1;
+  }
+
+  .join-channel-action {
+    order: -1;
+    margin: 0 0 0.5rem;
+    padding: 0.82rem 0.65rem;
+    font-size: 0.94rem;
+  }
+
+  .join-channel-label {
+    font-size: 0.62rem;
+    margin-bottom: 0.08rem;
+  }
+
+  .join-channel-name {
+    font-size: 0.92rem;
+    margin-bottom: 0;
+  }
+
+  .join-channel-detail {
+    display: none !important;
+  }
+
+  .join-more-info {
+    margin-top: 0.65rem;
+    padding: 0.55rem 0.7rem;
+  }
+
+  .join-more-info summary {
+    font-size: 0.82rem;
+  }
+
+  .join-contact-actions .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+}
