@@ -43,6 +43,36 @@
 
 var NEWS = [
   {
+    id: "samagra-2-student-faculty-discount-2026",
+    title: "SAMAGRA 2.0: ₹1,000 off for student innovators and faculty",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-13",
+    image: "/assets/news/samagra-2-2026.jpg",
+    imageAlt: "SAMAGRA 2.0 Innovation Summit poster from IIT Palakkad TECHIN",
+    summary: "TECHIN at IIT Palakkad is offering a ₹1,000 discount per registration for SAMAGRA 2.0. Student innovators and faculty pay ₹1,500 including GST. Mark interest and your organisation’s headcount on the form to request the discount and full-access delegate passes.",
+    body: [
+      "TECHIN of IIT Palakkad is offering an exclusive ₹1,000 discount per registration for SAMAGRA 2.0. With the discount, the registration fee is ₹1,500 including GST, for student innovators and faculty only.",
+      "SAMAGRA 2.0 is the Innovation Summit 2026, scheduled for 29–30 October 2026 at Hyatt Regency, Thiruvananthapuram. The poster describes two days of ideas, innovation, investment and impact, with 500+ attendees, 40+ speakers, 30+ investors, 30+ mentors and 30+ corporates. The same poster lists an offer price of ₹2,000 — confirm the student and faculty rate on the interest form before you pay.",
+      "Organisations are asked to say how many participants plan to register. Mark interest on the Google Form to avail the discount and full-access delegate passes: https://forms.gle/GKQ4bWrrMqVGidQZ6",
+      "InfoparkDaily is independent and is not the organiser. Verify the fee, GST, pass inclusions and deadlines only with TECHIN / IIT Palakkad."
+    ],
+    highlights: [
+      "₹1,000 off per registration for student innovators and faculty",
+      "Discounted fee: ₹1,500 including GST",
+      "29–30 October 2026 · Hyatt Regency, Thiruvananthapuram",
+      "Tell TECHIN how many people from your organisation will register",
+      "Interest form: forms.gle/GKQ4bWrrMqVGidQZ6"
+    ],
+    attachments: [
+      { label: "Mark interest for the SAMAGRA 2.0 discount", url: "https://forms.gle/GKQ4bWrrMqVGidQZ6" },
+      { label: "IIT Palakkad", url: "https://iitpkd.ac.in/" }
+    ],
+    source: "TECHIN, IIT Palakkad",
+    sourceUrl: "https://forms.gle/GKQ4bWrrMqVGidQZ6",
+    featured: true
+  },
+  {
     id: "huddle-global-2026-kovalam-festival",
     title: "Huddle Global 2026: beachside startup festival at Kovalam, 12\u201314 November",
     category: "Events",
@@ -69,7 +99,7 @@ var NEWS = [
     ],
     source: "Kerala Startup Mission / Huddle Global posters",
     sourceUrl: "https://www.huddleglobal.co.in/",
-    featured: true
+    featured: false
   },
   {
     id: "huddle-global-roadshow-2026-schedule",
