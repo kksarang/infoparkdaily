@@ -10216,6 +10216,86 @@ body.light .news-story-hero-media {
   }
 }
 
+/* Inline nav overflows the logo once "News & Blog" is in the row.
+   Keep the compact menu until the header can hold every label. */
+@media (max-width: 1419px) {
+  .nav-toggle {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .header-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .site-nav {
+    order: 3;
+    flex: 1 0 100%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    padding: 0.55rem 0 0.1rem;
+    border-top: 1px solid var(--line);
+    margin-top: 0.15rem;
+  }
+
+  .site-header.nav-open .site-nav {
+    display: flex;
+  }
+
+  .site-header > .site-nav a,
+  .site-nav .nav-about summary,
+  .site-nav .nav-recruit summary {
+    min-height: 44px;
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    justify-content: flex-start;
+  }
+
+  .site-header > .site-nav a {
+    color: var(--text);
+    background: var(--surface-2);
+  }
+
+  .nav-about,
+  .nav-recruit {
+    width: 100%;
+  }
+
+  .nav-about-links {
+    position: static;
+    min-width: 0;
+    box-shadow: none;
+    margin: 5px 10px 10px;
+    left: auto;
+  }
+
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(5, 5, 8, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 /* ============================================================
    Responsive
    ============================================================ */
