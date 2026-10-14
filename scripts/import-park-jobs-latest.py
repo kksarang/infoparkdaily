@@ -695,6 +695,9 @@ def build_infopark() -> list[dict]:
         link = f"https://infopark.in/company-jobs/details/{company_id}/{job_id}"
         posted_iso = parse_deadline(posted)
         deadline_iso = parse_deadline(deadline)
+        # Portal still lists a few multi-year-old rows. Import the current batch only.
+        if posted_iso < "2026-10-13":
+            continue
         if deadline_iso < TODAY.isoformat():
             continue
         jid = f"ipv-{slugify(company)}-{slugify(title)}-{job_id}"
@@ -794,6 +797,8 @@ def build_technopark() -> list[dict]:
         except ValueError:
             continue
         if c and c < TODAY:
+            continue
+        if posted < "2026-10-13":
             continue
         tid = str(j["id"])
         if tid in known:
