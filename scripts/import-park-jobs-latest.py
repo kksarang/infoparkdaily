@@ -828,7 +828,7 @@ def build_technopark() -> list[dict]:
                 "roles": [title],
                 "experience": exp,
                 "experienceRange": exp_range,
-                "employmentType": "Full-time",
+                "employmentType": "Internship" if re.search(r"\bintern(?:ship)?s?\b|\btrainees?\b|\bapprentices?", title.lower()) else "Full-time",
                 "applyLink": link,
                 "applyDeadline": closing or (TODAY + timedelta(days=14)).isoformat(),
                 "postedDate": posted or TODAY.isoformat(),
