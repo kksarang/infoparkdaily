@@ -1118,7 +1118,7 @@
     }
 
     const listingUrl =
-      (job.officialLinks && (job.officialLinks.infoparkJob || job.officialLinks.careers)) ||
+      (job.officialLinks && (job.officialLinks.infoparkJob || job.officialLinks.technoparkJob || job.officialLinks.cyberparkJob || job.officialLinks.careers)) ||
       (job.applyLink && !/^(mailto:|tel:)/i.test(String(job.applyLink)) ? job.applyLink : "");
     const careers =
       listingUrl && !mailApplyHref(job)
@@ -1134,14 +1134,14 @@
         <a class="job-apply-method" href="${escapeAttr(careers)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">↗</span>
           <span class="job-apply-method-body">
-            <strong>${park ? "Infopark listing" : "Official apply / careers"}</strong>
+            <strong>${park ? parkListingLabel(careers) : "Official apply / careers"}</strong>
             <span>${escapeHtml(String(careers).replace(/^https?:\/\//, "").replace(/\/$/, ""))}</span>
           </span>
         </a>
       `);
     }
 
-    if (job.website && job.website !== careers && !/infopark\.in\/companies-job/.test(job.website)) {
+    if (job.website && job.website !== careers && !/infopark\.in\/companies-job/.test(job.website) && !/technopark\.in\/job-search/.test(job.website) && !/cyberparks\.in\/careers/.test(job.website)) {
       methods.push(`
         <a class="job-apply-method" href="${escapeAttr(job.website)}" target="_blank" rel="noopener noreferrer">
           <span class="job-apply-method-icon job-apply-method-icon--web" aria-hidden="true">◉</span>
