@@ -104,7 +104,7 @@ const date = (v) =>
     dateStyle: "medium",
     timeStyle: "short",
   });
-const PRO_WHATSAPP = "919497725429";
+const PRO_WHATSAPP = "918891454290";
 function proWhatsAppUrl(templateName) {
   const who = me?.name && me.name !== "Local preview" ? me.name : "";
   const message = [

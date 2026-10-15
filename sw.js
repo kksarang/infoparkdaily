@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v378-call-20261015";
+const CACHE_NAME = "infoparkdaily-v379-phone-20261015";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -53,7 +53,7 @@ const PRELOAD_ASSETS = [
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
-  "./js/site.js?v=20261015call",
+  "./js/site.js?v=20261015phone",
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
@@ -62,14 +62,14 @@ const PRELOAD_ASSETS = [
   "./js/cyberpark-jobs.js?v=20260805p",
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
-  "./js/jobs.js?v=20261005a",
+  "./js/jobs.js?v=20261015phone",
   "./js/ats-checker.js?v=20260911d",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260905a",
   "./js/job-apply.js?v=20260904g",
-  "./js/job.js?v=20261015call",
+  "./js/job.js?v=20261015phone",
   "./js/company.js?v=20260905a",
   "./js/park-companies.js?v=20260830l",
   "./data/infopark-companies-data.js?v=20260830d",

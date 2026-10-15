@@ -101,7 +101,7 @@ FOOT = """
         </div>
         <div class="footer-contact-col">
           <h2>Get in touch</h2>
-          <p class="footer-contact-item"><span>Call</span><span class="footer-contact-phones"><span class="footer-phone-line"><a href="tel:+919497725429">+91 94977 25429</a><small>Job enquiries</small></span><span class="footer-phone-line"><a href="tel:+919995254290">+91 99952 54290</a><small>Collaboration</small></span></span></p>
+          <p class="footer-contact-item"><span>Call</span><span class="footer-contact-phones"><span class="footer-phone-line"><a href="tel:+918891454290">+91 88914 54290</a><small>Job enquiries</small></span><span class="footer-phone-line"><a href="tel:+919995254290">+91 99952 54290</a><small>Collaboration</small></span></span></p>
           <p class="footer-contact-item"><span>Email</span><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a></p>
           <p class="footer-contact-item"><span>Visit</span>Thapasya Rd, Infopark Campus, Kakkanad, Kochi, Kerala</p>
           <p class="footer-contact-item"><span>Legal</span><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>

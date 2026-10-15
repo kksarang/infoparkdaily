@@ -204,7 +204,7 @@
       job.location ? `Location: ${job.location}` : "",
       page
     ].filter((line) => line !== "");
-    return `https://wa.me/919497725429?text=${encodeURIComponent(lines.join("\n"))}`;
+    return `https://wa.me/918891454290?text=${encodeURIComponent(lines.join("\n"))}`;
   }
 
   function walkInDateText(job) {
