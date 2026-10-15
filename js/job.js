@@ -423,6 +423,14 @@
       || /cyberparks\.in\//i.test(u);
   }
 
+  function parkListingLabel(url) {
+    const u = String(url || "");
+    if (/technopark\.in/i.test(u)) return "Technopark listing";
+    if (/cyberparks\.in|ulcyberpark\.com/i.test(u)) return "Cyberpark listing";
+    if (/infopark\.in/i.test(u)) return "Infopark listing";
+    return "Official apply / careers";
+  }
+
   function mailApplyHref(job) {
     const link = String(job.applyLink || "").trim();
     if (/^mailto:/i.test(link)) return link;
