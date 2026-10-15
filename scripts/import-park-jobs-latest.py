@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 10, 14)  # bump when re-importing
+TODAY = date(2026, 10, 15)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -202,7 +202,9 @@ def infer_exp_from_text(title: str, body: str) -> tuple[str, str]:
     for candidate in year_re.finditer(blob):
         pre = blob[max(0, candidate.start() - 48) : candidate.start()].lower()
         post = blob[candidate.end() : candidate.end() + 24].lower()
-        company_age = bool(re.search(r"(more than|over|for)\s*$", pre)) and "experience" not in post
+        company_age = bool(re.search(r"(more than|over)\s*$", pre)) and (
+            "experience" not in post or "delivery" in post
+        )
         if company_age:
             continue
         m = candidate
