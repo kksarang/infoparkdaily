@@ -432,6 +432,12 @@
     return `mailto:${email}?subject=${encodeURIComponent(subject)}`;
   }
 
+  function telApplyHref(job) {
+    const link = String(job.applyLink || "").trim();
+    if (/^tel:/i.test(link)) return link;
+    return "";
+  }
+
   function externalApplyHref(job) {
     const link = String(job.applyLink || job.registerLink || "").trim();
     if (!link || /^mailto:/i.test(link) || link.startsWith("#") || link.includes("/#apply")) return "";
@@ -1113,16 +1119,16 @@
 
     const listingUrl =
       (job.officialLinks && (job.officialLinks.infoparkJob || job.officialLinks.careers)) ||
-      (job.applyLink && !String(job.applyLink).startsWith("mailto:") ? job.applyLink : "");
+      (job.applyLink && !/^(mailto:|tel:)/i.test(String(job.applyLink)) ? job.applyLink : "");
     const careers =
       listingUrl && !mailApplyHref(job)
         ? listingUrl
         : listingUrl && isParkListingUrl(listingUrl)
           ? listingUrl
-          : job.applyLink && !String(job.applyLink).startsWith("mailto:")
+          : job.applyLink && !/^(mailto:|tel:)/i.test(String(job.applyLink))
             ? job.applyLink
             : "";
-    if (careers && !/^mailto:/i.test(careers)) {
+    if (careers && !/^(mailto:|tel:)/i.test(careers)) {
       const park = isParkListingUrl(careers);
       methods.push(`
         <a class="job-apply-method" href="${escapeAttr(careers)}" target="_blank" rel="noopener noreferrer">
@@ -1540,14 +1546,17 @@
     const faqs = job.faqs || [];
     const safety = job.safetyNotes || [];
     const mailApply = mailApplyHref(job);
+    const telApply = telApplyHref(job);
     const externalApply = externalApplyHref(job);
     const applyCtaHref = isRegisterApply(job)
-      ? externalApply || mailApply || ""
-      : mailApply || externalApply || "";
+      ? externalApply || mailApply || telApply || ""
+      : mailApply || telApply || externalApply || "";
     const applyCtaLabel = isRegisterApply(job)
       ? registerApplyLabel(job)
       : mailApply
         ? "Email resume"
+        : telApply
+          ? "Call to apply"
         : externalApply
           ? "Official Apply ↗"
           : "";
@@ -1992,6 +2001,7 @@
     const whoList = usefulItems(who);
     const eduList = usefulItems(edu);
 
+    const telApply = telApplyHref(job);
     const applyCtaLabel = onSiteApply
       ? "Apply now"
       : isRegisterApply(job)
@@ -1999,19 +2009,23 @@
         : isMassHiring(job)
           ? mailApplyHref(job)
             ? "Send resume"
+            : telApply
+              ? "Call to apply"
             : applyUrl
               ? "Apply on official site"
               : "Apply now"
           : mailApplyHref(job)
             ? "Email to apply"
+            : telApply
+              ? "Call to apply"
             : applyUrl
               ? "Apply on official site"
               : "Apply now";
     const applyCtaHref = onSiteApply
       ? "#apply"
       : isRegisterApply(job)
-        ? applyUrl || mailApplyHref(job) || ""
-        : mailApplyHref(job) || applyUrl || "";
+        ? applyUrl || mailApplyHref(job) || telApply || ""
+        : mailApplyHref(job) || telApply || applyUrl || "";
 
     const aboutBody = pickJobDescriptionHtml(job);
 
@@ -2400,6 +2414,8 @@
         const href = a.getAttribute("href") || "";
         const method = href.startsWith("mailto:")
           ? "email"
+          : href.startsWith("tel:")
+            ? "phone"
           : href.startsWith("#")
             ? "on_page"
             : "url";
