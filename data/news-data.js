@@ -43,6 +43,38 @@
 
 var NEWS = [
   {
+    id: "playwright-ai-workshop-infopark-oct-2026",
+    title: "Free Playwright + AI workshop at Thapasya Auditorium, 31 October",
+    category: "Events",
+    park: "Infopark Kochi",
+    date: "2026-10-17",
+    image: "/assets/news/playwright-ai-workshop-2026.jpg",
+    imageAlt: "Prathidhwani and KnoaLabs free Playwright + AI workshop poster",
+    summary: "Prathidhwani and KnoaLabs are hosting a free Playwright + AI workshop on Saturday, 31 October 2026, 9:30 AM to 12:30 PM, at Thapasya Auditorium, Infopark Phase 1, Kochi. QA professionals with 1+ year of experience can register on the Google Form.",
+    body: [
+      "Prathidhwani, the welfare organisation of IT employees in Kerala, and KnoaLabs are hosting a free workshop on using Playwright with AI. The poster line is “Test Smarter, Ship Faster.”",
+      "The speaker is Arundev Nair, Test Automation Architect and Senior Manager at Testing Mavens. The poster says the session is for QA professionals with 1+ year of experience. Themes listed on the flyer are modern testing skills, smarter workflows, and a future-ready you.",
+      "It is on Saturday, 31 October 2026, from 9:30 AM to 12:30 PM, at Thapasya Auditorium, Infopark Phase 1, Kochi. The announcement says seats are limited. Register on the Google Form: https://forms.gle/Crv9R49LEuJbTdW27. A map pin is at https://share.google/IfgP2fIlW4saaEzwn.",
+      "Questions: +91 70127 13681 or +91 97468 98696. InfoparkDaily is independent and is not the organiser. Confirm the seat, timing, and venue only with Prathidhwani or KnoaLabs before you travel."
+    ],
+    highlights: [
+      "Free workshop · Playwright + AI",
+      "Saturday, 31 October 2026 · 9:30 AM–12:30 PM",
+      "Thapasya Auditorium, Infopark Phase 1, Kochi",
+      "Speaker: Arundev Nair, Testing Mavens",
+      "QA professionals with 1+ year of experience",
+      "Register: forms.gle/Crv9R49LEuJbTdW27"
+    ],
+    attachments: [
+      { label: "Register for the workshop", url: "https://forms.gle/Crv9R49LEuJbTdW27" },
+      { label: "Thapasya Auditorium map", url: "https://share.google/IfgP2fIlW4saaEzwn" },
+      { label: "Facebook announcement", url: "https://www.facebook.com/share/1U4tErNWxS/" }
+    ],
+    source: "Prathidhwani / KnoaLabs",
+    sourceUrl: "https://www.facebook.com/share/1U4tErNWxS/",
+    featured: true
+  },
+  {
     id: "samagra-2-student-faculty-discount-2026",
     title: "SAMAGRA 2.0: ₹1,000 off for student innovators and faculty",
     category: "Events",
