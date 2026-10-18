@@ -1,0 +1,938 @@
+/* About Us — brand stage. Scoped to /media/. */
+
+body.about-body {
+  background: #09090b;
+}
+
+body.about-body.light,
+html.theme-light body.about-body {
+  background: #f3f0e8;
+}
+
+.about-ed {
+  --ab-ink: #12110e;
+  --ab-paper: #f6f4ee;
+  --ab-yellow: #ffc107;
+  --ab-yellow-2: #ffd23f;
+  --ab-display: "Space Grotesk", var(--display);
+  width: var(--container);
+  margin-inline: auto;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-top: clamp(1.1rem, 2.4vw, 1.8rem);
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+  color: var(--text);
+}
+
+.about-ed section {
+  scroll-margin-top: 6.5rem;
+}
+
+.about-ed h1,
+.about-ed h2,
+.about-ed h3,
+.about-ed h4 {
+  font-family: var(--ab-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.about-ed p {
+  margin: 0;
+}
+
+.about-ed a:focus-visible {
+  outline: 2px solid var(--ab-yellow);
+  outline-offset: 3px;
+}
+
+.ab-on-yellow a:focus-visible,
+.ab-stats a:focus-visible,
+.ab-review:focus-visible,
+.ab-dest--lead:focus-visible,
+.ab-story-lead a:focus-visible {
+  outline-color: var(--ab-ink);
+}
+
+.ab-label {
+  margin: 0 0 0.85rem;
+  font-family: var(--ab-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 62%, transparent);
+}
+
+.ab-label span {
+  color: var(--ab-yellow);
+}
+
+.ab-section {
+  margin-top: clamp(3rem, 6.5vw, 5.2rem);
+}
+
+.ab-section > h2,
+.ab-head h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4.2vw, 3.35rem);
+  line-height: 1.02;
+  max-width: 16ch;
+}
+
+.ab-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 1.15rem;
+}
+
+.ab-head p {
+  max-width: 28rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.ab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9rem;
+  padding: 0.65rem 1.15rem;
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  font-family: var(--ab-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.ab-btn:hover {
+  background: var(--ab-yellow-2);
+}
+
+.ab-btn-ghost {
+  background: transparent;
+  color: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.ab-btn-ghost:hover {
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  box-shadow: none;
+}
+
+.ab-prose a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ab-yellow);
+  text-underline-offset: 0.18em;
+}
+
+/* ---------- Hero ---------- */
+.ab-hero {
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+  overflow: hidden;
+  box-shadow: inset 0 5px 0 var(--ab-yellow);
+}
+
+.ab-hero-stage {
+  padding: clamp(1.7rem, 4vw, 3.1rem) clamp(1.2rem, 3vw, 2.3rem) clamp(1.5rem, 3vw, 2.2rem);
+}
+
+.ab-hero h1 {
+  margin: 0;
+  max-width: 11em;
+  font-size: clamp(2.7rem, 6.2vw, 5.5rem);
+  line-height: 0.92;
+}
+
+.ab-hero h1 span {
+  display: block;
+  margin-top: 0.28em;
+  color: var(--ab-yellow);
+  font-size: 0.48em;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.ab-lede {
+  max-width: 38rem;
+  margin-top: 1.15rem;
+  font-size: clamp(1.02rem, 1.4vw, 1.14rem);
+  line-height: 1.6;
+  color: rgba(246, 244, 238, 0.82);
+}
+
+.ab-hero .ab-actions {
+  margin-top: 1.45rem;
+}
+
+.ab-hero .ab-btn-ghost {
+  color: var(--ab-paper);
+  box-shadow: inset 0 0 0 1px rgba(246, 244, 238, 0.28);
+}
+
+.ab-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+}
+
+.ab-stats li {
+  min-width: 0;
+  padding: 1.05rem 1rem 1.15rem;
+}
+
+.ab-stats li + li {
+  box-shadow: inset 1px 0 0 rgba(20, 18, 8, 0.16);
+}
+
+.ab-stats strong {
+  display: block;
+  font-family: var(--ab-display);
+  font-size: clamp(1.7rem, 2.8vw, 2.45rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.ab-stats span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ---------- Owner ---------- */
+.ab-owner {
+  display: grid;
+  grid-template-columns: auto minmax(12rem, 0.8fr) minmax(0, 1.15fr);
+  gap: 1.1rem 1.6rem;
+  align-items: center;
+  margin-top: 0.85rem;
+  padding: 1.2rem 0 0.2rem;
+}
+
+.ab-mono {
+  display: grid;
+  place-items: center;
+  width: 4.6rem;
+  height: 4.6rem;
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  font-family: var(--ab-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.ab-owner h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+  line-height: 1;
+}
+
+.ab-owner-role {
+  margin: 0 0 0.3rem;
+  color: var(--ab-yellow);
+  font-family: var(--ab-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+html.theme-light .ab-owner-role,
+body.light .ab-owner-role {
+  color: #8a6400;
+}
+
+.ab-owner-place {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.ab-owner-brief {
+  line-height: 1.6;
+}
+
+.ab-owner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+/* ---------- Story ---------- */
+.ab-story-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.ab-story-card {
+  min-width: 0;
+  padding: 1.35rem 1.2rem 1.45rem;
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+}
+
+.ab-story-card h3 {
+  margin: 0 0 0.55rem;
+  font-size: 1.15rem;
+}
+
+.ab-story-card p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.ab-story-lead {
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  border-color: transparent;
+}
+
+.ab-story-lead p,
+.ab-story-lead a {
+  color: var(--ab-ink);
+}
+
+.ab-story-lead a {
+  text-decoration-color: var(--ab-ink);
+}
+
+.ab-story-card .ab-kicker-num {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-family: var(--ab-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* ---------- Parks ---------- */
+.ab-park-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  margin-top: 1.1rem;
+  min-width: 0;
+}
+
+.ab-park {
+  min-width: 0;
+  min-height: 15.5rem;
+  padding: 1.4rem 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.ab-park:nth-child(1) {
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+}
+
+.ab-park:nth-child(2) {
+  background: #18181d;
+  color: var(--ab-paper);
+}
+
+.ab-park:nth-child(3) {
+  background: var(--ab-paper);
+  color: var(--ab-ink);
+}
+
+.ab-park-place {
+  font-family: var(--ab-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ab-park h3 {
+  margin: 0.35rem 0 0.4rem;
+  font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+  line-height: 0.95;
+}
+
+.ab-park p:last-child {
+  max-width: 22rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.ab-park:nth-child(2) p:last-child {
+  color: rgba(246, 244, 238, 0.74);
+}
+
+/* ---------- Guides ---------- */
+.ab-chapter {
+  margin-top: 1.15rem;
+}
+
+.ab-chapter-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem 1.5rem;
+  padding: 0.95rem 1.1rem;
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+}
+
+.ab-chapter-head h3 {
+  margin: 0;
+  color: var(--ab-yellow);
+  font-size: 1.2rem;
+}
+
+.ab-chapter-head p {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.88rem;
+  color: rgba(246, 244, 238, 0.72);
+  text-align: right;
+}
+
+.ab-guide {
+  display: grid;
+  grid-template-columns: 6.6rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    "tag title meta"
+    "tag desc meta";
+  gap: 0.2rem 1rem;
+  align-items: start;
+  padding: 0.95rem 0.7rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.ab-guide > .ab-guide-tag {
+  grid-area: tag;
+  padding-top: 0.2rem;
+  font-family: var(--ab-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ab-guide > h4 {
+  grid-area: title;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.ab-guide > p {
+  grid-area: desc;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.ab-guide > .ab-guide-meta {
+  grid-area: meta;
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.ab-guide:hover {
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+}
+
+.ab-guide:hover .ab-guide-tag,
+.ab-guide:hover p,
+.ab-guide:hover .ab-guide-meta {
+  color: rgba(20, 18, 8, 0.72);
+}
+
+.ab-guides-cta {
+  margin-top: 1.15rem;
+}
+
+/* ---------- Social ---------- */
+.ab-social {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  gap: 1.5rem 2.5rem;
+  align-items: end;
+  margin-top: clamp(3rem, 6.5vw, 5.2rem);
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+}
+
+.ab-social h2 {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+  line-height: 0.95;
+}
+
+.ab-social h2 span {
+  display: block;
+  margin-top: 0.2em;
+  color: var(--ab-yellow);
+  font-size: 0.55em;
+}
+
+.ab-social-copy {
+  margin-top: 0.9rem;
+  max-width: 34rem;
+  color: rgba(246, 244, 238, 0.74);
+  line-height: 1.6;
+}
+
+.ab-social-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(246, 244, 238, 0.16);
+  color: inherit;
+  font-family: var(--ab-display);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.ab-social-nav a:last-child {
+  border-bottom: 1px solid rgba(246, 244, 238, 0.16);
+}
+
+.ab-social-nav a span {
+  color: var(--ab-yellow);
+  transition: transform 0.18s ease;
+}
+
+.ab-social-nav a:hover span {
+  transform: translateX(4px);
+}
+
+/* ---------- Journey ---------- */
+.ab-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ab-track li {
+  min-width: 0;
+  min-height: 12.5rem;
+  padding: 1.1rem 1rem 1.2rem;
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+  border-top: 4px solid var(--ab-yellow);
+}
+
+.ab-track li:nth-child(2) {
+  border-top-color: color-mix(in srgb, var(--ab-yellow) 55%, var(--text));
+}
+
+.ab-step-label {
+  margin: 0 0 0.55rem;
+  font-family: var(--ab-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ab-track h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.45rem;
+}
+
+.ab-track p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* ---------- Reviews ---------- */
+.ab-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem 2rem;
+  align-items: center;
+  margin-top: clamp(3rem, 6.5vw, 5.2rem);
+  padding: clamp(1.3rem, 3vw, 1.8rem) clamp(1.2rem, 2.5vw, 1.7rem);
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  text-decoration: none;
+}
+
+.ab-review h2 {
+  margin: 0.15rem 0 0;
+  max-width: none;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.ab-review p {
+  margin-top: 0.35rem;
+  max-width: 40rem;
+  line-height: 1.5;
+}
+
+.ab-stars {
+  margin: 0.45rem 0 0;
+  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+}
+
+.ab-review-go {
+  font-family: var(--ab-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.ab-review:hover .ab-review-go {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+/* ---------- Trust ---------- */
+.ab-notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+}
+
+.ab-note {
+  min-width: 0;
+  padding: 1.15rem 1.1rem 1.25rem;
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+}
+
+.ab-note h3 {
+  margin: 0 0 0.35rem;
+  color: var(--ab-yellow);
+  font-size: 1.15rem;
+}
+
+.ab-note p {
+  color: rgba(246, 244, 238, 0.74);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.ab-note a {
+  color: var(--ab-paper);
+  text-decoration-color: var(--ab-yellow);
+}
+
+.ab-legal {
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+}
+
+.ab-legal a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--ab-yellow);
+  text-underline-offset: 0.18em;
+}
+
+/* ---------- Game ---------- */
+.ab-play {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  min-width: 0;
+  margin-top: clamp(3rem, 6.5vw, 5.2rem);
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+}
+
+.ab-play-copy {
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  align-self: center;
+}
+
+.ab-play h2 {
+  margin: 0.15rem 0 0.75rem;
+  max-width: none;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  line-height: 0.95;
+}
+
+.ab-play p {
+  max-width: 34rem;
+  color: rgba(246, 244, 238, 0.8);
+  line-height: 1.6;
+}
+
+.ab-play .ab-btn {
+  margin-top: 1.15rem;
+}
+
+.ab-play small {
+  display: block;
+  margin-top: 0.7rem;
+  color: rgba(246, 244, 238, 0.58);
+  font-size: 0.78rem;
+}
+
+.ab-play img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  object-fit: cover;
+}
+
+/* ---------- Explore ---------- */
+.ab-bento {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 0.7rem;
+  margin-top: 1.1rem;
+}
+
+.ab-dest {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.2rem;
+  min-height: 8.5rem;
+  min-width: 0;
+  padding: 1.15rem 1.15rem 1.2rem;
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.ab-dest--lead {
+  grid-row: span 3;
+  min-height: 100%;
+  background: var(--ab-yellow);
+  color: var(--ab-ink);
+  border-color: transparent;
+}
+
+.ab-dest strong {
+  display: block;
+  font-family: var(--ab-display);
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.ab-dest--lead strong {
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+}
+
+.ab-dest em {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.ab-dest--lead em {
+  color: rgba(20, 18, 8, 0.75);
+  font-size: 1.02rem;
+}
+
+.ab-dest-go {
+  font-family: var(--ab-display);
+  font-weight: 700;
+}
+
+.ab-dest:hover {
+  background: var(--ab-ink);
+  color: var(--ab-paper);
+  border-color: transparent;
+}
+
+.ab-dest:hover em {
+  color: rgba(246, 244, 238, 0.72);
+}
+
+.ab-dest--lead:hover {
+  background: var(--ab-yellow-2);
+  color: var(--ab-ink);
+}
+
+.ab-dest--lead:hover em {
+  color: rgba(20, 18, 8, 0.75);
+}
+
+.ab-explore-more {
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ab-explore-more a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: var(--ab-yellow);
+  text-underline-offset: 0.18em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab-btn,
+  .ab-guide,
+  .ab-dest,
+  .ab-social-nav a span {
+    transition: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .ab-story-grid,
+  .ab-park-row,
+  .ab-track {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ab-story-lead,
+  .ab-park:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .ab-park {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 860px) {
+  .ab-owner,
+  .ab-social,
+  .ab-play,
+  .ab-bento,
+  .ab-review,
+  .ab-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-owner-copy,
+  .ab-dest--lead {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .ab-chapter-head,
+  .ab-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ab-chapter-head p,
+  .ab-head p {
+    text-align: left;
+  }
+
+  .ab-play img {
+    max-height: 280px;
+    min-height: 0;
+  }
+
+  .ab-review-go {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 680px) {
+  .ab-stats,
+  .ab-story-grid,
+  .ab-park-row,
+  .ab-track {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ab-stats li,
+  .ab-stats li + li {
+    box-shadow: none;
+  }
+
+  .ab-stats li:nth-child(1),
+  .ab-stats li:nth-child(3) {
+    box-shadow: inset -1px 0 0 rgba(20, 18, 8, 0.16);
+  }
+
+  .ab-stats li:nth-child(-n + 2) {
+    box-shadow: inset 0 -1px 0 rgba(20, 18, 8, 0.16);
+  }
+
+  .ab-stats li:nth-child(1) {
+    box-shadow:
+      inset -1px 0 0 rgba(20, 18, 8, 0.16),
+      inset 0 -1px 0 rgba(20, 18, 8, 0.16);
+  }
+
+  .ab-guide {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "tag meta"
+      "title title"
+      "desc desc";
+  }
+
+  .ab-actions {
+    display: grid;
+  }
+}
+
+@media (max-width: 520px) {
+  .ab-story-grid,
+  .ab-park-row,
+  .ab-track,
+  .ab-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-story-lead,
+  .ab-park:first-child {
+    grid-column: auto;
+  }
+
+  .ab-hero h1 {
+    max-width: none;
+  }
+}
