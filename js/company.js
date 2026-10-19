@@ -296,7 +296,39 @@
     return items;
   }
 
-  function vacancyCard(item, index) {
+  function renderRoleList(items, hideLocation) {
+    return `<div class="cp-role-list">${items
+      .map((item, i) => vacancyCard(item, i, { hideLocation }))
+      .join("")}</div>`;
+  }
+
+  function rolesByLocation(items) {
+    const groups = [];
+    const seen = new Map();
+    (items || []).forEach((item) => {
+      const location = String((item.job && item.job.location) || "Location on the official posting").trim();
+      if (!seen.has(location)) {
+        const group = { location, items: [] };
+        seen.set(location, group);
+        groups.push(group);
+      }
+      seen.get(location).items.push(item);
+    });
+    if (groups.length < 2) return renderRoleList(items, false);
+    return `<div class="cp-loc-groups">${groups
+      .map(
+        (group) => `<section class="cp-loc-group">
+          <div class="cp-loc-head">
+            <h3>${escapeHtml(group.location)}</h3>
+            <span>${group.items.length} role${group.items.length === 1 ? "" : "s"}</span>
+          </div>
+          ${renderRoleList(group.items, true)}
+        </section>`
+      )
+      .join("")}</div>`;
+  }
+
+  function vacancyCard(item, index, opts) {
     const job = item.job;
     const role = item.role || "Open role";
     const status = deadlineStatus(job);
@@ -309,7 +341,8 @@
         : job.applyDeadline
           ? formatDate(job.applyDeadline)
           : "";
-    const meta = [exp, job.employmentType, job.workMode || job.location].filter(Boolean).slice(0, 3);
+    const hideLocation = opts && opts.hideLocation;
+    const meta = [hideLocation ? "" : job.location, exp, job.employmentType].filter(Boolean).slice(0, 3);
     const statusLabel = expired ? "Expired" : closing ? "Closing soon" : "Open";
     const href = jobPath(job.id);
     const idx = String((index || 0) + 1).padStart(2, "0");
@@ -386,9 +419,17 @@
     ].filter(Boolean);
 
     const parkLabel = about.park || "Company profile";
+    const locationCount = new Set(
+      [...openRoles, ...expiredRoles]
+        .map((item) => String((item.job && item.job.location) || "").trim())
+        .filter(Boolean)
+    ).size;
+    const manyPlaces = locationCount > 1 && !about.building && !about.campus && !about.park;
+    const shownLocation = manyPlaces ? "" : locationLine;
     const chips = [
       parkLabel,
-      locationLine && locationLine !== parkLabel ? locationLine : "",
+      shownLocation && shownLocation !== parkLabel ? shownLocation : "",
+      locationCount > 1 ? `${locationCount} locations` : "",
       openRoles.length
         ? `${openRoles.length} open role${openRoles.length === 1 ? "" : "s"}`
         : expiredRoles.length
@@ -403,7 +444,7 @@
       { label: "Open roles", value: String(openRoles.length) },
       expiredRoles.length ? { label: "Recently closed", value: String(expiredRoles.length) } : null,
       about.park ? { label: "Park", value: about.park } : null,
-      locationLine ? { label: "Location", value: locationLine } : null,
+      shownLocation ? { label: "Location", value: shownLocation } : null,
       siteLabel && about.website
         ? {
             label: "Website",
@@ -428,6 +469,36 @@
     ].filter(Boolean);
 
     document.body.classList.add("company-route");
+
+    const roleLocations = [];
+    const seenRoleLocations = new Set();
+    [...openRoles, ...expiredRoles].forEach((item) => {
+      const location = String((item.job && item.job.location) || "").trim();
+      if (!location || seenRoleLocations.has(location)) return;
+      seenRoleLocations.add(location);
+      roleLocations.push(location);
+    });
+    roleLocations.sort((a, b) => a.localeCompare(b));
+    const showRoleFilter = openRoles.length + expiredRoles.length > 4;
+    const roleFilter = showRoleFilter
+      ? `<form class="cp-role-filter" id="cp-role-filter" role="search">
+          <label class="cp-role-field">
+            <span>Role</span>
+            <input id="cp-role-query" type="search" name="role" placeholder="Search role title" autocomplete="off" enterkeyhint="search">
+          </label>
+          ${
+            roleLocations.length > 1
+              ? `<label class="cp-role-field">
+                  <span>Location</span>
+                  <select id="cp-role-location" name="location">
+                    <option value="">All locations</option>
+                    ${roleLocations.map((location) => `<option value="${escapeAttr(location)}">${escapeHtml(location)}</option>`).join("")}
+                  </select>
+                </label>`
+              : ""
+          }
+        </form>`
+      : "";
 
     root.innerHTML = `
       <article class="cp">
@@ -508,7 +579,7 @@
                         .join("")}</ul>`
                     : ""
                 }
-                ${about.address ? `<p class="cp-address">${escapeHtml(about.address)}</p>` : ""}
+                ${about.address && !manyPlaces ? `<p class="cp-address">${escapeHtml(about.address)}</p>` : ""}
                 <p class="cp-note">
                   InfoparkDaily is a directory, not the employer. Confirm openings on official channels before you apply. Never pay for a job.
                 </p>
@@ -525,14 +596,16 @@
               </aside>
             </div>
 
+            ${roleFilter}
             <section class="cp-roles" id="cp-open-roles" aria-labelledby="cp-open-title">
               <div class="cp-roles-head">
                 <h2 id="cp-open-title">Open roles</h2>
-                <span class="cp-count">${openRoles.length}</span>
+                <span class="cp-count" id="cp-open-count">${openRoles.length}</span>
               </div>
+              <div id="cp-open-list">
               ${
                 openRoles.length
-                  ? `<div class="cp-role-list">${openRoles.map((item, i) => vacancyCard(item, i)).join("")}</div>`
+                  ? rolesByLocation(openRoles)
                   : `<div class="cp-empty-card">
                       <strong>No open roles listed right now</strong>
                       <p>${
@@ -543,6 +616,8 @@
                       <a href="/jobs/">Browse all jobs</a>
                     </div>`
               }
+              </div>
+              <p class="cp-filter-empty" id="cp-filter-empty" hidden>No roles match that filter.</p>
             </section>
 
             ${
@@ -550,9 +625,9 @@
                 ? `<section class="cp-roles cp-roles--archive" id="cp-closed-roles" aria-labelledby="cp-expired-title">
                     <div class="cp-roles-head">
                       <h2 id="cp-expired-title">Recently closed</h2>
-                      <span class="cp-count cp-count--muted">${expiredRoles.length}</span>
+                      <span class="cp-count cp-count--muted" id="cp-closed-count">${expiredRoles.length}</span>
                     </div>
-                    <div class="cp-role-list">${expiredRoles.map((item, i) => vacancyCard(item, i)).join("")}</div>
+                    <div id="cp-closed-list">${rolesByLocation(expiredRoles)}</div>
                   </section>`
                 : ""
             }
@@ -560,6 +635,63 @@
         </div>
       </article>
     `;
+
+    function roleMatches(item, query, location) {
+      const itemLocation = String((item.job && item.job.location) || "").trim();
+      if (location && itemLocation !== location) return false;
+      if (!query) return true;
+      const tags = (item.job && item.job.tags) || [];
+      const hay = [item.role, itemLocation, tags.join(" ")].join(" ").toLowerCase();
+      return hay.includes(query);
+    }
+
+    const queryInput = document.getElementById("cp-role-query");
+    const locationInput = document.getElementById("cp-role-location");
+    const openList = document.getElementById("cp-open-list");
+    const closedList = document.getElementById("cp-closed-list");
+    const openCount = document.getElementById("cp-open-count");
+    const closedCount = document.getElementById("cp-closed-count");
+    const filterEmpty = document.getElementById("cp-filter-empty");
+    const closedSection = document.getElementById("cp-closed-roles");
+    const idleOpenHtml = openList ? openList.innerHTML : "";
+    const idleClosedHtml = closedList ? closedList.innerHTML : "";
+
+    function paintRoleFilter() {
+      const query = String((queryInput && queryInput.value) || "").trim().toLowerCase();
+      const location = locationInput ? locationInput.value : "";
+      const filtering = Boolean(query || location);
+      const open = openRoles.filter((item) => roleMatches(item, query, location));
+      const closed = expiredRoles.filter((item) => roleMatches(item, query, location));
+      if (openList) {
+        openList.innerHTML = !filtering ? idleOpenHtml : open.length ? rolesByLocation(open) : "";
+      }
+      if (openCount) openCount.textContent = String(filtering ? open.length : openRoles.length);
+      if (closedList) {
+        closedList.innerHTML = !filtering ? idleClosedHtml : closed.length ? rolesByLocation(closed) : "";
+      }
+      if (closedCount) closedCount.textContent = String(filtering ? closed.length : expiredRoles.length);
+      if (closedSection) closedSection.hidden = filtering && !closed.length;
+      if (filterEmpty) {
+        filterEmpty.hidden = !filtering || open.length > 0;
+        filterEmpty.textContent = closed.length
+          ? "No open roles match. Matching closed roles are below."
+          : "No roles match that filter.";
+      }
+    }
+
+    if (queryInput) {
+      queryInput.addEventListener("input", paintRoleFilter);
+    }
+    if (locationInput) {
+      locationInput.addEventListener("change", paintRoleFilter);
+    }
+    const roleForm = document.getElementById("cp-role-filter");
+    if (roleForm) {
+      roleForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        paintRoleFilter();
+      });
+    }
 
     try {
       if (window.IPDAnalytics && typeof window.IPDAnalytics.trackCompanyView === "function") {

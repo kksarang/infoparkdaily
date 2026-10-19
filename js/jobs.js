@@ -274,8 +274,11 @@
     if (loc.includes("calicut") || loc.includes("kozhikode")) return "Calicut";
     if (loc.includes("angamaly")) return "Angamaly";
     if (loc.includes("thrissur")) return "Thrissur";
-    if (loc.includes("malappuram") || loc.includes("kottakkal")) return "Malappuram";
+    if (loc.includes("palakkad")) return "Palakkad";
+    if (loc.includes("malappuram") || loc.includes("kottakkal") || loc.includes("nilambur") || loc.includes("ponnani")) return "Malappuram";
     if (loc.includes("alappuzha")) return "Alappuzha";
+    if (loc.includes("ernakulam") || loc.includes("edappally") || loc.includes("padivattom") || loc.includes("kakkanad")) return "Kochi";
+    if (/\b(dubai|united arab|oman|united kingdom|\buk\b|derby|douglas|ibri)\b/.test(loc)) return "Outside India";
     if (/\b(hyderabad|chennai|pune|mumbai|powai|gurugram|gurgaon|noida|delhi|mohali|kolkata|ahmedabad|coimbatore|mysore|mysuru)\b/.test(loc)) return "Other India";
     return "Other Kerala";
   }

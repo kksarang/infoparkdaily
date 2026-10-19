@@ -512,6 +512,89 @@ body.company-route main.jobs-page {
   margin: 0;
 }
 
+.cp-loc-groups {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.cp-loc-group {
+  display: grid;
+  gap: 0.7rem;
+  min-width: 0;
+}
+
+.cp-loc-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.65rem 1rem;
+  flex-wrap: wrap;
+}
+
+.cp-loc-head h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+}
+
+.cp-loc-head span {
+  color: var(--cp-mute);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cp-role-filter {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(12rem, 0.8fr);
+  gap: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+
+.cp-role-field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.cp-role-field span {
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cp-mute);
+}
+
+.cp-role-field input,
+.cp-role-field select {
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--cp-line);
+  border-radius: 0;
+  background: var(--cp-paper);
+  color: var(--cp-ink);
+  font: inherit;
+  font-size: 16px;
+}
+
+.cp-role-field input:focus-visible,
+.cp-role-field select:focus-visible {
+  outline: 2px solid var(--cp-gold);
+  outline-offset: 2px;
+}
+
+.cp-filter-empty {
+  margin: 0;
+  padding: 1rem 0 0.2rem;
+  color: var(--cp-mute);
+}
+
 .cp-count {
   font-family: var(--display);
   font-weight: 800;
@@ -771,6 +854,10 @@ body.company-route main.jobs-page {
   }
 
   .cp-story {
+    grid-template-columns: 1fr;
+  }
+
+  .cp-role-filter {
     grid-template-columns: 1fr;
   }
 }
