@@ -499,6 +499,11 @@ body.company-route main.jobs-page {
   animation: cpRise 0.65s 0.12s ease both;
 }
 
+.cp-roles[hidden],
+.cp-filter-empty[hidden] {
+  display: none;
+}
+
 .cp-roles-head {
   display: flex;
   align-items: end;
