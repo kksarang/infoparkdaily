@@ -497,6 +497,14 @@
                 </label>`
               : ""
           }
+          <label class="cp-role-field">
+            <span>Experience</span>
+            <select id="cp-role-experience" name="experience">
+              <option value="">Fresher and experienced</option>
+              <option value="fresher">Fresher</option>
+              <option value="experienced">Experienced</option>
+            </select>
+          </label>
         </form>`
       : "";
 
@@ -636,17 +644,34 @@
       </article>
     `;
 
-    function roleMatches(item, query, location) {
-      const itemLocation = String((item.job && item.job.location) || "").trim();
+    function openToFreshers(job) {
+      const code = String((job && job.experience) || "").toLowerCase();
+      const range = String((job && (job.experienceRange || job.experienceYears)) || "").trim().toLowerCase();
+      return code === "fresher" || code === "both" || /\bfresher\b|\bintern/.test(range);
+    }
+
+    function openToExperienced(job) {
+      const code = String((job && job.experience) || "").toLowerCase();
+      const range = String((job && (job.experienceRange || job.experienceYears)) || "").trim().toLowerCase();
+      if (range === "fresher" || range === "internship") return false;
+      return code === "experienced" || code === "both";
+    }
+
+    function roleMatches(item, query, location, experience) {
+      const job = item.job || {};
+      const itemLocation = String(job.location || "").trim();
       if (location && itemLocation !== location) return false;
+      if (experience === "fresher" && !openToFreshers(job)) return false;
+      if (experience === "experienced" && !openToExperienced(job)) return false;
       if (!query) return true;
-      const tags = (item.job && item.job.tags) || [];
+      const tags = job.tags || [];
       const hay = [item.role, itemLocation, tags.join(" ")].join(" ").toLowerCase();
       return hay.includes(query);
     }
 
     const queryInput = document.getElementById("cp-role-query");
     const locationInput = document.getElementById("cp-role-location");
+    const experienceInput = document.getElementById("cp-role-experience");
     const openList = document.getElementById("cp-open-list");
     const closedList = document.getElementById("cp-closed-list");
     const openCount = document.getElementById("cp-open-count");
@@ -659,9 +684,10 @@
     function paintRoleFilter() {
       const query = String((queryInput && queryInput.value) || "").trim().toLowerCase();
       const location = locationInput ? locationInput.value : "";
-      const filtering = Boolean(query || location);
-      const open = openRoles.filter((item) => roleMatches(item, query, location));
-      const closed = expiredRoles.filter((item) => roleMatches(item, query, location));
+      const experience = experienceInput ? experienceInput.value : "";
+      const filtering = Boolean(query || location || experience);
+      const open = openRoles.filter((item) => roleMatches(item, query, location, experience));
+      const closed = expiredRoles.filter((item) => roleMatches(item, query, location, experience));
       if (openList) {
         openList.innerHTML = !filtering ? idleOpenHtml : open.length ? rolesByLocation(open) : "";
       }
@@ -684,6 +710,9 @@
     }
     if (locationInput) {
       locationInput.addEventListener("change", paintRoleFilter);
+    }
+    if (experienceInput) {
+      experienceInput.addEventListener("change", paintRoleFilter);
     }
     const roleForm = document.getElementById("cp-role-filter");
     if (roleForm) {
