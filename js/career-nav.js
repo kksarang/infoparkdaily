@@ -25,6 +25,7 @@
     const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
     let on = false;
     if (href === "/ats-checker") on = path.startsWith("/ats-checker");
+    else if (href === "/career-tools/faq") on = path.startsWith("/career-tools/faq");
     else if (href === "/resume-builder/email-examples")
       on = path.startsWith("/resume-builder/email-examples");
     else if (href === "/resume-builder/templates")

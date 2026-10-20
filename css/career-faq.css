@@ -1,0 +1,142 @@
+/* Career Tools dedicated FAQ page */
+body.career-tools .cf-page {
+  padding: 40px 0 80px;
+}
+body.career-tools .cf-hero {
+  max-width: 40rem;
+  margin-bottom: 40px;
+}
+body.career-tools .cf-hero h1 {
+  margin: 0 0 12px;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(34px, 4.4vw, 48px);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+body.career-tools .cf-hero > p {
+  margin: 0 0 18px;
+  color: var(--cp-muted, #5f6672);
+  font-size: 16px;
+  line-height: 1.55;
+}
+body.career-tools .cf-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+body.career-tools .cf-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--cp-line, #e6e3db);
+  background: #fff;
+  color: var(--cp-ink, #171c24);
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+body.career-tools .cf-jump a:hover {
+  border-color: var(--cp-ink, #171c24);
+}
+body.career-tools .cf-group {
+  margin: 0 0 40px;
+  padding-top: 8px;
+  scroll-margin-top: 5.5rem;
+}
+body.career-tools .cf-group h2 {
+  margin: 0 0 14px;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(22px, 2.4vw, 28px);
+  letter-spacing: -0.03em;
+}
+body.career-tools .cf-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 46rem;
+  border-top: 1px solid var(--cp-line, #e6e3db);
+  counter-reset: cf;
+}
+body.career-tools .cf-rail li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cp-line, #e6e3db);
+  counter-increment: cf;
+}
+body.career-tools .cf-rail li::before {
+  content: counter(cf, decimal-leading-zero);
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #8a7340;
+  padding-top: 3px;
+}
+body.career-tools .cf-rail h3 {
+  margin: 0 0 6px;
+  grid-column: 2;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+body.career-tools .cf-rail p {
+  margin: 0;
+  grid-column: 2;
+  max-width: 52ch;
+  color: var(--cp-muted, #5f6672);
+  font-size: 14px;
+  line-height: 1.6;
+}
+body.career-tools .cf-rail a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+body.career-tools .cf-rail code {
+  font-size: 0.9em;
+}
+body.career-tools .cf-more {
+  margin: 14px 0 0;
+  font-size: 14px;
+  font-weight: 650;
+}
+body.career-tools .cf-more a {
+  color: var(--cp-ink, #171c24);
+  text-decoration: none;
+}
+body.career-tools .cf-more a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+body.career-tools .cf-foot {
+  margin: 8px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--cp-line, #e6e3db);
+  color: var(--cp-muted, #5f6672);
+  font-size: 14px;
+}
+body.career-tools .cf-foot a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+body.career-tools .ct-faq-link {
+  margin: 0;
+  padding: 28px 0 8px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--cp-muted, #5f6672);
+}
+body.career-tools .ct-faq-link a {
+  color: var(--cp-ink, #171c24);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

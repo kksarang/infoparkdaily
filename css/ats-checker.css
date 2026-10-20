@@ -1431,25 +1431,87 @@ body.career-tools-ats .section-heading p a.text-link {
   line-height: 1.55;
 }
 
-.ats-faq details {
-  margin: 0 0 0.55rem;
-  padding: 0.85rem 1rem;
-  border-radius: 14px;
-  border: 1px solid var(--ats-line);
-  background: var(--ats-card);
+.ats-faq-section {
+  padding: 52px 0 76px;
+  margin-top: 8px;
+  border-top: 1px solid var(--ats-line, #e6e3db);
 }
-
-.ats-faq summary {
-  cursor: pointer;
+.ats-faq-head {
+  max-width: 36rem;
+  margin-bottom: 28px;
+}
+.ats-faq-head .ct-kicker {
+  margin-bottom: 10px;
+  color: var(--ats-muted, #5f6672);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+.ats-faq-head h2 {
+  margin: 0 0 10px;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(26px, 3vw, 34px);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+.ats-faq-head p {
+  margin: 0;
+  color: var(--ats-muted, #5f6672);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.ats-faq-head a,
+.ats-faq-rail a {
+  color: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ats-faq-rail {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 46rem;
+  border-top: 1px solid var(--ats-line, #e6e3db);
+  counter-reset: ats-faq;
+}
+.ats-faq-rail li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--ats-line, #e6e3db);
+  counter-increment: ats-faq;
+}
+.ats-faq-rail li::before {
+  content: counter(ats-faq, decimal-leading-zero);
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: #8a7340;
+  padding-top: 3px;
 }
-
-.ats-faq details p {
-  margin: 0.65rem 0 0;
-  color: var(--ats-muted);
-  font-size: 0.92rem;
+.ats-faq-rail h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+  grid-column: 2;
+}
+.ats-faq-rail p {
+  margin: 0;
+  grid-column: 2;
+  color: var(--ats-muted, #5f6672);
+  font-size: 14px;
   line-height: 1.6;
+  max-width: 52ch;
+}
+@media (max-width: 560px) {
+  .ats-faq-rail li {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    column-gap: 10px;
+  }
 }
 
 .ats-next {
