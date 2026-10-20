@@ -44,6 +44,8 @@ let authMode = "login",
   category = "All",
   access = "all",
   search = "";
+const GALLERY_PAGE = 24;
+let galleryLimit = GALLERY_PAGE;
 const categories = [
   "All",
   "ATS-Friendly",
@@ -194,8 +196,13 @@ function subnav() {
     })
     .join("")}${me?.admin ? '<a href="/admin/resume-templates/">Templates admin</a><a href="/admin/members/">Members</a>' : ""}</nav>`;
 }
+function pageRoot() {
+  return document.getElementById("rb-app") || main;
+}
 function page(title, subtitle, body, action = "") {
+  const root = pageRoot();
   main.className = "page-bg";
+  if (root !== main) root.className = "rb-app";
   const kicker =
     {
       templates: "Resume designs",
@@ -204,7 +211,7 @@ function page(title, subtitle, body, action = "") {
       account: "Your account",
       "payment-status": "Pro Pass",
     }[route] || (location.pathname.includes("/admin/") ? "Admin" : "Career Tools");
-  main.innerHTML =
+  root.innerHTML =
     subnav() +
     `<div class="rb-width page-head"><p class="ct-kicker">${kicker}</p><div class="section-heading"><div><h1>${esc(title)}</h1><p>${esc(subtitle)}</p></div>${action}</div></div><div class="rb-width">${body}</div>`;
 }
@@ -232,10 +239,11 @@ function landing() {
     .forEach((el) => (el.textContent = String(count)));
 }
 function gallery() {
+  galleryLimit = GALLERY_PAGE;
   page(
     "167 Free ATS-Friendly Resume Templates",
     "All designs are free. Sign in to edit and save — pause anytime, continue later.",
-    `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"></div><div class="filters"><div class="chips">${categories.map((c) => `<button type="button" class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid"></div>`,
+    `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"></div><div class="filters"><div class="chips">${categories.map((c) => `<button type="button" class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid"></div><div id="gallery-more" class="gallery-more"></div>`,
   );
   filterGallery();
   analyticsTrack("resume_gallery_view", {
@@ -254,11 +262,24 @@ function filterGallery() {
         .toLowerCase()
         .includes(search.toLowerCase()),
   );
-  document.getElementById("gallery-count").textContent =
-    `${filtered.length} of ${templates.length} free templates · sign in to save your work`;
+  const shown = filtered.slice(0, galleryLimit);
+  const saveHint = me
+    ? "drafts save to your account"
+    : "sign in to save your work";
+  document.getElementById("gallery-count").textContent = filtered.length
+    ? `Showing ${shown.length} of ${filtered.length} free templates · ${saveHint}`
+    : `0 of ${templates.length} free templates · ${saveHint}`;
   document.getElementById("gallery-results").innerHTML = filtered.length
-    ? filtered.map(templateCard).join("")
+    ? shown.map(templateCard).join("")
     : '<div class="empty"><h2>No templates found</h2><p>Try another search or choose a different category.</p></div>';
+  const more = document.getElementById("gallery-more");
+  if (!more) return;
+  if (filtered.length > shown.length) {
+    const left = filtered.length - shown.length;
+    more.innerHTML = `<button type="button" class="button secondary" data-action="gallery-more">Load ${Math.min(GALLERY_PAGE, left)} more</button>`;
+  } else {
+    more.innerHTML = "";
+  }
 }
 function previewTemplate(id) {
   const t = templates.find((x) => x.id === id);
@@ -1006,11 +1027,16 @@ async function act(el) {
       break;
     case "filter-category":
       category = el.dataset.category;
+      galleryLimit = GALLERY_PAGE;
       document
         .querySelectorAll('[data-action="filter-category"]')
         .forEach((b) =>
           b.classList.toggle("active", b.dataset.category === category),
         );
+      filterGallery();
+      break;
+    case "gallery-more":
+      galleryLimit += GALLERY_PAGE;
       filterGallery();
       break;
     case "browse-free":
@@ -1417,6 +1443,7 @@ document.addEventListener("input", (event) => {
   }
   if (el.id === "template-search") {
     search = el.value;
+    galleryLimit = GALLERY_PAGE;
     filterGallery();
     return;
   }

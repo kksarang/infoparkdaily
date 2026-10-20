@@ -3039,8 +3039,27 @@ body.career-tools-ats.ats-has-report .ats-result {
 }
 body.career-tools-ats.ats-has-report .ats-hero,
 body.career-tools-ats.ats-has-report .ats-how,
+body.career-tools-ats.ats-has-report .ats-tips,
 body.career-tools-ats.ats-has-report .ats-split-wrap {
   display: none;
+}
+body.career-tools-ats .ats-tips-lede {
+  max-width: 62ch;
+  margin: 0 0 4px;
+  color: var(--muted, #5f6672);
+  font-size: 15px;
+  line-height: 1.55;
+}
+body.career-tools-ats .ats-tips-foot {
+  margin: 28px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink, #171c24);
+}
+body.career-tools-ats .ats-tips-foot a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 body.career-tools-ats.ats-has-report .ats-pane,
 body.career-tools-ats.ats-has-report .ats-drop,

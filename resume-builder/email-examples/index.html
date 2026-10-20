@@ -120,7 +120,7 @@
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
     <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20260925c" />
-    <link rel="stylesheet" href="/css/email-examples.css?v=20261020c" />
+    <link rel="stylesheet" href="/css/email-examples.css?v=20261020p2" />
     <script defer src="/js/career-nav.js?v=20261020seo"></script>
   </head>
   <body class="career-tools em-page light">
@@ -227,8 +227,24 @@
       <section class="em-wrap em-band" id="em-examples" aria-labelledby="em-examples-title">
         <div class="em-section-head">
           <h2 id="em-examples-title">Email ideas for every situation</h2>
-          <p>Filter by type. Replace every [bracket]. Keep the body short — most recruiters skim in under a minute.</p>
+          <p>Fill your details once, then copy or open in Gmail. Keep the body short — most recruiters skim in under a minute.</p>
         </div>
+
+        <form class="em-fill" id="em-fill" autocomplete="on">
+          <p class="em-fill-title">Fill in once</p>
+          <p class="em-fill-hint">Replaces common [brackets] in every example below. Stored only in this browser tab.</p>
+          <div class="em-fill-grid">
+            <label>Your name <input name="name" type="text" placeholder="Your Name" autocomplete="name" /></label>
+            <label>Job title / role <input name="role" type="text" placeholder="Job Title" autocomplete="organization-title" /></label>
+            <label>Company <input name="company" type="text" placeholder="Company" autocomplete="organization" /></label>
+            <label>City <input name="city" type="text" placeholder="City" autocomplete="address-level2" /></label>
+            <label>Phone <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" /></label>
+            <label>Email <input name="email" type="email" placeholder="you@email.com" autocomplete="email" /></label>
+          </div>
+          <div class="em-fill-actions">
+            <button type="button" class="em-btn em-btn-ghost" id="em-fill-clear">Clear fields</button>
+          </div>
+        </form>
 
         <div class="em-toolbar">
           <div class="em-filters" role="toolbar" aria-label="Filter email examples">
@@ -751,6 +767,67 @@ Regards,
         var cards = document.querySelectorAll(".em-card");
         var countEl = document.getElementById("em-count");
         var emptyEl = document.getElementById("em-empty");
+        var form = document.getElementById("em-fill");
+
+        document.querySelectorAll(".em-pre").forEach(function (pre) {
+          pre.setAttribute("data-original", pre.textContent || "");
+        });
+
+        cards.forEach(function (card) {
+          if (card.querySelector(".em-mail-actions")) return;
+          var actions = document.createElement("div");
+          actions.className = "em-mail-actions";
+          actions.innerHTML =
+            '<button type="button" class="em-btn em-btn-ghost em-open-gmail">Open in Gmail</button>' +
+            '<button type="button" class="em-btn em-btn-ghost em-open-mailto">Open in mail app</button>';
+          card.appendChild(actions);
+        });
+
+        function fillValues() {
+          if (!form) return {};
+          return {
+            name: (form.elements.name.value || "").trim(),
+            role: (form.elements.role.value || "").trim(),
+            company: (form.elements.company.value || "").trim(),
+            city: (form.elements.city.value || "").trim(),
+            phone: (form.elements.phone.value || "").trim(),
+            email: (form.elements.email.value || "").trim(),
+          };
+        }
+
+        function applyFill(text, v) {
+          var out = text;
+          function rep(token, value) {
+            if (!value) return;
+            out = out.split(token).join(value);
+          }
+          rep("[Your Name]", v.name);
+          rep("[Name]", v.name);
+          rep("[Job Title]", v.role);
+          rep("[Role / Team]", v.role);
+          rep("[Company]", v.company);
+          rep("[City]", v.city);
+          rep("[phone]", v.phone);
+          rep("[Phone]", v.phone);
+          rep("[email]", v.email);
+          rep("[Email]", v.email);
+          return out;
+        }
+
+        function refreshPres() {
+          var v = fillValues();
+          document.querySelectorAll(".em-pre").forEach(function (pre) {
+            var original = pre.getAttribute("data-original") || "";
+            pre.textContent = applyFill(original, v);
+          });
+        }
+
+        function cardParts(card) {
+          var blocks = card.querySelectorAll(".em-block .em-pre");
+          var subject = blocks[0] ? blocks[0].textContent || "" : "";
+          var body = blocks[1] ? blocks[1].textContent || "" : "";
+          return { subject: subject.trim(), body: body.trim() };
+        }
 
         function paint(filter) {
           var shown = 0;
@@ -802,6 +879,42 @@ Regards,
             }
           });
         });
+
+        document.addEventListener("click", function (ev) {
+          var gmail = ev.target.closest(".em-open-gmail");
+          var mail = ev.target.closest(".em-open-mailto");
+          if (!gmail && !mail) return;
+          var card = ev.target.closest(".em-card");
+          if (!card) return;
+          var parts = cardParts(card);
+          if (gmail) {
+            var url =
+              "https://mail.google.com/mail/?view=cm&fs=1&su=" +
+              encodeURIComponent(parts.subject) +
+              "&body=" +
+              encodeURIComponent(parts.body);
+            window.open(url, "_blank", "noopener");
+            return;
+          }
+          if (mail) {
+            location.href =
+              "mailto:?subject=" +
+              encodeURIComponent(parts.subject) +
+              "&body=" +
+              encodeURIComponent(parts.body);
+          }
+        });
+
+        if (form) {
+          form.addEventListener("input", refreshPres);
+          var clearBtn = document.getElementById("em-fill-clear");
+          if (clearBtn) {
+            clearBtn.addEventListener("click", function () {
+              form.reset();
+              refreshPres();
+            });
+          }
+        }
 
         paint("all");
       })();
