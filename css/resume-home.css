@@ -382,9 +382,15 @@ body.rh-page {
 /* ── Two paths ───────────────────────────────────────────────────── */
 .rh-paths {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
   padding: 16px 0 24px;
+}
+
+@media (max-width: 980px) {
+  .rh-paths {
+    grid-template-columns: 1fr;
+  }
 }
 .rh-card-link {
   position: relative;

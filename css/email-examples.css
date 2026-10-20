@@ -1,0 +1,461 @@
+/* Career Tools · Email examples (/resume-builder/email-examples/) */
+
+body.em-page {
+  --em-bg: #fafaf7;
+  --em-surface: #ffffff;
+  --em-ink: #171c24;
+  --em-muted: #5f6672;
+  --em-line: #e5e7dd;
+  --em-accent: #ffc107;
+  --em-accent-soft: #fff4cc;
+  --em-forest: #5f6b45;
+  --em-good: #1f7a4d;
+  --em-radius: 18px;
+  --em-shadow: 0 1px 2px rgba(23, 28, 36, 0.04), 0 14px 34px rgba(23, 28, 36, 0.06);
+  background: var(--em-bg);
+  color: var(--em-ink);
+}
+
+.em-wrap {
+  box-sizing: border-box;
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  padding-inline: max(1.25rem, env(safe-area-inset-left), env(safe-area-inset-right));
+}
+
+.em-page main {
+  overflow-x: clip;
+  padding-bottom: 4rem;
+}
+
+.em-hero {
+  padding: 2.5rem 0 1.5rem;
+}
+
+.em-hero-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .em-hero-grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 2.5rem;
+  }
+}
+
+.em-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--em-forest);
+}
+
+.em-kicker b {
+  display: inline-block;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  background: var(--em-accent);
+  color: var(--em-ink);
+  letter-spacing: 0.06em;
+}
+
+.em-hero h1 {
+  margin: 0;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--em-ink);
+}
+
+.em-lede {
+  margin: 1rem 0 0;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--em-muted);
+}
+
+.em-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.em-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--em-ink);
+  background: var(--em-ink);
+  color: #fff;
+  font: 650 0.95rem/1 Inter, system-ui, sans-serif;
+  text-decoration: none;
+}
+
+.em-btn:hover {
+  background: #2a3140;
+}
+
+.em-btn-ghost {
+  background: var(--em-surface);
+  color: var(--em-ink);
+}
+
+.em-btn-ghost:hover {
+  background: #f3f4ef;
+}
+
+.em-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--em-muted);
+  font-size: 0.9rem;
+}
+
+.em-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.em-trust li::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--em-good);
+  flex: 0 0 auto;
+}
+
+/* Anatomy diagram */
+.em-anatomy {
+  background: var(--em-surface);
+  border: 1px solid var(--em-line);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow);
+  overflow: hidden;
+}
+
+.em-anatomy-head {
+  padding: 1rem 1.15rem 0.75rem;
+  border-bottom: 1px solid var(--em-line);
+}
+
+.em-anatomy-head h2 {
+  margin: 0;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.em-anatomy-head p {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--em-muted);
+}
+
+.em-mail-preview {
+  margin: 0;
+  padding: 1.1rem 1.15rem 1.25rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.em-mail-row {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px dashed #d7dbc8;
+  background: #fbfcf8;
+  position: relative;
+}
+
+.em-mail-row[data-part]::before {
+  content: attr(data-part);
+  position: absolute;
+  top: -0.55rem;
+  left: 0.75rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--em-accent-soft);
+  border: 1px solid #f0e2a0;
+  color: #6a5a10;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.em-mail-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--em-muted);
+}
+
+.em-mail-value {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--em-ink);
+}
+
+.em-mail-value strong {
+  font-weight: 700;
+}
+
+/* Filters */
+.em-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.em-chip {
+  appearance: none;
+  border: 1px solid var(--em-line);
+  background: var(--em-surface);
+  color: var(--em-muted);
+  border-radius: 999px;
+  min-height: 40px;
+  padding: 0 0.95rem;
+  font: 650 0.85rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.em-chip:hover {
+  border-color: #c9cebc;
+  color: var(--em-ink);
+}
+
+.em-chip.is-active {
+  background: var(--em-ink);
+  border-color: var(--em-ink);
+  color: #fff;
+}
+
+.em-section-head {
+  margin: 2rem 0 0.75rem;
+}
+
+.em-section-head h2 {
+  margin: 0;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  letter-spacing: -0.03em;
+}
+
+.em-section-head p {
+  margin: 0.45rem 0 0;
+  color: var(--em-muted);
+  max-width: 40rem;
+}
+
+.em-count {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--em-muted);
+}
+
+/* Cards */
+.em-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.em-card {
+  background: var(--em-surface);
+  border: 1px solid var(--em-line);
+  border-radius: var(--em-radius);
+  box-shadow: var(--em-shadow);
+  overflow: hidden;
+}
+
+.em-card[hidden] {
+  display: none !important;
+}
+
+.em-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.1rem 1.2rem 0.85rem;
+  border-bottom: 1px solid var(--em-line);
+}
+
+.em-card-top h3 {
+  margin: 0;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.em-card-meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: var(--em-muted);
+  line-height: 1.45;
+  max-width: 38rem;
+}
+
+.em-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: #eef1e6;
+  color: var(--em-forest);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.em-block {
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid var(--em-line);
+}
+
+.em-block:last-child {
+  border-bottom: 0;
+}
+
+.em-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.em-block-head span {
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--em-muted);
+}
+
+.em-copy {
+  appearance: none;
+  border: 1px solid var(--em-line);
+  background: #f7f8f3;
+  color: var(--em-ink);
+  border-radius: 8px;
+  min-height: 34px;
+  padding: 0 0.7rem;
+  font: 650 0.78rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.em-copy:hover {
+  border-color: #c9cebc;
+}
+
+.em-copy.is-copied {
+  background: #e3f4ea;
+  border-color: #b7dfc6;
+  color: var(--em-good);
+}
+
+.em-pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: #f4f5ef;
+  border: 1px solid #e8eadf;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--em-ink);
+}
+
+.em-tip {
+  margin: 0.75rem 0 0;
+  font-size: 0.88rem;
+  color: var(--em-muted);
+  line-height: 1.5;
+}
+
+.em-tip strong {
+  color: var(--em-ink);
+}
+
+.em-rules {
+  margin: 2.5rem 0 0;
+  padding: 1.35rem 1.4rem;
+  border-radius: var(--em-radius);
+  border: 1px solid var(--em-line);
+  background: var(--em-surface);
+}
+
+.em-rules h2 {
+  margin: 0 0 0.75rem;
+  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.em-rules ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--em-muted);
+  line-height: 1.6;
+}
+
+.em-rules li + li {
+  margin-top: 0.35rem;
+}
+
+.em-empty {
+  margin: 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--em-muted);
+  border: 1px dashed var(--em-line);
+  border-radius: var(--em-radius);
+  background: #f7f8f3;
+}
+
+.em-empty[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .em-hero {
+    padding-top: 1.75rem;
+  }
+
+  .em-card-top {
+    padding: 1rem;
+  }
+
+  .em-block {
+    padding: 0.9rem 1rem;
+  }
+}
