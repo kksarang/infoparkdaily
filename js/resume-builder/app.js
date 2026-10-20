@@ -180,11 +180,11 @@ function analyticsSetUser(uid) {
   }
 }
 function subnav() {
+  if (!me) return "";
   return `<nav class="subnav" aria-label="Resume workspace">${[
     ["", "Home"],
     ["templates", "Templates"],
     ["my-resumes", "My resumes"],
-    ["pricing", "Pricing"],
     ["account", "Account"],
   ]
     .map(([r, l]) => {
@@ -233,7 +233,7 @@ function landing() {
 }
 function gallery() {
   page(
-    "Templates",
+    "167 Free ATS-Friendly Resume Templates",
     "All designs are free. Sign in to edit and save — pause anytime, continue later.",
     `<div class="filter-search"><input id="template-search" type="search" placeholder="Search templates…" aria-label="Search templates"></div><div class="filters"><div class="chips">${categories.map((c) => `<button type="button" class="chip ${c === category ? "active" : ""}" data-action="filter-category" data-category="${c}">${c}</button>`).join("")}</div></div><div id="gallery-count" class="count"></div><div id="gallery-results" class="template-grid"></div>`,
   );

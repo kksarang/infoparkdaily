@@ -214,7 +214,25 @@
   </url>
   <url>
     <loc>https://infoparkdaily.online/ats-checker/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/resume-builder/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/resume-builder/templates/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/resume-builder/email-examples/</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.88</priority>
   </url>

@@ -932,13 +932,22 @@ export function createApp(
         !realpathSync(candidate).startsWith(root + sep)
       )
         throw new HttpError(404, "Page not found.");
-      if (
+      /* Private Career Tools shells stay noindex. Public landing/templates/email stay indexable. */
+      const privateCareer =
+        /^\/resume-builder\/(sign-in|account|editor|my-resumes|pricing|payment-status)(\/|$)/.test(
+          path,
+        ) ||
+        path.startsWith("/admin/resume-templates/") ||
+        path.startsWith("/admin/members/");
+      const careerCsp =
         path.startsWith("/resume-builder/") ||
         path.startsWith("/admin/resume-templates/") ||
-        path.startsWith("/admin/members/")
-      ) {
+        path.startsWith("/admin/members/");
+      if (careerCsp) {
         res.setHeader("Cache-Control", "no-store");
-        res.setHeader("X-Robots-Tag", "noindex, nofollow");
+        if (privateCareer) {
+          res.setHeader("X-Robots-Tag", "noindex, nofollow");
+        }
         res.setHeader(
           "Content-Security-Policy",
           "default-src 'self'; script-src 'self' https://apis.google.com https://checkout.razorpay.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' blob: data: https://*.googleusercontent.com https://www.gstatic.com; frame-src 'self' blob: https://api.razorpay.com https://accounts.google.com https://*.firebaseapp.com https://*.google.com; connect-src 'self' https://*.googleapis.com https://*.gstatic.com https://www.gstatic.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://firebase.googleapis.com https://firebaseinstallations.googleapis.com https://www.googleapis.com https://apis.google.com https://accounts.google.com https://www.google.com https://*.google.com https://api.razorpay.com; object-src 'none'; base-uri 'self'",
