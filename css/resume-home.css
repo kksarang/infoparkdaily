@@ -384,7 +384,8 @@ body.rh-page {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  padding: 16px 0 24px;
+  /* padding-block only — keep .rh-wrap horizontal padding */
+  padding-block: 16px 24px;
 }
 
 @media (max-width: 980px) {
