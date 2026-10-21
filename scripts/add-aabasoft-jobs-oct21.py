@@ -24,12 +24,7 @@ CHAKOLAS = (
     "Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)"
 )
 VISMAYA = "Vismaya, Infopark, Kakkanad, Kochi 682042"
-REFERRAL_PHONE = "919744665199"
-REFERRAL_MESSAGE = (
-    "For Business Development Executive and Technical Support Executive positions, "
-    "please WhatsApp your updated resume along with a cover letter to +91 97446 65199.\n\n"
-    "Please mention “InfoparkDaily” in your cover letter as the referral source."
-)
+REFERRAL_NOTE = "For a referral, tap Refer. It opens InfoparkDaily on WhatsApp at +91 88914 54290."
 
 
 def job(**kwargs) -> dict:
@@ -52,8 +47,6 @@ def job(**kwargs) -> dict:
         "employmentType": "Full-time",
         "isReferral": True,
         "referralLabel": "Refer",
-        "referralPhone": REFERRAL_PHONE,
-        "referralMessage": REFERRAL_MESSAGE,
         "benefits": [
             "Listing transcribed from an employer hiring creative",
             "Never pay anyone for this application",
@@ -105,7 +98,7 @@ JOBS = [
             "Call +91 8089003186 or email jobs@aabasoft.in. "
             "Interview location: Chakolas Heights, Seaport-Airport Road, near Infopark South Gate, "
             "Chittethukara, Kochi, Kakkanad, Kerala 682037. "
-            + REFERRAL_MESSAGE
+            + REFERRAL_NOTE
         ),
         hiringNotes="WhatsApp hiring poster, 21 Oct 2026. Referral via InfoparkDaily.",
     ),
@@ -151,7 +144,7 @@ JOBS = [
         howToApply=(
             "Call +91 8089009751 or email jobs@aabasoft.in. "
             "Location: Vismaya, Infopark, Kakkanad, Kochi 682042. "
-            + REFERRAL_MESSAGE
+            + REFERRAL_NOTE
         ),
         hiringNotes="WhatsApp hiring poster, 21 Oct 2026. Referral via InfoparkDaily.",
     ),
@@ -196,7 +189,7 @@ JOBS = [
             "Call 8089009751 or email jobs@aabasoft.in. "
             "Interview location: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, "
             "Chittethukara, Kochi, Kakkanad, Kerala 682037. "
-            + REFERRAL_MESSAGE
+            + REFERRAL_NOTE
         ),
         hiringNotes="WhatsApp hiring poster, 21 Oct 2026. Referral via InfoparkDaily.",
     ),
@@ -243,7 +236,7 @@ JOBS = [
             "Call 8089002222 or email jobs@aabasoft.in. "
             "Interview location: Aabasoft, 1st floor, Chakolas Heights, Seaport-Airport Road, "
             "Chittethukara, Kochi, Kakkanad, Kerala 682037. "
-            + REFERRAL_MESSAGE
+            + REFERRAL_NOTE
         ),
         hiringNotes="WhatsApp hiring poster, 21 Oct 2026. Referral via InfoparkDaily.",
     ),
@@ -288,7 +281,7 @@ JOBS = [
             "Shift time: 8 AM to 5 PM, 9 AM to 6 PM, 12 PM to 9 PM, 1 PM to 10 PM, 3 PM to 12 AM. "
             "Location: Chakolas Heights, Seaport-Airport Road, near Infopark South Gate, "
             "Chittethukara, Kochi, Kakkanad, Kerala 682037. "
-            + REFERRAL_MESSAGE
+            + REFERRAL_NOTE
         ),
         hiringNotes="WhatsApp hiring poster, 21 Oct 2026. Referral via InfoparkDaily.",
     ),

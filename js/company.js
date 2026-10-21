@@ -302,30 +302,16 @@
       .join("")}</div>`;
   }
 
-  function rolesByLocation(items) {
-    const groups = [];
-    const seen = new Map();
-    (items || []).forEach((item) => {
-      const location = String((item.job && item.job.location) || "Location on the official posting").trim();
-      if (!seen.has(location)) {
-        const group = { location, items: [] };
-        seen.set(location, group);
-        groups.push(group);
-      }
-      seen.get(location).items.push(item);
+  function sortRolesNewestFirst(items) {
+    return (items || []).slice().sort((a, b) => {
+      const jobA = a.job || {};
+      const jobB = b.job || {};
+      const byDate = String(jobB.postedDate || "").localeCompare(String(jobA.postedDate || ""));
+      if (byDate !== 0) return byDate;
+      const pinA = Number(jobA.pinOrder) > 0 ? Number(jobA.pinOrder) : 9999;
+      const pinB = Number(jobB.pinOrder) > 0 ? Number(jobB.pinOrder) : 9999;
+      return pinA - pinB;
     });
-    if (groups.length < 2) return renderRoleList(items, false);
-    return `<div class="cp-loc-groups">${groups
-      .map(
-        (group) => `<section class="cp-loc-group">
-          <div class="cp-loc-head">
-            <h3>${escapeHtml(group.location)}</h3>
-            <span>${group.items.length} role${group.items.length === 1 ? "" : "s"}</span>
-          </div>
-          ${renderRoleList(group.items, true)}
-        </section>`
-      )
-      .join("")}</div>`;
   }
 
   function vacancyCard(item, index, opts) {
@@ -376,8 +362,8 @@
     const about = pickAbout(jobs, directory);
     const openJobs = jobs.filter((j) => deadlineStatus(j) !== "expired");
     const expiredJobs = jobs.filter((j) => deadlineStatus(j) === "expired");
-    const openRoles = expandRoleVacancies(openJobs);
-    const expiredRoles = expandRoleVacancies(expiredJobs);
+    const openRoles = sortRolesNewestFirst(expandRoleVacancies(openJobs));
+    const expiredRoles = sortRolesNewestFirst(expandRoleVacancies(expiredJobs));
     const shareJobsUrl = `/jobs/?company=${encodeURIComponent(slug)}`;
     const parkKey =
       about.park === "Technopark" ? "technopark" : about.park === "Cyberpark" ? "cyberpark" : "infopark";
@@ -613,7 +599,7 @@
               <div id="cp-open-list">
               ${
                 openRoles.length
-                  ? rolesByLocation(openRoles)
+                  ? renderRoleList(openRoles, false)
                   : `<div class="cp-empty-card">
                       <strong>No open roles listed right now</strong>
                       <p>${
@@ -635,7 +621,7 @@
                       <h2 id="cp-expired-title">Recently closed</h2>
                       <span class="cp-count cp-count--muted" id="cp-closed-count">${expiredRoles.length}</span>
                     </div>
-                    <div id="cp-closed-list">${rolesByLocation(expiredRoles)}</div>
+                    <div id="cp-closed-list">${renderRoleList(expiredRoles, false)}</div>
                   </section>`
                 : ""
             }
@@ -689,11 +675,11 @@
       const open = openRoles.filter((item) => roleMatches(item, query, location, experience));
       const closed = expiredRoles.filter((item) => roleMatches(item, query, location, experience));
       if (openList) {
-        openList.innerHTML = !filtering ? idleOpenHtml : open.length ? rolesByLocation(open) : "";
+        openList.innerHTML = !filtering ? idleOpenHtml : open.length ? renderRoleList(open, false) : "";
       }
       if (openCount) openCount.textContent = String(filtering ? open.length : openRoles.length);
       if (closedList) {
-        closedList.innerHTML = !filtering ? idleClosedHtml : closed.length ? rolesByLocation(closed) : "";
+        closedList.innerHTML = !filtering ? idleClosedHtml : closed.length ? renderRoleList(closed, false) : "";
       }
       if (closedCount) closedCount.textContent = String(filtering ? closed.length : expiredRoles.length);
       if (closedSection) closedSection.hidden = filtering && !closed.length;
