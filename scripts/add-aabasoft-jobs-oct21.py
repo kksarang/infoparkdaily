@@ -66,7 +66,9 @@ def job(**kwargs) -> dict:
         f"🔗 Job Details: https://infoparkdaily.online/job/{base['id']}\n\n"
         "For the Business Development Executive and Technical Support Executive positions, "
         "please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\n"
-        "Please mention “InfoparkDaily” in your cover letter as the referral source."
+        "Please mention “InfoparkDaily” in your cover letter as the referral source.\n\n"
+        "If you are facing any struggle with the cover letter: "
+        "https://infoparkdaily.online/resume-builder/email-examples/"
     )
     return base
 
