@@ -186,10 +186,6 @@
     return Boolean(job.isReferral || job.referral);
   }
 
-  function referralLabel(job) {
-    return String(job.referralLabel || "Referral available").trim() || "Referral available";
-  }
-
   function referralWhatsAppHref(job) {
     const custom = String(job.referralMessage || "").trim();
     if (custom) {
@@ -737,31 +733,13 @@
     return `<span class="job-mass-ribbon" aria-label="Mass hiring">🔥 100+ Hiring</span>`;
   }
 
-  function referralRibbonHtml(job) {
-    return `<a class="job-referral-ribbon" href="${escapeAttr(
-      referralWhatsAppHref(job)
-    )}" aria-label="Message InfoparkDaily on WhatsApp for a referral">🔥 ${escapeHtml(
-      referralLabel(job)
-    )}</a>`;
-  }
-
   function cardToplineHtml(job, mass, expired) {
-    if (expired) return "";
-    if (mass) {
-      return `
+    if (expired || !mass) return "";
+    return `
       <div class="job-card-topline">
         ${massHiringRibbonHtml()}
       </div>
     `;
-    }
-    if (isReferralJob(job)) {
-      return `
-      <div class="job-card-topline">
-        ${referralRibbonHtml(job)}
-      </div>
-    `;
-    }
-    return "";
   }
 
   /** Card preview: short role title only (full details on job page). */

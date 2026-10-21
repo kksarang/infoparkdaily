@@ -2690,43 +2690,56 @@ body.light .job-fact {
   position: static;
   display: inline-flex;
   align-items: center;
-  padding: 0.28rem 0.7rem;
+  padding: 0.38rem 0.85rem;
   border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  color: #4c1d95;
-  background: #ede9fe;
-  border: 1px solid rgba(124, 58, 237, 0.35);
-  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.12);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #052e16;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffe14a 46%, #b6f36a 100%);
+  border: 2px solid #111;
+  box-shadow:
+    0 0 0 3px rgba(255, 225, 74, 0.72),
+    0 8px 20px rgba(22, 163, 74, 0.32);
   white-space: nowrap;
   text-decoration: none;
   cursor: pointer;
+  animation: refer-highlight 1.8s ease-in-out infinite;
 }
 
 a.job-referral-ribbon:hover {
-  background: #ddd6fe;
-  color: #4c1d95;
+  color: #052e16;
+  background: linear-gradient(180deg, #fffce0 0%, #ffd000 40%, #86efac 100%);
+  transform: translateY(-1px);
 }
 
 .job-referral-ask {
   display: inline-flex;
-  margin: 0.15rem 0 0.35rem;
-  color: #5b21b6;
+  align-items: center;
+  margin: 0.2rem 0 0.45rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  color: #052e16;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffe14a 46%, #b6f36a 100%);
+  border: 2px solid #111;
+  box-shadow: 0 0 0 3px rgba(255, 225, 74, 0.55);
   font-size: 0.82rem;
-  font-weight: 750;
+  font-weight: 800;
   text-decoration: none;
 }
 
 .job-referral-ask:hover {
-  text-decoration: underline;
+  color: #052e16;
+  text-decoration: none;
 }
 
 .job-badge--referral {
-  color: #5b21b6;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.35);
-  font-weight: 800;
+  color: #052e16;
+  background: #ffe14a;
+  border: 1px solid #111;
+  font-weight: 900;
+  box-shadow: 0 0 0 2px rgba(255, 225, 74, 0.55);
 }
 
 .job-card--referral {
@@ -2743,18 +2756,41 @@ a.job-referral-ribbon:hover {
   color: #5b21b6;
 }
 
+@keyframes refer-highlight {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 3px rgba(255, 225, 74, 0.72),
+      0 8px 20px rgba(22, 163, 74, 0.32);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px rgba(255, 225, 74, 0),
+      0 10px 24px rgba(22, 163, 74, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-referral-ribbon,
+  .job-hero-referral-callout {
+    animation: none;
+  }
+}
+
 html.theme-dark .job-referral-ribbon,
-body.dark .job-referral-ribbon {
-  color: #ddd6fe;
-  background: rgba(124, 58, 237, 0.22);
-  border-color: rgba(167, 139, 250, 0.45);
+body.dark .job-referral-ribbon,
+html.theme-dark .job-referral-ask,
+body.dark .job-referral-ask {
+  color: #052e16;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffe14a 46%, #b6f36a 100%);
+  border-color: #f8fafc;
 }
 
 html.theme-dark .job-badge--referral,
 body.dark .job-badge--referral {
-  color: #ddd6fe;
-  background: rgba(124, 58, 237, 0.22);
-  border-color: rgba(167, 139, 250, 0.4);
+  color: #052e16;
+  background: #ffe14a;
+  border-color: #f8fafc;
 }
 
 html.theme-dark .job-card--referral,
@@ -5518,26 +5554,38 @@ body.light .job-map-open {
 }
 
 .job-hero-referral-callout {
-  display: block;
-  margin: 0.35rem 0 0.55rem;
-  padding: 0.55rem 0.75rem;
-  border-radius: 12px;
-  border: 1px solid rgba(124, 58, 237, 0.4);
-  background: rgba(124, 58, 237, 0.12);
-  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  margin: 0.45rem 0 0.65rem;
+  padding: 0.62rem 0.95rem;
+  border-radius: 999px;
+  border: 2px solid #111;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffe14a 46%, #b6f36a 100%);
+  color: #052e16;
   font-size: 0.95rem;
-  font-weight: 650;
+  font-weight: 900;
+  letter-spacing: 0.01em;
   line-height: 1.35;
   max-width: 100%;
   overflow-wrap: anywhere;
   text-decoration: none;
   cursor: pointer;
+  box-shadow:
+    0 0 0 3px rgba(255, 225, 74, 0.72),
+    0 8px 20px rgba(22, 163, 74, 0.32);
+  animation: refer-highlight 1.8s ease-in-out infinite;
+}
+
+.job-hero-referral-callout:hover {
+  color: #052e16;
+  background: linear-gradient(180deg, #fffce0 0%, #ffd000 40%, #86efac 100%);
 }
 
 html.theme-dark .job-hero-referral-callout,
 body.dark .job-hero-referral-callout {
-  border-color: rgba(167, 139, 250, 0.45);
-  background: rgba(124, 58, 237, 0.18);
+  color: #052e16;
+  border-color: #f8fafc;
+  background: linear-gradient(180deg, #fff7c2 0%, #ffe14a 46%, #b6f36a 100%);
 }
 
 .job-detail-hero-copy {
