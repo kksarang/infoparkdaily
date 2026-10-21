@@ -24,7 +24,8 @@ CHAKOLAS = (
     "Chittethukara, Kochi, Kakkanad, Kerala 682037 (near Infopark South Gate)"
 )
 VISMAYA = "Vismaya, Infopark, Kakkanad, Kochi 682042"
-REFERRAL_NOTE = "For a referral, tap Refer. It opens InfoparkDaily on WhatsApp at +91 88914 54290."
+REFERRAL_PHONE = "918891454290"
+REFERRAL_NOTE = "For a referral, tap Refer. It messages InfoparkDaily on WhatsApp at +91 88914 54290 for this Aabasoft position."
 
 
 def job(**kwargs) -> dict:
@@ -47,12 +48,20 @@ def job(**kwargs) -> dict:
         "employmentType": "Full-time",
         "isReferral": True,
         "referralLabel": "Refer",
+        "referralPhone": REFERRAL_PHONE,
         "benefits": [
             "Listing transcribed from an employer hiring creative",
             "Never pay anyone for this application",
         ],
     }
     base.update(kwargs)
+    role = (base.get("roles") or ["this role"])[0]
+    base["referralMessage"] = (
+        "Hi InfoparkDaily, I want a referral for this Aabasoft position.\n\n"
+        f"Role: {role}\n"
+        f"Location: {base.get('location') or 'Kakkanad, Kochi'}\n"
+        f"https://infoparkdaily.online/job/{base['id']}"
+    )
     return base
 
 
