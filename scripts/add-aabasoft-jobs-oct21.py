@@ -56,11 +56,17 @@ def job(**kwargs) -> dict:
     }
     base.update(kwargs)
     role = (base.get("roles") or ["this role"])[0]
+    if role == "Business Development Executive":
+        role = "Business Development Executive (BDE)"
     base["referralMessage"] = (
-        "Hi InfoparkDaily, I want a referral for this Aabasoft position.\n\n"
+        "Hi InfoparkDaily,\n\n"
+        "This is a referral for the following positions at Aabasoft.\n\n"
         f"Role: {role}\n"
-        f"Location: {base.get('location') or 'Kakkanad, Kochi'}\n"
-        f"https://infoparkdaily.online/job/{base['id']}"
+        f"Location: {base.get('location') or 'Kakkanad, Kochi'}\n\n"
+        f"🔗 Job Details: https://infoparkdaily.online/job/{base['id']}\n\n"
+        "For the Business Development Executive and Technical Support Executive positions, "
+        "please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\n"
+        "Please mention “InfoparkDaily” in your cover letter as the referral source."
     )
     return base
 
