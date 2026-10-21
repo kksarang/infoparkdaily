@@ -191,6 +191,11 @@
   }
 
   function referralWhatsAppHref(job) {
+    const custom = String(job.referralMessage || "").trim();
+    if (custom) {
+      const phone = String(job.referralPhone || "918891454290").replace(/\D/g, "") || "918891454290";
+      return `https://wa.me/${phone}?text=${encodeURIComponent(custom)}`;
+    }
     const roles = (job.roles || [])
       .slice(0, 3)
       .map((role) => cardRoleLabel(role))
@@ -613,6 +618,20 @@
     return fromUrl ? Number(fromUrl[1]) : 0;
   }
 
+  function pinRank(job) {
+    const n = Number(job.pinOrder);
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  }
+
+  function comparePin(a, b) {
+    const aPin = pinRank(a);
+    const bPin = pinRank(b);
+    if (aPin && bPin && aPin !== bPin) return aPin - bPin;
+    if (aPin && !bPin) return -1;
+    if (!aPin && bPin) return 1;
+    return 0;
+  }
+
   function newestFirst(a, b) {
     const posted = String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
     if (posted !== 0) return posted;
@@ -645,6 +664,9 @@
     list.sort((a, b) => {
       const sink = expiredWeight(a) - expiredWeight(b);
       if (sink !== 0) return sink;
+
+      const pin = comparePin(a, b);
+      if (pin !== 0) return pin;
 
       if (sortMode === "deadline") {
         return deadlineSortValue(a) - deadlineSortValue(b);

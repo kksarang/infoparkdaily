@@ -185,7 +185,14 @@ function renderFeaturedJobs() {
   // Home: only open / upcoming jobs — never show expired listings.
   const featured = [...JOBS]
     .filter(isUpcomingJob)
-    .sort((a, b) => String(b.postedDate || "").localeCompare(String(a.postedDate || "")))
+    .sort((a, b) => {
+      const aPin = Number(a.pinOrder) > 0 ? Number(a.pinOrder) : 0;
+      const bPin = Number(b.pinOrder) > 0 ? Number(b.pinOrder) : 0;
+      if (aPin && bPin && aPin !== bPin) return aPin - bPin;
+      if (aPin && !bPin) return -1;
+      if (!aPin && bPin) return 1;
+      return String(b.postedDate || "").localeCompare(String(a.postedDate || ""));
+    })
     .slice(0, 4);
 
   featuredJobsGrid.innerHTML = featured

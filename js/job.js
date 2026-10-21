@@ -121,6 +121,11 @@
   }
 
   function referralWhatsAppHref(job) {
+    const custom = String(job.referralMessage || "").trim();
+    if (custom) {
+      const phone = String(job.referralPhone || "918891454290").replace(/\D/g, "") || "918891454290";
+      return `https://wa.me/${phone}?text=${encodeURIComponent(custom)}`;
+    }
     const roles = (job.roles || [])
       .slice(0, 3)
       .map((role) => String(role || "").split("—")[0].trim())
