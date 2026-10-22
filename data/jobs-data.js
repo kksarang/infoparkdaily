@@ -99,6 +99,129 @@
 
 var JOBS = [
   {
+    id: "advenxa-operations-executive-domestic-490044",
+    company: "Advenxa",
+    logo: "",
+    companyBlurb: "Advenxa · Operations Executive – Domestic · Ernakulam, Kerala",
+    location: "Ernakulam, Kerala",
+    roles: ["Operations Executive – Domestic"],
+    experience: "experienced",
+    experienceRange: "3 -5years",
+    employmentType: "Full-time",
+    applyLink: "https://advenxa.zohorecruit.in/jobs/Careers/53440000009490044/Operations-Executive-Domestic?$apply=true&source=CareerSite",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-22",
+    source: "Direct",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Travel"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "resumes@advenxa.zohorecruitmail.in",
+    phone: "",
+    website: "https://advenxa.zohorecruit.in/jobs/Careers",
+    address: "Ernakulam, Kerala",
+    industry: "Travel and Tourism",
+    companyDetails: "Opening published on Advenxa's official careers page. Confirm the employer, location, and terms on that page before you apply.",
+    workDetails: "Operations Executive – Domestic Location: Ernakulam, Kerala Experience: 3–5 years of experience in domestic travel operations Qualification : Any Graduate Salary: Up to ₹35,000 per month Industry: Travel & Tourism Responsibilities • Manage end-to-end domestic travel operations and bookings. • Handle hotel reservations, transportation, sightseeing, and tour arrangements. • Coordinate with hotels, transport vendors, an",
+    workStatus: "Full-time",
+    workMode: "As stated on the official posting",
+    experienceYears: "3 -5years",
+    skills: [],
+    requirements: ["3–5 years of hands-on experience in domestic travel operations", "Good knowledge of domestic destinations and tour packages", "Experience in travel package costing and itinerary preparation", "Strong supplier coordination and negotiation skills", "Ability to handle groups, customer queries, and operational challenges", "Good communication, coordination, and problem-solving skills"],
+    responsibilities: ["Manage end-to-end domestic travel operations and bookings", "Handle hotel reservations, transportation, sightseeing, and tour arrangements", "Coordinate with hotels, transport vendors, and other suppliers", "Prepare tour itineraries and manage package costing", "Handle group tours and ensure smooth travel arrangements", "Resolve customer issues and manage unexpected situations efficiently", "Coordinate with internal teams to ensure seamless trip execution"],
+    benefits: ["Apply only through the official Advenxa careers page", "Never pay anyone for this application"],
+    howToApply: "Apply on the official posting: https://advenxa.zohorecruit.in/jobs/Careers/53440000009490044/Operations-Executive-Domestic?$apply=true&source=CareerSite",
+    hiringNotes: "Checked on the Advenxa careers page on 2026-10-22. Date opened on that page: 2026-10-22.",
+    description: "Operations Executive – Domestic Location: Ernakulam, Kerala Experience: 3–5 years of experience in domestic travel operations Qualification : Any Graduate Salary: Up to ₹35,000 per month Industry: Travel & Tourism Responsibilities • Manage end-to-end domestic travel operations an",
+    startingDate: "",
+    qualification: "Any Graduate",
+    salaryRange: "Up to ₹35,000 per month",
+    pinOrder: 1,
+  },
+  {
+    id: "advenxa-manager-kyc-fraud-dispute-472049",
+    company: "Advenxa",
+    logo: "",
+    companyBlurb: "Advenxa · Manager - KYC (Fraud &Dispute) · Infopark, Kakkanad, Kochi",
+    location: "Infopark, Kakkanad, Kochi",
+    roles: ["Manager - KYC (Fraud &Dispute)"],
+    experience: "experienced",
+    experienceRange: "Minimum 8+ years",
+    employmentType: "Full-time",
+    applyLink: "https://advenxa.zohorecruit.in/jobs/Careers/53440000009472049/Manager-KYC-Fraud-Dispute?$apply=true&source=CareerSite",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-22",
+    source: "Direct",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["BPO"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "resumes@advenxa.zohorecruitmail.in",
+    phone: "",
+    website: "https://advenxa.zohorecruit.in/jobs/Careers",
+    address: "Infopark, Kakkanad, Kochi",
+    industry: "BPO",
+    companyDetails: "Opening published on Advenxa's official careers page. Confirm the employer, location, and terms on that page before you apply.",
+    workDetails: "Manager - KYC (Fraud &Dispute) Location : Infopark,Kochi, Kerala Experience : Minimum 8+ years in KYC, Fraud & Dispute Process (BPO Domain Mandatory) Managerial Experience : Minimum 3+ years as Assistant Manager / Manager in the BPO KYC domain (Mandatory) Qualification : Bachelor's Degree Mandatory Shift : 6:30 PM – 3:30 AM, Monday- Friday Salary : Up to ₹12 LPA Candidates with general KYC experience outside the BPO ",
+    workStatus: "Full-time",
+    workMode: "6:30 PM – 3:30 AM, Monday- Friday",
+    experienceYears: "Minimum 8+ years in KYC, Fraud and Dispute in BPO. The careers form also lists 10–15 years.",
+    skills: [],
+    requirements: ["Minimum 8+ years of experience in KYC, Fraud & Dispute processes within the BPO industry", "Minimum 3+ years of experience as an Assistant Manager / Manager handling teams in the BPO KYC domain", "Strong knowledge of KYC verification, fraud detection, dispute resolution, and process compliance", "Proven experience in team management, performance monitoring, and client coordination", "Strong understanding of SLA, KPI, productivity, quality, shrinkage, and attrition management", "Excellent English communication, leadership, and escalation-handling skills", "Bachelor's Degree mandatory", "Willingness to work US night shifts"],
+    responsibilities: ["Manage end-to-end KYC, Fraud & Dispute operations and ensure process efficiency", "Lead and monitor team performance, productivity, quality, and SLA/KPI achievement", "Handle complex fraud and dispute escalations and ensure timely resolution", "Monitor attrition, shrinkage, attendance, and workforce productivity", "Conduct performance reviews, coaching sessions, and process improvement initiatives", "Coordinate with clients and senior management on operational performance and escalations"],
+    benefits: ["Apply only through the official Advenxa careers page", "Never pay anyone for this application"],
+    howToApply: "Apply on the official posting: https://advenxa.zohorecruit.in/jobs/Careers/53440000009472049/Manager-KYC-Fraud-Dispute?$apply=true&source=CareerSite",
+    hiringNotes: "Checked on the Advenxa careers page on 2026-10-22. Date opened on that page: 2026-10-21.",
+    description: "Manager - KYC (Fraud &Dispute) Location : Infopark,Kochi, Kerala Experience : Minimum 8+ years in KYC, Fraud & Dispute Process (BPO Domain Mandatory) Managerial Experience : Minimum 3+ years as Assistant Manager / Manager in the BPO KYC domain (Mandatory) Qualification : Bachelor",
+    startingDate: "",
+    qualification: "Bachelor's Degree Mandatory",
+    pinOrder: 2,
+    salaryRange: "Up to ₹12 LPA",
+  },
+  {
+    id: "advenxa-ticketing-executive-479049",
+    company: "Advenxa",
+    logo: "",
+    companyBlurb: "Advenxa · Ticketing Executive · Ernakulam, Kerala",
+    location: "Ernakulam, Kerala",
+    roles: ["Ticketing Executive"],
+    experience: "experienced",
+    experienceRange: "2-3 years",
+    employmentType: "Full-time",
+    applyLink: "https://advenxa.zohorecruit.in/jobs/Careers/53440000009479049/Ticketing-Executive?$apply=true&source=CareerSite",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-22",
+    source: "Direct",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Travel"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "resumes@advenxa.zohorecruitmail.in",
+    phone: "",
+    website: "https://advenxa.zohorecruit.in/jobs/Careers",
+    address: "Ernakulam, Kerala",
+    industry: "Travel and Tourism",
+    companyDetails: "Opening published on Advenxa's official careers page. Confirm the employer, location, and terms on that page before you apply.",
+    workDetails: "Ticketing Executive Location: Kochi, Kerala Qualification: Bachelor's Degree (Mandatory) Experience: 2–3 Years of experience in airline ticketing or travel agency operations. Salary: ₹25,000–₹30,000 per month Responsibilities • Handle flight reservations, ticket issuance, and booking management. • Process ticket reissuance, cancellations, and refunds. • Use Amadeus and Galileo reservation systems for flight bookings ",
+    workStatus: "Full-time",
+    workMode: "As stated on the official posting",
+    experienceYears: "2-3 years",
+    skills: [],
+    requirements: ["Bachelor's degree is mandatory", "2–3 years of experience in airline ticketing or travel agency operations", "Hands-on experience with Amadeus and Galileo reservation systems", "Knowledge of ticket issuance, reissuance, cancellations, and refund procedures", "Good communication, customer service, and problem-solving skills", "Strong attention to detail and the ability to manage multiple bookings efficiently"],
+    responsibilities: ["Handle flight reservations, ticket issuance, and booking management", "Process ticket reissuance, cancellations, and refunds", "Use Amadeus and Galileo reservation systems for flight bookings and fare enquiries", "Assist customers with itinerary changes, ticket modifications, and travel-related queries", "Coordinate with airlines, travel agents, and customers to ensure smooth ticketing operations", "Maintain accurate booking records and ensure timely completion of ticketing tasks"],
+    benefits: ["Apply only through the official Advenxa careers page", "Never pay anyone for this application"],
+    howToApply: "Apply on the official posting: https://advenxa.zohorecruit.in/jobs/Careers/53440000009479049/Ticketing-Executive?$apply=true&source=CareerSite",
+    hiringNotes: "Checked on the Advenxa careers page on 2026-10-22. Date opened on that page: 2026-10-21.",
+    description: "Ticketing Executive Location: Kochi, Kerala Qualification: Bachelor's Degree (Mandatory) Experience: 2–3 Years of experience in airline ticketing or travel agency operations. Salary: ₹25,000–₹30,000 per month Responsibilities • Handle flight reservations, ticket issuance, and boo",
+    startingDate: "",
+    qualification: "Bachelor's Degree (Mandatory)",
+    salaryRange: "₹25,000–₹30,000 per month",
+    pinOrder: 3,
+  },
+  {
     id: "little-lourdes-hr-executive-kottayam-oct2026",
     company: "Little Lourdes Mission Hospital",
     logo: "",
@@ -137,7 +260,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1,
+    pinOrder: 4,
     qualification: "MBA / MHA / PGDM",
   },
   {
@@ -177,7 +300,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 2,
+    pinOrder: 5,
     qualification: "B.Sc / GNM Nursing",
   },
   {
@@ -218,7 +341,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 3,
+    pinOrder: 6,
   },
   {
     id: "ahalia-women-children-facilities-thrissur-oct2026",
@@ -258,7 +381,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 4,
+    pinOrder: 7,
   },
   {
     id: "vidal-health-insurance-coordinator-kochi-oct2026",
@@ -297,7 +420,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 5,
+    pinOrder: 8,
   },
   {
     id: "sabine-staff-nurses-kasaragod-oct2026",
@@ -337,7 +460,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 6,
+    pinOrder: 9,
     qualification: "B.Sc / Post B.Sc / GNM",
   },
   {
@@ -379,7 +502,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 7,
+    pinOrder: 10,
     qualification: "B.Sc Nursing / Post Basic B.Sc Nursing with KNC registration",
   },
   {
@@ -421,7 +544,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 8,
+    pinOrder: 11,
     qualification: "Diploma or graduation in Biomedical Engineering",
   },
   {
@@ -463,7 +586,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 9,
+    pinOrder: 12,
     qualification: "MSW",
   },
   {
@@ -505,7 +628,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 10,
+    pinOrder: 13,
   },
   {
     id: "sims-it-executive-ponkunnam-oct2026",
@@ -546,7 +669,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 11,
+    pinOrder: 14,
     qualification: "Diploma in Computer Hardware and Network Maintenance with E-Gadgets Technologies",
   },
   {
@@ -587,7 +710,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 12,
+    pinOrder: 15,
     qualification: "MBA / MHA, preferably in Hospital Administration, Healthcare Management, or Finance",
   },
   {
@@ -627,7 +750,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 13,
+    pinOrder: 16,
   },
   {
     id: "vps-lakeshore-hr-sr-executive-kochi-oct2026",
@@ -668,7 +791,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 14,
+    pinOrder: 17,
     qualification: "MBA in HR",
   },
   {
@@ -710,7 +833,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 15,
+    pinOrder: 18,
     qualification: "Diploma or B.Tech in Biomedical Engineering",
   },
   {
@@ -752,7 +875,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 16,
+    pinOrder: 19,
     qualification: "Degree or diploma in Fire & Safety Engineering, NEBOSH, or an equivalent certification",
   },
   {
@@ -791,7 +914,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 17,
+    pinOrder: 20,
     qualification: "Graduation and above",
   },
   {
@@ -833,7 +956,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 18,
+    pinOrder: 21,
     qualification: "BPT / MPT",
   },
   {
@@ -874,7 +997,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 19,
+    pinOrder: 22,
   },
   {
     id: "bb-memorial-hospital-admin-intern-thrikkakara-oct2026",
@@ -914,7 +1037,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 20,
+    pinOrder: 23,
     qualification: "Diploma, BBA, or MHA in Hospital Administration, or equivalent",
   },
   {
@@ -956,7 +1079,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "09:30 AM",
     walkinLocation: "HRD, 5th Floor, Welcare Hospital, Vyttila, Ernakulam",
-    pinOrder: 21,
+    pinOrder: 24,
     qualification: "B.Pharm, M.Pharm, BBA, or MBA for the purchase and in-charge roles",
   },
   {
@@ -998,7 +1121,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM",
     walkinLocation: "Mundakayam Medical Trust Hospital, Mundakayam",
-    pinOrder: 22,
+    pinOrder: 25,
     qualification: "B.Com / M.Com",
   },
   {
@@ -1037,7 +1160,7 @@ var JOBS = [
     hiringNotes: "Hiring notice, 22 Oct 2026. Coimbatore. Full-time.",
     description: "PHP Laravel Developer at Codepluse Gen Private Limited, Coimbatore. 1–3 years. PHP, Laravel, MySQL, REST APIs, and Git.",
     startingDate: "",
-    pinOrder: 23,
+    pinOrder: 26,
     companyLegalName: "Codepluse Gen Private Limited",
     qualification: "",
   },
@@ -1078,7 +1201,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357529 · Posted 2 days ago · Kochi",
     description: "Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 43,
+    pinOrder: 46,
   },
   {
     id: "accenture-business-analyst-2-r00356957-kochi-oct2026",
@@ -1117,7 +1240,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356957 · Posted 2 days ago · Kochi",
     description: "Business Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 44,
+    pinOrder: 47,
   },
   {
     id: "accenture-technical-test-engineer-r00357321-kochi-oct2026",
@@ -1156,7 +1279,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357321 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 45,
+    pinOrder: 48,
   },
   {
     id: "accenture-technical-test-lead-3-r00357342-kochi-oct2026",
@@ -1195,7 +1318,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357342 · Posted 2 days ago · Kochi",
     description: "Technical Test Lead 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 46,
+    pinOrder: 49,
   },
   {
     id: "accenture-technical-test-engineer-r00356318-kochi-oct2026",
@@ -1234,7 +1357,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356318 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 47,
+    pinOrder: 50,
   },
   {
     id: "accenture-cloud-administrator-r00358575-kochi-oct2026",
@@ -1273,7 +1396,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358575 · Posted 2 days ago · Kochi",
     description: "Cloud Administrator at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 48,
+    pinOrder: 51,
   },
   {
     id: "accenture-cloud-platform-engineer-gcp-r00306127-kochi-oct2026",
@@ -1312,7 +1435,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306127 · Posted 5 days ago · Kochi",
     description: "Cloud Platform Engineer -GCP at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 49,
+    pinOrder: 52,
   },
   {
     id: "accenture-data-visualization-sr-analyst-r00337012-kochi-oct2026",
@@ -1351,7 +1474,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00337012 · Posted 5 days ago · Kochi",
     description: "Data Visualization Sr. Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 50,
+    pinOrder: 53,
   },
   {
     id: "accenture-sr-lead-frontend-2-r00357404-kochi-oct2026",
@@ -1390,7 +1513,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357404 · Posted 5 days ago · Kochi",
     description: "Sr. Lead FrontEnd 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 51,
+    pinOrder: 54,
   },
   {
     id: "accenture-sr-backend-developer-node-js-r00363193-kochi-oct2026",
@@ -1429,7 +1552,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363193 · Posted 6 days ago · Kochi",
     description: "Sr. Backend Developer - Node.js at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 52,
+    pinOrder: 55,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-2-r00363199-kochi-oct2026",
@@ -1468,7 +1591,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363199 · Posted 6 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 53,
+    pinOrder: 56,
   },
   {
     id: "accenture-senior-business-analyst-r00356959-kochi-oct2026",
@@ -1507,7 +1630,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356959 · Posted 6 days ago · Kochi",
     description: "Senior Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 54,
+    pinOrder: 57,
   },
   {
     id: "accenture-lead-data-engineer-r00361025-kochi-oct2026",
@@ -1546,7 +1669,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361025 · Posted 8 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 55,
+    pinOrder: 58,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-r00363197-kochi-oct2026",
@@ -1585,7 +1708,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363197 · Posted 8 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 56,
+    pinOrder: 59,
   },
   {
     id: "accenture-senior-lead-frontend-associate-manager-acs-song-r00357405-kochi-oct2026",
@@ -1624,7 +1747,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357405 · Posted 8 days ago · Kochi",
     description: "Senior Lead FrontEnd– Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 57,
+    pinOrder: 60,
   },
   {
     id: "accenture-manager-business-analysis-r00356982-kochi-oct2026",
@@ -1663,7 +1786,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356982 · Posted 9 days ago · Kochi",
     description: "Manager - Business Analysis at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 58,
+    pinOrder: 61,
   },
   {
     id: "accenture-solution-architect-ai-r00363200-kochi-oct2026",
@@ -1702,7 +1825,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363200 · Posted 9 days ago · Kochi",
     description: "Solution Architect - AI at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 59,
+    pinOrder: 62,
   },
   {
     id: "accenture-functional-test-engineer-r00354490-kochi-oct2026",
@@ -1741,7 +1864,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354490 · Posted 9 days ago · Kochi",
     description: "Functional Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 60,
+    pinOrder: 63,
   },
   {
     id: "accenture-lead-backend-developer-node-js-r00363188-kochi-oct2026",
@@ -1780,7 +1903,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363188 · Posted 9 days ago · Kochi",
     description: "Lead Backend Developer - Node.js at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 61,
+    pinOrder: 64,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-2-r00361038-kochi-oct2026",
@@ -1819,7 +1942,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361038 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 62,
+    pinOrder: 65,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00361033-kochi-oct2026",
@@ -1858,7 +1981,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361033 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 63,
+    pinOrder: 66,
   },
   {
     id: "accenture-o2c-offering-advisor-r00352050-india-oct2026",
@@ -1897,7 +2020,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352050 · Posted 12 days ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "O2C Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 64,
+    pinOrder: 67,
   },
   {
     id: "accenture-lead-frontend-r00357372-kochi-oct2026",
@@ -1936,7 +2059,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357372 · Posted 13 days ago · Kochi",
     description: "Lead FrontEnd at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 65,
+    pinOrder: 68,
   },
   {
     id: "accenture-lead-backend-java-5-r00357546-kochi-oct2026",
@@ -1975,7 +2098,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357546 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 5 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 66,
+    pinOrder: 69,
   },
   {
     id: "accenture-lead-backend-java-3-r00357543-kochi-oct2026",
@@ -2014,7 +2137,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357543 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 67,
+    pinOrder: 70,
   },
   {
     id: "accenture-sr-lead-backend-java-r00357547-kochi-oct2026",
@@ -2053,7 +2176,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357547 · Posted 14 days ago · Kochi",
     description: "Sr. Lead Backend - Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 68,
+    pinOrder: 71,
   },
   {
     id: "accenture-lead-data-engineer-2-r00361029-kochi-oct2026",
@@ -2092,7 +2215,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361029 · Posted 15 days ago · Kochi",
     description: "Lead Data Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 69,
+    pinOrder: 72,
   },
   {
     id: "accenture-lead-business-analyst-2-r00356975-kochi-oct2026",
@@ -2131,7 +2254,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356975 · Posted 15 days ago · Kochi",
     description: "Lead Business Analyst 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 70,
+    pinOrder: 73,
   },
   {
     id: "accenture-lead-backend-java-2-r00357542-kochi-oct2026",
@@ -2170,7 +2293,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357542 · Posted 21 days ago · Kochi",
     description: "Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 71,
+    pinOrder: 74,
   },
   {
     id: "accenture-business-analyst-r00356956-kochi-oct2026",
@@ -2209,7 +2332,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356956 · Posted 21 days ago · Kochi",
     description: "Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 72,
+    pinOrder: 75,
   },
   {
     id: "accenture-project-management-specialist-r00356302-kochi-oct2026",
@@ -2248,7 +2371,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356302 · Posted 21 days ago · Kochi",
     description: "Project Management - Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 73,
+    pinOrder: 76,
   },
   {
     id: "accenture-project-management-specialist-r00347506-kochi-oct2026",
@@ -2287,7 +2410,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347506 · Posted 21 days ago · Kochi",
     description: "Project Management Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 74,
+    pinOrder: 77,
   },
   {
     id: "accenture-pricing-cpq-analyst-2-r00356989-kochi-oct2026",
@@ -2326,7 +2449,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356989 · Posted 21 days ago · Kochi",
     description: "Pricing & CPQ - Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 75,
+    pinOrder: 78,
   },
   {
     id: "accenture-sr-lead-backend-java-2-r00357548-kochi-oct2026",
@@ -2365,7 +2488,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357548 · Posted 22 days ago · Kochi",
     description: "Sr. Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 76,
+    pinOrder: 79,
   },
   {
     id: "accenture-associate-manager-business-analyst-r00356977-kochi-oct2026",
@@ -2404,7 +2527,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356977 · Posted 22 days ago · Kochi",
     description: "Associate Manager Business Analyst at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 77,
+    pinOrder: 80,
   },
   {
     id: "accenture-cloud-platform-manager-r00340217-kochi-oct2026",
@@ -2443,7 +2566,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340217 · Posted 22 days ago · Kochi",
     description: "Cloud Platform Manager at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 78,
+    pinOrder: 81,
   },
   {
     id: "accenture-lead-cloud-devops-r00358583-kochi-oct2026",
@@ -2482,7 +2605,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358583 · Posted 22 days ago · Kochi",
     description: "Lead - Cloud DevOps at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 79,
+    pinOrder: 82,
   },
   {
     id: "accenture-lead-backend-java-4-r00357545-kochi-oct2026",
@@ -2521,7 +2644,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357545 · Posted 23 days ago · Kochi",
     description: "Lead Backend - Java 4 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 80,
+    pinOrder: 83,
   },
   {
     id: "accenture-pricing-cpq-analyst-r00356985-kochi-oct2026",
@@ -2560,7 +2683,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356985 · Posted 23 days ago · Kochi",
     description: "Pricing & CPQ - Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 81,
+    pinOrder: 84,
   },
   {
     id: "accenture-technical-test-engineer-2-r00357323-kochi-oct2026",
@@ -2599,7 +2722,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357323 · Posted 26 days ago · Kochi",
     description: "Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 82,
+    pinOrder: 85,
   },
   {
     id: "accenture-lead-data-engineer-r00335398-kochi-oct2026",
@@ -2638,7 +2761,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335398 · Posted 26 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 83,
+    pinOrder: 86,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-r00354263-kochi-oct2026",
@@ -2677,7 +2800,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354263 · Posted 26 days ago · Kochi",
     description: "Associate Manager - Pricing & CPQ at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 84,
+    pinOrder: 87,
   },
   {
     id: "accenture-cloud-devops-engineer-r00358581-kochi-oct2026",
@@ -2716,7 +2839,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358581 · Posted 27 days ago · Kochi",
     description: "Cloud DevOps Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 85,
+    pinOrder: 88,
   },
   {
     id: "accenture-sr-backend-developer-java-2-r00357534-kochi-oct2026",
@@ -2755,7 +2878,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357534 · Posted 27 days ago · Kochi",
     description: "Sr.Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 86,
+    pinOrder: 89,
   },
   {
     id: "accenture-architect-frontend-2-r00357413-kochi-oct2026",
@@ -2794,7 +2917,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357413 · Posted 27 days ago · Kochi",
     description: "Architect FrontEnd 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 87,
+    pinOrder: 90,
   },
   {
     id: "accenture-cloud-architect-r00358590-kochi-oct2026",
@@ -2833,7 +2956,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358590 · Posted 27 days ago · Kochi",
     description: "Cloud Architect at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 88,
+    pinOrder: 91,
   },
   {
     id: "accenture-sr-technical-test-engineer-4-r00357331-kochi-oct2026",
@@ -2872,7 +2995,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357331 · Posted 27 days ago · Kochi",
     description: "Sr. Technical Test Engineer 4 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 89,
+    pinOrder: 92,
   },
   {
     id: "accenture-technical-test-lead-2-r00357338-kochi-oct2026",
@@ -2911,7 +3034,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357338 · Posted 27 days ago · Kochi",
     description: "Technical Test Lead 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 90,
+    pinOrder: 93,
   },
   {
     id: "accenture-sr-backend-developer-java-r00357532-kochi-oct2026",
@@ -2950,7 +3073,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357532 · Posted 28 days ago · Kochi",
     description: "Sr.Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 91,
+    pinOrder: 94,
   },
   {
     id: "accenture-lead-java-developer-r00352493-kochi-oct2026",
@@ -2989,7 +3112,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352493 · Posted 28 days ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 92,
+    pinOrder: 95,
   },
   {
     id: "accenture-lead-cloud-devops-3-r00358587-kochi-oct2026",
@@ -3028,7 +3151,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358587 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 93,
+    pinOrder: 96,
   },
   {
     id: "accenture-lead-cloud-devops-2-r00358586-kochi-oct2026",
@@ -3067,7 +3190,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358586 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 94,
+    pinOrder: 97,
   },
   {
     id: "accenture-backend-developer-java-2-r00357530-kochi-oct2026",
@@ -3106,7 +3229,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357530 · Posted 29 days ago · Kochi",
     description: "Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 95,
+    pinOrder: 98,
   },
   {
     id: "accenture-associate-project-manager-r00356296-kochi-oct2026",
@@ -3145,7 +3268,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356296 · Posted 29 days ago · Kochi",
     description: "Associate Project Manager at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 96,
+    pinOrder: 99,
   },
   {
     id: "accenture-sr-technical-test-engineer-2-r00357325-kochi-oct2026",
@@ -3184,7 +3307,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357325 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 97,
+    pinOrder: 100,
   },
   {
     id: "accenture-sr-technical-test-engineer-r00357324-kochi-oct2026",
@@ -3223,7 +3346,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357324 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 98,
+    pinOrder: 101,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-2-r00354268-kochi-oct2026",
@@ -3262,7 +3385,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354268 · Posted 1 month ago · Kochi",
     description: "Associate Manager - Pricing & CPQ 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 99,
+    pinOrder: 102,
   },
   {
     id: "accenture-senior-manager-testing-r00357346-kochi-oct2026",
@@ -3301,7 +3424,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357346 · Posted more than 1 month ago · Kochi",
     description: "Senior Manager - Testing at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 100,
+    pinOrder: 103,
   },
   {
     id: "accenture-manager-test-automation-2-r00354506-kochi-oct2026",
@@ -3340,7 +3463,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354506 · Posted more than 1 month ago · Kochi",
     description: "Manager - Test Automation 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 101,
+    pinOrder: 104,
   },
   {
     id: "accenture-salesforce-b2b-commerce-lead-r00356997-kochi-oct2026",
@@ -3379,7 +3502,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356997 · Posted more than 1 month ago · Kochi",
     description: "Salesforce B2B Commerce Lead at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 102,
+    pinOrder: 105,
   },
   {
     id: "accenture-ux-manager-r00356304-kochi-oct2026",
@@ -3418,7 +3541,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356304 · Posted more than 1 month ago · Kochi",
     description: "UX Manager at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 103,
+    pinOrder: 106,
   },
   {
     id: "accenture-technical-test-engineer-r00347491-kochi-oct2026",
@@ -3457,7 +3580,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347491 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 104,
+    pinOrder: 107,
   },
   {
     id: "accenture-technical-test-engineer-r00347484-kochi-oct2026",
@@ -3496,7 +3619,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347484 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 105,
+    pinOrder: 108,
   },
   {
     id: "accenture-front-end-architect-associate-manager-acs-song-r00340116-kochi-oct2026",
@@ -3535,7 +3658,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340116 · Posted more than 1 month ago · Kochi",
     description: "Front End Architect – Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 106,
+    pinOrder: 109,
   },
   {
     id: "accenture-senior-architect-front-end-r00340068-kochi-oct2026",
@@ -3574,7 +3697,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340068 · Posted more than 1 month ago · Kochi",
     description: "Senior Architect - Front End at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 107,
+    pinOrder: 110,
   },
   {
     id: "accenture-i2p-offering-advisor-r00352054-india-oct2026",
@@ -3613,7 +3736,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352054 · Posted more than 1 month ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "I2P Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 108,
+    pinOrder: 111,
   },
   {
     id: "accenture-lead-java-developer-r00352502-kochi-oct2026",
@@ -3652,7 +3775,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352502 · Posted more than 1 month ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 109,
+    pinOrder: 112,
   },
   {
     id: "accenture-sr-architect-java-r00352506-kochi-oct2026",
@@ -3691,7 +3814,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352506 · Posted more than 1 month ago · Kochi",
     description: "Sr. Architect - Java at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 110,
+    pinOrder: 113,
   },
   {
     id: "accenture-senior-technical-architect-r00343682-kochi-oct2026",
@@ -3730,7 +3853,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00343682 · Posted more than 1 month ago · Kochi",
     description: "Senior Technical Architect at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 111,
+    pinOrder: 114,
   },
   {
     id: "accenture-song-lead-application-maintenance-and-support-r00326956-kochi-oct2026",
@@ -3769,7 +3892,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00326956 · Posted more than 1 month ago · Kochi",
     description: "SONG > Lead - Application Maintenance and Support at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 112,
+    pinOrder: 115,
   },
   {
     id: "accenture-senior-lead-java-r00352503-kochi-oct2026",
@@ -3808,7 +3931,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352503 · Posted more than 1 month ago · Kochi",
     description: "Senior Lead- Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 113,
+    pinOrder: 116,
   },
   {
     id: "accenture-cloud-platform-engineer-aws-r00306125-kochi-oct2026",
@@ -3847,7 +3970,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306125 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer -AWS at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 114,
+    pinOrder: 117,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00335391-kochi-oct2026",
@@ -3886,7 +4009,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335391 · Posted more than 1 month ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 115,
+    pinOrder: 118,
   },
   {
     id: "accenture-lead-data-scientist-r00335399-kochi-oct2026",
@@ -3925,7 +4048,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335399 · Posted more than 1 month ago · Kochi",
     description: "Lead Data Scientist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 116,
+    pinOrder: 119,
   },
   {
     id: "accenture-site-reliability-engineer-specialist-r00267066-kochi-oct2026",
@@ -3964,7 +4087,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00267066 · Posted more than 1 month ago · Kochi",
     description: "Site Reliability Engineer Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 117,
+    pinOrder: 120,
   },
   {
     id: "accenture-cloud-platform-engineer-r00306121-kochi-oct2026",
@@ -4003,7 +4126,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306121 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 118,
+    pinOrder: 121,
   },
   {
     id: "accenture-packaged-app-development-associate-manager-r00260113-thiruvananthapuram-oct2026",
@@ -4042,7 +4165,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00260113 · Posted more than 1 month ago · Chennai, Coimbatore, Thiruvananthapuram",
     description: "Packaged App Development Associate Manager at Accenture · Thiruvananthapuram, Chennai, Coimbatore · 5–10 years.",
     startingDate: "",
-    pinOrder: 119,
+    pinOrder: 122,
   },
   {
     id: "technomak-walk-in-kochi-oct2026",
@@ -4082,7 +4205,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM – 5:00 PM",
     walkinLocation: "1st and 3rd floor, NAJ Arcade, Near Muttom Metro Station, Thaikattukara P.O., Aluva, Ernakulam",
-    pinOrder: 24,
+    pinOrder: 27,
     qualification: "Engineering / Diploma / ITI",
   },
   {
@@ -4124,7 +4247,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 25,
+    pinOrder: 28,
   },
   {
     id: "kowju-airport-hotel-hr-executive-oct2026",
@@ -4164,7 +4287,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 26,
+    pinOrder: 29,
     qualification: "Not stated on the poster",
   },
   {
@@ -4204,7 +4327,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 27,
+    pinOrder: 30,
   },
   {
     id: "cube-innovators-project-administrator-oct2026",
@@ -4245,7 +4368,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 28,
+    pinOrder: 31,
   },
   {
     id: "caritas-hospital-hiring-oct2026",
@@ -4285,7 +4408,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 29,
+    pinOrder: 32,
     qualification: "MSW / MHA / MBA, any graduation, B.Sc Nursing / MHA, or B.Sc MLT / DMLT — role-wise",
   },
   {
@@ -4324,7 +4447,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "AccioJob Skill Centre, Pune",
-    pinOrder: 30,
+    pinOrder: 33,
     salaryRange: "CTC up to 5 LPA",
   },
   {
@@ -4364,7 +4487,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 31,
+    pinOrder: 34,
   },
   {
     id: "mar-sleeva-medicity-cathlab-technician-oct2026",
@@ -4404,7 +4527,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 32,
+    pinOrder: 35,
     qualification: "B.Sc. / M.Sc. in Cardiac Care Technology",
   },
   {
@@ -4444,7 +4567,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 33,
+    pinOrder: 36,
     salaryRange: "Pharmacist: negotiable",
     qualification: "D.Pharm / B.Pharm for Pharmacist; relevant qualification for Gastroenterology Technician",
   },
@@ -4486,7 +4609,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 34,
+    pinOrder: 37,
     qualification: "MBA in HR or a related discipline",
   },
   {
@@ -4528,13 +4651,13 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 35,
+    pinOrder: 38,
     qualification: "MHA / MBA",
     salaryRange: "Negotiable",
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01653904-bengaluru-oct2026",
-    pinOrder: 41,
+    pinOrder: 44,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Bengaluru · AIOC-S01653904",
@@ -4574,7 +4697,7 @@ var JOBS = [
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01664425-mumbai-oct2026",
-    pinOrder: 42,
+    pinOrder: 45,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Mumbai · AIOC-S01664425",
@@ -4654,7 +4777,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Tele Collection Specialist\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-tele-collection-specialist-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 36,
+    pinOrder: 39,
     qualification: "Any Degree / Diploma",
   },
   {
@@ -4699,7 +4822,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Service Desk Coordinator\nLocation: Infopark, Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-service-desk-coordinator-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 37,
+    pinOrder: 40,
     qualification: "Any degree / Diploma",
   },
   {
@@ -4744,7 +4867,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Business Development Executive (BDE)\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-bde-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 38,
+    pinOrder: 41,
     qualification: "Any degree / Diploma",
   },
   {
@@ -4789,7 +4912,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Banking Executive — Centralised Collections\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-banking-executive-centralised-collections-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 39,
+    pinOrder: 42,
     qualification: "Any degree / Diploma",
   },
   {
@@ -4834,7 +4957,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Technical Support Executive\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-technical-support-executive-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 40,
+    pinOrder: 43,
     qualification: "Good communication in Malayalam",
   },
   {
