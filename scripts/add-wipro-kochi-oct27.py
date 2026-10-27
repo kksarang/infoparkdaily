@@ -41,8 +41,14 @@ opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
 
 def get(url: str, data: bytes | None = None, headers: dict | None = None) -> str:
     req = urllib.request.Request(url, data=data, headers={"User-Agent": UA, **(headers or {})})
-    with opener.open(req, timeout=60) as resp:
-        return resp.read().decode("utf-8", "replace")
+    for attempt in range(3):
+        try:
+            with opener.open(req, timeout=60) as resp:
+                return resp.read().decode("utf-8", "replace")
+        except OSError:
+            if attempt == 2:
+                raise
+    return ""
 
 
 def fetch_list() -> list[dict]:
@@ -87,6 +93,7 @@ def page_text(raw: str) -> str:
     s = re.sub(r"<(br|/p|/li|/div|/h\d|/tr)[^>]*>", "\n", s)
     s = re.sub(r"<li[^>]*>", "\n- ", s)
     s = html.unescape(re.sub(r"<[^>]+>", "", s)).replace("͏", "").replace("\xa0", " ")
+    s = re.sub(r"\s*Ã[ÂÃ\x80-\xbf¢]*\s*", "'", s).replace("\r", "")
     s = re.sub(r"[ \t]+", " ", s)
     s = re.sub(r"\n\s*\n+", "\n", s)
     if "Job Description" in s:
@@ -105,7 +112,7 @@ def tidy(line: str) -> str:
     line = line.strip().lstrip("-•*").strip().strip('"').strip()
     line = re.sub(r'\s*"\s*', " ", line)
     line = re.sub(r"^[a-z]\.\s+|^\d+\.\s+|^[ivx]+\.\s+", "", line)
-    m = re.match(r"^([A-Z][A-Za-z &/]{3,45}?)\s*[-–]\s*\"?(.+)$", line)
+    m = re.match(r"^([A-Z][A-Za-z &/]{3,45}?)\s*[-–]\s*\"?([A-Z].+)$", line)
     if m and not m.group(1).endswith(" "):
         line = f"{m.group(1)}: {m.group(2)}"
     return re.sub(r"\s+", " ", line).strip(' ".')
@@ -186,7 +193,9 @@ def custom(rid: str, info: dict) -> dict:
 
 
 def display_title(title: str, skill: str) -> str:
-    if not skill or skill.lower() in title.lower() or title.lower().startswith(("sd-wan", "sailpoint", "cloud oracle")):
+    if title.lower().startswith("sd-wan ("):
+        title = "SD-WAN & Cisco Wireless Network Engineer"
+    if not skill or skill.lower() in title.lower() or title.lower().startswith(("sailpoint", "cloud oracle")):
         return title
     return f"{title} – {skill}"
 
@@ -214,7 +223,9 @@ def build(group: list[tuple[dict, dict]]) -> dict:
     deadline = ends[-1] if ends else ""
     count = f"{len(refs)} openings" if len(refs) > 1 else "1 opening"
     shown = display_title(title, info["skill"])
-    purpose = extra.get("purpose") or info["purpose"]
+    purpose = (extra.get("purpose") or info["purpose"]).strip()
+    if purpose and not purpose.endswith("."):
+        purpose += "."
     requirements = []
     if info["exp"]:
         requirements.append(f"Experience: {info['exp']}")
