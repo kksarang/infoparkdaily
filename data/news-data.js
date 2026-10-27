@@ -43,6 +43,37 @@
 
 var NEWS = [
   {
+    id: "huddle-global-2026-ecosystem-partners-82-sold-out",
+    title: "Huddle Global 2026 names ecosystem partners; 82% of tickets sold out",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-27",
+    image: "/assets/news/huddle-global-2026-ecosystem-partners.jpg",
+    imageAlt: "Huddle Global 2026 ecosystem partners poster",
+    summary: "Kerala Startup Mission has announced the ecosystem partners for Huddle Global 2026, including Technopark, Infopark and Cyberpark. Organisers say 82% of tickets are sold out for the 12\u201314 November festival at The Leela Raviz, Kovalam.",
+    body: [
+      "Kerala Startup Mission and Tech Keralam have announced the Ecosystem Partners for Huddle Global 2026, billed as Asia\u2019s largest beachside startup festival. The festival runs on 12, 13 and 14 November 2026 at The Leela Raviz, Kovalam, Trivandrum.",
+      "Partners on the poster: Startup Middle East, Technopark Thiruvananthapuram, Cyberpark Kozhikode, Infopark, Wadhwani Foundation, Kerala Management Association (KMA), IIM Kozhikode LIVE, Bootstrap Foundation, The Circle Founders Club, Maharashtra State Innovation Society, GTECH, CITI 2.0, Young Indians (Yi), Cafit, IIM Bangalore NSRCEL, TiE Mumbai, SPJIMR WISE Tech, TiE Chennai, TiE Bangalore and BHIVE Workspace.",
+      "A separate poster says 82% of Huddle Global 2026 tickets are sold out and invites visitors to meet Kerala\u2019s top startups in a curated, relaxed setting by the beach.",
+      "The HUDDLE20 coupon gave 20% off passes until 25 October 2026: Diamond Pass \u20b97,200 (from \u20b99,000) and Golden Pass \u20b95,600 (from \u20b97,000). That offer has now closed \u2014 check current pass prices on huddleglobal.co.in."
+    ],
+    highlights: [
+      "Dates: 12, 13, 14 November 2026",
+      "Venue: The Leela Raviz, Kovalam, Trivandrum, Kerala",
+      "82% of tickets sold out (as per organisers)",
+      "Ecosystem partners include Technopark, Infopark, Cyberpark, TiE, Wadhwani Foundation and IIM incubators",
+      "HUDDLE20 offer (Diamond \u20b97,200 / Golden \u20b95,600) closed on 25 October 2026"
+    ],
+    attachments: [
+      { label: "Huddle Global official website", url: "https://www.huddleglobal.co.in/" },
+      { label: "Poster: 82% tickets sold out", url: "/assets/news/huddle-global-2026-82-sold-out.jpg" },
+      { label: "Poster: HUDDLE20 offer (closed 25 Oct)", url: "/assets/news/huddle-global-2026-huddle20-offer.jpg" }
+    ],
+    source: "Kerala Startup Mission / Huddle Global posters",
+    sourceUrl: "https://www.huddleglobal.co.in/",
+    featured: false
+  },
+  {
     id: "zentral-expand-north-star-roadshow-ksum-kochi-2026",
     title: "Destination Expand North Star roadshow held at KSUM Kochi, 22 October",
     category: "Events",
