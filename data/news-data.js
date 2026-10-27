@@ -43,6 +43,33 @@
 
 var NEWS = [
   {
+    id: "zentral-expand-north-star-roadshow-ksum-kochi-2026",
+    title: "Destination Expand North Star roadshow held at KSUM Kochi, 22 October",
+    category: "Events",
+    park: "Kerala",
+    date: "2026-10-22",
+    image: "/assets/news/zentral-ens-roadshow-kochi-2026.jpg",
+    imageAlt: "Zentral Destination Expand North Star roadshow preview",
+    summary: "Zentral hosted the Destination Expand North Star roadshow at Kerala Startup Mission, Kalamassery, Kochi on 22 October 2026 at 4:00 PM, for Kerala founders planning to attend Expand North Star 2026 in Dubai.",
+    body: [
+      "Zentral, an ecosystem partner of Expand North Star, hosted the Destination Expand North Star Kochi roadshow at Kerala Startup Mission (KSUM), Kalamassery, Kochi on 22 October 2026 at 4:00 PM IST.",
+      "The session covered how founders can turn three days at Expand North Star into investor connections, strategic partnerships and a Dubai base \u2014 including how pre-arranged meetings, the deal room and investor lounges work, which investors attend, and market entry into Dubai and the GCC.",
+      "Zentral says it is inviting a select circle of 100 tech founders from Kerala to Dubai for a curated Expand North Star 2026 experience. Check eligibility and details on the official roadshow page. InfoparkDaily is not the organiser."
+    ],
+    highlights: [
+      "Date: 22 October 2026, 4:00 PM IST",
+      "Venue: Kerala Startup Mission (KSUM), Kalamassery, Kochi",
+      "Host: Zentral \u00b7 Ecosystem Partner of Expand North Star",
+      "Curated Expand North Star 2026 programme for 100 Kerala tech founders"
+    ],
+    attachments: [
+      { label: "Roadshow page (Zentral)", url: "https://ens-rs.zentral.world/roadshow/kochi-ksum" }
+    ],
+    source: "Zentral",
+    sourceUrl: "https://ens-rs.zentral.world/roadshow/kochi-ksum",
+    featured: false
+  },
+  {
     id: "playwright-ai-workshop-infopark-oct-2026",
     title: "Free Playwright + AI workshop at Thapasya Auditorium, 31 October",
     category: "Events",
@@ -116,13 +143,15 @@ var NEWS = [
     body: [
       "Huddle Global is billed as Asia\u2019s largest beachside startup festival. The 2026 edition is scheduled for 12, 13 and 14 November 2026 at The Leela Raviz, Kovalam, Thiruvananthapuram, with Kerala Startup Mission and Kerala IT as organising partners.",
       "Passes on the official site include Gold (gateway access, networking, investor matchmaking, mentoring and more) and Diamond (adds business matchmaking, product launch and exhibit slots, and Sundown Huddle). A circulating poster offered 40% off with code HUDDLE40 until 15 October 2026 \u2014 confirm current pricing on huddleglobal.co.in before you pay.",
+      "A later poster offered 20% off with code HUDDLE20, valid until 25 October 2026 \u2014 that offer has now ended. KSUM has also announced its Ecosystem Partners for Huddle Global 2026, billing the festival as a place to connect with ecosystem stakeholders and explore strategic partnerships. Register at huddleglobal.co.in.",
       "KSUM has also run Huddle Global roadshows in Thiruvananthapuram, Chennai, Mumbai, Bengaluru, Kozhikode, Gurugram and Kochi ahead of the main festival. InfoparkDaily is independent; we are not the organiser. Verify dates, pass inclusions and refunds only on the official Huddle Global channels."
     ],
     highlights: [
       "Dates: 12\u201314 November 2026",
       "Venue: The Leela Raviz, Kovalam, Trivandrum",
       "Official site: huddleglobal.co.in",
-      "Poster promo: HUDDLE40 (40% off \u2014 verify deadline on site)",
+      "Poster promos: HUDDLE40 (40% off, until 15 Oct) and HUDDLE20 (20% off, until 25 Oct) \u2014 both ended",
+      "Ecosystem Partners for Huddle Global 2026 announced by KSUM",
       "Organiser: Kerala Startup Mission / Kerala IT"
     ],
     attachments: [
