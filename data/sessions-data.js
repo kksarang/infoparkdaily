@@ -56,6 +56,35 @@
 
 var SESSIONS = [
   {
+    id: "coding-ninjas-data-analyst-webinar-ibm-microsoft-oct2026",
+    title: "Free Data Analyst Bootcamp Webinar",
+    organizer: "Coding Ninjas · in collaboration with IBM & Microsoft",
+    category: "Data Science",
+    mode: "Online",
+    price: "Free",
+    priceText: "Free webinar",
+    date: "2026-10-27",
+    endDate: "",
+    time: "",
+    location: "",
+    registrationLink: "https://www.codingninjas.com/programs/job-bootcamp-data-analytics",
+    summary: "Free online webinar on the Data Analyst career roadmap, essential skills and tools, and career guidance. Register on the Coding Ninjas page. Confirm the webinar slot and any paid bootcamp details before you pay.",
+    image: "",
+    imageAlt: "Coding Ninjas Data Analyst webinar with IBM and Microsoft",
+    highlights: [
+      "Data Analyst career roadmap",
+      "Essential skills and tools",
+      "Career guidance",
+      "Free to register — limited seats",
+      "On the form, choose Working Professionals & Others (college students: pick Others, not College Student)",
+      "The register page is Coding Ninjas’ Data Analytics Job Bootcamp with IBM and Microsoft. Verify webinar vs paid program on that page"
+    ],
+    source: "WhatsApp",
+    sourceUrl: "https://tinyurl.com/6j8z258t",
+    featured: true,
+    tags: ["Data Analytics", "Webinar", "Free", "Career", "IBM", "Microsoft"]
+  },
+  {
     id: "lbs-skill-centre-ai-fullstack-developer-kazhakuttom-2026",
     title: "AI-Powered Full Stack Developer Program",
     organizer: "LBS Skill Centre – Kazhakuttom",

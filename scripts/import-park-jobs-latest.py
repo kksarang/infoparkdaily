@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 10, 21)  # bump when re-importing
+TODAY = date(2026, 10, 27)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -811,8 +811,16 @@ def build_technopark() -> list[dict]:
         link = f"https://technopark.in/job-details/{tid}?job={quote(title)}"
         walk = bool(j.get("is_walk_in"))
         walk_date = ""
+        walk_time = ""
         if walk and j.get("walk_in_start_date"):
             walk_date = str(j["walk_in_start_date"])[:10]
+        if walk:
+            start_t = str(j.get("walk_in_start_time") or "")[:5]
+            end_t = str(j.get("walk_in_end_time") or "")[:5]
+            if start_t and end_t:
+                walk_time = f"{start_t} – {end_t}"
+            elif start_t:
+                walk_time = start_t
         logo_path = (j.get("company") or {}).get("logo") or ""
         if logo_path.startswith("/"):
             logo = f"https://technopark.in{logo_path}"
@@ -841,6 +849,7 @@ def build_technopark() -> list[dict]:
                 "tags": infer_tags(title),
                 "isWalkIn": walk,
                 "walkInDate": walk_date,
+                "walkinTime": walk_time,
                 "email": "",
                 "phone": "",
                 "website": "https://technopark.in/job-search",
