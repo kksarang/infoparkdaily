@@ -43,6 +43,225 @@
 
 var NEWS = [
   {
+    id: "cubet-ai-cube-studio-infopark-2026",
+    title: "Cubet opens new office and AI Cube Studio research facility at Infopark Kochi",
+    category: "AI City",
+    park: "Infopark Kochi",
+    date: "2026-10-23",
+    image: "/assets/news/aicity.svg",
+    imageAlt: "AI research facility illustration",
+    summary: "Kochi IT company Cubet has opened a new office and an AI research facility, AI Cube Studio, at Infopark. Gaganyaan astronaut-designate Group Captain Prasanth B. Nair inaugurated it.",
+    body: [
+      "IT company Cubet has launched a new office and an artificial intelligence research facility called AI Cube Studio at Infopark, Kochi. The facility was inaugurated by Group Captain Prasanth B. Nair, a member of ISRO’s Gaganyaan mission crew.",
+      "Cubet says AI Cube Studio will focus on research and development around practical applications of AI across business and technology sectors. Cubet CEO Luvjin John, G-Tech Chairman Jijo John, heads of Infopark companies and industry leaders attended the launch.",
+      "Alongside the inauguration, a tech-leadership session titled ‘Apogee’ was held at Athulya Auditorium, Infopark, in collaboration with G-Tech. Prasanth B. Nair delivered the keynote, “Cultivating an Astronaut Mindset for Nation Building”, to technology professionals, Infopark industry leaders and college students."
+    ],
+    highlights: [
+      "Facility: AI Cube Studio — AI research and development centre",
+      "Location: Infopark, Kochi",
+      "Inaugurated by Group Captain Prasanth B. Nair (Gaganyaan crew)",
+      "Apogee tech-leadership session held at Athulya Auditorium, Infopark"
+    ],
+    attachments: [
+      { label: "Press Network of India report", url: "https://www.pninews.com/cubet-opens-new-office-and-ai-research-center-at-kochi-infopark/" }
+    ],
+    source: "Press Network of India",
+    sourceUrl: "https://www.pninews.com/cubet-opens-new-office-and-ai-research-center-at-kochi-infopark/",
+    featured: false
+  },
+  {
+    id: "kerala-tech-brand-it-parks-affiliation-scheme-2026",
+    title: "Tech Keralam brand and IT Parks Affiliation Scheme launched at Technopark",
+    category: "Infrastructure",
+    park: "Kerala",
+    date: "2026-10-08",
+    image: "/assets/news/technopark.svg",
+    imageAlt: "Technopark Thiruvananthapuram",
+    summary: "IT Minister P K Kunhalikutty launched Tech Keralam, a common brand for Kerala\u2019s technology sector, and an IT Parks Affiliation Scheme that lets eligible firms outside government IT parks join the state ecosystem through an online portal.",
+    body: [
+      "Minister for Industries, IT and AI P K Kunhalikutty launched the Tech Keralam brand and the IT Parks Affiliation Scheme at Travancore Hall, Technopark, Thiruvananthapuram on 8 October 2026. The brand is meant to bring the state\u2019s technology sector \u2014 IT parks, companies, startups, academia and research \u2014 under a common identity. Some reports call it \u201cTech Kerala\u201d.",
+      "The official site, techkeralam.in, presents Kerala as \u201cIndia\u2019s First Digital State\u201d and organises the ecosystem into four pillars: parks and infrastructure; innovation and entrepreneurship; research, academia and skilling; and digital government. It lists 1,200+ tech companies, 200,000+ tech employees, 8,000+ startups and 50+ Global Capability Centres. These are existing ecosystem-wide figures, not jobs or companies created by the launch.",
+      "The affiliation scheme aims to connect IT companies, co-working spaces and private technology infrastructure outside the major government-owned IT parks to a state-level network, so that eligible firms can access benefits usually extended by IT parks. Registration is through the official affiliation portal. Affiliation is not the same as becoming a government IT park tenant, and the reports we checked did not list specific benefits or eligibility rules \u2014 check the portal before applying.",
+      "The same function announced a Technopark prefabricated IT building project at Phase III \u2014 reported as about 2 lakh sq ft with common recreational areas, at an estimated \u20b990 crore. Technopark and Caspian Tech Parks also exchanged an MoU, and a Semicon Kerala Consortium was announced. These are announced projects; check Technopark\u2019s official channels for timelines."
+    ],
+    highlights: [
+      "Date: 8 October 2026, Travancore Hall, Technopark",
+      "Official site: techkeralam.in \u00b7 affiliation portal: affiliation.techkeralam.in",
+      "Affiliation open to eligible firms, co-working spaces and private tech infrastructure outside government IT parks",
+      "Ecosystem per official site: 1,200+ companies, 200,000+ employees, 8,000+ startups, 50+ GCCs",
+      "Technopark Phase III prefab IT building: ~2 lakh sq ft, ~\u20b990 crore (announced)"
+    ],
+    attachments: [
+      { label: "Tech Keralam official site", url: "https://techkeralam.in/" },
+      { label: "IT Parks Affiliation portal", url: "https://affiliation.techkeralam.in/" },
+      { label: "UNI India report", url: "https://www.uniindia.com/south-india/it-kerala-brand-launch/206455" },
+      { label: "GKToday explainer", url: "https://www.gktoday.in/kerala-to-launch-it-parks-affiliation-scheme/" }
+    ],
+    source: "Tech Keralam / UNI India / GKToday",
+    sourceUrl: "https://techkeralam.in/",
+    featured: false
+  },
+  {
+    id: "indiaai-coe-thiruvananthapuram-first-cohort-2026",
+    title: "IndiaAI Centre of Excellence opens at Technopark Phase IV with 15 startups",
+    category: "AI City",
+    park: "Technopark TVM",
+    date: "2026-09-30",
+    image: "/assets/news/aicity.svg",
+    imageAlt: "AI centre of excellence illustration",
+    summary: "MeitY’s IndiaAI Centre of Excellence, run by Digital University Kerala, launched in Thiruvananthapuram with a first cohort of 15 AI startups across pre-incubation, incubation and acceleration tracks.",
+    body: [
+      "The IndiaAI Centre of Excellence, set up under the IndiaAI Mission with the Government of Kerala, launched on 30 September 2026 at Kabani, Technopark Phase IV, Thiruvananthapuram. Digital University Kerala is the implementing agency, with Innovation Incubator Advisory as industry partner.",
+      "The first cohort has 15 startups, working on areas such as legal automation, document intelligence, industrial AI, embedded vision and speech technologies. Focus sectors include healthcare, climate and disaster resilience, e-governance and agriculture.",
+      "Startups join one of three tracks: pre-incubation (3 months), incubation (6 months) or acceleration (6 months). Reports note that grants and government pilots are not guaranteed, compute is subsidised rather than free, and workspace at the centre is listed at ₹6,000 per seat per month."
+    ],
+    highlights: [
+      "Launched 30 September 2026 at Kabani, Technopark Phase IV",
+      "Implementing agency: Digital University Kerala",
+      "First cohort: 15 AI startups",
+      "Tracks: pre-incubation, incubation, acceleration"
+    ],
+    attachments: [
+      { label: "CareerIndia report", url: "https://www.careerindia.com/news/indiaai-centre-of-excellence-2026-ai-jobs-startup-opportunities-kerala-011-66441.html" }
+    ],
+    source: "Media reports",
+    sourceUrl: "https://www.careerindia.com/news/indiaai-centre-of-excellence-2026-ai-jobs-startup-opportunities-kerala-011-66441.html",
+    featured: false
+  },
+  {
+    id: "ust-d3-startup-challenge-2026",
+    title: "UST D3 Startup Challenge draws 120+ applications from Indian startups",
+    category: "Business",
+    park: "Kerala",
+    date: "2026-09-24",
+    image: "/assets/news/milestone.svg",
+    imageAlt: "Startup challenge illustration",
+    summary: "UST’s first D3 Startup Challenge, run with Link Innovations, received more than 120 applications from startups across India. 19 were shortlisted for a Bengaluru pitch series.",
+    body: [
+      "UST has launched the D3 Startup Challenge 2026 to connect emerging technology startups with its global technology and business teams and explore enterprise adoption. The challenge is part of UST’s annual D3 (Dream, Develop, Disrupt) technology conference and is run in collaboration with Link Innovations.",
+      "More than 120 startups from across India applied. Priority domains include AI models, trust and responsibility; healthcare and life sciences; telecom and technology; and engineering and semiconductors.",
+      "According to ElectronicsForYou, 19 startups were selected for the Bengaluru City Pitch Series after a multi-stage review, with five set to move on to the D3 Expo."
+    ],
+    highlights: [
+      "120+ applications from startups across India",
+      "Run with Link Innovations as part of UST’s D3 conference",
+      "19 startups shortlisted for Bengaluru City Pitch Series"
+    ],
+    attachments: [
+      { label: "UNI India report", url: "https://www.uniindia.com/south-india/it-kerala-ust-d3/191516" },
+      { label: "ElectronicsForYou report", url: "https://www.electronicsforyou.biz/?p=139413" }
+    ],
+    source: "UNI India / ElectronicsForYou",
+    sourceUrl: "https://www.uniindia.com/south-india/it-kerala-ust-d3/191516",
+    featured: false
+  },
+  {
+    id: "prompttech-global-technopark-kallayi-2026",
+    title: "PromptTech Global opens new facility at Technopark Phase I",
+    category: "Campus",
+    park: "Technopark TVM",
+    date: "2026-09-23",
+    image: "/assets/news/technopark.svg",
+    imageAlt: "Technopark Thiruvananthapuram",
+    summary: "Minister P K Kunhalikutty inaugurated PromptTech Global’s new facility in the Kallayi Building, Technopark Phase I.",
+    body: [
+      "PromptTech Global has opened a new facility in the Kallayi Building, Technopark Phase I, Thiruvananthapuram. Minister for Industries and Commerce, IT, AI and Startups P K Kunhalikutty inaugurated it on 23 September 2026.",
+      "The company says it is building a global insurance marketplace for enterprises, combining insurance and risk expertise with technology. Technopark CEO Sandip Kumar and PromptTech Global founder and Executive Director Aby Abraham attended. The report did not mention headcount or hiring plans."
+    ],
+    highlights: [
+      "Location: Kallayi Building, Technopark Phase I",
+      "Inaugurated by Minister P K Kunhalikutty, 23 September 2026",
+      "Focus: enterprise insurance and risk technology"
+    ],
+    attachments: [
+      { label: "UNI India report", url: "https://www.uniindia.com/south-india/it-kerala-technopark-23ms71/190472" }
+    ],
+    source: "UNI India",
+    sourceUrl: "https://www.uniindia.com/south-india/it-kerala-technopark-23ms71/190472",
+    featured: false
+  },
+  {
+    id: "prevalent-ai-22-million-infopark-expansion-2026",
+    title: "Prevalent AI raises $22 million; plans to expand Infopark Kochi centre",
+    category: "Investment",
+    park: "Infopark Kochi",
+    date: "2026-09-15",
+    image: "/assets/news/milestone.svg",
+    imageAlt: "Funding announcement illustration",
+    summary: "London-based cybersecurity and enterprise AI company Prevalent AI, co-founded by Malayali Arun S Raj, raised about ₹210 crore from Integrity Growth Partners and plans to expand its Infopark development centre.",
+    body: [
+      "Prevalent AI, a London-based cybersecurity and enterprise AI company, has raised $22 million (about ₹210 crore) in equity from US-based Integrity Growth Partners. It is the company’s first external funding since it was founded in 2017.",
+      "The company was co-founded by Arun S Raj, its Chief Operating Officer, and Paul Stokes. Its development centre is at Infopark, Kochi. Raj said the funding will help expand the Infopark centre and is expected to create more employment opportunities in Kerala; no hiring numbers or roles were given.",
+      "The investment will also support the company’s US expansion and its move beyond cybersecurity into broader enterprise risk, including financial crime prevention."
+    ],
+    highlights: [
+      "$22 million (~₹210 crore) from Integrity Growth Partners",
+      "First external funding since 2017",
+      "Development centre at Infopark Kochi set to expand",
+      "No hiring numbers announced yet"
+    ],
+    attachments: [
+      { label: "Onmanorama report", url: "https://www.onmanorama.com/news/business/2026/09/15/prevalent-ai-co-founded-by-malayali-raises-210-cr-eyes-kochi-expansion.html" },
+      { label: "Tech.eu report", url: "https://tech.eu/2026/08/19/prevalent-ai-secures-22m-growth-investment-to-scale-enterprise-ai-platform/" }
+    ],
+    source: "Onmanorama / Tech.eu",
+    sourceUrl: "https://www.onmanorama.com/news/business/2026/09/15/prevalent-ai-co-founded-by-malayali-raises-210-cr-eyes-kochi-expansion.html",
+    featured: false
+  },
+  {
+    id: "keralam-gcc-boilerplate-2026",
+    title: "Keralam GCC Boilerplate launched to simplify Global Capability Centre set-up",
+    category: "Business",
+    park: "Kerala",
+    date: "2026-09-05",
+    image: "/assets/news/gcc-hub.svg",
+    imageAlt: "Global Capability Centre illustration",
+    summary: "The state unveiled the Keralam GCC Boilerplate at the ET GCC World SURGE summit in Kovalam — a single coordinated framework for global companies setting up Global Capability Centres in Kerala.",
+    body: [
+      "The Keralam GCC Boilerplate was launched on 5 September 2026 at the second edition of the Economic Times GCC World SURGE summit in Kovalam, Thiruvananthapuram. It was launched by Seeram Sambasiva Rao IAS, Special Secretary, Department of Electronics & IT. Minister P K Kunhalikutty attended online.",
+      "The framework is described as a single coordinated process to make setting up Global Capability Centres (GCCs) in Kerala easier and faster, from the investment decision until the centre is operational. Technopark CEO Sandip Kumar and Infoparks Kerala CEO Susanth Kurunthil were present.",
+      "Specific incentives under the framework were not visible in the report we checked; companies should confirm details with the Department of Electronics & IT or the IT parks."
+    ],
+    highlights: [
+      "Launched 5 September 2026 at ET GCC World SURGE, Kovalam",
+      "Single framework for GCC set-up in Kerala",
+      "Technopark and Infopark CEOs present"
+    ],
+    attachments: [
+      { label: "UNI India report", url: "https://www.uniindia.com/south-india/development-kerala-gcc-05ms38/170307" }
+    ],
+    source: "UNI India",
+    sourceUrl: "https://www.uniindia.com/south-india/development-kerala-gcc-05ms38/170307",
+    featured: false
+  },
+  {
+    id: "i-by-infopark-40-percent-leased-2026",
+    title: "I by Infopark at Ernakulam South Metro: 40% leased in nine months",
+    category: "Metro",
+    park: "Infopark Kochi",
+    date: "2026-07-29",
+    image: "/assets/news/metro.svg",
+    imageAlt: "Kochi Metro station workspace",
+    summary: "Infopark’s metro-integrated workspace at Ernakulam South Metro station has leased about 40% of its space within nine months of launch, with Zoho taking the fourth floor.",
+    body: [
+      "I by Infopark, the IT workspace at Ernakulam South Metro station, has leased about 40% of its office space within nine months of launch, according to Infopark officials quoted by Onmanorama. Talks are reportedly under way with several firms for the rest.",
+      "The facility occupies the third floor upward of a nine-storey building, with a built-up area of 48,000 sq ft (about 6,530 sq ft per floor) and 580 workstations. Zoho has leased the fourth floor.",
+      "Options include flexible co-working desks and office cabins for 10 to 21 people, along with plug-and-play furnished offices, meeting and training rooms, and a neurodiversity-friendly co-working centre. It has direct access from the Metro platform."
+    ],
+    highlights: [
+      "~40% leased within nine months",
+      "48,000 sq ft built-up, 580 workstations",
+      "Zoho has leased the fourth floor",
+      "Direct access from Ernakulam South Metro platform"
+    ],
+    attachments: [
+      { label: "Onmanorama report", url: "https://www.onmanorama.com/news/kerala/2026/07/29/i-by-infopark-gains-traction-40-space-leased-in-nine-months.html" }
+    ],
+    source: "Onmanorama",
+    sourceUrl: "https://www.onmanorama.com/news/kerala/2026/07/29/i-by-infopark-gains-traction-40-space-leased-in-nine-months.html",
+    featured: false
+  },
+  {
     id: "huddle-global-2026-ecosystem-partners-82-sold-out",
     title: "Huddle Global 2026 names ecosystem partners; 82% of tickets sold out",
     category: "Events",

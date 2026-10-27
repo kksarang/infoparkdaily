@@ -80,7 +80,7 @@ const PRELOAD_ASSETS = [
   "./js/social.js?v=20260902a",
   "./js/social-post.js?v=20260815b",
   "./assets/media/onam-bg.svg",
-  "./data/news-data.js?v=20261027huddle",
+  "./data/news-data.js?v=20261027itnews",
   "./js/news.js?v=20260805x",
   "./js/news-article.js?v=20260805l",
   "./manifest.webmanifest",
