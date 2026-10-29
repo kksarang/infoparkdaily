@@ -30,6 +30,13 @@
   const parkBar = document.getElementById("jobs-park");
   const postedBar = document.getElementById("jobs-posted");
   const cityBar = document.getElementById("jobs-city");
+  const sectorBar = document.getElementById("jobs-sector");
+  const educationBar = document.getElementById("jobs-education");
+  const quickBar = document.getElementById("jobs-quickbar");
+  const quickRole = document.getElementById("jobs-quick-role");
+  const quickLocation = document.getElementById("jobs-quick-location");
+  const quickExp = document.getElementById("jobs-quick-exp");
+  const quickSort = document.getElementById("jobs-quick-sort");
   const activeChipsEl = document.getElementById("jobs-active-chips");
 
   if (!grid || typeof JOBS === "undefined") return;
@@ -73,6 +80,10 @@
   let activePark = "all";
   let activePosted = "all";
   let activeCity = "all";
+  let activeSector = "all";
+  let activeEducation = "all";
+  let activeExp = "all";
+  let roleQuery = "";
   let visibleCount = PAGE_SIZE;
   /** @type {{ key: string, label: string, count: number }[]} */
   let companyCatalog = [];
@@ -302,6 +313,80 @@
     return job.experience === activeFilter;
   }
 
+  /* ---------- sector / education / experience ---------- */
+
+  const GOVERNMENT_RE =
+    /\bgovernment\b|\bgovt\.?\b|panchayat|municipal|\bpsc\b|\blsgd\b|national health mission|\bnhm\b|district (?:medical|collector)|kerala state|public service commission/i;
+  // Public-sector undertakings and state/central government companies (park tenants are private).
+  const PSU_RE =
+    /kochi metro|\bkmrl\b|cochin shipyard|\bbpcl\b|\bfact\b|\bkseb\b|\bksidc\b|keltron|c-?dit\b|\bksrtc\b|hll lifecare|indian oil|\bongc\b|\bbsnl\b|cochin port|airports authority|\bcial\b|\bkinfra\b|india post|\bsbi\b|state bank of india|indian railways|\brrb\b/i;
+
+  function jobSectors(job) {
+    const tags = (job.tags || []).map((t) => String(t).toLowerCase());
+    const who = `${job.company || ""} ${(job.tags || []).join(" ")}`;
+    const kind = `${job.employmentType || ""} ${(job.roles || []).join(" ")} ${tags.join(" ")}`;
+    const sectors = new Set();
+    if (tags.includes("government") || GOVERNMENT_RE.test(who)) sectors.add("government");
+    if (PSU_RE.test(job.company || "")) {
+      sectors.add("psu");
+      sectors.add("government");
+    }
+    if (/apprentic/i.test(kind)) sectors.add("apprenticeship");
+    if (isHospitalJob(job) || /hospital|medical (?:centre|center|college|trust)|clinic|healthcare/i.test(job.company || "")) {
+      sectors.add("healthcare");
+    }
+    if (!sectors.has("healthcare") && !sectors.has("government") && !isNonITJob(job)) sectors.add("it");
+    return sectors;
+  }
+
+  // Education levels are read only from what the listing states, never inferred from the role.
+  const EDUCATION_PATTERNS = {
+    plustwo: /\bplus\s*two\b|\b10\s*\+\s*2\b|\+2\b|\b12th\b|higher secondary|\bhsc\b/i,
+    iti: /\biti\b|\bncvt\b|\bnctvt\b/i,
+    diploma: /\bdiploma\b|\bgnm\b|\bd\.?\s?pharm\b/i,
+    degree:
+      /\bbachelor|\bgraduat|\bany degree\b|\bdegree\b|\bb\.?\s?(?:com|tech|sc|ca|ba|pharm|des|arch)\b|\bb\.e\b|\bmbbs\b|\bllb\b|\bbsc\b|\bbca\b|\bbba\b/i,
+    pg: /\bmaster|\bpost\s?graduat|\bpg\b|\bmba\b|\bmha\b|\bmhrm\b|\bm\.?\s?(?:com|tech|sc|ca|pharm)\b|\bm\.e\b|\bmca\b/i
+  };
+
+  function educationText(job) {
+    return [job.qualification, job.experienceRange, ...(job.requirements || []), ...(job.roles || []), ...(job.tags || [])]
+      .filter(Boolean)
+      .join(" ");
+  }
+
+  function matchesSector(job) {
+    return activeSector === "all" || jobSectors(job).has(activeSector);
+  }
+
+  function matchesEducation(job) {
+    if (activeEducation === "all") return true;
+    const pattern = EDUCATION_PATTERNS[activeEducation];
+    return Boolean(pattern && pattern.test(educationText(job)));
+  }
+
+  function openToFreshers(job) {
+    const code = String(job.experience || "").toLowerCase();
+    const range = String(job.experienceRange || job.experienceYears || "").toLowerCase();
+    return code === "fresher" || code === "both" || /\bfresher|\bintern/.test(range);
+  }
+
+  function openToExperienced(job) {
+    const code = String(job.experience || "").toLowerCase();
+    return code === "experienced" || code === "both";
+  }
+
+  function matchesExp(job) {
+    if (activeExp === "fresher") return openToFreshers(job);
+    if (activeExp === "experienced") return openToExperienced(job);
+    return true;
+  }
+
+  function matchesRole(job) {
+    if (!roleQuery) return true;
+    return (job.roles || []).some((role) => String(role).toLowerCase().includes(roleQuery));
+  }
+
   function matchesStatus(job) {
     const status = deadlineStatus(job);
     if (activeStatus === "all") return true;
@@ -471,6 +556,10 @@
     if (activePark !== "all") params.set("park", activePark);
     if (activePosted !== "all") params.set("posted", activePosted);
     if (activeCity !== "all") params.set("city", activeCity);
+    if (activeSector !== "all") params.set("sector", activeSector);
+    if (activeEducation !== "all") params.set("edu", activeEducation);
+    if (activeExp !== "all") params.set("exp", activeExp);
+    if (roleQuery) params.set("role", roleQuery);
 
     const qs = params.toString();
     const path = window.location.pathname || "/jobs/";
@@ -544,6 +633,13 @@
       if (parkParam && ["infopark", "technopark", "cyberpark"].includes(parkParam)) activePark = parkParam;
       if (postedParam && ["today", "week", "month"].includes(postedParam)) activePosted = postedParam;
       if (cityParam && CITY_PATTERNS[cityParam]) activeCity = cityParam;
+      const sectorParam = (params.get("sector") || "").trim().toLowerCase();
+      const eduParam = (params.get("edu") || "").trim().toLowerCase();
+      const expParam = (params.get("exp") || "").trim().toLowerCase();
+      if (["government", "psu", "apprenticeship", "it", "healthcare"].includes(sectorParam)) activeSector = sectorParam;
+      if (EDUCATION_PATTERNS[eduParam]) activeEducation = eduParam;
+      if (["fresher", "experienced"].includes(expParam)) activeExp = expParam;
+      roleQuery = (params.get("role") || "").trim().toLowerCase();
       if (sortParam) {
         sortMode = sortParam;
         if (sortSelect) sortSelect.value = sortParam;
@@ -567,6 +663,9 @@
       syncGroup(parkBar, "park", activePark);
       syncGroup(postedBar, "posted", activePosted);
       syncGroup(cityBar, "city", activeCity);
+      syncGroup(sectorBar, "sector", activeSector);
+      syncGroup(educationBar, "education", activeEducation);
+      syncQuickBar();
       widenScopeForCompanyIfNeeded();
     } catch (_e) {
       /* ignore bad query */
@@ -652,7 +751,11 @@
         matchesSearch(job) &&
         matchesPark(job) &&
         matchesCity(job) &&
-        matchesPosted(job)
+        matchesPosted(job) &&
+        matchesSector(job) &&
+        matchesEducation(job) &&
+        matchesExp(job) &&
+        matchesRole(job)
     );
 
     const expiredWeight = (job) =>
@@ -1121,6 +1224,7 @@
   }
 
   function render() {
+    syncQuickBar();
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
@@ -1242,7 +1346,11 @@
         Boolean(searchQuery),
         activePark !== "all",
         activePosted !== "all",
-        activeCity !== "all"
+        activeCity !== "all",
+        activeSector !== "all",
+        activeEducation !== "all",
+        activeExp !== "all",
+        Boolean(roleQuery)
       ].filter(Boolean).length;
       const filterCount = document.getElementById("jobs-filter-count");
       if (filterCount) filterCount.textContent = `${n} filter${n === 1 ? "" : "s"} applied`;
@@ -1549,6 +1657,10 @@
     activePark = "all";
     activePosted = "all";
     activeCity = "all";
+    activeSector = "all";
+    activeEducation = "all";
+    activeExp = "all";
+    roleQuery = "";
     clearCompanyFilter();
 
     if (searchInput) searchInput.value = "";
@@ -1569,7 +1681,10 @@
     syncGroup(parkBar, "park", "all");
     syncGroup(postedBar, "posted", "all");
     syncGroup(cityBar, "city", "all");
+    syncGroup(sectorBar, "sector", "all");
+    syncGroup(educationBar, "education", "all");
     syncHeroParkButtons();
+    syncQuickBar();
 
     resetVisibleAndRender();
   }
@@ -1583,6 +1698,12 @@
     if (activePark !== "all") chips.push({ key: "park", label: `Park: ${parkLabels[activePark] || activePark}` });
     if (activePosted !== "all") chips.push({ key: "posted", label: `Posted: ${postedLabels[activePosted] || activePosted}` });
     if (activeCity !== "all") chips.push({ key: "city", label: `City: ${CITY_LABELS[activeCity] || activeCity}` });
+    const sectorLabels = { government: "Government", psu: "PSU", apprenticeship: "Apprenticeship", it: "IT / Tech", healthcare: "Healthcare" };
+    const educationLabels = { plustwo: "Plus Two", iti: "ITI", diploma: "Diploma", degree: "Degree", pg: "Postgraduate" };
+    if (activeSector !== "all") chips.push({ key: "sector", label: `Sector: ${sectorLabels[activeSector]}` });
+    if (activeEducation !== "all") chips.push({ key: "education", label: `Education: ${educationLabels[activeEducation]}` });
+    if (activeExp !== "all") chips.push({ key: "exp", label: activeExp === "fresher" ? "Open to freshers" : "Experienced" });
+    if (roleQuery) chips.push({ key: "role", label: `Role: ${roleQuery}` });
     if (activeFilter !== "all") chips.push({ key: "filter", label: filterLabels[activeFilter] || activeFilter });
     if (activeTag !== "all") chips.push({ key: "tag", label: `Category: ${activeTag}` });
     if (activeLocation !== "all") chips.push({ key: "location", label: activeLocation });
@@ -1608,6 +1729,10 @@
       park: () => { activePark = "all"; syncSidebar(parkBar, "park", "all"); },
       posted: () => { activePosted = "all"; syncSidebar(postedBar, "posted", "all"); },
       city: () => { activeCity = "all"; syncSidebar(cityBar, "city", "all"); },
+      sector: () => { activeSector = "all"; syncSidebar(sectorBar, "sector", "all"); },
+      education: () => { activeEducation = "all"; syncSidebar(educationBar, "education", "all"); },
+      exp: () => { activeExp = "all"; syncQuickBar(); },
+      role: () => { roleQuery = ""; syncQuickBar(); },
       filter: () => { activeFilter = "all"; syncFilterChip("all"); },
       tag: () => { activeTag = "all"; syncSidebar(tagBar, "tag", "all"); },
       location: () => { activeLocation = defaultLocation; if (locationSelect) locationSelect.value = defaultLocation; },
@@ -1676,6 +1801,58 @@
   bindChipGroup(parkBar, "park", (value) => { activePark = value; syncHeroParkButtons(); });
   bindChipGroup(postedBar, "posted", (value) => (activePosted = value));
   bindChipGroup(cityBar, "city", (value) => (activeCity = value));
+  bindChipGroup(sectorBar, "sector", (value) => (activeSector = value));
+  bindChipGroup(educationBar, "education", (value) => (activeEducation = value));
+
+  /* Quick bar above the list: same state as the sidebar, so either control updates the other. */
+  function copyOptions(from, to) {
+    if (!from || !to) return;
+    to.innerHTML = [...from.options]
+      .map((opt) => `<option value="${escapeAttr(opt.value)}">${escapeHtml(opt.textContent)}</option>`)
+      .join("");
+  }
+
+  function syncQuickBar() {
+    if (!quickBar) return;
+    if (quickRole && document.activeElement !== quickRole && quickRole.value.trim().toLowerCase() !== roleQuery) {
+      quickRole.value = roleQuery;
+    }
+    if (quickLocation) quickLocation.value = activeLocation;
+    if (quickExp) quickExp.value = activeExp;
+    if (quickSort) quickSort.value = sortMode;
+  }
+
+  if (quickBar) {
+    copyOptions(locationSelect, quickLocation);
+    copyOptions(sortSelect, quickSort);
+    quickBar.addEventListener("submit", (event) => event.preventDefault());
+    if (quickRole) {
+      quickRole.addEventListener("input", () => {
+        roleQuery = quickRole.value.trim().toLowerCase();
+        resetVisibleAndRender();
+      });
+    }
+    if (quickLocation) {
+      quickLocation.addEventListener("change", () => {
+        activeLocation = quickLocation.value || "all";
+        if (locationSelect) locationSelect.value = activeLocation;
+        resetVisibleAndRender();
+      });
+    }
+    if (quickExp) {
+      quickExp.addEventListener("change", () => {
+        activeExp = quickExp.value || "all";
+        resetVisibleAndRender();
+      });
+    }
+    if (quickSort) {
+      quickSort.addEventListener("change", () => {
+        sortMode = quickSort.value || "newest";
+        if (sortSelect) sortSelect.value = sortMode;
+        resetVisibleAndRender();
+      });
+    }
+  }
 
   if (searchInput) {
     let searchTimer = 0;

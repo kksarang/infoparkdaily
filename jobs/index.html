@@ -89,7 +89,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261021refer" />
-    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20261009align" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20261030filters" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
@@ -302,6 +302,30 @@
           </div>
 
           <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Sector</p>
+            <div id="jobs-sector" class="jobs-filters" role="group" aria-label="Filter by job sector">
+              <button type="button" class="jobs-filter-btn is-active" data-sector="all" aria-pressed="true">All sectors</button>
+              <button type="button" class="jobs-filter-btn" data-sector="government" aria-pressed="false">Government</button>
+              <button type="button" class="jobs-filter-btn" data-sector="psu" aria-pressed="false">PSU</button>
+              <button type="button" class="jobs-filter-btn" data-sector="apprenticeship" aria-pressed="false">Apprenticeship</button>
+              <button type="button" class="jobs-filter-btn" data-sector="it" aria-pressed="false">IT / Tech</button>
+              <button type="button" class="jobs-filter-btn" data-sector="healthcare" aria-pressed="false">Healthcare</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Education</p>
+            <div id="jobs-education" class="jobs-filters" role="group" aria-label="Filter by education level">
+              <button type="button" class="jobs-filter-btn is-active" data-education="all" aria-pressed="true">Any</button>
+              <button type="button" class="jobs-filter-btn" data-education="plustwo" aria-pressed="false">Plus Two</button>
+              <button type="button" class="jobs-filter-btn" data-education="iti" aria-pressed="false">ITI</button>
+              <button type="button" class="jobs-filter-btn" data-education="diploma" aria-pressed="false">Diploma</button>
+              <button type="button" class="jobs-filter-btn" data-education="degree" aria-pressed="false">Degree</button>
+              <button type="button" class="jobs-filter-btn" data-education="pg" aria-pressed="false">Postgraduate</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
             <p class="jobs-filter-caption">City</p>
             <div
               id="jobs-city"
@@ -421,6 +445,28 @@
             <span id="jobs-filter-fab-count" class="ej-fab-count" hidden>0</span>
           </button>
         </div>
+        <form id="jobs-quickbar" class="ej-quickbar" role="search" aria-label="Quick job filters">
+          <label class="ej-quick-field">
+            <span>Role</span>
+            <input id="jobs-quick-role" type="search" placeholder="Search role title" autocomplete="off" enterkeyhint="search" />
+          </label>
+          <label class="ej-quick-field">
+            <span>Location</span>
+            <select id="jobs-quick-location" class="jobs-sort"></select>
+          </label>
+          <label class="ej-quick-field">
+            <span>Experience</span>
+            <select id="jobs-quick-exp" class="jobs-sort">
+              <option value="all">Fresher and experienced</option>
+              <option value="fresher">Fresher</option>
+              <option value="experienced">Experienced</option>
+            </select>
+          </label>
+          <label class="ej-quick-field">
+            <span>Sort</span>
+            <select id="jobs-quick-sort" class="jobs-sort"></select>
+          </label>
+        </form>
         <div id="jobs-active-chips" class="ej-active-chips" hidden aria-label="Active filters" role="list"></div>
         <div id="jobs-grid" class="jobs-grid"></div>
         <p id="jobs-empty" class="jobs-empty glass" hidden>
@@ -652,7 +698,7 @@
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script src="/js/job-deadline.js?v=20261013rolling" defer></script>
     <script src="/data/jobs-data.js?v=20261030jobs" defer></script>
-    <script src="/js/jobs.js?v=20261030order" defer></script>
+    <script src="/js/jobs.js?v=20261030filters" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

@@ -3073,3 +3073,47 @@ body.jobs-marketplace.dark .jobs-filter-btn--cyberpark.is-active {
   color: #fff;
   border-color: #0891b2;
 }
+
+/* ===== Quick filter bar above the list (Role / Location / Experience / Sort) ===== */
+body.jobs-marketplace .ej-quickbar {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1.4fr) repeat(3, minmax(10rem, 1fr));
+  gap: 0.6rem;
+  margin: 0.25rem 0 0.5rem;
+}
+body.jobs-marketplace .ej-quick-field {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+body.jobs-marketplace .ej-quick-field span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted, #a4a8ba);
+}
+body.jobs-marketplace .ej-quick-field input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-sm, 12px);
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+}
+body.jobs-marketplace .ej-quick-field input:focus-visible,
+body.jobs-marketplace .ej-quick-field select:focus-visible {
+  outline: 2px solid var(--ej-blue, #3b82f6);
+  outline-offset: 2px;
+}
+@media (max-width: 900px) {
+  body.jobs-marketplace .ej-quickbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  body.jobs-marketplace .ej-quick-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
