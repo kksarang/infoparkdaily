@@ -43,6 +43,32 @@
 
 var NEWS = [
   {
+    id: "hamilton-montessori-vidyarambham-offer-2026",
+    title: "Hamilton Montessori School Vidyarambham offer: ₹4,000 off or 50% off admission fees until 31 October",
+    category: "Community",
+    park: "Kerala",
+    date: "2026-10-29",
+    image: "/assets/news/hamilton-montessori-vidyarambham-2026.jpg",
+    imageAlt: "Hamilton Montessori School Vidyarambham special offer poster",
+    summary: "Hamilton Montessori School (Kakkanad, Kochi and Karaparamba, Calicut) has opened admissions with a Vidyarambham special offer: ₹4,000 off on-the-spot admissions on Vidyarambham day, or 50% off admission fees. The offer is valid until 31 October 2026.",
+    body: [
+      "Hamilton Montessori School has announced a Vidyarambham special offer as admissions open at its Kakkanad (Kochi) and Karaparamba (Calicut) centres.",
+      "Parents can get ₹4,000 off for on-the-spot admissions on Vidyarambham day, or 50% off on admission fees. The poster says the offer is valid until 31 October 2026.",
+      "Programs listed are Baby Care, Nursery, Pre KG, Mont 1, Mont 2 and an afterschool facility. For admissions, call 8075546819. InfoparkDaily is not the school; confirm fees and offer terms with Hamilton Montessori School directly."
+    ],
+    highlights: [
+      "₹4,000 off on-the-spot admissions on Vidyarambham day, or 50% off admission fees",
+      "Offer valid until 31 October 2026",
+      "Programs: Baby Care, Nursery, Pre KG, Mont 1, Mont 2, Afterschool facility",
+      "Centres: Kakkanad, Kochi · Karaparamba, Calicut",
+      "Phone: 8075546819"
+    ],
+    attachments: [],
+    source: "Hamilton Montessori School",
+    sourceUrl: "",
+    featured: false
+  },
+  {
     id: "cubet-ai-cube-studio-infopark-2026",
     title: "Cubet opens new office and AI Cube Studio research facility at Infopark Kochi",
     category: "AI City",

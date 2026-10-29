@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v415-igfeed-20261029";
+const CACHE_NAME = "infoparkdaily-v416-hamilton-20261030";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -80,7 +80,7 @@ const PRELOAD_ASSETS = [
   "./js/social.js?v=20260902a",
   "./js/social-post.js?v=20260815b",
   "./assets/media/onam-bg.svg",
-  "./data/news-data.js?v=20261027itnews",
+  "./data/news-data.js?v=20261030hamilton",
   "./js/news.js?v=20260805x",
   "./js/news-article.js?v=20260805l",
   "./manifest.webmanifest",
