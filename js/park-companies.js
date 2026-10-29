@@ -105,8 +105,22 @@
     });
   }
 
+  function profilePath(c) {
+    const slug = c.slug || companySlug(c.name);
+    return slug ? `/company/${encodeURIComponent(slug)}/` : "";
+  }
+
+  function companySlug(name) {
+    return String(name || "")
+      .trim()
+      .toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
   function card(c) {
-    const profileHref = c.website || "";
+    const profileHref = profilePath(c);
     const domains = (c.domains || []).filter(Boolean).slice(0, 4);
     const mark = initials(c.name);
     const site = displaySite(c.website);
@@ -116,12 +130,12 @@
       : `<span>${escapeHtml(mark)}</span>`;
 
     const mainEl = profileHref
-      ? `<a class="co-row-main" href="${escapeAttr(profileHref)}" target="_blank" rel="noopener noreferrer">`
+      ? `<a class="co-row-main" href="${escapeAttr(profileHref)}">`
       : `<div class="co-row-main">`;
     const mainClose = profileHref ? `</a>` : `</div>`;
 
-    const profileBtn = profileHref
-      ? `<a class="co-row-btn" href="${escapeAttr(profileHref)}" target="_blank" rel="noopener noreferrer">Website</a>`
+    const profileBtn = c.website
+      ? `<a class="co-row-btn" href="${escapeAttr(c.website)}" target="_blank" rel="noopener noreferrer">Official website</a>`
       : "";
     const actions = profileBtn
       ? `<div class="co-row-actions">${profileBtn}</div>`

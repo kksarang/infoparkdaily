@@ -210,13 +210,51 @@
     return bags.flat().filter(Boolean);
   }
 
+  // Legal suffixes dropped when matching "Aabasoft" with "Aabasoft Technologies India Private Limited".
+  const LEGAL_WORDS = new Set(["pvt", "private", "ltd", "limited", "llp", "llc", "inc", "p", "co", "company", "india", "the", "and"]);
+
+  function coreSlug(name) {
+    return companySlug(name)
+      .split("-")
+      .filter((word) => word && !LEGAL_WORDS.has(word))
+      .join("-");
+  }
+
+  // Extra words allowed after a shared name: "Wipro" matches "Wipro Technologies" but not "Wipro Foods".
+  const GENERIC_WORDS = new Set([
+    "technologies", "technology", "tech", "solutions", "solution", "systems", "software", "services", "service",
+    "business", "it", "infotech", "infosystems", "consultancy", "consulting", "labs", "global", "digital", "group"
+  ]);
+
+  function sameCompany(a, b) {
+    if (!a || !b) return false;
+    if (a === b) return true;
+    const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+    if (short.length < 5 || !long.startsWith(`${short}-`)) return false;
+    return long
+      .slice(short.length + 1)
+      .split("-")
+      .every((word) => GENERIC_WORDS.has(word));
+  }
+
   function findDirectory(slug) {
     const list = allDirectoryCompanies();
-    return (
-      list.find((c) => c.slug === slug) ||
-      list.find((c) => companySlug(c.name) === slug) ||
-      null
-    );
+    const exact = list.find((c) => c.slug === slug) || list.find((c) => companySlug(c.name) === slug);
+    if (exact) return exact;
+    const core = coreSlug(slug);
+    const loose = list.filter((c) => sameCompany(coreSlug(c.name), core));
+    // The same company can be listed in more than one park; different companies are ambiguous.
+    const cores = new Set(loose.map((c) => coreSlug(c.name)));
+    return loose.length && cores.size === 1 ? loose[0] : null;
+  }
+
+  function jobsFor(slug, directory) {
+    if (typeof JOBS === "undefined") return [];
+    const target = coreSlug(directory ? directory.name : slug);
+    return JOBS.filter((job) => {
+      const jobSlug = companySlug(job.company);
+      return jobSlug === slug || sameCompany(coreSlug(job.company), target);
+    });
   }
 
   function pickAbout(jobs, directory) {
@@ -465,7 +503,7 @@
       roleLocations.push(location);
     });
     roleLocations.sort((a, b) => a.localeCompare(b));
-    const showRoleFilter = openRoles.length + expiredRoles.length > 4;
+    const showRoleFilter = openRoles.length + expiredRoles.length > 1;
     const roleFilter = showRoleFilter
       ? `<form class="cp-role-filter" id="cp-role-filter" role="search">
           <label class="cp-role-field">
@@ -489,6 +527,14 @@
               <option value="">Fresher and experienced</option>
               <option value="fresher">Fresher</option>
               <option value="experienced">Experienced</option>
+            </select>
+          </label>
+          <label class="cp-role-field">
+            <span>Sort</span>
+            <select id="cp-role-sort" name="sort">
+              <option value="newest">Newest first</option>
+              <option value="closing">Closing soon</option>
+              <option value="title">Role A–Z</option>
             </select>
           </label>
         </form>`
@@ -530,6 +576,11 @@
                 <a class="cp-btn cp-btn--primary" href="${openRoles.length ? "#cp-open-roles" : expiredRoles.length ? "#cp-closed-roles" : "/jobs/"}">${
                   openRoles.length ? "View open roles" : expiredRoles.length ? "See recent roles" : "Browse jobs"
                 }</a>
+                ${
+                  about.website && /^https?:\/\//i.test(about.website)
+                    ? `<a class="cp-btn cp-btn--ghost" href="${escapeAttr(about.website)}" target="_blank" rel="noopener noreferrer">Official website ↗</a>`
+                    : ""
+                }
                 ${
                   about.officialUrl
                     ? `<a class="cp-btn cp-btn--ghost" href="${escapeAttr(about.officialUrl)}" target="_blank" rel="noopener noreferrer">Official listing</a>`
@@ -655,9 +706,25 @@
       return hay.includes(query);
     }
 
+    function sortRoles(items, mode) {
+      if (mode === "title") {
+        return items.slice().sort((a, b) => String(a.role).localeCompare(String(b.role)));
+      }
+      if (mode === "closing") {
+        // Dated deadlines first (soonest first); rolling / undated after, newest first.
+        const due = (item) => {
+          const ts = parseIso(item.job && item.job.applyDeadline);
+          return ts === null ? Infinity : ts;
+        };
+        return items.slice().sort((a, b) => due(a) - due(b) || String((b.job || {}).postedDate || "").localeCompare(String((a.job || {}).postedDate || "")));
+      }
+      return items;
+    }
+
     const queryInput = document.getElementById("cp-role-query");
     const locationInput = document.getElementById("cp-role-location");
     const experienceInput = document.getElementById("cp-role-experience");
+    const sortInput = document.getElementById("cp-role-sort");
     const openList = document.getElementById("cp-open-list");
     const closedList = document.getElementById("cp-closed-list");
     const openCount = document.getElementById("cp-open-count");
@@ -671,15 +738,18 @@
       const query = String((queryInput && queryInput.value) || "").trim().toLowerCase();
       const location = locationInput ? locationInput.value : "";
       const experience = experienceInput ? experienceInput.value : "";
+      const sort = sortInput ? sortInput.value : "newest";
       const filtering = Boolean(query || location || experience);
-      const open = openRoles.filter((item) => roleMatches(item, query, location, experience));
-      const closed = expiredRoles.filter((item) => roleMatches(item, query, location, experience));
+      const reordered = sort !== "newest";
+      const open = sortRoles(openRoles.filter((item) => roleMatches(item, query, location, experience)), sort);
+      const closed = sortRoles(expiredRoles.filter((item) => roleMatches(item, query, location, experience)), sort);
       if (openList) {
-        openList.innerHTML = !filtering ? idleOpenHtml : open.length ? renderRoleList(open, false) : "";
+        openList.innerHTML =
+          !filtering && !reordered ? idleOpenHtml : open.length ? renderRoleList(open, false) : filtering ? "" : idleOpenHtml;
       }
       if (openCount) openCount.textContent = String(filtering ? open.length : openRoles.length);
       if (closedList) {
-        closedList.innerHTML = !filtering ? idleClosedHtml : closed.length ? renderRoleList(closed, false) : "";
+        closedList.innerHTML = !filtering && !reordered ? idleClosedHtml : closed.length ? renderRoleList(closed, false) : "";
       }
       if (closedCount) closedCount.textContent = String(filtering ? closed.length : expiredRoles.length);
       if (closedSection) closedSection.hidden = filtering && !closed.length;
@@ -699,6 +769,9 @@
     }
     if (experienceInput) {
       experienceInput.addEventListener("change", paintRoleFilter);
+    }
+    if (sortInput) {
+      sortInput.addEventListener("change", paintRoleFilter);
     }
     const roleForm = document.getElementById("cp-role-filter");
     if (roleForm) {
@@ -737,8 +810,8 @@
     return;
   }
 
-  const jobs = typeof JOBS !== "undefined" ? JOBS.filter((job) => companySlug(job.company) === slug) : [];
   const directory = findDirectory(slug);
+  const jobs = jobsFor(slug, directory);
   if (!directory && !jobs.length) {
     renderMissing();
     return;
