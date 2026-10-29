@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v417-order-20261030";
+const CACHE_NAME = "infoparkdaily-v418-schema-20261030";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -69,7 +69,7 @@ const PRELOAD_ASSETS = [
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260905a",
   "./js/job-apply.js?v=20260904g",
-  "./js/job.js?v=20261021aaba",
+  "./js/job.js?v=20261030schema",
   "./js/company.js?v=20261029profile",
   "./js/park-companies.js?v=20261029profile",
   "./data/infopark-companies-data.js?v=20260830d",

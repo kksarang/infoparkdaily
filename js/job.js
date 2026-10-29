@@ -705,30 +705,47 @@
     `;
   }
 
+  // Locality for structured data comes from the job's own location; unknown stays unset.
+  const SCHEMA_LOCALITIES = [
+    [/infopark|kochi|cochin|ernakulam|kakkanad|kalamassery|edappally|aluva|angamaly/i, "Kochi"],
+    [/technopark|trivandrum|thiruvananthapuram|kazhakoottam/i, "Thiruvananthapuram"],
+    [/cyberpark|calicut|kozhikode/i, "Kozhikode"],
+    [/thrissur/i, "Thrissur"],
+    [/palakkad/i, "Palakkad"],
+    [/kottayam/i, "Kottayam"],
+    [/alappuzha/i, "Alappuzha"],
+    [/malappuram/i, "Malappuram"],
+    [/kannur/i, "Kannur"],
+    [/bangalore|bengaluru/i, "Bengaluru"],
+    [/hyderabad/i, "Hyderabad"],
+    [/chennai/i, "Chennai"]
+  ];
+  const KERALA_RE = /kerala|infopark|technopark|cyberpark|kochi|ernakulam|trivandrum|thiruvananthapuram|calicut|kozhikode|thrissur|palakkad|kottayam|alappuzha|malappuram|kannur/i;
+
   function injectJobPostingSchema(job) {
     const old = document.getElementById("job-posting-schema");
     if (old) old.remove();
+    // Expired listings must not be advertised as open job postings.
+    if (deadlineStatus(job) === "expired") return;
     const s = job.schema || {};
-    const apply =
-      job.applyLink && !String(job.applyLink).startsWith("mailto:")
-        ? job.applyLink
-        : job.email
-          ? `mailto:${job.email}`
-          : job.canonicalUrl || window.location.href;
+    const applyUrl = /^https?:\/\//i.test(String(job.applyLink || "")) ? job.applyLink : "";
     const empMap = {
       "Full-time": "FULL_TIME",
       "Full Time": "FULL_TIME",
+      "Part-time": "PART_TIME",
       Internship: "INTERN",
       Contract: "CONTRACTOR",
       Temporary: "TEMPORARY",
       Apprenticeship: "INTERN"
     };
-    const employmentType = empMap[job.employmentType] || empMap[s.employmentType] || "FULL_TIME";
+    const employmentType = empMap[job.employmentType] || empMap[s.employmentType] || undefined;
+    const where = [job.location, job.address].filter(Boolean).join(" ");
+    const locality = (SCHEMA_LOCALITIES.find(([re]) => re.test(where)) || [])[1];
     const data = {
       "@context": "https://schema.org",
       "@type": "JobPosting",
       title: s.title || (job.roles || [])[0] || job.company,
-      description: job.jobSummary || job.seoDescription || job.companyDetails || "",
+      description: job.jobSummary || job.seoDescription || job.workDetails || job.description || job.companyDetails || "",
       datePosted: s.datePosted || job.postedDate || undefined,
       validThrough:
         s.validThrough ||
@@ -746,8 +763,8 @@
         address: {
           "@type": "PostalAddress",
           streetAddress: s.streetAddress || job.address || undefined,
-          addressLocality: s.addressLocality || "Kochi",
-          addressRegion: s.addressRegion || "Kerala",
+          addressLocality: s.addressLocality || locality,
+          addressRegion: s.addressRegion || (KERALA_RE.test(where) ? "Kerala" : undefined),
           postalCode: s.postalCode || undefined,
           addressCountry: s.addressCountry || "IN"
         }
@@ -757,7 +774,7 @@
         name: "InfoparkDaily",
         value: s.identifier || job.id
       },
-      directApply: Boolean(apply),
+      directApply: Boolean(applyUrl),
       url: job.canonicalUrl || window.location.href,
       applicantLocationRequirements: {
         "@type": "Country",

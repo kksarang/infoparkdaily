@@ -1,0 +1,48 @@
+name: Jobs data quality
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 07:00 IST daily
+  workflow_dispatch:
+  push:
+    paths:
+      - "pipeline/**"
+      - "tests/pipeline/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jobs-quality
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Unit tests (dates, URLs, duplicates, status)
+        run: python -m unittest discover -s tests/pipeline -t .
+      - name: Probe sources
+        run: python -m pipeline.check_sources
+      - name: Data-quality and coverage reports
+        run: python -m pipeline.quality
+      - name: Commit reports
+        if: github.event_name != 'push'
+        run: |
+          git add reports
+          if git diff --cached --quiet; then
+            echo "No report changes"
+            exit 0
+          fi
+          git config user.name "infoparkdaily-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update jobs data-quality reports"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
