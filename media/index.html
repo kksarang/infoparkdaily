@@ -113,6 +113,7 @@
 
     <link rel="stylesheet" href="/css/styles.css?v=20261013nav" />
     <link rel="stylesheet" href="/css/about-editorial.css?v=20261018g" />
+    <link rel="stylesheet" href="/css/instagram-feed.css?v=20261029ig" />
 </head>
   <body class="about-body dark">
     <script>
@@ -391,11 +392,19 @@
           </p>
         </div>
         <nav class="ab-social-nav" aria-label="Social media works">
+          <a href="/social/#latest">Latest videos &amp; posters <span aria-hidden="true">→</span></a>
           <a href="/social/">View social list <span aria-hidden="true">→</span></a>
           <a href="/cpe/">CPE · Opscloud <span aria-hidden="true">→</span></a>
           <a href="/onam/">AAVESHAM 2K26 <span aria-hidden="true">→</span></a>
           <a href="/rajaonam/">RAJAONAM 2026 <span aria-hidden="true">→</span></a>
         </nav>
+      </section>
+
+      <section class="ab-section" aria-labelledby="au-latest-title">
+        <p class="ab-label"><span>Instagram</span></p>
+        <h2 id="au-latest-title">Latest videos &amp; posters</h2>
+        <div data-ig-feed data-ig-limit="6"></div>
+        <p><a href="/social/#latest">See all videos &amp; posters →</a></p>
       </section>
 
       <section class="ab-section" aria-labelledby="au-journey-title">
@@ -607,5 +616,7 @@
 
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261017news" defer></script>
+    <script src="/data/instagram-feed.js" defer></script>
+    <script src="/js/instagram-feed.js?v=20261029ig" defer></script>
   </body>
 </html>
