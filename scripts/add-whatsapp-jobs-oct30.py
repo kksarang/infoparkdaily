@@ -46,6 +46,42 @@ JOBS = [
         address="Edachira, Kakkanad",
         how="Interested? Contact 80755 46819",
     ),
+    job(
+        "kmrl-apprenticeship-2026-27-kochi",
+        "Kochi Metro Rail Limited (KMRL)",
+        "Apprenticeship 2026–27 (Graduate / Diploma / ITI) – 70 vacancies",
+        "Kochi, Kerala",
+        roles=["Graduate Apprentice (NATS)", "Diploma Apprentice (NATS)", "ITI Apprentice (NAPS)"],
+        experience="fresher",
+        experience_range="Apprenticeship · Graduate / Diploma / ITI",
+        apply_link="https://kochimetro.org/careers/",
+        employment_type="Apprenticeship (1 year)",
+        deadline="2026-11-10",
+        tags=["Government", "Apprenticeship", "Freshers", "Kochi Metro", "Kochi"],
+        work_mode="1-year apprenticeship · Kochi",
+        work_details=(
+            "Kochi Metro Rail Limited has notified 70 apprenticeship vacancies for 2026–27 (notification ref. "
+            "KMRL/Apprenticeship/2026-27/HR-Admin/01) for Graduate, Diploma and ITI candidates under the NATS and NAPS schemes. "
+            "One-year programme in Kochi. Applications open 15 October 2026 and close 10 November 2026 (23:59). "
+            "Monthly stipend as per the applicable apprenticeship scheme and the official notification."
+        ),
+        requirements=[
+            "Graduate, Diploma or ITI qualification, as per the official KMRL notification",
+            "ITI candidates: register on NAPS (apprenticeshipindia.gov.in)",
+            "Graduate / Diploma candidates: register on NATS (nats.education.gov.in)",
+            "Eligibility and terms as per the official notification",
+        ],
+        benefits=["Monthly stipend as per the applicable apprenticeship scheme"],
+        qualification="Graduate / Diploma / ITI",
+        website="https://kochimetro.org/careers/",
+        address="KMRL Corporate Office, Kaloor, Kochi",
+        source="Company careers page",
+        how=(
+            "1) ITI: register on NAPS – https://www.apprenticeshipindia.gov.in · Graduate/Diploma: register on NATS – "
+            "https://nats.education.gov.in. 2) Submit the application forms to the KMRL Corporate Office, Kaloor, Kochi, "
+            "as instructed in the official notification at https://kochimetro.org/careers/. Last date: 10 Nov 2026."
+        ),
+    ),
 ]
 
 

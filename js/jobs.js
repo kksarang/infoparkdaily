@@ -619,13 +619,18 @@
     return Number.isFinite(n) && n > 0 ? n : 0;
   }
 
+  function isInfoparkJob(job) {
+    return jobRegion(job).toLowerCase().includes("infopark") || job.infoparkVerified === true || job.source === "Infopark";
+  }
+
+  // Listing order: the priority-one pin, then Infopark jobs, then everything else.
+  function groupRank(job) {
+    if (pinRank(job) === 1) return 0;
+    return isInfoparkJob(job) ? 1 : 2;
+  }
+
   function comparePin(a, b) {
-    const aPin = pinRank(a);
-    const bPin = pinRank(b);
-    if (aPin && bPin && aPin !== bPin) return aPin - bPin;
-    if (aPin && !bPin) return -1;
-    if (!aPin && bPin) return 1;
-    return 0;
+    return groupRank(a) - groupRank(b);
   }
 
   function newestFirst(a, b) {

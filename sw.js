@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v416-hamilton-20261030";
+const CACHE_NAME = "infoparkdaily-v417-order-20261030";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -62,7 +62,7 @@ const PRELOAD_ASSETS = [
   "./js/cyberpark-jobs.js?v=20260805p",
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
-  "./js/jobs.js?v=20261021refer2",
+  "./js/jobs.js?v=20261030order",
   "./js/ats-checker.js?v=20260911d",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
