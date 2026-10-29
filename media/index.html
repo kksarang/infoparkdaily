@@ -112,7 +112,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261013nav" />
-    <link rel="stylesheet" href="/css/about-editorial.css?v=20261018g" />
+    <link rel="stylesheet" href="/css/about-editorial.css?v=20261030revamp" />
     <link rel="stylesheet" href="/css/instagram-feed.css?v=20261029ig" />
 </head>
   <body class="about-body dark">
@@ -160,67 +160,71 @@
       </div>
     </header>
 
-    <main id="main-content" class="about-ed ab-page">
-      <section class="ab-hero" aria-labelledby="about-us-title">
-        <div class="ab-hero-stage">
-          <p class="ab-label"><span>About Us</span> · Kerala’s biggest IT community</p>
-          <h1 id="about-us-title">
-            Kerala’s biggest IT community family
-            <span>73K+ families</span>
-          </h1>
-          <p class="ab-lede">
+    <main id="main-content" class="about-ed abx">
+      <section class="abx-hero" aria-labelledby="about-us-title">
+        <div class="abx-hero-copy">
+          <p class="abx-pill"><span class="abx-dot" aria-hidden="true"></span>About Us · Kerala’s biggest IT community</p>
+          <h1 id="about-us-title">Kerala’s biggest IT community <span>family</span></h1>
+          <p class="abx-lede">
             Independent jobs, walk-ins, campus news, and career guides for Infopark, Technopark,
             and Cyberpark. Not the park. Not the employer. The community people actually follow.
           </p>
-          <div class="ab-actions">
-            <a class="ab-btn" href="/jobs/">View Jobs</a>
-            <a class="ab-btn ab-btn-ghost" href="#guides">All guides</a>
-            <a class="ab-btn ab-btn-ghost" href="/contact/">Contact</a>
+          <div class="abx-actions">
+            <a class="abx-btn" href="/jobs/">View Jobs</a>
+            <a class="abx-btn abx-btn--ghost" href="#guides">All guides</a>
+            <a class="abx-btn abx-btn--ghost" href="/contact/">Contact</a>
           </div>
         </div>
-        <ul class="ab-stats" aria-label="Community snapshot">
-          <li><strong>73K+</strong><span>Families</span></li>
-          <li><strong>3</strong><span>IT parks</span></li>
-          <li><strong>11</strong><span>Career guides</span></li>
-          <li><strong>Free</strong><span>Always independent</span></li>
-        </ul>
-      </section>
 
-      <section class="ab-owner" id="owner" aria-labelledby="au-owner-title">
-        <div class="ab-mono" aria-hidden="true">SR</div>
-        <div>
-          <p class="ab-owner-role">Owner &amp; Admin</p>
-          <h2 id="au-owner-title">Sarang Rajan</h2>
-          <p class="ab-owner-place">Infopark Kochi · Kakkanad, Kerala</p>
-        </div>
-        <div class="ab-owner-copy">
-          <p class="ab-owner-brief">
+        <aside class="abx-founder" id="owner" aria-labelledby="au-owner-title">
+          <div class="abx-founder-top">
+            <div class="abx-mono" aria-hidden="true">SR</div>
+            <div>
+              <p class="abx-eyebrow">Owner &amp; Admin</p>
+              <h2 id="au-owner-title">Sarang Rajan</h2>
+              <p class="abx-muted">Infopark Kochi · Kakkanad, Kerala</p>
+            </div>
+          </div>
+          <p>
             Started InfoparkDaily. Runs InfoparkDaily.Media, InfoparkDaily.Jobs, and Enitexa.
             Pages, reels, posts, and the full story are on his page.
           </p>
-          <div class="ab-owner-actions">
-            <a class="ab-btn" href="/sarang/">View profile</a>
-            <a class="ab-btn ab-btn-ghost" href="/contact/">Contact</a>
+          <div class="abx-actions">
+            <a class="abx-btn abx-btn--sm" href="/sarang/">View profile</a>
+            <a class="abx-btn abx-btn--sm abx-btn--ghost" href="/contact/">Contact</a>
           </div>
-        </div>
+        </aside>
+
+        <ul class="abx-stats" aria-label="Community snapshot">
+          <li><strong>73K+</strong><span>Families</span></li>
+          <li><strong>3</strong><span>IT parks</span></li>
+          <li><strong>11</strong><span>Career guides</span></li>
+          <li><strong>₹0</strong><span>Always free · independent</span></li>
+        </ul>
       </section>
 
-      <section class="ab-section" aria-labelledby="au-story-title">
-        <p class="ab-label"><span>Who we are</span></p>
-        <h2 id="au-story-title">An independent community — not Infopark official</h2>
-        <div class="ab-story-grid">
-          <article class="ab-story-card ab-story-lead ab-prose">
-            <span class="ab-kicker-num">01</span>
+      <section class="abx-section" aria-labelledby="au-story-title">
+        <header class="abx-head">
+          <p class="abx-eyebrow">Who we are</p>
+          <h2 id="au-story-title">An independent community — not Infopark official</h2>
+        </header>
+        <div class="abx-grid abx-grid--3">
+          <article class="abx-card abx-card--accent">
+            <span class="abx-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0M4 20a8 8 0 0 1 16 0" /></svg>
+            </span>
             <h3>Who we are</h3>
             <p>
               InfoparkDaily is Kerala’s biggest independent IT community family — started and run by
-              <a href="/sarang/">Sarang Rajan</a>, owner and admin.
-              Not Infopark Kerala, not Technopark, not Cyberpark. InfoparkDaily Media and InfoparkDaily Jobs
-              are the same family. Enitexa is the software and digital company behind the site.
+              <a href="/sarang/">Sarang Rajan</a>, owner and admin. Not Infopark Kerala, not Technopark,
+              not Cyberpark. InfoparkDaily Media and InfoparkDaily Jobs are the same family. Enitexa is the
+              software and digital company behind the site.
             </p>
           </article>
-          <article class="ab-story-card ab-prose">
-            <span class="ab-kicker-num">02</span>
+          <article class="abx-card">
+            <span class="abx-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /></svg>
+            </span>
             <h3>What we do</h3>
             <p>
               Daily openings across Infopark Kochi, Technopark Trivandrum, and Cyberpark — plus park news
@@ -228,8 +232,10 @@
               share roles through <a href="/recruit/">Recruit</a>.
             </p>
           </article>
-          <article class="ab-story-card ab-prose">
-            <span class="ab-kicker-num">03</span>
+          <article class="abx-card">
+            <span class="abx-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            </span>
             <h3>How jobs are sourced</h3>
             <p>
               Listings come from public park portals, company sites, LinkedIn, social posts, and reviewed
@@ -240,284 +246,203 @@
         </div>
       </section>
 
-      <section class="ab-section" aria-label="Where the community lives">
-        <p class="ab-label"><span>Coverage</span></p>
-        <h2>One community. Three parks.</h2>
-        <div class="ab-park-row">
-          <article class="ab-park">
-            <div>
-              <p class="ab-park-place">Kochi</p>
-              <h3>Infopark</h3>
-            </div>
+      <section class="abx-section" aria-labelledby="au-parks-title">
+        <header class="abx-head">
+          <p class="abx-eyebrow">Coverage</p>
+          <h2 id="au-parks-title">One community. Three parks.</h2>
+        </header>
+        <div class="abx-grid abx-grid--3">
+          <article class="abx-park abx-park--infopark">
+            <p class="abx-park-city">Kochi</p>
+            <h3>Infopark</h3>
             <p>Kakkanad — the home campus where this community started.</p>
+            <p class="abx-park-links">
+              <a href="/infopark-jobs/">Infopark jobs →</a>
+              <a href="/companies/?park=infopark">Companies →</a>
+            </p>
           </article>
-          <article class="ab-park">
-            <div>
-              <p class="ab-park-place">Trivandrum</p>
-              <h3>Technopark</h3>
-            </div>
+          <article class="abx-park abx-park--technopark">
+            <p class="abx-park-city">Trivandrum</p>
+            <h3>Technopark</h3>
             <p>Daily jobs and walk-ins across Kerala’s largest IT park.</p>
+            <p class="abx-park-links">
+              <a href="/technopark-jobs/">Technopark jobs →</a>
+              <a href="/companies/?park=technopark">Companies →</a>
+            </p>
           </article>
-          <article class="ab-park">
-            <div>
-              <p class="ab-park-place">Kozhikode</p>
-              <h3>Cyberpark</h3>
-            </div>
+          <article class="abx-park abx-park--cyberpark">
+            <p class="abx-park-city">Kozhikode</p>
+            <h3>Cyberpark</h3>
             <p>North Kerala openings in the same community family.</p>
+            <p class="abx-park-links">
+              <a href="/cyberpark-jobs/">Cyberpark jobs →</a>
+              <a href="/companies/?park=cyberpark">Companies →</a>
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="ab-section" id="guides" aria-labelledby="au-guides-title">
-        <div class="ab-head">
-          <div>
-            <p class="ab-label"><span>Career guides</span></p>
-            <h2 id="au-guides-title">All 11 InfoparkDaily guides</h2>
-          </div>
-          <p>
-            Original articles for applying safely, preparing interviews, understanding pay, and starting out in
-            Kerala IT parks. Tap any guide to read the full article.
-          </p>
-        </div>
-
-        <div class="ab-chapter">
-          <header class="ab-chapter-head">
-            <h3>Applying for a job</h3>
-            <p>From finding a listing to sending an application that gets read.</p>
-          </header>
-          <div role="group" aria-label="Application guides">
-            <a class="ab-guide" href="/guides/how-to-apply-infopark-technopark-jobs/">
-              <p class="ab-guide-tag">Process</p>
-              <h4>How to apply for Infopark &amp; Technopark jobs</h4>
-              <p>Portals, resumes, deadlines, and a safe apply checklist for Kerala IT parks.</p>
-              <span class="ab-guide-meta">~10 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/resume-guide-kerala-it-jobs/">
-              <p class="ab-guide-tag">Resume</p>
-              <h4>Resume guide for Kerala IT jobs</h4>
-              <p>ATS-friendly rules, clean layout tips, and bullets that survive recruiter screening.</p>
-              <span class="ab-guide-meta">~16 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/interview-preparation-kerala-it/">
-              <p class="ab-guide-tag">Interviews</p>
-              <h4>Interview preparation for Kerala IT companies</h4>
-              <p>Fresher and experienced rounds, language tips, and common mistakes to avoid.</p>
-              <span class="ab-guide-meta">~18 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/walk-in-interview-tips-infopark/">
-              <p class="ab-guide-tag">Walk-ins</p>
-              <h4>Walk-in interview tips for Infopark</h4>
-              <p>What to carry, how early to arrive, and how to stay professional on campus walk-in days.</p>
-              <span class="ab-guide-meta">~8 min read</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="ab-chapter">
-          <header class="ab-chapter-head">
-            <h3>Pay, offers and joining</h3>
-            <p>What the numbers mean, what to negotiate, and what to check before you sign.</p>
-          </header>
-          <div role="group" aria-label="Offer and salary guides">
-            <a class="ab-guide" href="/guides/kerala-it-salary-guide/">
-              <p class="ab-guide-tag">Salary</p>
-              <h4>Salary expectations in Kerala IT parks</h4>
-              <p>CTC breakdowns, experience bands, negotiation tactics, and compensation red flags.</p>
-              <span class="ab-guide-meta">~11 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/offer-letter-notice-period-guide/">
-              <p class="ab-guide-tag">Offer stage</p>
-              <h4>Offer letters, notice periods &amp; background checks</h4>
-              <p>Reading the contract, training bonds, resigning well, and passing verification.</p>
-              <span class="ab-guide-meta">~12 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/working-in-infopark-kochi-life/">
-              <p class="ab-guide-tag">Campus life</p>
-              <h4>Working in Infopark Kochi: commute, costs &amp; campus life</h4>
-              <p>Getting to Kakkanad, where to live, budgeting your first months, and shift realities.</p>
-              <span class="ab-guide-meta">~11 min read</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="ab-chapter">
-          <header class="ab-chapter-head">
-            <h3>Starting out, switching &amp; safety</h3>
-            <p>Guides for first-job seekers, career changers, and staying safe before you apply.</p>
-          </header>
-          <div role="group" aria-label="Career stage and safety guides">
-            <a class="ab-guide" href="/guides/fresher-guide-kochi-it-parks/">
-              <p class="ab-guide-tag">Freshers</p>
-              <h4>Fresher guide for Kochi IT parks</h4>
-              <p>What Infopark hiring looks like for first-job seekers — skills, internships, and expectations.</p>
-              <span class="ab-guide-meta">~12 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/career-switch-into-kerala-it/">
-              <p class="ab-guide-tag">Switching</p>
-              <h4>Switching careers into Kerala IT</h4>
-              <p>Realistic entry roles, evaluating training claims, and using your old career as an advantage.</p>
-              <span class="ab-guide-meta">~12 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/verify-jobs-before-you-apply/">
-              <p class="ab-guide-tag">Safety</p>
-              <h4>Verify jobs before you apply</h4>
-              <p>Red flags, fee scams, and a verification checklist before you travel or share ID proofs.</p>
-              <span class="ab-guide-meta">~7 min read</span>
-            </a>
-            <a class="ab-guide" href="/guides/kerala-it-hiring-this-week/">
-              <p class="ab-guide-tag">Editorial</p>
-              <h4>Kerala IT hiring this week</h4>
-              <p>Our weekly editorial view of hiring themes across Infopark, Technopark, and Cyberpark.</p>
-              <span class="ab-guide-meta">Updated weekly</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="ab-actions ab-guides-cta">
-          <a class="ab-btn" href="/guides/">Open guides hub</a>
-          <a class="ab-btn ab-btn-ghost" href="/jobs/">Browse open jobs</a>
-        </div>
-      </section>
-
-      <section class="ab-social" aria-labelledby="social-works-title">
-        <div>
-          <p class="ab-label"><span>InfoparkDaily presents</span></p>
-          <h2 id="social-works-title">
-            Social Media Works
-            <span>All pages &amp; posts</span>
-          </h2>
-          <p class="ab-social-copy">
-            Instagram, WhatsApp, TBC, Divine Productions, and campaign posts we add by hand.
-            Open the list, then tap a post for the details screen.
-          </p>
-        </div>
-        <nav class="ab-social-nav" aria-label="Social media works">
-          <a href="/social/#latest">Latest videos &amp; posters <span aria-hidden="true">→</span></a>
-          <a href="/social/">View social list <span aria-hidden="true">→</span></a>
-          <a href="/cpe/">CPE · Opscloud <span aria-hidden="true">→</span></a>
-          <a href="/onam/">AAVESHAM 2K26 <span aria-hidden="true">→</span></a>
-          <a href="/rajaonam/">RAJAONAM 2026 <span aria-hidden="true">→</span></a>
-        </nav>
-      </section>
-
-      <section class="ab-section" aria-labelledby="au-latest-title">
-        <p class="ab-label"><span>Instagram</span></p>
-        <h2 id="au-latest-title">Latest videos &amp; posters</h2>
-        <div data-ig-feed data-ig-limit="6"></div>
-        <p><a href="/social/#latest">See all videos &amp; posters →</a></p>
-      </section>
-
-      <section class="ab-section" aria-labelledby="au-journey-title">
-        <p class="ab-label"><span>The journey</span></p>
-        <h2 id="au-journey-title">From a page to a job portal</h2>
-        <ol class="ab-track">
+      <section class="abx-section" aria-labelledby="au-journey-title">
+        <header class="abx-head">
+          <p class="abx-eyebrow">The journey</p>
+          <h2 id="au-journey-title">From a page to a job portal</h2>
+        </header>
+        <ol class="abx-timeline">
           <li>
-            <p class="ab-step-label">Start</p>
+            <p class="abx-step">Start</p>
             <h3>A page</h3>
             <p>Sarang Rajan started daily posts, walk-in alerts, and park stories on Instagram.</p>
           </li>
           <li>
-            <p class="ab-step-label">Next</p>
+            <p class="abx-step">Next</p>
             <h3>A community</h3>
             <p>WhatsApp and broadcast grew into 73K+ families.</p>
           </li>
           <li>
-            <p class="ab-step-label">Then</p>
+            <p class="abx-step">Then</p>
             <h3>A website</h3>
             <p>infoparkdaily.online brought news and community into one home.</p>
           </li>
           <li>
-            <p class="ab-step-label">Now</p>
+            <p class="abx-step">Now</p>
             <h3>A job portal</h3>
             <p>Infopark, Technopark, and Cyberpark openings in one digest — with Enitexa behind the site.</p>
           </li>
         </ol>
       </section>
 
-      <a href="/review/" class="ab-review ab-on-yellow">
-        <div>
-          <p class="ab-label">Community feedback</p>
-          <h2>InfoparkDaily Reviews</h2>
-          <p>
-            Share your experience or read what the community says about our jobs, guides, and daily alerts.
+      <section class="abx-section abx-social" aria-labelledby="social-works-title">
+        <div class="abx-social-intro">
+          <p class="abx-eyebrow">InfoparkDaily presents</p>
+          <h2 id="social-works-title">Social Media Works</h2>
+          <p class="abx-muted">
+            Instagram, WhatsApp, TBC, Divine Productions, and campaign posts we add by hand.
+            Open the list, then tap a post for the details screen.
           </p>
-          <p class="ab-stars" aria-hidden="true">★★★★★</p>
+          <nav class="abx-linklist" aria-label="Social media works">
+            <a href="/social/#latest">Latest videos &amp; posters <span aria-hidden="true">→</span></a>
+            <a href="/social/">View social list <span aria-hidden="true">→</span></a>
+            <a href="/cpe/">CPE · Opscloud <span aria-hidden="true">→</span></a>
+            <a href="/onam/">AAVESHAM 2K26 <span aria-hidden="true">→</span></a>
+            <a href="/rajaonam/">RAJAONAM 2026 <span aria-hidden="true">→</span></a>
+          </nav>
         </div>
-        <span class="ab-review-go">View review page →</span>
-      </a>
+        <div class="abx-social-feed" aria-labelledby="au-latest-title">
+          <div class="abx-feed-head">
+            <h3 id="au-latest-title">Latest videos &amp; posters</h3>
+            <a href="/social/#latest">See all →</a>
+          </div>
+          <div data-ig-feed data-ig-limit="6"></div>
+        </div>
+      </section>
 
-      <section class="ab-section" aria-labelledby="au-notes-title">
-        <p class="ab-label"><span>Trust notes</span></p>
-        <h2 id="au-notes-title">Read this before you apply</h2>
-        <div class="ab-notes ab-prose">
-          <article class="ab-note">
+      <section class="abx-section" id="guides" aria-labelledby="au-guides-title">
+        <header class="abx-head abx-head--split">
+          <div>
+            <p class="abx-eyebrow">Career guides</p>
+            <h2 id="au-guides-title">All 11 InfoparkDaily guides</h2>
+          </div>
+          <p class="abx-muted">
+            Original articles for applying safely, preparing interviews, understanding pay, and starting out in
+            Kerala IT parks. Tap any guide to read the full article.
+          </p>
+        </header>
+        <div class="abx-grid abx-grid--3 abx-guides">
+          <section class="abx-chapter" aria-labelledby="ch-apply">
+            <h3 id="ch-apply">Applying for a job</h3>
+            <p class="abx-muted">From finding a listing to sending an application that gets read.</p>
+            <a class="abx-guide" href="/guides/how-to-apply-infopark-technopark-jobs/"><span class="abx-guide-tag">Process</span><strong>How to apply for Infopark &amp; Technopark jobs</strong><span class="abx-guide-meta">~10 min read</span></a>
+            <a class="abx-guide" href="/guides/resume-guide-kerala-it-jobs/"><span class="abx-guide-tag">Resume</span><strong>Resume guide for Kerala IT jobs</strong><span class="abx-guide-meta">~16 min read</span></a>
+            <a class="abx-guide" href="/guides/interview-preparation-kerala-it/"><span class="abx-guide-tag">Interviews</span><strong>Interview preparation for Kerala IT companies</strong><span class="abx-guide-meta">~18 min read</span></a>
+            <a class="abx-guide" href="/guides/walk-in-interview-tips-infopark/"><span class="abx-guide-tag">Walk-ins</span><strong>Walk-in interview tips for Infopark</strong><span class="abx-guide-meta">~8 min read</span></a>
+          </section>
+          <section class="abx-chapter" aria-labelledby="ch-pay">
+            <h3 id="ch-pay">Pay, offers and joining</h3>
+            <p class="abx-muted">What the numbers mean, what to negotiate, and what to check before you sign.</p>
+            <a class="abx-guide" href="/guides/kerala-it-salary-guide/"><span class="abx-guide-tag">Salary</span><strong>Salary expectations in Kerala IT parks</strong><span class="abx-guide-meta">~11 min read</span></a>
+            <a class="abx-guide" href="/guides/offer-letter-notice-period-guide/"><span class="abx-guide-tag">Offer stage</span><strong>Offer letters, notice periods &amp; background checks</strong><span class="abx-guide-meta">~12 min read</span></a>
+            <a class="abx-guide" href="/guides/working-in-infopark-kochi-life/"><span class="abx-guide-tag">Campus life</span><strong>Working in Infopark Kochi: commute, costs &amp; campus life</strong><span class="abx-guide-meta">~11 min read</span></a>
+          </section>
+          <section class="abx-chapter" aria-labelledby="ch-start">
+            <h3 id="ch-start">Starting out, switching &amp; safety</h3>
+            <p class="abx-muted">Guides for first-job seekers, career changers, and staying safe before you apply.</p>
+            <a class="abx-guide" href="/guides/fresher-guide-kochi-it-parks/"><span class="abx-guide-tag">Freshers</span><strong>Fresher guide for Kochi IT parks</strong><span class="abx-guide-meta">~12 min read</span></a>
+            <a class="abx-guide" href="/guides/career-switch-into-kerala-it/"><span class="abx-guide-tag">Switching</span><strong>Switching careers into Kerala IT</strong><span class="abx-guide-meta">~12 min read</span></a>
+            <a class="abx-guide" href="/guides/verify-jobs-before-you-apply/"><span class="abx-guide-tag">Safety</span><strong>Verify jobs before you apply</strong><span class="abx-guide-meta">~7 min read</span></a>
+            <a class="abx-guide" href="/guides/kerala-it-hiring-this-week/"><span class="abx-guide-tag">Editorial</span><strong>Kerala IT hiring this week</strong><span class="abx-guide-meta">Updated weekly</span></a>
+          </section>
+        </div>
+        <div class="abx-actions abx-center">
+          <a class="abx-btn" href="/guides/">Open guides hub</a>
+          <a class="abx-btn abx-btn--ghost" href="/jobs/">Browse open jobs</a>
+        </div>
+      </section>
+
+      <section class="abx-section" aria-labelledby="au-notes-title">
+        <header class="abx-head">
+          <p class="abx-eyebrow">Trust notes</p>
+          <h2 id="au-notes-title">Read this before you apply</h2>
+        </header>
+        <div class="abx-grid abx-grid--4">
+          <article class="abx-note">
+            <span class="abx-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M21 20v-2a4 4 0 0 0-3-3.9M16 2.1a4 4 0 0 1 0 7.8" /></svg></span>
             <h3>73K+ families</h3>
             <p>Community reach across Instagram, WhatsApp, and this site — not a census.</p>
           </article>
-          <article class="ab-note">
+          <article class="abx-note">
+            <span class="abx-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z" /></svg></span>
             <h3>Independent</h3>
             <p>Started by Sarang Rajan — not Infopark official, not a recruiter, not the employer.</p>
           </article>
-          <article class="ab-note">
+          <article class="abx-note">
+            <span class="abx-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg></span>
             <h3>Verify every job</h3>
             <p>Confirm on the company or park portal before you apply or travel.</p>
           </article>
-          <article class="ab-note">
+          <article class="abx-note abx-note--warn">
+            <span class="abx-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M5.6 5.6l12.8 12.8" /></svg></span>
             <h3>Never pay</h3>
             <p>We never collect fees. If someone asks, walk away and <a href="/contact/">tell us</a>.</p>
           </article>
         </div>
-        <p class="ab-legal">
+        <p class="abx-legal">
           <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a> ·
           <a href="/guides/verify-jobs-before-you-apply/">Job safety</a>
         </p>
       </section>
 
-      <section class="ab-play" id="campus-game" aria-labelledby="campus-game-title">
-        <div class="ab-play-copy">
-          <p class="ab-label"><span>A little play, after the workday</span></p>
-          <h2 id="campus-game-title">Infopark.<br>Off the clock.</h2>
-          <p>Meet <strong>Infopark After Hours</strong> — our free campus running game. Choose a male or female runner, explore mapped roads around Kakkanad’s Infopark, collect chai, and discover campus buildings and companies.</p>
-          <a class="ab-btn" href="/games/infopark-run/">Explore the game <span aria-hidden="true">↗</span></a>
-          <small>Play in your browser · Keyboard &amp; mobile controls · No login</small>
+      <section class="abx-section abx-duo" aria-label="Reviews and campus game">
+        <a href="/review/" class="abx-review">
+          <p class="abx-eyebrow">Community feedback</p>
+          <h2>InfoparkDaily Reviews</h2>
+          <p>Share your experience or read what the community says about our jobs, guides, and daily alerts.</p>
+          <p class="abx-stars" aria-hidden="true">★★★★★</p>
+          <span class="abx-review-go">View review page →</span>
+        </a>
+        <div class="abx-play" id="campus-game" aria-labelledby="campus-game-title">
+          <div class="abx-play-copy">
+            <p class="abx-eyebrow">A little play, after the workday</p>
+            <h2 id="campus-game-title">Infopark. Off the clock.</h2>
+            <p>Meet <strong>Infopark After Hours</strong> — our free campus running game. Choose a male or female runner, explore mapped roads around Kakkanad’s Infopark, collect chai, and discover campus buildings and companies.</p>
+            <a class="abx-btn abx-btn--sm" href="/games/infopark-run/">Explore the game <span aria-hidden="true">↗</span></a>
+            <small>Play in your browser · Keyboard &amp; mobile controls · No login</small>
+          </div>
+          <img src="/assets/infopark-game-preview.svg" width="720" height="440" alt="Illustrated campus with office buildings, palms, golden chai tokens and a runner" loading="lazy">
         </div>
-        <img src="/assets/infopark-game-preview.svg" width="720" height="440" alt="Illustrated campus with office buildings, palms, golden chai tokens and a runner" loading="lazy">
       </section>
 
-      <section class="ab-section" aria-labelledby="ab-explore-title">
-        <p class="ab-label"><span>On this site</span></p>
-        <h2 id="ab-explore-title">Explore InfoparkDaily</h2>
-        <nav class="ab-bento" aria-label="Explore InfoparkDaily">
-          <a class="ab-dest ab-dest--lead ab-on-yellow" href="/jobs/">
-            <span>
-              <strong>Jobs</strong>
-              <em>Daily openings across Infopark, Technopark, and Cyberpark.</em>
-            </span>
-            <span class="ab-dest-go">View jobs →</span>
-          </a>
-          <a class="ab-dest" href="/career-tools/">
-            <span>
-              <strong>Career Tools</strong>
-              <em>Resume builder, official park sites, and job-search guides.</em>
-            </span>
-            <span class="ab-dest-go">Open →</span>
-          </a>
-          <a class="ab-dest" href="/news/">
-            <span>
-              <strong>News</strong>
-              <em>Park news and campus stories.</em>
-            </span>
-            <span class="ab-dest-go">Open →</span>
-          </a>
-          <a class="ab-dest" href="/join/">
-            <span>
-              <strong>Join Hub</strong>
-              <em>Official job channels and community links.</em>
-            </span>
-            <span class="ab-dest-go">Open →</span>
-          </a>
+      <section class="abx-section" aria-labelledby="ab-explore-title">
+        <header class="abx-head">
+          <p class="abx-eyebrow">On this site</p>
+          <h2 id="ab-explore-title">Explore InfoparkDaily</h2>
+        </header>
+        <nav class="abx-grid abx-grid--4" aria-label="Explore InfoparkDaily">
+          <a class="abx-dest abx-dest--lead" href="/jobs/"><strong>Jobs</strong><span>Daily openings across Infopark, Technopark, and Cyberpark.</span><em>View jobs →</em></a>
+          <a class="abx-dest" href="/career-tools/"><strong>Career Tools</strong><span>Resume builder, official park sites, and job-search guides.</span><em>Open →</em></a>
+          <a class="abx-dest" href="/news/"><strong>News</strong><span>Park news and campus stories.</span><em>Open →</em></a>
+          <a class="abx-dest" href="/join/"><strong>Join Hub</strong><span>Official job channels and community links.</span><em>Open →</em></a>
         </nav>
-        <p class="ab-explore-more">
+        <p class="abx-legal">
           Also:
           <a href="/guides/">Career guides</a> ·
           <a href="/recruit/">Recruit</a> ·
@@ -525,7 +450,6 @@
           <a href="/contact/">Contact</a>
         </p>
       </section>
-
     </main>
 
     <footer class="site-footer">
