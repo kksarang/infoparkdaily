@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v420-about-20261030";
+const CACHE_NAME = "infoparkdaily-v421-sarang-20261030";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -39,8 +39,8 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
   "./css/styles.css?v=20261021refer",
-  "./css/sarang.css?v=20260905p",
-  "./js/sarang.js?v=20260905g",
+  "./css/sarang.css?v=20261030revamp",
+  "./js/sarang.js?v=20261030revamp",
   "./css/onam.css?v=20260904v",
   "./css/jobs-marketplace.css?v=20260910c",
   "./css/recruit-premium.css?v=20260905g",

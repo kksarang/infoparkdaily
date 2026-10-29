@@ -18,27 +18,50 @@
     return escapeHtml(value).replace(/'/g, "&#39;");
   }
 
+  function reelUrl(id) {
+    return "https://www.instagram.com/reel/" + encodeURIComponent(id) + "/";
+  }
+
+  // Reels load Instagram's player only when tapped, so the page doesn't open with empty black frames.
   var reelsRoot = document.getElementById("sarang-reels");
   if (reelsRoot) {
     reelsRoot.innerHTML = SARANG_REELS.map(function (item) {
-      var url = "https://www.instagram.com/reel/" + encodeURIComponent(item.id) + "/";
+      var url = reelUrl(item.id);
       return (
-        '<figure class="sarang-reel">' +
-        '<div class="sarang-reel-frame">' +
-        '<iframe title="' +
+        '<figure class="sgx-reel">' +
+        '<button type="button" class="sgx-reel-play" data-reel="' +
+        escapeAttr(item.id) +
+        '" aria-label="Play ' +
         escapeAttr(item.label) +
-        '" src="' +
-        escapeAttr(url) +
-        'embed" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>' +
-        "</div>" +
+        ' here">' +
+        '<span class="sgx-reel-icon" aria-hidden="true">▶</span>' +
+        '<span class="sgx-reel-label">' +
+        escapeHtml(item.label) +
+        "</span>" +
+        '<span class="sgx-reel-hint">Tap to play</span>' +
+        "</button>" +
         '<figcaption><a href="' +
         escapeAttr(url) +
-        '" target="_blank" rel="noopener noreferrer">' +
-        escapeHtml(item.label) +
-        " — open on Instagram</a></figcaption>" +
+        '" target="_blank" rel="noopener noreferrer">Open on Instagram ↗</a></figcaption>' +
         "</figure>"
       );
     }).join("");
+
+    reelsRoot.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-reel]");
+      if (!button) return;
+      var id = button.getAttribute("data-reel");
+      var label = button.getAttribute("aria-label") || "Instagram reel";
+      var frame = document.createElement("div");
+      frame.className = "sgx-reel-frame";
+      frame.innerHTML =
+        '<iframe title="' +
+        escapeAttr(label) +
+        '" src="' +
+        escapeAttr(reelUrl(id)) +
+        'embed" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+      button.replaceWith(frame);
+    });
   }
 
   var channelsRoot = document.getElementById("social-channels");
@@ -63,18 +86,18 @@
     channelsRoot.innerHTML = channels
       .map(function (item) {
         return (
-          '<a class="media-channel glass" href="' +
+          '<a class="sgx-channel" href="' +
           escapeAttr(item.url) +
           '" target="_blank" rel="noopener noreferrer">' +
-          '<span class="media-channel-badge media-channel-badge--' +
+          '<span class="sgx-badge sgx-badge--' +
           escapeAttr(item.tone || "ig") +
           '">' +
           escapeHtml(item.badge || "IG") +
-          "</span><div><strong>" +
+          '</span><span class="sgx-channel-copy"><strong>' +
           escapeHtml(item.name) +
           "</strong><span>" +
           escapeHtml(item.blurb || "") +
-          '</span></div><span class="media-channel-cta">' +
+          '</span></span><span class="sgx-channel-cta">' +
           escapeHtml(item.cta || "Open") +
           " →</span></a>"
         );
@@ -90,30 +113,24 @@
         return String(b.date || "").localeCompare(String(a.date || ""));
       });
       worksRoot.innerHTML = works
-        .map(function (item, index) {
+        .map(function (item) {
           return (
-            '<a class="news-card glass sw-card" href="' +
+            '<a class="sgx-work" href="' +
             escapeAttr(workHref(item)) +
-            '" style="--delay: ' +
-            index * 40 +
-            'ms">' +
-            '<div class="news-card-media sw-card-media">' +
-            '<img src="' +
+            '"><div class="sgx-work-media"><img src="' +
             escapeAttr(item.image) +
             '" alt="' +
             escapeAttr(item.imageAlt || item.title) +
-            '" loading="lazy" />' +
-            "</div>" +
-            '<div class="news-card-body"><div class="news-meta">' +
-            '<span class="news-cat">' +
+            '" loading="lazy" /></div>' +
+            '<div class="sgx-work-body"><p class="sgx-work-meta"><span>' +
             escapeHtml(item.kicker || "Social") +
-            '</span><span class="news-date">' +
+            "</span><span>" +
             escapeHtml(formatDate(item.date)) +
-            "</span></div><h3>" +
+            "</span></p><h3>" +
             escapeHtml(item.title) +
-            '</h3><p class="news-summary">' +
+            "</h3><p>" +
             escapeHtml(item.excerpt || "") +
-            '</p><span class="news-card-cta">' +
+            '</p><span class="sgx-work-cta">' +
             (item.page ? "Open event page →" : "View details →") +
             "</span></div></a>"
           );
