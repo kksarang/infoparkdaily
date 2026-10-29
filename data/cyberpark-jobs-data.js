@@ -1,9 +1,51 @@
 /**
  * InfoparkDaily — Cyberpark Kozhikode Jobs (curated)
  * Verified: UL CyberPark jobs table. Upcoming: cyberparks.in careers listings.
- * Checked 2026-10-18.
+ * Checked 2026-10-29.
  */
 var CYBERPARK_VERIFIED_JOBS = [
+  {
+    id: "cpv-lithos-technosoft-pvt-ltd-video-editor-ai-proficient-12209",
+    company: "Lithos Technosoft Pvt Ltd",
+    logo: "",
+    companyBlurb: "Lithos Technosoft Pvt Ltd · Video Editor (AI-Proficient) · Cyberpark Kozhikode",
+    location: "Cyberpark",
+    roles: ["Video Editor (AI-Proficient)"],
+    experience: "both",
+    experienceRange: "",
+    employmentType: "Full-time",
+    applyLink: "mailto:hr@lithostechnosoft.com?subject=Video%20Editor%20%28AI-Proficient%29",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-28",
+    source: "Cyberpark",
+    verified: true,
+    cyberparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Design"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "hr@lithostechnosoft.com",
+    phone: "",
+    website: "https://cyberparks.in/careers/",
+    address: "Cyberpark, Nellikkode, Kozhikode, Kerala",
+    industry: "Cyberpark company",
+    companyDetails: "Lithos Technosoft Pvt Ltd — listed on official Cyberpark Kozhikode careers.",
+    workDetails: "About the Role We are looking for a creative and technically skilled Video Editor who combines strong command of traditional editing software with hands-on experience using AI-powered tools to speed up production, enhance visuals, and generate creative assets. The ideal candidate can seamlessly blend manual editing craftsmanship with modern AI workflows. Key Responsibilities * Edit raw footage into polished videos for social media, marketing, corporate, or promotional use * Use AI tools for tasks such as auto-captioning, voice cloning/dubbing, background removal, upscaling, b-roll/footage generation, script-to-video, and AI-assisted color grading * Apply color correction, sound design, transitions, motion graphics, and visual effects * Collaborate with content, marketing, or creative teams to understand project briefs and deliver on brand guidelines * Optimize video formats/aspect ratios for different platforms (YouTube, Instagram, LinkedIn, etc.) * Maintain organized project files, version control, and asset libraries * Stay updated on emerging AI video tools and recommend workflow improvements * Manage end-to-end editing timelines and meet delivery deadlines Required Skills Traditional Editing Tools: * Adobe Premiere Pro (expert level) * Adobe After Effects (motion graphics/VFX) * Adobe Photoshop / Illustrator (basic graphics support) * DaVinci Resolve (color grading) – preferred AI Tools & Workflows (any combination): * AI video generators (Runway, Pika, Sora, Luma, etc.) * AI voice/dubbing tools (ElevenLabs, HeyGen, Descript) * AI captioning/subtitling tools (Opus Clip, CapCut AI, Descript) * AI image/video upscaling and enhancement tools * AI-assisted editing (Premiere Pro AI features, Adobe Firefly, etc.) * Prompt engineering for AI video/image generation Other",
+    workStatus: "Full-time",
+    workMode: "On-site · Cyberpark Kozhikode",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Email hr@lithostechnosoft.com. Official Cyberpark listing: https://cyberparks.in/job/lithos-technosoft-pvt-ltd-traditional-editing-tools-adobe-premiere-pro-expert-level-adobe-after-effects-motion-graphics-vfx-adobe-photoshop-illustrator-basic-graphics-support-davinci/",
+    hiringNotes: "Imported from cyberparks.in on 2026-10-29 · post 12209. Re-check with the employer before applying.",
+    description: "Video Editor (AI-Proficient) at Lithos Technosoft Pvt Ltd — Cyberpark Kozhikode careers.",
+    startingDate: "",
+    alertBucket: "upcoming",
+    officialLinks: {"cyberparkJob": "https://cyberparks.in/job/lithos-technosoft-pvt-ltd-traditional-editing-tools-adobe-premiere-pro-expert-level-adobe-after-effects-motion-graphics-vfx-adobe-photoshop-illustrator-basic-graphics-support-davinci/"},
+    pinOrder: 1,
+  },
   {
     id: "cpv-ul-retailcloud-java-technical-lead-architect-1700",
     company: "retailcloud",

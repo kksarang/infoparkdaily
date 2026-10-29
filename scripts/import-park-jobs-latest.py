@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 10, 27)  # bump when re-importing
+TODAY = date(2026, 10, 29)  # bump when re-importing
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -73,7 +73,7 @@ def infer_exp(title: str) -> tuple[str, str]:
         return "fresher", "Fresher / Trainee / Intern"
     if senior and not fresh:
         return "experienced", "Experienced"
-    return "both", "As per official posting"
+    return "both", ""
 
 
 def infer_tags(title: str) -> list[str]:
@@ -829,14 +829,14 @@ def build_technopark() -> list[dict]:
                 "id": f"tpv-{slugify(company)}-{slugify(title)}-{tid}",
                 "company": company,
                 "logo": logo,
-                "companyBlurb": f"Official Technopark listing · closes {closing or 'see portal'}.",
+                "companyBlurb": f"{company} · {title} · Technopark" + (f" · closes {closing}" if closing else ""),
                 "location": "Technopark, Trivandrum",
                 "roles": [title],
                 "experience": exp,
                 "experienceRange": exp_range,
                 "employmentType": "Internship" if re.search(r"\bintern(?:ship)?s?\b|\btrainees?\b|\bapprentices?", title.lower()) else "Full-time",
                 "applyLink": link,
-                "applyDeadline": closing or (TODAY + timedelta(days=14)).isoformat(),
+                "applyDeadline": closing,
                 "postedDate": posted or TODAY.isoformat(),
                 "source": "Technopark",
                 "verified": True,
@@ -857,13 +857,9 @@ def build_technopark() -> list[dict]:
                 "workMode": "On-site · Technopark",
                 "experienceYears": exp_range,
                 "skills": [],
-                "requirements": [
-                    "Match experience and qualifications on the official Technopark job detail page",
-                    "Updated resume as required by the company",
-                    "Verify closing date on technopark.in before applying",
-                ],
-                "responsibilities": ["Deliver role outcomes as listed on the official Technopark posting"],
-                "benefits": ["Official Technopark portal listing", "Verified by InfoparkDaily against technopark.in"],
+                "requirements": [],
+                "responsibilities": [],
+                "benefits": [],
                 "howToApply": f"Apply via official Technopark listing: {link}",
                 "hiringNotes": f"Verified {tid} · Imported {TODAY.isoformat()}. Re-check with the employer before applying.",
                 "description": f"{title} at {company} — Technopark official portal.",
@@ -939,7 +935,7 @@ def build_cyberpark_kozhikode() -> list[dict]:
         intern = bool(re.search(r"\bintern", title, re.I))
         if intern:
             exp = "fresher"
-            if exp_range == "As per official posting":
+            if not exp_range:
                 exp_range = "Fresher / Trainee / Intern"
         bullets = cyberpark_bullet_items(content)
         details = clean_cyberpark_html(content) or f"Official Cyberpark listing for {title}."
@@ -984,14 +980,9 @@ def build_cyberpark_kozhikode() -> list[dict]:
                 "workMode": "On-site · Cyberpark Kozhikode",
                 "experienceYears": exp_range,
                 "skills": [],
-                "requirements": bullets
-                or [
-                    "Match experience on the official Cyberpark listing",
-                    "Updated resume as required by the company",
-                ],
-                "responsibilities": bullets[:8]
-                or ["Deliver role outcomes as listed on the official Cyberpark posting"],
-                "benefits": ["Official Cyberpark Kozhikode careers listing", "Verified by InfoparkDaily"],
+                "requirements": bullets,
+                "responsibilities": [],
+                "benefits": [],
                 "howToApply": how,
                 "hiringNotes": (
                     f"Imported from cyberparks.in on {TODAY.isoformat()} · post {pid}. "
