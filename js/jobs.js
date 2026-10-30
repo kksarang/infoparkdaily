@@ -108,6 +108,25 @@
 
   /* ---------- misc helpers ---------- */
 
+  function normalizeText(value) {
+    return String(value || "")
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/(^|[^a-z0-9])\.net\b/g, "$1 dotnet ")
+      .replace(/\b(asp|ado|vb)\.net\b/g, "$1 dotnet")
+      .replace(/[^a-z0-9+#]+/g, " ")
+      .trim();
+  }
+
+  function textMatches(parts, query) {
+    const words = normalizeText(query).split(" ").filter(Boolean);
+    if (!words.length) return true;
+    const haystack = ` ${normalizeText(parts.join(" "))} `;
+    const compact = haystack.replace(/ /g, "");
+    return words.every((word) => haystack.includes(word) || (word.length >= 6 && compact.includes(word)));
+  }
+
   function initials(name) {
     const skip = new Set([
       "ltd",
@@ -384,7 +403,10 @@
 
   function matchesRole(job) {
     if (!roleQuery) return true;
-    return (job.roles || []).some((role) => String(role).toLowerCase().includes(roleQuery));
+    return textMatches(
+      [...(job.roles || []), job.company, job.companyBlurb, ...(job.tags || []), ...(job.skills || [])],
+      roleQuery
+    );
   }
 
   function matchesStatus(job) {
@@ -689,11 +711,12 @@
       ...(job.roles || []),
       ...(job.tags || []),
       ...(job.requirements || []),
+      ...(job.responsibilities || []),
+      ...(job.skills || []),
+      job.qualification,
       job.description || ""
-    ]
-      .join(" ")
-      .toLowerCase();
-    return haystack.includes(searchQuery);
+    ];
+    return textMatches(haystack, searchQuery);
   }
 
   function deadlineSortValue(job) {
@@ -1554,6 +1577,8 @@
     locationSelect.value = [...locationSelect.options].some((opt) => opt.value === current)
       ? current
       : "all";
+    copyOptions(locationSelect, quickLocation);
+    if (quickLocation) quickLocation.value = activeLocation;
   }
 
   function hideCompanySuggestions() {
