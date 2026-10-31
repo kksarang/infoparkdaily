@@ -1398,3 +1398,77 @@ html.theme-dark .jd-ats-free {
   background: rgba(34, 197, 94, 0.18);
   color: #86efac;
 }
+
+/* WhatsApp job alerts banner */
+.jd-wa-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: #ecfdf3;
+  border: 1px solid #bbf7d0;
+  border-left: 5px solid #22c55e;
+  border-radius: var(--jd-radius);
+}
+
+.jd-wa-icon {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: #22c55e;
+  border-radius: 50%;
+}
+
+.jd-wa-copy {
+  flex: 1;
+  min-width: 0;
+  color: var(--jd-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.jd-wa-copy strong {
+  display: block;
+  color: var(--jd-ink);
+  font-size: 1rem;
+}
+
+.jd-wa-cta {
+  flex: none;
+  padding: 10px 18px;
+  color: #052e16;
+  font-weight: 700;
+  text-decoration: none;
+  background: #4ade80;
+  border-radius: 10px;
+}
+
+.jd-wa-cta:hover {
+  background: #22c55e;
+}
+
+html.theme-dark .jd-wa-banner {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+  border-left-color: #22c55e;
+}
+
+@media (max-width: 560px) {
+  .jd-wa-banner {
+    flex-wrap: wrap;
+  }
+
+  .jd-wa-copy {
+    flex-basis: calc(100% - 58px);
+  }
+
+  .jd-wa-cta {
+    width: 100%;
+    text-align: center;
+  }
+}

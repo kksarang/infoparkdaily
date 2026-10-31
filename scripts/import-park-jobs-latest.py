@@ -20,6 +20,7 @@ UA = {
     )
 }
 TODAY = date(2026, 10, 31)  # bump when re-importing
+INFOPARK_MIN_POSTED = "2026-10-13"  # portal still lists multi-year-old rows
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "
     "employer's official channel before applying. InfoparkDaily is not a recruiter "
@@ -698,7 +699,7 @@ def build_infopark() -> list[dict]:
         posted_iso = parse_deadline(posted)
         deadline_iso = parse_deadline(deadline)
         # Portal still lists a few multi-year-old rows. Import the current batch only.
-        if posted_iso < "2026-10-13":
+        if posted_iso < INFOPARK_MIN_POSTED:
             continue
         if deadline_iso < TODAY.isoformat():
             continue

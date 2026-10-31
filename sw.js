@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v432-parks-20261031";
+const CACHE_NAME = "infoparkdaily-v435-wa-20261031";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -48,7 +48,7 @@ const PRELOAD_ASSETS = [
   "./css/contact-premium.css?v=20260911i",
   "./css/ats-checker.css?v=20260911g",
   "./css/resume-builder.css?v=20260911i",
-  "./css/job-detail-premium.css?v=20260910a",
+  "./css/job-detail-premium.css?v=20261031wa",
   "./css/company-premium.css?v=20260905a",
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
@@ -69,7 +69,7 @@ const PRELOAD_ASSETS = [
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260905a",
   "./js/job-apply.js?v=20260904g",
-  "./js/job.js?v=20261030schema",
+  "./js/job.js?v=20261031wa",
   "./js/company.js?v=20261029profile",
   "./js/park-companies.js?v=20261029profile",
   "./data/infopark-companies-data.js?v=20260830d",

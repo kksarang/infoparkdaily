@@ -604,6 +604,21 @@
     `;
   }
 
+  function whatsappAlertBanner() {
+    return `
+      <aside class="jd-wa-banner" aria-label="Job alerts on WhatsApp">
+        <span class="jd-wa-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.100 3.200 5.100 4.500.7.300 1.300.500 1.700.600.700.200 1.400.200 1.900.100.600-.100 1.700-.700 2-1.400.200-.700.200-1.200.200-1.400-.100-.100-.300-.200-.600-.300zM12 2a10 10 0 0 0-8.600 15.100L2 22l5-1.300A10 10 0 1 0 12 2z"/></svg>
+        </span>
+        <div class="jd-wa-copy">
+          <strong>Never miss a job like this</strong>
+          <span>Get daily job alerts on the InfoparkDaily WhatsApp channel. Free to join.</span>
+        </div>
+        <a class="jd-wa-cta" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">Join Free</a>
+      </aside>
+    `;
+  }
+
   function contentPanel(iconClass, title, bodyHtml) {
     if (!hasSheetBody(bodyHtml)) return "";
     return `
@@ -2192,6 +2207,7 @@
     const mainContent = `
       <div class="jd-main">
         ${contentPanel("desc", "Job description", aboutBody)}
+        ${whatsappAlertBanner()}
         ${contentPanel("req", "Requirements", listBlock(whoList))}
         ${contentPanel("nice", "Good to have", listBlock(usefulItems(job.goodToHave || [])))}
         ${contentPanel("resp", "Responsibilities", listBlock(responsibilities))}
