@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Remote jobs seen on CampusToDrive, 31 Oct 2026. Details taken from each employer's own page."""
+"""Remote jobs and internships seen on CampusToDrive, 31 Oct 2026. Details taken from each employer's own page."""
 
 from __future__ import annotations
 
@@ -106,6 +106,50 @@ JOBS = [
         qualification="Bachelor's degree in Engineering or Diploma in Web development",
         website="https://bicsom.co/jobs/web-developer-fresher/",
         how="Apply on BiCSoM's job page.",
+    ),
+    job(
+        "kaleris-cloudops-intern-chennai",
+        "Kaleris",
+        "CloudOps Intern",
+        "Chennai, India",
+        experience="fresher",
+        experience_range="Final-year students",
+        apply_link="https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/CloudOps-Intern_R-100650",
+        employment_type="Internship",
+        tags=["Internship", "Freshers", "Cloud", "Chennai"],
+        work_details="CloudOps Intern at Kaleris, a supply chain software firm, on its Chennai team. Listed by the employer as full-time.",
+        requirements=[
+            "Currently in final year of Computer Science, Information Technology or a related field",
+            "Basic understanding of Windows and Linux (Ubuntu/CentOS) fundamentals",
+            "Basic awareness of cloud computing concepts (AWS/Azure/GCP)",
+            "Strong willingness to learn and good communication skills",
+            "Good analytical and troubleshooting mindset",
+            "A plus: networking, databases, scripting (PowerShell, Bash, Python), VMware, IT security basics",
+        ],
+        responsibilities=[
+            "Assist with day-to-day cloud environment operations and monitoring under supervision",
+            "Support patch management for Windows and Linux systems",
+            "Assist with basic VMware tasks",
+            "Support installation and upkeep of endpoint security tools",
+            "Assist in building basic automation scripts",
+            "Maintain documentation and SOPs, and raise and track tickets",
+        ],
+        website="https://kaleris.wd501.myworkdayjobs.com/kaleris_careers",
+        how="Apply on Kaleris's careers page.",
+    ),
+    job(
+        "ey-gds-intern-assurance-bengaluru",
+        "EY Global Delivery Services",
+        "Intern – Assurance",
+        "Bengaluru, India",
+        experience="fresher",
+        experience_range="Internship",
+        apply_link="https://eyglobal.yello.co/jobs/qft2QEbJxByhcRnixfsoiw?job_board_id=c1riT--B2O-KySgYWsZO1Q",
+        employment_type="Internship",
+        tags=["Internship", "Assurance", "Bengaluru"],
+        work_details="EY GDS internship (job ID 1681503) in the Assurance service line, Bengaluru. The programme offers real-world exposure, hands-on experience and mentorship from EY professionals. Interns may be considered for full-time roles based on performance and business requirements.",
+        website="https://eyglobal.yello.co/jobs/qft2QEbJxByhcRnixfsoiw?job_board_id=c1riT--B2O-KySgYWsZO1Q",
+        how="Apply on EY's careers page.",
     ),
 ]
 
