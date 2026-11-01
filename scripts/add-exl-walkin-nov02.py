@@ -40,13 +40,16 @@ item = base.job(
     address=VENUE,
     walk_in="2026-11-02",
     walk_in_time="1:00 PM – 4:00 PM",
-    how=f"Walk in on Monday, 2 November 2026, 1:00 PM – 4:00 PM at {VENUE}.",
+    how=f"Call EXL Kochi on 0484 408 6000 or email Kochi.Recruitment@exlservice.com to confirm before travelling. Walk-in as announced: Monday, 2 November 2026, 1:00 PM – 4:00 PM at {VENUE}.",
 )
 item["id"] = "exl-healthcare-back-office-walkin-infopark-nov01"
 item["postedDate"] = "2026-11-01"
 item["employmentType"] = ""
 item["workStatus"] = ""
-item["hiringNotes"] = "Added 1 Nov 2026 from a shared walk-in post. Verify with the employer before attending."
+item["verified"] = False
+item["phone"] = "0484 408 6000"
+item["email"] = "Kochi.Recruitment@exlservice.com"
+item["hiringNotes"] = "Added 1 Nov 2026 from a shared walk-in post. Not confirmed by EXL: confirm with EXL before attending."
 
 path = ROOT / "data" / "jobs-data.js"
 text = path.read_text(encoding="utf-8")
