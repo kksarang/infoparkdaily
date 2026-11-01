@@ -99,6 +99,652 @@
 
 var JOBS = [
   {
+    id: "exl-executive-accounts-payable-21975-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Executive (Accounts Payable) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Executive (Accounts Payable)"],
+    experience: "both",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21975",
+    applyDeadline: "",
+    postedDate: "2026-10-31",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Executive (Accounts Payable) at EXL Kochi. Finance & Accounting · F& A Operations. Hybrid · Kochi. EXL requisition 21975.",
+    workStatus: "",
+    workMode: "Hybrid · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["M.com, B.com MBA"],
+    responsibilities: ["Excellent communication skills both verbal and written", "Should be able to deal with a large amount of invoices", "Understanding of end-to-end processes and appreciation of critical parameters", "Problem identification and analytical ability", "Strong knowledge of MS Office", "Self-initiative, drive and zeal for continuous improvement", "Ability to discharge the responsibilities in a conflicting environment", "Ability to lead in a continually challenging environment", "Conformance with Policies/Compliances", "Fosters a spirit of collaboration and team work"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21975",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 21975 · Portal posted 2026-10-31.",
+    description: "Executive (Accounts Payable) at EXL Kochi. Finance & Accounting · F& A Operations. Hybrid · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21975", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 1,
+  },
+  {
+    id: "exl-senior-executive-p2p-22131-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Senior Executive - P2P · Kochi · 2-3 years",
+    location: "Kochi, Kerala",
+    roles: ["Senior Executive - P2P"],
+    experience: "experienced",
+    experienceRange: "2-3 years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22131",
+    applyDeadline: "",
+    postedDate: "2026-10-30",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Procure to Pay", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Senior Executive - P2P at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi. EXL requisition 22131.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "2-3 years",
+    skills: [],
+    requirements: ["Graduate in commerce"],
+    responsibilities: ["Prior experience in all Accounts Payable functions, including Vendor Maintenance, Invoice Processing, Exception handling, Payments & reporting activities of the Accounts Payable", "Processing NON PO/PO Invoices. Enter time-sensitive Utility invoices and research any past due amounts to ensure for current accounts", "Payment processing", "Vendor Master Maintenance", "Vendor Reconciliations", "To ensure SLA targets are achieved", "Month-end responsibilities include ensuring that all invoices are processed by month-end", "Ability to comprehend complex information quickly & respond with clear solutions", "Minimum 2-3 years of AP experience", "Understands the need for confidentiality"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22131",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 22131 · Portal posted 2026-10-30.",
+    description: "Senior Executive - P2P at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22131", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 2,
+  },
+  {
+    id: "exl-assistant-manager-p-l-analysis-22132-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Assistant Manager (P&L Analysis) · Kochi · 3 - 5 Years",
+    location: "Kochi, Kerala",
+    roles: ["Assistant Manager (P&L Analysis)"],
+    experience: "experienced",
+    experienceRange: "3 - 5 Years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22132",
+    applyDeadline: "",
+    postedDate: "2026-10-30",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Finance", "P&L"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Assistant Manager (P&L Analysis) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi. EXL requisition 22132.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "3 - 5 Years",
+    skills: [],
+    requirements: ["Bachelors or Masters Degree in commerce or finance or semi-qualified professional accountant (Graduate (Finance) , Post-Graduate (Finance) , BBA, MBA, CA Intermediate, CMA Intermediate, CS Intermediate) 3 - 5 Years"],
+    responsibilities: ["Analyze Profit and Loss Statements: Evaluate financial performance by examining profit and loss statements to understand the company's financial health", "Prepare Detailed Reports: Create comprehensive reports on revenue, expenses, and profitability to provide insights into financial operations", "Identify and Investigate Variances: Detect and investigate any discrepancies between actual figures and budgeted or forecasted amounts to ensure accurate financial reporting and control"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22132",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 22132 · Portal posted 2026-10-30.",
+    description: "Assistant Manager (P&L Analysis) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22132", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 3,
+  },
+  {
+    id: "exl-senior-executive-invoice-to-pay-20948-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Senior Executive (Invoice to Pay) · Kochi · 2-4 years",
+    location: "Kochi, Kerala",
+    roles: ["Senior Executive (Invoice to Pay)"],
+    experience: "experienced",
+    experienceRange: "2-4 years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20948",
+    applyDeadline: "",
+    postedDate: "2026-10-12",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Senior Executive (Invoice to Pay) at EXL Kochi. Finance & Accounting · Accounts Payable. Hybrid · Kochi. EXL requisition 20948.",
+    workStatus: "",
+    workMode: "Hybrid · Kochi",
+    experienceYears: "2-4 years",
+    skills: [],
+    requirements: ["Graduate in Accounting or MBA Finance 2-4 years of experience in Accounts Payable"],
+    responsibilities: ["Must have sound knowledge of Purchase Orders, processing of PO / Non-PO or invoices along with exceptions handling", "Track invoice reconciliation aging and perform follow-ups with requestors and required approvers as needed to ensure compliance with payment terms", "Analyze and research all discrepancies / open items and resolve any queries relating to payments, provide backups for all discrepancies", "Perform quality check on invoices as per the established QC process", "Able to prepare, review & report for duplicate payments, high dollar transactions", "Ensure all assigned targets in accordance with SLA and Internal standards are met"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20948",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 20948 · Portal posted 2026-10-12.",
+    description: "Senior Executive (Invoice to Pay) at EXL Kochi. Finance & Accounting · Accounts Payable. Hybrid · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20948", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 4,
+  },
+  {
+    id: "exl-senior-executive-p2p-payment-processing-15686-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Senior Executive - P2P - Payment Processing · Kochi · 2-3 years",
+    location: "Kochi, Kerala",
+    roles: ["Senior Executive - P2P - Payment Processing"],
+    experience: "experienced",
+    experienceRange: "2-3 years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/15686",
+    applyDeadline: "",
+    postedDate: "2026-10-08",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Procure to Pay", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Senior Executive - P2P - Payment Processing at EXL Kochi. Finance & Accounting · Accounts Payable. Hybrid · Kochi. EXL requisition 15686.",
+    workStatus: "",
+    workMode: "Hybrid · Kochi",
+    experienceYears: "2-3 years",
+    skills: [],
+    requirements: ["Graduate in commerce"],
+    responsibilities: ["Prior experience in all Accounts Payable functions, including Vendor Maintenance, Invoice Processing, Exception handling, Payments & reporting activities of the Accounts Payable", "Processing NON PO/PO Invoices. Enter time-sensitive Utility invoices and research any past due amounts to ensure for current accounts", "Payment processing", "Vendor Master Maintenance", "Vendor Reconciliations", "To ensure SLA targets are achieved", "Month-end responsibilities include ensuring that all invoices are processed by month-end", "Ability to comprehend complex information quickly & respond with clear solutions", "Minimum 2-3 years of AP experience", "Understands the need for confidentiality"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/15686",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 15686 · Portal posted 2026-10-08.",
+    description: "Senior Executive - P2P - Payment Processing at EXL Kochi. Finance & Accounting · Accounts Payable. Hybrid · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/15686", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 5,
+  },
+  {
+    id: "exl-assistant-manager-claims-19303-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Assistant Manager - Claims · Kochi · 5+ years",
+    location: "Kochi, Kerala",
+    roles: ["Assistant Manager - Claims"],
+    experience: "experienced",
+    experienceRange: "5+ years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19303",
+    applyDeadline: "",
+    postedDate: "2026-10-06",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "US Healthcare", "Claims", "Leadership"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Assistant Manager - Claims at EXL Kochi. Operations · Back Office. Work from office · Kochi. EXL requisition 19303.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "5+ years",
+    skills: [],
+    requirements: ["Bachelor's degree in any field, with a preference for healthcare-related disciplines", "Minimum 5 years of experience in healthcare claims adjudication and management", "Proven track record of successfully managing and leading a team", "In-depth knowledge of Facet applications and their application in healthcare claims processing", "Hands on experience in Facets application"],
+    responsibilities: ["Manage and oversee a team of claims adjudicators, providing guidance and support", "Ensure timely and accurate processing of healthcare claims, adhering to industry standards and regulations", "Review and analyze complex claims, making informed decisions on claim adjudication", "Implement and maintain efficient workflows and processes within the claims department", "Stay updated with healthcare industry trends and changes in regulations, ensuring compliance", "Collaborate with cross-functional teams to resolve complex claims and escalate issues as needed", "Provide regular performance feedback and conduct performance appraisals for team members", "Mentor and develop team members, fostering a culture of continuous learning and improvement", "Maintain strong communication with clients and stakeholders, ensuring their satisfaction"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19303",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19303 · Portal posted 2026-10-06.",
+    description: "Assistant Manager - Claims at EXL Kochi. Operations · Back Office. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19303", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+    pinOrder: 6,
+  },
+  {
+    id: "exl-assistant-manager-accounts-receivable-19261-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Assistant Manager (Accounts Receivable) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Assistant Manager (Accounts Receivable)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19261",
+    applyDeadline: "",
+    postedDate: "2026-09-18",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Receivable", "Collections", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Assistant Manager (Accounts Receivable) at EXL Kochi. Finance & Accounting · Accounts Receivable. Hybrid · Kochi. EXL requisition 19261.",
+    workStatus: "",
+    workMode: "Hybrid · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["CA-Inter, BBM, BCom, MBA, MCom Candidate should be open to all shifts"],
+    responsibilities: ["Ensure all invoices and credit notes are produced in a timely fashion in line with SLA’s", "Ensure all billing and collections are managed effectively and customer notes updated on the collections dash-board", "Update customer collections strategy – send monthly dunning information and keep accurate records of disputed invoices at site level", "Create receipts from the bank statement and invoice daily", "Ensure receipts are posted to the correct customer accounts", "Allocate payments to the correct invoices", "Ensure the AR mailbox is managed and that all email queries are responded within SLA", "Ensure all adjustments/write offs are processed in fusion in a timely accurate manner", "Register refunds daily with AR mailbox and on the refunds log"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19261",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19261 · Portal posted 2026-09-18.",
+    description: "Assistant Manager (Accounts Receivable) at EXL Kochi. Finance & Accounting · Accounts Receivable. Hybrid · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19261", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-lead-assistant-manager-lease-fixed-asset-accounting-11954-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Lead Assistant Manager (Lease & Fixed Asset Accounting) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Lead Assistant Manager (Lease & Fixed Asset Accounting)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/11954",
+    applyDeadline: "",
+    postedDate: "2026-09-17",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "General Ledger", "Lease Accounting", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Lead Assistant Manager (Lease & Fixed Asset Accounting) at EXL Kochi. Finance & Accounting · F& A Operations. Hybrid · Kochi. EXL requisition 11954.",
+    workStatus: "",
+    workMode: "Hybrid · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["MBA Finance/ Qualified or semi qualified Chartered Accountant"],
+    responsibilities: ["Property, Lease and Fixed Asset Accounting", "Manage and oversee lease accounting processes in compliance with IFRS 16", "Review, analyze, and record lease agreements in the accounting system", "Ensure accurate recognition, measurement, and disclosure of lease liabilities and right-of-use assets", "Collaborate with cross-functional teams (procurement, legal, operations) to gather lease data and assess financial impact", "Prepare monthly, quarterly, and annual lease-related journal entries and reconciliations", "Support external and internal audits by providing necessary documentation and explanations", "Develop and maintain lease accounting policies, procedures, and controls", "Provide technical guidance on lease accounting matters to finance and business teams", "Perform monthly, quarterly and annual accounting process, includes Month End Journal Entries and Reporting Requirements"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/11954",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 11954 · Portal posted 2026-09-17.",
+    description: "Lead Assistant Manager (Lease & Fixed Asset Accounting) at EXL Kochi. Finance & Accounting · F& A Operations. Hybrid · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/11954", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-lead-assistant-manager-accounts-payable-19875-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Lead Assistant Manager (Accounts Payable) · Kochi · 6-8 years",
+    location: "Kochi, Kerala",
+    roles: ["Lead Assistant Manager (Accounts Payable)"],
+    experience: "experienced",
+    experienceRange: "6-8 years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19875",
+    applyDeadline: "",
+    postedDate: "2026-09-14",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Finance", "Leadership"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Lead Assistant Manager (Accounts Payable) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi. EXL requisition 19875.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "6-8 years",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance", "Minimum 4-5 years of experience for AM and 6-8 years for LAM in an insurance process", "4-8 years prior experience of working in Accounts Payable processes", "Must have done reporting, quality audits & trainings", "Must have client management experience"],
+    responsibilities: ["Understanding of Accounts Payable functions such as invoice processing, payments, vendor master data and T&E", "Sound knowledge of ERP systems and applications used for invoice processing, payments, vendor master data and T&E", "Understanding of type of purchase orders, goods receipt notes, details of invoices from the vendor/supplier", "Should have knowledge of Vendor set for forms, new vendor set-ups, vendor modifications and different payment terms", "Experience in Analysing invoices and expense reports for accuracy and eligibility for payment", "Facilitating payments under different payment terms/currency/bank details, enablement of specific tax conditions and approval procedures", "Performing quality audits for daily, weekly, and monthly transactions", "Monthly preparation of performance report and discussion with stakeholders", "Act as liaison between team members and management & bring issues/concerns to management", "Managing teams and their performance reviews"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19875",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19875 · Portal posted 2026-09-14.",
+    description: "Lead Assistant Manager (Accounts Payable) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19875", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-analyst-procure-to-pay-19887-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Analyst (Procure to Pay) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Analyst (Procure to Pay)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19887",
+    applyDeadline: "",
+    postedDate: "2026-09-14",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Procure to Pay", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Analyst (Procure to Pay) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi. EXL requisition 19887.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance"],
+    responsibilities: ["Responsible for Procure to Pay activities and operations", "Should have excellent command and prior work experience on Accounts Payable functions such as invoice processing, payments, vendor master data and T&E", "Require expert knowledge and rich experience on ERP systems and applications used in Accounts Payable space", "Ensure timely payment of vendor/supplier invoices and expense vouchers along with maintaining accurate financial records and control reports", "Preparation of accounts payable register and related reports/performance report", "Conduct performance reviews, daily huddles, One-on-One's and feedback sessions with the team", "Review of processing errors along with root cause analysis (RCA) and mitigation plan", "Collaborate with team and team leads to Identify and resolve escalations highlighted from the client and build controls & action plans", "Perform reviews on production, quality, SLA targets to ensure smooth operational delivery", "Scheduling and managing monthly business reviews and governance calls with internal and external stakeholders"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19887",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19887 · Portal posted 2026-09-14.",
+    description: "Analyst (Procure to Pay) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19887", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-analyst-insurance-cash-application-19889-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Analyst (Insurance Cash Application) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Analyst (Insurance Cash Application)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19889",
+    applyDeadline: "",
+    postedDate: "2026-09-14",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Insurance", "Cash Application", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Analyst (Insurance Cash Application) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi. EXL requisition 19889.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance"],
+    responsibilities: ["Understanding of Insurance Finance and Accounting", "Working knowledge of Cash Application, Cash in Suspense and Cash Reconciliation", "Mailbox management and escalation handling & handling billing enquiries of customers", "Should be able to manage a team and coach them continuously to achieve business goals", "To ensure complete operations management for end to end and handle any escalation w.r.t. any operational issue along with performing against all SLAs", "To ensure timely and accurate delivery of daily, weekly, monthly, and periodic processing of client requirements and interact with a client on a day-to-day basis responding to their requirements at short notice by re-aligning priorities", "Provide coaching and feedback to team members to enable them to improve their performance", "Prepare and share weekly reports/ update, manage escalation, prepare RCA and its documentation", "Help team in building strong cross training framework along with managing updates of process changes in SOP’s", "Ability to identify inefficient/ineffective processes and develop recommendations to enhance controls and efficiency"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19889",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19889 · Portal posted 2026-09-14.",
+    description: "Analyst (Insurance Cash Application) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19889", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-lead-assistant-manager-accounts-payable-t-e-19892-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Lead Assistant Manager (Accounts Payable - T&E) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Lead Assistant Manager (Accounts Payable - T&E)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19892",
+    applyDeadline: "",
+    postedDate: "2026-09-14",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Finance", "Leadership"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Lead Assistant Manager (Accounts Payable - T&E) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi. EXL requisition 19892.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance"],
+    responsibilities: ["Understanding of Accounts Payable functions such as invoice processing, payments, vendor master data and T&E", "Sound knowledge of ERP systems and applications used for invoice processing, payments, vendor master data and T&E", "Understanding of type of purchase orders, goods receipt notes, details of invoices from the vendor/supplier", "Should have knowledge of Vendor set for forms, new vendor set-ups, vendor modifications and different payment terms", "Experience in Analysing invoices and expense reports for accuracy and eligibility for payment", "Facilitating payments under different payment terms/currency/bank details, enablement of specific tax conditions and approval procedures", "Performing quality audits for daily, weekly, and monthly transactions", "Monthly preparation of performance report and discussion with stakeholders", "Act as liaison between team members and management & bring issues/concerns to management", "Managing teams and their performance reviews"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19892",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19892 · Portal posted 2026-09-14.",
+    description: "Lead Assistant Manager (Accounts Payable - T&E) at EXL Kochi. Finance & Accounting · Accounts Receivable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19892", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-assistant-manager-accounts-payable-19872-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Assistant Manager (Accounts Payable) · Kochi · 4-5 years",
+    location: "Kochi, Kerala",
+    roles: ["Assistant Manager (Accounts Payable)"],
+    experience: "experienced",
+    experienceRange: "4-5 years",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19872",
+    applyDeadline: "",
+    postedDate: "2026-09-11",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Accounts Payable", "Finance", "Work From Home"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Assistant Manager (Accounts Payable) at EXL Kochi. Finance · Accounts Payable. Work from home · Kochi. EXL requisition 19872.",
+    workStatus: "",
+    workMode: "Work from home · Kochi",
+    experienceYears: "4-5 years",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance", "Minimum 4-5 years of experience for AM and 6-8 years for LAM in an insurance process", "4-8 years prior experience of working in Accounts Payable processes", "Must have done reporting, quality audits & trainings", "Must have client management experience"],
+    responsibilities: ["Understanding of Accounts Payable functions such as invoice processing, payments, vendor master data and T&E", "Sound knowledge of ERP systems and applications used for invoice processing, payments, vendor master data and T&E", "Understanding of type of purchase orders, goods receipt notes, details of invoices from the vendor/supplier", "Should have knowledge of Vendor set for forms, new vendor set-ups, vendor modifications and different payment terms", "Experience in Analysing invoices and expense reports for accuracy and eligibility for payment", "Facilitating payments under different payment terms/currency/bank details, enablement of specific tax conditions and approval procedures", "Performing quality audits for daily, weekly, and monthly transactions", "Monthly preparation of performance report and discussion with stakeholders", "Act as liaison between team members and management & bring issues/concerns to management", "Managing teams and their performance reviews"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19872",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19872 · Portal posted 2026-09-11.",
+    description: "Assistant Manager (Accounts Payable) at EXL Kochi. Finance · Accounts Payable. Work from home · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19872", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-assistant-manager-insurance-collections-ar-19890-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Assistant Manager (Insurance Collections & AR) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Assistant Manager (Insurance Collections & AR)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19890",
+    applyDeadline: "",
+    postedDate: "2026-09-11",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Insurance", "Accounts Receivable", "Collections"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Assistant Manager (Insurance Collections & AR) at EXL Kochi. Finance · Accounts Receivable. Work from office · Kochi. EXL requisition 19890.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Qualifications: B. Com pass or B. Com Hons /M.com graduate/Any Finance Graduate"],
+    responsibilities: ["Understanding of Insurance Finance and Accounting", "Working knowledge of Cash Application, C ollections & accounts receivables", "Identify trends and areas of improvement in delinquent portfolios and recommend strategies", "Mailbox management and handling enquiries of customers", "Should be able to work on strict deadlines to manage client expectations", "Daily work allocation and first pass accuracy of process worked for quality assurance", "Prepare and share weekly reports/ update, manage escalation, prepare RCA and its documentation", "Help managers in building strong cross training framework along with managing updates of process changes in SOP’s", "Ability to identify inefficient/ineffective processes and develops recommendations to enhance controls and efficiency"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19890",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19890 · Portal posted 2026-09-11.",
+    description: "Assistant Manager (Insurance Collections & AR) at EXL Kochi. Finance · Accounts Receivable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19890", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-senior-manager-procure-to-pay-19888-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · Senior Manager (Procure to Pay) · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["Senior Manager (Procure to Pay)"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19888",
+    applyDeadline: "",
+    postedDate: "2026-09-11",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Procure to Pay", "Finance", "Leadership"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "Senior Manager (Procure to Pay) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi. EXL requisition 19888.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Bachelor's or Master’s degree in Accounting / B.Com or M.Com / MBA Finance"],
+    responsibilities: ["Responsible for Procure to Pay activities and operations", "Should have excellent command and prior work experience on Accounts Payable functions such as invoice processing, payments, vendor master data and T&E", "Require expert knowledge and rich experience on ERP systems and applications used in Accounts Payable space", "Ensure timely payment of vendor/supplier invoices and expense vouchers along with maintaining accurate financial records and control reports", "Preparation of accounts payable register and related reports/performance report", "Conduct performance reviews, daily huddles, One-on-One's and feedback sessions with the team", "Review of processing errors along with root cause analysis (RCA) and mitigation plan", "Collaborate with team and team leads to Identify and resolve escalations highlighted from the client and build controls & action plans", "Perform reviews on production, quality, SLA targets to ensure smooth operational delivery", "Scheduling and managing monthly business reviews and governance calls with internal and external stakeholders"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19888",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 19888 · Portal posted 2026-09-11.",
+    description: "Senior Manager (Procure to Pay) at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19888", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
+    id: "exl-s2p-portuguese-language-specialist-18687-kochi-nov2026",
+    company: "EXL",
+    logo: "",
+    companyBlurb: "EXL · S2P Portuguese Language Specialist · Kochi",
+    location: "Kochi, Kerala",
+    roles: ["S2P Portuguese Language Specialist"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/18687",
+    applyDeadline: "",
+    postedDate: "2026-09-08",
+    source: "Company careers page",
+    verified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["EXL", "Kochi", "Portuguese", "Accounts Payable", "Finance"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs",
+    address: "Kochi, Kerala",
+    industry: "",
+    companyDetails: "EXL opening listed on EXL's official careers site.",
+    workDetails: "S2P Portuguese Language Specialist at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi. EXL requisition 18687.",
+    workStatus: "",
+    workMode: "Work from office · Kochi",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Excellent communication skills both verbal and written", "Understanding end-to-end processes and appreciation of critical parameters", "Problem identification and analytical ability", "Strong knowledge of MS Office", "Self-initiative, drive and zeal for continuous improvement", "Ability to discharge the responsibilities in a conflicting environment", "Ability to lead in a continually challenging environment", "Adherence to Policies/Compliances", "Ability to coach and give feedback on an ongoing basis", "Fosters a spirit of collaboration and teamwork"],
+    responsibilities: ["Manage and lead team in performance of daily, monthly, quarterly, annual accounts payable sub-processes", "Handle complex processes activities, manage payment related activities, T&E P card management", "Work with the client team to resolve escalation procedures approved by client", "Monitor Aged Accounts Payable activities", "Manage and resolve customer enquiries", "Manage AP close, compliance preparing period close reports", "Ensure adherence to the SLA", "Ensure accurate and timely month end close processing", "Ensure all the activities are completed within due dates specified by client", "Initiate and facilitate continuous process improvements"],
+    benefits: [],
+    howToApply: "Apply on EXL careers: https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/18687",
+    hiringNotes: "Checked on EXL careers (Kochi) on 1 Nov 2026 · Requisition 18687 · Portal posted 2026-09-08.",
+    description: "S2P Portuguese Language Specialist at EXL Kochi. Finance & Accounting · Accounts Payable. Work from office · Kochi.",
+    startingDate: "",
+    officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/18687", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
+    qualification: "",
+  },
+  {
     id: "guardian-hospital-lab-pharmacy-assistant-thrissur-nov01",
     company: "Guardian Multi Speciality Hospital",
     logo: "",
@@ -256,7 +902,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33949?job=Senior%20HR%20Generalist"},
     walkinTime: "",
-    pinOrder: 1,
+    pinOrder: 7,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26518",
@@ -298,7 +944,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26518"},
-    pinOrder: 2,
+    pinOrder: 8,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26517",
@@ -340,7 +986,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26517"},
-    pinOrder: 3,
+    pinOrder: 9,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26516",
@@ -382,7 +1028,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26516"},
-    pinOrder: 4,
+    pinOrder: 10,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26515",
@@ -424,7 +1070,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26515"},
-    pinOrder: 5,
+    pinOrder: 11,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26514",
@@ -466,7 +1112,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26514"},
-    pinOrder: 6,
+    pinOrder: 12,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26513",
@@ -508,7 +1154,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26513"},
-    pinOrder: 7,
+    pinOrder: 13,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-compliance-support-executive-26512",
@@ -550,7 +1196,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26512"},
-    pinOrder: 8,
+    pinOrder: 14,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-content-writers-26511",
@@ -592,7 +1238,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26511"},
-    pinOrder: 9,
+    pinOrder: 15,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-creative-designers-26510",
@@ -634,7 +1280,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26510"},
-    pinOrder: 10,
+    pinOrder: 16,
   },
   {
     id: "ipv-infintor-solutions-llp-odoo-functional-consultant-26503",
@@ -676,7 +1322,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26503"},
-    pinOrder: 11,
+    pinOrder: 17,
   },
   {
     id: "wenoxo-flutter-operations-interns-nov01",
@@ -1852,7 +2498,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33948?job=SAP%20BW%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 12,
+    pinOrder: 18,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-sd-functional-analyst-afs-retail-domain-mandator-33947",
@@ -1894,7 +2540,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33947?job=SAP%20ECC%20SD%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 13,
+    pinOrder: 19,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-mm-functional-analyst-afs-retail-domain-mandator-33946",
@@ -1936,7 +2582,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33946?job=SAP%20ECC%20MM%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 14,
+    pinOrder: 20,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-fi-functional-analyst-retail-domain-mandatory-33945",
@@ -1978,7 +2624,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33945?job=SAP%20ECC%20FI%20Functional%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 15,
+    pinOrder: 21,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-ai-agentic-platform-architect-est-time-zone-33944",
@@ -2020,7 +2666,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33944?job=Lead%20AI%20/%20Agentic%20Platform%20Architect%20-EST%20Time%20Zone"},
     walkinTime: "",
-    pinOrder: 16,
+    pinOrder: 22,
   },
   {
     id: "tpv-azinova-technologies-p-ltd-digital-marketing-executive-33943",
@@ -2062,7 +2708,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33943?job=Digital%20Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 17,
+    pinOrder: 23,
   },
   {
     id: "tpv-kameda-infologics-p-ltd-sales-executive-business-development-33942",
@@ -2104,7 +2750,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33942?job=Sales%20Executive-%20Business%20Development"},
     walkinTime: "",
-    pinOrder: 18,
+    pinOrder: 24,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-to-hire-33941",
@@ -2146,7 +2792,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33941?job=Business%20Development%20%E2%80%93%20Intern-to-Hire"},
     walkinTime: "",
-    pinOrder: 19,
+    pinOrder: 25,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-senior-accountant-33940",
@@ -2188,7 +2834,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33940?job=Senior%20Accountant"},
     walkinTime: "",
-    pinOrder: 20,
+    pinOrder: 26,
   },
   {
     id: "tpv-prompttech-global-p-ltd-creative-designer-33939",
@@ -2230,7 +2876,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33939?job=Creative%20Designer"},
     walkinTime: "",
-    pinOrder: 21,
+    pinOrder: 27,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-33938",
@@ -2272,7 +2918,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33938?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 22,
+    pinOrder: 28,
   },
   {
     id: "tpv-prompttech-global-p-ltd-senior-odoo-techno-functional-developer-33937",
@@ -2314,7 +2960,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33937?job=Senior%20Odoo%20Techno-Functional%20Developer"},
     walkinTime: "",
-    pinOrder: 23,
+    pinOrder: 29,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-33936",
@@ -2356,7 +3002,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33936?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 24,
+    pinOrder: 30,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-delivery-manager-33935",
@@ -2398,7 +3044,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33935?job=Delivery%20Manager"},
     walkinTime: "",
-    pinOrder: 25,
+    pinOrder: 31,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-33934",
@@ -2440,7 +3086,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33934?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 26,
+    pinOrder: 32,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-solution-architect-33933",
@@ -2482,7 +3128,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33933?job=Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 27,
+    pinOrder: 33,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-33932",
@@ -2524,7 +3170,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33932?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 28,
+    pinOrder: 34,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-internetworking-analyst-network-automation-33931",
@@ -2566,7 +3212,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33931?job=Internetworking%20Analyst%20%28Network%20%26%20Automation%29"},
     walkinTime: "",
-    pinOrder: 29,
+    pinOrder: 35,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-infrastructure-support-specialist-33930",
@@ -2608,7 +3254,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33930?job=Infrastructure%20Support%20Specialist"},
     walkinTime: "",
-    pinOrder: 30,
+    pinOrder: 36,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-33929",
@@ -2650,7 +3296,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33929?job=Business%20Development%20Intern"},
     walkinTime: "",
-    pinOrder: 31,
+    pinOrder: 37,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-full-stack-developer-java-angular-33928",
@@ -2692,7 +3338,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33928?job=Full%20Stack%20Developer%20%28Java%20%26%20Angular%29"},
     walkinTime: "",
-    pinOrder: 32,
+    pinOrder: 38,
   },
   {
     id: "tpv-reizend-p-ltd-accounts-executive-ca-articleship-experience-33927",
@@ -2734,7 +3380,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33927?job=Accounts%20Executive%20%28CA%20Articleship%20Experience%29"},
     walkinTime: "",
-    pinOrder: 33,
+    pinOrder: 39,
   },
   {
     id: "tpv-onbyz-business-development-executive-33926",
@@ -2776,7 +3422,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33926?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 34,
+    pinOrder: 40,
   },
   {
     id: "tpv-onbyz-telemarketing-executive-33925",
@@ -2818,7 +3464,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33925?job=Telemarketing%20Executive"},
     walkinTime: "",
-    pinOrder: 35,
+    pinOrder: 41,
   },
   {
     id: "ipv-contactpoint-360-automation-manual-qa-tester-26502",
@@ -2860,7 +3506,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/306/26502"},
-    pinOrder: 36,
+    pinOrder: 42,
   },
   {
     id: "ipv-voyon-technology-pvt-ltd-associate-software-sales-engineer-26501",
@@ -2902,7 +3548,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/372/26501"},
-    pinOrder: 37,
+    pinOrder: 43,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26500",
@@ -2944,7 +3590,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26500"},
-    pinOrder: 38,
+    pinOrder: 44,
   },
   {
     id: "ipv-tecforz-innovations-senior-backend-developer-26499",
@@ -2986,7 +3632,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/426/26499"},
-    pinOrder: 39,
+    pinOrder: 45,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-research-and-development-flutter-development-intern-26498",
@@ -3029,7 +3675,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Flutter Internship",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26498"},
-    pinOrder: 40,
+    pinOrder: 46,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-quality-assurance-intern-26497",
@@ -3072,7 +3718,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Quality Testing Intern",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26497"},
-    pinOrder: 41,
+    pinOrder: 47,
   },
   {
     id: "tpv-zenturiotech-pvt-ltd-business-development-associate-33924",
@@ -3114,7 +3760,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33924?job=Business%20Development%20Associate"},
     walkinTime: "",
-    pinOrder: 42,
+    pinOrder: 48,
   },
   {
     id: "tpv-gnx-digital-solutions-p-ltd-rpa-developer-33923",
@@ -3156,7 +3802,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33923?job=RPA%20Developer"},
     walkinTime: "",
-    pinOrder: 43,
+    pinOrder: 49,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-senior-full-stack-dot-net-with-aws-ai-33922",
@@ -3198,7 +3844,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33922?job=Senior%20Full%20Stack%20-%20Dot%20Net%20with%20AWS%20%26%20AI"},
     walkinTime: "",
-    pinOrder: 44,
+    pinOrder: 50,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-digital-marketing-executive-3-to-6-years-33921",
@@ -3240,7 +3886,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33921?job=Digital%20Marketing%20Executive%20-%203%20to%206%20years"},
     walkinTime: "",
-    pinOrder: 45,
+    pinOrder: 51,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-intern-33920",
@@ -3282,7 +3928,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33920?job=Marketing%20%26%20Lead%20Generation%20Intern"},
     walkinTime: "",
-    pinOrder: 46,
+    pinOrder: 52,
   },
   {
     id: "tpv-genrobotic-innovations-p-ltd-travel-admin-1-2-years-33919",
@@ -3324,7 +3970,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33919?job=Travel%20Admin%20%28%201%20-%202%20Years%29"},
     walkinTime: "",
-    pinOrder: 47,
+    pinOrder: 53,
   },
   {
     id: "tpv-genrobotic-innovations-p-ltd-control-system-engineer-3-6-years-33918",
@@ -3366,7 +4012,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33918?job=Control%20System%20Engineer%20%28%203-6%20Years%29"},
     walkinTime: "",
-    pinOrder: 48,
+    pinOrder: 54,
   },
   {
     id: "tpv-ainsurtech-p-ltd-customer-support-specialist-33917",
@@ -3408,7 +4054,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33917?job=Customer%20Support%20Specialist"},
     walkinTime: "",
-    pinOrder: 49,
+    pinOrder: 55,
   },
   {
     id: "tpv-medowa-global-p-ltd-php-developer-trainee-33916",
@@ -3450,7 +4096,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33916?job=PHP%20Developer%20Trainee"},
     walkinTime: "",
-    pinOrder: 50,
+    pinOrder: 56,
   },
   {
     id: "tpv-trenser-technology-solutions-p-ltd-lead-senior-devops-engineer-33915",
@@ -3492,7 +4138,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33915?job=Lead/Senior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 51,
+    pinOrder: 57,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-33914",
@@ -3534,7 +4180,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33914?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 52,
+    pinOrder: 58,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-33913",
@@ -3576,7 +4222,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33913?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience"},
     walkinTime: "",
-    pinOrder: 53,
+    pinOrder: 59,
   },
   {
     id: "ipv-kott-software-private-limited-software-implementation-support-specialist-engineer-26496",
@@ -3618,7 +4264,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/143/26496"},
-    pinOrder: 54,
+    pinOrder: 60,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-digital-marketing-manager-26495",
@@ -3660,7 +4306,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26495"},
-    pinOrder: 55,
+    pinOrder: 61,
   },
   {
     id: "ipv-oleovista-solutions-private-limited-lead-python-developer-senior-backend-technical-lead-26494",
@@ -3702,7 +4348,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/566/26494"},
-    pinOrder: 56,
+    pinOrder: 62,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-technical-lead-python-java-nodejs-26493",
@@ -3744,7 +4390,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26493"},
-    pinOrder: 57,
+    pinOrder: 63,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-admin-executive-office-assistant-26492",
@@ -3786,7 +4432,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26492"},
-    pinOrder: 58,
+    pinOrder: 64,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-business-development-intern-26491",
@@ -3828,7 +4474,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26491"},
-    pinOrder: 59,
+    pinOrder: 65,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-research-and-development-production-intern-26490",
@@ -3871,7 +4517,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Production Intern",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26490"},
-    pinOrder: 60,
+    pinOrder: 66,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-financial-analyst-26489",
@@ -3913,7 +4559,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26489"},
-    pinOrder: 61,
+    pinOrder: 67,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-talent-recruiter-it-recruitment-26488",
@@ -3955,7 +4601,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26488"},
-    pinOrder: 62,
+    pinOrder: 68,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26487",
@@ -3997,7 +4643,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26487"},
-    pinOrder: 63,
+    pinOrder: 69,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26486",
@@ -4039,7 +4685,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26486"},
-    pinOrder: 64,
+    pinOrder: 70,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26485",
@@ -4081,7 +4727,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26485"},
-    pinOrder: 65,
+    pinOrder: 71,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26484",
@@ -4123,7 +4769,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26484"},
-    pinOrder: 66,
+    pinOrder: 72,
   },
   {
     id: "franciscan-solutions-outreach-specialist-noida-oct30",
@@ -4243,7 +4889,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's degree",
     salaryRange: "₹20,000 – ₹30,000 per month",
-    pinOrder: 67,
+    pinOrder: 73,
   },
   {
     id: "infocampus-cre-trainee-calicut-oct30",
@@ -5785,7 +6431,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26483"},
-    pinOrder: 68,
+    pinOrder: 74,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26482",
@@ -5827,7 +6473,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26482"},
-    pinOrder: 69,
+    pinOrder: 75,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26481",
@@ -5869,7 +6515,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26481"},
-    pinOrder: 70,
+    pinOrder: 76,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26480",
@@ -5911,7 +6557,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26480"},
-    pinOrder: 71,
+    pinOrder: 77,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26479",
@@ -5953,7 +6599,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26479"},
-    pinOrder: 72,
+    pinOrder: 78,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26478",
@@ -5995,7 +6641,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26478"},
-    pinOrder: 73,
+    pinOrder: 79,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26477",
@@ -6037,7 +6683,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26477"},
-    pinOrder: 74,
+    pinOrder: 80,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26476",
@@ -6079,7 +6725,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26476"},
-    pinOrder: 75,
+    pinOrder: 81,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26475",
@@ -6121,7 +6767,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26475"},
-    pinOrder: 76,
+    pinOrder: 82,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26474",
@@ -6163,7 +6809,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26474"},
-    pinOrder: 77,
+    pinOrder: 83,
   },
   {
     id: "kmrl-apprenticeship-2026-27-kochi-oct30",
@@ -7654,7 +8300,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's / Master's Degree",
     salaryRange: "₹25,000–₹30,000/month",
-    pinOrder: 78,
+    pinOrder: 84,
   },
   {
     id: "advenxa-backend-support-operations-502052",
@@ -7695,7 +8341,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Up to ₹30,000 per month",
-    pinOrder: 79,
+    pinOrder: 85,
   },
   {
     id: "advenxa-care-worker-deputy-lead-senior-support-worker-521133",
@@ -7735,7 +8381,7 @@ var JOBS = [
     description: "We are looking for experienced Senior Support Workers and Deputy Leads to support daily care operations, guide frontline staff, and ensure high standards of person-centred care, safeguarding, and service delivery.",
     startingDate: "",
     qualification: "",
-    pinOrder: 80,
+    pinOrder: 86,
     salaryRange: "£28,080–£37,440 for Senior Support Worker roles",
   },
   {
@@ -7777,7 +8423,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹30,000.00 per month.",
-    pinOrder: 81,
+    pinOrder: 87,
   },
   {
     id: "advenxa-investment-sales-officer-495171",
@@ -7818,7 +8464,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹35,000.00 per month",
-    pinOrder: 82,
+    pinOrder: 88,
   },
   {
     id: "advenxa-investment-sales-officer-524065",
@@ -7859,7 +8505,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹35,000.00 per month",
-    pinOrder: 83,
+    pinOrder: 89,
   },
   {
     id: "advenxa-workforce-management-analyst-524001",
@@ -7900,7 +8546,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
     salaryRange: "Up to ₹9 LPA",
-    pinOrder: 84,
+    pinOrder: 90,
   },
   {
     id: "advenxa-equity-dealer-495120",
@@ -7941,7 +8587,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Degree Certification ( Except B.Tech) is Mandatory",
     salaryRange: "₹20,000.00 - ₹30,000.00 per month + Incentives.",
-    pinOrder: 85,
+    pinOrder: 91,
   },
   {
     id: "advenxa-specialist-obstetrician-gynecologist-515092",
@@ -7981,7 +8627,7 @@ var JOBS = [
     description: "SPECIALIST OBSTETRICIAN & GYNECOLOGIST Location : Muscat, Sultanate of Oman Qualification : MBBS with MD/MS in Obstetrics & Gynecology or an equivalent recognized postgraduate qualification Experience : Relevant post-specialization clinical experience Preferred Nationalities : Jo",
     startingDate: "",
     qualification: "MBBS with MD/MS in Obstetrics & Gynecology or an equivalent recognized postgraduate qualification",
-    pinOrder: 86,
+    pinOrder: 92,
     salaryRange: "OMR 2,500 – 3,000 per month",
   },
   {
@@ -8022,7 +8668,7 @@ var JOBS = [
     description: "NURSING ASSISTANT – REHABILITATION CENTRE Location: Sultanate of Oman Experience: Minimum 3 years of relevant experience after qualification Nationality: All nationalities except African, Pakistani, Nepalese, and Bangladeshi Qualification: ANM or a one-year Diploma/Certificate in",
     startingDate: "",
     qualification: "ANM or a one-year Diploma/Certificate in Nursing Assistant from a recognised institution",
-    pinOrder: 87,
+    pinOrder: 93,
     salaryRange: "- OMR 250 per month for candidates with ANM qualification",
   },
   {
@@ -8063,7 +8709,7 @@ var JOBS = [
     description: "We are hiring a Senior Manager – Compliance & Ethics for a leading financial services company. The candidate will be responsible for ensuring regulatory compliance, monitoring exchange circulars, managing compliance reporting, and coordinating regulatory audits and inspections.",
     startingDate: "",
     qualification: "Bachelor's or Master's Degree",
-    pinOrder: 88,
+    pinOrder: 94,
   },
   {
     id: "advenxa-branch-support-executive-sales-operations-495101",
@@ -8104,7 +8750,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "20,000/- to 30,000/-",
-    pinOrder: 89,
+    pinOrder: 95,
   },
   {
     id: "exl-accounts-payable-i2p-22130-kochi-oct2026",
@@ -8145,7 +8791,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22130", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 90,
+    pinOrder: 96,
   },
   {
     id: "exl-accounts-payable-i2p-21761-kochi-oct2026",
@@ -8186,7 +8832,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21761", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 91,
+    pinOrder: 97,
   },
   {
     id: "exl-manager-procure-to-pay-22145-kochi-oct2026",
@@ -8227,7 +8873,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22145", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 92,
+    pinOrder: 98,
   },
   {
     id: "exl-executive-order-to-cash-order-management-21770-kochi-oct2026",
@@ -8268,7 +8914,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21770", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 93,
+    pinOrder: 99,
   },
   {
     id: "exl-executive-provider-data-management-us-healthcare-21703-kochi-oct2026",
@@ -8309,7 +8955,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21703", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate (non-technical) in any discipline",
-    pinOrder: 94,
+    pinOrder: 100,
   },
   {
     id: "exl-assistant-manager-general-ledger-17346-kochi-oct2026",
@@ -8350,7 +8996,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/17346", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "B.Com",
-    pinOrder: 95,
+    pinOrder: 101,
   },
   {
     id: "exl-manager-quality-excellence-21880-kochi-oct2026",
@@ -8391,7 +9037,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21880", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 96,
+    pinOrder: 102,
   },
   {
     id: "exl-assistant-manager-accounts-receivable-collections-21529-kochi-oct2026",
@@ -8432,7 +9078,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21529", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate – Commerce",
-    pinOrder: 97,
+    pinOrder: 103,
   },
   {
     id: "exl-associate-subrogation-arbitration-contentions-21621-kochi-oct2026",
@@ -8473,7 +9119,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21621", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 98,
+    pinOrder: 104,
   },
   {
     id: "exl-senior-executive-wfm-scheduler-21928-kochi-oct2026",
@@ -8514,7 +9160,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21928", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 99,
+    pinOrder: 105,
   },
   {
     id: "exl-manager-fraud-disputes-operations-21658-kochi-oct2026",
@@ -8555,7 +9201,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21658", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 100,
+    pinOrder: 106,
   },
   {
     id: "exl-lead-assistant-manager-fraud-disputes-operations-21660-kochi-oct2026",
@@ -8596,7 +9242,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21660", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 101,
+    pinOrder: 107,
   },
   {
     id: "exl-senior-executive-healthcare-claims-21661-kochi-oct2026",
@@ -8637,7 +9283,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21661", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 102,
+    pinOrder: 108,
   },
   {
     id: "exl-analyst-deduction-analyst-accounts-receivable-21314-kochi-oct2026",
@@ -8678,7 +9324,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21314", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate – Commerce",
-    pinOrder: 103,
+    pinOrder: 109,
   },
   {
     id: "exl-assistant-vice-president-f-a-operations-insurance-l-a-21382-kochi-oct2026",
@@ -8719,7 +9365,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21382", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's in Finance, Accounting or related; MBA or CA preferred",
-    pinOrder: 104,
+    pinOrder: 110,
   },
   {
     id: "exl-manager-record-to-report-insurance-21357-kochi-oct2026",
@@ -8760,7 +9406,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21357", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's in Finance, Accounting or related; CA/CPA preferred",
-    pinOrder: 105,
+    pinOrder: 111,
   },
   {
     id: "exl-associate-20770-kochi-oct2026",
@@ -8801,7 +9447,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20770", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 106,
+    pinOrder: 112,
   },
   {
     id: "ey-eyp-strategy-senior-manager-associate-director-ai-strategy-1451729533",
@@ -8842,7 +9488,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-EYP-Strategy-Senior-Manager-KL-682313/1451729533/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Bachelor's in Engineering, Computer Science, Mathematics, Economics, Data Science, Statistics, Business or related; MBA or relevant Master's preferred",
-    pinOrder: 107,
+    pinOrder: 113,
   },
   {
     id: "ey-senior-real-estate-hospitality-tourism-rht-valuation-1379281033",
@@ -8883,7 +9529,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-Senior-Real-Estate-Hospitality-And-Tourism-RHT-Valuation-KL-682313/1379281033/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Post graduate degree in Finance or Economics, or CA / ACCA / CFA, or MBA – Finance from a top-tier B-School",
-    pinOrder: 108,
+    pinOrder: 114,
   },
   {
     id: "ey-business-valuation-senior-contract-1428165833",
@@ -8924,7 +9570,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-Business-Valuation-Senior-Contract-KL-682313/1428165833/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "CA / ACCA / CFA or MBA – Finance (preferably from a premier institute)",
-    pinOrder: 109,
+    pinOrder: 115,
   },
   {
     id: "ey-eyp-dme-senior-assistant-associate-manager-decision-modellin-1424595233",
@@ -8965,7 +9611,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Trivandrum-EYP-DME-Senior-KL-695581/1424595233/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Bachelor's in Business, Finance, or Accounting (Masters preferred); CA / CFA / CPA preferred or MBA",
-    pinOrder: 110,
+    pinOrder: 116,
   },
   {
     id: "ey-eyp-s-and-e-oil-and-gas-manager-1422854833",
@@ -9006,7 +9652,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Trivandrum-EYP-S-and-E-Oil-and-Gas-Manager-KL-695581/1422854833/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Master's degree or MBA in Energy / Oil & Gas, Supply Chain, Logistics, Business Administration or related (MBA preferred); MBA in Petroleum & Energy studies",
-    pinOrder: 111,
+    pinOrder: 117,
   },
   {
     id: "conduent-kochi-supervisor-accounting-services-26158-oct2026",
@@ -9046,7 +9692,7 @@ var JOBS = [
     description: "Supervisor for an accounting services team at Conduent Kochi — daily direction, payment/expense report reviews, delivery to time and quality, and people management.",
     startingDate: "",
     qualification: "",
-    pinOrder: 112,
+    pinOrder: 118,
   },
   {
     id: "conduent-kochi-hr-operations-and-delivery-associate-iv-26725-oct2026",
@@ -9086,7 +9732,7 @@ var JOBS = [
     description: "Technical sourcing role: end-to-end IT sourcing strategies with hiring managers and BU leaders, headhunting passive engineering, product and leadership talent. 4+ years of IT technical sourcing.",
     startingDate: "",
     qualification: "",
-    pinOrder: 113,
+    pinOrder: 119,
   },
   {
     id: "wipro-kochi-senior-associate-retail-banking-ba-214184",
@@ -9127,7 +9773,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/Senior-Associate/214184-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214184",
-    pinOrder: 114,
+    pinOrder: 120,
   },
   {
     id: "wipro-kochi-project-lead-l1-contract-program-management-214220",
@@ -9168,7 +9814,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PROJECT-LEAD-L1%28CONTRACT%29/214220-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214220",
-    pinOrder: 115,
+    pinOrder: 121,
   },
   {
     id: "cpv-lithos-technosoft-pvt-ltd-video-editor-ai-proficient-12209",
@@ -9210,7 +9856,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"cyberparkJob": "https://cyberparks.in/job/lithos-technosoft-pvt-ltd-traditional-editing-tools-adobe-premiere-pro-expert-level-adobe-after-effects-motion-graphics-vfx-adobe-photoshop-illustrator-basic-graphics-support-davinci/"},
-    pinOrder: 116,
+    pinOrder: 122,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-senior-salesforce-developer-33912",
@@ -9252,7 +9898,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33912?job=Senior%20Salesforce%20Developer"},
     walkinTime: "",
-    pinOrder: 117,
+    pinOrder: 123,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-senior-salesforce-administrator-33910",
@@ -9294,7 +9940,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33910?job=Senior%20Salesforce%20Administrator"},
     walkinTime: "",
-    pinOrder: 118,
+    pinOrder: 124,
   },
   {
     id: "tpv-bochdale-solutions-pvt-ltd-graphic-designer-cum-video-editor-exp-1-2-years-33909",
@@ -9336,7 +9982,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33909?job=Graphic%20Designer%20cum%20Video%20Editor%20%28Exp%201-2%20Years%29"},
     walkinTime: "",
-    pinOrder: 119,
+    pinOrder: 125,
   },
   {
     id: "tpv-azinova-technologies-p-ltd-network-programmer-engineer-33908",
@@ -9378,7 +10024,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33908?job=Network%20Programmer%20%26%20Engineer"},
     walkinTime: "",
-    pinOrder: 120,
+    pinOrder: 126,
   },
   {
     id: "tpv-way-dot-com-p-ltd-seo-content-writer-33907",
@@ -9420,7 +10066,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33907?job=SEO%20Content%20Writer"},
     walkinTime: "",
-    pinOrder: 121,
+    pinOrder: 127,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-leader-operations-event-parking-33906",
@@ -9462,7 +10108,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33906?job=Team%20Leader%20Operations%20-%20Event%20Parking"},
     walkinTime: "",
-    pinOrder: 122,
+    pinOrder: 128,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-33905",
@@ -9504,7 +10150,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33905?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 123,
+    pinOrder: 129,
   },
   {
     id: "tpv-way-dot-com-p-ltd-job-posting-sales-operations-lead-research-analyst-33904",
@@ -9546,7 +10192,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33904?job=Job%20Posting%20Sales%20Operations%20%26%20Lead%20Research%20Analyst"},
     walkinTime: "",
-    pinOrder: 124,
+    pinOrder: 130,
   },
   {
     id: "tpv-way-dot-com-p-ltd-ai-ml-associate-architect-33903",
@@ -9588,7 +10234,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33903?job=AI/ML%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 125,
+    pinOrder: 131,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-marketing-operations-manager-33902",
@@ -9630,7 +10276,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33902?job=Senior%20Marketing%20Operations%20Manager"},
     walkinTime: "",
-    pinOrder: 126,
+    pinOrder: 132,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-lead-email-marketing-33901",
@@ -9672,7 +10318,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33901?job=Team%20Lead%20-%20Email%20Marketing"},
     walkinTime: "",
-    pinOrder: 127,
+    pinOrder: 133,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-33900",
@@ -9714,7 +10360,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33900?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 128,
+    pinOrder: 134,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-33899",
@@ -9756,7 +10402,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33899?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 129,
+    pinOrder: 135,
   },
   {
     id: "tpv-way-dot-com-p-ltd-content-writer-b2b-33898",
@@ -9798,7 +10444,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33898?job=Content%20Writer%20-%20B2B"},
     walkinTime: "",
-    pinOrder: 130,
+    pinOrder: 136,
   },
   {
     id: "tpv-way-dot-com-p-ltd-qa-automation-engineer-33897",
@@ -9840,7 +10486,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33897?job=QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 131,
+    pinOrder: 137,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-analyst-33896",
@@ -9882,7 +10528,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33896?job=Accounts%20Payable%20Analyst"},
     walkinTime: "",
-    pinOrder: 132,
+    pinOrder: 138,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-33895",
@@ -9924,7 +10570,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33895?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 133,
+    pinOrder: 139,
   },
   {
     id: "tpv-way-dot-com-p-ltd-hr-administration-executive-33894",
@@ -9966,7 +10612,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33894?job=HR%20%26%20Administration%20Executive"},
     walkinTime: "",
-    pinOrder: 134,
+    pinOrder: 140,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-manager-33893",
@@ -10008,7 +10654,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33893?job=Accounts%20Payable%20Manager"},
     walkinTime: "",
-    pinOrder: 135,
+    pinOrder: 141,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-java-fullstack-developer-33892",
@@ -10050,7 +10696,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33892?job=Senior%20JAVA%20FullStack%20Developer"},
     walkinTime: "",
-    pinOrder: 136,
+    pinOrder: 142,
   },
   {
     id: "tpv-way-dot-com-p-ltd-digital-marketing-manager-33891",
@@ -10092,7 +10738,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33891?job=Digital%20Marketing%20Manager"},
     walkinTime: "",
-    pinOrder: 137,
+    pinOrder: 143,
   },
   {
     id: "tpv-simplogics-solutions-p-ltd-data-engineer-mid-level-33890",
@@ -10134,7 +10780,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33890?job=Data%20Engineer%20-%20Mid%20Level"},
     walkinTime: "",
-    pinOrder: 138,
+    pinOrder: 144,
   },
   {
     id: "tpv-way-dot-com-p-ltd-full-stack-production-support-engineer-33889",
@@ -10176,7 +10822,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33889?job=Full%20Stack%20Production%20Support%20Engineer"},
     walkinTime: "",
-    pinOrder: 139,
+    pinOrder: 145,
   },
   {
     id: "tpv-onbyz-telemarketing-executive-33888",
@@ -10218,7 +10864,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33888?job=Telemarketing%20Executive"},
     walkinTime: "",
-    pinOrder: 140,
+    pinOrder: 146,
   },
   {
     id: "tpv-onbyz-business-development-executive-33887",
@@ -10260,7 +10906,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33887?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 141,
+    pinOrder: 147,
   },
   {
     id: "tpv-simplogics-solutions-p-ltd-power-bi-developer-mid-level-33886",
@@ -10302,7 +10948,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33886?job=Power%20BI%20Developer%20-%20Mid%20Level"},
     walkinTime: "",
-    pinOrder: 142,
+    pinOrder: 148,
   },
   {
     id: "tpv-foxdale-p-ltd-voice-process-trainee-33885",
@@ -10344,7 +10990,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33885?job=Voice%20Process%20Trainee"},
     walkinTime: "",
-    pinOrder: 143,
+    pinOrder: 149,
   },
   {
     id: "tpv-gnx-digital-solutions-p-ltd-business-analyst-2-yrs-exp-33884",
@@ -10386,7 +11032,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33884?job=Business%20Analyst%20%282%2BYrs%20Exp.%29"},
     walkinTime: "",
-    pinOrder: 144,
+    pinOrder: 150,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-junior-graphic-designer-33883",
@@ -10428,7 +11074,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33883?job=Junior%20Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 145,
+    pinOrder: 151,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-immediate-joiners-preffer-33882",
@@ -10470,7 +11116,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33882?job=Business%20Development%20Executive%20%28Immediate%20Joiners%20Preffered%29"},
     walkinTime: "10:30 – 14:00",
-    pinOrder: 146,
+    pinOrder: 152,
     walkInAddress: "TRAINONEX SOLUTIONS (P) Ltd\nGround Floor, Carnival Building, Technopark Campus, Karyavattom, Trivandrum, Kerala , 695581",
   },
   {
@@ -10513,7 +11159,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33881?job=Architectural%20Draftsman%20%28AutoCAD%29"},
     walkinTime: "",
-    pinOrder: 147,
+    pinOrder: 153,
   },
   {
     id: "tpv-inovace-digital-media-llp-business-development-executive-33880",
@@ -10555,7 +11201,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33880?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 148,
+    pinOrder: 154,
   },
   {
     id: "tpv-shellsquare-softwares-p-ltd-business-development-executive-33879",
@@ -10597,7 +11243,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33879?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 149,
+    pinOrder: 155,
   },
   {
     id: "tpv-scalevel-technologies-freelance-full-stack-ai-engineer-33878",
@@ -10639,7 +11285,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33878?job=Freelance%20Full-Stack%20AI%20Engineer"},
     walkinTime: "",
-    pinOrder: 150,
+    pinOrder: 156,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-experienced-video-editor-davinci-resolve-specialist-33877",
@@ -10681,7 +11327,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33877?job=Experienced%20Video%20Editor%20%E2%80%93%20DaVinci%20Resolve%20Specialist"},
     walkinTime: "",
-    pinOrder: 151,
+    pinOrder: 157,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-personal-secretary-33876",
@@ -10723,7 +11369,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33876?job=Personal%20Secretary"},
     walkinTime: "",
-    pinOrder: 152,
+    pinOrder: 158,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-trainee-revops-33875",
@@ -10765,7 +11411,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33875?job=INSIDE%20SALES%20TRAINEE%20%28RevOps%29"},
     walkinTime: "",
-    pinOrder: 153,
+    pinOrder: 159,
   },
   {
     id: "tpv-zoondia-software-p-ltd-jr-system-administrator-33874",
@@ -10807,7 +11453,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33874?job=Jr.System%20Administrator"},
     walkinTime: "",
-    pinOrder: 154,
+    pinOrder: 160,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-operations-trainee-33872",
@@ -10849,7 +11495,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33872?job=Operations%20Trainee"},
     walkinTime: "",
-    pinOrder: 155,
+    pinOrder: 161,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-digital-marketing-trainee-33871",
@@ -10891,7 +11537,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33871?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 156,
+    pinOrder: 162,
   },
   {
     id: "tpv-netwalk-technologies-india-p-ltd-technical-architect-33870",
@@ -10933,7 +11579,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33870?job=Technical%20Architect"},
     walkinTime: "",
-    pinOrder: 157,
+    pinOrder: 163,
   },
   {
     id: "tpv-srishti-innovative-educational-services-p-ltd-business-developement-executive-tele-33869",
@@ -10975,7 +11621,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33869?job=Business%20Developement%20Executive%20Tele"},
     walkinTime: "",
-    pinOrder: 158,
+    pinOrder: 164,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-flex-qa-tester-manual-3-6-years-remote-uk-shift-33868",
@@ -11017,7 +11663,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33868?job=Flex%20QA%20Tester%20%28Manual%29%20%7C%203%E2%80%936%20Years%20%7C%20Remote%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 159,
+    pinOrder: 165,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-flex-developer-net-4-7-years-remote-uk-shift-33867",
@@ -11059,7 +11705,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33867?job=Flex%20Developer%20%28.NET%29%20%7C%204%E2%80%937%20Years%20%7C%20Remote%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 160,
+    pinOrder: 166,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-squad-leader-net-remote-7-years-uk-shift-33866",
@@ -11101,7 +11747,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33866?job=Squad%20Leader%20%E2%80%93%20.NET%20%7C%20Remote%20%7C%207%2B%20Years%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 161,
+    pinOrder: 167,
   },
   {
     id: "tpv-cloudq-it-services-p-ltd-zoho-sales-executive-saas-erp-product-sales-2-5-years-33865",
@@ -11143,7 +11789,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33865?job=Zoho%20Sales%20Executive%20%E2%80%93%20SaaS%20/%20ERP%20Product%20Sales%20%282-5%20Years%29"},
     walkinTime: "",
-    pinOrder: 162,
+    pinOrder: 168,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-business-development-engineer-33864",
@@ -11185,7 +11831,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33864?job=Business%20Development%20Engineer"},
     walkinTime: "",
-    pinOrder: 163,
+    pinOrder: 169,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-full-stack-developer-33863",
@@ -11227,7 +11873,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33863?job=Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 164,
+    pinOrder: 170,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-implementation-engineer-33862",
@@ -11269,7 +11915,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33862?job=Implementation%20Engineer"},
     walkinTime: "",
-    pinOrder: 165,
+    pinOrder: 171,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-qa-clinical-his-emr-33861",
@@ -11311,7 +11957,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33861?job=QA%20Clinical%20%28HIS/EMR%29"},
     walkinTime: "",
-    pinOrder: 166,
+    pinOrder: 172,
   },
   {
     id: "tpv-ignosi-enterprises-marketing-r-d-coordinator-33860",
@@ -11353,7 +11999,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33860?job=Marketing%20%26%20R%26D%20Coordinator"},
     walkinTime: "",
-    pinOrder: 167,
+    pinOrder: 173,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-telecaller-telecounselor-33859",
@@ -11395,7 +12041,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33859?job=Telecaller%20/%20Telecounselor"},
     walkinTime: "",
-    pinOrder: 168,
+    pinOrder: 174,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-senior-nurse-senior-cosmetology-technician-33858",
@@ -11437,7 +12083,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33858?job=Senior%20Nurse%20/%20Senior%20Cosmetology%20Technician"},
     walkinTime: "",
-    pinOrder: 169,
+    pinOrder: 175,
   },
   {
     id: "tpv-crayo-tech-business-solutions-p-ltd-digital-marketing-specialist-seo-preferred-immediate-joi-33857",
@@ -11479,7 +12125,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33857?job=Digital%20Marketing%20Specialist%20%28SEO%29%20Preferred%20immediate%20joiners"},
     walkinTime: "",
-    pinOrder: 170,
+    pinOrder: 176,
   },
   {
     id: "tpv-hodo-medical-informatic-solutions-p-ltd-sales-manager-ai-healthcare-technology-company-33856",
@@ -11521,7 +12167,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33856?job=Sales%20Manager%20%E2%80%93%20AI%20%26%20Healthcare%20Technology%20Company"},
     walkinTime: "",
-    pinOrder: 171,
+    pinOrder: 177,
   },
   {
     id: "tpv-ignosi-enterprises-technology-sales-marketing-trainer-kanyakumari-33855",
@@ -11563,7 +12209,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33855?job=Technology%20Sales%20%26%20Marketing%20Trainer%20%E2%80%93%20kanyakumari"},
     walkinTime: "",
-    pinOrder: 172,
+    pinOrder: 178,
   },
   {
     id: "tpv-ignosi-enterprises-customer-care-corporate-relationship-manager-tamilnadu-33854",
@@ -11605,7 +12251,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33854?job=Customer%20Care%20%26%20Corporate%20Relationship%20Manager%20-%20TAMILNADU"},
     walkinTime: "",
-    pinOrder: 173,
+    pinOrder: 179,
   },
   {
     id: "tpv-ignosi-enterprises-technology-sales-marketing-trainer-thrissur-ernakulam-33853",
@@ -11647,7 +12293,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33853?job=Technology%20Sales%20%26%20Marketing%20Trainer%20%E2%80%93%20Thrissur%20%2C%20Ernakulam"},
     walkinTime: "",
-    pinOrder: 174,
+    pinOrder: 180,
   },
   {
     id: "tpv-ignosi-enterprises-fintech-sales-corporate-manager-thrissur-ernakulam-33852",
@@ -11689,7 +12335,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33852?job=FinTech%20Sales%20%26%20Corporate%20Manager%20-%20THRISSUR%20%26%20ERNAKULAM"},
     walkinTime: "",
-    pinOrder: 175,
+    pinOrder: 181,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-executive-33851",
@@ -11731,7 +12377,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33851?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 176,
+    pinOrder: 182,
   },
   {
     id: "tpv-ospyn-technologies-ltd-junior-executive-finance-33850",
@@ -11773,7 +12419,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33850?job=Junior%20Executive%20-%20Finance"},
     walkinTime: "",
-    pinOrder: 177,
+    pinOrder: 183,
   },
   {
     id: "tpv-scalevel-technologies-full-stack-ai-engineer-33849",
@@ -11815,7 +12461,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33849?job=Full%20Stack%20AI%20Engineer"},
     walkinTime: "",
-    pinOrder: 178,
+    pinOrder: 184,
   },
   {
     id: "tpv-qwy-software-p-ltd-freshers-full-stack-developer-33848",
@@ -11857,7 +12503,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33848?job=Freshers-%20Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 179,
+    pinOrder: 185,
   },
   {
     id: "tpv-ateam-infosoft-solutions-private-limited-senior-node-js-developer-33847",
@@ -11899,7 +12545,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33847?job=Senior%20Node.js%20Developer"},
     walkinTime: "",
-    pinOrder: 180,
+    pinOrder: 186,
   },
   {
     id: "tpv-qwy-software-p-ltd-freshers-ai-ml-33846",
@@ -11941,7 +12587,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33846?job=Freshers%20-%20AI/ML"},
     walkinTime: "",
-    pinOrder: 181,
+    pinOrder: 187,
   },
   {
     id: "tpv-polus-solutions-p-ltd-business-development-executive-33845",
@@ -11983,7 +12629,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33845?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 182,
+    pinOrder: 188,
   },
   {
     id: "tpv-polus-solutions-p-ltd-data-abuse-detection-engineer-33844",
@@ -12025,7 +12671,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33844?job=Data%20Abuse%20%26%20Detection%20Engineer"},
     walkinTime: "",
-    pinOrder: 183,
+    pinOrder: 189,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-lead-generation-executive-marketing-33843",
@@ -12067,7 +12713,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33843?job=Lead%20Generation%20Executive%20%28Marketing%29"},
     walkinTime: "",
-    pinOrder: 184,
+    pinOrder: 190,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-business-analyst-33842",
@@ -12109,7 +12755,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33842?job=Business%20Analyst"},
     walkinTime: "",
-    pinOrder: 185,
+    pinOrder: 191,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-hr-generalist-33841",
@@ -12151,7 +12797,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33841?job=HR%20Generalist"},
     walkinTime: "",
-    pinOrder: 186,
+    pinOrder: 192,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-magento-developer-33840",
@@ -12193,7 +12839,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33840?job=Senior%20Magento%20developer"},
     walkinTime: "",
-    pinOrder: 187,
+    pinOrder: 193,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-em-ip-and-op-medical-coders-33839",
@@ -12235,7 +12881,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33839?job=EM%20IP%20AND%20OP%20MEDICAL%20CODERS"},
     walkinTime: "",
-    pinOrder: 188,
+    pinOrder: 194,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-surgery-auditors-33838",
@@ -12277,7 +12923,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33838?job=SURGERY%20AUDITORS"},
     walkinTime: "",
-    pinOrder: 189,
+    pinOrder: 195,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-team-lead-denial-manangement-medical-coding-33837",
@@ -12319,7 +12965,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33837?job=TEAM%20LEAD%20%E2%80%93%20DENIAL%20MANANGEMENT%20%28MEDICAL%20CODING%29"},
     walkinTime: "",
-    pinOrder: 190,
+    pinOrder: 196,
   },
   {
     id: "tpv-hiworth-solutions-p-ltd-graphic-designer-digital-content-creator-33836",
@@ -12361,7 +13007,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33836?job=Graphic%20Designer%20%26%20Digital%20Content%20Creator"},
     walkinTime: "",
-    pinOrder: 191,
+    pinOrder: 197,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-denial-management-medical-coders-denials-multispecialty-33835",
@@ -12403,7 +13049,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33835?job=Denial%20Management%20Medical%20Coders%20%E2%80%93%20Denials%20Multispecialty%20%284%2B%20Years%20Experience%29"},
     walkinTime: "",
-    pinOrder: 192,
+    pinOrder: 198,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-surgery-specialty-medical-coding-team-leader-with-em-kno-33834",
@@ -12445,7 +13091,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33834?job=Surgery%20Specialty%20Medical%20Coding%20Team%20Leader%20with%20EM%20Knowledge%20%287%2B%20Years%20Experience%29"},
     walkinTime: "",
-    pinOrder: 193,
+    pinOrder: 199,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-ai-ml-chatbot-ai-voice-bot-intern-33833",
@@ -12487,7 +13133,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33833?job=AI/ML%20Chatbot%20%26%20AI%20Voice%20Bot%20Intern"},
     walkinTime: "",
-    pinOrder: 194,
+    pinOrder: 200,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-immediate-joiners-preffer-33832",
@@ -12529,7 +13175,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33832?job=Business%20Development%20Executive%20%28Immediate%20Joiners%20Preffered%29"},
     walkinTime: "11:00 – 13:30",
-    pinOrder: 195,
+    pinOrder: 201,
     walkInAddress: "TRAINONEX SOLUTIONS (P) Ltd\nGround Floor, Carnival Building, Technopark Campus, Karyavattom, Trivandrum, Kerala , 695581",
   },
   {
@@ -12572,7 +13218,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33831?job=Video%20Editor"},
     walkinTime: "",
-    pinOrder: 196,
+    pinOrder: 202,
   },
   {
     id: "ipv-nuvento-systems-private-limited-web-developer-technical-seo-search-visibility-specialist-26473",
@@ -12614,7 +13260,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26473"},
-    pinOrder: 197,
+    pinOrder: 203,
   },
   {
     id: "ipv-nuvento-systems-private-limited-marketing-specialist-26472",
@@ -12656,7 +13302,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26472"},
-    pinOrder: 198,
+    pinOrder: 204,
   },
   {
     id: "ipv-nuvento-systems-private-limited-business-development-26471",
@@ -12698,7 +13344,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26471"},
-    pinOrder: 199,
+    pinOrder: 205,
   },
   {
     id: "ipv-icodebees-private-limited-data-engineer-26470",
@@ -12740,7 +13386,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26470"},
-    pinOrder: 200,
+    pinOrder: 206,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-full-stack-developer-26469",
@@ -12782,7 +13428,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26469"},
-    pinOrder: 201,
+    pinOrder: 207,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-qa-engineer-26468",
@@ -12824,7 +13470,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26468"},
-    pinOrder: 202,
+    pinOrder: 208,
   },
   {
     id: "ipv-newagesys-solutions-p-ltd-content-editor-copy-editing-visual-review-26467",
@@ -12866,7 +13512,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/109/26467"},
-    pinOrder: 203,
+    pinOrder: 209,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-ai-analytics-engineer-26466",
@@ -12908,7 +13554,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26466"},
-    pinOrder: 204,
+    pinOrder: 210,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-technical-project-manager-python-java-net-26465",
@@ -12950,7 +13596,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26465"},
-    pinOrder: 205,
+    pinOrder: 211,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-data-analytics-lead-26464",
@@ -12992,7 +13638,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26464"},
-    pinOrder: 206,
+    pinOrder: 212,
   },
   {
     id: "ipv-zealogics-it-solutions-pvt-ltd-platform-system-specialist-github-admin-immediate-joiner-26463",
@@ -13034,7 +13680,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/565/26463"},
-    pinOrder: 207,
+    pinOrder: 213,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26462",
@@ -13076,7 +13722,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26462"},
-    pinOrder: 208,
+    pinOrder: 214,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26461",
@@ -13118,7 +13764,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26461"},
-    pinOrder: 209,
+    pinOrder: 215,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26460",
@@ -13160,7 +13806,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26460"},
-    pinOrder: 210,
+    pinOrder: 216,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26459",
@@ -13202,7 +13848,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26459"},
-    pinOrder: 211,
+    pinOrder: 217,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26458",
@@ -13244,7 +13890,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26458"},
-    pinOrder: 212,
+    pinOrder: 218,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26457",
@@ -13286,7 +13932,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26457"},
-    pinOrder: 213,
+    pinOrder: 219,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26456",
@@ -13328,7 +13974,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26456"},
-    pinOrder: 214,
+    pinOrder: 220,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26455",
@@ -13370,7 +14016,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26455"},
-    pinOrder: 215,
+    pinOrder: 221,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26454",
@@ -13412,7 +14058,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26454"},
-    pinOrder: 216,
+    pinOrder: 222,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26453",
@@ -13454,7 +14100,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26453"},
-    pinOrder: 217,
+    pinOrder: 223,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26452",
@@ -13496,7 +14142,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26452"},
-    pinOrder: 218,
+    pinOrder: 224,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26451",
@@ -13538,7 +14184,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26451"},
-    pinOrder: 219,
+    pinOrder: 225,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26450",
@@ -13580,7 +14226,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26450"},
-    pinOrder: 220,
+    pinOrder: 226,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26449",
@@ -13622,7 +14268,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26449"},
-    pinOrder: 221,
+    pinOrder: 227,
   },
   {
     id: "ipv-zealogics-it-solutions-pvt-ltd-software-engineer-ai-26447",
@@ -13664,7 +14310,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/565/26447"},
-    pinOrder: 222,
+    pinOrder: 228,
   },
   {
     id: "ipv-worksent-technologies-pvt-ltd-system-engineer-l2-bengaluru-26445",
@@ -13706,7 +14352,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/164/26445"},
-    pinOrder: 223,
+    pinOrder: 229,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-it-purchase-coordinator-26443",
@@ -13748,7 +14394,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26443"},
-    pinOrder: 224,
+    pinOrder: 230,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-associate-customer-support-26438",
@@ -13790,7 +14436,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26438"},
-    pinOrder: 225,
+    pinOrder: 231,
   },
   {
     id: "ipv-2hats-logic-solutions-pvt-ltd-content-writer-26437",
@@ -13832,7 +14478,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/182/26437"},
-    pinOrder: 226,
+    pinOrder: 232,
   },
   {
     id: "ipv-fingent-global-solutions-backend-data-infrastructure-engineer-26436",
@@ -13874,7 +14520,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26436"},
-    pinOrder: 227,
+    pinOrder: 233,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-ml-engineer-6-years-experience-26435",
@@ -13916,7 +14562,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26435"},
-    pinOrder: 228,
+    pinOrder: 234,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-devops-engineer-6-years-experience-26434",
@@ -13958,7 +14604,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26434"},
-    pinOrder: 229,
+    pinOrder: 235,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-operations-internship-26433",
@@ -14000,7 +14646,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26433"},
-    pinOrder: 230,
+    pinOrder: 236,
   },
   {
     id: "ipv-rextech-studios-unity-game-development-trainer-26432",
@@ -14042,7 +14688,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/522/26432"},
-    pinOrder: 231,
+    pinOrder: 237,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-content-writer-fresher-26431",
@@ -14084,7 +14730,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26431"},
-    pinOrder: 232,
+    pinOrder: 238,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-videographer-cum-video-editor-26430",
@@ -14126,7 +14772,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26430"},
-    pinOrder: 233,
+    pinOrder: 239,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-content-strategist-coordinator-26429",
@@ -14168,7 +14814,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26429"},
-    pinOrder: 234,
+    pinOrder: 240,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-social-media-executive-26428",
@@ -14210,7 +14856,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26428"},
-    pinOrder: 235,
+    pinOrder: 241,
   },
   {
     id: "ipv-icodebees-private-limited-mongodb-administrator-26421",
@@ -14252,7 +14898,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26421"},
-    pinOrder: 236,
+    pinOrder: 242,
   },
   {
     id: "ipv-contactpoint-360-mid-level-android-developer-2-4-years-experience-only-26413",
@@ -14294,7 +14940,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/306/26413"},
-    pinOrder: 237,
+    pinOrder: 243,
   },
   {
     id: "wipro-kochi-recruiter-l2-200842",
@@ -14335,7 +14981,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/RECRUITER-L2/200842-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "200842",
-    pinOrder: 238,
+    pinOrder: 244,
   },
   {
     id: "wipro-kochi-technical-lead-l1-contract-e-mobility-201445",
@@ -14376,7 +15022,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNICAL-LEAD-L1%28CONTRACT%29/201445-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "201445",
-    pinOrder: 239,
+    pinOrder: 245,
   },
   {
     id: "wipro-kochi-technical-lead-l1-jbpm-201752",
@@ -14417,7 +15063,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNICAL-LEAD-L1/201752-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "201752",
-    pinOrder: 240,
+    pinOrder: 246,
   },
   {
     id: "wipro-kochi-sailpoint-identity-security-cloud-isc-engineer-202470",
@@ -14458,7 +15104,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SailPoint-Identity-Security-Cloud-%28ISC%29-Engineer-6-to-12-years-Kochi/202470-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "202470",
-    pinOrder: 241,
+    pinOrder: 247,
   },
   {
     id: "wipro-kochi-project-manager-l1-program-management-203878",
@@ -14499,7 +15145,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PROJECT-MANAGER-L1/203878-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "203878",
-    pinOrder: 242,
+    pinOrder: 248,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-payments-204577",
@@ -14540,7 +15186,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/204577-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "204577",
-    pinOrder: 243,
+    pinOrder: 249,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-sirion-clm-205122",
@@ -14581,7 +15227,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/205122-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "205122",
-    pinOrder: 244,
+    pinOrder: 250,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-cisco-routing-and-swi-207406",
@@ -14622,7 +15268,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207406-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207406",
-    pinOrder: 245,
+    pinOrder: 251,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-cisco-wireless-admin-207771",
@@ -14663,7 +15309,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207771-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207771",
-    pinOrder: 246,
+    pinOrder: 252,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-sd-wan-admin-207772",
@@ -14704,7 +15350,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207772-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207772",
-    pinOrder: 247,
+    pinOrder: 253,
   },
   {
     id: "wipro-kochi-cloud-oracle-infrastructure-admin-208399",
@@ -14745,7 +15391,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/Cloud-Oracle-Infrastructure-Admin/208399-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "208399",
-    pinOrder: 248,
+    pinOrder: 254,
   },
   {
     id: "wipro-kochi-administrator-l3-hp-storage-210013",
@@ -14786,7 +15432,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/210013-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210013",
-    pinOrder: 249,
+    pinOrder: 255,
   },
   {
     id: "wipro-kochi-vlsi-lead-l1-vlsi-physical-place-and-route-210553",
@@ -14827,7 +15473,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/VLSI-LEAD-L1/210553-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210553",
-    pinOrder: 250,
+    pinOrder: 256,
   },
   {
     id: "wipro-kochi-developer-l4-salesforce-lightning-components-210861",
@@ -14868,7 +15514,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/210861-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210861",
-    pinOrder: 251,
+    pinOrder: 257,
   },
   {
     id: "wipro-kochi-developer-l4-servicenow-saas-211551",
@@ -14909,7 +15555,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/211551-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211551",
-    pinOrder: 252,
+    pinOrder: 258,
   },
   {
     id: "wipro-kochi-cyber-security-analyst-l3-211998",
@@ -14950,7 +15596,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/CYBER-SECURITY-ANALYST-L3/211998-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211998",
-    pinOrder: 253,
+    pinOrder: 259,
   },
   {
     id: "wipro-kochi-recruiter-l2-213515",
@@ -14991,7 +15637,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/RECRUITER-L2/213515-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "213515",
-    pinOrder: 254,
+    pinOrder: 260,
   },
   {
     id: "wipro-kochi-administrator-l3-servicenow-cmdb-administration-203590",
@@ -15032,7 +15678,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/203590-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "203590",
-    pinOrder: 255,
+    pinOrder: 261,
   },
   {
     id: "wipro-kochi-developer-l4-node-js-205557",
@@ -15073,7 +15719,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/205557-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "205557",
-    pinOrder: 256,
+    pinOrder: 262,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l2-payments-207070",
@@ -15114,7 +15760,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L2/207070-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207070",
-    pinOrder: 257,
+    pinOrder: 263,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-sailpoint-identity-security-208675",
@@ -15155,7 +15801,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/208675-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "208675",
-    pinOrder: 258,
+    pinOrder: 264,
   },
   {
     id: "wipro-kochi-domain-consultant-l4-promax-advanced-210142",
@@ -15196,7 +15842,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DOMAIN-CONSULTANT-L4/210142-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210142",
-    pinOrder: 259,
+    pinOrder: 265,
   },
   {
     id: "wipro-kochi-vlsi-engineer-l3-vlsi-physical-place-and-route-210557",
@@ -15237,7 +15883,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/VLSI-ENGINEER-L3/210557-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210557",
-    pinOrder: 260,
+    pinOrder: 266,
   },
   {
     id: "wipro-kochi-configurator-l3-sirion-clm-211100",
@@ -15278,7 +15924,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/CONFIGURATOR-L3/211100-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211100",
-    pinOrder: 261,
+    pinOrder: 267,
   },
   {
     id: "wipro-kochi-developer-l3-salesforce-lightning-components-210862",
@@ -15319,7 +15965,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L3/210862-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210862",
-    pinOrder: 262,
+    pinOrder: 268,
   },
   {
     id: "wipro-kochi-administrator-l3-servicenow-saas-211547",
@@ -15360,7 +16006,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/211547-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211547",
-    pinOrder: 263,
+    pinOrder: 269,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26411",
@@ -15402,7 +16048,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26411"},
-    pinOrder: 264,
+    pinOrder: 270,
   },
   {
     id: "ipv-thinkpalm-technologies-pvt-ltd-technical-project-manager-agentic-ai-26410",
@@ -15444,7 +16090,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/49/26410"},
-    pinOrder: 265,
+    pinOrder: 271,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-i-26737-oct2026",
@@ -15484,7 +16130,7 @@ var JOBS = [
     description: "Entry-level transaction processing role at Conduent Kochi (temporary). 0–1 year experience, rotational shift.",
     startingDate: "",
     qualification: "",
-    pinOrder: 266,
+    pinOrder: 272,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-ii-26726-oct2026",
@@ -15524,7 +16170,7 @@ var JOBS = [
     description: "Transaction Processing Associate II at Conduent Kochi (full-time regular). Posting lists 0–1 year experience and rotational shift.",
     startingDate: "",
     qualification: "",
-    pinOrder: 267,
+    pinOrder: 273,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-i-26702-oct2026",
@@ -15564,7 +16210,7 @@ var JOBS = [
     description: "Entry-level, full-time regular document and data processing role at Conduent Kochi.",
     startingDate: "",
     qualification: "",
-    pinOrder: 268,
+    pinOrder: 274,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26592-oct2026",
@@ -15604,7 +16250,7 @@ var JOBS = [
     description: "Accounts Associate supporting accounting and finance operations in a BPO environment at Conduent Kochi. B.Com / Accounting / Finance graduates with 0–1 year experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Accounting or Finance",
-    pinOrder: 269,
+    pinOrder: 275,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26685-oct2026",
@@ -15644,7 +16290,7 @@ var JOBS = [
     description: "Accounts Payable associate (vendor master, invoice processing, supplier payments) at Conduent Kochi. Freshers or up to 1 year experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Accounting, or Finance",
-    pinOrder: 270,
+    pinOrder: 276,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26814-oct2026",
@@ -15684,7 +16330,7 @@ var JOBS = [
     description: "First-level accounting review and invoice verification at Conduent Kochi, working under defined standard operating procedures.",
     startingDate: "",
     qualification: "",
-    pinOrder: 271,
+    pinOrder: 277,
   },
   {
     id: "conduent-kochi-accounting-services-associate-ii-26688-oct2026",
@@ -15724,7 +16370,7 @@ var JOBS = [
     description: "Order-to-Cash (OTC) associate at Conduent Kochi. 2–3 years of hands-on OTC experience; SAP mandatory.",
     startingDate: "",
     qualification: "",
-    pinOrder: 272,
+    pinOrder: 278,
   },
   {
     id: "conduent-kochi-accounting-services-associate-ii-26684-oct2026",
@@ -15764,7 +16410,7 @@ var JOBS = [
     description: "Accounting Services Associate II at Conduent Kochi covering accounts payable/receivable, reconciliations, financial records, and reporting, with moderate supervision.",
     startingDate: "",
     qualification: "",
-    pinOrder: 273,
+    pinOrder: 279,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iii-26557-oct2026",
@@ -15804,7 +16450,7 @@ var JOBS = [
     description: "Record-to-Report associate at Conduent Kochi: journal entries, ledger and intercompany reconciliations, and quality feedback to reviewers.",
     startingDate: "",
     qualification: "",
-    pinOrder: 274,
+    pinOrder: 280,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iii-26555-oct2026",
@@ -15844,7 +16490,7 @@ var JOBS = [
     description: "Accounts Payable Analyst with strong SAP expertise for Conduent's Finance Operations team in Kochi. 3–6 years AP experience; night shift.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Finance, Accounting, or a related discipline",
-    pinOrder: 275,
+    pinOrder: 281,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iv-25724-oct2026",
@@ -15884,7 +16530,7 @@ var JOBS = [
     description: "Accounting Services Associate IV at Conduent Kochi — acts as team lead (not a supervisor), reviewing journal entries and guiding the quality verifiers team.",
     startingDate: "",
     qualification: "",
-    pinOrder: 276,
+    pinOrder: 282,
   },
   {
     id: "conduent-kochi-quality-assurance-associate-ii-25826-oct2026",
@@ -15924,7 +16570,7 @@ var JOBS = [
     description: "Quality Assurance Associate II at Conduent Kochi: reviews work for errors, audits SLA performance, and coaches Level 1 auditors.",
     startingDate: "",
     qualification: "",
-    pinOrder: 277,
+    pinOrder: 283,
   },
   {
     id: "conduent-kochi-supervisor-transaction-processing-24793-oct2026",
@@ -15964,7 +16610,7 @@ var JOBS = [
     description: "Supervisor for a transaction processing team at Conduent Kochi — daily team supervision, TAT and quality, staffing, and performance reviews.",
     startingDate: "",
     qualification: "",
-    pinOrder: 278,
+    pinOrder: 284,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-tax-accounting-reporting-26292-oct2026",
@@ -16004,7 +16650,7 @@ var JOBS = [
     description: "Senior Tax Analyst for income tax provision, SOX compliance, and federal/international tax filings (GILTI, Subpart F). Minimum 4 years in corporate tax.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting or equivalent",
-    pinOrder: 279,
+    pinOrder: 285,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-sales-and-use-tax-compliance-and-reportin-26293-oct2026",
@@ -16044,7 +16690,7 @@ var JOBS = [
     description: "Senior Tax Analyst for US state sales and use tax returns, audits, registrations, and exemption certificates. Minimum 4 years in indirect tax.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting, Finance, Commerce, or equivalent",
-    pinOrder: 280,
+    pinOrder: 286,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-property-tax-and-sales-use-tax-26294-oct2026",
@@ -16084,7 +16730,7 @@ var JOBS = [
     description: "Senior Tax Analyst for personal property tax, business licenses, and sales and use tax (Ariba exceptions, Vertex certificates). Minimum 4 years experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting, Finance, Commerce, or equivalent",
-    pinOrder: 281,
+    pinOrder: 287,
   },
   {
     id: "conduent-kochi-director-international-tax-accounting-reporting-26295-oct2026",
@@ -16124,7 +16770,7 @@ var JOBS = [
     description: "Director for international tax accounting: ASC 740 provisions, foreign entity returns, transfer pricing, and OECD/BEPS Pillar Two. CA/CPA/ACCA with 8+ years.",
     startingDate: "",
     qualification: "Bachelor's in Accounting, Finance, Commerce or equivalent; CA, CPA, ACCA or relevant certification",
-    pinOrder: 282,
+    pinOrder: 288,
   },
   {
     id: "conduent-kochi-business-solution-architect-25800-oct2026",
@@ -16164,7 +16810,7 @@ var JOBS = [
     description: "Business Solution Architect working across Conduent's commercial business to design and implement data-driven client solutions. Posting lists remote work.",
     startingDate: "",
     qualification: "Bachelor's in Business, Finance, Computer Science, Engineering, or related field, or equivalent experience",
-    pinOrder: 283,
+    pinOrder: 289,
   },
   {
     id: "aabasoft-bdm-cloud-solutions-kochi-calicut-oct27",
@@ -16401,7 +17047,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/164/26409"},
-    pinOrder: 284,
+    pinOrder: 290,
   },
   {
     id: "ipv-dooth-internet-service-pvt-ltd-program-manager-26408",
@@ -16443,7 +17089,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/438/26408"},
-    pinOrder: 285,
+    pinOrder: 291,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-business-development-manager-b2b-digital-26407",
@@ -16485,7 +17131,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26407"},
-    pinOrder: 286,
+    pinOrder: 292,
   },
   {
     id: "ipv-fingent-global-solutions-product-coordinator-analyst-26406",
@@ -16527,7 +17173,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26406"},
-    pinOrder: 287,
+    pinOrder: 293,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-it-remote-support-26405",
@@ -16569,7 +17215,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26405"},
-    pinOrder: 288,
+    pinOrder: 294,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-performance-marketing-executive-26404",
@@ -16611,7 +17257,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26404"},
-    pinOrder: 289,
+    pinOrder: 295,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-graphic-designer-26403",
@@ -16653,7 +17299,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26403"},
-    pinOrder: 290,
+    pinOrder: 296,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-content-writer-26402",
@@ -16695,7 +17341,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26402"},
-    pinOrder: 291,
+    pinOrder: 297,
   },
   {
     id: "ipv-vtrio-solutions-private-limited-scientific-data-analyst-26401",
@@ -16737,7 +17383,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/119/26401"},
-    pinOrder: 292,
+    pinOrder: 298,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-videographer-cum-editor-immediate-joiners-33830",
@@ -16779,7 +17425,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33830?job=Videographer%20cum%20Editor%20%28%20immediate%20joiners%29"},
     walkinTime: "",
-    pinOrder: 293,
+    pinOrder: 299,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-tele-sales-executive-33829",
@@ -16821,7 +17467,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33829?job=Tele%20Sales%20Executive"},
     walkinTime: "",
-    pinOrder: 294,
+    pinOrder: 300,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-hr-intern-people-business-operations-33828",
@@ -16863,7 +17509,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33828?job=HR%20Intern%20%E2%80%93%20People%20%26%20Business%20Operations"},
     walkinTime: "",
-    pinOrder: 295,
+    pinOrder: 301,
   },
   {
     id: "tpv-lean-transitions-solutions-sales-and-marketing-coordinator-crm-and-sales-operations-33827",
@@ -16905,7 +17551,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33827?job=Sales%20and%20Marketing%20Coordinator%20-%20CRM%20and%20Sales%20Operations"},
     walkinTime: "",
-    pinOrder: 296,
+    pinOrder: 302,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-33826",
@@ -16947,7 +17593,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33826?job=Business%20Development%20Intern"},
     walkinTime: "",
-    pinOrder: 297,
+    pinOrder: 303,
   },
   {
     id: "digitrell-video-editor-kochi-oct27",
@@ -18792,7 +19438,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1214350/CX-Strategy-and-Business-Ops-OPEX"},
     qualification: "",
-    pinOrder: 298,
+    pinOrder: 304,
   },
   {
     id: "hpe-regulatory-reporting-governance-specialist-1215990-oct2026",
@@ -18833,7 +19479,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1215990/Regulatory-Reporting-Governance-Specialist"},
     qualification: "",
-    pinOrder: 299,
+    pinOrder: 305,
   },
   {
     id: "hpe-cx-strategy-and-business-ops-opex-1214351-oct2026",
@@ -18874,7 +19520,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1214351/CX-Strategy-and-Business-Ops-OPEX"},
     qualification: "",
-    pinOrder: 300,
+    pinOrder: 306,
   },
   {
     id: "hpe-contract-negotiator-1217592-oct2026",
@@ -18915,7 +19561,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1217592/Contract-Negotiator"},
     qualification: "",
-    pinOrder: 301,
+    pinOrder: 307,
   },
   {
     id: "hpe-college-intern-1211843-oct2026",
@@ -29955,7 +30601,7 @@ var JOBS = [
     description: "We are looking for a Supplier Onboarding Functional Analyst to drive seamless B2B integration and supplier onboarding within HPE's global supply chain network. You will execute onboarding activities, configure integration solutions, and support data validation using SAP S/4HANA and AI-driven tools. Ideal for candidates with strong supply chain and SAP expertise.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212284/Supply-Chain-Supplier-Onboarding-Functional-Analyst"},
-    pinOrder: 302,
+    pinOrder: 308,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -29996,7 +30642,7 @@ var JOBS = [
     description: "We are looking for a Functional Analyst to drive order scheduling and backlog management within our supply chain. You will design and implement SAP S/4HANA AATP solutions, optimise order fulfilment processes, and collaborate with cross-functional teams. Ideal candidates have strong SAP S/4HANA expertise and experience in high-tech manufacturing environments.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212295/Supply-Chain-Order-Scheduling-Backlog-Management-Functional-Analyst"},
-    pinOrder: 303,
+    pinOrder: 309,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30037,7 +30683,7 @@ var JOBS = [
     description: "We are seeking a Supply Chain: Logistics Partner Onboarding Functional Analyst to drive partner onboarding and RMA process implementation across HPE’s spares supply chain. Lead integration of B2B logistics platforms and collaborate with business leaders. Ideal for experienced professionals with deep supply chain and logistics expertise.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212296/Supply-Chain-Logistics-Partner-Onboarding-Functional-Analyst"},
-    pinOrder: 304,
+    pinOrder: 310,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30078,7 +30724,7 @@ var JOBS = [
     description: "We are expanding our team: As a Supplier Onboarding Expert, you will design and implement supply chain planning solutions, focusing on Oracle Fusion Supply Chain Planning. You will lead functional analysis and technical solution development. Ideal candidates have significant experience in supply chain planning and Oracle Fusion applications.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212299/Supply-Chain-Supplier-Onboarding-Expert-Procurement-and-Planning-Collab"},
-    pinOrder: 305,
+    pinOrder: 311,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30119,7 +30765,7 @@ var JOBS = [
     description: "Join our team as a SAP CI/FI-CA Solution Architect, leading the design and integration of SAP Convergent Invoicing and Contract Accounts Receivable and Payable across HPE and Juniper platforms. Drive end-to-end solution architecture and collaborate with business leaders to deliver seamless billing and revenue management. Ideal for experienced SAP professionals with a strong background in large-scale transformation programmes.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212305/SAP-CI-FI-CA-Solution-Architect"},
-    pinOrder: 306,
+    pinOrder: 312,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30160,7 +30806,7 @@ var JOBS = [
     description: "We are recruiting a skilled IT Business Analyst EDI/Integration to lead the design and implementation of EDI and system integrations for Order-to-Cash processes. The role involves collaborating with business leaders and IT architects, requiring deep expertise in SAP S/4HANA Order Management and EDI. Ideal for experienced professionals with strong stakeholder management skills.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212356/IT-Business-Analyst-EDI-Integration"},
-    pinOrder: 307,
+    pinOrder: 313,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30201,7 +30847,7 @@ var JOBS = [
     description: "We are looking for a Services & Software Subscription Solution Architect to lead the end-to-end architecture of subscription and software solutions across HPE and Juniper platforms. Drive integration, design platform-level solutions, and collaborate with business leaders. Ideal for experienced professionals with deep expertise in enterprise solution architecture and subscription commercial models.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212306/Services-Software-Subscription-Solution-Architect"},
-    pinOrder: 308,
+    pinOrder: 314,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30242,7 +30888,7 @@ var JOBS = [
     description: "We are currently hiring a SAP BRIM Convergent Charging (CC) / Convergent Mediation (CM) Solution Architect to lead the end-to-end architecture for SAP BRIM CC and CM within the L2C programme. You will design and govern integration solutions, translate business requirements into charge plans, and collaborate with global stakeholders. Ideal candidates have extensive SAP BRIM experience and expertise in platform integration.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212302/SAP-BRIM-Convergent-Charging-CC-Convergent-Mediation-CM-Solution-Architect"},
-    pinOrder: 309,
+    pinOrder: 315,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -30282,7 +30928,7 @@ var JOBS = [
     hiringNotes: "HPE job ID 1211844 · Added 27 Oct 2026. Official careers page reports this job has been filled. Verify on careers.hpe.com.",
     description: "HPE Intern, Software Engineer - I — Bengaluru, hybrid (avg 2 days/week in office). Batch 2027/2028/2029. Official page reports filled.",
     startingDate: "",
-    pinOrder: 310,
+    pinOrder: 316,
     qualification: "Currently pursuing a Bachelor’s degree in Engineering, Computer Science, Information Technology, or a related technical field",
   },
   {
@@ -30322,7 +30968,7 @@ var JOBS = [
     hiringNotes: "Amazon job ID 10541345 · Added 27 Oct 2026 · 6-month in-person internship, start January–June 2027. Verify on the official posting.",
     description: "Amazon SDE I Intern (6 months, 2027) — India locations including Bengaluru, Chennai, Hyderabad, Delhi, Mumbai, and Pune. Graduation year 2027.",
     startingDate: "January – June 2027",
-    pinOrder: 311,
+    pinOrder: 317,
     qualification: "Currently enrolled Bachelor’s or Master’s in Computer Science, Computer Engineering, or related field · Year of Graduation 2027",
   },
   {
@@ -30362,7 +31008,7 @@ var JOBS = [
     hiringNotes: "Checked 27 Oct 2026. The Virtusa careers page says this job has been filled. Requisition CREQ261742.",
     description: "Virtusa Associate, Hyderabad (CREQ261742). The official page reports the role as filled.",
     startingDate: "",
-    pinOrder: 312,
+    pinOrder: 318,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26400",
@@ -30404,7 +31050,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26400"},
-    pinOrder: 313,
+    pinOrder: 319,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26399",
@@ -30446,7 +31092,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26399"},
-    pinOrder: 314,
+    pinOrder: 320,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26398",
@@ -30488,7 +31134,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26398"},
-    pinOrder: 315,
+    pinOrder: 321,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26397",
@@ -30530,7 +31176,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26397"},
-    pinOrder: 316,
+    pinOrder: 322,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26396",
@@ -30572,7 +31218,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26396"},
-    pinOrder: 317,
+    pinOrder: 323,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26395",
@@ -30614,7 +31260,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26395"},
-    pinOrder: 318,
+    pinOrder: 324,
   },
   {
     id: "ipv-difinity-digital-business-development-executive-26394",
@@ -30656,7 +31302,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/495/26394"},
-    pinOrder: 319,
+    pinOrder: 325,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26393",
@@ -30698,7 +31344,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26393"},
-    pinOrder: 320,
+    pinOrder: 326,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26392",
@@ -30740,7 +31386,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26392"},
-    pinOrder: 321,
+    pinOrder: 327,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26391",
@@ -30782,7 +31428,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26391"},
-    pinOrder: 322,
+    pinOrder: 328,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26390",
@@ -30824,7 +31470,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26390"},
-    pinOrder: 323,
+    pinOrder: 329,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26389",
@@ -30866,7 +31512,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26389"},
-    pinOrder: 324,
+    pinOrder: 330,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26388",
@@ -30908,7 +31554,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26388"},
-    pinOrder: 325,
+    pinOrder: 331,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26387",
@@ -30950,7 +31596,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26387"},
-    pinOrder: 326,
+    pinOrder: 332,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26386",
@@ -30992,7 +31638,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26386"},
-    pinOrder: 327,
+    pinOrder: 333,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26385",
@@ -31034,7 +31680,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26385"},
-    pinOrder: 328,
+    pinOrder: 334,
   },
   {
     id: "ipv-calpine-group-embedded-software-engineer-ese-2-26384",
@@ -31076,7 +31722,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/1/26384"},
-    pinOrder: 329,
+    pinOrder: 335,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-business-presentation-specialist-26383",
@@ -31118,7 +31764,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26383"},
-    pinOrder: 330,
+    pinOrder: 336,
   },
   {
     id: "ipv-datapmi-technologies-llp-senior-technical-recruiter-26382",
@@ -31160,7 +31806,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/555/26382"},
-    pinOrder: 331,
+    pinOrder: 337,
   },
   {
     id: "ipv-white-rabbit-group-test-engineer-26381",
@@ -31202,7 +31848,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/149/26381"},
-    pinOrder: 332,
+    pinOrder: 338,
   },
   {
     id: "ipv-armia-systems-pvt-ltd-jr-business-developement-trainee-exp-6months-26380",
@@ -31244,7 +31890,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/3/26380"},
-    pinOrder: 333,
+    pinOrder: 339,
   },
   {
     id: "ipv-ynot-infosolutions-field-sales-executive-malappuram-district-26365",
@@ -31287,7 +31933,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Field Sales Executive – Malappuram District Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26365"},
-    pinOrder: 334,
+    pinOrder: 340,
   },
   {
     id: "ipv-ynot-infosolutions-telecalling-inside-sales-executive-26364",
@@ -31330,7 +31976,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Telecalling & Inside Sales Executive Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26364"},
-    pinOrder: 335,
+    pinOrder: 341,
   },
   {
     id: "ipv-ynot-infosolutions-digital-marketing-executive-26363",
@@ -31373,7 +32019,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Digital Marketing Executive Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26363"},
-    pinOrder: 336,
+    pinOrder: 342,
   },
   {
     id: "ipv-ynot-infosolutions-seo-specialist-immediate-hiring-26362",
@@ -31416,7 +32062,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“SEO Specialist Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26362"},
-    pinOrder: 337,
+    pinOrder: 343,
   },
   {
     id: "ipv-ynot-infosolutions-junior-laravel-developer-immediate-hiring-26361",
@@ -31458,7 +32104,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26361"},
-    pinOrder: 338,
+    pinOrder: 344,
   },
   {
     id: "ipv-spiralcode-innovates-llp-flutter-developer-experienced-26360",
@@ -31500,7 +32146,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/507/26360"},
-    pinOrder: 339,
+    pinOrder: 345,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-marketing-strategy-manager-26359",
@@ -31542,7 +32188,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26359"},
-    pinOrder: 340,
+    pinOrder: 346,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-google-ads-expert-26358",
@@ -31584,7 +32230,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26358"},
-    pinOrder: 341,
+    pinOrder: 347,
   },
   {
     id: "ipv-simelabs-an-astek-company-ai-data-annotation-specialist-26342",
@@ -31626,7 +32272,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26342"},
-    pinOrder: 342,
+    pinOrder: 348,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-devops-engineer-26341",
@@ -31668,7 +32314,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26341"},
-    pinOrder: 343,
+    pinOrder: 349,
   },
   {
     id: "ipv-simelabs-an-astek-company-junior-data-engineer-26340",
@@ -31710,7 +32356,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26340"},
-    pinOrder: 344,
+    pinOrder: 350,
   },
   {
     id: "ipv-simelabs-an-astek-company-business-analyst-ii-26339",
@@ -31752,7 +32398,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26339"},
-    pinOrder: 345,
+    pinOrder: 351,
   },
   {
     id: "ipv-simelabs-an-astek-company-backend-engineer-billing-account-management-26338",
@@ -31794,7 +32440,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26338"},
-    pinOrder: 346,
+    pinOrder: 352,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-backend-engineer-payment-platform-26337",
@@ -31836,7 +32482,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26337"},
-    pinOrder: 347,
+    pinOrder: 353,
   },
   {
     id: "ipv-jtsi-technologies-india-private-limited-sap-technical-evaluator-part-time-required-for-jtsi-tech-26336",
@@ -31878,7 +32524,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/55/26336"},
-    pinOrder: 348,
+    pinOrder: 354,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-data-engineer-apache-airflow-26335",
@@ -31920,7 +32566,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26335"},
-    pinOrder: 349,
+    pinOrder: 355,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-data-engineer-databricks-26334",
@@ -31962,7 +32608,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26334"},
-    pinOrder: 350,
+    pinOrder: 356,
   },
   {
     id: "ipv-icodebees-private-limited-senior-confluent-kafka-migration-engineer-26333",
@@ -32004,7 +32650,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26333"},
-    pinOrder: 351,
+    pinOrder: 357,
   },
   {
     id: "ipv-icodebees-private-limited-3d-designers-26332",
@@ -32046,7 +32692,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26332"},
-    pinOrder: 352,
+    pinOrder: 358,
   },
   {
     id: "ipv-nuvento-systems-private-limited-hr-trainee-payroll-and-statutory-26331",
@@ -32088,7 +32734,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26331"},
-    pinOrder: 353,
+    pinOrder: 359,
   },
   {
     id: "ipv-penguin-data-centre-pvt-ltd-hr-internship-26330",
@@ -32130,7 +32776,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/171/26330"},
-    pinOrder: 354,
+    pinOrder: 360,
   },
   {
     id: "ipv-valoriz-digital-pvt-ltd-graphic-designer-video-editor-intern-26329",
@@ -32172,7 +32818,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/410/26329"},
-    pinOrder: 355,
+    pinOrder: 361,
   },
   {
     id: "ipv-apps-team-technologies-pvt-ltd-senior-net-developer-26328",
@@ -32214,7 +32860,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/272/26328"},
-    pinOrder: 356,
+    pinOrder: 362,
   },
   {
     id: "ipv-vipoint-solutions-pvt-ltd-technical-writer-i-26327",
@@ -32256,7 +32902,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/62/26327"},
-    pinOrder: 357,
+    pinOrder: 363,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-qa-engineer-26326",
@@ -32298,7 +32944,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26326"},
-    pinOrder: 358,
+    pinOrder: 364,
   },
   {
     id: "ipv-inapp-information-technologies-india-pvt-ltd-dbt-analytics-engineer-data-modeling-dbt-26312",
@@ -32340,7 +32986,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/329/26312"},
-    pinOrder: 359,
+    pinOrder: 365,
   },
   {
     id: "ipv-zoiteckh-informations-solutions-looking-for-freelancers-26311",
@@ -32382,7 +33028,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/466/26311"},
-    pinOrder: 360,
+    pinOrder: 366,
   },
   {
     id: "ipv-ndimensionz-solutions-pvt-ltd-software-engineer-python-developer-26308",
@@ -32424,7 +33070,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/209/26308"},
-    pinOrder: 361,
+    pinOrder: 367,
   },
   {
     id: "ipv-ndimensionz-solutions-pvt-ltd-project-program-manager-26307",
@@ -32466,7 +33112,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/209/26307"},
-    pinOrder: 362,
+    pinOrder: 368,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-video-editor-26306",
@@ -32508,7 +33154,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26306"},
-    pinOrder: 363,
+    pinOrder: 369,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-cloud-architect-26305",
@@ -32550,7 +33196,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26305"},
-    pinOrder: 364,
+    pinOrder: 370,
   },
   {
     id: "ipv-simelabs-an-astek-company-lead-observability-architect-26304",
@@ -32592,7 +33238,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26304"},
-    pinOrder: 365,
+    pinOrder: 371,
   },
   {
     id: "ipv-advenser-engineering-services-private-limited-junior-engineer-bim-consulting-26303",
@@ -32634,7 +33280,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/107/26303"},
-    pinOrder: 366,
+    pinOrder: 372,
   },
   {
     id: "ipv-simelabs-an-astek-company-observability-engineer-26302",
@@ -32676,7 +33322,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26302"},
-    pinOrder: 367,
+    pinOrder: 373,
   },
   {
     id: "ipv-difinity-digital-business-central-consultant-26301",
@@ -32718,7 +33364,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/495/26301"},
-    pinOrder: 368,
+    pinOrder: 374,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-google-ads-specialist-26300",
@@ -32760,7 +33406,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26300"},
-    pinOrder: 369,
+    pinOrder: 375,
   },
   {
     id: "ipv-advenser-engineering-services-private-limited-quality-analyst-steel-detailing-26299",
@@ -32802,7 +33448,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/107/26299"},
-    pinOrder: 370,
+    pinOrder: 376,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-content-writer-26298",
@@ -32844,7 +33490,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26298"},
-    pinOrder: 371,
+    pinOrder: 377,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-legal-compliance-trainee-26297",
@@ -32886,7 +33532,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26297"},
-    pinOrder: 372,
+    pinOrder: 378,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-associate-appeals-26296",
@@ -32928,7 +33574,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26296"},
-    pinOrder: 373,
+    pinOrder: 379,
   },
   {
     id: "tpv-rr-donnelley-india-outsource-p-ltd-hiring-freshers-for-the-document-specialist-contract-33825",
@@ -32970,7 +33616,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33825?job=Hiring%20Freshers%20for%20the%20Document%20Specialist%20%28Contract%29"},
     walkinTime: "",
-    pinOrder: 374,
+    pinOrder: 380,
   },
   {
     id: "tpv-valoriz-digital-p-ltd-graphic-designer-video-editor-intern-33824",
@@ -33012,7 +33658,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33824?job=Graphic%20Designer%20%26%20Video%20Editor%20Intern"},
     walkinTime: "",
-    pinOrder: 375,
+    pinOrder: 381,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-business-development-associate-bda-33823",
@@ -33054,7 +33700,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33823?job=Business%20Development%20Associate%20%28BDA%29"},
     walkinTime: "",
-    pinOrder: 376,
+    pinOrder: 382,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-sales-manager-retail-insurance-33822",
@@ -33096,7 +33742,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33822?job=Sales%20Manager%20%E2%80%93%20Retail%20Insurance"},
     walkinTime: "",
-    pinOrder: 377,
+    pinOrder: 383,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-deputy-manager-audit-33821",
@@ -33138,7 +33784,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33821?job=Deputy%20Manager%20-%20Audit"},
     walkinTime: "",
-    pinOrder: 378,
+    pinOrder: 384,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-capital-structuring-manager-qualified-33820",
@@ -33180,7 +33826,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33820?job=Capital%20%26%20Structuring%20Manager%20%28Qualified%29"},
     walkinTime: "",
-    pinOrder: 379,
+    pinOrder: 385,
   },
   {
     id: "tpv-phykon-solutions-p-ltd-customer-support-executive-voice-process-33819",
@@ -33222,7 +33868,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33819?job=Customer%20Support%20Executive%20-%20Voice%20Process"},
     walkinTime: "10:00 – 15:30",
-    pinOrder: 380,
+    pinOrder: 386,
   },
   {
     id: "tpv-telcotech-solutions-hub-p-ltd-sales-support-associate-1-to-3-years-33818",
@@ -33264,7 +33910,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33818?job=Sales%20Support%20Associate%20-%201%20to%203%20years"},
     walkinTime: "",
-    pinOrder: 381,
+    pinOrder: 387,
   },
   {
     id: "tpv-way-dot-com-p-ltd-hr-administration-executive-33817",
@@ -33306,7 +33952,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33817?job=HR%20%26%20Administration%20Executive"},
     walkinTime: "",
-    pinOrder: 382,
+    pinOrder: 388,
   },
   {
     id: "tpv-way-dot-com-p-ltd-seo-content-writer-33816",
@@ -33348,7 +33994,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33816?job=SEO%20Content%20Writer"},
     walkinTime: "",
-    pinOrder: 383,
+    pinOrder: 389,
   },
   {
     id: "tpv-refined-it-solutions-and-marketing-p-ltd-business-development-executive-33815",
@@ -33390,7 +34036,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33815?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 384,
+    pinOrder: 390,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-telecalling-executives-33814",
@@ -33432,7 +34078,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33814?job=TELECALLING%20EXECUTIVES"},
     walkinTime: "",
-    pinOrder: 385,
+    pinOrder: 391,
   },
   {
     id: "tpv-innovation-incubator-advisory-p-ltd-secops-cloud-security-engineer-33813",
@@ -33474,7 +34120,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33813?job=SecOps%20/%20Cloud%20Security%20Engineer"},
     walkinTime: "",
-    pinOrder: 386,
+    pinOrder: 392,
   },
   {
     id: "tpv-elementz-engineers-guild-p-ltd-digital-marketing-specialist-33812",
@@ -33516,7 +34162,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33812?job=Digital%20Marketing%20Specialist"},
     walkinTime: "",
-    pinOrder: 387,
+    pinOrder: 393,
   },
   {
     id: "tpv-marvelloux-apps-p-ltd-team-lead-sales-3-years-33811",
@@ -33558,7 +34204,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33811?job=Team%20Lead%20%E2%80%93%20Sales%20%283%2B%20Years%29"},
     walkinTime: "",
-    pinOrder: 388,
+    pinOrder: 394,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-digital-marketer-33810",
@@ -33600,7 +34246,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33810?job=DIGITAL%20MARKETER"},
     walkinTime: "",
-    pinOrder: 389,
+    pinOrder: 395,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-faculty-animation-design-33809",
@@ -33642,7 +34288,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33809?job=Faculty%20%E2%80%93%20Animation%20%26%20Design"},
     walkinTime: "",
-    pinOrder: 390,
+    pinOrder: 396,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-junior-copywriter-design-marketing-team-33808",
@@ -33684,7 +34330,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33808?job=Junior%20Copywriter%20%E2%80%93%20Design%20%26%20Marketing%20Team"},
     walkinTime: "",
-    pinOrder: 391,
+    pinOrder: 397,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-marketing-coordinator-feature-film-division-33807",
@@ -33726,7 +34372,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33807?job=Marketing%20Coordinator%20-%20Feature%20Film%20Division"},
     walkinTime: "",
-    pinOrder: 392,
+    pinOrder: 398,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-head-of-finance-33806",
@@ -33768,7 +34414,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33806?job=Head%20of%20Finance"},
     walkinTime: "",
-    pinOrder: 393,
+    pinOrder: 399,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-senior-graphic-designer-33805",
@@ -33810,7 +34456,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33805?job=Senior%20Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 394,
+    pinOrder: 400,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-market-research-analyst-intern-remote-33804",
@@ -33852,7 +34498,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33804?job=Market%20Research%20Analyst%20Intern%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 395,
+    pinOrder: 401,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-digital-marketing-executive-intern-remote-33803",
@@ -33894,7 +34540,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33803?job=Digital%20Marketing%20Executive%20Intern%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 396,
+    pinOrder: 402,
   },
   {
     id: "tpv-devicedriven-india-pvt-ltd-devops-lead-engineer-33802",
@@ -33936,7 +34582,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33802?job=DevOps%20Lead%20Engineer"},
     walkinTime: "",
-    pinOrder: 397,
+    pinOrder: 403,
   },
   {
     id: "tpv-devicedriven-india-pvt-ltd-senior-security-analyst-33801",
@@ -33978,7 +34624,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33801?job=Senior%20Security%20Analyst"},
     walkinTime: "",
-    pinOrder: 398,
+    pinOrder: 404,
   },
   {
     id: "tpv-waybeo-technology-solutions-p-ltd-customer-success-associate-33800",
@@ -34020,7 +34666,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33800?job=Customer%20Success%20Associate"},
     walkinTime: "",
-    pinOrder: 399,
+    pinOrder: 405,
   },
   {
     id: "tpv-innovation-incubator-advisory-p-ltd-junior-data-engineer-33799",
@@ -34062,7 +34708,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33799?job=Junior%20Data%20Engineer"},
     walkinTime: "",
-    pinOrder: 400,
+    pinOrder: 406,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-senior-net-developer-ai-33798",
@@ -34104,7 +34750,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33798?job=Senior%20.NET%20Developer%20-%20AI"},
     walkinTime: "",
-    pinOrder: 401,
+    pinOrder: 407,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-qa-automation-engineer-33797",
@@ -34146,7 +34792,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33797?job=Senior%20QA%20Automation%20Engineer"},
     walkinTime: "09:30 – 16:00",
-    pinOrder: 402,
+    pinOrder: 408,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-solution-architect-net-33794",
@@ -34188,7 +34834,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33794?job=Solution%20Architect%20-%20.Net"},
     walkinTime: "",
-    pinOrder: 403,
+    pinOrder: 409,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-33793",
@@ -34230,7 +34876,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33793?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 404,
+    pinOrder: 410,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-delivery-head-33792",
@@ -34272,7 +34918,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33792?job=Delivery%20Head"},
     walkinTime: "",
-    pinOrder: 405,
+    pinOrder: 411,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-senior-project-manager-33791",
@@ -34314,7 +34960,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33791?job=Senior%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 406,
+    pinOrder: 412,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-33789",
@@ -34356,7 +35002,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33789?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 407,
+    pinOrder: 413,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-delivery-manager-33788",
@@ -34398,7 +35044,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33788?job=Delivery%20Manager"},
     walkinTime: "",
-    pinOrder: 408,
+    pinOrder: 414,
   },
   {
     id: "tpv-zyxware-technologies-p-ltd-associate-business-development-33787",
@@ -34440,7 +35086,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33787?job=Associate%2C%20Business%20Development"},
     walkinTime: "",
-    pinOrder: 409,
+    pinOrder: 415,
   },
   {
     id: "tpv-atticube-technology-solutions-pvt-ltd-finance-executive-33786",
@@ -34482,7 +35128,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33786?job=Finance%20Executive"},
     walkinTime: "",
-    pinOrder: 410,
+    pinOrder: 416,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-academic-counsellor-student-mentor-females-only-33785",
@@ -34524,7 +35170,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33785?job=Academic%20Counsellor%20/%20Student%20Mentor%20%28Females%20Only%29"},
     walkinTime: "11:30 – 15:30",
-    pinOrder: 411,
+    pinOrder: 417,
   },
   {
     id: "tpv-sequoiaat-india-p-ltd-junior-customer-success-executive-33784",
@@ -34566,7 +35212,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33784?job=Junior%20Customer%20Success%20Executive"},
     walkinTime: "",
-    pinOrder: 412,
+    pinOrder: 418,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-33783",
@@ -34608,7 +35254,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33783?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 413,
+    pinOrder: 419,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-solution-architect-33782",
@@ -34650,7 +35296,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33782?job=Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 414,
+    pinOrder: 420,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-33781",
@@ -34692,7 +35338,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33781?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 415,
+    pinOrder: 421,
   },
   {
     id: "tpv-klystron-technologies-odoo-trainee-33780",
@@ -34734,7 +35380,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33780?job=Odoo%20Trainee"},
     walkinTime: "",
-    pinOrder: 416,
+    pinOrder: 422,
   },
   {
     id: "tpv-smarthms-solutions-p-ltd-technical-sales-specialist-freshers-btech-non-it-mba-33779",
@@ -34776,7 +35422,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33779?job=Technical%20Sales%20Specialist%20%7C%20Freshers%20%3A%20Btech%3A%20non-IT/MBA"},
     walkinTime: "",
-    pinOrder: 417,
+    pinOrder: 423,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-revenue-operations-33778",
@@ -34818,7 +35464,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33778?job=Inside%20Sales%20%28%20Revenue%20Operations%20%29"},
     walkinTime: "",
-    pinOrder: 418,
+    pinOrder: 424,
   },
   {
     id: "tpv-relaxplzz-technologies-react-js-training-freshers-welcome-33777",
@@ -34860,7 +35506,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33777?job=React%20JS%20Training%20Freshers%20Welcome"},
     walkinTime: "",
-    pinOrder: 419,
+    pinOrder: 425,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-senior-marketing-executive-33776",
@@ -34902,7 +35548,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33776?job=Senior%20Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 420,
+    pinOrder: 426,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-background-colouring-artist-33775",
@@ -34944,7 +35590,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33775?job=BackGround%20Colouring%20Artist"},
     walkinTime: "",
-    pinOrder: 421,
+    pinOrder: 427,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-senior-full-stack-dot-net-with-aws-ai-33774",
@@ -34986,7 +35632,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33774?job=Senior%20Full%20Stack%20-%20Dot%20Net%20with%20AWS%20%26%20AI"},
     walkinTime: "",
-    pinOrder: 422,
+    pinOrder: 428,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-internship-33773",
@@ -35028,7 +35674,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33773?job=Marketing%20Lead%20Generation_%20Internship"},
     walkinTime: "",
-    pinOrder: 423,
+    pinOrder: 429,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-intern-33772",
@@ -35070,7 +35716,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33772?job=Marketing%20%26%20Lead%20Generation%20Intern"},
     walkinTime: "",
-    pinOrder: 424,
+    pinOrder: 430,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-it-recruiter-2-to-5-years-33771",
@@ -35112,7 +35758,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33771?job=IT%20Recruiter%20-%202%20to%205%20years"},
     walkinTime: "",
-    pinOrder: 425,
+    pinOrder: 431,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-digital-marketing-executive-3-to-6-years-33770",
@@ -35154,7 +35800,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33770?job=Digital%20Marketing%20Executive%20-%203%20to%206%20years"},
     walkinTime: "",
-    pinOrder: 426,
+    pinOrder: 432,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-business-development-executive-33769",
@@ -35196,7 +35842,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33769?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 427,
+    pinOrder: 433,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-netscaler-engineer-l3-33768",
@@ -35238,7 +35884,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33768?job=NetScaler%20Engineer%20L3"},
     walkinTime: "",
-    pinOrder: 428,
+    pinOrder: 434,
   },
   {
     id: "tpv-naga-info-solutions-p-ltd-junior-seo-aeo-geo-specialist-33767",
@@ -35280,7 +35926,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33767?job=Junior%20SEO%2C%20AEO%20%26%20GEO%20Specialist"},
     walkinTime: "",
-    pinOrder: 429,
+    pinOrder: 435,
   },
   {
     id: "tpv-naga-info-solutions-p-ltd-junior-gtm-engineer-33766",
@@ -35322,7 +35968,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33766?job=Junior%20GTM%20Engineer"},
     walkinTime: "",
-    pinOrder: 430,
+    pinOrder: 436,
   },
   {
     id: "tpv-crayo-tech-business-solutions-p-ltd-digital-marketing-specialist-dms-33765",
@@ -35364,7 +36010,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33765?job=Digital%20Marketing%20Specialist%20%28DMS%29"},
     walkinTime: "",
-    pinOrder: 431,
+    pinOrder: 437,
   },
   {
     id: "tpv-zybo-tech-lab-p-ltd-digital-marketing-trainee-33764",
@@ -35406,7 +36052,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33764?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 432,
+    pinOrder: 438,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-peoplesoft-functional-lead-financials-fscm-33762",
@@ -35448,7 +36094,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33762?job=PeopleSoft%20Functional%20Lead%20%E2%80%93%20Financials%20%28FSCM%29"},
     walkinTime: "",
-    pinOrder: 433,
+    pinOrder: 439,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-qa-automation-engineer-33761",
@@ -35490,7 +36136,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33761?job=Senior%20QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 434,
+    pinOrder: 440,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-33760",
@@ -35532,7 +36178,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33760?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 435,
+    pinOrder: 441,
   },
   {
     id: "tpv-way-dot-com-p-ltd-job-posting-sales-operations-lead-research-analyst-33759",
@@ -35574,7 +36220,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33759?job=Job%20Posting%20Sales%20Operations%20%26%20Lead%20Research%20Analyst"},
     walkinTime: "",
-    pinOrder: 436,
+    pinOrder: 442,
   },
   {
     id: "tpv-way-dot-com-p-ltd-ai-ml-associate-architect-33758",
@@ -35616,7 +36262,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33758?job=AI/ML%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 437,
+    pinOrder: 443,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-marketing-operations-manager-33757",
@@ -35658,7 +36304,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33757?job=Senior%20Marketing%20Operations%20Manager"},
     walkinTime: "",
-    pinOrder: 438,
+    pinOrder: 444,
   },
   {
     id: "tpv-gruppozenit-india-p-ltd-microsoft-365-security-solution-specialist-33756",
@@ -35700,7 +36346,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33756?job=Microsoft%20365-Security%20Solution%20Specialist"},
     walkinTime: "",
-    pinOrder: 439,
+    pinOrder: 445,
   },
   {
     id: "tpv-akira-software-solutions-p-ltd-hr-sales-administrator-33755",
@@ -35742,7 +36388,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33755?job=HR%20%26%20Sales%20Administrator"},
     walkinTime: "",
-    pinOrder: 440,
+    pinOrder: 446,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-lead-email-marketing-33754",
@@ -35784,7 +36430,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33754?job=Team%20Lead%20-%20Email%20Marketing"},
     walkinTime: "",
-    pinOrder: 441,
+    pinOrder: 447,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-33753",
@@ -35826,7 +36472,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33753?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 442,
+    pinOrder: 448,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-operations-executive-airport-parking-33752",
@@ -35868,7 +36514,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33752?job=Senior%20Operations%20Executive%20-%20Airport%20Parking"},
     walkinTime: "",
-    pinOrder: 443,
+    pinOrder: 449,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-33751",
@@ -35910,7 +36556,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33751?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 444,
+    pinOrder: 450,
   },
   {
     id: "tpv-way-dot-com-p-ltd-content-writer-b2b-33750",
@@ -35952,7 +36598,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33750?job=Content%20Writer%20-%20B2B"},
     walkinTime: "",
-    pinOrder: 445,
+    pinOrder: 451,
   },
   {
     id: "tpv-way-dot-com-p-ltd-qa-automation-engineer-33749",
@@ -35994,7 +36640,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33749?job=QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 446,
+    pinOrder: 452,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-manager-33748",
@@ -36036,7 +36682,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33748?job=Accounts%20Payable%20Manager"},
     walkinTime: "",
-    pinOrder: 447,
+    pinOrder: 453,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-33747",
@@ -36078,7 +36724,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33747?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 448,
+    pinOrder: 454,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-director-marketing-33746",
@@ -36120,7 +36766,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33746?job=Senior%20Director-Marketing"},
     walkinTime: "",
-    pinOrder: 449,
+    pinOrder: 455,
   },
   {
     id: "tpv-way-dot-com-p-ltd-node-js-technical-architect-33745",
@@ -36162,7 +36808,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33745?job=Node%20JS%20Technical%20Architect"},
     walkinTime: "",
-    pinOrder: 450,
+    pinOrder: 456,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-analyst-33744",
@@ -36204,7 +36850,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33744?job=Accounts%20Payable%20Analyst"},
     walkinTime: "",
-    pinOrder: 451,
+    pinOrder: 457,
   },
   {
     id: "tpv-way-dot-com-p-ltd-digital-marketing-manager-33743",
@@ -36246,7 +36892,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33743?job=Digital%20Marketing%20Manager"},
     walkinTime: "",
-    pinOrder: 452,
+    pinOrder: 458,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-devops-engineer-33742",
@@ -36288,7 +36934,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33742?job=Senior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 453,
+    pinOrder: 459,
   },
   {
     id: "tpv-way-dot-com-p-ltd-full-stack-production-support-engineer-33741",
@@ -36330,7 +36976,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33741?job=Full%20Stack%20Production%20Support%20Engineer"},
     walkinTime: "",
-    pinOrder: 454,
+    pinOrder: 460,
   },
   {
     id: "tpv-way-dot-com-p-ltd-business-development-executive-33740",
@@ -36372,7 +37018,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33740?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 455,
+    pinOrder: 461,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-mern-stack-trainee-33739",
@@ -36414,7 +37060,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33739?job=MERN%20STACK%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 456,
+    pinOrder: 462,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-fullstack-developer-33738",
@@ -36456,7 +37102,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33738?job=JAVA%20FullStack%20Developer"},
     walkinTime: "",
-    pinOrder: 457,
+    pinOrder: 463,
   },
   {
     id: "tpv-ibil-solutions-p-ltd-junior-hr-admin-executive-33737",
@@ -36498,7 +37144,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33737?job=Junior%20HR%20%26%20Admin%20Executive"},
     walkinTime: "",
-    pinOrder: 458,
+    pinOrder: 464,
   },
   {
     id: "tpv-zybo-tech-lab-p-ltd-pcb-designer-33735",
@@ -36540,7 +37186,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33735?job=PCB%20Designer"},
     walkinTime: "",
-    pinOrder: 459,
+    pinOrder: 465,
   },
   {
     id: "tpv-integrated-order-automated-solutions-p-ltd-female-customer-enablement-associate-33734",
@@ -36582,7 +37228,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33734?job=Female%20Customer%20Enablement%20Associate"},
     walkinTime: "",
-    pinOrder: 460,
+    pinOrder: 466,
   },
   {
     id: "tpv-ainsurtech-p-ltd-junior-financial-analyst-33733",
@@ -36624,7 +37270,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33733?job=Junior%20Financial%20Analyst"},
     walkinTime: "",
-    pinOrder: 461,
+    pinOrder: 467,
   },
   {
     id: "advenxa-operations-executive-domestic-490044",
@@ -36665,7 +37311,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Any Graduate",
     salaryRange: "Up to ₹35,000 per month",
-    pinOrder: 462,
+    pinOrder: 468,
   },
   {
     id: "advenxa-manager-kyc-fraud-dispute-472049",
@@ -36705,7 +37351,7 @@ var JOBS = [
     description: "Manager - KYC (Fraud &Dispute) Location : Infopark,Kochi, Kerala Experience : Minimum 8+ years in KYC, Fraud & Dispute Process (BPO Domain Mandatory) Managerial Experience : Minimum 3+ years as Assistant Manager / Manager in the BPO KYC domain (Mandatory) Qualification : Bachelor",
     startingDate: "",
     qualification: "Bachelor's Degree Mandatory",
-    pinOrder: 463,
+    pinOrder: 469,
     salaryRange: "Up to ₹12 LPA",
   },
   {
@@ -36747,7 +37393,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
     salaryRange: "₹25,000–₹30,000 per month",
-    pinOrder: 464,
+    pinOrder: 470,
   },
   {
     id: "little-lourdes-hr-executive-kottayam-oct2026",
@@ -36788,7 +37434,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 465,
+    pinOrder: 471,
     qualification: "MBA / MHA / PGDM",
   },
   {
@@ -36828,7 +37474,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 466,
+    pinOrder: 472,
     qualification: "B.Sc / GNM Nursing",
   },
   {
@@ -36869,7 +37515,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 467,
+    pinOrder: 473,
   },
   {
     id: "ahalia-women-children-facilities-thrissur-oct2026",
@@ -36909,7 +37555,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 468,
+    pinOrder: 474,
   },
   {
     id: "vidal-health-insurance-coordinator-kochi-oct2026",
@@ -36948,7 +37594,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 469,
+    pinOrder: 475,
   },
   {
     id: "sabine-staff-nurses-kasaragod-oct2026",
@@ -36988,7 +37634,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 470,
+    pinOrder: 476,
     qualification: "B.Sc / Post B.Sc / GNM",
   },
   {
@@ -37030,7 +37676,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 471,
+    pinOrder: 477,
     qualification: "B.Sc Nursing / Post Basic B.Sc Nursing with KNC registration",
   },
   {
@@ -37072,7 +37718,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 472,
+    pinOrder: 478,
     qualification: "Diploma or graduation in Biomedical Engineering",
   },
   {
@@ -37114,7 +37760,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 473,
+    pinOrder: 479,
     qualification: "MSW",
   },
   {
@@ -37156,7 +37802,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 474,
+    pinOrder: 480,
   },
   {
     id: "sims-it-executive-ponkunnam-oct2026",
@@ -37197,7 +37843,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 475,
+    pinOrder: 481,
     qualification: "Diploma in Computer Hardware and Network Maintenance with E-Gadgets Technologies",
   },
   {
@@ -37238,7 +37884,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 476,
+    pinOrder: 482,
     qualification: "MBA / MHA, preferably in Hospital Administration, Healthcare Management, or Finance",
   },
   {
@@ -37278,7 +37924,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 477,
+    pinOrder: 483,
   },
   {
     id: "vps-lakeshore-hr-sr-executive-kochi-oct2026",
@@ -37319,7 +37965,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 478,
+    pinOrder: 484,
     qualification: "MBA in HR",
   },
   {
@@ -37361,7 +38007,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 479,
+    pinOrder: 485,
     qualification: "Diploma or B.Tech in Biomedical Engineering",
   },
   {
@@ -37403,7 +38049,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 480,
+    pinOrder: 486,
     qualification: "Degree or diploma in Fire & Safety Engineering, NEBOSH, or an equivalent certification",
   },
   {
@@ -37442,7 +38088,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 481,
+    pinOrder: 487,
     qualification: "Graduation and above",
   },
   {
@@ -37484,7 +38130,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 482,
+    pinOrder: 488,
     qualification: "BPT / MPT",
   },
   {
@@ -37525,7 +38171,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 483,
+    pinOrder: 489,
   },
   {
     id: "bb-memorial-hospital-admin-intern-thrikkakara-oct2026",
@@ -37565,7 +38211,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 484,
+    pinOrder: 490,
     qualification: "Diploma, BBA, or MHA in Hospital Administration, or equivalent",
   },
   {
@@ -37607,7 +38253,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "09:30 AM",
     walkinLocation: "HRD, 5th Floor, Welcare Hospital, Vyttila, Ernakulam",
-    pinOrder: 485,
+    pinOrder: 491,
     qualification: "B.Pharm, M.Pharm, BBA, or MBA for the purchase and in-charge roles",
   },
   {
@@ -37649,7 +38295,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM",
     walkinLocation: "Mundakayam Medical Trust Hospital, Mundakayam",
-    pinOrder: 486,
+    pinOrder: 492,
     qualification: "B.Com / M.Com",
   },
   {
@@ -37688,7 +38334,7 @@ var JOBS = [
     hiringNotes: "Hiring notice, 22 Oct 2026. Coimbatore. Full-time.",
     description: "PHP Laravel Developer at Codepluse Gen Private Limited, Coimbatore. 1–3 years. PHP, Laravel, MySQL, REST APIs, and Git.",
     startingDate: "",
-    pinOrder: 487,
+    pinOrder: 493,
     companyLegalName: "Codepluse Gen Private Limited",
     qualification: "",
   },
@@ -37729,7 +38375,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357529 · Posted 2 days ago · Kochi",
     description: "Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 507,
+    pinOrder: 513,
   },
   {
     id: "accenture-business-analyst-2-r00356957-kochi-oct2026",
@@ -37768,7 +38414,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356957 · Posted 2 days ago · Kochi",
     description: "Business Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 508,
+    pinOrder: 514,
   },
   {
     id: "accenture-technical-test-engineer-r00357321-kochi-oct2026",
@@ -37807,7 +38453,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357321 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 509,
+    pinOrder: 515,
   },
   {
     id: "accenture-technical-test-lead-3-r00357342-kochi-oct2026",
@@ -37846,7 +38492,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357342 · Posted 2 days ago · Kochi",
     description: "Technical Test Lead 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 510,
+    pinOrder: 516,
   },
   {
     id: "accenture-technical-test-engineer-r00356318-kochi-oct2026",
@@ -37885,7 +38531,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356318 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 511,
+    pinOrder: 517,
   },
   {
     id: "accenture-cloud-administrator-r00358575-kochi-oct2026",
@@ -37924,7 +38570,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358575 · Posted 2 days ago · Kochi",
     description: "Cloud Administrator at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 512,
+    pinOrder: 518,
   },
   {
     id: "accenture-cloud-platform-engineer-gcp-r00306127-kochi-oct2026",
@@ -37963,7 +38609,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306127 · Posted 5 days ago · Kochi",
     description: "Cloud Platform Engineer -GCP at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 513,
+    pinOrder: 519,
   },
   {
     id: "accenture-data-visualization-sr-analyst-r00337012-kochi-oct2026",
@@ -38002,7 +38648,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00337012 · Posted 5 days ago · Kochi",
     description: "Data Visualization Sr. Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 514,
+    pinOrder: 520,
   },
   {
     id: "accenture-sr-lead-frontend-2-r00357404-kochi-oct2026",
@@ -38041,7 +38687,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357404 · Posted 5 days ago · Kochi",
     description: "Sr. Lead FrontEnd 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 515,
+    pinOrder: 521,
   },
   {
     id: "accenture-sr-backend-developer-node-js-r00363193-kochi-oct2026",
@@ -38080,7 +38726,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363193 · Posted 6 days ago · Kochi",
     description: "Sr. Backend Developer - Node.js at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 516,
+    pinOrder: 522,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-2-r00363199-kochi-oct2026",
@@ -38119,7 +38765,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363199 · Posted 6 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 517,
+    pinOrder: 523,
   },
   {
     id: "accenture-senior-business-analyst-r00356959-kochi-oct2026",
@@ -38158,7 +38804,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356959 · Posted 6 days ago · Kochi",
     description: "Senior Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 518,
+    pinOrder: 524,
   },
   {
     id: "accenture-lead-data-engineer-r00361025-kochi-oct2026",
@@ -38197,7 +38843,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361025 · Posted 8 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 519,
+    pinOrder: 525,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-r00363197-kochi-oct2026",
@@ -38236,7 +38882,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363197 · Posted 8 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 520,
+    pinOrder: 526,
   },
   {
     id: "accenture-senior-lead-frontend-associate-manager-acs-song-r00357405-kochi-oct2026",
@@ -38275,7 +38921,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357405 · Posted 8 days ago · Kochi",
     description: "Senior Lead FrontEnd– Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 521,
+    pinOrder: 527,
   },
   {
     id: "accenture-manager-business-analysis-r00356982-kochi-oct2026",
@@ -38314,7 +38960,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356982 · Posted 9 days ago · Kochi",
     description: "Manager - Business Analysis at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 522,
+    pinOrder: 528,
   },
   {
     id: "accenture-solution-architect-ai-r00363200-kochi-oct2026",
@@ -38353,7 +38999,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363200 · Posted 9 days ago · Kochi",
     description: "Solution Architect - AI at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 523,
+    pinOrder: 529,
   },
   {
     id: "accenture-functional-test-engineer-r00354490-kochi-oct2026",
@@ -38392,7 +39038,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354490 · Posted 9 days ago · Kochi",
     description: "Functional Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 524,
+    pinOrder: 530,
   },
   {
     id: "accenture-lead-backend-developer-node-js-r00363188-kochi-oct2026",
@@ -38431,7 +39077,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363188 · Posted 9 days ago · Kochi",
     description: "Lead Backend Developer - Node.js at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 525,
+    pinOrder: 531,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-2-r00361038-kochi-oct2026",
@@ -38470,7 +39116,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361038 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 526,
+    pinOrder: 532,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00361033-kochi-oct2026",
@@ -38509,7 +39155,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361033 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 527,
+    pinOrder: 533,
   },
   {
     id: "accenture-o2c-offering-advisor-r00352050-india-oct2026",
@@ -38548,7 +39194,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352050 · Posted 12 days ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "O2C Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 528,
+    pinOrder: 534,
   },
   {
     id: "accenture-lead-frontend-r00357372-kochi-oct2026",
@@ -38587,7 +39233,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357372 · Posted 13 days ago · Kochi",
     description: "Lead FrontEnd at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 529,
+    pinOrder: 535,
   },
   {
     id: "accenture-lead-backend-java-5-r00357546-kochi-oct2026",
@@ -38626,7 +39272,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357546 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 5 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 530,
+    pinOrder: 536,
   },
   {
     id: "accenture-lead-backend-java-3-r00357543-kochi-oct2026",
@@ -38665,7 +39311,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357543 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 531,
+    pinOrder: 537,
   },
   {
     id: "accenture-sr-lead-backend-java-r00357547-kochi-oct2026",
@@ -38704,7 +39350,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357547 · Posted 14 days ago · Kochi",
     description: "Sr. Lead Backend - Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 532,
+    pinOrder: 538,
   },
   {
     id: "accenture-lead-data-engineer-2-r00361029-kochi-oct2026",
@@ -38743,7 +39389,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361029 · Posted 15 days ago · Kochi",
     description: "Lead Data Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 533,
+    pinOrder: 539,
   },
   {
     id: "accenture-lead-business-analyst-2-r00356975-kochi-oct2026",
@@ -38782,7 +39428,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356975 · Posted 15 days ago · Kochi",
     description: "Lead Business Analyst 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 534,
+    pinOrder: 540,
   },
   {
     id: "accenture-lead-backend-java-2-r00357542-kochi-oct2026",
@@ -38821,7 +39467,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357542 · Posted 21 days ago · Kochi",
     description: "Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 535,
+    pinOrder: 541,
   },
   {
     id: "accenture-business-analyst-r00356956-kochi-oct2026",
@@ -38860,7 +39506,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356956 · Posted 21 days ago · Kochi",
     description: "Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 536,
+    pinOrder: 542,
   },
   {
     id: "accenture-project-management-specialist-r00356302-kochi-oct2026",
@@ -38899,7 +39545,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356302 · Posted 21 days ago · Kochi",
     description: "Project Management - Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 537,
+    pinOrder: 543,
   },
   {
     id: "accenture-project-management-specialist-r00347506-kochi-oct2026",
@@ -38938,7 +39584,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347506 · Posted 21 days ago · Kochi",
     description: "Project Management Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 538,
+    pinOrder: 544,
   },
   {
     id: "accenture-pricing-cpq-analyst-2-r00356989-kochi-oct2026",
@@ -38977,7 +39623,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356989 · Posted 21 days ago · Kochi",
     description: "Pricing & CPQ - Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 539,
+    pinOrder: 545,
   },
   {
     id: "accenture-sr-lead-backend-java-2-r00357548-kochi-oct2026",
@@ -39016,7 +39662,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357548 · Posted 22 days ago · Kochi",
     description: "Sr. Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 540,
+    pinOrder: 546,
   },
   {
     id: "accenture-associate-manager-business-analyst-r00356977-kochi-oct2026",
@@ -39055,7 +39701,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356977 · Posted 22 days ago · Kochi",
     description: "Associate Manager Business Analyst at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 541,
+    pinOrder: 547,
   },
   {
     id: "accenture-cloud-platform-manager-r00340217-kochi-oct2026",
@@ -39094,7 +39740,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340217 · Posted 22 days ago · Kochi",
     description: "Cloud Platform Manager at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 542,
+    pinOrder: 548,
   },
   {
     id: "accenture-lead-cloud-devops-r00358583-kochi-oct2026",
@@ -39133,7 +39779,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358583 · Posted 22 days ago · Kochi",
     description: "Lead - Cloud DevOps at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 543,
+    pinOrder: 549,
   },
   {
     id: "accenture-lead-backend-java-4-r00357545-kochi-oct2026",
@@ -39172,7 +39818,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357545 · Posted 23 days ago · Kochi",
     description: "Lead Backend - Java 4 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 544,
+    pinOrder: 550,
   },
   {
     id: "accenture-pricing-cpq-analyst-r00356985-kochi-oct2026",
@@ -39211,7 +39857,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356985 · Posted 23 days ago · Kochi",
     description: "Pricing & CPQ - Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 545,
+    pinOrder: 551,
   },
   {
     id: "accenture-technical-test-engineer-2-r00357323-kochi-oct2026",
@@ -39250,7 +39896,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357323 · Posted 26 days ago · Kochi",
     description: "Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 546,
+    pinOrder: 552,
   },
   {
     id: "accenture-lead-data-engineer-r00335398-kochi-oct2026",
@@ -39289,7 +39935,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335398 · Posted 26 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 547,
+    pinOrder: 553,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-r00354263-kochi-oct2026",
@@ -39328,7 +39974,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354263 · Posted 26 days ago · Kochi",
     description: "Associate Manager - Pricing & CPQ at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 548,
+    pinOrder: 554,
   },
   {
     id: "accenture-cloud-devops-engineer-r00358581-kochi-oct2026",
@@ -39367,7 +40013,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358581 · Posted 27 days ago · Kochi",
     description: "Cloud DevOps Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 549,
+    pinOrder: 555,
   },
   {
     id: "accenture-sr-backend-developer-java-2-r00357534-kochi-oct2026",
@@ -39406,7 +40052,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357534 · Posted 27 days ago · Kochi",
     description: "Sr.Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 550,
+    pinOrder: 556,
   },
   {
     id: "accenture-architect-frontend-2-r00357413-kochi-oct2026",
@@ -39445,7 +40091,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357413 · Posted 27 days ago · Kochi",
     description: "Architect FrontEnd 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 551,
+    pinOrder: 557,
   },
   {
     id: "accenture-cloud-architect-r00358590-kochi-oct2026",
@@ -39484,7 +40130,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358590 · Posted 27 days ago · Kochi",
     description: "Cloud Architect at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 552,
+    pinOrder: 558,
   },
   {
     id: "accenture-sr-technical-test-engineer-4-r00357331-kochi-oct2026",
@@ -39523,7 +40169,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357331 · Posted 27 days ago · Kochi",
     description: "Sr. Technical Test Engineer 4 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 553,
+    pinOrder: 559,
   },
   {
     id: "accenture-technical-test-lead-2-r00357338-kochi-oct2026",
@@ -39562,7 +40208,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357338 · Posted 27 days ago · Kochi",
     description: "Technical Test Lead 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 554,
+    pinOrder: 560,
   },
   {
     id: "accenture-sr-backend-developer-java-r00357532-kochi-oct2026",
@@ -39601,7 +40247,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357532 · Posted 28 days ago · Kochi",
     description: "Sr.Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 555,
+    pinOrder: 561,
   },
   {
     id: "accenture-lead-java-developer-r00352493-kochi-oct2026",
@@ -39640,7 +40286,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352493 · Posted 28 days ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 556,
+    pinOrder: 562,
   },
   {
     id: "accenture-lead-cloud-devops-3-r00358587-kochi-oct2026",
@@ -39679,7 +40325,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358587 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 557,
+    pinOrder: 563,
   },
   {
     id: "accenture-lead-cloud-devops-2-r00358586-kochi-oct2026",
@@ -39718,7 +40364,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358586 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 558,
+    pinOrder: 564,
   },
   {
     id: "accenture-backend-developer-java-2-r00357530-kochi-oct2026",
@@ -39757,7 +40403,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357530 · Posted 29 days ago · Kochi",
     description: "Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 559,
+    pinOrder: 565,
   },
   {
     id: "accenture-associate-project-manager-r00356296-kochi-oct2026",
@@ -39796,7 +40442,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356296 · Posted 29 days ago · Kochi",
     description: "Associate Project Manager at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 560,
+    pinOrder: 566,
   },
   {
     id: "accenture-sr-technical-test-engineer-2-r00357325-kochi-oct2026",
@@ -39835,7 +40481,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357325 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 561,
+    pinOrder: 567,
   },
   {
     id: "accenture-sr-technical-test-engineer-r00357324-kochi-oct2026",
@@ -39874,7 +40520,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357324 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 562,
+    pinOrder: 568,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-2-r00354268-kochi-oct2026",
@@ -39913,7 +40559,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354268 · Posted 1 month ago · Kochi",
     description: "Associate Manager - Pricing & CPQ 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 563,
+    pinOrder: 569,
   },
   {
     id: "accenture-senior-manager-testing-r00357346-kochi-oct2026",
@@ -39952,7 +40598,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357346 · Posted more than 1 month ago · Kochi",
     description: "Senior Manager - Testing at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 564,
+    pinOrder: 570,
   },
   {
     id: "accenture-manager-test-automation-2-r00354506-kochi-oct2026",
@@ -39991,7 +40637,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354506 · Posted more than 1 month ago · Kochi",
     description: "Manager - Test Automation 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 565,
+    pinOrder: 571,
   },
   {
     id: "accenture-salesforce-b2b-commerce-lead-r00356997-kochi-oct2026",
@@ -40030,7 +40676,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356997 · Posted more than 1 month ago · Kochi",
     description: "Salesforce B2B Commerce Lead at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 566,
+    pinOrder: 572,
   },
   {
     id: "accenture-ux-manager-r00356304-kochi-oct2026",
@@ -40069,7 +40715,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356304 · Posted more than 1 month ago · Kochi",
     description: "UX Manager at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 567,
+    pinOrder: 573,
   },
   {
     id: "accenture-technical-test-engineer-r00347491-kochi-oct2026",
@@ -40108,7 +40754,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347491 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 568,
+    pinOrder: 574,
   },
   {
     id: "accenture-technical-test-engineer-r00347484-kochi-oct2026",
@@ -40147,7 +40793,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347484 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 569,
+    pinOrder: 575,
   },
   {
     id: "accenture-front-end-architect-associate-manager-acs-song-r00340116-kochi-oct2026",
@@ -40186,7 +40832,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340116 · Posted more than 1 month ago · Kochi",
     description: "Front End Architect – Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 570,
+    pinOrder: 576,
   },
   {
     id: "accenture-senior-architect-front-end-r00340068-kochi-oct2026",
@@ -40225,7 +40871,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340068 · Posted more than 1 month ago · Kochi",
     description: "Senior Architect - Front End at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 571,
+    pinOrder: 577,
   },
   {
     id: "accenture-i2p-offering-advisor-r00352054-india-oct2026",
@@ -40264,7 +40910,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352054 · Posted more than 1 month ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "I2P Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 572,
+    pinOrder: 578,
   },
   {
     id: "accenture-lead-java-developer-r00352502-kochi-oct2026",
@@ -40303,7 +40949,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352502 · Posted more than 1 month ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 573,
+    pinOrder: 579,
   },
   {
     id: "accenture-sr-architect-java-r00352506-kochi-oct2026",
@@ -40342,7 +40988,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352506 · Posted more than 1 month ago · Kochi",
     description: "Sr. Architect - Java at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 574,
+    pinOrder: 580,
   },
   {
     id: "accenture-senior-technical-architect-r00343682-kochi-oct2026",
@@ -40381,7 +41027,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00343682 · Posted more than 1 month ago · Kochi",
     description: "Senior Technical Architect at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 575,
+    pinOrder: 581,
   },
   {
     id: "accenture-song-lead-application-maintenance-and-support-r00326956-kochi-oct2026",
@@ -40420,7 +41066,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00326956 · Posted more than 1 month ago · Kochi",
     description: "SONG > Lead - Application Maintenance and Support at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 576,
+    pinOrder: 582,
   },
   {
     id: "accenture-senior-lead-java-r00352503-kochi-oct2026",
@@ -40459,7 +41105,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352503 · Posted more than 1 month ago · Kochi",
     description: "Senior Lead- Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 577,
+    pinOrder: 583,
   },
   {
     id: "accenture-cloud-platform-engineer-aws-r00306125-kochi-oct2026",
@@ -40498,7 +41144,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306125 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer -AWS at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 578,
+    pinOrder: 584,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00335391-kochi-oct2026",
@@ -40537,7 +41183,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335391 · Posted more than 1 month ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 579,
+    pinOrder: 585,
   },
   {
     id: "accenture-lead-data-scientist-r00335399-kochi-oct2026",
@@ -40576,7 +41222,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335399 · Posted more than 1 month ago · Kochi",
     description: "Lead Data Scientist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 580,
+    pinOrder: 586,
   },
   {
     id: "accenture-site-reliability-engineer-specialist-r00267066-kochi-oct2026",
@@ -40615,7 +41261,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00267066 · Posted more than 1 month ago · Kochi",
     description: "Site Reliability Engineer Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 581,
+    pinOrder: 587,
   },
   {
     id: "accenture-cloud-platform-engineer-r00306121-kochi-oct2026",
@@ -40654,7 +41300,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306121 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 582,
+    pinOrder: 588,
   },
   {
     id: "accenture-packaged-app-development-associate-manager-r00260113-thiruvananthapuram-oct2026",
@@ -40693,7 +41339,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00260113 · Posted more than 1 month ago · Chennai, Coimbatore, Thiruvananthapuram",
     description: "Packaged App Development Associate Manager at Accenture · Thiruvananthapuram, Chennai, Coimbatore · 5–10 years.",
     startingDate: "",
-    pinOrder: 583,
+    pinOrder: 589,
   },
   {
     id: "technomak-walk-in-kochi-oct2026",
@@ -40733,7 +41379,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM – 5:00 PM",
     walkinLocation: "1st and 3rd floor, NAJ Arcade, Near Muttom Metro Station, Thaikattukara P.O., Aluva, Ernakulam",
-    pinOrder: 488,
+    pinOrder: 494,
     qualification: "Engineering / Diploma / ITI",
   },
   {
@@ -40775,7 +41421,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 489,
+    pinOrder: 495,
   },
   {
     id: "kowju-airport-hotel-hr-executive-oct2026",
@@ -40815,7 +41461,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 490,
+    pinOrder: 496,
     qualification: "Not stated on the poster",
   },
   {
@@ -40855,7 +41501,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 491,
+    pinOrder: 497,
   },
   {
     id: "cube-innovators-project-administrator-oct2026",
@@ -40896,7 +41542,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 492,
+    pinOrder: 498,
   },
   {
     id: "caritas-hospital-hiring-oct2026",
@@ -40936,7 +41582,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 493,
+    pinOrder: 499,
     qualification: "MSW / MHA / MBA, any graduation, B.Sc Nursing / MHA, or B.Sc MLT / DMLT — role-wise",
   },
   {
@@ -40975,7 +41621,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "AccioJob Skill Centre, Pune",
-    pinOrder: 494,
+    pinOrder: 500,
     salaryRange: "CTC up to 5 LPA",
   },
   {
@@ -41015,7 +41661,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 495,
+    pinOrder: 501,
   },
   {
     id: "mar-sleeva-medicity-cathlab-technician-oct2026",
@@ -41055,7 +41701,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 496,
+    pinOrder: 502,
     qualification: "B.Sc. / M.Sc. in Cardiac Care Technology",
   },
   {
@@ -41095,7 +41741,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 497,
+    pinOrder: 503,
     salaryRange: "Pharmacist: negotiable",
     qualification: "D.Pharm / B.Pharm for Pharmacist; relevant qualification for Gastroenterology Technician",
   },
@@ -41137,7 +41783,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 498,
+    pinOrder: 504,
     qualification: "MBA in HR or a related discipline",
   },
   {
@@ -41179,13 +41825,13 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 499,
+    pinOrder: 505,
     qualification: "MHA / MBA",
     salaryRange: "Negotiable",
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01653904-bengaluru-oct2026",
-    pinOrder: 505,
+    pinOrder: 511,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Bengaluru · AIOC-S01653904",
@@ -41225,7 +41871,7 @@ var JOBS = [
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01664425-mumbai-oct2026",
-    pinOrder: 506,
+    pinOrder: 512,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Mumbai · AIOC-S01664425",
@@ -41305,7 +41951,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Tele Collection Specialist\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-tele-collection-specialist-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 500,
+    pinOrder: 506,
     qualification: "Any Degree / Diploma",
   },
   {
@@ -41350,7 +41996,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Service Desk Coordinator\nLocation: Infopark, Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-service-desk-coordinator-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 501,
+    pinOrder: 507,
     qualification: "Any degree / Diploma",
   },
   {
@@ -41395,7 +42041,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Business Development Executive (BDE)\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-bde-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 502,
+    pinOrder: 508,
     qualification: "Any degree / Diploma",
   },
   {
@@ -41440,7 +42086,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Banking Executive — Centralised Collections\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-banking-executive-centralised-collections-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 503,
+    pinOrder: 509,
     qualification: "Any degree / Diploma",
   },
   {
@@ -41485,7 +42131,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Technical Support Executive\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-technical-support-executive-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 504,
+    pinOrder: 510,
     qualification: "Good communication in Malayalam",
   },
   {
