@@ -1,10 +1,52 @@
 /**
  * InfoparkDaily — Verified Technopark Jobs (curated)
  * Source of truth: https://technopark.in/job-search
- * Last verified: 2026-10-31 against Technopark API + job-details pages.
+ * Last verified: 2026-11-01 against Technopark API + job-details pages.
  * Only listings confirmed on the official portal are included.
  */
 var TECHNOPARK_VERIFIED_JOBS = [
+  {
+    id: "tpv-kenland-it-solutions-p-ltd-senior-hr-generalist-33949",
+    company: "KENLAND IT SOLUTIONS (P) Ltd",
+    logo: "https://technopark.in/storage/images/490.jpg",
+    companyBlurb: "KENLAND IT SOLUTIONS (P) Ltd · Senior HR Generalist · Technopark · closes 2026-11-09",
+    location: "Technopark, Trivandrum",
+    roles: ["Senior HR Generalist"],
+    experience: "experienced",
+    experienceRange: "Experienced",
+    employmentType: "Full-time",
+    applyLink: "https://technopark.in/job-details/33949?job=Senior%20HR%20Generalist",
+    applyDeadline: "2026-11-09",
+    postedDate: "2026-10-31",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["HR"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "recruiter@kenland.in",
+    phone: "",
+    website: "https://www.kenland.in",
+    address: "3rd & 5th FLOORS, M SQUARED BUILDING, ANNEX 2,, TECHNOPARK CAMPUS, KARIYAVATTOM,, TRIVANDRUM, KERALA, Thiruvananthapuram, Kerala",
+    industry: "Technopark company",
+    companyDetails: "KENLAND IT SOLUTIONS (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "We are looking for a proactive and result-oriented HR Generalist with hands-on experience in end-to-end HR operations, recruitment, payroll, statutory compliance, and employee relations. The candidate should be capable of independently managing HR functions with minimal supervision.",
+    workStatus: "Full-time",
+    workMode: "On-site · Technopark",
+    experienceYears: "Experienced",
+    skills: [],
+    requirements: ["MBA (HR), Master's degree in HR, or an equivalent qualification", "Minimum 3+ years of experience in HR operations or as an HR Generalist", "Hands-on experience in recruitment, payroll processing, and statutory compliance", "Practical knowledge of PF, ESI, Professional Tax, and applicable labour laws", "Experience in statutory filings, F&F settlements, and employee documentation", "Working knowledge of GST filing and MS Excel", "Proficiency in MS Office and familiarity with HRMS/payroll tools", "Good communication, coordination, and organizational skills", "The candidate must be capable of managing end-to-end HR operations, payroll processing, statutory compliance, and employee administration with accuracy, accountability, and minimal supervision. Candidates with experience limited to recruitment coordination or basic HR administration will not be considered"],
+    responsibilities: ["Payroll Processing", "Statutory Compliance & Labour Laws", "Employee Relations & HR Operations"],
+    benefits: [],
+    howToApply: "Email recruiter@kenland.in or apply via the official Technopark listing: https://technopark.in/job-details/33949?job=Senior%20HR%20Generalist",
+    hiringNotes: "Verified 33949 · Imported 2026-11-01. Re-check with the employer before applying.",
+    description: "We are looking for a proactive and result-oriented HR Generalist with hands-on experience in end-to-end HR operations, recruitment, payroll, statutory compliance, and employee relations. The candidate should be capable of independently managing HR functions with minimal supervision.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/33949?job=Senior%20HR%20Generalist"},
+    walkinTime: "",
+    pinOrder: 1,
+  },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-bw-analyst-retail-domain-mandatory-33948",
     company: "Reflections Info Systems (P) Ltd",
