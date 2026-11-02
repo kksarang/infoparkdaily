@@ -532,13 +532,85 @@ async function paymentStatus() {
     `<section class="card status-card"><div class="status-symbol">${success ? "✓" : order.status === "failed" ? "×" : "◇"}</div><h2>${success ? "Ready for your next step." : order.status === "created" ? "Local test checkout" : order.status === "pending" ? "Waiting for confirmation" : order.status === "refunded" ? "Test refund complete" : order.status === "failed" ? "Payment not completed" : "Payment status"}</h2><p>${descriptions[order.status] || "Check again for the latest status."}</p><div class="purchase"><span>Pro Pass · 7 days</span><strong>₹99</strong></div><p class="hint" style="margin-top:15px">Reference: ${esc(order.id)}</p>${order.mode === "local" ? '<div class="warning">SIMULATION ONLY · No money is charged. These controls are only available in the local development server.</div>' : ""}<div class="actions" style="justify-content:center">${success ? `<a class="button" href="${esc(returnPath())}">Continue to my resume ↗</a>` : ""}${order.mode === "local" && !["fulfilled", "refunded", "review"].includes(order.status) ? `${button("Test successful payment", "simulate", `data-outcome="captured" data-id="${id}"`, "")}${button("Test pending", "simulate", `data-outcome="pending" data-id="${id}"`)}${button("Test failed payment", "simulate", `data-outcome="failed" data-id="${id}"`)}` : ""}${order.mode === "local" && success ? button("Test full refund", "simulate", `data-outcome="refunded" data-id="${id}"`) : ""}${button("Refresh status", "refresh-payment")}</div><p class="hint" style="margin-top:22px">Payment status is read from the server. Closing this page does not remove a completed pass.</p></section>`,
   );
 }
+const HUB_ICONS = {
+  jobs: '<path d="M4 8h16v11H4zM9 8V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>',
+  heart: '<path d="M12 20s-7-4.3-8.7-8.6C2.2 8.3 4.2 5 7.4 5c1.9 0 3.4.9 4.6 2.6C13.2 5.9 14.7 5 16.6 5c3.2 0 5.2 3.3 4.1 6.4C19 15.7 12 20 12 20Z"/>',
+  bolt: '<path d="M13 3 5 13h6l-1 8 8-10h-6l1-8Z"/>',
+  walk: '<circle cx="12" cy="5" r="2"/><path d="m10 21 2-6 3 3v3M9 10l3-2 3 3 3 1M12 8l-2 6"/>',
+  doc: '<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>',
+  scan: '<path d="M4 8V5h3M20 8V5h-3M4 16v3h3M20 16v3h-3M7 12h10"/>',
+  mail: '<path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/>',
+  grid: '<path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>',
+  folio: '<path d="M3 7h18v12H3z"/><path d="M8 7V5h8v2M3 12h18"/>',
+  news: '<path d="M5 5h12v14H5z"/><path d="M17 9h2v8a2 2 0 0 1-2 2M8 9h6M8 13h6M8 16h4"/>',
+  pen: '<path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13 7 4 4"/>',
+  people: '<circle cx="9" cy="8" r="3"/><path d="M3 19c.8-3 3.2-5 6-5s5.2 2 6 5M16 5a3 3 0 0 1 0 6M18 14c1.6.7 2.6 2.4 3 5"/>',
+  chat: '<path d="M4 5h16v11H9l-5 4z"/>',
+};
+function hubTile(href, icon, title, text, extra = "") {
+  return `<a class="hub-tile" href="${href}"><span class="hub-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${HUB_ICONS[icon]}</svg></span><span class="hub-copy"><strong>${title}${extra}</strong><small>${text}</small></span><span class="hub-arrow" aria-hidden="true">→</span></a>`;
+}
+function savedJobCount() {
+  try {
+    const ids = JSON.parse(localStorage.getItem("ipd-saved-jobs-v1") || "[]");
+    return Array.isArray(ids) ? ids.length : 0;
+  } catch {
+    return 0;
+  }
+}
 async function account() {
   if (!ensureAuth()) return;
   const orders = await api("/orders");
+  const saved = savedJobCount();
+  const first = String(me.name || "").trim().split(/\s+/)[0] || "there";
+  const initial = esc((String(me.name || me.email || "?").trim()[0] || "?").toUpperCase());
+  const status = useLocalApi()
+    ? "Local account · saved on this computer"
+    : me.email_verified
+      ? "Email confirmed · resumes and saved jobs sync to your account"
+      : "Confirm your email to save resumes and jobs to your account. Check Spam or Promotions if the mail is missing.";
+  const group = (title, note, tiles) =>
+    `<section class="hub-group"><header><h2>${title}</h2><p>${note}</p></header><div class="hub-grid">${tiles}</div></section>`;
   page(
-    "Your account",
-    "Your resumes, saved so you can continue anytime.",
-    `<div class="account-layout"><section class="card"><h2>${esc(me.name)}</h2><p>${esc(me.email)}</p><p class="hint">${useLocalApi() ? "Local account · saved on this computer" : me.email_verified ? "Firebase account · drafts saved in the cloud" : "Confirm your email to enable cloud saving. (Check Spam or Promotions if the mail is missing.)"}</p><div class="actions">${button("Log out", "logout")}</div></section><section class="card"><h2>Your workspace</h2><p>All templates are free. Sign in keeps drafts saved so you can pause and continue anytime.</p><a class="button small secondary" href="${base}templates/">Browse templates</a> <a class="button small secondary" href="${base}my-resumes/">My resumes</a> <a class="button small secondary" href="/jobs/saved/">Saved jobs</a></section><section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section><section class="card"><h2>Delete account</h2><p>${useLocalApi() ? "This removes this local account, saved resumes, and test purchases from this computer. It cannot be undone." : "This permanently deletes your Firebase login and every cloud-saved resume under this account. This device’s session is also cleared. It cannot be undone."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button("Delete account", "delete-account", "", "danger")}</div></section></div>`,
+    `Hi, ${esc(first)}`,
+    "Everything InfoparkDaily offers, in one place.",
+    `<div class="hub">
+      <section class="hub-profile">
+        <span class="hub-avatar" aria-hidden="true">${initial}</span>
+        <div class="hub-who"><h2>${esc(me.name || "Your account")}</h2><p>${esc(me.email)}</p><p class="hub-status${me.email_verified || useLocalApi() ? " is-ok" : ""}">${status}</p></div>
+        <div class="hub-profile-actions">${me.email_verified || useLocalApi() ? "" : button("Resend email", "resend-verify")}${button("Log out", "logout")}</div>
+      </section>
+      ${group(
+        "Jobs",
+        "Find openings across Infopark, Technopark and Cyberpark.",
+        hubTile("/jobs/", "jobs", "Browse jobs", "All current openings with filters") +
+          hubTile("/jobs/saved/", "heart", "Saved jobs", "Your shortlist on every device", saved ? ` <em class="hub-badge">${saved}</em>` : "") +
+          hubTile("/jobs/today/", "bolt", "Hiring today", "New posts, walk-ins and deadlines") +
+          hubTile("/jobs/?type=walkin", "walk", "Walk-in drives", "Interviews you can attend in person")
+      )}
+      ${group(
+        "Career tools",
+        "Free tools to get your application ready.",
+        hubTile(`${base}my-resumes/`, "doc", "My resumes", "Continue a draft or start a new one") +
+          hubTile(`${base}templates/`, "grid", "Resume templates", "Free designs, ready to fill") +
+          hubTile("/ats-checker/", "scan", "ATS checker", "Check your resume against a job") +
+          hubTile(`${base}email-examples/`, "mail", "Email examples", "Write the application email") +
+          hubTile("/portfolio/", "folio", "Portfolio", "A personal site for your work") +
+          hubTile("/portfolio/templates/", "grid", "Portfolio templates", "Pick a portfolio design")
+      )}
+      ${group(
+        "Community",
+        "Share news, hire talent and stay in touch.",
+        hubTile("/news/", "news", "News &amp; Blog", "Tech park news and stories") +
+          hubTile("/news/submit/", "pen", "Submit a story", "Share news or a blog post") +
+          hubTile("/recruit/", "people", "Recruit", "Post a job or hiring campaign") +
+          hubTile("/contact/", "chat", "Contact us", "Questions, partnerships and support")
+      )}
+      <div class="hub-meta">
+        <section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section>
+        <section class="card hub-danger"><h2>Your data</h2><p>${useLocalApi() ? "Deleting removes this local account, saved resumes, and test purchases from this computer. It cannot be undone." : "Download a copy of your data, or permanently delete your login, cloud-saved resumes and saved jobs. Deleting cannot be undone."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button("Delete account", "delete-account", "", "danger")}</div></section>
+      </div>
+    </div>`,
   );
 }
 function fieldLabel(key) {
