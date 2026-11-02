@@ -3,7 +3,8 @@
 /* The hub replaces the menus here: only the logo stays, and it goes home. */
 body.account-hub-page #store-nav,
 body.account-hub-page #store-menu,
-body.account-hub-page .subnav {
+body.account-hub-page .subnav,
+body.account-hub-page .store-brand small {
   display: none !important;
 }
 .hub {

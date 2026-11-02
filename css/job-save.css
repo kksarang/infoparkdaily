@@ -287,6 +287,11 @@
   color: #e11d48;
 }
 
+.saved-empty .saved-empty-actions .btn-primary,
+.saved-empty .saved-empty-actions .btn-primary:hover {
+  color: #151a16;
+}
+
 .saved-empty-actions {
   display: flex;
   flex-wrap: wrap;
