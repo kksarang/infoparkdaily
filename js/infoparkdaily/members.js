@@ -148,8 +148,12 @@ async function authChanged(user) {
   if (registering) return;
   if (!user) {
     S.savedIds = new Set();
-    if (["sign-in", "register"].includes(S.route)) {
-      main.innerHTML = authView(S.route === "register");
+    if (S.route === "sign-in") {
+      location.replace("/resume-builder/sign-in/?next=" + encodeURIComponent("/infoparkdaily/dashboard/"));
+      return;
+    }
+    if (S.route === "register") {
+      main.innerHTML = authView(true);
       bindAuth();
     } else if (privateRoutes.includes(S.route)) {
       main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px">${empty("Sign in to your hiring workspace.", "Post roles, browse talent and manage applications from your employer dashboard.", link("Sign in", "sign-in", "btn", "?next=" + encodeURIComponent(location.pathname + location.search)) + " " + link("Create employer account", "register", "btn secondary"), "users")}</div></section>`;

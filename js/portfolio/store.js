@@ -277,7 +277,7 @@ function safeNext(){
 }
 function signInHref(){
   const next=encodeURIComponent(location.pathname+location.search);
-  return `/portfolio/sign-in/?next=${next}`;
+  return `/resume-builder/sign-in/?next=${next}`;
 }
 let authMode='login';
 let cloudRequest=null;

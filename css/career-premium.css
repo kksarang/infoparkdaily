@@ -1080,3 +1080,44 @@ body.career-tools .gallery-more {
     animation: none;
   }
 }
+
+/* Sign-in story: the account covers the whole site */
+.career-tools-auth .auth-preview-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0.9rem 0 0.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.career-tools-auth .auth-preview-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.career-tools-auth .auth-preview-list span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fdf1c4;
+  color: #151a16;
+  font-size: 1rem;
+}
+
+.career-tools-auth .auth-preview-list strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.career-tools-auth .auth-preview-list small {
+  color: var(--cp-muted, #5c6358);
+  font-size: 0.8rem;
+}
+
+.career-tools-auth .auth-back {
+  background: none;
+}

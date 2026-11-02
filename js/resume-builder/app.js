@@ -159,17 +159,13 @@ function accountNav() {
   }
 }
 function returnPath() {
-  const next = params.get("next") || base + "my-resumes/";
-  if (next === "/jobs/saved/") return next;
-  try {
-    if (!next.startsWith(base)) return base + "my-resumes/";
-    if (next.includes("\\") || next.includes("//") || next.includes("://"))
-      return base + "my-resumes/";
-    if (next.includes("..")) return base + "my-resumes/";
-    return next;
-  } catch {
-    return base + "my-resumes/";
-  }
+  const fallback = base + "account/";
+  const next = params.get("next") || fallback;
+  // Same-site paths only: one sign-in returns people to wherever they started.
+  if (!next.startsWith("/") || next.startsWith("//")) return fallback;
+  if (next.includes("\\") || next.includes("://") || next.includes("..")) return fallback;
+  if (/^\/resume-builder\/sign-in\b/.test(next)) return fallback;
+  return next;
 }
 function analyticsTrack(name, params = {}) {
   try {
@@ -367,16 +363,16 @@ function auth() {
   const lead = me
     ? ""
     : signup
-      ? "One account for your resumes. Pick up where you left off."
+      ? "One free account for saved jobs, resumes, portfolios and hiring on InfoparkDaily."
       : waitingTemplate
         ? "Your template is waiting. Sign in so we can save your draft and let you continue later."
-        : "Sign in to save your work. Pause anytime and pick up where you left off.";
-  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your Career Tools workspace"><a class="auth-back" href="${base}">← Back to Career Tools</a><div><p class="auth-eyebrow">A LITTLE PREPARATION. A BIG NEXT STEP.</p><h2>Your next chapter<br>starts with you.</h2><p class="auth-story-lead">Give your experience a place to shine. We’ll help you put it on the page.</p><div class="auth-workspace-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR WORKSPACE</span><span>✦</span></div><div class="auth-preview-document"><span class="auth-document-icon">≡</span><div><strong>My next opportunity</strong><small>A resume that tells your story</small></div></div><div class="auth-preview-progress"><i></i><i></i><i></i><i></i></div><span class="auth-preview-foot">Your experience. Your pace.</span></div><ul class="auth-benefits"><li>Save drafts and come back anytime</li><li>Switch templates without starting over</li><li>Keep your resumes in one place</li></ul></div><p class="auth-story-bottom">Built for your next move · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
+        : "Sign in to your InfoparkDaily account. The same account works across the whole site.";
+  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><a class="auth-back" href="/">← Back to Home</a><div><p class="auth-eyebrow">ONE INFOPARKDAILY ACCOUNT</p><h2>One sign-in for<br>everything.</h2><p class="auth-story-lead">Jobs, resumes, portfolios and hiring, all with the same free account.</p><div class="auth-workspace-preview auth-account-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR ACCOUNT</span><span>✦</span></div><ul class="auth-preview-list"><li><span>♥</span><div><strong>Saved jobs</strong><small>Your shortlist on every device</small></div></li><li><span>≡</span><div><strong>Resumes</strong><small>Build, save and download as PDF</small></div></li><li><span>◫</span><div><strong>Portfolio</strong><small>A personal website for your work</small></div></li><li><span>✉</span><div><strong>Hiring</strong><small>Post jobs and reach Kerala IT talent</small></div></li></ul></div><ul class="auth-benefits"><li>Free, and no spam</li><li>Works on phone and computer</li><li>Delete your account anytime</li></ul></div><p class="auth-story-bottom">Kerala's largest tech &amp; business community · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
-          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Open my resumes</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
-      : `<p class="ct-kicker">YOUR CAREER, ONE STEP FORWARD</p>
-      <h1>${signup ? "Make it your workspace." : "Welcome back."}</h1>
+          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
+      : `<p class="ct-kicker">WELCOME TO INFOPARKDAILY</p>
+      <h1>${signup ? "Create your account." : "Welcome back."}</h1>
       ${params.get("deleted") === "1" ? `<p class="auth-deleted" role="status">Your account and cloud-saved resumes were deleted. You can create a new account anytime.</p>` : ""}
       <p class="auth-lead">${lead}</p>
       <div class="auth-mode-tabs" role="group" aria-label="Account access">
