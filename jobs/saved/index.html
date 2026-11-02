@@ -6,7 +6,7 @@
     <title>Saved Jobs | InfoparkDaily</title>
     <meta
       name="description"
-      content="Jobs you saved on InfoparkDaily. Stored in this browser so you can come back and apply later."
+      content="Jobs you saved on InfoparkDaily. Keep them on this device, or create a free account to see them on every device."
     />
     <meta name="robots" content="noindex, follow" />
     <meta
@@ -98,8 +98,9 @@
     ></script>
     <meta name="google-adsense-account" content="ca-pub-4593359890362954" />
     
+    <link rel="stylesheet" href="/css/job-save.css?v=20261102save" />
   </head>
-  <body class="jobs-body jobs-marketplace dark">
+  <body class="saved-jobs-page jobs-body jobs-marketplace dark">
     <script>
       (function () {
         var light = document.documentElement.classList.contains("theme-light");
@@ -148,7 +149,7 @@
         <div class="ej-hero-inner">
           <p class="ej-hero-kicker">Infopark · Technopark · Cyberpark</p>
           <h1 id="jobs-hero-title">Saved jobs</h1>
-          <p class="ej-hero-lead">Openings you hearted on this device. No login needed — they stay in your browser.</p>
+          <p class="ej-hero-lead">Jobs you saved to come back to. No account needed.</p>
 
           <form class="ej-search-bar" action="/jobs/" method="get" role="search">
             <label class="ej-search-field ej-search-field--query">
@@ -392,8 +393,8 @@
         <aside class="jobs-ad ipd-ad-slot" id="jobs-ad-slot" data-ad-slot="jobs-listing" hidden aria-hidden="true"></aside>
         <div class="ej-listings-head">
           <div class="ej-listings-head-copy">
-            <h2 class="ej-listings-title">Latest jobs</h2>
-            <p class="ej-listings-note">Source reviewed · independently verify before you apply</p>
+            <h2 class="ej-listings-title">Your saved jobs</h2>
+            <p class="ej-listings-note">Newest saves first · verify each job before you apply</p>
           </div>
           <button type="button" id="jobs-filter-open" class="ej-filter-open-btn" aria-controls="jobs-filters-sheet" aria-expanded="false">
             Filters
@@ -405,16 +406,17 @@
           <span id="jobs-today-promo-stats">Walk-ins, new posts, and deadlines on the calendar</span>
           <em>View hiring today →</em>
         </a>
+        <div id="saved-account-banner" hidden></div>
         <div id="jobs-grid" class="jobs-grid" aria-busy="true">
           <div class="job-skel" aria-hidden="true"></div>
           <div class="job-skel" aria-hidden="true"></div>
           <div class="job-skel" aria-hidden="true"></div>
         </div>
-        <p id="jobs-empty" class="jobs-empty glass" hidden>
-          No listings match — check back soon or follow our
-          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>
-          for live updates.
-        </p>
+        <div id="jobs-empty" class="jobs-empty glass saved-empty" hidden>
+          <strong>No saved jobs yet</strong>
+          <p>Tap the heart on any job to keep it here for later.</p>
+          <a class="btn btn-primary" href="/jobs/">Browse jobs</a>
+        </div>
         <div class="jobs-load-more-wrap">
           <button type="button" id="jobs-load-more" class="btn btn-secondary" hidden>Load more</button>
         </div>
@@ -473,7 +475,7 @@
           <p class="ej-hire-panel-kicker">Why post here</p>
           <ul class="ej-hire-panel-stats">
             <li>
-              <strong>73K+</strong>
+              <strong>75K+</strong>
               <span>community reach</span>
             </li>
             <li>
@@ -644,9 +646,9 @@
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script>window.IPD_SAVED_ONLY = true;</script>
     <script src="/js/job-deadline.js?v=20261013rolling" defer></script>
-    <script src="/data/jobs-data.js?v=20261102ecoflash" defer></script>
-    <script src="/js/job-actions.js?v=20260904b" defer></script>
-    <script src="/js/jobs.js?v=20261030search" defer></script>
+    <script src="/data/jobs-data.js?v=20261102qa" defer></script>
+    <script src="/js/job-actions.js?v=20261102save" defer></script>
+    <script src="/js/jobs.js?v=20261102save" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

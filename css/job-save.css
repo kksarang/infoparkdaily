@@ -1,0 +1,224 @@
+/* Save a job: heart button, toast, saved page */
+.job-card {
+  position: relative;
+}
+
+.ipd-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted, #64748b);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.job-card > .ipd-save {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+}
+
+.ipd-save:hover {
+  background: rgba(225, 29, 72, 0.1);
+  color: #e11d48;
+}
+
+.ipd-save:active {
+  transform: scale(0.92);
+}
+
+.ipd-save:focus-visible {
+  outline: 3px solid #f2c215;
+  outline-offset: 2px;
+}
+
+.ipd-save.is-saved {
+  --ipd-heart-fill: currentColor;
+  color: #e11d48;
+}
+
+.ipd-save--labelled {
+  width: auto;
+  min-height: 44px;
+  height: auto;
+  padding: 0.5rem 1rem;
+  border-color: currentColor;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.jd-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.jd-apply-card .ipd-save--labelled {
+  display: flex;
+  width: 100%;
+  margin-top: 0.6rem;
+  border-radius: 12px;
+}
+
+.ipd-saved-count {
+  display: inline-block;
+  min-width: 1.35em;
+  margin-left: 0.35rem;
+  padding: 0 0.3em;
+  border-radius: 999px;
+  background: #e11d48;
+  color: #fff;
+  font-size: 0.72em;
+  font-weight: 700;
+  line-height: 1.35em;
+  text-align: center;
+}
+
+.ipd-save-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #151a16;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 14px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ipd-save-toast.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.ipd-save-toast-action {
+  flex: none;
+  padding: 0.2rem 0;
+  border: 0;
+  background: none;
+  color: #f2c215;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ipd-save-toast-close {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.saved-account-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  border-radius: 16px;
+  background: var(--surface, transparent);
+}
+
+.saved-account-banner--ok {
+  border-color: #1f7a4a;
+}
+
+.saved-account-banner--warn {
+  border-color: #d59f00;
+}
+
+.saved-account-banner p {
+  margin: 0.25rem 0 0;
+  max-width: 62ch;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.saved-account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.saved-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+}
+
+.saved-empty[hidden] {
+  display: none;
+}
+
+.saved-empty strong {
+  font-size: 1.15rem;
+}
+
+.saved-empty p {
+  margin: 0 0 0.4rem;
+}
+
+/* The saved page is a list, not a search board. */
+.saved-jobs-page .ej-search-bar,
+.saved-jobs-page .ej-metrics,
+.saved-jobs-page .ej-quick-cats,
+.saved-jobs-page .jobs-today-promo,
+.saved-jobs-page .ej-filter-open-btn,
+.saved-jobs-page .ej-filters,
+.saved-jobs-page .jobs-controls-section,
+.saved-jobs-page .ej-section--secondary,
+.saved-jobs-page .jobs-companies-section,
+.saved-jobs-page .jobs-cta-banner,
+.saved-jobs-page .jobs-alerts-card,
+.saved-jobs-page .jobs-ad,
+.saved-jobs-page #jobs-recent,
+.saved-jobs-page #jobs-expired-banner {
+  display: none !important;
+}
+
+.saved-jobs-page .ej-board {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ipd-save,
+  .ipd-save-toast {
+    transition: none;
+  }
+}

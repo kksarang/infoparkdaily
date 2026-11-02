@@ -72,7 +72,7 @@
 
     <link rel="stylesheet" href="/css/styles.css?v=20261013nav" />
     <link rel="stylesheet" href="/css/product-theme.css?v=20260905c" />
-    <link rel="stylesheet" href="/css/news-submit.css?v=20261102a" />
+    <link rel="stylesheet" href="/css/news-submit.css?v=20261102c" />
     
   </head>
   <body class="jobs-body news-body dark">
@@ -120,123 +120,163 @@
       </div>
     </header>
 
-    <main id="main-content" class="jobs-page news-page">
-      <section class="jobs-hero" aria-labelledby="ns-title">
-        <div class="jobs-hero-glow" aria-hidden="true"></div>
-        <div class="jobs-hero-copy">
-          <h1 id="ns-title">Submit news or a blog</h1>
-          <p class="jobs-intro">Tell Kerala's tech community your story. We check every submission, and only approved stories appear on InfoparkDaily.</p>
+    <main id="main-content" class="ns-page">
+      <section class="ns-hero" aria-labelledby="ns-title">
+        <div class="ns-hero-copy">
+          <p class="ns-kicker">News &amp; Blog · Community</p>
+          <h1 id="ns-title">Share your story with Kerala's tech community.</h1>
+          <p class="ns-lede">Send news, an event or a blog post. Our team checks every submission, and approved stories appear on InfoparkDaily and may be shared on our channels.</p>
         </div>
+        <ol class="ns-steps" aria-label="How it works">
+          <li><span>1</span><div><strong>Write</strong><p>Add your story, image and links.</p></div></li>
+          <li><span>2</span><div><strong>We verify</strong><p>We check the details and may contact you.</p></div></li>
+          <li><span>3</span><div><strong>Published</strong><p>Approved stories go live with your credit.</p></div></li>
+        </ol>
       </section>
 
-      <section class="content-section" aria-label="Submission form">
-        <p class="ns-sent" id="ns-sent" role="status" hidden>Thank you. Your story has been sent for review. We will contact you by email if it is approved or if we need more details.</p>
-        <div class="ns-layout">
-          <form class="ns-form" id="ns-form" action="https://formsubmit.co/infoparkstorieskochi@gmail.com" method="POST" enctype="multipart/form-data">
-            <input type="hidden" name="_subject" value="News submission" />
-            <input type="hidden" name="_replyto" value="" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://infoparkdaily.online/news/submit/?sent=1" />
-            <input type="hidden" name="_autoresponse" value="We received your InfoparkDaily submission. Our team will verify it before publishing. Nothing goes public until it is approved. A copy of your details is below. InfoparkDaily, https://infoparkdaily.online, infoparkstorieskochi@gmail.com, +91 99952 54290." />
-            <input class="ns-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <p class="ns-sent" id="ns-sent" role="status" hidden><strong>Thank you, your story is in review.</strong> We emailed you a copy and will contact you if it is approved or if we need more details.</p>
 
-            <fieldset>
-              <legend>Your story</legend>
-              <div class="ns-types" role="radiogroup" aria-label="Type of story">
-                <label><input type="radio" name="type" value="News" checked />News</label>
-                <label><input type="radio" name="type" value="Blog" />Blog</label>
-              </div>
-              <label class="ns-field">Headline
-                <input name="title" type="text" required minlength="10" maxlength="140" />
-              </label>
-              <div class="ns-row">
-                <label class="ns-field">Label
-                  <select name="label" required>
-                    <option value="">Choose a label</option>
-                  <option>Infrastructure</option>
-                  <option>Investment</option>
-                  <option>Campus</option>
-                  <option>AI City</option>
-                  <option>Metro</option>
-                  <option>Events</option>
-                  <option>Business</option>
-                  <option>Community</option>
-                  </select>
-                </label>
-                <label class="ns-field">Location
-                  <select name="location" required>
-                    <option value="">Choose a location</option>
-                  <option>Infopark Kochi</option>
-                  <option>Technopark TVM</option>
-                  <option>Cyberpark Kozhikode</option>
-                  <option>SmartCity Kochi</option>
-                  <option>Kerala</option>
-                  </select>
-                </label>
-              </div>
-              <label class="ns-field">Caption <small>One or two lines shown on the news card</small>
-                <input name="caption" type="text" required maxlength="220" />
-              </label>
-              <label class="ns-field">Description <small>The full story</small>
-                <textarea name="description" required minlength="80" maxlength="8000"></textarea>
-              </label>
-            </fieldset>
+      <div class="ns-layout">
+        <form class="ns-form" id="ns-form" action="https://formsubmit.co/infoparkstorieskochi@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="_subject" value="News submission" />
+          <input type="hidden" name="_replyto" value="" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://infoparkdaily.online/news/submit/?sent=1" />
+          <input type="hidden" name="_autoresponse" value="We received your InfoparkDaily submission. Our team will verify it before publishing. Nothing goes public until it is approved. A copy of your details is below. InfoparkDaily, https://infoparkdaily.online, infoparkstorieskochi@gmail.com, +91 99952 54290." />
+          <input class="ns-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-            <fieldset>
-              <legend>Image and links</legend>
-              <label class="ns-field">Cover image <small>Optional. JPG, PNG or WebP, up to 5 MB. Use only images you have the right to share.</small>
-                <input id="ns-image" name="attachment" type="file" accept="image/jpeg,image/png,image/webp" />
+          <section class="ns-card" aria-labelledby="ns-s1">
+            <header class="ns-card-head"><span class="ns-num">1</span><div><h2 id="ns-s1">Your story</h2><p>What happened, and why it matters.</p></div></header>
+            <div class="ns-types" role="radiogroup" aria-label="Type of story">
+              <label class="ns-type"><input type="radio" name="type" value="News" checked /><span><strong>News</strong><small>Announcements, launches, hiring, events</small></span></label>
+              <label class="ns-type"><input type="radio" name="type" value="Blog" /><span><strong>Blog</strong><small>Your experience, opinion or how-to</small></span></label>
+            </div>
+            <label class="ns-field">
+              <span class="ns-label">Headline <em class="ns-count" data-for="title"></em></span>
+              <input name="title" type="text" required minlength="10" maxlength="140" placeholder="e.g. Infopark Phase 3 opens new co-working space" />
+            </label>
+            <div class="ns-row">
+              <label class="ns-field">
+                <span class="ns-label">Label</span>
+                <select name="label" required>
+                  <option value="">Choose a label</option>
+                      <option>Infrastructure</option>
+                      <option>Investment</option>
+                      <option>Campus</option>
+                      <option>AI City</option>
+                      <option>Metro</option>
+                      <option>Events</option>
+                      <option>Business</option>
+                      <option>Community</option>
+                </select>
               </label>
-              <img class="ns-preview" id="ns-preview" alt="Preview of your cover image" hidden />
-              <label class="ns-field">Image caption <small>Optional</small>
-                <input name="imageCaption" type="text" maxlength="160" />
+              <label class="ns-field">
+                <span class="ns-label">Location</span>
+                <select name="location" required>
+                  <option value="">Choose a location</option>
+                      <option>Infopark Kochi</option>
+                      <option>Technopark TVM</option>
+                      <option>Cyberpark Kozhikode</option>
+                      <option>SmartCity Kochi</option>
+                      <option>Kerala</option>
+                </select>
               </label>
-              <label class="ns-field">Source link <small>Optional. Where this was announced or first published.</small>
+            </div>
+            <label class="ns-field">
+              <span class="ns-label">Caption <em class="ns-count" data-for="caption"></em></span>
+              <span class="ns-hint">One or two lines shown on the story card.</span>
+              <input name="caption" type="text" required maxlength="220" />
+            </label>
+            <label class="ns-field">
+              <span class="ns-label">Description <em class="ns-count" data-for="description"></em></span>
+              <span class="ns-hint">The full story. At least 80 characters.</span>
+              <textarea name="description" required minlength="80" maxlength="8000"></textarea>
+            </label>
+          </section>
+
+          <section class="ns-card" aria-labelledby="ns-s2">
+            <header class="ns-card-head"><span class="ns-num">2</span><div><h2 id="ns-s2">Image and links</h2><p>Optional, but stories with a photo stand out.</p></div></header>
+            <div class="ns-drop" id="ns-drop">
+              <input id="ns-image" name="attachment" type="file" accept="image/jpeg,image/png,image/webp" />
+              <div class="ns-drop-empty" id="ns-drop-empty">
+                <span class="ns-drop-icon" aria-hidden="true">↑</span>
+                <strong>Drop a cover image or <u>browse</u></strong>
+                <small>JPG, PNG or WebP, up to 5 MB. Use only images you have the right to share.</small>
+              </div>
+              <div class="ns-drop-file" id="ns-drop-file" hidden>
+                <img id="ns-preview" alt="Preview of your cover image" />
+                <div><strong id="ns-file-name"></strong><small id="ns-file-size"></small></div>
+                <button type="button" class="ns-remove" id="ns-remove">Remove</button>
+              </div>
+            </div>
+            <label class="ns-field">
+              <span class="ns-label">Image caption <small>Optional</small></span>
+              <input name="imageCaption" type="text" maxlength="160" />
+            </label>
+            <div class="ns-row">
+              <label class="ns-field">
+                <span class="ns-label">Source link <small>Optional</small></span>
                 <input name="sourceLink" type="url" placeholder="https://" />
               </label>
-              <label class="ns-field">Attachment link <small>Optional. A link to a PDF, circular or document.</small>
-                <input name="attachmentLink" type="url" placeholder="https://" />
+              <label class="ns-field">
+                <span class="ns-label">Attachment link <small>Optional</small></span>
+                <input name="attachmentLink" type="url" placeholder="https:// PDF or document" />
               </label>
-            </fieldset>
+            </div>
+          </section>
 
-            <fieldset>
-              <legend>About you</legend>
-              <div class="ns-row">
-                <label class="ns-field">Your name
-                  <input name="name" type="text" required maxlength="80" autocomplete="name" />
-                </label>
-                <label class="ns-field">Email
-                  <input name="email" type="email" required autocomplete="email" />
-                </label>
-              </div>
-              <div class="ns-row">
-                <label class="ns-field">Phone <small>Optional. Not published.</small>
-                  <input name="phone" type="tel" autocomplete="tel" />
-                </label>
-                <label class="ns-field">Your label <small>Optional. How to credit you, e.g. "Student, CUSAT".</small>
-                  <input name="credit" type="text" maxlength="80" />
-                </label>
-              </div>
-            </fieldset>
-
+          <section class="ns-card" aria-labelledby="ns-s3">
+            <header class="ns-card-head"><span class="ns-num">3</span><div><h2 id="ns-s3">About you</h2><p>Your phone and email are never published.</p></div></header>
+            <div class="ns-row">
+              <label class="ns-field">
+                <span class="ns-label">Your name</span>
+                <input name="name" type="text" required maxlength="80" autocomplete="name" />
+              </label>
+              <label class="ns-field">
+                <span class="ns-label">Email</span>
+                <input name="email" type="email" required autocomplete="email" />
+              </label>
+            </div>
+            <div class="ns-row">
+              <label class="ns-field">
+                <span class="ns-label">Phone <small>Optional</small></span>
+                <input name="phone" type="tel" autocomplete="tel" />
+              </label>
+              <label class="ns-field">
+                <span class="ns-label">Your label <small>Optional</small></span>
+                <input name="credit" type="text" maxlength="80" placeholder='e.g. "Student, CUSAT"' />
+              </label>
+            </div>
             <label class="ns-check">
               <input type="checkbox" name="confirmation" value="Confirmed" required />
               <span>This is accurate and I have the right to share it. InfoparkDaily may edit it, publish it on the site and its channels, or decline it.</span>
             </label>
             <p class="ns-error" id="ns-error" role="alert"></p>
-            <button class="btn btn-primary" type="submit">Send for review</button>
-          </form>
+            <div class="ns-submit-row">
+              <button class="ns-submit" type="submit">Send for review</button>
+              <span class="ns-submit-note">Nothing goes public until our team approves it.</span>
+            </div>
+          </section>
+        </form>
 
-          <aside class="ns-side" aria-labelledby="ns-how">
-            <h2 id="ns-how">What happens next</h2>
-            <ol>
-              <li>Your submission is emailed to the InfoparkDaily team, and you get a confirmation email.</li>
-              <li>We verify the details and may contact you.</li>
-              <li>Approved stories go live on News &amp; Blog and may be shared on InfoparkDaily channels.</li>
-            </ol>
-          </aside>
-        </div>
-      </section>
+        <aside class="ns-side" aria-label="Live preview">
+          <p class="ns-side-label">Live preview</p>
+          <article class="ns-preview-card" aria-hidden="true">
+            <div class="ns-preview-media" id="ns-pv-media"><span>Cover image</span></div>
+            <div class="ns-preview-body">
+              <div class="ns-preview-tags"><span id="ns-pv-label">Label</span><span id="ns-pv-type">News</span></div>
+              <h3 id="ns-pv-title">Your headline appears here</h3>
+              <p id="ns-pv-caption">Your caption appears here, in one or two lines.</p>
+              <p class="ns-preview-meta"><span id="ns-pv-location">Location</span> · <span id="ns-pv-credit">Your name</span></p>
+            </div>
+          </article>
+          <ul class="ns-tips">
+            <li>Use a clear, factual headline.</li>
+            <li>Add a source link for news so we can verify it quickly.</li>
+            <li>Never include phone numbers or emails of other people.</li>
+          </ul>
+        </aside>
+      </div>
     </main>
 
     <footer class="site-footer">
@@ -329,6 +369,6 @@
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261017news" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
-    <script src="/js/news-submit.js?v=20261102a" defer></script>
+    <script src="/js/news-submit.js?v=20261102b" defer></script>
   </body>
 </html>

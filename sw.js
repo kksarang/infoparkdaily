@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v452-emailhero-20261102";
+const CACHE_NAME = "infoparkdaily-v454-save-news-20261102";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -62,14 +62,14 @@ const PRELOAD_ASSETS = [
   "./js/cyberpark-jobs.js?v=20260805p",
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
-  "./js/jobs.js?v=20261030search",
+  "./js/jobs.js?v=20261102save",
   "./js/ats-checker.js?v=20261102tools",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",
   "./js/hiring-portal.js?v=20260905a",
   "./js/job-apply.js?v=20260904g",
-  "./js/job.js?v=20261102tools",
+  "./js/job.js?v=20261102save",
   "./js/company.js?v=20261029profile",
   "./js/park-companies.js?v=20261029profile",
   "./data/infopark-companies-data.js?v=20260830d",

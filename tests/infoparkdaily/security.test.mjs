@@ -10,6 +10,7 @@ import {
 import {
   doc,
   setDoc,
+  deleteDoc,
   getDoc,
   getDocs,
   collection,
@@ -316,4 +317,19 @@ test("editing a profile returns it to review; existing career resumes stay priva
   await assertFails(getDoc(doc(guest, "marketProfiles/worker")));
   await assertFails(getDoc(doc(other, "users/worker/resumes/private")));
   await assertFails(getDoc(doc(admin, "users/worker/resumes/private")));
+});
+
+test("saved job lists are private to their verified owner and bounded", async () => {
+  const list = (db, uid) => doc(db, `users/${uid}/savedJobs/list`);
+  const data = (ids) => ({ ids, updatedAt: serverTimestamp() });
+  await assertSucceeds(setDoc(list(worker, "worker"), data(["job-1"])));
+  await assertSucceeds(getDoc(list(worker, "worker")));
+  await assertFails(getDoc(list(other, "worker")));
+  await assertFails(getDoc(list(guest, "worker")));
+  await assertFails(setDoc(list(other, "worker"), data(["job-2"])));
+  await assertFails(setDoc(list(unverified, "unverified"), data(["job-1"])));
+  await assertFails(setDoc(doc(worker, "users/worker/savedJobs/other"), data(["job-1"])));
+  await assertFails(setDoc(list(worker, "worker"), { ...data(["job-1"]), admin: true }));
+  await assertFails(setDoc(list(worker, "worker"), data(Array.from({ length: 301 }, (_, i) => `job-${i}`))));
+  await assertSucceeds(deleteDoc(list(worker, "worker")));
 });

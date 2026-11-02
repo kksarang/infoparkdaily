@@ -70,7 +70,9 @@
   const jobIndex = new Map(JOBS.map((job, index) => [job, index]));
 
   let activeFilter = "all";
-  let activeStatus = "open";
+  const savedOnly = window.IPD_SAVED_ONLY === true;
+  const saveActions = window.IPDJobActions || null;
+  let activeStatus = savedOnly ? "all" : "open";
   let activeTag = "all";
   let activeLocation = defaultLocation;
   let activeCompany = "all";
@@ -764,6 +766,10 @@
   }
 
   function filteredJobs() {
+    if (savedOnly && saveActions) {
+      const byId = new Map(JOBS.map((job) => [String(job.id), job]));
+      return saveActions.savedIds().map((id) => byId.get(id)).filter(Boolean);
+    }
     const list = JOBS.filter(
       (job) =>
         matchesFilter(job) &&
@@ -1156,6 +1162,7 @@
         style="--delay: ${Math.min(index, 8) * 40}ms"
       >
         <div class="job-card-accent" aria-hidden="true"></div>
+        ${saveActions ? saveActions.saveButtonHtml(job.id) : ""}
         ${cardToplineHtml(job, mass, expired)}
         <header class="job-card-head">
           ${logoBlock(job)}
@@ -1251,8 +1258,8 @@
     const jobs = filteredJobs();
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
-    renderUrgentSpotlightSection(jobs);
-    renderMassHiringSection(jobs);
+    renderUrgentSpotlightSection(savedOnly ? [] : jobs);
+    renderMassHiringSection(savedOnly ? [] : jobs);
 
     if (expiredBanner) {
       expiredBanner.hidden = activeStatus !== "expired" && activeStatus !== "all";
@@ -2020,4 +2027,5 @@
   updateNonITVisibility();
   updateStatusFilterLabels();
   render();
+  if (savedOnly) document.addEventListener("ipd:saved-change", render);
 })();

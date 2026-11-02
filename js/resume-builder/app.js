@@ -7,7 +7,7 @@ import {
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
 import { publicTemplates } from "./catalog.js?v=20261102tools";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20260916del";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20261102save";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
@@ -142,18 +142,25 @@ function closeDialog() {
 const button = (text, action, extra = "", kind = "secondary") =>
   `<button class="button small ${kind}" data-action="${action}" ${extra}>${text}</button>`;
 function accountNav() {
+  if (me) {
+    try {
+      localStorage.setItem("ipd-saved-sync-v1", "1");
+    } catch {}
+  }
   const nav = document.getElementById("account-nav");
   if (nav) {
     if (location.pathname.includes("/sign-in"))
       nav.innerHTML = "";
     else if (me)
       nav.innerHTML = `<button type="button" class="store-signin" data-action="logout">Log out</button>`;
+
     else
       nav.innerHTML = `<a class="store-signin" href="${base}sign-in/">Sign in</a>`;
   }
 }
 function returnPath() {
   const next = params.get("next") || base + "my-resumes/";
+  if (next === "/jobs/saved/") return next;
   try {
     if (!next.startsWith(base)) return base + "my-resumes/";
     if (next.includes("\\") || next.includes("//") || next.includes("://"))

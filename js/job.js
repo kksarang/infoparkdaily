@@ -582,6 +582,7 @@
             <li><span>Work mode</span><strong>${escapeHtml(workModeDisplay(job))}</strong></li>
           </ul>
           ${ctaHtml}
+          ${!expired && window.IPDJobActions ? window.IPDJobActions.saveButtonHtml(job.id, "labelled") : ""}
           ${!expired ? registerQrBlock(job) : ""}
           ${
             expired
@@ -2351,7 +2352,10 @@
       <div class="jd-page">
         <div class="jd-toolbar">
           <a class="jd-back" href="/jobs/">← Back to jobs</a>
-          <button type="button" class="btn btn-ghost jd-share-btn" id="job-copy-link">Share this job</button>
+          <div class="jd-toolbar-actions">
+            ${window.IPDJobActions ? window.IPDJobActions.saveButtonHtml(job.id, "labelled") : ""}
+            <button type="button" class="btn btn-ghost jd-share-btn" id="job-copy-link">Share this job</button>
+          </div>
         </div>
 
         ${

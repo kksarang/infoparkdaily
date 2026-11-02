@@ -46,6 +46,11 @@ import { publicTemplates } from "./catalog.js";
 import { validateResume } from "./schema.js";
 
 const MAX_RESUMES = 20;
+
+function verifyContinuePath() {
+  const next = new URLSearchParams(location.search).get("next");
+  return next === "/jobs/saved/" ? next : "/resume-builder/my-resumes/";
+}
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -347,7 +352,14 @@ async function duplicateResume(id) {
 async function exportAccount() {
   const me = await currentMember();
   const resumes = me.email_verified ? await listResumes() : [];
-  return { member: me, resumes };
+  let saved_jobs = [];
+  try {
+    const snap = await getDoc(doc(db, "users", requireUser().uid, "savedJobs", "list"));
+    saved_jobs = snap.exists() ? snap.data().ids || [] : [];
+  } catch {
+    /* The export still includes everything else. */
+  }
+  return { member: me, resumes, saved_jobs };
 }
 
 function clearCareerLocalData() {
@@ -385,6 +397,7 @@ async function deleteCloudDocuments() {
   try {
     const snap = await getDocs(resumesCol(user.uid));
     await Promise.all(snap.docs.map((d) => deleteDoc(d.ref)));
+    await deleteDoc(doc(db, "users", user.uid, "savedJobs", "list"));
   } catch {
     /* Unverified accounts usually have no cloud drafts. */
   }
@@ -423,7 +436,7 @@ async function afterAuth(user, name) {
   if (!user.emailVerified && user.providerData.some((p) => p.providerId === "password"))
     await sendEmailVerification(
       user,
-      authEmailSettings("/resume-builder/my-resumes/"),
+      authEmailSettings(verifyContinuePath()),
     ).catch(() => {});
   await ensureProfile(user).catch((e) => {
     if (e.code === "permission-denied") return;
@@ -484,7 +497,7 @@ export async function request(path, options = {}) {
       const user = requireUser();
       await sendEmailVerification(
         user,
-        authEmailSettings("/resume-builder/my-resumes/"),
+        authEmailSettings(verifyContinuePath()),
       );
       return { ok: true };
     }
