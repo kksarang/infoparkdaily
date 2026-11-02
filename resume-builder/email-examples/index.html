@@ -80,7 +80,7 @@
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
     <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20260925c" />
-    <link rel="stylesheet" href="/css/email-examples.css?v=20261102ui2" />
+    <link rel="stylesheet" href="/css/email-examples.css?v=20261102ui3" />
     <script defer src="/js/career-nav.js?v=20261020seo"></script>
   </head>
   <body class="career-tools em-page light">
@@ -108,40 +108,29 @@
 
     <main id="main">
       <section class="em-hero">
-        <div class="em-wrap">
+        <div class="em-wrap em-hero-inner">
           <div>
-            <p class="em-kicker"><b>FREE</b> Career Tools · Email examples</p>
+            <p class="em-kicker"><b>FREE</b> Career Tools</p>
             <h1>Job Application Email Samples</h1>
-            <p class="em-lede">
-              Write the mail. Get the reply. Subject lines and short body templates for any role — office, sales, campus,
-              healthcare, tech, and more. Copy, fill the brackets, and send only to the address on the official posting.
-            </p>
-            <ul class="em-trust">
-              <li>Works for every job type</li>
-              <li>One-click copy for subject and body</li>
-              <li>Safe habits before you hit send</li>
-            </ul>
+            <p class="em-lede">Ready-to-send emails for applications, walk-ins, referrals and follow-ups. Pick one, fill the blanks and send it to the address on the official posting.</p>
           </div>
-
-
+          <ul class="em-trust">
+            <li><strong>12</strong> email templates</li>
+            <li><strong>1 click</strong> copy or open in Gmail</li>
+            <li><strong>Private</strong> stays in your browser</li>
+          </ul>
         </div>
       </section>
 
       <section class="em-wrap em-band" id="em-examples" aria-labelledby="em-examples-title">
-        <div class="em-section-head">
-          <h2 id="em-examples-title">Email ideas for every situation</h2>
-          <p>Pick a situation, fill the highlighted blanks, then copy or open in Gmail. <a href="#em-anatomy">See how a good email is laid out</a>.</p>
-        </div>
+        <h2 class="em-visually-hidden" id="em-examples-title">Email ideas for every situation</h2>
 
-        <form class="em-fill" id="em-fill" autocomplete="on">
-          <div class="em-fill-head">
-            <div>
-              <p class="em-fill-title">Your details</p>
-              <p class="em-fill-hint">Fill once and every email updates. Saved only in this browser tab.</p>
-            </div>
-            <button type="button" class="em-fill-clear" id="em-fill-clear">Clear fields</button>
-          </div>
-          <div class="em-fill-grid">
+
+        <div class="em-app">
+          <details class="em-details" id="em-details">
+            <summary><span><strong>Add your details</strong> and every blank fills in automatically</span><span class="em-details-chevron" aria-hidden="true"></span></summary>
+            <form class="em-fill" id="em-fill" autocomplete="on">
+              <div class="em-fill-grid">
             <label>Your name <input name="name" type="text" placeholder="Your Name" autocomplete="name" /></label>
             <label>Job title / role <input name="role" type="text" placeholder="Job Title" autocomplete="organization-title" /></label>
             <label>Company <input name="company" type="text" placeholder="Company" autocomplete="organization" /></label>
@@ -149,12 +138,10 @@
             <label>Phone <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" /></label>
             <label>Email <input name="email" type="email" placeholder="you@email.com" autocomplete="email" /></label>
           </div>
-        </form>
-
-        <div class="em-workspace" id="em-workspace">
-          <div class="em-picker" id="em-picker" hidden>
-            <input class="em-search" id="em-search" type="search" placeholder="Search emails, e.g. referral" aria-label="Search email examples" />
-            <div class="em-filters" role="toolbar" aria-label="Filter email examples">
+              <p class="em-fill-note">Saved only in this browser tab. <button type="button" class="em-fill-clear" id="em-fill-clear">Clear fields</button></p>
+            </form>
+          </details>
+          <div class="em-filterbar" id="em-filterbar" hidden><div class="em-filters" role="toolbar" aria-label="Filter email examples">
             <button type="button" class="em-chip is-active" data-filter="all">All</button>
             <button type="button" class="em-chip" data-filter="apply">Apply</button>
             <button type="button" class="em-chip" data-filter="fresher">Fresher</button>
@@ -166,7 +153,10 @@
             <button type="button" class="em-chip" data-filter="thanks">Thank you</button>
             <button type="button" class="em-chip" data-filter="cold">Cold outreach</button>
             <button type="button" class="em-chip" data-filter="withdraw">Withdraw</button>
-          </div>
+          </div></div>
+        <div class="em-workspace" id="em-workspace">
+          <div class="em-picker" id="em-picker" hidden>
+            <input class="em-search" id="em-search" type="search" placeholder="Search emails, e.g. referral" aria-label="Search email examples" />
             <p class="em-count" id="em-count" aria-live="polite"></p>
             <p class="em-empty" id="em-empty" hidden>No emails match. Try another word or filter.</p>
             <ul class="em-list" id="em-list" aria-label="Email examples"></ul>
@@ -606,6 +596,7 @@ Regards,
           </article>
         </div>
         </div>
+        </div>
 
           <section class="em-anatomy" id="em-anatomy" aria-label="Elements of an email application">
             <div class="em-anatomy-head">
@@ -692,7 +683,7 @@ Regards,
       </div>
     </footer>
 
-    <script src="/js/email-examples.js?v=20261102ui" defer></script>
+    <script src="/js/email-examples.js?v=20261102ui3" defer></script>
     <script src="/js/site.js?v=20261017news" defer></script>
   </body>
 </html>

@@ -315,4 +315,10 @@
   <url><loc>https://infoparkdaily.online/portfolio/templates/shop-window/</loc></url>
   <url><loc>https://infoparkdaily.online/portfolio/templates/dev-dashboard/</loc></url>
   <url><loc>https://infoparkdaily.online/games/infopark-run/</loc></url>
+  <url>
+    <loc>https://infoparkdaily.online/news/submit/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>

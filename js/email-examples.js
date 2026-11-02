@@ -240,6 +240,7 @@
   });
 
   picker.hidden = false;
+  document.getElementById("em-filterbar").hidden = false;
   workspace.classList.add("is-ready");
   refresh();
   var fromHash = items.filter(function (item) {
