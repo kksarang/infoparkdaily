@@ -1400,14 +1400,16 @@
   }
 
   function shareBlock(job) {
-    const url = window.location.href;
-    const text = `${job.company} is hiring${job.location ? ` in ${job.location}` : ""} — via InfoparkDaily`;
+    const id = escapeAttr(job.id);
     return `
       <section class="job-panel job-share-panel glass">
         <h2>Share this opening</h2>
+        <p class="job-share-note">Know someone who fits? Send it to them.</p>
         <div class="job-share-actions">
-          <a class="btn btn-secondary" href="https://wa.me/?text=${encodeURIComponent(`${text}\n${url}`)}" target="_blank" rel="noopener noreferrer">Share on WhatsApp</a>
-          <button type="button" class="btn btn-ghost" id="job-copy-link">Copy link</button>
+          <button type="button" class="btn job-share-btn job-share-btn--wa" data-share-direct="whatsapp" data-share-job-id="${id}">WhatsApp</button>
+          <button type="button" class="btn job-share-btn job-share-btn--ig" data-share-direct="instagram" data-share-job-id="${id}">Instagram</button>
+          <button type="button" class="btn btn-ghost job-share-btn" data-share-direct="copy" data-share-job-id="${id}">Copy link</button>
+          <button type="button" class="btn btn-ghost job-share-btn" data-share-job="${id}" aria-haspopup="dialog">More options</button>
         </div>
       </section>
     `;
@@ -2354,7 +2356,7 @@
           <a class="jd-back" href="/jobs/">← Back to jobs</a>
           <div class="jd-toolbar-actions">
             ${window.IPDJobActions ? window.IPDJobActions.saveButtonHtml(job.id, "labelled") : ""}
-            <button type="button" class="btn btn-ghost jd-share-btn" id="job-copy-link">Share this job</button>
+            <button type="button" class="btn btn-ghost jd-share-btn" data-share-job="${escapeAttr(job.id)}" aria-haspopup="dialog">Share this job</button>
           </div>
         </div>
 
@@ -2406,19 +2408,7 @@
       if (ogTitle) ogTitle.setAttribute("content", job.ogTitle || job.seoTitle || document.title);
     }
     injectJobPostingSchema(job);
-
-    const copyBtn = document.getElementById("job-copy-link");
-    if (copyBtn) {
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(window.location.href);
-          copyBtn.textContent = "Link copied!";
-          setTimeout(() => (copyBtn.textContent = "Share this job"), 2000);
-        } catch (_e) {
-          copyBtn.textContent = window.location.href;
-        }
-      });
-    }
+    window.IPDCurrentJob = job;
 
     if (usesOnSiteApply(job) && window.IPDJobApply && typeof window.IPDJobApply.bind === "function") {
       window.IPDJobApply.bind(job);

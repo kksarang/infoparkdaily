@@ -553,6 +553,181 @@
     }
   }
 
+  /* ---------- share sheet (WhatsApp / Instagram / copy / more) ---------- */
+
+  const SHARE_ICONS = {
+    share:
+      '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    whatsapp:
+      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>',
+    instagram:
+      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>',
+    copy:
+      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>',
+    more:
+      '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="5" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="19" cy="12" r="1.8" fill="currentColor"/></svg>'
+  };
+
+  function jobUrl(job) {
+    return job.shareUrl || `https://infoparkdaily.online/job/${encodeURIComponent(job.id || "")}/`;
+  }
+
+  function findJob(id) {
+    const key = String(id || "");
+    const list = typeof JOBS !== "undefined" && Array.isArray(JOBS) ? JOBS : [];
+    const current = window.IPDCurrentJob;
+    if (current && String(current.id) === key) return current;
+    return list.find((j) => String(j.id) === key) || null;
+  }
+
+  function shareButtonHtml(id, variant) {
+    const key = String(id || "").replace(/"/g, "&quot;");
+    const labelled = variant === "labelled";
+    return (
+      '<button type="button" class="ipd-share' +
+      (labelled ? " ipd-share--labelled" : "") +
+      '" data-share-job="' +
+      key +
+      '" aria-label="Share this job" aria-haspopup="dialog">' +
+      SHARE_ICONS.share +
+      (labelled ? '<span class="ipd-share-text">Share</span>' : "") +
+      "</button>"
+    );
+  }
+
+  async function copyText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (_e) {
+      try {
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        const ok = document.execCommand("copy");
+        area.remove();
+        return ok;
+      } catch (_err) {
+        return false;
+      }
+    }
+  }
+
+  async function shareTo(target, job) {
+    const text = shareText(job);
+    const url = jobUrl(job);
+    if (target === "whatsapp") {
+      window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+      return;
+    }
+    if (target === "copy") {
+      showToast((await copyText(url)) ? "Job link copied." : "Could not copy. Long-press the address bar to copy.");
+      return;
+    }
+    if (target === "instagram") {
+      // Instagram has no web share link: copy the post, then hand off to the
+      // phone's share sheet (Instagram is listed there) or Instagram DMs.
+      const copied = await copyText(text);
+      if (navigator.share) {
+        try {
+          await navigator.share({ text, url });
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+      window.open("https://www.instagram.com/direct/inbox/", "_blank", "noopener");
+      showToast(copied ? "Job details copied — paste them in Instagram." : "Open Instagram and share this link: " + url);
+      return;
+    }
+    if (target === "more") {
+      const result = await shareJob(job);
+      if (result === "copied") showToast("Job details copied.");
+    }
+  }
+
+  let shareSheet = null;
+  let shareReturnFocus = null;
+
+  function closeShareSheet() {
+    if (!shareSheet) return;
+    shareSheet.classList.remove("is-open");
+    shareSheet.hidden = true;
+    if (shareReturnFocus && shareReturnFocus.focus) shareReturnFocus.focus();
+    shareReturnFocus = null;
+  }
+
+  function openShareSheet(job, trigger) {
+    if (!job) return;
+    if (!shareSheet) {
+      shareSheet = document.createElement("div");
+      shareSheet.className = "ipd-share-sheet";
+      shareSheet.hidden = true;
+      shareSheet.innerHTML =
+        '<div class="ipd-share-backdrop" data-share-close></div>' +
+        '<div class="ipd-share-panel" role="dialog" aria-modal="true" aria-labelledby="ipd-share-title">' +
+        '<div class="ipd-share-head"><div><p class="ipd-share-title" id="ipd-share-title">Share this job</p>' +
+        '<p class="ipd-share-sub"></p></div>' +
+        '<button type="button" class="ipd-share-close" data-share-close aria-label="Close">×</button></div>' +
+        '<div class="ipd-share-options">' +
+        '<button type="button" class="ipd-share-opt ipd-share-opt--wa" data-share-to="whatsapp">' + SHARE_ICONS.whatsapp + "<span>WhatsApp</span></button>" +
+        '<button type="button" class="ipd-share-opt ipd-share-opt--ig" data-share-to="instagram">' + SHARE_ICONS.instagram + "<span>Instagram</span></button>" +
+        '<button type="button" class="ipd-share-opt" data-share-to="copy">' + SHARE_ICONS.copy + "<span>Copy link</span></button>" +
+        '<button type="button" class="ipd-share-opt" data-share-to="more">' + SHARE_ICONS.more + "<span>More</span></button>" +
+        "</div></div>";
+      document.body.appendChild(shareSheet);
+      shareSheet.addEventListener("click", (event) => {
+        if (event.target.closest("[data-share-close]")) {
+          closeShareSheet();
+          return;
+        }
+        const opt = event.target.closest("[data-share-to]");
+        if (!opt || !shareSheet.job) return;
+        const target = opt.getAttribute("data-share-to");
+        const current = shareSheet.job;
+        closeShareSheet();
+        shareTo(target, current);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && shareSheet && !shareSheet.hidden) closeShareSheet();
+      });
+    }
+    shareSheet.job = job;
+    const role = (job.roles && job.roles[0]) || "Job opening";
+    shareSheet.querySelector(".ipd-share-sub").textContent = `${role} — ${job.company || "InfoparkDaily"}`;
+    const more = shareSheet.querySelector('[data-share-to="more"]');
+    if (more) more.hidden = !navigator.share;
+    shareReturnFocus = trigger || document.activeElement;
+    shareSheet.hidden = false;
+    requestAnimationFrame(() => shareSheet.classList.add("is-open"));
+    const first = shareSheet.querySelector("[data-share-to]");
+    if (first) first.focus();
+  }
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest) return;
+    const direct = event.target.closest("[data-share-direct]");
+    if (direct) {
+      const job = findJob(direct.getAttribute("data-share-job-id"));
+      if (job) {
+        event.preventDefault();
+        shareTo(direct.getAttribute("data-share-direct"), job);
+      }
+      return;
+    }
+    const btn = event.target.closest("[data-share-job]");
+    if (!btn) return;
+    const job = findJob(btn.getAttribute("data-share-job"));
+    if (!job) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openShareSheet(job, btn);
+  });
+
   function reportJob(job) {
     const role = (job.roles && job.roles[0]) || "this listing";
     const url =
@@ -623,6 +798,9 @@
     recentlyViewedIds,
     shareJob,
     shareText,
+    shareTo,
+    shareButtonHtml,
+    openShareSheet,
     reportJob,
     postedAgo,
     lastCheckedLabel,

@@ -1170,6 +1170,7 @@
       >
         <div class="job-card-accent" aria-hidden="true"></div>
         ${saveActions ? saveActions.saveButtonHtml(job.id) : ""}
+        ${saveActions && saveActions.shareButtonHtml ? saveActions.shareButtonHtml(job.id) : ""}
         ${cardToplineHtml(job, mass, expired)}
         <header class="job-card-head">
           ${logoBlock(job)}

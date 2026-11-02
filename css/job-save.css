@@ -355,3 +355,210 @@
     transition: none;
   }
 }
+
+/* Share a job: card icon, share sheet, detail panel */
+.ipd-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted, #64748b);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+}
+
+.job-card > .ipd-share {
+  position: absolute;
+  top: 8px;
+  right: 54px;
+  z-index: 3;
+}
+
+.job-card:has(> .ipd-share) .job-card-head {
+  padding-right: 92px;
+}
+
+.ipd-share:hover {
+  background: rgba(37, 211, 102, 0.12);
+  color: #128c4b;
+}
+
+.ipd-share:active {
+  transform: scale(0.92);
+}
+
+.ipd-share:focus-visible,
+.ipd-share-opt:focus-visible,
+.ipd-share-close:focus-visible {
+  outline: 3px solid #f2c215;
+  outline-offset: 2px;
+}
+
+.ipd-share-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.ipd-share-sheet[hidden] {
+  display: none;
+}
+
+.ipd-share-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 12, 10, 0.55);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.ipd-share-panel {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: 1.1rem 1.1rem 1.25rem;
+  border-radius: 18px;
+  background: #fff;
+  color: #151a16;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ipd-share-sheet.is-open .ipd-share-backdrop,
+.ipd-share-sheet.is-open .ipd-share-panel {
+  opacity: 1;
+  transform: none;
+}
+
+body.dark .ipd-share-panel {
+  background: #151a16;
+  color: #f2f4f1;
+}
+
+.ipd-share-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ipd-share-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.ipd-share-sub {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.ipd-share-close {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(127, 127, 127, 0.14);
+  color: inherit;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ipd-share-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.ipd-share-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 76px;
+  padding: 0.7rem 0.25rem;
+  border: 1px solid rgba(127, 127, 127, 0.22);
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ipd-share-opt[hidden] {
+  display: none;
+}
+
+.ipd-share-opt:hover {
+  background: rgba(127, 127, 127, 0.1);
+}
+
+.ipd-share-opt--wa svg {
+  color: #25d366;
+}
+
+.ipd-share-opt--ig svg {
+  color: #e1306c;
+}
+
+.job-share-note {
+  margin: 0 0 0.6rem;
+  font-size: 0.88rem;
+  opacity: 0.75;
+}
+
+.job-share-actions .job-share-btn--wa {
+  background: #25d366;
+  border-color: #25d366;
+  color: #062b14;
+}
+
+.job-share-actions .job-share-btn--ig {
+  background: linear-gradient(45deg, #f09433, #dc2743 55%, #bc1888);
+  border-color: transparent;
+  color: #fff;
+}
+
+@media (max-width: 520px) {
+  .ipd-share-sheet {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .ipd-share-panel {
+    max-width: none;
+    border-radius: 18px 18px 0 0;
+    padding-bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .job-share-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ipd-share,
+  .ipd-share-backdrop,
+  .ipd-share-panel {
+    transition: none;
+  }
+}
