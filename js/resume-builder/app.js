@@ -7,7 +7,7 @@ import {
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
 import { publicTemplates } from "./catalog.js?v=20261102tools";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20261102save";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20261102chk6";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");

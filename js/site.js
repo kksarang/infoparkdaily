@@ -660,37 +660,60 @@ window.IPDAuthHint =
         settled = true;
         resolve(value);
       };
-      setTimeout(() => finish(null), 2500);
-      let request;
+      setTimeout(() => finish(null), 8000);
+      const read = () => {
+        let request;
+        try {
+          request = indexedDB.open("firebaseLocalStorageDb");
+        } catch (_e) {
+          finish(null);
+          return;
+        }
+        // Never create Firebase's database here: abort if it does not exist yet.
+        request.onupgradeneeded = () => {
+          try {
+            request.transaction.abort();
+          } catch (_e) {
+            /* already finished */
+          }
+          finish(false);
+        };
+        request.onerror = () => finish(false);
+        request.onsuccess = () => {
+          const db = request.result;
+          try {
+            const get = db.transaction("firebaseLocalStorage", "readonly").objectStore("firebaseLocalStorage").get(key);
+            get.onsuccess = () => {
+              finish(!!get.result);
+              db.close();
+            };
+            get.onerror = () => {
+              finish(null);
+              db.close();
+            };
+          } catch (_e) {
+            finish(false);
+            db.close();
+          }
+        };
+      };
       try {
-        request = indexedDB.open("firebaseLocalStorageDb");
+        if (!window.indexedDB) {
+          finish(false);
+        } else if (typeof indexedDB.databases === "function") {
+          indexedDB
+            .databases()
+            .then((list) => {
+              if (list.some((item) => item.name === "firebaseLocalStorageDb")) read();
+              else finish(false);
+            })
+            .catch(read);
+        } else {
+          read();
+        }
       } catch (_e) {
         finish(null);
-        return;
       }
-      // Never create Firebase's database here: abort if it does not exist yet.
-      request.onupgradeneeded = () => {
-        request.transaction.abort();
-        finish(false);
-      };
-      request.onerror = () => finish(false);
-      request.onsuccess = () => {
-        const db = request.result;
-        try {
-          const get = db.transaction("firebaseLocalStorage", "readonly").objectStore("firebaseLocalStorage").get(key);
-          get.onsuccess = () => {
-            finish(!!get.result);
-            db.close();
-          };
-          get.onerror = () => {
-            finish(null);
-            db.close();
-          };
-        } catch (_e) {
-          finish(false);
-          db.close();
-        }
-      };
     });
   })();
 
@@ -734,7 +757,13 @@ window.IPDAuthHint =
       }
     });
   };
-  window.IPDPaintAccount("checking");
+  let hasRecord = false;
+  try {
+    hasRecord = !!(localStorage.getItem("ipd-saved-owner-v1") || localStorage.getItem("ipd-saved-sync-v1"));
+  } catch (_e) {
+    hasRecord = false;
+  }
+  window.IPDPaintAccount(hasRecord ? true : "checking");
   window.IPDAuthHint.then((hint) => {
     if (window.IPDAccountOwnedByPage) return;
     let record = false;

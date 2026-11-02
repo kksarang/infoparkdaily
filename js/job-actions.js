@@ -464,11 +464,19 @@
     window.IPDAccountOwnedByPage = true;
     paintSaveButtons();
     paintAccountBanner();
+    const known = storageGet(OWNER_KEY) || storageGet(SYNC_FLAG_KEY);
+    if (known) {
+      // This device has a sign-in record: confirm with Firebase straight away.
+      authHint = true;
+      paintAccountLink();
+      if (isSavedPage()) startSync();
+      else (window.requestIdleCallback || ((fn) => setTimeout(fn, 1200)))(startSync);
+      return;
+    }
     const hint = window.IPDAuthHint || Promise.resolve(null);
     hint.then(async (value) => {
       authHint = value;
-      const known = storageGet(OWNER_KEY) || storageGet(SYNC_FLAG_KEY);
-      if (value === true || value === null || known) {
+      if (value === true || value === null) {
         // Signed in, unsure, or this device has a sign-in record: confirm with Firebase.
         if (isSavedPage()) startSync();
         else (window.requestIdleCallback || ((fn) => setTimeout(fn, 1200)))(startSync);

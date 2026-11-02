@@ -431,6 +431,12 @@ async function persist(remember) {
 }
 
 async function afterAuth(user, name) {
+  try {
+    // Lets the rest of the site show "My account" at once, before Firebase loads there.
+    localStorage.setItem("ipd-saved-sync-v1", "1");
+  } catch {
+    /* private mode */
+  }
   if (name && !user.displayName)
     await updateProfile(user, { displayName: name }).catch(() => {});
   if (!user.emailVerified && user.providerData.some((p) => p.providerId === "password"))
@@ -512,6 +518,11 @@ export async function request(path, options = {}) {
       method === "POST"
     ) {
       clearCareerLocalData();
+      try {
+        localStorage.removeItem("ipd-saved-sync-v1");
+      } catch {
+        /* private mode */
+      }
       try {
         const { clearAnalyticsUser } = await import("/analytics/src/identity.js");
         clearAnalyticsUser();
