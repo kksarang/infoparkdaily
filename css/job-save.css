@@ -167,6 +167,7 @@
 
 .saved-account-who {
   flex-basis: 100%;
+  max-width: none !important;
   margin: 0 !important;
   padding-top: 0.75rem;
   border-top: 1px solid var(--line, rgba(148, 163, 184, 0.35));
