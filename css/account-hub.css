@@ -1,4 +1,11 @@
 /* Account page: a hub for everything on InfoparkDaily */
+
+/* The hub replaces the menus here: only the logo stays, and it goes home. */
+body.account-hub-page #store-nav,
+body.account-hub-page #store-menu,
+body.account-hub-page .subnav {
+  display: none !important;
+}
 .hub {
   display: grid;
   gap: 2rem;
@@ -163,10 +170,73 @@
   transform: translateX(3px);
 }
 
+.hub-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid #e8c34a;
+  border-radius: 18px;
+  background: #fff8dc;
+}
+
+.hub-confirm-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f2c215;
+  font-size: 1.3rem;
+}
+
+.hub-confirm > div:nth-child(2) {
+  flex: 1 1 320px;
+}
+
+.hub-confirm h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.hub-confirm p {
+  margin: 0.3rem 0 0;
+  line-height: 1.5;
+}
+
+.hub-confirm-actions,
+.hub-resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hub-resumes {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.hub-resume {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line, #e3e1d8);
+  border-radius: 16px;
+  background: var(--surface, #fff);
+}
+
+.hub-resume .hub-copy {
+  flex: 1 1 200px;
+}
+
 .hub-meta {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .hub-meta .card {

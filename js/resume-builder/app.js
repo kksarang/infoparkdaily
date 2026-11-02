@@ -560,7 +560,10 @@ function savedJobCount() {
 }
 async function account() {
   if (!ensureAuth()) return;
-  const orders = await api("/orders");
+  document.body.classList.add("account-hub-page");
+  const orders = await api("/orders").catch(() => []);
+  const verified = useLocalApi() || me.email_verified;
+  const resumes = verified ? await api("/resumes").catch(() => []) : [];
   const saved = savedJobCount();
   const first = String(me.name || "").trim().split(/\s+/)[0] || "there";
   const initial = esc((String(me.name || me.email || "?").trim()[0] || "?").toUpperCase());
@@ -578,8 +581,26 @@ async function account() {
       <section class="hub-profile">
         <span class="hub-avatar" aria-hidden="true">${initial}</span>
         <div class="hub-who"><h2>${esc(me.name || "Your account")}</h2><p>${esc(me.email)}</p><p class="hub-status${me.email_verified || useLocalApi() ? " is-ok" : ""}">${status}</p></div>
-        <div class="hub-profile-actions">${me.email_verified || useLocalApi() ? "" : button("Resend email", "resend-verify")}${button("Log out", "logout")}</div>
       </section>
+      ${
+        verified
+          ? ""
+          : `<section class="hub-confirm" role="status"><span class="hub-confirm-icon" aria-hidden="true">✉</span><div><h2>Confirm your email</h2><p>We sent a confirmation link to <strong>${esc(me.email)}</strong>. Open it, then tap <strong>I've confirmed</strong>. Check Spam or Promotions if you cannot find it. Resume downloads and account sync start after you confirm.</p></div><div class="hub-confirm-actions">${button("I've confirmed", "refresh-verify", "", "")}${button("Resend email", "resend-verify")}</div></section>`
+      }
+      ${
+        verified
+          ? `<section class="hub-group"><header><h2>Your resumes</h2><p>${resumes.length ? "Download any resume as a PDF, or keep editing." : "You have not created a resume yet."}</p></header>${
+              resumes.length
+                ? `<div class="hub-resumes">${resumes
+                    .map(
+                      (r) =>
+                        `<div class="hub-resume"><span class="hub-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${HUB_ICONS.doc}</svg></span><div class="hub-copy"><strong>${esc(r.title)}</strong><small>Updated ${date(r.updated_at)}</small></div><div class="hub-resume-actions"><a class="button small secondary" href="${base}editor/?id=${encodeURIComponent(r.id)}">Edit</a>${button("Download PDF", "account-download", `data-id="${esc(r.id)}"`, "")}</div></div>`,
+                    )
+                    .join("")}</div>`
+                : `<a class="button" href="${base}templates/">Create my first resume</a>`
+            }</section>`
+          : ""
+      }
       ${group(
         "Jobs",
         "Find openings across Infopark, Technopark and Cyberpark.",
@@ -607,8 +628,13 @@ async function account() {
           hubTile("/contact/", "chat", "Contact us", "Questions, partnerships and support")
       )}
       <div class="hub-meta">
-        <section class="card"><h2>Purchase history</h2>${orders.length ? orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("") : "<p>No purchases yet.</p>"}</section>
-        <section class="card hub-danger"><h2>Your data</h2><p>${useLocalApi() ? "Deleting removes this local account, saved resumes, and test purchases from this computer. It cannot be undone." : "Download a copy of your data, or permanently delete your login, cloud-saved resumes and saved jobs. Deleting cannot be undone."}</p><div class="actions">${useLocalApi() ? '<a class="button small secondary" href="/v1/me/data" download>Download my data</a>' : button("Download my data", "download-data")}${button("Delete account", "delete-account", "", "danger")}</div></section>
+        ${
+          orders.length
+            ? `<section class="card"><h2>Purchase history</h2>${orders.map((o) => `<a class="purchase" href="${base}payment-status/?order=${o.id}"><span>Pro Pass · ₹99<small style="display:block;color:var(--muted);margin-top:5px">${date(o.created_at)} · ${esc(o.mode)}</small></span><strong>${esc(o.status)}</strong></a>`).join("")}</section>`
+            : ""
+        }
+        <section class="card"><h2>Log out</h2><p>Sign out of InfoparkDaily on this device. Your resumes and saved jobs stay safe in your account.</p><div class="actions">${button("Log out", "logout")}</div></section>
+        <section class="card hub-danger"><h2>Delete account</h2><p>${useLocalApi() ? "Removes this local account, saved resumes, and test purchases from this computer." : "Permanently deletes your login, cloud-saved resumes and saved jobs."} This cannot be undone.</p><div class="actions">${button("Delete account", "delete-account", "", "danger")}</div></section>
       </div>
     </div>`,
   );
@@ -1438,6 +1464,19 @@ async function act(el) {
     case "export":
       await downloadPDF();
       break;
+    case "account-download": {
+      if (useLocalApi()) {
+        location.assign(base + "editor/?id=" + encodeURIComponent(id));
+        break;
+      }
+      const r = await api("/resumes/" + encodeURIComponent(id));
+      const t = templates.find((x) => x.id === r.template_id) || r.template;
+      if (!t?.config) throw Error("This template cannot export yet. Open the resume and choose another design.");
+      printResumeHtml(renderResume(r.data, t.config));
+      toast("In the print dialog, choose Save as PDF.");
+      analyticsTrack("resume_export_success", { template_id: r.template_id || "", placement: "account" });
+      break;
+    }
     case "editor-edit":
     case "editor-preview":
       document
