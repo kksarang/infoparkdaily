@@ -4439,51 +4439,139 @@ export const catalog = [
     }
   }
 ];
+const THUMB_SANS = "Arial,Helvetica,sans-serif";
+const THUMB_SERIF = "Georgia,Times New Roman,serif";
+
+function thumbText(x, y, text, size, fill, family = THUMB_SANS, weight = 400) {
+  return `<text x="${x}" y="${y}" fill="${fill}" font-family="${family}" font-size="${size}" font-weight="${weight}">${text}</text>`;
+}
+
+function thumbBlocks(x, y, accent, family, blocks) {
+  let out = "";
+  let at = y;
+  blocks.forEach(([heading, lines]) => {
+    out += thumbText(x, at, heading, 11, accent, family, 700);
+    at += 7;
+    out += `<line x1="${x}" y1="${at}" x2="${x + 150}" y2="${at}" stroke="${accent}" stroke-width=".8" opacity=".5"/>`;
+    at += 15;
+    lines.forEach((line) => {
+      out += thumbText(x, at, line, 9.5, "#333");
+      at += 15;
+    });
+    at += 11;
+  });
+  return out;
+}
+
 export function thumbnail(t) {
   const accent = (t.config && t.config.accent) || "#17334d";
   const family = (t.config && t.config.family) || "classic";
-  const name = String(t.name || "Resume")
-    .slice(0, 22)
-    .replace(/[<&]/g, "");
   const gallery = family === "gallery";
   const docs = family === "docs" || family === "docs-split";
+  const split = family === "docs-split";
   const rail = family === "rail" || family === "sidebar" || family === "split";
-  let header = `<rect x="48" y="48" width="404" height="72" fill="${accent}"/>`;
-  if (gallery) {
-    header = `<rect x="48" y="48" width="404" height="110" rx="8" fill="#ececea"/><circle cx="98" cy="103" r="28" fill="${accent}" opacity=".25"/><text x="140" y="98" fill="#1c1917" font-family="Georgia,serif" font-size="20">${name}</text>`;
-  } else if (family === "docs") {
-    header = `<rect x="48" y="48" width="404" height="78" fill="#fff"/><line x1="72" y1="118" x2="428" y2="118" stroke="#111" stroke-width="1.2"/>`;
-  } else if (family === "docs-split") {
-    header = `<rect x="48" y="48" width="404" height="70" fill="#fff"/><rect x="330" y="128" width="122" height="480" fill="#f4f7fb"/>`;
-  } else if (family === "ribbon" || family === "executive") {
-    header = `<rect x="48" y="48" width="404" height="92" fill="${accent}"/>`;
-  } else if (rail) {
-    header = `<rect x="48" y="48" width="118" height="611" fill="${accent}"/><rect x="166" y="48" width="286" height="611" fill="#fff"/>`;
+  const tall = family === "ribbon" || family === "executive";
+  const font = docs || gallery ? THUMB_SERIF : THUMB_SANS;
+  const name = "ANANYA MENON";
+  const role = "Software Developer";
+  const contact = "ananya@example.com  ·  +91 90000 00000  ·  Kochi, Kerala";
+  const summary = ["Software developer building accessible web products.", "Focused on clean code and reliable delivery."];
+  const experience = [
+    "Software Developer, Example Technologies",
+    "Kochi  ·  2023 – Present",
+    "Built customer dashboards used by 12,000 users.",
+    "Cut page load time by 35% with caching.",
+    "Reviewed code and mentored two junior developers.",
+  ];
+  const education = ["B.Tech Computer Science, 2023", "Example College of Engineering"];
+  const projects = ["Job Tracker: React and Node.js web app", "Expense Notes: offline-first mobile app"];
+  const skills = ["JavaScript, React, Node.js", "SQL, Git, REST APIs"];
+
+  let header = "";
+  let body = "";
+  if (rail) {
+    header =
+      `<rect x="48" y="48" width="118" height="611" fill="${accent}"/>` +
+      thumbText(60, 90, "CONTACT", 10, "#fff", THUMB_SANS, 700) +
+      ["ananya@example.com", "+91 90000 00000", "Kochi, Kerala"]
+        .map((line, i) => thumbText(60, 110 + i * 15, line, 8, "#fff"))
+        .join("") +
+      thumbText(60, 190, "SKILLS", 10, "#fff", THUMB_SANS, 700) +
+      ["JavaScript", "React", "Node.js", "SQL", "Git", "REST APIs"]
+        .map((line, i) => thumbText(60, 210 + i * 15, line, 8.5, "#fff"))
+        .join("");
+    body =
+      thumbText(182, 92, name, 20, accent, font, 700) +
+      thumbText(182, 112, role, 11, "#444") +
+      thumbBlocks(182, 150, accent, font, [
+        ["SUMMARY", summary],
+        ["EXPERIENCE", experience],
+        ["EDUCATION", education],
+        ["PROJECTS", projects],
+      ]);
+  } else if (gallery) {
+    header =
+      `<rect x="48" y="48" width="404" height="110" rx="8" fill="#ececea"/><circle cx="98" cy="103" r="28" fill="${accent}" opacity=".25"/>` +
+      thumbText(140, 96, name, 20, "#1c1917", font) +
+      thumbText(140, 116, role, 11, "#44403c") +
+      thumbText(140, 134, "ananya@example.com  ·  Kochi, Kerala", 9, "#44403c");
+    body = thumbBlocks(72, 192, accent, font, [
+      ["SUMMARY", summary],
+      ["EXPERIENCE", experience],
+      ["EDUCATION", education],
+      ["SKILLS", skills],
+    ]);
+  } else if (docs) {
+    header =
+      thumbText(72, 86, name, 21, "#111", font, 700) +
+      thumbText(72, 106, split ? role : `${role}  ·  ananya@example.com  ·  Kochi`, 10, "#444") +
+      `<line x1="72" y1="118" x2="428" y2="118" stroke="#111" stroke-width="1.2"/>`;
+    if (split) {
+      header +=
+        `<rect x="330" y="128" width="122" height="531" fill="#f4f7fb"/>` +
+        thumbBlocks(340, 156, "#111", font, [
+          ["CONTACT", ["ananya@example.com", "+91 90000 00000"]],
+          ["SKILLS", ["JavaScript, React", "Node.js, SQL", "Git, REST APIs"]],
+        ]).replace(/x2="490"/g, 'x2="442"');
+    }
+    body = thumbBlocks(72, 150, accent, font, [
+      ["SUMMARY", split ? ["Software developer building web products.", "Focused on reliable delivery."] : summary],
+      [
+        "EXPERIENCE",
+        split
+          ? [
+              "Software Developer, Example Technologies",
+              "Kochi  ·  2023 – Present",
+              "Built dashboards used by 12,000 users.",
+              "Cut page load time by 35% with caching.",
+              "Mentored two junior developers.",
+            ]
+          : experience,
+      ],
+      ["EDUCATION", education],
+      ["PROJECTS", projects],
+    ]);
+  } else {
+    const bottom = tall ? 140 : 120;
+    header =
+      `<rect x="48" y="48" width="404" height="${bottom - 48}" fill="${accent}"/>` +
+      thumbText(72, 84, name, 21, "#fff", font, 700) +
+      thumbText(72, 102, role, 11, "#fff") +
+      (tall ? thumbText(72, 122, contact, 9, "#fff") : "");
+    body = thumbBlocks(72, bottom + 30, accent, font, [
+      ["SUMMARY", summary],
+      ["EXPERIENCE", experience],
+      ["EDUCATION", education],
+      ["SKILLS", skills],
+    ]);
   }
-  const titleX = rail ? 186 : 72;
-  const lineX = gallery ? 72 : rail ? 186 : 72;
-  const bandY = gallery ? 180 : docs ? 140 : 160;
-  const titleFill = rail ? accent : docs ? "#111" : "#fff";
-  const title =
-    gallery
-      ? ""
-      : `<text x="${titleX}" y="92" fill="${titleFill}" font-family="Times New Roman,Georgia,serif" font-size="20">${name}</text>`;
-  const bandFill = gallery ? "#ececea" : "#d5dde5";
-  const accentBar = gallery ? "#ececea" : accent;
-  const accentOpacity = gallery ? "1" : "0.45";
   const svg =
     `<svg xmlns="http://www.w3.org/2000/svg" width="500" height="707" viewBox="0 0 500 707">` +
     `<rect width="500" height="707" fill="#eef1f4"/>` +
     `<rect x="40" y="40" width="420" height="627" fill="#fff" rx="8"/>` +
     `<rect x="48" y="48" width="404" height="611" fill="#fff" stroke="${accent}" stroke-width="1.5"/>` +
     header +
-    title +
-    `<rect x="${lineX}" y="${bandY}" width="${gallery ? 356 : 200}" height="${gallery ? 18 : 10}" fill="${bandFill}"/>` +
-    `<rect x="${lineX}" y="${bandY + 36}" width="${gallery ? 280 : 240}" height="8" fill="#e6ebf0"/>` +
-    `<rect x="${lineX}" y="${bandY + 56}" width="${gallery ? 250 : 210}" height="8" fill="#e6ebf0"/>` +
-    `<rect x="${lineX}" y="${bandY + 100}" width="${gallery ? 356 : 120}" height="${gallery ? 18 : 8}" fill="${accentBar}" opacity="${accentOpacity}"/>` +
-    `<rect x="${lineX}" y="${bandY + 136}" width="${gallery ? 280 : 250}" height="8" fill="#e6ebf0"/>` +
-    `<rect x="${lineX}" y="${bandY + 156}" width="${gallery ? 240 : 230}" height="8" fill="#e6ebf0"/>` +
+    body +
     `</svg>`;
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }

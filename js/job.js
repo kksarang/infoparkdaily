@@ -522,6 +522,20 @@
     return `<a class="btn btn-secondary ${extraClass || ""}" href="${escapeAttr(href)}">Apply to Email</a>`;
   }
 
+  function atsJobText(job) {
+    const list = (value) => (Array.isArray(value) ? value : []).filter(Boolean);
+    return [
+      job.workDetails,
+      job.qualification ? `Qualification: ${job.qualification}` : "",
+      list(job.skills).length ? `Skills: ${list(job.skills).join(", ")}` : "",
+      list(job.requirements).length ? `Requirements:\n${list(job.requirements).join("\n")}` : "",
+      list(job.responsibilities).length ? `Responsibilities:\n${list(job.responsibilities).join("\n")}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n")
+      .trim();
+  }
+
   function applySidebarCard(job, expired, applyCtaHref, applyCtaLabel, applyUrl) {
     const st = listingStatusMeta(job);
     const deadline =
@@ -585,6 +599,16 @@
           <p class="jd-ats-chance">Choose a template and tell your story. Your draft keeps this job reference.</p>
           <span class="jd-ats-cta">Build your resume →</span>
         </a>
+        ${
+          !expired && atsJobText(job).length >= 80
+            ? `<a class="jd-ats-card" href="/ats-checker/" data-ats-job="${escapeAttr(job.id)}">
+          <div class="jd-ats-top"><p class="jd-ats-kicker">Before you apply</p><span class="jd-ats-free">Free</span></div>
+          <strong>Check your resume for this job</strong>
+          <p class="jd-ats-chance">Opens the ATS checker with this job description filled in. Your resume stays in your browser.</p>
+          <span class="jd-ats-cta">Check my resume →</span>
+        </a>`
+            : ""
+        }
         <a class="jd-company-link-card" href="${escapeAttr(companyPath(job.company))}">
           <div class="jd-co-card">
             ${
@@ -2450,6 +2474,21 @@
   } catch (_e) {
     /* ignore */
   }
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest && event.target.closest("[data-ats-job]");
+    if (!link) return;
+    const job = (window.JOBS || (typeof JOBS !== "undefined" ? JOBS : [])).find(
+      (item) => item.id === link.getAttribute("data-ats-job")
+    );
+    if (!job) return;
+    try {
+      sessionStorage.setItem("ipd-ats-jd", atsJobText(job));
+      sessionStorage.setItem("ipd-ats-title", `${(job.roles || [])[0] || "this job"} at ${job.company || ""}`.trim());
+    } catch (_e) {
+      /* the checker still opens, with an empty job description */
+    }
+  });
 
   document.addEventListener(
     "click",

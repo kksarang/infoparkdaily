@@ -936,6 +936,7 @@
         <li class="ats-report-issue">
           <div><strong>${escapeHtml(item.title)}</strong><span class="ats-sev ats-sev--${escapeHtml(String(item.severity || "Low").toLowerCase())}">${escapeHtml(item.severity || "Low")}</span></div>
           <p>${escapeHtml(item.why)}</p>
+          ${fixLink(item.title)}
         </li>`
       )
       .join("");
@@ -973,7 +974,7 @@
                 <ol class="ats-report-fixes">${topFixes
                   .map(
                     (fix, i) =>
-                      `<li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p></div></li>`
+                      `<li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p>${fixLink(fix.title)}</div></li>`
                   )
                   .join("")}</ol>
               </section>`
@@ -1067,6 +1068,22 @@
       });
     }
     if (resultPanel) resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  const FIX_SECTIONS = {
+    "Use of personal details": "personal",
+    "Missing email in plain text": "personal",
+    "Missing phone number": "personal",
+    "Incomplete standard sections": "summary",
+    "Use ATS headings": "summary",
+    "Rewrite weak bullets": "experience",
+    "Add missing JD keywords": "skills",
+  };
+
+  function fixLink(title) {
+    const section = FIX_SECTIONS[title];
+    if (!section) return "";
+    return `<a class="ats-fix-link" href="/resume-builder/my-resumes/" data-fix-section="${section}">Fix this in Resume Builder →</a>`;
   }
 
   function fitWhy(fix) {
@@ -1168,6 +1185,16 @@
     }
   });
 
+  result.addEventListener("click", (event) => {
+    const link = event.target.closest && event.target.closest("[data-fix-section]");
+    if (!link) return;
+    try {
+      sessionStorage.setItem("ipd-rb-section", link.getAttribute("data-fix-section"));
+    } catch (_e) {
+      /* the builder still opens, at its usual section */
+    }
+  });
+
   try {
     const storedJd = sessionStorage.getItem("ipd-ats-jd");
     const storedTitle = sessionStorage.getItem("ipd-ats-title");
@@ -1176,6 +1203,10 @@
       sessionStorage.removeItem("ipd-ats-jd");
       if (storedTitle) {
         jdInput.setAttribute("aria-label", `Job description for ${storedTitle}`);
+        const note = document.createElement("p");
+        note.className = "ats-job-note";
+        note.textContent = `Job description loaded for ${storedTitle.replace(/\.+$/, "")}. Now add your resume.`;
+        jdInput.insertAdjacentElement("beforebegin", note);
         sessionStorage.removeItem("ipd-ats-title");
       }
     }

@@ -1710,3 +1710,16 @@ body.career-tools-ats .section-heading p a.text-link {
     grid-template-columns: 1fr;
   }
 }
+
+.ats-fix-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.ats-job-note {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}

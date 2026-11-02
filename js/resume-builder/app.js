@@ -6,7 +6,7 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
-import { publicTemplates } from "./catalog.js?v=20260920tpl";
+import { publicTemplates } from "./catalog.js?v=20261102tools";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20260916del";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
@@ -1674,6 +1674,12 @@ async function boot() {
         )
           ? resume.last_section
           : "personal";
+        try {
+          const fixSection = sessionStorage.getItem("ipd-rb-section");
+          sessionStorage.removeItem("ipd-rb-section");
+          if (fixSection && Object.keys(sections).includes(fixSection))
+            activeSection = fixSection;
+        } catch {}
         editor();
         break;
       default:
