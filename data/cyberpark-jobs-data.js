@@ -1,9 +1,51 @@
 /**
  * InfoparkDaily — Cyberpark Kozhikode Jobs (curated)
  * Verified: UL CyberPark jobs table. Upcoming: cyberparks.in careers listings.
- * Checked 2026-10-29.
+ * Checked 2026-11-02.
  */
 var CYBERPARK_VERIFIED_JOBS = [
+  {
+    id: "cpv-nornux-solutions-private-limited-erpnext-developer-12210",
+    company: "Nornux Solutions Private Limited",
+    logo: "",
+    companyBlurb: "Nornux Solutions Private Limited · ERPNext Developer · Cyberpark Kozhikode",
+    location: "Kozhikode, Kerala",
+    roles: ["ERPNext Developer"],
+    experience: "both",
+    experienceRange: "",
+    employmentType: "Full-time",
+    applyLink: "mailto:info@nornux.com?subject=ERPNext%20Developer",
+    applyDeadline: "Rolling",
+    postedDate: "2026-10-30",
+    source: "Cyberpark",
+    verified: true,
+    cyberparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "info@nornux.com",
+    phone: "",
+    website: "https://cyberparks.in/careers/",
+    address: "Cyberpark, Nellikkode, Kozhikode, Kerala",
+    industry: "Cyberpark company",
+    companyDetails: "Nornux Solutions Private Limited — listed on official Cyberpark Kozhikode careers.",
+    workDetails: "We are looking for an enthusiastic ERPNext Developer to join our development team. The ideal candidate should have knowledge of ERPNext, the Frappe Framework, Python, and JavaScript, with an interest in developing and customizing enterprise business applications.\n\n Responsibilities:\n\nDevelop, customize, and maintain ERPNext modules and applications.\n\nCreate and customize DocTypes, Client Scripts, Server Scripts, and workflows.\n\nDevelop custom reports, print formats, and dashboards.\n\nIntegrate ERPNext with third-party applications using REST APIs.\n\nWork with Python, JavaScript, MariaDB/MySQL, HTML, and CSS.\n\nTroubleshoot issues and optimize application performance.\n\nUnderstand business requirements and translate them into technical solutions.\n\nMaintain technical documentation and support testing and deployment.\n\n Required Skills:\n\nKnowledge of ERPNext and the Frappe Framework.\n\nProficiency in Python and JavaScript.\n\nUnderstanding of MariaDB/MySQL and database concepts.\n\nKnowledge of HTML, CSS, and REST API integrations.\n\nUnderstanding of ERP modules such as Accounting, Inventory, Sales, and HR.\n\nFamiliarity with Git and version control.\n\nGood problem-solving and communication skills.",
+    workStatus: "Full-time",
+    workMode: "On-site · Cyberpark Kozhikode",
+    experienceYears: "",
+    skills: [],
+    requirements: ["Knowledge of ERPNext and the Frappe Framework", "Proficiency in Python and JavaScript", "Understanding of MariaDB/MySQL and database concepts", "Knowledge of HTML, CSS, and REST API integrations", "Understanding of ERP modules such as Accounting, Inventory, Sales, and HR", "Familiarity with Git and version control", "Good problem-solving and communication skills"],
+    responsibilities: ["Develop, customize, and maintain ERPNext modules and applications", "Create and customize DocTypes, Client Scripts, Server Scripts, and workflows", "Develop custom reports, print formats, and dashboards", "Integrate ERPNext with third-party applications using REST APIs", "Work with Python, JavaScript, MariaDB/MySQL, HTML, and CSS", "Troubleshoot issues and optimize application performance", "Understand business requirements and translate them into technical solutions", "Maintain technical documentation and support testing and deployment"],
+    benefits: [],
+    howToApply: "Email info@nornux.com. Official Cyberpark listing: https://cyberparks.in/job/nornux-solutions-private-limited-kozhikode-kerala-erpnext-erpnext-developer/",
+    hiringNotes: "Imported from cyberparks.in on 2026-11-02 · post 12210. Re-check with the employer before applying.",
+    description: "ERPNext Developer at Nornux Solutions Private Limited — Cyberpark Kozhikode careers.",
+    startingDate: "",
+    alertBucket: "upcoming",
+    officialLinks: {"cyberparkJob": "https://cyberparks.in/job/nornux-solutions-private-limited-kozhikode-kerala-erpnext-erpnext-developer/"},
+    pinOrder: 1,
+  },
   {
     id: "cpv-lithos-technosoft-pvt-ltd-video-editor-ai-proficient-12209",
     company: "Lithos Technosoft Pvt Ltd",
