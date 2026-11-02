@@ -160,6 +160,31 @@
   border-color: #d59f00;
 }
 
+.saved-account-banner strong,
+.saved-account-banner p {
+  background: none;
+}
+
+.saved-account-who {
+  flex-basis: 100%;
+  margin: 0 !important;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  font-size: 0.88rem !important;
+}
+
+.saved-account-who a,
+.saved-account-who button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .saved-account-banner p {
   margin: 0.25rem 0 0;
   max-width: 62ch;

@@ -28,7 +28,7 @@
   const PROMPT_KEY = "ipd-saved-prompt-dismissed-v1";
   const MAX_SAVED = 200;
   const PROMPT_AT = 3;
-  const CLOUD_MODULE = "/js/saved-jobs-cloud.bundle.js?v=20261102save";
+  const CLOUD_MODULE = "/js/saved-jobs-cloud.bundle.js?v=20261102save2";
   const SIGN_IN_URL = "/resume-builder/sign-in/?next=" + encodeURIComponent("/jobs/saved/");
   const isSavedPage = () => window.IPD_SAVED_ONLY === true;
 
@@ -345,13 +345,24 @@
       el.innerHTML =
         "<div><strong>" + title + "</strong><p>" + body + "</p></div>" +
         (actions ? '<div class="saved-account-actions">' + actions + "</div>" : "");
+      if (accountEmail && kind !== "guest") {
+        const row = document.createElement("p");
+        row.className = "saved-account-who";
+        row.append("Signed in as ");
+        const who = document.createElement("strong");
+        who.textContent = accountEmail;
+        row.append(who);
+        row.insertAdjacentHTML(
+          "beforeend",
+          ' · <a href="/resume-builder/account/">Account details</a> · <button type="button" data-saved-action="logout">Log out</button>'
+        );
+        el.appendChild(row);
+      }
     };
     if (syncState === "loading" && storageGet(OWNER_KEY)) {
       el.hidden = true;
     } else if (syncState === "account") {
       set("ok", "Saved to your account", "Your list is available on any device when you sign in.");
-      el.querySelector("p").textContent =
-        "Your list is available on any device when you sign in" + (accountEmail ? " as " + accountEmail : "") + ".";
     } else if (syncState === "unverified") {
       set(
         "warn",
@@ -394,7 +405,12 @@
     if (!action || !cloud) return;
     action.disabled = true;
     try {
-      if (action.dataset.savedAction === "resend") {
+      if (action.dataset.savedAction === "logout") {
+        await cloud.logOut();
+        await applyUser(null);
+        emitChange();
+        showToast("Logged out. Saved jobs from your account were removed from this device.");
+      } else if (action.dataset.savedAction === "resend") {
         await cloud.resendVerification();
         showToast("Email sent. Check Inbox and Spam.");
       } else {

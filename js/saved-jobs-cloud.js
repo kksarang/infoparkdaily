@@ -1,6 +1,6 @@
 /** Account storage for saved jobs. Bundled to saved-jobs-cloud.bundle.js and loaded only when needed. */
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getAuth, onAuthStateChanged, reload, sendEmailVerification } from "firebase/auth";
+import { getAuth, onAuthStateChanged, reload, sendEmailVerification, signOut } from "firebase/auth";
 import {
   arrayRemove,
   arrayUnion,
@@ -53,4 +53,8 @@ export async function update(add, remove) {
   if (add.length) batch.set(ref, { ids: arrayUnion(...add), updatedAt: serverTimestamp() }, { merge: true });
   if (remove.length) batch.set(ref, { ids: arrayRemove(...remove), updatedAt: serverTimestamp() }, { merge: true });
   await batch.commit();
+}
+
+export async function logOut() {
+  await signOut(auth);
 }
