@@ -9,6 +9,17 @@
   var emptyEl = document.getElementById("em-empty");
   var form = document.getElementById("em-fill");
   var STORE = "ipd-email-details";
+  var FIELD_OF = {
+    "[your name]": "name",
+    "[name]": "name",
+    "[job title]": "role",
+    "[role / team]": "role",
+    "[company]": "company",
+    "[city]": "city",
+    "[phone]": "phone",
+    "[email]": "email",
+  };
+  var values = {};
   var filter = "all";
   var selected = null;
 
@@ -17,30 +28,107 @@
   }
 
   function escapeHtml(text) {
-    return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function keyOf(token) {
+    var lower = token.toLowerCase();
+    return FIELD_OF[lower] || lower;
+  }
+
+  function save() {
+    try {
+      sessionStorage.setItem(STORE, JSON.stringify(values));
+    } catch (_e) {
+      /* details just will not survive a reload */
+    }
+  }
+
+  function renderPre(pre) {
+    var original = pre.getAttribute("data-original") || "";
+    pre.innerHTML = escapeHtml(original).replace(/\[[^\]]+\]/g, function (token) {
+      return '<span class="em-blank" data-token="' + token + '" data-key="' + escapeHtml(keyOf(token)) + '">' + token + "</span>";
+    });
+    pre.setAttribute("contenteditable", "plaintext-only");
+    if (pre.contentEditable !== "plaintext-only") pre.setAttribute("contenteditable", "true");
+    pre.setAttribute("spellcheck", "true");
+  }
+
+  function paintBlank(span, active) {
+    var value = values[span.getAttribute("data-key")];
+    if (span !== active) span.textContent = value || span.getAttribute("data-token");
+    span.classList.toggle("is-filled", !!value);
+  }
+
+  function syncBlanks(active) {
+    document.querySelectorAll(".em-blank").forEach(function (span) {
+      paintBlank(span, active);
+    });
+    if (form) {
+      Object.keys(form.elements).forEach(function (index) {
+        var input = form.elements[index];
+        if (input && input.name && input !== document.activeElement && values[input.name] !== undefined) {
+          input.value = values[input.name];
+        }
+      });
+    }
+    items.forEach(updateStatus);
+    save();
+  }
+
+  function updateStatus(item) {
+    var blanks = item.card.querySelectorAll(".em-blank:not(.is-filled)").length;
+    var label = item.card.querySelector(".em-blanks");
+    label.textContent = blanks ? blanks + (blanks === 1 ? " blank" : " blanks") + " left" : "Ready to send";
+    label.classList.toggle("is-done", !blanks);
+  }
+
+  function blankAtCaret() {
+    var selection = window.getSelection();
+    var node = selection && selection.anchorNode;
+    if (!node) return null;
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    return el && el.closest ? el.closest(".em-blank") : null;
+  }
+
+  function selectAll(el) {
+    var range = document.createRange();
+    range.selectNodeContents(el);
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
   }
 
   var items = cards.map(function (card) {
     var title = card.querySelector("h3").textContent;
     var tag = card.querySelector(".em-tag");
-    var pres = card.querySelectorAll(".em-pre");
-    pres.forEach(function (pre) {
+    var blocks = card.querySelectorAll(".em-block");
+    card.querySelectorAll(".em-pre").forEach(function (pre) {
       pre.setAttribute("data-original", pre.textContent || "");
+      renderPre(pre);
     });
+    var subjectPre = blocks[0].querySelector(".em-pre");
+    subjectPre.setAttribute("aria-label", "Email subject");
+    blocks[1].querySelector(".em-pre").setAttribute("aria-label", "Email body");
+    var tip = card.querySelector(".em-tip");
 
+    var compose = document.createElement("div");
+    compose.className = "em-compose";
+    compose.innerHTML =
+      '<div class="em-compose-bar"><span class="em-compose-title">New message</span><p class="em-blanks" aria-live="polite"></p></div>' +
+      '<label class="em-to"><span>To</span><input class="em-to-input" type="email" placeholder="Email from the official posting" autocomplete="off" /></label>';
+    blocks[0].insertAdjacentElement("beforebegin", compose);
+    compose.appendChild(blocks[0]);
+    compose.appendChild(blocks[1]);
     var actions = document.createElement("div");
     actions.className = "em-mail-actions";
     actions.innerHTML =
-      '<button type="button" class="em-btn em-copy-all">Copy full email</button>' +
-      '<button type="button" class="em-btn em-btn-ghost em-open-gmail">Open in Gmail</button>' +
-      '<button type="button" class="em-btn em-btn-ghost em-open-mailto">Open in mail app</button>' +
-      '<p class="em-blanks" aria-live="polite"></p>';
-    card.querySelector(".em-card-top").insertAdjacentElement("afterend", actions);
-
-    var to = document.createElement("p");
-    to.className = "em-to";
-    to.innerHTML = "To: <strong>the address on the official posting</strong>";
-    actions.insertAdjacentElement("afterend", to);
+      '<button type="button" class="em-btn em-open-gmail">Open in Gmail</button>' +
+      '<button type="button" class="em-btn em-btn-ghost em-copy-all">Copy email</button>' +
+      '<button type="button" class="em-btn em-btn-ghost em-open-mailto">Mail app</button>' +
+      '<button type="button" class="em-reset">Reset</button>';
+    compose.appendChild(actions);
+    if (tip) compose.insertAdjacentElement("afterend", tip);
 
     var li = document.createElement("li");
     var button = document.createElement("button");
@@ -65,57 +153,6 @@
     });
     return item;
   });
-
-  function fillValues() {
-    return {
-      name: form.elements.name.value.trim(),
-      role: form.elements.role.value.trim(),
-      company: form.elements.company.value.trim(),
-      city: form.elements.city.value.trim(),
-      phone: form.elements.phone.value.trim(),
-      email: form.elements.email.value.trim(),
-    };
-  }
-
-  function applyFill(text, v) {
-    var out = text;
-    function rep(token, value) {
-      if (value) out = out.split(token).join(value);
-    }
-    rep("[Your Name]", v.name);
-    rep("[Name]", v.name);
-    rep("[Job Title]", v.role);
-    rep("[Role / Team]", v.role);
-    rep("[Company]", v.company);
-    rep("[City]", v.city);
-    rep("[phone]", v.phone);
-    rep("[Phone]", v.phone);
-    rep("[email]", v.email);
-    rep("[Email]", v.email);
-    return out;
-  }
-
-  function refresh() {
-    var v = fillValues();
-    items.forEach(function (item) {
-      var blanks = 0;
-      item.card.querySelectorAll(".em-pre").forEach(function (pre) {
-        var text = applyFill(pre.getAttribute("data-original") || "", v);
-        blanks += (text.match(/\[[^\]]+\]/g) || []).length;
-        pre.innerHTML = escapeHtml(text).replace(/\[[^\]]+\]/g, "<mark>$&</mark>");
-      });
-      var label = item.card.querySelector(".em-blanks");
-      label.textContent = blanks
-        ? blanks + (blanks === 1 ? " blank" : " blanks") + " left to fill"
-        : "Ready to send";
-      label.classList.toggle("is-done", !blanks);
-    });
-    try {
-      sessionStorage.setItem(STORE, JSON.stringify(v));
-    } catch (_e) {
-      /* details just will not survive a reload */
-    }
-  }
 
   function select(item, userPicked) {
     selected = item;
@@ -179,10 +216,11 @@
   }
 
   function cardParts(card) {
-    var blocks = card.querySelectorAll(".em-block .em-pre");
+    var pres = card.querySelectorAll(".em-block .em-pre");
     return {
-      subject: (blocks[0] ? blocks[0].textContent : "").trim(),
-      body: (blocks[1] ? blocks[1].textContent : "").trim(),
+      to: card.querySelector(".em-to-input").value.trim(),
+      subject: pres[0].innerText.replace(/\s*\n\s*/g, " ").trim(),
+      body: pres[1].innerText.trim(),
     };
   }
 
@@ -198,21 +236,60 @@
   });
   search.addEventListener("input", paint);
 
+  document.addEventListener("input", function (ev) {
+    if (ev.target.classList && ev.target.classList.contains("em-pre")) {
+      var span = blankAtCaret();
+      if (!span) return;
+      var text = span.textContent.trim();
+      values[span.getAttribute("data-key")] = text === span.getAttribute("data-token") ? "" : text;
+      syncBlanks(span);
+    }
+  });
+
+  document.addEventListener("focusout", function (ev) {
+    if (ev.target.classList && ev.target.classList.contains("em-pre")) syncBlanks(null);
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key !== "Enter" || !ev.target.classList || !ev.target.classList.contains("em-pre")) return;
+    var isSubject = ev.target === ev.target.closest(".em-compose").querySelector(".em-pre");
+    if (isSubject) {
+      ev.preventDefault();
+      ev.target.blur();
+    } else if (ev.target.contentEditable !== "plaintext-only") {
+      ev.preventDefault();
+      document.execCommand("insertLineBreak");
+    }
+  });
+
   document.addEventListener("click", function (ev) {
+    var blank = ev.target.closest(".em-blank");
+    if (blank && !blank.classList.contains("is-filled")) {
+      selectAll(blank);
+      return;
+    }
     var copy = ev.target.closest(".em-copy");
     if (copy) {
-      var pre = copy.closest(".em-block").querySelector(".em-pre");
-      flash(copy, pre.textContent || "");
+      flash(copy, copy.closest(".em-block").querySelector(".em-pre").innerText.trim());
       return;
     }
     var card = ev.target.closest(".em-card");
     if (!card) return;
+    if (ev.target.closest(".em-reset")) {
+      card.querySelectorAll(".em-pre").forEach(renderPre);
+      card.querySelector(".em-to-input").value = "";
+      syncBlanks(null);
+      return;
+    }
+    if (!ev.target.closest(".em-mail-actions")) return;
     var parts = cardParts(card);
     if (ev.target.closest(".em-copy-all")) {
       flash(ev.target.closest(".em-copy-all"), "Subject: " + parts.subject + "\n\n" + parts.body);
     } else if (ev.target.closest(".em-open-gmail")) {
       window.open(
-        "https://mail.google.com/mail/?view=cm&fs=1&su=" +
+        "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+          encodeURIComponent(parts.to) +
+          "&su=" +
           encodeURIComponent(parts.subject) +
           "&body=" +
           encodeURIComponent(parts.body),
@@ -221,31 +298,53 @@
       );
     } else if (ev.target.closest(".em-open-mailto")) {
       location.href =
-        "mailto:?subject=" + encodeURIComponent(parts.subject) + "&body=" + encodeURIComponent(parts.body);
+        "mailto:" + encodeURIComponent(parts.to).replace(/%40/g, "@") +
+        "?subject=" + encodeURIComponent(parts.subject) +
+        "&body=" + encodeURIComponent(parts.body);
     }
   });
 
   try {
-    var saved = JSON.parse(sessionStorage.getItem(STORE) || "{}");
-    Object.keys(saved).forEach(function (key) {
-      if (form.elements[key]) form.elements[key].value = saved[key];
-    });
+    values = JSON.parse(sessionStorage.getItem(STORE) || "{}") || {};
   } catch (_e) {
-    /* start with empty details */
+    values = {};
   }
-  form.addEventListener("input", refresh);
+  form.addEventListener("input", function (ev) {
+    if (ev.target.name) values[ev.target.name] = ev.target.value.trim();
+    syncBlanks(null);
+  });
   document.getElementById("em-fill-clear").addEventListener("click", function () {
     form.reset();
-    refresh();
+    values = {};
+    syncBlanks(null);
   });
 
   picker.hidden = false;
   document.getElementById("em-filterbar").hidden = false;
   workspace.classList.add("is-ready");
-  refresh();
+  syncBlanks(null);
   var fromHash = items.filter(function (item) {
     return "#" + item.id === location.hash;
   })[0];
   select(fromHash || items[0], false);
   paint();
+  if (fromHash) document.getElementById("em-examples").scrollIntoView();
+
+  var reveals = document.querySelectorAll("[data-em-reveal]");
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-shown");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px" }
+    );
+    reveals.forEach(function (el) {
+      el.classList.add("em-will-reveal");
+      observer.observe(el);
+    });
+  }
 })();
