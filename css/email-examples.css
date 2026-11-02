@@ -1,29 +1,26 @@
 /* Career Tools · Email examples */
 
 body.em-page {
-  --em-bg: #f3f1ea;
-  --em-bg-deep: #ebe7dc;
-  --em-surface: #fffcf7;
-  --em-ink: #141814;
+  --em-bg: #f6f5f0;
+  --em-surface: #ffffff;
+  --em-ink: #151a16;
   --em-muted: #5c6358;
-  --em-line: #ddd6c8;
-  --em-line-soft: #ebe4d6;
-  --em-accent: #e8b80e;
-  --em-accent-ink: #3d3200;
-  --em-chip: #1c241c;
-  --em-good: #2f6b45;
-  --em-radius: 0;
+  --em-line: #e2ded3;
+  --em-line-soft: #efece4;
+  --em-accent: #f2c215;
+  --em-accent-soft: #fdf4cf;
+  --em-mark: #fff0b3;
+  --em-mark-ink: #5c4600;
+  --em-good: #1f7a4a;
+  --em-radius: 16px;
   --em-display: "Space Grotesk", Manrope, Inter, sans-serif;
-  background:
-    radial-gradient(1200px 480px at 12% -10%, rgba(232, 184, 14, 0.14), transparent 55%),
-    radial-gradient(900px 420px at 100% 0%, rgba(47, 107, 69, 0.08), transparent 50%),
-    var(--em-bg);
+  background: var(--em-bg);
   color: var(--em-ink);
 }
 
 .em-wrap {
   box-sizing: border-box;
-  width: min(1080px, 100%);
+  width: min(1180px, 100%);
   max-width: 100%;
   margin-inline: auto;
   padding-inline: max(1.2rem, env(safe-area-inset-left), env(safe-area-inset-right));
@@ -31,7 +28,7 @@ body.em-page {
 
 .em-page main {
   overflow-x: clip;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
 }
 
 .em-page main,
@@ -49,372 +46,416 @@ body.em-page {
 
 /* Hero */
 .em-hero {
-  padding: 2.75rem 0 0.5rem;
-}
-
-.em-hero-grid {
-  display: grid;
-  gap: 2rem;
-  align-items: stretch;
-}
-
-@media (min-width: 960px) {
-  .em-hero-grid {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-    gap: 2.75rem;
-  }
+  padding: 2.5rem 0 1.5rem;
 }
 
 .em-kicker {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  margin: 0 0 1rem;
-  font-size: 0.7rem;
-  font-weight: 750;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  margin: 0 0 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--em-muted);
 }
 
 .em-kicker b {
-  padding: 0.22rem 0.5rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
   background: var(--em-accent);
-  color: var(--em-accent-ink);
-  letter-spacing: 0.08em;
+  color: var(--em-ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
 }
 
 .em-hero h1 {
   margin: 0;
-  max-width: 11ch;
   font-family: var(--em-display);
-  font-size: clamp(2.35rem, 5.5vw, 3.6rem);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-  color: var(--em-ink);
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
 .em-lede {
-  margin: 1.15rem 0 0;
-  max-width: 34rem;
+  max-width: 62ch;
+  margin: 0.85rem 0 0;
   font-size: 1.05rem;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--em-muted);
 }
 
-.em-cta {
+.em-trust {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 1.5rem;
+  gap: 0.4rem 1.25rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
+.em-trust li::before {
+  content: "✓";
+  margin-right: 0.4rem;
+  color: var(--em-good);
+}
+
+/* Buttons */
 .em-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 0 1.35rem;
-  border: 1.5px solid var(--em-ink);
+  min-height: 44px;
+  padding: 0.55rem 1.05rem;
+  border: 1px solid var(--em-ink);
+  border-radius: 10px;
   background: var(--em-ink);
   color: #fff;
-  font: 650 0.95rem/1 Inter, system-ui, sans-serif;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .em-btn:hover {
-  background: #2a322a;
+  background: #2c352e;
 }
 
 .em-btn-ghost {
-  background: transparent;
+  border-color: var(--em-line);
+  background: var(--em-surface);
   color: var(--em-ink);
 }
 
 .em-btn-ghost:hover {
-  background: rgba(20, 24, 20, 0.06);
-}
-
-.em-trust {
-  display: grid;
-  gap: 0.55rem;
-  margin: 1.6rem 0 0;
-  padding: 0;
-  list-style: none;
-  max-width: 26rem;
-}
-
-.em-trust li {
-  display: grid;
-  grid-template-columns: 1.1rem 1fr;
-  gap: 0.55rem;
-  align-items: start;
-  font-size: 0.92rem;
-  color: var(--em-muted);
-  line-height: 1.4;
-}
-
-.em-trust li::before {
-  content: "";
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-top: 0.4rem;
-  background: var(--em-accent);
-}
-
-/* Inbox anatomy */
-.em-anatomy {
+  border-color: var(--em-ink);
   background: var(--em-surface);
-  border: 1.5px solid var(--em-ink);
-  box-shadow: 10px 10px 0 rgba(20, 24, 20, 0.08);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
 }
 
-.em-anatomy-head {
-  padding: 1.05rem 1.2rem;
-  border-bottom: 1.5px solid var(--em-ink);
-  background: #171c17;
-  color: #f7f4ec;
+.em-btn.is-copied {
+  border-color: var(--em-good);
+  background: var(--em-good);
+  color: #fff;
 }
 
-.em-anatomy-head h2 {
-  margin: 0;
-  font-family: var(--em-display);
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
+.em-page button:focus-visible,
+.em-page a:focus-visible,
+.em-page input:focus-visible {
+  outline: 3px solid var(--em-accent);
+  outline-offset: 2px;
 }
 
-.em-anatomy-head p {
-  margin: 0.3rem 0 0;
-  font-size: 0.84rem;
-  color: rgba(247, 244, 236, 0.72);
-}
-
-.em-mail-chrome {
-  display: grid;
-  gap: 0.35rem;
-  padding: 0.85rem 1.15rem;
-  border-bottom: 1px solid var(--em-line);
-  background: #f8f5ee;
-  font-size: 0.78rem;
-  color: var(--em-muted);
-}
-
-.em-mail-chrome strong {
-  color: var(--em-ink);
-  font-weight: 700;
-}
-
-.em-mail-preview {
-  margin: 0;
-  padding: 0.35rem 0 0.5rem;
-  display: grid;
-}
-
-.em-mail-row {
-  display: grid;
-  grid-template-columns: 2.4rem minmax(0, 1fr);
-  gap: 0.85rem;
-  align-items: start;
-  padding: 0.95rem 1.15rem;
-  border-bottom: 1px solid var(--em-line-soft);
-}
-
-.em-mail-row:last-child {
-  border-bottom: 0;
-}
-
-.em-step {
-  width: 2.1rem;
-  height: 2.1rem;
-  display: grid;
-  place-items: center;
-  border: 1.5px solid var(--em-ink);
-  background: var(--em-accent);
-  font-family: var(--em-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--em-accent-ink);
-}
-
-.em-mail-label {
-  display: block;
-  margin-bottom: 0.2rem;
-  font-size: 0.68rem;
-  font-weight: 750;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--em-muted);
-}
-
-.em-mail-value {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--em-ink);
-}
-
-/* Examples band — use padding-block only so .em-wrap horizontal padding stays */
+/* Your details */
 .em-band {
-  margin-top: 2.25rem;
-  padding-block: 1.75rem 0;
-  border-top: 1.5px solid var(--em-line);
+  scroll-margin-top: 90px;
 }
 
 .em-section-head {
-  display: grid;
-  gap: 0.45rem;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 .em-section-head h2 {
   margin: 0;
   font-family: var(--em-display);
-  font-size: clamp(1.55rem, 3vw, 2.1rem);
-  letter-spacing: -0.035em;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
 }
 
 .em-section-head p {
-  margin: 0;
-  max-width: 38rem;
+  margin: 0.35rem 0 0;
   color: var(--em-muted);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
-.em-toolbar {
-  position: sticky;
-  top: 4.5rem;
-  z-index: 8;
-  margin: 0 0 1.15rem;
-  padding: 0.75rem 0;
-  background: color-mix(in srgb, var(--em-bg) 88%, transparent);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--em-line-soft);
+.em-section-head a {
+  color: var(--em-ink);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.em-fill {
+  margin-bottom: 1.25rem;
+  padding: 1.1rem 1.25rem 1.25rem;
+  border: 1px solid var(--em-line);
+  border-radius: var(--em-radius);
+  background: var(--em-surface);
+}
+
+.em-fill-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.em-fill-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--em-ink);
+}
+
+.em-fill-hint {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: var(--em-muted);
+}
+
+.em-fill-clear {
+  padding: 0.3rem 0;
+  border: 0;
+  background: none;
+  color: var(--em-muted);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.em-fill-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.em-fill-grid label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--em-muted);
+}
+
+.em-fill-grid input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--em-line);
+  border-radius: 9px;
+  background: #fbfaf7;
+  color: var(--em-ink);
+  font: inherit;
+  font-size: 0.92rem;
+}
+
+.em-fill-grid input:focus {
+  border-color: var(--em-ink);
+  background: #fff;
+}
+
+/* Picker */
+.em-picker {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.em-search {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--em-line);
+  border-radius: 10px;
+  background: var(--em-surface);
+  color: var(--em-ink);
+  font: inherit;
+  font-size: 0.92rem;
 }
 
 .em-filters {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 0.45rem;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.15rem;
-  scrollbar-width: thin;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .em-chip {
-  appearance: none;
-  flex: 0 0 auto;
-  border: 1.5px solid var(--em-line);
+  min-height: 34px;
+  padding: 0.25rem 0.7rem;
+  border: 1px solid var(--em-line);
+  border-radius: 999px;
   background: var(--em-surface);
-  color: var(--em-muted);
-  min-height: 40px;
-  padding: 0 0.95rem;
-  font: 650 0.82rem/1 Inter, system-ui, sans-serif;
+  color: var(--em-ink);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
-  white-space: nowrap;
 }
 
 .em-chip:hover {
   border-color: var(--em-ink);
-  color: var(--em-ink);
 }
 
 .em-chip.is-active {
-  background: var(--em-chip);
-  border-color: var(--em-chip);
+  border-color: var(--em-ink);
+  background: var(--em-ink);
   color: #fff;
 }
 
 .em-count {
-  margin: 0 0 1rem;
-  font-size: 0.82rem;
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--em-muted);
 }
 
 .em-empty {
-  margin: 0 0 1rem;
-  padding: 1.5rem;
-  text-align: center;
+  margin: 0;
+  padding: 1rem;
+  border: 1px dashed var(--em-line);
+  border-radius: 12px;
   color: var(--em-muted);
-  border: 1.5px dashed var(--em-line);
-  background: rgba(255, 252, 247, 0.7);
+  font-size: 0.9rem;
 }
 
-.em-empty[hidden] {
-  display: none !important;
+.em-picker[hidden],
+.em-empty[hidden],
+.em-card[hidden] {
+  display: none;
 }
 
-/* Cards */
+.em-list {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.em-list li[hidden] {
+  display: none;
+}
+
+.em-list-item {
+  display: grid;
+  gap: 0.1rem;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: none;
+  color: var(--em-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.em-list-item:hover {
+  background: var(--em-line-soft);
+}
+
+.em-list-item[aria-current="true"] {
+  border-color: var(--em-ink);
+  background: var(--em-surface);
+  box-shadow: inset 4px 0 0 var(--em-accent);
+}
+
+.em-list-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.em-list-tag {
+  font-size: 0.76rem;
+  color: var(--em-muted);
+}
+
+/* Email card */
 .em-grid {
   display: grid;
-  gap: 1.15rem;
+  gap: 1.25rem;
+  align-content: start;
 }
 
 .em-card {
-  background: var(--em-surface);
-  border: 1.5px solid var(--em-ink);
   overflow: hidden;
-}
-
-.em-card[hidden] {
-  display: none !important;
+  border: 1px solid var(--em-line);
+  border-radius: var(--em-radius);
+  background: var(--em-surface);
+  box-shadow: 0 10px 30px rgba(21, 26, 22, 0.06);
 }
 
 .em-card-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.85rem 1rem;
-  align-items: start;
-  padding: 1.2rem 1.25rem 1rem;
-  background: linear-gradient(180deg, #fffdf8 0%, var(--em-surface) 100%);
-  border-bottom: 1px solid var(--em-line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.4rem 0.9rem;
 }
 
 .em-card-top h3 {
   margin: 0;
   font-family: var(--em-display);
-  font-size: 1.2rem;
-  letter-spacing: -0.025em;
+  font-size: 1.3rem;
+  letter-spacing: -0.015em;
 }
 
 .em-card-meta {
-  margin: 0.4rem 0 0;
+  margin: 0.35rem 0 0;
+  max-width: 62ch;
   font-size: 0.92rem;
-  color: var(--em-muted);
   line-height: 1.5;
-  max-width: 40rem;
+  color: var(--em-muted);
 }
 
 .em-tag {
-  display: inline-flex;
+  flex: none;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--em-accent-soft);
+  color: var(--em-mark-ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.em-mail-actions {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  padding: 0.32rem 0.55rem;
-  border: 1.5px solid var(--em-ink);
-  background: var(--em-accent);
-  color: var(--em-accent-ink);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  white-space: nowrap;
+  gap: 0.5rem;
+  padding: 0 1.4rem 1.1rem;
+}
+
+.em-blanks {
+  margin: 0 0 0 auto;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--em-mark-ink);
+}
+
+.em-blanks.is-done {
+  color: var(--em-good);
+}
+
+.em-to {
+  margin: 0;
+  padding: 0.65rem 1.4rem;
+  border-top: 1px solid var(--em-line-soft);
+  font-size: 0.88rem;
+  color: var(--em-muted);
+}
+
+.em-to strong {
+  color: var(--em-ink);
+  font-weight: 600;
 }
 
 .em-block {
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--em-line-soft);
+  padding: 0.8rem 1.4rem;
+  border-top: 1px solid var(--em-line-soft);
 }
 
-.em-block:last-child {
-  border-bottom: 0;
+.em-block:last-of-type {
+  padding-bottom: 1.25rem;
 }
 
 .em-block-head {
@@ -422,250 +463,249 @@ body.em-page {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.3rem;
 }
 
 .em-block-head span {
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--em-muted);
 }
 
 .em-copy {
-  appearance: none;
-  border: 1.5px solid var(--em-ink);
-  background: #fff;
+  min-height: 32px;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--em-line);
+  border-radius: 8px;
+  background: var(--em-surface);
   color: var(--em-ink);
-  min-height: 34px;
-  padding: 0 0.75rem;
-  font: 700 0.75rem/1 Inter, system-ui, sans-serif;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .em-copy:hover {
-  background: var(--em-bg-deep);
+  border-color: var(--em-ink);
 }
 
 .em-copy.is-copied {
-  background: #e5f2ea;
   border-color: var(--em-good);
-  color: var(--em-good);
+  background: var(--em-good);
+  color: #fff;
 }
 
 .em-pre {
   margin: 0;
-  padding: 1rem 1.05rem;
-  border: 1px solid var(--em-line);
-  background: #f7f3ea;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 0.97rem;
+  line-height: 1.65;
   white-space: pre-wrap;
-  word-break: break-word;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.86rem;
-  line-height: 1.6;
-  color: var(--em-ink);
+  overflow-wrap: anywhere;
+}
+
+.em-block:first-of-type .em-pre {
+  font-weight: 600;
+}
+
+.em-pre mark {
+  padding: 0.02em 0.25em;
+  border-radius: 4px;
+  background: var(--em-mark);
+  color: var(--em-mark-ink);
+  font-weight: 600;
 }
 
 .em-tip {
-  margin: 0.7rem 0 0;
-  padding-left: 0.75rem;
-  border-left: 3px solid var(--em-accent);
-  font-size: 0.88rem;
-  color: var(--em-muted);
+  margin: 1rem 0 0;
+  padding: 0.65rem 0.8rem;
+  border-radius: 10px;
+  background: #f4f3ed;
+  font-size: 0.87rem;
   line-height: 1.5;
+  color: var(--em-muted);
 }
 
 .em-tip strong {
   color: var(--em-ink);
 }
 
-.em-rules {
-  margin: 2rem 0 0;
-  padding: 1.4rem 1.35rem;
-  border: 1.5px solid var(--em-ink);
-  background: #171c17;
-  color: #f7f4ec;
+/* Email layout */
+.em-anatomy {
+  margin-top: 2.5rem;
+  scroll-margin-top: 90px;
 }
 
-.em-rules h2 {
-  margin: 0 0 0.85rem;
+.em-anatomy-head h2 {
+  margin: 0;
   font-family: var(--em-display);
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   letter-spacing: -0.02em;
 }
 
-.em-rules ul {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: rgba(247, 244, 236, 0.78);
-  line-height: 1.6;
+.em-anatomy-head p {
+  margin: 0.35rem 0 1rem;
+  color: var(--em-muted);
 }
 
-.em-rules li + li {
-  margin-top: 0.4rem;
+.em-mail-preview {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.em-mail-row {
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--em-line);
+  border-radius: 12px;
+  background: var(--em-surface);
+}
+
+.em-step {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--em-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.em-mail-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.em-mail-value {
+  margin: 0.2rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--em-muted);
+}
+
+.em-mail-value strong {
+  font-weight: 600;
+}
+
+/* Before you send */
+.em-rules {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-radius: var(--em-radius);
+  background: var(--em-ink);
+  color: #f5f4ee;
+}
+
+.em-rules h2 {
+  margin: 0 0 0.75rem;
+  font-family: var(--em-display);
+  font-size: 1.3rem;
+}
+
+.em-rules ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding-left: 1.15rem;
+  line-height: 1.5;
 }
 
 .em-rules a {
   color: var(--em-accent);
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .em-page .footer {
-  border-top: 1.5px solid var(--em-line);
-  background: transparent;
+  margin-top: 0;
 }
 
-.em-fill {
-  margin: 0 0 1.25rem;
-  padding: 1.15rem 1.2rem 1.25rem;
-  border: 1px solid rgba(23, 28, 36, 0.12);
-  border-radius: 16px;
-  background: #fff;
+/* Composer, once the script has built the list */
+@media (min-width: 900px) {
+  .em-workspace.is-ready {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .em-workspace.is-ready .em-picker {
+    position: sticky;
+    top: 88px;
+    max-height: calc(100vh - 104px);
+    margin-bottom: 0;
+    overflow-y: auto;
+    padding-right: 0.25rem;
+  }
 }
 
-.em-fill-title {
-  margin: 0;
-  font-family: "Space Grotesk", Manrope, system-ui, sans-serif;
-  font-size: 1.15rem;
-  letter-spacing: -0.03em;
-}
+@media (max-width: 899px) {
+  .em-fill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-.em-fill-hint {
-  margin: 0.35rem 0 0.9rem;
-  color: #5f6672;
-  font-size: 0.92rem;
-  line-height: 1.45;
-}
+  .em-filters,
+  .em-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    margin-inline: calc(-1 * max(1.2rem, env(safe-area-inset-left)));
+    padding-inline: max(1.2rem, env(safe-area-inset-left));
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 
-.em-fill-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem 0.9rem;
-}
+  .em-filters::-webkit-scrollbar,
+  .em-list::-webkit-scrollbar {
+    display: none;
+  }
 
-.em-fill-grid label {
-  display: grid;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #3a414d;
-}
+  .em-chip {
+    flex: none;
+  }
 
-.em-fill-grid input {
-  min-height: 42px;
-  padding: 0.55rem 0.75rem;
-  border: 1px solid rgba(23, 28, 36, 0.14);
-  border-radius: 10px;
-  font: inherit;
-  font-weight: 400;
-  background: #fafaf7;
-}
+  .em-list li {
+    flex: 0 0 200px;
+  }
 
-.em-fill-grid input:focus {
-  outline: none;
-  border-color: #171c24;
-  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.28);
-}
+  .em-list-item {
+    height: 100%;
+    border-color: var(--em-line);
+    background: var(--em-surface);
+  }
 
-.em-fill-actions {
-  margin-top: 0.9rem;
-}
+  .em-card-top,
+  .em-mail-actions,
+  .em-to,
+  .em-block {
+    padding-inline: 1rem;
+  }
 
-.em-mail-actions {
-  display: flex;
-  gap: 0.55rem;
-  padding: 0 1rem 1rem;
-}
+  .em-mail-actions .em-btn {
+    flex: 1 1 100%;
+  }
 
-.em-mail-actions .em-btn {
-  min-height: 38px;
-  padding: 0 0.9rem;
-  font-size: 0.85rem;
-}
+  .em-blanks {
+    margin-left: 0;
+  }
 
-@media (max-width: 720px) {
   .em-hero {
     padding-top: 1.75rem;
   }
 
-  .em-hero h1 {
-    max-width: none;
-    font-size: clamp(1.85rem, 8.2vw, 2.45rem);
-    overflow-wrap: anywhere;
-  }
-
-  .em-lede {
-    font-size: 0.98rem;
-  }
-
-  .em-cta {
+  .em-trust {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.55rem;
   }
+}
 
+@media (prefers-reduced-motion: reduce) {
   .em-btn {
-    width: 100%;
-  }
-
-  .em-anatomy {
-    box-shadow: none;
-  }
-
-  .em-mail-row {
-    padding-inline: 0.95rem;
-  }
-
-  .em-section-head h2 {
-    overflow-wrap: anywhere;
-  }
-
-  .em-card-top {
-    grid-template-columns: 1fr;
-    padding: 1.05rem 1rem 0.9rem;
-  }
-
-  .em-tag {
-    justify-self: start;
-  }
-
-  .em-block {
-    padding: 0.9rem 1rem;
-  }
-
-  .em-pre {
-    padding: 0.85rem 0.9rem;
-    font-size: 0.8rem;
-    overflow-x: auto;
-  }
-
-  .em-rules {
-    padding: 1.15rem 1rem;
-  }
-
-  .em-toolbar {
-    top: max(4.25rem, env(safe-area-inset-top, 0px) + 3.5rem);
-    margin-inline: calc(-1 * max(1.2rem, env(safe-area-inset-left), env(safe-area-inset-right)));
-    padding-inline: max(1.2rem, env(safe-area-inset-left), env(safe-area-inset-right));
-  }
-
-  .em-filters {
-    margin-inline: -0.15rem;
-    padding-inline: 0.15rem;
-  }
-
-  .em-page .footer {
-    padding-inline: max(1.2rem, env(safe-area-inset-left), env(safe-area-inset-right));
-  }
-
-  .em-fill-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .em-mail-actions {
-    flex-wrap: wrap;
+    transition: none;
   }
 }

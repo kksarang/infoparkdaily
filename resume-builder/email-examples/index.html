@@ -80,7 +80,7 @@
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
     <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20260925c" />
-    <link rel="stylesheet" href="/css/email-examples.css?v=20261020p2" />
+    <link rel="stylesheet" href="/css/email-examples.css?v=20261102ui2" />
     <script defer src="/js/career-nav.js?v=20261020seo"></script>
   </head>
   <body class="career-tools em-page light">
@@ -108,7 +108,7 @@
 
     <main id="main">
       <section class="em-hero">
-        <div class="em-wrap em-hero-grid">
+        <div class="em-wrap">
           <div>
             <p class="em-kicker"><b>FREE</b> Career Tools · Email examples</p>
             <h1>Job Application Email Samples</h1>
@@ -116,10 +116,6 @@
               Write the mail. Get the reply. Subject lines and short body templates for any role — office, sales, campus,
               healthcare, tech, and more. Copy, fill the brackets, and send only to the address on the official posting.
             </p>
-            <div class="em-cta">
-              <a class="em-btn" href="#em-examples">Browse examples</a>
-              <a class="em-btn em-btn-ghost" href="#em-anatomy">See email layout</a>
-            </div>
             <ul class="em-trust">
               <li>Works for every job type</li>
               <li>One-click copy for subject and body</li>
@@ -127,72 +123,24 @@
             </ul>
           </div>
 
-          <aside class="em-anatomy" id="em-anatomy" aria-label="Elements of an email application">
-            <div class="em-anatomy-head">
-              <h2>Elements of an email application</h2>
-              <p>Six parts. Keep each one short.</p>
-            </div>
-            <div class="em-mail-chrome" aria-hidden="true">
-              <div>To · <strong>careers@[company].com</strong></div>
-              <div>From · <strong>you@email.com</strong></div>
-            </div>
-            <div class="em-mail-preview">
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">1</span>
-                <div>
-                  <span class="em-mail-label">Subject line</span>
-                  <p class="em-mail-value"><strong>[Your Name] — [Job Title]</strong></p>
-                </div>
-              </div>
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">2</span>
-                <div>
-                  <span class="em-mail-label">Salutation</span>
-                  <p class="em-mail-value">Dear [Hiring Manager / Recruiter name],</p>
-                </div>
-              </div>
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">3</span>
-                <div>
-                  <span class="em-mail-label">First paragraph</span>
-                  <p class="em-mail-value">Who you are, exact role, where you found it, and your city.</p>
-                </div>
-              </div>
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">4</span>
-                <div>
-                  <span class="em-mail-label">Second paragraph</span>
-                  <p class="em-mail-value">One or two proof lines that match the posting.</p>
-                </div>
-              </div>
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">5</span>
-                <div>
-                  <span class="em-mail-label">Third paragraph</span>
-                  <p class="em-mail-value">Thank them and offer a call if useful.</p>
-                </div>
-              </div>
-              <div class="em-mail-row">
-                <span class="em-step" aria-hidden="true">6</span>
-                <div>
-                  <span class="em-mail-label">Closing</span>
-                  <p class="em-mail-value">Regards, / Sincerely,<br />[Name] · [Phone] · [Email]</p>
-                </div>
-              </div>
-            </div>
-          </aside>
+
         </div>
       </section>
 
       <section class="em-wrap em-band" id="em-examples" aria-labelledby="em-examples-title">
         <div class="em-section-head">
           <h2 id="em-examples-title">Email ideas for every situation</h2>
-          <p>Fill your details once, then copy or open in Gmail. Keep the body short — most recruiters skim in under a minute.</p>
+          <p>Pick a situation, fill the highlighted blanks, then copy or open in Gmail. <a href="#em-anatomy">See how a good email is laid out</a>.</p>
         </div>
 
         <form class="em-fill" id="em-fill" autocomplete="on">
-          <p class="em-fill-title">Fill in once</p>
-          <p class="em-fill-hint">Replaces common [brackets] in every example below. Stored only in this browser tab.</p>
+          <div class="em-fill-head">
+            <div>
+              <p class="em-fill-title">Your details</p>
+              <p class="em-fill-hint">Fill once and every email updates. Saved only in this browser tab.</p>
+            </div>
+            <button type="button" class="em-fill-clear" id="em-fill-clear">Clear fields</button>
+          </div>
           <div class="em-fill-grid">
             <label>Your name <input name="name" type="text" placeholder="Your Name" autocomplete="name" /></label>
             <label>Job title / role <input name="role" type="text" placeholder="Job Title" autocomplete="organization-title" /></label>
@@ -201,13 +149,12 @@
             <label>Phone <input name="phone" type="tel" placeholder="Phone" autocomplete="tel" /></label>
             <label>Email <input name="email" type="email" placeholder="you@email.com" autocomplete="email" /></label>
           </div>
-          <div class="em-fill-actions">
-            <button type="button" class="em-btn em-btn-ghost" id="em-fill-clear">Clear fields</button>
-          </div>
         </form>
 
-        <div class="em-toolbar">
-          <div class="em-filters" role="toolbar" aria-label="Filter email examples">
+        <div class="em-workspace" id="em-workspace">
+          <div class="em-picker" id="em-picker" hidden>
+            <input class="em-search" id="em-search" type="search" placeholder="Search emails, e.g. referral" aria-label="Search email examples" />
+            <div class="em-filters" role="toolbar" aria-label="Filter email examples">
             <button type="button" class="em-chip is-active" data-filter="all">All</button>
             <button type="button" class="em-chip" data-filter="apply">Apply</button>
             <button type="button" class="em-chip" data-filter="fresher">Fresher</button>
@@ -220,10 +167,10 @@
             <button type="button" class="em-chip" data-filter="cold">Cold outreach</button>
             <button type="button" class="em-chip" data-filter="withdraw">Withdraw</button>
           </div>
-        </div>
-        <p class="em-count" id="em-count" aria-live="polite"></p>
-        <p class="em-empty" id="em-empty" hidden>No examples in that filter.</p>
-
+            <p class="em-count" id="em-count" aria-live="polite"></p>
+            <p class="em-empty" id="em-empty" hidden>No emails match. Try another word or filter.</p>
+            <ul class="em-list" id="em-list" aria-label="Email examples"></ul>
+          </div>
         <div class="em-grid" id="em-grid">
           <article class="em-card" data-tags="apply,fresher,experienced">
             <div class="em-card-top">
@@ -658,6 +605,58 @@ Regards,
             </div>
           </article>
         </div>
+        </div>
+
+          <section class="em-anatomy" id="em-anatomy" aria-label="Elements of an email application">
+            <div class="em-anatomy-head">
+              <h2>Elements of an email application</h2>
+              <p>Six parts. Keep each one short.</p>
+            </div>
+            <div class="em-mail-preview">
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">1</span>
+                <div>
+                  <span class="em-mail-label">Subject line</span>
+                  <p class="em-mail-value"><strong>[Your Name] — [Job Title]</strong></p>
+                </div>
+              </div>
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">2</span>
+                <div>
+                  <span class="em-mail-label">Salutation</span>
+                  <p class="em-mail-value">Dear [Hiring Manager / Recruiter name],</p>
+                </div>
+              </div>
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">3</span>
+                <div>
+                  <span class="em-mail-label">First paragraph</span>
+                  <p class="em-mail-value">Who you are, exact role, where you found it, and your city.</p>
+                </div>
+              </div>
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">4</span>
+                <div>
+                  <span class="em-mail-label">Second paragraph</span>
+                  <p class="em-mail-value">One or two proof lines that match the posting.</p>
+                </div>
+              </div>
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">5</span>
+                <div>
+                  <span class="em-mail-label">Third paragraph</span>
+                  <p class="em-mail-value">Thank them and offer a call if useful.</p>
+                </div>
+              </div>
+              <div class="em-mail-row">
+                <span class="em-step" aria-hidden="true">6</span>
+                <div>
+                  <span class="em-mail-label">Closing</span>
+                  <p class="em-mail-value">Regards, / Sincerely,<br />[Name] · [Phone] · [Email]</p>
+                </div>
+              </div>
+            </div>
+          </section>
 
         <aside class="em-rules" aria-labelledby="em-rules-title">
           <h2 id="em-rules-title">Before you hit send</h2>
@@ -693,164 +692,7 @@ Regards,
       </div>
     </footer>
 
-    <script>
-      (function () {
-        var chips = document.querySelectorAll(".em-chip");
-        var cards = document.querySelectorAll(".em-card");
-        var countEl = document.getElementById("em-count");
-        var emptyEl = document.getElementById("em-empty");
-        var form = document.getElementById("em-fill");
-
-        document.querySelectorAll(".em-pre").forEach(function (pre) {
-          pre.setAttribute("data-original", pre.textContent || "");
-        });
-
-        cards.forEach(function (card) {
-          if (card.querySelector(".em-mail-actions")) return;
-          var actions = document.createElement("div");
-          actions.className = "em-mail-actions";
-          actions.innerHTML =
-            '<button type="button" class="em-btn em-btn-ghost em-open-gmail">Open in Gmail</button>' +
-            '<button type="button" class="em-btn em-btn-ghost em-open-mailto">Open in mail app</button>';
-          card.appendChild(actions);
-        });
-
-        function fillValues() {
-          if (!form) return {};
-          return {
-            name: (form.elements.name.value || "").trim(),
-            role: (form.elements.role.value || "").trim(),
-            company: (form.elements.company.value || "").trim(),
-            city: (form.elements.city.value || "").trim(),
-            phone: (form.elements.phone.value || "").trim(),
-            email: (form.elements.email.value || "").trim(),
-          };
-        }
-
-        function applyFill(text, v) {
-          var out = text;
-          function rep(token, value) {
-            if (!value) return;
-            out = out.split(token).join(value);
-          }
-          rep("[Your Name]", v.name);
-          rep("[Name]", v.name);
-          rep("[Job Title]", v.role);
-          rep("[Role / Team]", v.role);
-          rep("[Company]", v.company);
-          rep("[City]", v.city);
-          rep("[phone]", v.phone);
-          rep("[Phone]", v.phone);
-          rep("[email]", v.email);
-          rep("[Email]", v.email);
-          return out;
-        }
-
-        function refreshPres() {
-          var v = fillValues();
-          document.querySelectorAll(".em-pre").forEach(function (pre) {
-            var original = pre.getAttribute("data-original") || "";
-            pre.textContent = applyFill(original, v);
-          });
-        }
-
-        function cardParts(card) {
-          var blocks = card.querySelectorAll(".em-block .em-pre");
-          var subject = blocks[0] ? blocks[0].textContent || "" : "";
-          var body = blocks[1] ? blocks[1].textContent || "" : "";
-          return { subject: subject.trim(), body: body.trim() };
-        }
-
-        function paint(filter) {
-          var shown = 0;
-          cards.forEach(function (card) {
-            var tags = (card.getAttribute("data-tags") || "").split(",");
-            var on = filter === "all" || tags.indexOf(filter) !== -1;
-            card.hidden = !on;
-            if (on) shown += 1;
-          });
-          if (countEl) {
-            countEl.textContent =
-              filter === "all"
-                ? shown + " email examples"
-                : shown + " example" + (shown === 1 ? "" : "s") + " in this filter";
-          }
-          if (emptyEl) emptyEl.hidden = shown > 0;
-        }
-
-        chips.forEach(function (chip) {
-          chip.addEventListener("click", function () {
-            chips.forEach(function (c) {
-              c.classList.toggle("is-active", c === chip);
-            });
-            paint(chip.getAttribute("data-filter") || "all");
-          });
-        });
-
-        document.querySelectorAll(".em-copy").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var block = btn.closest(".em-block");
-            var pre = block && block.querySelector(".em-pre");
-            if (!pre) return;
-            var text = pre.textContent || "";
-            var done = function () {
-              var old = btn.textContent;
-              btn.textContent = "Copied";
-              btn.classList.add("is-copied");
-              setTimeout(function () {
-                btn.textContent = old;
-                btn.classList.remove("is-copied");
-              }, 1400);
-            };
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(text).then(done).catch(function () {
-                window.prompt("Copy this text:", text);
-              });
-            } else {
-              window.prompt("Copy this text:", text);
-            }
-          });
-        });
-
-        document.addEventListener("click", function (ev) {
-          var gmail = ev.target.closest(".em-open-gmail");
-          var mail = ev.target.closest(".em-open-mailto");
-          if (!gmail && !mail) return;
-          var card = ev.target.closest(".em-card");
-          if (!card) return;
-          var parts = cardParts(card);
-          if (gmail) {
-            var url =
-              "https://mail.google.com/mail/?view=cm&fs=1&su=" +
-              encodeURIComponent(parts.subject) +
-              "&body=" +
-              encodeURIComponent(parts.body);
-            window.open(url, "_blank", "noopener");
-            return;
-          }
-          if (mail) {
-            location.href =
-              "mailto:?subject=" +
-              encodeURIComponent(parts.subject) +
-              "&body=" +
-              encodeURIComponent(parts.body);
-          }
-        });
-
-        if (form) {
-          form.addEventListener("input", refreshPres);
-          var clearBtn = document.getElementById("em-fill-clear");
-          if (clearBtn) {
-            clearBtn.addEventListener("click", function () {
-              form.reset();
-              refreshPres();
-            });
-          }
-        }
-
-        paint("all");
-      })();
-    </script>
+    <script src="/js/email-examples.js?v=20261102ui" defer></script>
     <script src="/js/site.js?v=20261017news" defer></script>
   </body>
 </html>
