@@ -72,6 +72,8 @@
   let activeFilter = "all";
   const savedOnly = window.IPD_SAVED_ONLY === true;
   const saveActions = window.IPDJobActions || null;
+  let savedSort = "recent";
+  let savedRenderKey = "";
   let activeStatus = savedOnly ? "all" : "open";
   let activeTag = "all";
   let activeLocation = defaultLocation;
@@ -768,7 +770,12 @@
   function filteredJobs() {
     if (savedOnly && saveActions) {
       const byId = new Map(JOBS.map((job) => [String(job.id), job]));
-      return saveActions.savedIds().map((id) => byId.get(id)).filter(Boolean);
+      const list = saveActions.savedIds().map((id) => byId.get(id)).filter(Boolean);
+      if (savedSort === "deadline") {
+        const rank = (job) => (deadlineStatus(job) === "expired" ? 1 : 0);
+        list.sort((a, b) => rank(a) - rank(b) || deadlineSortValue(a) - deadlineSortValue(b));
+      }
+      return list;
     }
     const list = JOBS.filter(
       (job) =>
@@ -1196,6 +1203,53 @@
     `;
   }
 
+  function renderSavedTools(jobs) {
+    const summary = document.getElementById("saved-summary");
+    const tools = document.getElementById("saved-toolbar");
+    const clear = document.getElementById("saved-clear-expired");
+    const ids = saveActions ? saveActions.savedIds() : [];
+    const known = new Set(JOBS.map((job) => String(job.id)));
+    const gone = ids.filter((id) => !known.has(id));
+    const expired = jobs.filter((job) => deadlineStatus(job) === "expired");
+    const closing = jobs.filter((job) => deadlineStatus(job) === "closing");
+    const walkins = jobs.filter((job) => deadlineStatus(job) !== "expired" && isWalkInJob(job));
+    if (summary) {
+      if (!jobs.length) {
+        summary.textContent = "Tap the heart on any job to keep it here.";
+      } else {
+        const parts = [jobs.length === 1 ? "1 saved job" : jobs.length + " saved jobs"];
+        if (closing.length) parts.push(closing.length + " closing soon");
+        if (walkins.length) parts.push(walkins.length === 1 ? "1 walk-in" : walkins.length + " walk-ins");
+        if (expired.length) parts.push(expired.length + " expired");
+        summary.textContent = parts.join(" · ");
+      }
+    }
+    if (tools) tools.hidden = jobs.length === 0;
+    if (clear) {
+      const n = expired.length + gone.length;
+      clear.hidden = n === 0;
+      clear.textContent = n === 1 ? "Remove 1 expired job" : "Remove " + n + " expired jobs";
+      clear.onclick = () => {
+        const removed = saveActions.removeSaved(expired.map((job) => job.id).concat(gone));
+        clear.blur();
+        if (removed) {
+          const toast = document.getElementById("ipd-save-toast");
+          if (toast) toast.classList.remove("is-open");
+        }
+      };
+    }
+    document.querySelectorAll("[data-saved-sort]").forEach((btn) => {
+      const on = btn.dataset.savedSort === savedSort;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.onclick = () => {
+        if (savedSort === btn.dataset.savedSort) return;
+        savedSort = btn.dataset.savedSort;
+        render();
+      };
+    });
+  }
+
   function hasActiveFilters() {
     return (
       activeFilter !== "all" ||
@@ -1256,6 +1310,13 @@
   function render() {
     syncQuickBar();
     const jobs = filteredJobs();
+    if (savedOnly) {
+      renderSavedTools(jobs);
+      const key = savedSort + "|" + jobs.map((job) => job.id).join(",");
+      if (key === savedRenderKey) return;
+      savedRenderKey = key;
+      grid.setAttribute("aria-busy", "false");
+    }
     const visible = jobs.slice(0, visibleCount);
     grid.innerHTML = visible.map((job, i) => renderCard(job, i)).join("");
     renderUrgentSpotlightSection(savedOnly ? [] : jobs);
@@ -1397,7 +1458,9 @@
 
     if (emptyState) {
       emptyState.hidden = jobs.length > 0;
-      if (jobs.length === 0 && activeStatus === "expired") {
+      if (savedOnly) {
+        /* The saved page keeps its own empty message. */
+      } else if (jobs.length === 0 && activeStatus === "expired") {
         emptyState.innerHTML = `No expired listings in this filter — great news. Switch to <strong>Open jobs</strong> to browse current openings, or follow our <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer">WhatsApp channel</a>.`;
       } else if (jobs.length === 0 && activeCompany !== "all") {
         const total = companyOpenJobs(activeCompany).length;

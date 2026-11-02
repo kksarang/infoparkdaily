@@ -87,6 +87,11 @@ function renderTestimonial(index) {
   testimonialAuthor.textContent = `- ${current.author}`;
 }
 
+const THEME_ICON_SUN =
+  '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>';
+const THEME_ICON_MOON =
+  '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.2 14.6A8.3 8.3 0 0 1 9.4 3.8a8.3 8.3 0 1 0 10.8 10.8Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>';
+
 function applyTheme(isLight) {
   document.body.classList.toggle("dark", !isLight);
   document.body.classList.toggle("light", isLight);
@@ -97,8 +102,11 @@ function applyTheme(isLight) {
   const themeColor = document.querySelector('meta[name="theme-color"]');
   if (themeColor) themeColor.setAttribute("content", isLight ? "#ffffff" : "#0b0b0f");
   if (themeToggle) {
-    themeToggle.textContent = isLight ? "Dark" : "Light";
-    themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    themeToggle.innerHTML = isLight ? THEME_ICON_MOON : THEME_ICON_SUN;
+    themeToggle.classList.add("theme-toggle--icon");
+    const label = isLight ? "Switch to dark theme" : "Switch to light theme";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.title = label;
   }
 }
 
@@ -633,3 +641,108 @@ for (const menu of document.querySelectorAll('.nav-about, .nav-recruit')) {
   document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
   menu.addEventListener('keydown', event => { if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); event.stopPropagation(); } });
 }
+
+/* Quick sign-in check from Firebase's own storage, without loading Firebase.
+   Resolves true / false, or null when the browser cannot tell. */
+window.IPDAuthHint =
+  window.IPDAuthHint ||
+  (function () {
+    const key = "firebase:authUser:AIzaSyA_Oi_2ciCduRiRjMXjI6bbXYjymeGlr5M:[DEFAULT]";
+    try {
+      if (sessionStorage.getItem(key)) return Promise.resolve(true);
+    } catch (_e) {
+      /* fall through to IndexedDB */
+    }
+    return new Promise((resolve) => {
+      let settled = false;
+      const finish = (value) => {
+        if (settled) return;
+        settled = true;
+        resolve(value);
+      };
+      setTimeout(() => finish(null), 2500);
+      let request;
+      try {
+        request = indexedDB.open("firebaseLocalStorageDb");
+      } catch (_e) {
+        finish(null);
+        return;
+      }
+      // Never create Firebase's database here: abort if it does not exist yet.
+      request.onupgradeneeded = () => {
+        request.transaction.abort();
+        finish(false);
+      };
+      request.onerror = () => finish(false);
+      request.onsuccess = () => {
+        const db = request.result;
+        try {
+          const get = db.transaction("firebaseLocalStorage", "readonly").objectStore("firebaseLocalStorage").get(key);
+          get.onsuccess = () => {
+            finish(!!get.result);
+            db.close();
+          };
+          get.onerror = () => {
+            finish(null);
+            db.close();
+          };
+        } catch (_e) {
+          finish(false);
+          db.close();
+        }
+      };
+    });
+  })();
+
+/* Account entry on every page: icon after the theme toggle on wide screens, menu item on small ones. */
+(function () {
+  const actions = document.querySelector(".site-header .header-actions");
+  const nav = document.getElementById("site-nav");
+  if (!actions && !nav) return;
+  const PERSON =
+    '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M4 20c1.4-3.6 4.4-5.5 8-5.5s6.6 1.9 8 5.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>';
+  if (nav && !nav.querySelector(".nav-account")) {
+    const link = document.createElement("a");
+    link.className = "nav-account";
+    nav.appendChild(link);
+  }
+  if (actions && !actions.querySelector(".header-account")) {
+    const icon = document.createElement("a");
+    icon.className = "header-account";
+    icon.innerHTML = PERSON;
+    const theme = actions.querySelector(".theme-toggle");
+    if (theme) theme.insertAdjacentElement("afterend", icon);
+    else actions.appendChild(icon);
+  }
+  window.IPDPaintAccount = function (state) {
+    const signedIn = state === true;
+    const checking = state === "checking";
+    const href = signedIn
+      ? "/resume-builder/account/"
+      : "/resume-builder/sign-in/?next=" + encodeURIComponent("/jobs/saved/");
+    const label = checking ? "Checking sign-in" : signedIn ? "My account" : "Sign in";
+    document.querySelectorAll(".nav-account, .header-account").forEach((el) => {
+      el.href = href;
+      el.classList.toggle("is-signed-in", signedIn);
+      el.classList.toggle("is-checking", checking);
+      el.setAttribute("aria-busy", checking ? "true" : "false");
+      if (el.classList.contains("header-account")) {
+        el.setAttribute("aria-label", label);
+        el.title = label;
+      } else {
+        el.textContent = checking ? "Account…" : label;
+      }
+    });
+  };
+  window.IPDPaintAccount("checking");
+  window.IPDAuthHint.then((hint) => {
+    if (window.IPDAccountOwnedByPage) return;
+    let record = false;
+    try {
+      record = !!(localStorage.getItem("ipd-saved-owner-v1") || localStorage.getItem("ipd-saved-sync-v1"));
+    } catch (_e) {
+      record = false;
+    }
+    window.IPDPaintAccount(hint === true || record);
+  });
+})();

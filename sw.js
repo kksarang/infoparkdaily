@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v455-account-20261102";
+const CACHE_NAME = "infoparkdaily-v460-check-20261102";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",
@@ -38,7 +38,7 @@ const PRELOAD_ASSETS = [
   "./assets/icons/favicon-48.png",
   "./assets/icons/favicon-192.png",
   "./assets/icons/favicon-180.png",
-  "./css/styles.css?v=20261030refbtn",
+  "./css/styles.css?v=20261102chk",
   "./css/sarang.css?v=20261030revamp",
   "./js/sarang.js?v=20261030revamp",
   "./css/onam.css?v=20260904v",
@@ -53,7 +53,7 @@ const PRELOAD_ASSETS = [
   "./assets/media/cpe-opscloud.png?v=20260902b",
   "./assets/media/onam-bg-light.svg",
   "./js/disclaimer.js?v=20260825b",
-  "./js/site.js?v=20261021aaba",
+  "./js/site.js?v=20261102chk2",
   "./js/ads.js?v=20260805a",
   "./assets/lottie/job-request.json",
   "./assets/lottie/job-search.json?v=20260802sd",
@@ -62,7 +62,7 @@ const PRELOAD_ASSETS = [
   "./js/cyberpark-jobs.js?v=20260805p",
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
-  "./js/jobs.js?v=20261102save",
+  "./js/jobs.js?v=20261102chk",
   "./js/ats-checker.js?v=20261102tools",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",

@@ -200,11 +200,107 @@
   gap: 0.5rem;
 }
 
+.saved-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.saved-toolbar[hidden] {
+  display: none;
+}
+
+.saved-sort {
+  display: inline-flex;
+  padding: 4px;
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+  border-radius: 999px;
+}
+
+.saved-sort button,
+.saved-clear {
+  min-height: 38px;
+  padding: 0 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.saved-sort button.is-active {
+  background: #f2c215;
+  color: #151a16;
+}
+
+.saved-clear {
+  border: 1px solid var(--line, rgba(148, 163, 184, 0.35));
+}
+
+.saved-clear:hover {
+  border-color: #e11d48;
+  color: #e11d48;
+}
+
+.saved-clear[hidden] {
+  display: none;
+}
+
+.saved-summary {
+  font-weight: 600;
+}
+
+.saved-account-banner--loading {
+  justify-content: flex-start;
+}
+
+.saved-spinner {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid rgba(148, 163, 184, 0.35);
+  border-top-color: #f2c215;
+  border-radius: 50%;
+  animation: saved-spin 0.8s linear infinite;
+}
+
+@keyframes saved-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.saved-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.35rem;
+  border-radius: 50%;
+  background: rgba(225, 29, 72, 0.12);
+  color: #e11d48;
+}
+
+.saved-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
 .saved-empty {
   display: grid;
   justify-items: center;
   gap: 0.6rem;
-  padding: 2.5rem 1.25rem;
+  padding: 3rem 1.25rem;
+  border: 1px dashed var(--line, rgba(148, 163, 184, 0.35));
+  border-radius: 20px;
   text-align: center;
 }
 
@@ -234,6 +330,8 @@
 .saved-jobs-page .jobs-alerts-card,
 .saved-jobs-page .jobs-ad,
 .saved-jobs-page #jobs-recent,
+.saved-jobs-page .ej-listings-head,
+.saved-jobs-page #jobs-load-more,
 .saved-jobs-page #jobs-expired-banner {
   display: none !important;
 }
@@ -243,6 +341,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .saved-spinner {
+    animation-duration: 2.4s;
+  }
+
   .ipd-save,
   .ipd-save-toast {
     transition: none;

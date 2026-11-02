@@ -16563,3 +16563,88 @@ main img:not(.brand-logo):not([width]) {
 @media(max-width:1099px){.nav-about,.nav-recruit{width:100%}.nav-about summary,.nav-recruit summary{min-height:48px;padding:12px 14px;font-size:.9rem;border-radius:10px}.nav-about-links{position:static;min-width:0;box-shadow:none;margin:5px 10px 10px;left:auto}.site-nav .nav-about-links a{min-height:48px}}
 
 html.theme-dark .nav-about-links,body.dark .nav-about-links{background:#111722}html.theme-light .nav-about-links,body.light .nav-about-links{background:white}
+
+/* Theme toggle: sun / moon icon at every width */
+.header-actions .theme-toggle.theme-toggle--icon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+}
+
+.header-actions .theme-toggle.theme-toggle--icon::before {
+  display: none;
+}
+
+.header-actions .theme-toggle.theme-toggle--icon svg {
+  display: block;
+}
+
+@media (max-width: 1419px) {
+  .header-actions .theme-toggle.theme-toggle--icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Account entry: icon in the header on desktop, text item in the mobile menu */
+.header-account {
+  display: inline-grid;
+  box-sizing: border-box;
+  flex: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: inherit;
+  opacity: 0.85;
+}
+
+.header-account:hover {
+  opacity: 1;
+}
+
+.header-account.is-checking {
+  opacity: 0.45;
+  pointer-events: none;
+  animation: account-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes account-pulse {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.site-nav .nav-account.is-checking {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.header-account.is-signed-in {
+  border-color: #f2c215;
+  color: #f2c215;
+  opacity: 1;
+}
+
+.site-nav .nav-account {
+  display: none;
+}
+
+@media (max-width: 1419px) {
+  .header-account {
+    display: none;
+  }
+
+  .site-nav .nav-account {
+    display: block;
+  }
+}

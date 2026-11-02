@@ -135,6 +135,16 @@
     return idx < 0;
   }
 
+  function removeSaved(ids) {
+    const drop = ids.map(String);
+    const before = savedIds();
+    drop.forEach((id) => {
+      if (before.includes(id)) toggleSave(id);
+    });
+    emitChange();
+    return drop.filter((id) => before.includes(id)).length;
+  }
+
   /* ---------- account sync ---------- */
 
   async function applyUser(user) {
@@ -227,7 +237,21 @@
     );
   }
 
+  let authHint = null; // null until the quick check answers
+
+  function paintAccountLink() {
+    if (typeof window.IPDPaintAccount !== "function") return;
+    if (syncState === "account" || syncState === "unverified" || syncState === "error") {
+      window.IPDPaintAccount(true);
+    } else if (syncState === "guest") {
+      window.IPDPaintAccount(false);
+    } else {
+      window.IPDPaintAccount(authHint === true ? true : "checking");
+    }
+  }
+
   function paintSaveButtons() {
+    paintAccountLink();
     const ids = savedIds();
     document.querySelectorAll("[data-save-job]").forEach((btn) => {
       const saved = ids.includes(btn.getAttribute("data-save-job"));
@@ -359,9 +383,16 @@
         el.appendChild(row);
       }
     };
-    if (syncState === "loading" && storageGet(OWNER_KEY)) {
-      el.hidden = true;
-    } else if (syncState === "account") {
+    if (syncState === "loading") {
+      el.hidden = false;
+      el.className = "saved-account-banner saved-account-banner--loading";
+      el.setAttribute("aria-busy", "true");
+      el.innerHTML =
+        '<span class="saved-spinner" aria-hidden="true"></span><div><strong>Checking your account…</strong><p>Your saved jobs are shown from this device meanwhile.</p></div>';
+      return;
+    }
+    el.removeAttribute("aria-busy");
+    if (syncState === "account") {
       set("ok", "Saved to your account", "Your list is available on any device when you sign in.");
     } else if (syncState === "unverified") {
       set(
@@ -430,15 +461,23 @@
   });
 
   document.addEventListener("DOMContentLoaded", () => {
+    window.IPDAccountOwnedByPage = true;
     paintSaveButtons();
     paintAccountBanner();
-    if (isSavedPage()) {
-      startSync();
-    } else if (storageGet(OWNER_KEY) || storageGet(SYNC_FLAG_KEY)) {
-      (window.requestIdleCallback || ((fn) => setTimeout(fn, 1200)))(startSync);
-    } else {
-      syncState = "guest";
-    }
+    const hint = window.IPDAuthHint || Promise.resolve(null);
+    hint.then(async (value) => {
+      authHint = value;
+      const known = storageGet(OWNER_KEY) || storageGet(SYNC_FLAG_KEY);
+      if (value === true || value === null || known) {
+        // Signed in, unsure, or this device has a sign-in record: confirm with Firebase.
+        if (isSavedPage()) startSync();
+        else (window.requestIdleCallback || ((fn) => setTimeout(fn, 1200)))(startSync);
+        paintAccountLink();
+      } else {
+        syncState = "guest";
+        emitChange();
+      }
+    });
   });
 
   function recordView(id) {
@@ -571,6 +610,7 @@
     isSaved,
     toggleSave,
     saveButtonHtml,
+    removeSaved,
     recordView,
     recentlyViewedIds,
     shareJob,

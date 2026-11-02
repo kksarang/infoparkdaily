@@ -89,7 +89,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20261030refbtn" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20260930b" />
     <script
       async
@@ -98,7 +98,7 @@
     ></script>
     <meta name="google-adsense-account" content="ca-pub-4593359890362954" />
     
-    <link rel="stylesheet" href="/css/job-save.css?v=20261102save3" />
+    <link rel="stylesheet" href="/css/job-save.css?v=20261102chk" />
   </head>
   <body class="saved-jobs-page jobs-body jobs-marketplace dark">
     <script>
@@ -121,6 +121,7 @@
     <nav id="site-nav" class="site-nav" aria-label="Primary">
         <details class="nav-recruit"><summary>Recruit <span aria-hidden="true">⌄</span></summary><div class="nav-about-links"><a href="/recruit/">Post a hiring request <span>Community board</span></a><a href="/infoparkdaily/">InfoparkDaily <span>Hiring &amp; talent</span></a></div></details>
         <a href="/jobs/">Jobs</a>
+        <a href="/resume-builder/">Career Tools</a>
         <a href="/news/">News &amp; Blog</a>
         <a href="/services/">Services</a>
         <a href="/media/">About Us</a>
@@ -147,9 +148,9 @@
     <main id="main-content" class="jobs-page">
       <section class="ej-hero" aria-labelledby="jobs-hero-title">
         <div class="ej-hero-inner">
-          <p class="ej-hero-kicker">Infopark · Technopark · Cyberpark</p>
+          <p class="ej-hero-kicker">Your shortlist</p>
           <h1 id="jobs-hero-title">Saved jobs</h1>
-          <p class="ej-hero-lead">Jobs you saved to come back to. No account needed.</p>
+          <p class="ej-hero-lead saved-summary" id="saved-summary" aria-live="polite">Loading your saved jobs…</p>
 
           <form class="ej-search-bar" action="/jobs/" method="get" role="search">
             <label class="ej-search-field ej-search-field--query">
@@ -407,15 +408,27 @@
           <em>View hiring today →</em>
         </a>
         <div id="saved-account-banner" hidden></div>
+        <div class="saved-toolbar" id="saved-toolbar" hidden>
+          <div class="saved-sort" role="group" aria-label="Sort saved jobs">
+            <button type="button" data-saved-sort="recent" class="is-active" aria-pressed="true">Recently saved</button>
+            <button type="button" data-saved-sort="deadline" aria-pressed="false">Closing soon first</button>
+          </div>
+          <button type="button" class="saved-clear" id="saved-clear-expired" hidden>Remove expired jobs</button>
+        </div>
         <div id="jobs-grid" class="jobs-grid" aria-busy="true">
           <div class="job-skel" aria-hidden="true"></div>
           <div class="job-skel" aria-hidden="true"></div>
           <div class="job-skel" aria-hidden="true"></div>
         </div>
-        <div id="jobs-empty" class="jobs-empty glass saved-empty" hidden>
+        <div id="jobs-empty" class="jobs-empty saved-empty" hidden>
+          <span class="saved-empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.5 8 3.6 4.5 7.2 4.5c2 0 3.6 1 4.8 2.8 1.2-1.8 2.8-2.8 4.8-2.8 3.6 0 5.7 3.5 4.5 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
           <strong>No saved jobs yet</strong>
-          <p>Tap the heart on any job to keep it here for later.</p>
-          <a class="btn btn-primary" href="/jobs/">Browse jobs</a>
+          <p>Tap the heart on any job and it will wait for you here.</p>
+          <div class="saved-empty-actions">
+            <a class="btn btn-primary" href="/jobs/">Browse jobs</a>
+            <a class="btn btn-secondary" href="/jobs/?type=walkin">Walk-ins</a>
+            <a class="btn btn-secondary" href="/jobs/?type=fresher">Fresher jobs</a>
+          </div>
         </div>
         <div class="jobs-load-more-wrap">
           <button type="button" id="jobs-load-more" class="btn btn-secondary" hidden>Load more</button>
@@ -642,13 +655,13 @@
     <!-- InfoparkDaily analytics (Phase 16 ESM) -->
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="https://cdn.jsdelivr.net/npm/@lottiefiles/lottie-player@2.0.12/dist/lottie-player.js" defer></script>
-    <script src="/js/site.js?v=20261017news" defer></script>
+    <script src="/js/site.js?v=20261102chk2" defer></script>
     <script src="/js/disclaimer.js?v=20260825b" defer></script>
     <script>window.IPD_SAVED_ONLY = true;</script>
     <script src="/js/job-deadline.js?v=20261013rolling" defer></script>
     <script src="/data/jobs-data.js?v=20261102qa" defer></script>
-    <script src="/js/job-actions.js?v=20261102save2" defer></script>
-    <script src="/js/jobs.js?v=20261102save" defer></script>
+    <script src="/js/job-actions.js?v=20261102chk2" defer></script>
+    <script src="/js/jobs.js?v=20261102chk" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>
