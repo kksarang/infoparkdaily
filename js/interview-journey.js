@@ -18,7 +18,9 @@
 
   let stages = [];
   try {
-    stages = JSON.parse(document.getElementById("ij-stages").textContent || "[]");
+    stages = JSON.parse(
+      document.getElementById("ij-stages").textContent || "[]",
+    );
   } catch (_e) {
     stages = [];
   }
@@ -38,14 +40,24 @@
 
   /* ---------- track ---------- */
   function setTrack(track, announce) {
-    const value = track === "fresher" || track === "experienced" ? track : "all";
+    const value =
+      track === "fresher" || track === "experienced" ? track : "all";
     body.setAttribute("data-track", value);
     document.querySelectorAll("[data-set-track]").forEach((btn) => {
-      btn.setAttribute("aria-pressed", String(btn.getAttribute("data-set-track") === value));
+      btn.setAttribute(
+        "aria-pressed",
+        String(btn.getAttribute("data-set-track") === value),
+      );
     });
     store(TRACK_KEY, value);
     if (announce) {
-      toast(value === "all" ? "Showing both tracks" : value === "fresher" ? "Fresher track selected" : "Experienced track selected");
+      toast(
+        value === "all"
+          ? "Showing both tracks"
+          : value === "fresher"
+            ? "Fresher track selected"
+            : "Experienced track selected",
+      );
     }
   }
 
@@ -53,7 +65,8 @@
   let done = new Set();
   try {
     const saved = JSON.parse(store(DONE_KEY) || "[]");
-    if (Array.isArray(saved)) done = new Set(saved.filter((id) => stageById.has(id)));
+    if (Array.isArray(saved))
+      done = new Set(saved.filter((id) => stageById.has(id)));
   } catch (_e) {
     done = new Set();
   }
@@ -61,21 +74,42 @@
   function paintProgress() {
     const count = done.size;
     const pct = total ? Math.round((count / total) * 100) : 0;
-    document.querySelectorAll("[data-ring]").forEach((el) => el.style.setProperty("--p", String(pct)));
-    document.querySelectorAll("[data-progress-pct]").forEach((el) => (el.textContent = pct + "%"));
-    document.querySelectorAll("[data-progress-count]").forEach((el) => (el.textContent = count + " of " + total));
-    document.querySelectorAll("[data-progress-bar]").forEach((el) => (el.style.width = pct + "%"));
+    document
+      .querySelectorAll("[data-ring]")
+      .forEach((el) => el.style.setProperty("--p", String(pct)));
+    document
+      .querySelectorAll("[data-progress-pct]")
+      .forEach((el) => (el.textContent = pct + "%"));
+    document
+      .querySelectorAll("[data-progress-count]")
+      .forEach((el) => (el.textContent = count + " of " + total));
+    document
+      .querySelectorAll("[data-progress-bar]")
+      .forEach((el) => (el.style.width = pct + "%"));
     document.querySelectorAll("[data-done]").forEach((btn) => {
       const on = done.has(btn.getAttribute("data-done"));
       btn.setAttribute("aria-pressed", String(on));
       btn.classList.toggle("is-done", on);
       const label = btn.querySelector(".ij-done-label");
       if (label) label.textContent = on ? "Completed" : "Mark complete";
-      else if (btn.classList.contains("ij-done-inline")) btn.textContent = on ? "Completed ✓" : "Mark chapter complete";
+      else if (btn.classList.contains("ij-done-inline"))
+        btn.textContent = on ? "Completed ✓" : "Mark chapter complete";
     });
-    document.querySelectorAll("[data-node]").forEach((n) => n.classList.toggle("is-done", done.has(n.getAttribute("data-node"))));
-    document.querySelectorAll("[data-toc]").forEach((n) => n.classList.toggle("is-done", done.has(n.getAttribute("data-toc"))));
-    document.querySelectorAll(".ij-chapter").forEach((c) => c.classList.toggle("is-done", done.has(c.getAttribute("data-chapter"))));
+    document
+      .querySelectorAll("[data-node]")
+      .forEach((n) =>
+        n.classList.toggle("is-done", done.has(n.getAttribute("data-node"))),
+      );
+    document
+      .querySelectorAll("[data-toc]")
+      .forEach((n) =>
+        n.classList.toggle("is-done", done.has(n.getAttribute("data-toc"))),
+      );
+    document
+      .querySelectorAll(".ij-chapter")
+      .forEach((c) =>
+        c.classList.toggle("is-done", done.has(c.getAttribute("data-chapter"))),
+      );
     document.querySelectorAll("[data-phase-prog]").forEach((el) => {
       const ids = el.getAttribute("data-phase-prog").split(",");
       const n = ids.filter((id) => done.has(id)).length;
@@ -89,7 +123,8 @@
     if (cont) {
       const next = stages.find((st) => !done.has(st.id));
       if (count && next) {
-        cont.textContent = "Continue: " + String(next.num).padStart(2, "0") + " " + next.title;
+        cont.textContent =
+          "Continue: " + String(next.num).padStart(2, "0") + " " + next.title;
         cont.setAttribute("data-open", next.id);
         cont.setAttribute("href", "#ch-" + next.id);
       } else if (!count && stages[0]) {
@@ -109,7 +144,12 @@
     else done.add(id);
     store(DONE_KEY, JSON.stringify([...done]));
     paintProgress();
-    if (done.has(id)) toast(done.size === total ? "All 17 chapters complete — well done!" : "Chapter marked complete");
+    if (done.has(id))
+      toast(
+        done.size === total
+          ? "All 17 chapters complete — well done!"
+          : "Chapter marked complete",
+      );
   }
 
   /* ---------- open a chapter ---------- */
@@ -127,8 +167,13 @@
     if (compact.matches && tocWrap) tocWrap.open = false;
     const details = article.querySelector("[data-details]");
     if (details) details.open = true;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    article.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    article.scrollIntoView({
+      behavior: reduce ? "auto" : "smooth",
+      block: "start",
+    });
     if (focus !== false) {
       const heading = article.querySelector("h2");
       if (heading) {
@@ -169,7 +214,14 @@
     }
     dialogStage = s;
     dialogReturn = trigger || null;
-    dialog.querySelector('[data-d="meta"]').textContent = "Chapter " + String(s.num).padStart(2, "0") + " · " + s.phase + " · " + s.time + " min";
+    dialog.querySelector('[data-d="meta"]').textContent =
+      "Chapter " +
+      String(s.num).padStart(2, "0") +
+      " · " +
+      s.phase +
+      " · " +
+      s.time +
+      " min";
     dialog.querySelector('[data-d="title"]').textContent = s.title;
     dialog.querySelector('[data-d="summary"]').textContent = s.summary;
     fillList(dialog.querySelector('[data-d="candidate"]'), s.candidate);
@@ -194,7 +246,8 @@
 
   if (dialog) {
     dialog.addEventListener("click", (e) => {
-      if (e.target === dialog || e.target.closest("[data-dialog-close]")) closeStage();
+      if (e.target === dialog || e.target.closest("[data-dialog-close]"))
+        closeStage();
       const action = e.target.closest("[data-d]");
       if (!action || !dialogStage) return;
       if (action.getAttribute("data-d") === "open") {
@@ -213,13 +266,17 @@
   }
 
   /* ---------- where am I ---------- */
-  const situations = Array.isArray(window.IJ_SITUATIONS) ? window.IJ_SITUATIONS : [];
+  const situations = Array.isArray(window.IJ_SITUATIONS)
+    ? window.IJ_SITUATIONS
+    : [];
   const whereResult = document.getElementById("where-result");
 
   function showSituation(index, btn) {
     const s = situations[index];
     if (!s || !whereResult) return;
-    document.querySelectorAll("[data-where]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+    document
+      .querySelectorAll("[data-where]")
+      .forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
     whereResult.hidden = false;
     whereResult.textContent = "";
     const wrap = document.createElement("div");
@@ -228,7 +285,8 @@
     kicker.className = "ij-kicker";
     kicker.textContent = "Your next step";
     const h = document.createElement("h3");
-    h.textContent = "Chapter " + String(s.num).padStart(2, "0") + ": " + s.title;
+    h.textContent =
+      "Chapter " + String(s.num).padStart(2, "0") + ": " + s.title;
     const p = document.createElement("p");
     p.textContent = s.why;
     const actions = document.createElement("div");
@@ -250,14 +308,21 @@
     if (next) {
       const after = document.createElement("p");
       after.className = "ij-small";
-      after.textContent = "After that: Chapter " + String(next.num).padStart(2, "0") + " — " + next.title + ".";
+      after.textContent =
+        "After that: Chapter " +
+        String(next.num).padStart(2, "0") +
+        " — " +
+        next.title +
+        ".";
       wrap.append(kicker, h, p, actions, after);
     } else {
       wrap.append(kicker, h, p, actions);
     }
     whereResult.appendChild(wrap);
     const node = document.querySelector('[data-node="' + s.chapter + '"]');
-    document.querySelectorAll(".ij-node.is-current").forEach((n) => n.classList.remove("is-current"));
+    document
+      .querySelectorAll(".ij-node.is-current")
+      .forEach((n) => n.classList.remove("is-current"));
     if (node) node.classList.add("is-current");
   }
 
@@ -325,7 +390,9 @@
     const expand = e.target.closest("[data-expand]");
     if (expand) {
       const open = expand.getAttribute("data-expand") === "open";
-      document.querySelectorAll("[data-details]").forEach((d) => (d.open = open));
+      document
+        .querySelectorAll("[data-details]")
+        .forEach((d) => (d.open = open));
       return;
     }
     if (e.target.closest("[data-reset]")) {
@@ -357,7 +424,7 @@
           });
         });
       },
-      { rootMargin: "-30% 0px -60% 0px" }
+      { rootMargin: "-30% 0px -60% 0px" },
     );
     document.querySelectorAll(".ij-chapter").forEach((c) => io.observe(c));
   }
@@ -370,10 +437,13 @@
 
   /* ---------- polish: tables, map rows, reveal, scroll UI ---------- */
   document.querySelectorAll(".ij-table").forEach((table) => {
-    const heads = [...table.querySelectorAll("thead th")].map((th) => th.textContent.trim());
+    const heads = [...table.querySelectorAll("thead th")].map((th) =>
+      th.textContent.trim(),
+    );
     table.querySelectorAll("tbody tr").forEach((tr) => {
       [...tr.children].forEach((cell, i) => {
-        if (i > 0 && !cell.hasAttribute("data-label") && heads[i]) cell.setAttribute("data-label", heads[i]);
+        if (i > 0 && !cell.hasAttribute("data-label") && heads[i])
+          cell.setAttribute("data-label", heads[i]);
       });
     });
   });
@@ -381,9 +451,17 @@
   function markRowStarts() {
     document.querySelectorAll(".ij-nodes").forEach((list) => {
       let lastTop = null;
+      const column = getComputedStyle(list).flexDirection === "column";
       [...list.children].forEach((li) => {
+        if (column) {
+          li.classList.remove("is-row-start");
+          return;
+        }
         const top = li.offsetTop;
-        li.classList.toggle("is-row-start", lastTop !== null && top - lastTop > 8);
+        li.classList.toggle(
+          "is-row-start",
+          lastTop !== null && top - lastTop > 8,
+        );
         lastTop = top;
       });
     });
@@ -394,9 +472,12 @@
     clearTimeout(rowTimer);
     rowTimer = setTimeout(markRowStarts, 120);
   });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(markRowStarts);
+  if (document.fonts && document.fonts.ready)
+    document.fonts.ready.then(markRowStarts);
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
   if ("IntersectionObserver" in window && !reduceMotion) {
     body.classList.add("ij-anim");
     const revealer = new IntersectionObserver(
@@ -408,9 +489,11 @@
           }
         });
       },
-      { rootMargin: "0px 0px -8% 0px" }
+      { rootMargin: "0px 0px -8% 0px" },
     );
-    document.querySelectorAll(".ij-reveal").forEach((el) => revealer.observe(el));
+    document
+      .querySelectorAll(".ij-reveal")
+      .forEach((el) => revealer.observe(el));
   }
 
   const spyLinks = [...document.querySelectorAll("[data-spy]")];
@@ -427,13 +510,16 @@
               a.setAttribute("aria-current", "true");
               const track = a.parentElement;
               if (track && track.scrollWidth > track.clientWidth) {
-                track.scrollTo({ left: a.offsetLeft - 16, behavior: reduceMotion ? "auto" : "smooth" });
+                track.scrollTo({
+                  left: a.offsetLeft - 16,
+                  behavior: reduceMotion ? "auto" : "smooth",
+                });
               }
             } else a.removeAttribute("aria-current");
           });
         });
       },
-      { rootMargin: "-45% 0px -50% 0px" }
+      { rootMargin: "-45% 0px -50% 0px" },
     );
     spyLinks.forEach((a) => {
       const sec = document.getElementById(a.getAttribute("data-spy"));
@@ -448,7 +534,9 @@
     ticking = false;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const y = window.scrollY;
-    if (readbar) readbar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
+    if (readbar)
+      readbar.style.transform =
+        "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
     if (topBtn) topBtn.hidden = y < 1400;
   }
   window.addEventListener(
@@ -459,7 +547,7 @@
         requestAnimationFrame(onScroll);
       }
     },
-    { passive: true }
+    { passive: true },
   );
   onScroll();
   if (topBtn) {

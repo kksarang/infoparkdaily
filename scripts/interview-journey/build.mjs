@@ -29,31 +29,126 @@ const totalMinutes = chapters.reduce((s, c) => s + c.time, 0);
 
 /* ---------- Where am I? ---------- */
 const SITUATIONS = [
-  ["I haven’t found a job yet", 1, "Start with InfoparkDaily’s job board and learn where else openings are posted.", ["/jobs/", "Browse jobs"]],
-  ["I found a job I like", 2, "Decode the job description and research the company before applying.", ["/ats-checker/", "Match it to my resume"]],
-  ["I need a resume", 4, "Build a clean, ATS-friendly resume for your track.", ["/resume-builder/templates/", "Build my resume"]],
-  ["I have a resume", 5, "Check readability and keyword match against the job description.", ["/ats-checker/", "Check my resume"]],
-  ["I’m ready to apply", 6, "Pick the right channel and send a professional email.", ["/resume-builder/email-examples/", "Email examples"]],
-  ["I applied and I’m waiting", 7, "See what happens inside HR after you click Apply.", null],
-  ["I got no response", 8, "Understand shortlisted, rejected, on-hold and silent outcomes.", null],
-  ["I received an HR call", 9, "Prepare your intro, salary answer and notice period.", null],
-  ["I have a test or assessment", 10, "Practise aptitude, coding and domain questions with answers.", null],
-  ["I have a technical interview", 11, "Revise fundamentals and rehearse your project walkthrough.", null],
-  ["I have a manager round", 12, "Prepare STAR stories for teamwork, conflict and ownership.", null],
-  ["HR is discussing salary", 13, "Understand CTC vs in-hand and negotiate confidently.", null],
-  ["I completed my interviews", 14, "Learn how final selection works and how to follow up.", null],
-  ["I received an offer", 15, "Evaluate the offer letter and accept or decline professionally.", null],
-  ["I’m about to join", 16, "Documents, background verification, resignation and day one.", null],
-  ["I was rejected", 17, "Get feedback, improve and restart with a routine.", ["/jobs/", "See new openings"]]
+  [
+    "I haven’t found a job yet",
+    1,
+    "Start with InfoparkDaily’s job board and learn where else openings are posted.",
+    ["/jobs/", "Browse jobs"],
+  ],
+  [
+    "I found a job I like",
+    2,
+    "Decode the job description and research the company before applying.",
+    ["/ats-checker/", "Match it to my resume"],
+  ],
+  [
+    "I need a resume",
+    4,
+    "Build a clean, ATS-friendly resume for your track.",
+    ["/resume-builder/templates/", "Build my resume"],
+  ],
+  [
+    "I have a resume",
+    5,
+    "Check readability and keyword match against the job description.",
+    ["/ats-checker/", "Check my resume"],
+  ],
+  [
+    "I’m ready to apply",
+    6,
+    "Pick the right channel and send a professional email.",
+    ["/resume-builder/email-examples/", "Email examples"],
+  ],
+  [
+    "I applied and I’m waiting",
+    7,
+    "See what happens inside HR after you click Apply.",
+    null,
+  ],
+  [
+    "I got no response",
+    8,
+    "Understand shortlisted, rejected, on-hold and silent outcomes.",
+    null,
+  ],
+  [
+    "I received an HR call",
+    9,
+    "Prepare your intro, salary answer and notice period.",
+    null,
+  ],
+  [
+    "I have a test or assessment",
+    10,
+    "Practise aptitude, coding and domain questions with answers.",
+    null,
+  ],
+  [
+    "I have a technical interview",
+    11,
+    "Revise fundamentals and rehearse your project walkthrough.",
+    null,
+  ],
+  [
+    "I have a manager round",
+    12,
+    "Prepare STAR stories for teamwork, conflict and ownership.",
+    null,
+  ],
+  [
+    "HR is discussing salary",
+    13,
+    "Understand CTC vs in-hand and negotiate confidently.",
+    null,
+  ],
+  [
+    "I completed my interviews",
+    14,
+    "Learn how final selection works and how to follow up.",
+    null,
+  ],
+  [
+    "I received an offer",
+    15,
+    "Evaluate the offer letter and accept or decline professionally.",
+    null,
+  ],
+  [
+    "I’m about to join",
+    16,
+    "Documents, background verification, resignation and day one.",
+    null,
+  ],
+  [
+    "I was rejected",
+    17,
+    "Get feedback, improve and restart with a routine.",
+    ["/jobs/", "See new openings"],
+  ],
 ];
 
 /* ---------- Journey map ---------- */
-const PHASE_KEY = { Prepare: "prepare", "Inside the company": "company", Interviews: "interviews", Decision: "decision" };
+const PHASE_KEY = {
+  Prepare: "prepare",
+  "Inside the company": "company",
+  Interviews: "interviews",
+  Decision: "decision",
+};
 const PHASES = [
   { name: "Prepare", note: "You, before applying", nums: [1, 2, 3, 4, 5, 6] },
-  { name: "Inside the company", note: "HR & ATS", nums: [7, 8], decision: { after: 8, q: "Shortlisted?", yes: 9, no: 17 } },
+  {
+    name: "Inside the company",
+    note: "HR & ATS",
+    nums: [7, 8],
+    decision: { after: 8, q: "Shortlisted?", yes: 9, no: 17 },
+  },
   { name: "Interviews", note: "Rounds", nums: [9, 10, 11, 12, 13] },
-  { name: "Decision", note: "Outcome", nums: [14, 15, 16, 17], decision: { after: 14, q: "Selected?", yes: 15, no: 17 } }
+  {
+    name: "Decision",
+    note: "Outcome",
+    nums: [14, 15, 16, 17],
+    decision: { after: 14, q: "Selected?", yes: 15, no: 17 },
+  },
 ];
 
 const node = (c) => `
@@ -89,7 +184,7 @@ const journeyMap = PHASES.map(
       })
       .join("")}
   </ol>
-</div>`
+</div>`,
 ).join("");
 
 /* ---------- Candidate vs company ---------- */
@@ -100,7 +195,7 @@ const sideRows = chapters
   <th scope="row"><a href="#${anchor(c)}" data-open="${c.id}"><span>${pad(c.num)}</span> ${c.title}</a></th>
   <td><ul>${c.candidate.map((x) => `<li>${x}</li>`).join("")}</ul></td>
   <td><ul>${c.company.map((x) => `<li>${x}</li>`).join("")}</ul></td>
-</tr>`
+</tr>`,
   )
   .join("");
 
@@ -143,7 +238,7 @@ const chapterHtml = (c) => {
 const tocHtml = chapters
   .map(
     (c) =>
-      `<li data-toc="${c.id}"><a href="#${anchor(c)}" data-open="${c.id}"><span class="ij-toc-num">${pad(c.num)}</span><span class="ij-toc-title">${c.title}</span><span class="ij-toc-tick" aria-hidden="true"></span></a></li>`
+      `<li data-toc="${c.id}"><a href="#${anchor(c)}" data-open="${c.id}"><span class="ij-toc-num">${pad(c.num)}</span><span class="ij-toc-title">${c.title}</span><span class="ij-toc-tick" aria-hidden="true"></span></a></li>`,
   )
   .join("");
 
@@ -156,7 +251,7 @@ const stageData = chapters.map((c) => ({
   candidate: c.candidate,
   company: c.company,
   tools: c.tools,
-  time: c.time
+  time: c.time,
 }));
 
 const jsonLd = {
@@ -180,18 +275,33 @@ const jsonLd = {
         name: `Chapter ${c.num}: ${c.title}`,
         description: c.summary,
         url: `${PAGE}#${anchor(c)}`,
-        timeRequired: `PT${c.time}M`
-      }))
+        timeRequired: `PT${c.time}M`,
+      })),
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "InfoparkDaily", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: "Career Tools", item: `${SITE}/resume-builder/` },
-        { "@type": "ListItem", position: 3, name: "Interview Journey", item: PAGE }
-      ]
-    }
-  ]
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "InfoparkDaily",
+          item: `${SITE}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Career Tools",
+          item: `${SITE}/resume-builder/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Interview Journey",
+          item: PAGE,
+        },
+      ],
+    },
+  ],
 };
 
 const ARROW = `<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" /></svg>`;
@@ -299,7 +409,7 @@ const html = `<!doctype html>
               <li><strong>17</strong><span>chapters</span></li>
               <li><strong>${Math.round(totalMinutes / 60)} hrs</strong><span>of learning</span></li>
               <li><strong>2</strong><span>career tracks</span></li>
-              <li><strong>100+</strong><span>examples &amp; answers</span></li>
+              <li><strong>75+</strong><span>sample answers &amp; templates</span></li>
             </ul>
           </div>
           <div class="ij-hero-card" aria-labelledby="ij-track-title">
@@ -354,7 +464,8 @@ const html = `<!doctype html>
           </div>
           <div class="ij-where ij-reveal" role="group" aria-label="Your current situation">
             ${SITUATIONS.map(
-              ([label, n], i) => `<button type="button" class="ij-where-btn" data-where="${i}" aria-pressed="false"><span class="ij-where-num">${pad(n)}</span>${label}</button>`
+              ([label, n], i) =>
+                `<button type="button" class="ij-where-btn" data-where="${i}" aria-pressed="false"><span class="ij-where-num">${pad(n)}</span>${label}</button>`,
             ).join("")}
           </div>
           <div class="ij-where-result" id="where-result" aria-live="polite" hidden></div>
@@ -584,7 +695,14 @@ const html = `<!doctype html>
 
     <script type="application/json" id="ij-stages">${JSON.stringify(stageData).replace(/</g, "\\u003c")}</script>
     <script>window.IJ_SITUATIONS = ${JSON.stringify(
-      SITUATIONS.map(([label, n, why, tool]) => ({ label, chapter: byNum(n).id, num: n, title: byNum(n).title, why, tool }))
+      SITUATIONS.map(([label, n, why, tool]) => ({
+        label,
+        chapter: byNum(n).id,
+        num: n,
+        title: byNum(n).title,
+        why,
+        tool,
+      })),
     ).replace(/</g, "\\u003c")};</script>
     <script src="/js/interview-journey.js?v=${VERSION}" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
@@ -594,5 +712,11 @@ const html = `<!doctype html>
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, html);
-const words = html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
-console.log(`Wrote ${path.relative(root, OUT)} — ${chapters.length} chapters, ~${words} words, ${totalMinutes} min`);
+const words = html
+  .replace(/<script[\s\S]*?<\/script>/g, "")
+  .replace(/<[^>]+>/g, " ")
+  .split(/\s+/)
+  .filter(Boolean).length;
+console.log(
+  `Wrote ${path.relative(root, OUT)} — ${chapters.length} chapters, ~${words} words, ${totalMinutes} min`,
+);

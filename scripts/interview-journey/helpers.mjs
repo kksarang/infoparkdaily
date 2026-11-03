@@ -47,9 +47,11 @@ export const table = (head, rows, caption = "") =>
       (r) =>
         `<tr>${r
           .map((c, i) =>
-            i === 0 ? `<th scope="row">${c}</th>` : `<td data-label="${esc(String(head[i]).replace(/<[^>]+>/g, ""))}">${c}</td>`
+            i === 0
+              ? `<th scope="row">${c}</th>`
+              : `<td data-label="${esc(String(head[i]).replace(/<[^>]+>/g, ""))}">${c}</td>`,
           )
-          .join("")}</tr>`
+          .join("")}</tr>`,
     )
     .join("")}</tbody></table></div>`;
 
@@ -59,8 +61,10 @@ export const qa = (pairs) =>
     .map(
       ([q, a, why]) =>
         `<details class="ij-qa-item"><summary>${q}</summary><div class="ij-qa-body"><p class="ij-qa-label">Sample answer</p><p>${a}</p>${
-          why ? `<p class="ij-qa-why"><strong>Why it works:</strong> ${why}</p>` : ""
-        }</div></details>`
+          why
+            ? `<p class="ij-qa-why"><strong>Why it works:</strong> ${why}</p>`
+            : ""
+        }</div></details>`,
     )
     .join("")}</div>`;
 
@@ -72,14 +76,17 @@ export const copy = (title, text, meta = "") => {
   return `<div class="ij-copy"><div class="ij-copy-head"><div><p class="ij-copy-title">${title}</p>${
     meta ? `<p class="ij-copy-meta">${meta}</p>` : ""
   }</div><button type="button" class="ij-copy-btn" data-copy="${id}">Copy</button></div><pre id="${id}">${esc(
-    text.trim()
+    text.trim(),
   )}</pre></div>`;
 };
 
 /** Grid of small cards: [title, html] */
 export const cards = (items, cls = "") =>
   `<div class="ij-cards ${cls}">${items
-    .map(([t, html, badge]) => `<div class="ij-card">${badge ? `<span class="ij-badge">${badge}</span>` : ""}<h4>${t}</h4>${html}</div>`)
+    .map(
+      ([t, html, badge]) =>
+        `<div class="ij-card">${badge ? `<span class="ij-badge">${badge}</span>` : ""}<h4>${t}</h4>${html}</div>`,
+    )
     .join("")}</div>`;
 
 /** Horizontal numbered mini-flow: ["Step", ...] */
@@ -89,5 +96,7 @@ export const flow = (items, label) =>
 /** Career tool call-to-action */
 export const toolCta = (title, text, href, label, secondary) =>
   `<div class="ij-tool"><div><p class="ij-tool-kicker">InfoparkDaily career tool</p><h4>${title}</h4><p>${text}</p></div><div class="ij-tool-actions"><a class="ij-btn" href="${href}">${label}</a>${
-    secondary ? `<a class="ij-btn ij-btn--ghost" href="${secondary[0]}">${secondary[1]}</a>` : ""
+    secondary
+      ? `<a class="ij-btn ij-btn--ghost" href="${secondary[0]}">${secondary[1]}</a>`
+      : ""
   }</div></div>`;
