@@ -14,7 +14,8 @@
     "test": "node --experimental-strip-types --test tests/resume-builder/*.test.ts",
     "resume:fixtures": "node --experimental-strip-types scripts/resume-fixtures.ts",
     "build:community": "node scripts/build-community.mjs",
-    "test:community": "node --test tests/infoparkdaily/security.test.mjs"
+    "test:community": "node --test tests/infoparkdaily/security.test.mjs",
+    "build:journey": "node scripts/interview-journey/build.mjs"
   },
   "dependencies": {
     "firebase": "^12.19.0",

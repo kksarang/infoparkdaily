@@ -20,11 +20,23 @@
     siteHeader.setAttribute("aria-hidden", "true");
   }
 
+  /* Interview Journey: add to the Career Tools menu on every page that lacks it. */
+  const storeNav = header.querySelector("#store-nav");
+  if (storeNav && !storeNav.querySelector('a[href="/interview-journey/"]')) {
+    const link = document.createElement("a");
+    link.href = "/interview-journey/";
+    link.textContent = "Interview journey";
+    const ats = storeNav.querySelector('a[href="/ats-checker/"]');
+    if (ats && ats.parentNode === storeNav) ats.after(link);
+    else storeNav.prepend(link);
+  }
+
   const path = location.pathname.replace(/\/$/, "") || "/";
   header.querySelectorAll("#store-nav > a, .career-tools-nav > a").forEach((a) => {
     const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
     let on = false;
     if (href === "/ats-checker") on = path.startsWith("/ats-checker");
+    else if (href === "/interview-journey") on = path.startsWith("/interview-journey");
     else if (href === "/career-tools/faq") on = path.startsWith("/career-tools/faq");
     else if (href === "/resume-builder/email-examples")
       on = path.startsWith("/resume-builder/email-examples");
