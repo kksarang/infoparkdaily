@@ -5943,3 +5943,12 @@ body[data-track="experienced"] .ez-empty {
     padding: 12px 14px;
   }
 }
+
+.lh-search input:focus,
+.lh-search input:focus-visible,
+.ax-search input:focus,
+.ax-search input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}

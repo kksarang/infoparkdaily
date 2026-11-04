@@ -191,7 +191,6 @@ export function overviewPage() {
               <ul class="ez-plan-facts">
                 <li><strong>${p.steps.length}</strong><span>steps</span></li>
                 <li><strong>${kind === "fresher" ? "2–4" : "4–8"}</strong><span>weeks</span></li>
-                <li><strong>Free</strong><span>no sign-up</span></li>
               </ul>
             </div>
             <ol class="pc-grid" aria-label="${p.label}: ${totalTime(kind)}">
