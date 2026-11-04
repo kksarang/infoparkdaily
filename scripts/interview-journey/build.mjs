@@ -10,15 +10,25 @@ import { esc } from "./helpers.mjs";
 import { chaptersA } from "./chapters-a.mjs";
 import { chaptersB } from "./chapters-b.mjs";
 import { chaptersC } from "./chapters-c.mjs";
+import { EXTRA, GLOSSARY, FAQ } from "./chapters-extra.mjs";
+import { header, footer, featureDuo } from "./shell.mjs";
+import { buildQuestions } from "./build-questions.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
 const OUT = path.join(root, "interview-journey/index.html");
-const VERSION = "20261104ij";
+const VERSION = "20261104iq";
 const SITE = "https://infoparkdaily.online";
 const PAGE = `${SITE}/interview-journey/`;
 
 const chapters = [...chaptersA, ...chaptersB, ...chaptersC];
+/* Append extra depth and derive reading time from real word count (~200 wpm, capped list skims faster). */
+chapters.forEach((c) => {
+  if (EXTRA[c.id]) c.body += EXTRA[c.id];
+  const words = c.body.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  c.words = words;
+  c.time = Math.max(c.time, Math.round(words / 200));
+});
 chapters.forEach((c, i) => {
   if (c.num !== i + 1) throw new Error(`Chapter order mismatch at ${c.id}`);
 });
@@ -279,6 +289,14 @@ const jsonLd = {
       })),
     },
     {
+      "@type": "FAQPage",
+      mainEntity: FAQ.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    },
+    {
       "@type": "BreadcrumbList",
       itemListElement: [
         {
@@ -367,26 +385,7 @@ const html = `<!doctype html>
   </head>
   <body class="career-tools ij-page light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>
-    <header class="store-header career-store-header">
-      <div class="width">
-        <a class="store-brand" href="/" aria-label="Infopark Daily home">
-          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
-          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
-        </a>
-        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
-          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
-        </button>
-        <nav id="store-nav" aria-label="Career tools">
-          <a href="/resume-builder/">Resume builder</a>
-          <a href="/ats-checker/">ATS checker</a>
-          <a href="/interview-journey/">Interview journey</a>
-          <a href="/resume-builder/email-examples/">Email examples</a>
-          <a href="/resume-builder/templates/">Resume templates</a>
-          <a href="/portfolio/">Portfolio</a>
-          <a href="/jobs/">Jobs</a>
-        </nav>
-      </div>
-    </header>
+${header()}
 
     <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
     <main id="main">
@@ -409,7 +408,7 @@ const html = `<!doctype html>
               <li><strong>17</strong><span>chapters</span></li>
               <li><strong>${Math.round(totalMinutes / 60)} hrs</strong><span>of learning</span></li>
               <li><strong>2</strong><span>career tracks</span></li>
-              <li><strong>75+</strong><span>sample answers &amp; templates</span></li>
+              <li><strong>130+</strong><span>answers, templates &amp; examples</span></li>
             </ul>
           </div>
           <div class="ij-hero-card" aria-labelledby="ij-track-title">
@@ -451,7 +450,10 @@ const html = `<!doctype html>
           <a href="#rounds" data-spy="rounds">Interview rounds</a>
           <a href="#paths" data-spy="paths">Offer or rejection</a>
           <a href="#chapters" data-spy="chapters">17 chapters</a>
+          <a href="#glossary" data-spy="glossary">Glossary</a>
+          <a href="#faq" data-spy="faq">FAQ</a>
           <a href="#tools" data-spy="tools">Tools</a>
+          <a href="#more" data-spy="more">Learning &amp; questions</a>
         </div></div>
       </nav>
 
@@ -619,6 +621,31 @@ const html = `<!doctype html>
         </div>
       </section>
 
+      <section class="ij-section ij-section--soft" id="glossary" aria-labelledby="glossary-title">
+        <div class="ij-wrap">
+          <div class="ij-head ij-head--row">
+            <div>
+              <p class="ij-eyebrow">Hiring words, explained</p>
+              <h2 id="glossary-title">Glossary</h2>
+              <p>CTC, BGV, UAN, C2H… the terms recruiters use, in plain English.</p>
+            </div>
+            <label class="ij-search"><span class="ij-sr">Search the glossary</span><input type="search" placeholder="Search terms (e.g. notice)" data-glossary-search autocomplete="off" /></label>
+          </div>
+          <dl class="ij-glossary ij-reveal">${GLOSSARY.map(([t, d]) => `<div class="ij-term" data-term="${esc((t + " " + d).toLowerCase())}"><dt>${t}</dt><dd>${d}</dd></div>`).join("")}</dl>
+          <p class="ij-small" data-glossary-empty hidden>No matching term. Try another word.</p>
+        </div>
+      </section>
+
+      <section class="ij-section" id="faq" aria-labelledby="faq-title">
+        <div class="ij-wrap ij-faq-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Common questions</p>
+            <h2 id="faq-title">Frequently asked questions</h2>
+          </div>
+          <div class="ij-qa ij-faq">${FAQ.map(([q, a]) => `<details class="ij-qa-item"><summary>${q}</summary><div class="ij-qa-body"><p>${a}</p></div></details>`).join("")}</div>
+        </div>
+      </section>
+
       <section class="ij-section ij-section--dark" id="tools" aria-labelledby="tools-title">
         <div class="ij-wrap">
           <div class="ij-head">
@@ -649,6 +676,8 @@ const html = `<!doctype html>
         </div>
       </section>
 
+${featureDuo("journey")}
+
       <section class="ij-wrap ij-final" aria-labelledby="final-title">
         <h2 id="final-title">Your next opportunity is already posted.</h2>
         <p>Start with today’s openings on InfoparkDaily, and come back here at each stage.</p>
@@ -659,19 +688,7 @@ const html = `<!doctype html>
       </section>
     </main>
 
-    <footer class="footer rb-width">
-      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
-      <div>
-        <a href="/jobs/">Jobs</a>
-        <a href="/resume-builder/">Resume builder</a>
-        <a href="/ats-checker/">ATS checker</a>
-        <a href="/interview-journey/">Interview journey</a>
-        <a href="/resume-builder/email-examples/">Email examples</a>
-        <a href="/terms/#career-tools">Terms</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/contact/">Contact</a>
-      </div>
-    </footer>
+${footer()}
 
     <dialog class="ij-dialog" id="ij-stage-dialog" aria-labelledby="ij-dialog-title">
       <div class="ij-dialog-inner">
@@ -720,3 +737,5 @@ const words = html
 console.log(
   `Wrote ${path.relative(root, OUT)} — ${chapters.length} chapters, ~${words} words, ${totalMinutes} min`,
 );
+
+buildQuestions();

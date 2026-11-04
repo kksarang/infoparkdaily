@@ -561,6 +561,22 @@
     });
   }
 
+  /* ---------- glossary search ---------- */
+  const gInput = document.querySelector("[data-glossary-search]");
+  const gEmpty = document.querySelector("[data-glossary-empty]");
+  if (gInput) {
+    gInput.addEventListener("input", () => {
+      const q = gInput.value.trim().toLowerCase();
+      let shown = 0;
+      document.querySelectorAll("[data-term]").forEach((el) => {
+        const hit = !q || el.getAttribute("data-term").includes(q);
+        el.hidden = !hit;
+        if (hit) shown += 1;
+      });
+      if (gEmpty) gEmpty.hidden = shown > 0;
+    });
+  }
+
   /* ---------- init ---------- */
   setTrack(store(TRACK_KEY) || body.getAttribute("data-track") || "all", false);
   paintProgress();
