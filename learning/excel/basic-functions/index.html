@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Excel SUM, AVERAGE, COUNT & ROUND – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="The everyday functions for totals, averages, counts and rounding. Free Excel lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Excel SUM, AVERAGE, COUNT &amp; ROUND – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="The everyday functions for totals, averages, counts and rounding. Free Excel lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/excel/basic-functions/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/excel/basic-functions/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Excel: SUM, AVERAGE, COUNT & ROUND","description":"The everyday functions for totals, averages, counts and rounding.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/excel/basic-functions/","isPartOf":{"@type":"Course","name":"Excel tutorial","url":"https://infoparkdaily.online/learning/excel/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Excel","item":"https://infoparkdaily.online/learning/excel/"},{"@type":"ListItem","position":4,"name":"SUM, AVERAGE, COUNT & ROUND","item":"https://infoparkdaily.online/learning/excel/basic-functions/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42" aria-current="page">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#1d6f42">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Excel tutorial <small data-ln-label="excel" data-total="8"></small></summary>
+            <ol>
+              <li><a href="/learning/excel/introduction/" data-ln-lesson="excel/introduction">Excel introduction</a></li>
+              <li><a href="/learning/excel/basic-functions/" data-ln-lesson="excel/basic-functions" aria-current="page">SUM, AVERAGE, COUNT & ROUND</a></li>
+              <li><a href="/learning/excel/references/" data-ln-lesson="excel/references">Relative & absolute references</a></li>
+              <li><a href="/learning/excel/logical/" data-ln-lesson="excel/logical">IF, AND, OR, IFS & COUNTIF</a></li>
+              <li><a href="/learning/excel/lookups/" data-ln-lesson="excel/lookups">Lookups: XLOOKUP, VLOOKUP & INDEX/MATCH</a></li>
+              <li><a href="/learning/excel/text-dates/" data-ln-lesson="excel/text-dates">Text & date functions</a></li>
+              <li><a href="/learning/excel/pivot-tables/" data-ln-lesson="excel/pivot-tables">Sorting, filtering & pivot tables</a></li>
+              <li><a href="/learning/excel/formatting-charts/" data-ln-lesson="excel/formatting-charts">Conditional formatting, validation & charts</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="excel/basic-functions">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/excel/">Excel</a> / <span aria-current="page">SUM, AVERAGE, COUNT & ROUND</span></nav>
+          <p class="ax-eyebrow">Excel · Lesson 2 of 8</p>
+          <h1>SUM, AVERAGE, COUNT & ROUND</h1>
+          <p class="ln-summary">The everyday functions for totals, averages, counts and rounding.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/excel/introduction/" rel="prev">← Excel introduction</a>
+              <a href="/learning/excel/references/" rel="next">Relative & absolute references →</a>
+            </nav>
+          <div class="ln-body">
+<ul>
+<li><code>SUM(range)</code> — total. <kbd>Alt</kbd>+<kbd>=</kbd> inserts AutoSum.</li>
+<li><code>AVERAGE(range)</code> — mean of numbers.</li>
+<li><code>MIN</code> / <code>MAX</code> — smallest / largest.</li>
+<li><code>COUNT</code> — counts numbers; <code>COUNTA</code> — counts non-empty cells; <code>COUNTBLANK</code> — empty cells.</li>
+<li><code>ROUND(x, digits)</code> — round properly; <code>ROUNDUP</code> / <code>ROUNDDOWN</code> force a direction.</li>
+</ul>
+<p>Formatting a cell to show 2 decimals does <em>not</em> change the stored value — <code>ROUND</code> does. This matters when totals must match invoices.</p>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-basic-functions">
+            <div class="ln-try-head"><h2 id="try-basic-functions">Sample sheet & formulas</h2><span class="ln-try-badge">Type these in Excel or Google Sheets</span></div>
+            <pre class="ln-terminal"><code>     A          B
+1    Employee   Overtime hrs
+2    Anu        12.5
+3    Rahul      8
+4    Fathima    (blank)
+5    Joseph     15.25
+
+B7:  =SUM(B2:B5)
+B8:  =AVERAGE(B2:B5)
+B9:  =MAX(B2:B5)
+B10: =COUNT(B2:B5)
+B11: =COUNTA(A2:A5)
+B12: =ROUND(B8, 1)</code></pre>
+            <p class="ln-output-label">Results</p>
+            <pre class="ln-terminal ln-terminal--out"><code>B7  = 35.75
+B8  = 11.9166…   (blank cell is ignored)
+B9  = 15.25
+B10 = 3
+B11 = 4
+B12 = 11.9</code></pre>
+            <p class="ln-try-note">Works in Microsoft Excel 365/2021 and, for almost every formula, in Google Sheets. Data is fictional.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-basic-functions">
+            <h2 id="pts-basic-functions">Key points</h2>
+            <ul><li>AVERAGE ignores blank cells.</li><li>COUNT = numbers only; COUNTA = anything non-empty.</li><li>ROUND changes the value; formatting only changes the display.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-excel-basic-functions" data-quiz data-answer="1">
+            <h2 id="q-excel-basic-functions">Quick check</h2>
+            <p>Which function counts non-empty cells including text?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-excel-basic-functions" value="0"> <span>COUNT</span></label>
+              <label><input type="radio" name="q-excel-basic-functions" value="1"> <span>COUNTA</span></label>
+              <label><input type="radio" name="q-excel-basic-functions" value="2"> <span>SUM</span></label>
+              <label><input type="radio" name="q-excel-basic-functions" value="3"> <span>COUNTBLANK</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>COUNTA counts any non-empty cell; COUNT counts only numbers.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-basic-functions">
+            <h2 id="prac-basic-functions">Practice task</h2>
+            <p>For a list of 10 monthly sales figures, show the total, average (rounded to 0 decimals), best month and number of months with data.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-basic-functions">
+            <h2 id="iv-basic-functions">Interview corner</h2>
+            <details><summary>Why might a SUM total differ from a calculator total?</summary><p>Cells may show rounded values while storing more decimals, or some numbers may be stored as text and be ignored. Use ROUND and convert text to numbers.</p></details>
+            <details><summary>How do you quickly check sum/average of a selection?</summary><p>Select the cells and read the status bar at the bottom — it shows Sum, Average and Count without a formula.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-basic-functions">
+            <h2 id="fr-basic-functions">Further reading</h2>
+            <ul><li><a href="https://support.microsoft.com/en-us/office/sum-function-043e1c7d-7726-4e80-8f32-07b23e057f89" target="_blank" rel="noopener">Microsoft: SUM function ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/excel/introduction/" rel="prev">← Excel introduction</a>
+              <a href="/learning/excel/references/" rel="next">Relative & absolute references →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

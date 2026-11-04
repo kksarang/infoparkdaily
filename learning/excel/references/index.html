@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Excel Relative & absolute references – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Why formulas change when copied, and how $ locks a cell. Free Excel lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Excel Relative &amp; absolute references – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Why formulas change when copied, and how $ locks a cell. Free Excel lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/excel/references/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/excel/references/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Excel: Relative & absolute references","description":"Why formulas change when copied, and how $ locks a cell.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/excel/references/","isPartOf":{"@type":"Course","name":"Excel tutorial","url":"https://infoparkdaily.online/learning/excel/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Excel","item":"https://infoparkdaily.online/learning/excel/"},{"@type":"ListItem","position":4,"name":"Relative & absolute references","item":"https://infoparkdaily.online/learning/excel/references/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42" aria-current="page">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#1d6f42">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Excel tutorial <small data-ln-label="excel" data-total="8"></small></summary>
+            <ol>
+              <li><a href="/learning/excel/introduction/" data-ln-lesson="excel/introduction">Excel introduction</a></li>
+              <li><a href="/learning/excel/basic-functions/" data-ln-lesson="excel/basic-functions">SUM, AVERAGE, COUNT & ROUND</a></li>
+              <li><a href="/learning/excel/references/" data-ln-lesson="excel/references" aria-current="page">Relative & absolute references</a></li>
+              <li><a href="/learning/excel/logical/" data-ln-lesson="excel/logical">IF, AND, OR, IFS & COUNTIF</a></li>
+              <li><a href="/learning/excel/lookups/" data-ln-lesson="excel/lookups">Lookups: XLOOKUP, VLOOKUP & INDEX/MATCH</a></li>
+              <li><a href="/learning/excel/text-dates/" data-ln-lesson="excel/text-dates">Text & date functions</a></li>
+              <li><a href="/learning/excel/pivot-tables/" data-ln-lesson="excel/pivot-tables">Sorting, filtering & pivot tables</a></li>
+              <li><a href="/learning/excel/formatting-charts/" data-ln-lesson="excel/formatting-charts">Conditional formatting, validation & charts</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="excel/references">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/excel/">Excel</a> / <span aria-current="page">Relative & absolute references</span></nav>
+          <p class="ax-eyebrow">Excel · Lesson 3 of 8</p>
+          <h1>Relative & absolute references</h1>
+          <p class="ln-summary">Why formulas change when copied, and how $ locks a cell.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/excel/basic-functions/" rel="prev">← SUM, AVERAGE, COUNT & ROUND</a>
+              <a href="/learning/excel/logical/" rel="next">IF, AND, OR, IFS & COUNTIF →</a>
+            </nav>
+          <div class="ln-body">
+<p>When you copy a formula, Excel adjusts its cell references — that's a <strong>relative</strong> reference (<code>B2</code> becomes <code>B3</code> one row down).</p>
+<p>Sometimes a reference must stay fixed, such as a tax rate in one cell. Add <code>$</code> to lock it:</p>
+<ul>
+<li><code>$F$1</code> — column and row locked (<strong>absolute</strong>).</li>
+<li><code>$F1</code> — column locked, row moves (mixed).</li>
+<li><code>F$1</code> — row locked, column moves (mixed).</li>
+</ul>
+<p>Press <kbd>F4</kbd> while editing a reference to cycle through these forms. A cleaner option is to <strong>name</strong> the cell (Formulas → Define Name), e.g. <code>GST</code>, and write <code>=B2*GST</code>.</p>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-references">
+            <div class="ln-try-head"><h2 id="try-references">Sample sheet & formulas</h2><span class="ln-try-badge">Type these in Excel or Google Sheets</span></div>
+            <pre class="ln-terminal"><code>     A           B          C            ...   F
+1    Service     Amount     With GST           18%   (GST rate in F1)
+2    Website     10000
+3    Logo        2500
+4    Hosting     3000
+
+C2:  =B2*(1+$F$1)      then fill down to C4
+     → C3 becomes =B3*(1+$F$1)
+     → C4 becomes =B4*(1+$F$1)
+
+Without $ (wrong):  C2 =B2*(1+F1)  → copied to C3 = B3*(1+F2)  (F2 is empty!)</code></pre>
+            <p class="ln-output-label">Results</p>
+            <pre class="ln-terminal ln-terminal--out"><code>C2 = 11800
+C3 = 2950
+C4 = 3540</code></pre>
+            <p class="ln-try-note">Works in Microsoft Excel 365/2021 and, for almost every formula, in Google Sheets. Data is fictional.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-references">
+            <h2 id="pts-references">Key points</h2>
+            <ul><li>Relative references shift when copied.</li><li>$ locks the column, the row, or both.</li><li>F4 toggles reference types.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-excel-references" data-quiz data-answer="3">
+            <h2 id="q-excel-references">Quick check</h2>
+            <p>Which reference stays exactly the same when copied anywhere?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-excel-references" value="0"> <span>F1</span></label>
+              <label><input type="radio" name="q-excel-references" value="1"> <span>$F1</span></label>
+              <label><input type="radio" name="q-excel-references" value="2"> <span>F$1</span></label>
+              <label><input type="radio" name="q-excel-references" value="3"> <span>$F$1</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>$F$1 locks both column and row.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-references">
+            <h2 id="prac-references">Practice task</h2>
+            <p>Build a multiplication table 1–10 × 1–10 with a single formula in B2 using mixed references, filled right and down.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-references">
+            <h2 id="iv-references">Interview corner</h2>
+            <details><summary>When would you use a mixed reference?</summary><p>When copying in two directions — e.g. a rate table where the formula must always read row 1 for rates (B$1) and column A for quantities ($A2).</p></details>
+            <details><summary>What are named ranges good for?</summary><p>They make formulas readable (=Amount*GST), reduce $ mistakes and can be reused across sheets.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-references">
+            <h2 id="fr-references">Further reading</h2>
+            <ul><li><a href="https://support.microsoft.com/en-us/office/switch-between-relative-absolute-and-mixed-references-dfec08cd-ae65-4f56-839e-5f0d8d0baca9" target="_blank" rel="noopener">Microsoft: Switch between relative and absolute references ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/excel/basic-functions/" rel="prev">← SUM, AVERAGE, COUNT & ROUND</a>
+              <a href="/learning/excel/logical/" rel="next">IF, AND, OR, IFS & COUNTIF →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

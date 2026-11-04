@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>DSA Hash maps & sets – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Constant-time lookups for counting, grouping and finding pairs. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="DSA Hash maps &amp; sets – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Constant-time lookups for counting, grouping and finding pairs. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/dsa/hashing/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/dsa/hashing/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"DSA: Hash maps & sets","description":"Constant-time lookups for counting, grouping and finding pairs.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/dsa/hashing/","isPartOf":{"@type":"Course","name":"DSA tutorial","url":"https://infoparkdaily.online/learning/dsa/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"DSA","item":"https://infoparkdaily.online/learning/dsa/"},{"@type":"ListItem","position":4,"name":"Hash maps & sets","item":"https://infoparkdaily.online/learning/dsa/hashing/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed" aria-current="page">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#7c3aed">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>DSA tutorial <small data-ln-label="dsa" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/dsa/big-o/" data-ln-lesson="dsa/big-o">Big-O & complexity</a></li>
+              <li><a href="/learning/dsa/arrays-two-pointers/" data-ln-lesson="dsa/arrays-two-pointers">Arrays & two pointers</a></li>
+              <li><a href="/learning/dsa/hashing/" data-ln-lesson="dsa/hashing" aria-current="page">Hash maps & sets</a></li>
+              <li><a href="/learning/dsa/stacks-queues/" data-ln-lesson="dsa/stacks-queues">Stacks & queues</a></li>
+              <li><a href="/learning/dsa/linked-lists/" data-ln-lesson="dsa/linked-lists">Linked lists</a></li>
+              <li><a href="/learning/dsa/recursion/" data-ln-lesson="dsa/recursion">Recursion & backtracking</a></li>
+              <li><a href="/learning/dsa/binary-search/" data-ln-lesson="dsa/binary-search">Binary search</a></li>
+              <li><a href="/learning/dsa/sorting/" data-ln-lesson="dsa/sorting">Sorting algorithms</a></li>
+              <li><a href="/learning/dsa/trees-graphs/" data-ln-lesson="dsa/trees-graphs">Trees & graphs: BFS and DFS</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="dsa/hashing">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/dsa/">DSA</a> / <span aria-current="page">Hash maps & sets</span></nav>
+          <p class="ax-eyebrow">DSA · Lesson 3 of 9</p>
+          <h1>Hash maps & sets</h1>
+          <p class="ln-summary">Constant-time lookups for counting, grouping and finding pairs.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/dsa/arrays-two-pointers/" rel="prev">← Arrays & two pointers</a>
+              <a href="/learning/dsa/stacks-queues/" rel="next">Stacks & queues →</a>
+            </nav>
+          <div class="ln-body">
+<p>A <strong>hash map</strong> (Python <code>dict</code>) and <strong>hash set</strong> (<code>set</code>) find, add and remove items in O(1) average time by hashing the key to a storage slot.</p>
+<p>Recognise these patterns:</p>
+<ul>
+<li><strong>Counting</strong> — word frequencies, most common skill (<code>collections.Counter</code>).</li>
+<li><strong>Seen-before</strong> — duplicates, first repeating character, two-sum.</li>
+<li><strong>Grouping</strong> — anagrams grouped by sorted letters (<code>defaultdict(list)</code>).</li>
+</ul>
+<p>Keys must be hashable (immutable): strings, numbers, tuples — not lists.</p>
+          </div>
+          <section class="ln-try" aria-labelledby="try-hashing" data-tryit data-lang="python">
+            <div class="ln-try-head">
+              <h2 id="try-hashing">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>from collections import Counter, defaultdict
+
+def two_sum(nums, target):
+    index_of = {}
+    for i, x in enumerate(nums):
+        if target - x in index_of:
+            return index_of[target - x], i
+        index_of[x] = i
+    return None
+
+def first_unique_char(s):
+    counts = Counter(s)
+    for i, ch in enumerate(s):
+        if counts[ch] == 1:
+            return i, ch
+    return None
+
+def group_anagrams(words):
+    groups = defaultdict(list)
+    for w in words:
+        groups[&quot;&quot;.join(sorted(w))].append(w)
+    return list(groups.values())
+
+print(two_sum([7, 2, 11, 15, 4], 6))
+print(first_unique_char(&quot;infoparkdaily&quot;))
+print(group_anagrams([&quot;listen&quot;, &quot;silent&quot;, &quot;enlist&quot;, &quot;kochi&quot;, &quot;chiko&quot;]))
+print(Counter(&quot;python sql python git sql python&quot;.split()).most_common(2))</textarea></label>
+              <div class="ln-output">
+                <div class="ln-result ln-result--python" data-result-box aria-live="polite" aria-label="Python output"><p class="ln-result-hint">Press Run to see the output.</p></div>
+              </div>
+            </div>
+            
+            <p class="ln-try-note">Edit and press Run (or Ctrl/⌘ + Enter). Python runs in your browser — the first run downloads the Python engine and takes a few seconds.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-hashing">
+            <h2 id="pts-hashing">Key points</h2>
+            <ul><li>dict/set give O(1) average lookups.</li><li>Counter for frequencies; defaultdict for grouping.</li><li>Trade extra memory for speed.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-dsa-hashing" data-quiz data-answer="3">
+            <h2 id="q-dsa-hashing">Quick check</h2>
+            <p>Which cannot be a dict key in Python?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-dsa-hashing" value="0"> <span>&quot;kochi&quot;</span></label>
+              <label><input type="radio" name="q-dsa-hashing" value="1"> <span>42</span></label>
+              <label><input type="radio" name="q-dsa-hashing" value="2"> <span>(1, 2)</span></label>
+              <label><input type="radio" name="q-dsa-hashing" value="3"> <span>[1, 2]</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Lists are mutable and unhashable; tuples of immutables are fine.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-hashing">
+            <h2 id="prac-hashing">Practice task</h2>
+            <p>Return the length of the longest substring without repeating characters (hint: dict of last seen index + sliding window).</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-hashing">
+            <h2 id="iv-hashing">Interview corner</h2>
+            <details><summary>How does a hash map handle collisions?</summary><p>Two keys landing in the same slot are resolved by chaining (a list per bucket) or open addressing (probing for another slot). Python dicts use open addressing.</p></details>
+            <details><summary>When is a hash map lookup not O(1)?</summary><p>In the worst case — many collisions — it degrades to O(n); resizing also costs O(n) occasionally, though amortised cost stays O(1).</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-hashing">
+            <h2 id="fr-hashing">Further reading</h2>
+            <ul><li><a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="noopener">Python: collections module ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/dsa/arrays-two-pointers/" rel="prev">← Arrays & two pointers</a>
+              <a href="/learning/dsa/stacks-queues/" rel="next">Stacks & queues →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

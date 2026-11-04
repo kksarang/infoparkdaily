@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>DSA Binary search – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Halving the search space on sorted data — and on answers. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="DSA Binary search – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Halving the search space on sorted data — and on answers. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/dsa/binary-search/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/dsa/binary-search/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"DSA: Binary search","description":"Halving the search space on sorted data — and on answers.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/dsa/binary-search/","isPartOf":{"@type":"Course","name":"DSA tutorial","url":"https://infoparkdaily.online/learning/dsa/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"DSA","item":"https://infoparkdaily.online/learning/dsa/"},{"@type":"ListItem","position":4,"name":"Binary search","item":"https://infoparkdaily.online/learning/dsa/binary-search/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed" aria-current="page">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#7c3aed">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>DSA tutorial <small data-ln-label="dsa" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/dsa/big-o/" data-ln-lesson="dsa/big-o">Big-O & complexity</a></li>
+              <li><a href="/learning/dsa/arrays-two-pointers/" data-ln-lesson="dsa/arrays-two-pointers">Arrays & two pointers</a></li>
+              <li><a href="/learning/dsa/hashing/" data-ln-lesson="dsa/hashing">Hash maps & sets</a></li>
+              <li><a href="/learning/dsa/stacks-queues/" data-ln-lesson="dsa/stacks-queues">Stacks & queues</a></li>
+              <li><a href="/learning/dsa/linked-lists/" data-ln-lesson="dsa/linked-lists">Linked lists</a></li>
+              <li><a href="/learning/dsa/recursion/" data-ln-lesson="dsa/recursion">Recursion & backtracking</a></li>
+              <li><a href="/learning/dsa/binary-search/" data-ln-lesson="dsa/binary-search" aria-current="page">Binary search</a></li>
+              <li><a href="/learning/dsa/sorting/" data-ln-lesson="dsa/sorting">Sorting algorithms</a></li>
+              <li><a href="/learning/dsa/trees-graphs/" data-ln-lesson="dsa/trees-graphs">Trees & graphs: BFS and DFS</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="dsa/binary-search">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/dsa/">DSA</a> / <span aria-current="page">Binary search</span></nav>
+          <p class="ax-eyebrow">DSA · Lesson 7 of 9</p>
+          <h1>Binary search</h1>
+          <p class="ln-summary">Halving the search space on sorted data — and on answers.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/dsa/recursion/" rel="prev">← Recursion & backtracking</a>
+              <a href="/learning/dsa/sorting/" rel="next">Sorting algorithms →</a>
+            </nav>
+          <div class="ln-body">
+<p>On sorted data, <strong>binary search</strong> checks the middle element and discards the half that can't contain the target, giving O(log n). A million items need at most about 20 checks.</p>
+<p>Get the details right — they are where interview bugs hide:</p>
+<ul>
+<li>Loop while <code>lo &lt;= hi</code> for an exact-match search.</li>
+<li>Compute <code>mid = (lo + hi) // 2</code>.</li>
+<li>Move <code>lo = mid + 1</code> or <code>hi = mid - 1</code> so the range always shrinks.</li>
+</ul>
+<p><strong>Binary search on the answer</strong>: when “can we do it with X?” is false up to some point and true after, search for the smallest X that works — e.g. minimum daily capacity to finish tasks in D days. Python's <code>bisect</code> module does insert-position searches.</p>
+          </div>
+          <section class="ln-try" aria-labelledby="try-binary-search" data-tryit data-lang="python">
+            <div class="ln-try-head">
+              <h2 id="try-binary-search">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>import bisect
+
+def binary_search(nums, target):
+    lo, hi = 0, len(nums) - 1
+    while lo &lt;= hi:
+        mid = (lo + hi) // 2
+        if nums[mid] == target:
+            return mid
+        if nums[mid] &lt; target:
+            lo = mid + 1
+        else:
+            hi = mid - 1
+    return -1
+
+def min_daily_capacity(tasks, days):
+    &quot;&quot;&quot;Smallest capacity so tasks (in order) finish within 'days'.&quot;&quot;&quot;
+    def can(cap):
+        used, load = 1, 0
+        for t in tasks:
+            if load + t &gt; cap:
+                used, load = used + 1, 0
+            load += t
+        return used &lt;= days
+    lo, hi = max(tasks), sum(tasks)
+    while lo &lt; hi:
+        mid = (lo + hi) // 2
+        if can(mid):
+            hi = mid
+        else:
+            lo = mid + 1
+    return lo
+
+salaries = [3, 4, 6, 8, 12, 15, 20]
+print(binary_search(salaries, 12), binary_search(salaries, 7))
+print(&quot;insert 7 at index&quot;, bisect.bisect_left(salaries, 7))
+print(min_daily_capacity([3, 2, 2, 4, 1, 4], 3))</textarea></label>
+              <div class="ln-output">
+                <div class="ln-result ln-result--python" data-result-box aria-live="polite" aria-label="Python output"><p class="ln-result-hint">Press Run to see the output.</p></div>
+              </div>
+            </div>
+            
+            <p class="ln-try-note">Edit and press Run (or Ctrl/⌘ + Enter). Python runs in your browser — the first run downloads the Python engine and takes a few seconds.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-binary-search">
+            <h2 id="pts-binary-search">Key points</h2>
+            <ul><li>Requires sorted data (or a monotonic yes/no answer).</li><li>O(log n) — each step halves the range.</li><li>Watch loop condition and mid ± 1 updates.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-dsa-binary-search" data-quiz data-answer="0">
+            <h2 id="q-dsa-binary-search">Quick check</h2>
+            <p>About how many steps does binary search need for 1,000,000 sorted items?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-dsa-binary-search" value="0"> <span>~20</span></label>
+              <label><input type="radio" name="q-dsa-binary-search" value="1"> <span>~1,000</span></label>
+              <label><input type="radio" name="q-dsa-binary-search" value="2"> <span>~500,000</span></label>
+              <label><input type="radio" name="q-dsa-binary-search" value="3"> <span>~1,000,000</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>log₂(1,000,000) ≈ 20.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-binary-search">
+            <h2 id="prac-binary-search">Practice task</h2>
+            <p>Write first_occurrence(nums, target) that returns the index of the first copy of target in a sorted list with duplicates.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-binary-search">
+            <h2 id="iv-binary-search">Interview corner</h2>
+            <details><summary>Why use lo + (hi - lo) // 2 in some languages?</summary><p>In languages with fixed-size integers (Java, C++), lo + hi can overflow. Python integers don't overflow, but the habit is good.</p></details>
+            <details><summary>What does 'binary search on the answer' mean?</summary><p>Searching over possible answer values instead of array indexes, using a feasibility check that is false then true as the value grows.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-binary-search">
+            <h2 id="fr-binary-search">Further reading</h2>
+            <ul><li><a href="https://docs.python.org/3/library/bisect.html" target="_blank" rel="noopener">Python: bisect module ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/dsa/recursion/" rel="prev">← Recursion & backtracking</a>
+              <a href="/learning/dsa/sorting/" rel="next">Sorting algorithms →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

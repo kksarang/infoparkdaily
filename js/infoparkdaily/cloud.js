@@ -514,7 +514,7 @@ export async function publishRequest(r, adminNote = "") {
   const job = {
     ownerUid: u.uid,
     kind: "request",
-    requestId: clip(r.id, 40),
+    // No requestId here: the tracking ID is private (it unlocks the poster's contact details). The request stores jobId instead.
     title: clip(r.title, 200),
     company: clip(r.company, 150),
     sector: clip(r.sector || "Other", 50),

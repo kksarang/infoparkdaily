@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>React Lists, keys & conditional rendering – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Rendering arrays with map, choosing keys, and showing things conditionally. Free React lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="React Lists, keys &amp; conditional rendering – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Rendering arrays with map, choosing keys, and showing things conditionally. Free React lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/react/lists-keys/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/react/lists-keys/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"React: Lists, keys & conditional rendering","description":"Rendering arrays with map, choosing keys, and showing things conditionally.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/react/lists-keys/","isPartOf":{"@type":"Course","name":"React tutorial","url":"https://infoparkdaily.online/learning/react/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"React","item":"https://infoparkdaily.online/learning/react/"},{"@type":"ListItem","position":4,"name":"Lists, keys & conditional rendering","item":"https://infoparkdaily.online/learning/react/lists-keys/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca" aria-current="page">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#149eca">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>React tutorial <small data-ln-label="react" data-total="7"></small></summary>
+            <ol>
+              <li><a href="/learning/react/introduction/" data-ln-lesson="react/introduction">React introduction</a></li>
+              <li><a href="/learning/react/jsx/" data-ln-lesson="react/jsx">JSX</a></li>
+              <li><a href="/learning/react/components-props/" data-ln-lesson="react/components-props">Components & props</a></li>
+              <li><a href="/learning/react/state/" data-ln-lesson="react/state">State with useState</a></li>
+              <li><a href="/learning/react/events-forms/" data-ln-lesson="react/events-forms">Events & forms</a></li>
+              <li><a href="/learning/react/lists-keys/" data-ln-lesson="react/lists-keys" aria-current="page">Lists, keys & conditional rendering</a></li>
+              <li><a href="/learning/react/effects/" data-ln-lesson="react/effects">Effects with useEffect</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="react/lists-keys">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/react/">React</a> / <span aria-current="page">Lists, keys & conditional rendering</span></nav>
+          <p class="ax-eyebrow">React · Lesson 6 of 7</p>
+          <h1>Lists, keys & conditional rendering</h1>
+          <p class="ln-summary">Rendering arrays with map, choosing keys, and showing things conditionally.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/react/events-forms/" rel="prev">← Events & forms</a>
+              <a href="/learning/react/effects/" rel="next">Effects with useEffect →</a>
+            </nav>
+          <div class="ln-body">
+<p>Render a list by mapping an array to JSX: <code>{jobs.map(job =&gt; &lt;li key={job.id}&gt;{job.title}&lt;/li&gt;)}</code>.</p>
+<p>Each item needs a <strong>key</strong> that is unique among its siblings and stable over time — usually an id from your data. Keys let React keep track of which item is which when the list changes. Avoid using the array index when items can be added, removed or reordered.</p>
+<h3>Conditional rendering</h3>
+<ul>
+<li><code>{cond ? &lt;A /&gt; : &lt;B /&gt;}</code> — choose between two things.</li>
+<li><code>{cond &amp;&amp; &lt;A /&gt;}</code> — show something or nothing (careful: <code>0 &amp;&amp; …</code> renders 0).</li>
+<li>Return early: <code>if (!jobs.length) return &lt;p&gt;No jobs&lt;/p&gt;;</code></li>
+</ul>
+          </div>
+          <section class="ln-try" aria-labelledby="try-lists-keys" data-tryit data-lang="web">
+            <div class="ln-try-head">
+              <h2 id="try-lists-keys">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    body { font-family: system-ui, sans-serif; padding: 16px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+  &lt;script type=&quot;text/babel&quot;&gt;
+    const { useState } = React;
+    const JOBS = [
+      { id: 1, title: &quot;QA Engineer&quot;, city: &quot;Kochi&quot; },
+      { id: 2, title: &quot;React Developer&quot;, city: &quot;Thiruvananthapuram&quot; },
+      { id: 3, title: &quot;Data Analyst&quot;, city: &quot;Kochi&quot; },
+      { id: 4, title: &quot;Flutter Developer&quot;, city: &quot;Kozhikode&quot; }
+    ];
+
+    function JobList() {
+      const [city, setCity] = useState(&quot;All&quot;);
+      const shown = city === &quot;All&quot; ? JOBS : JOBS.filter(j =&gt; j.city === city);
+
+      return (
+        &lt;div&gt;
+          &lt;select value={city} onChange={e =&gt; setCity(e.target.value)}&gt;
+            {[&quot;All&quot;, &quot;Kochi&quot;, &quot;Thiruvananthapuram&quot;, &quot;Kozhikode&quot;, &quot;Thrissur&quot;].map(c =&gt; &lt;option key={c}&gt;{c}&lt;/option&gt;)}
+          &lt;/select&gt;
+          {shown.length === 0 ? (
+            &lt;p&gt;No jobs in {city} yet.&lt;/p&gt;
+          ) : (
+            &lt;ul&gt;{shown.map(job =&gt; &lt;li key={job.id}&gt;{job.title} — {job.city}&lt;/li&gt;)}&lt;/ul&gt;
+          )}
+          {city !== &quot;All&quot; &amp;&amp; &lt;button onClick={() =&gt; setCity(&quot;All&quot;)}&gt;Clear filter&lt;/button&gt;}
+        &lt;/div&gt;
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById(&quot;root&quot;)).render(&lt;JobList /&gt;);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea></label>
+              <div class="ln-output">
+                <iframe title="Result of the example code" sandbox="allow-scripts allow-modals" data-frame></iframe>
+                <pre class="ln-console" data-console aria-live="polite" hidden></pre>
+              </div>
+            </div>
+            
+            <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-lists-keys">
+            <h2 id="pts-lists-keys">Key points</h2>
+            <ul><li>map() turns data into elements.</li><li>Keys: unique, stable ids — not indexes for changing lists.</li><li>Ternary or &amp;&amp; for conditional UI.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-react-lists-keys" data-quiz data-answer="1">
+            <h2 id="q-react-lists-keys">Quick check</h2>
+            <p>What makes a good key?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-react-lists-keys" value="0"> <span>Math.random()</span></label>
+              <label><input type="radio" name="q-react-lists-keys" value="1"> <span>A stable unique id from the data</span></label>
+              <label><input type="radio" name="q-react-lists-keys" value="2"> <span>The array index always</span></label>
+              <label><input type="radio" name="q-react-lists-keys" value="3"> <span>The item's text in upper case</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Keys must stay the same between renders; random values change every time and indexes shift when items move.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-lists-keys">
+            <h2 id="prac-lists-keys">Practice task</h2>
+            <p>Add a search box that filters the list by title (case-insensitive) as well as by city.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-lists-keys">
+            <h2 id="iv-lists-keys">Interview corner</h2>
+            <details><summary>Why are keys needed in lists?</summary><p>They let React match items between renders so it can reuse, move or remove the right DOM nodes and keep each item's state.</p></details>
+            <details><summary>What's the pitfall with {count &amp;&amp; &lt;Badge /&gt;}?</summary><p>If count is 0, React renders the 0. Use {count &gt; 0 &amp;&amp; &lt;Badge /&gt;} or a ternary.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-lists-keys">
+            <h2 id="fr-lists-keys">Further reading</h2>
+            <ul><li><a href="https://react.dev/learn/rendering-lists" target="_blank" rel="noopener">React: Rendering lists ↗</a></li><li><a href="https://react.dev/learn/conditional-rendering" target="_blank" rel="noopener">React: Conditional rendering ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/react/events-forms/" rel="prev">← Events & forms</a>
+              <a href="/learning/react/effects/" rel="next">Effects with useEffect →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

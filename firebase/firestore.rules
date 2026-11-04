@@ -154,7 +154,7 @@ service cloud.firestore {
     }
     function validMarketJob(data) {
       return data.keys().hasOnly(['ownerUid','kind','title','company','sector','location','description','requirements','skills','experience','pay','basis','employmentType','workMode','vacancies','urgent','closingDate','status','createdAt','updatedAt',
-          'postType','walkIn','applyMethod','applyLink','applyEmail','howToApply','park','payText','website','requestId'])
+          'postType','walkIn','applyMethod','applyLink','applyEmail','howToApply','park','payText','website'])
         && data.kind in ['community','request'] && shortText(data.title,200) && data.title.size()>0
         && shortText(data.company,150) && data.company.size()>0 && shortText(data.sector,50)
         && shortText(data.location,150) && shortText(data.description,6000) && data.description.size()>=30
@@ -167,7 +167,7 @@ service cloud.firestore {
         && (!('postType' in data) || data.postType in ['job','walkin','alert']) && validWalkIn(data)
         && (!('applyMethod' in data) || data.applyMethod in ['portal','link','email','walkin'])
         && optText(data,'applyLink',500) && optText(data,'applyEmail',200) && optText(data,'howToApply',1000)
-        && optText(data,'park',60) && optText(data,'payText',100) && optText(data,'website',300) && optText(data,'requestId',40);
+        && optText(data,'park',60) && optText(data,'payText',100) && optText(data,'website',300);
     }
     match /marketJobs/{id} {
       allow read: if resource.data.status=='approved' || (marketMember() && request.auth.uid==resource.data.ownerUid) || marketAdmin();

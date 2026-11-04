@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>DSA Sorting algorithms – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Bubble, merge and quick sort, stability, and using Python's sort with keys. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="DSA Sorting algorithms – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Bubble, merge and quick sort, stability, and using Python's sort with keys. Free DSA lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/dsa/sorting/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/dsa/sorting/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"DSA: Sorting algorithms","description":"Bubble, merge and quick sort, stability, and using Python's sort with keys.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/dsa/sorting/","isPartOf":{"@type":"Course","name":"DSA tutorial","url":"https://infoparkdaily.online/learning/dsa/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"DSA","item":"https://infoparkdaily.online/learning/dsa/"},{"@type":"ListItem","position":4,"name":"Sorting algorithms","item":"https://infoparkdaily.online/learning/dsa/sorting/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed" aria-current="page">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#7c3aed">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>DSA tutorial <small data-ln-label="dsa" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/dsa/big-o/" data-ln-lesson="dsa/big-o">Big-O & complexity</a></li>
+              <li><a href="/learning/dsa/arrays-two-pointers/" data-ln-lesson="dsa/arrays-two-pointers">Arrays & two pointers</a></li>
+              <li><a href="/learning/dsa/hashing/" data-ln-lesson="dsa/hashing">Hash maps & sets</a></li>
+              <li><a href="/learning/dsa/stacks-queues/" data-ln-lesson="dsa/stacks-queues">Stacks & queues</a></li>
+              <li><a href="/learning/dsa/linked-lists/" data-ln-lesson="dsa/linked-lists">Linked lists</a></li>
+              <li><a href="/learning/dsa/recursion/" data-ln-lesson="dsa/recursion">Recursion & backtracking</a></li>
+              <li><a href="/learning/dsa/binary-search/" data-ln-lesson="dsa/binary-search">Binary search</a></li>
+              <li><a href="/learning/dsa/sorting/" data-ln-lesson="dsa/sorting" aria-current="page">Sorting algorithms</a></li>
+              <li><a href="/learning/dsa/trees-graphs/" data-ln-lesson="dsa/trees-graphs">Trees & graphs: BFS and DFS</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="dsa/sorting">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/dsa/">DSA</a> / <span aria-current="page">Sorting algorithms</span></nav>
+          <p class="ax-eyebrow">DSA · Lesson 8 of 9</p>
+          <h1>Sorting algorithms</h1>
+          <p class="ln-summary">Bubble, merge and quick sort, stability, and using Python's sort with keys.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/dsa/binary-search/" rel="prev">← Binary search</a>
+              <a href="/learning/dsa/trees-graphs/" rel="next">Trees & graphs: BFS and DFS →</a>
+            </nav>
+          <div class="ln-body">
+<p>You'll rarely write a sort at work — Python's built-in <code>sorted()</code> (Timsort, O(n log n), stable) is excellent — but interviews test whether you understand how sorting works.</p>
+<ul>
+<li><strong>Bubble/insertion sort</strong> — O(n²); insertion sort is fast on nearly-sorted or tiny data.</li>
+<li><strong>Merge sort</strong> — divide in halves, sort each, merge. Always O(n log n), stable, needs O(n) extra space.</li>
+<li><strong>Quick sort</strong> — partition around a pivot. O(n log n) on average, O(n²) worst case, in place.</li>
+<li><strong>Stable</strong> sorts keep equal items in their original order — important when sorting by several keys.</li>
+</ul>
+<p>Sort by multiple fields with a key tuple: <code>sorted(jobs, key=lambda j: (-j["lpa"], j["title"]))</code>.</p>
+          </div>
+          <section class="ln-try" aria-labelledby="try-sorting" data-tryit data-lang="python">
+            <div class="ln-try-head">
+              <h2 id="try-sorting">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>def merge_sort(nums):
+    if len(nums) &lt;= 1:
+        return nums
+    mid = len(nums) // 2
+    left, right = merge_sort(nums[:mid]), merge_sort(nums[mid:])
+    merged, i, j = [], 0, 0
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt;= right[j]:
+            merged.append(left[i]); i += 1
+        else:
+            merged.append(right[j]); j += 1
+    return merged + left[i:] + right[j:]
+
+def quick_sort(nums):
+    if len(nums) &lt;= 1:
+        return nums
+    pivot = nums[len(nums) // 2]
+    return (quick_sort([x for x in nums if x &lt; pivot])
+            + [x for x in nums if x == pivot]
+            + quick_sort([x for x in nums if x &gt; pivot]))
+
+data = [38, 27, 43, 3, 9, 82, 10]
+print(merge_sort(data))
+print(quick_sort(data))
+
+jobs = [
+    {&quot;title&quot;: &quot;QA&quot;, &quot;lpa&quot;: 4}, {&quot;title&quot;: &quot;Data&quot;, &quot;lpa&quot;: 6},
+    {&quot;title&quot;: &quot;Android&quot;, &quot;lpa&quot;: 6}, {&quot;title&quot;: &quot;DevOps&quot;, &quot;lpa&quot;: 12},
+]
+for j in sorted(jobs, key=lambda j: (-j[&quot;lpa&quot;], j[&quot;title&quot;])):
+    print(j[&quot;lpa&quot;], j[&quot;title&quot;])</textarea></label>
+              <div class="ln-output">
+                <div class="ln-result ln-result--python" data-result-box aria-live="polite" aria-label="Python output"><p class="ln-result-hint">Press Run to see the output.</p></div>
+              </div>
+            </div>
+            
+            <p class="ln-try-note">Edit and press Run (or Ctrl/⌘ + Enter). Python runs in your browser — the first run downloads the Python engine and takes a few seconds.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-sorting">
+            <h2 id="pts-sorting">Key points</h2>
+            <ul><li>Built-in sorted() is O(n log n) and stable.</li><li>Merge sort: guaranteed O(n log n), extra space.</li><li>Quick sort: fast on average, O(n²) worst case.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-dsa-sorting" data-quiz data-answer="2">
+            <h2 id="q-dsa-sorting">Quick check</h2>
+            <p>Which sort guarantees O(n log n) in the worst case?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-dsa-sorting" value="0"> <span>Quick sort</span></label>
+              <label><input type="radio" name="q-dsa-sorting" value="1"> <span>Bubble sort</span></label>
+              <label><input type="radio" name="q-dsa-sorting" value="2"> <span>Merge sort</span></label>
+              <label><input type="radio" name="q-dsa-sorting" value="3"> <span>Insertion sort</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Merge sort always splits evenly, so it's O(n log n) in every case.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-sorting">
+            <h2 id="prac-sorting">Practice task</h2>
+            <p>Sort a list of (name, score) tuples by score descending, then name ascending, using one sorted() call.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-sorting">
+            <h2 id="iv-sorting">Interview corner</h2>
+            <details><summary>What is a stable sort and why does it matter?</summary><p>It keeps equal elements in their original relative order, so you can sort by a secondary key first and then by the primary key.</p></details>
+            <details><summary>How can quick sort avoid its O(n²) worst case?</summary><p>Choose pivots randomly or with median-of-three, and use three-way partitioning for many duplicates.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-sorting">
+            <h2 id="fr-sorting">Further reading</h2>
+            <ul><li><a href="https://docs.python.org/3/howto/sorting.html" target="_blank" rel="noopener">Python: Sorting HOW TO ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/dsa/binary-search/" rel="prev">← Binary search</a>
+              <a href="/learning/dsa/trees-graphs/" rel="next">Trees & graphs: BFS and DFS →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

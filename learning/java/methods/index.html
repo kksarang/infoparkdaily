@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Java Methods – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Defining methods, parameters, return types and overloading. Free Java lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Java Methods – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Defining methods, parameters, return types and overloading. Free Java lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/java/methods/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/java/methods/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Java: Methods","description":"Defining methods, parameters, return types and overloading.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/java/methods/","isPartOf":{"@type":"Course","name":"Java tutorial","url":"https://infoparkdaily.online/learning/java/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Java","item":"https://infoparkdaily.online/learning/java/"},{"@type":"ListItem","position":4,"name":"Methods","item":"https://infoparkdaily.online/learning/java/methods/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219" aria-current="page">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#b07219">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Java tutorial <small data-ln-label="java" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/java/introduction/" data-ln-lesson="java/introduction">Java introduction</a></li>
+              <li><a href="/learning/java/variables-types/" data-ln-lesson="java/variables-types">Variables & data types</a></li>
+              <li><a href="/learning/java/conditions/" data-ln-lesson="java/conditions">Operators, if & switch</a></li>
+              <li><a href="/learning/java/loops-arrays/" data-ln-lesson="java/loops-arrays">Loops & arrays</a></li>
+              <li><a href="/learning/java/methods/" data-ln-lesson="java/methods" aria-current="page">Methods</a></li>
+              <li><a href="/learning/java/classes-objects/" data-ln-lesson="java/classes-objects">Classes & objects</a></li>
+              <li><a href="/learning/java/inheritance-interfaces/" data-ln-lesson="java/inheritance-interfaces">Inheritance, interfaces & polymorphism</a></li>
+              <li><a href="/learning/java/collections/" data-ln-lesson="java/collections">Collections & generics</a></li>
+              <li><a href="/learning/java/exceptions/" data-ln-lesson="java/exceptions">Exceptions</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="java/methods">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/java/">Java</a> / <span aria-current="page">Methods</span></nav>
+          <p class="ax-eyebrow">Java · Lesson 5 of 9</p>
+          <h1>Methods</h1>
+          <p class="ln-summary">Defining methods, parameters, return types and overloading.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/java/loops-arrays/" rel="prev">← Loops & arrays</a>
+              <a href="/learning/java/classes-objects/" rel="next">Classes & objects →</a>
+            </nav>
+          <div class="ln-body">
+<p>A <strong>method</strong> is a named block of code inside a class. Its signature lists the return type, name and parameters:</p>
+<pre><code>static double monthlySalary(double lpa) {
+    return lpa * 100000 / 12;
+}</code></pre>
+<ul>
+<li><code>void</code> means the method returns nothing.</li>
+<li><code>static</code> methods belong to the class and can be called without creating an object (useful in <code>main</code>).</li>
+<li><strong>Overloading</strong>: several methods with the same name but different parameter lists.</li>
+<li>Java passes arguments <strong>by value</strong> — for objects, the value is a copy of the reference.</li>
+</ul>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-methods">
+            <div class="ln-try-head"><h2 id="try-methods">Example program</h2><span class="ln-try-badge">Run with JDK 17+: java Main.java</span></div>
+            <pre class="ln-terminal"><code>public class Main {
+    static double monthlySalary(double lpa) {
+        return lpa * 100000 / 12;
+    }
+
+    static String greet(String name) {
+        return &quot;Hello, &quot; + name;
+    }
+
+    static String greet(String name, String city) {   // overload
+        return &quot;Hello, &quot; + name + &quot; from &quot; + city;
+    }
+
+    static boolean isEligible(int age, double cgpa) {
+        return age &gt;= 18 &amp;&amp; age &lt;= 28 &amp;&amp; cgpa &gt;= 6.5;
+    }
+
+    public static void main(String[] args) {
+        System.out.printf(&quot;Monthly: %.2f%n&quot;, monthlySalary(6));
+        System.out.println(greet(&quot;Rahul&quot;));
+        System.out.println(greet(&quot;Rahul&quot;, &quot;Thrissur&quot;));
+        System.out.println(isEligible(23, 7.2));
+    }
+}</code></pre>
+            <p class="ln-output-label">Output</p>
+            <pre class="ln-terminal ln-terminal--out"><code>Monthly: 50000.00
+Hello, Rahul
+Hello, Rahul from Thrissur
+true</code></pre>
+            <p class="ln-try-note">Save the code as <code>Main.java</code> and run <code>java Main.java</code> (JDK 11+ runs single files directly). Names and figures are fictional.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-methods">
+            <h2 id="pts-methods">Key points</h2>
+            <ul><li>Signature = return type + name + parameters.</li><li>void returns nothing.</li><li>Overloading = same name, different parameters.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-java-methods" data-quiz data-answer="1">
+            <h2 id="q-java-methods">Quick check</h2>
+            <p>What does the return type void mean?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-java-methods" value="0"> <span>Returns null</span></label>
+              <label><input type="radio" name="q-java-methods" value="1"> <span>Returns nothing</span></label>
+              <label><input type="radio" name="q-java-methods" value="2"> <span>Returns 0</span></label>
+              <label><input type="radio" name="q-java-methods" value="3"> <span>Can return any type</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>void methods perform actions and don't return a value.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-methods">
+            <h2 id="prac-methods">Practice task</h2>
+            <p>Write a method maxOf(int a, int b, int c) that returns the largest of three numbers, and call it from main.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-methods">
+            <h2 id="iv-methods">Interview corner</h2>
+            <details><summary>Is Java pass-by-value or pass-by-reference?</summary><p>Always pass-by-value. For objects, the reference is copied, so a method can change the object's fields but cannot make the caller's variable point to a different object.</p></details>
+            <details><summary>Overloading vs overriding?</summary><p>Overloading: same method name, different parameters, in the same class (compile-time). Overriding: a subclass redefines a parent method with the same signature (run-time polymorphism).</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-methods">
+            <h2 id="fr-methods">Further reading</h2>
+            <ul><li><a href="https://dev.java/learn/classes-objects/defining-methods/" target="_blank" rel="noopener">dev.java: Defining methods ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/java/loops-arrays/" rel="prev">← Loops & arrays</a>
+              <a href="/learning/java/classes-objects/" rel="next">Classes & objects →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

@@ -11,24 +11,30 @@ import { WEB_EXTRAS } from "./extras-web.mjs";
 import { PY_TRACK } from "./track-python.mjs";
 import { SQL_TRACK } from "./track-sql.mjs";
 import { GIT_TRACK } from "./track-git.mjs";
+import { REACT_TRACK } from "./track-react.mjs";
+import { JAVA_TRACK } from "./track-java.mjs";
+import { EXCEL_TRACK } from "./track-excel.mjs";
+import { DSA_TRACK } from "./track-dsa.mjs";
+import { APT_TRACK } from "./track-aptitude.mjs";
 
 /* Web lessons get their practice / interview / further-reading extras merged in. */
 for (const t of WEB_TRACKS) for (const l of t.lessons) Object.assign(l, WEB_EXTRAS[`${t.key}/${l.slug}`] || {});
-const TRACKS = [...WEB_TRACKS, PY_TRACK, SQL_TRACK, GIT_TRACK];
+const TRACKS = [...WEB_TRACKS, REACT_TRACK, PY_TRACK, SQL_TRACK, GIT_TRACK, JAVA_TRACK, DSA_TRACK, EXCEL_TRACK, APT_TRACK];
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261104ui";
+const V = "20261104max2";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
 /* Tracks that are planned but not written yet — shown honestly as "coming soon". */
 const PLANNED = [
-  ["React", "Components, state and modern frontend apps.", "#149eca"],
-  ["Java", "OOP and backend foundations.", "#b07219"],
-  ["MS Excel", "Formulas, pivot tables and reports.", "#1d6f42"],
-  ["Data structures & algorithms", "Arrays, stacks, sorting and searching for coding rounds.", "#7c3aed"],
-  ["Aptitude & reasoning", "Quantitative, logical and verbal practice for placement tests.", "#b45309"]
+  ["Node.js & Express", "Build REST APIs and backend services with JavaScript.", "#3c873a"],
+  ["TypeScript", "Types for safer, larger JavaScript and React apps.", "#3178c6"],
+  ["Spring Boot", "Java web services, REST APIs and JPA.", "#6db33f"],
+  ["Docker & Linux basics", "Containers, shell commands and deployment basics.", "#2496ed"],
+  ["Power BI", "Dashboards and reports for analyst roles.", "#c79a00"],
+  ["Communication for interviews", "Introductions, HR answers and workplace email.", "#be185d"]
 ];
 
 const write = (rel, html) => {
@@ -38,6 +44,7 @@ const write = (rel, html) => {
 };
 
 const base = [["InfoparkDaily", "/"], ["Learning", "/learning/"]];
+const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git", react: "Re", java: "Jv", excel: "XL", dsa: "DSA", aptitude: "Apt" };
 const trackUrl = (t) => `/learning/${t.key}/`;
 const lessonUrl = (t, l) => `/learning/${t.key}/${l.slug}/`;
 
@@ -54,8 +61,7 @@ const trackBar = (current) => `
 /* ---------------- hub ---------------- */
 function hubPage() {
   const lessonsTotal = TRACKS.reduce((n, t) => n + t.lessons.length, 0);
-  const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git" };
-  const runner = (t) => (t.lang === "shell" ? "Terminal walkthroughs" : t.lang === "python" ? "Runs Python in browser" : t.lang === "sql" ? "Live SQL database" : "Live Try-it editor");
+  const runner = (t) => t.feature || (t.lang === "shell" ? "Terminal walkthroughs" : t.lang === "python" ? "Runs Python in browser" : t.lang === "sql" ? "Live SQL database" : "Live Try-it editor");
   const trackCards = TRACKS.map(
     (t) => `
             <article class="ln-track" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
@@ -209,7 +215,7 @@ function trackPage(t) {
           <div class="lh-hero-copy">
             <p class="ax-pill"><span>${t.level}</span> ${t.lessons.length} lessons · free</p>
             <h1 id="ln-title">${t.name} tutorial <span>${t.tagline}</span></h1>
-            <p class="ax-lede">${t.long}. ${t.lang === "shell" ? "Every lesson has a terminal walkthrough" : "Every lesson has a runnable example you can edit"}, key points, a practice task, a quiz and interview questions.</p>
+            <p class="ax-lede">${t.long}. ${t.heroLine || (t.lang === "shell" ? "Every lesson has a terminal walkthrough" : "Every lesson has a runnable example you can edit")}, key points, a practice task, a quiz and interview questions.</p>
             <div class="ln-hero-actions">
               <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start learning ${t.name}</a>
               <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
@@ -258,6 +264,16 @@ ${trackBar(t.key)}
 /* ---------------- try-it block per language ---------------- */
 function tryBlock(t, l) {
   const lang = t.lang || "web";
+  if (lang === "none") return "";
+  if (lang === "static") {
+    return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
+            <div class="ln-try-head"><h2 id="try-${l.slug}">${t.exampleTitle || "Example"}</h2><span class="ln-try-badge">${t.exampleBadge || ""}</span></div>
+            <pre class="ln-terminal"><code>${esc(l.example)}</code></pre>
+            ${l.output ? `<p class="ln-output-label">${t.outputTitle || "Output"}</p>
+            <pre class="ln-terminal ln-terminal--out"><code>${esc(l.output)}</code></pre>` : ""}
+            ${t.exampleNote ? `<p class="ln-try-note">${t.exampleNote}</p>` : ""}
+          </section>`;
+  }
   if (lang === "shell") {
     return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
             <div class="ln-try-head"><h2 id="try-${l.slug}">Example in the terminal</h2><span class="ln-try-badge">Run these on your own computer</span></div>
@@ -344,6 +360,7 @@ ${tryBlock(t, l)}
 ${l.practice ? `          <section class="ln-practice-task" aria-labelledby="prac-${l.slug}">
             <h2 id="prac-${l.slug}">Practice task</h2>
             <p>${esc(l.practice)}</p>
+            ${l.practiceAnswer ? `<details class="ln-answer"><summary>Show answer</summary><p>${esc(l.practiceAnswer)}</p></details>` : ""}
           </section>` : ""}
 ${(l.interview || []).length ? `          <section class="ln-interview" aria-labelledby="iv-${l.slug}">
             <h2 id="iv-${l.slug}">Interview corner</h2>

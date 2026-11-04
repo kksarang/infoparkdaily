@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Aptitude Averages & mixtures – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Average formula, effect of adding/removing items, and weighted averages. Free Aptitude lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Aptitude Averages &amp; mixtures – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Average formula, effect of adding/removing items, and weighted averages. Free Aptitude lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/aptitude/averages/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/aptitude/averages/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Aptitude: Averages & mixtures","description":"Average formula, effect of adding/removing items, and weighted averages.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/aptitude/averages/","isPartOf":{"@type":"Course","name":"Aptitude tutorial","url":"https://infoparkdaily.online/learning/aptitude/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Aptitude","item":"https://infoparkdaily.online/learning/aptitude/"},{"@type":"ListItem","position":4,"name":"Averages & mixtures","item":"https://infoparkdaily.online/learning/aptitude/averages/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104max2" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/aptitude/" style="--ln-c:#b45309" aria-current="page">Aptitude</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#b45309">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Aptitude tutorial <small data-ln-label="aptitude" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/aptitude/percentages/" data-ln-lesson="aptitude/percentages">Percentages</a></li>
+              <li><a href="/learning/aptitude/profit-loss/" data-ln-lesson="aptitude/profit-loss">Profit, loss & discount</a></li>
+              <li><a href="/learning/aptitude/ratios/" data-ln-lesson="aptitude/ratios">Ratio, proportion & partnership</a></li>
+              <li><a href="/learning/aptitude/averages/" data-ln-lesson="aptitude/averages" aria-current="page">Averages & mixtures</a></li>
+              <li><a href="/learning/aptitude/time-work/" data-ln-lesson="aptitude/time-work">Time & work</a></li>
+              <li><a href="/learning/aptitude/speed-distance/" data-ln-lesson="aptitude/speed-distance">Time, speed & distance</a></li>
+              <li><a href="/learning/aptitude/interest/" data-ln-lesson="aptitude/interest">Simple & compound interest</a></li>
+              <li><a href="/learning/aptitude/number-series/" data-ln-lesson="aptitude/number-series">Number series & number system</a></li>
+              <li><a href="/learning/aptitude/logical-reasoning/" data-ln-lesson="aptitude/logical-reasoning">Logical reasoning</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="aptitude/averages">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/aptitude/">Aptitude</a> / <span aria-current="page">Averages & mixtures</span></nav>
+          <p class="ax-eyebrow">Aptitude · Lesson 4 of 9</p>
+          <h1>Averages & mixtures</h1>
+          <p class="ln-summary">Average formula, effect of adding/removing items, and weighted averages.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/aptitude/ratios/" rel="prev">← Ratio, proportion & partnership</a>
+              <a href="/learning/aptitude/time-work/" rel="next">Time & work →</a>
+            </nav>
+          <div class="ln-body">
+<ul>
+<li>Average = <code>sum of values / number of values</code>, so Sum = Average × Count.</li>
+<li>Adding a value above the average raises it; the change in average = <code>(new value − old average) / new count</code>.</li>
+<li>Weighted average of groups: <code>(n₁a₁ + n₂a₂) / (n₁ + n₂)</code>.</li>
+<li>Average of consecutive numbers = average of the first and last.</li>
+<li><strong>Alligation</strong> (mixing two prices to get a mean): ratio = <code>(dearer − mean) : (mean − cheaper)</code> for cheaper : dearer.</li>
+</ul>
+<div class="ln-worked"><p class="ln-worked-q"><strong>Example:</strong> The average age of 10 employees is 28. When the manager joins, the average becomes 29. Find the manager's age.</p><ol><li>Old sum = 10 × 28 = 280.</li><li>New sum = 11 × 29 = 319.</li><li>Manager = 319 − 280.</li></ol><p class="ln-worked-a"><strong>Answer:</strong> 39 years</p></div>
+<div class="ln-worked"><p class="ln-worked-q"><strong>Example:</strong> In what ratio must rice at ₹40/kg be mixed with rice at ₹60/kg to get a mixture worth ₹45/kg?</p><ol><li>Cheaper : dearer = (60 − 45) : (45 − 40) = 15 : 5.</li></ol><p class="ln-worked-a"><strong>Answer:</strong> 3 : 1</p></div>
+          </div>
+
+          <section class="ln-points" aria-labelledby="pts-averages">
+            <h2 id="pts-averages">Key points</h2>
+            <ul><li>Sum = Average × Count — work with sums.</li><li>Weighted average for groups of different sizes.</li><li>Alligation gives mixing ratios quickly.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-aptitude-averages" data-quiz data-answer="0">
+            <h2 id="q-aptitude-averages">Quick check</h2>
+            <p>Average of 5 numbers is 20. If one number 30 is removed, the new average is…</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-aptitude-averages" value="0"> <span>17.5</span></label>
+              <label><input type="radio" name="q-aptitude-averages" value="1"> <span>18</span></label>
+              <label><input type="radio" name="q-aptitude-averages" value="2"> <span>20</span></label>
+              <label><input type="radio" name="q-aptitude-averages" value="3"> <span>22.5</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Sum 100 − 30 = 70; 70 / 4 = 17.5.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-averages">
+            <h2 id="prac-averages">Practice task</h2>
+            <p>A batsman's average over 20 innings is 42. How many runs must he score in the 21st innings to raise his average to 44?</p>
+            <details class="ln-answer"><summary>Show answer</summary><p>Needed sum = 21 × 44 = 924; current = 20 × 42 = 840; runs = 84.</p></details>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-averages">
+            <h2 id="iv-averages">Interview corner</h2>
+            <details><summary>Class A (30 students) averages 60, class B (20) averages 70. Combined average?</summary><p>(30×60 + 20×70) / 50 = 3200/50 = 64.</p></details>
+            <details><summary>What is the average of the first 50 natural numbers?</summary><p>(1 + 50) / 2 = 25.5.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/aptitude/ratios/" rel="prev">← Ratio, proportion & partnership</a>
+              <a href="/learning/aptitude/time-work/" rel="next">Time & work →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104max2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

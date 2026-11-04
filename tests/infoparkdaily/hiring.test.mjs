@@ -110,8 +110,10 @@ test("only admins can review a request, and only status/note fields", async () =
 });
 
 test("admin publishes an approved request as a public job; employers cannot fake one", async () => {
-  const published = communityJob({ ownerUid: "admin", kind: "request", requestId: REQ, status: "approved", applyMethod: "email", applyEmail: "careers@brightloop.example" });
+  const published = communityJob({ ownerUid: "admin", kind: "request", status: "approved", applyMethod: "email", applyEmail: "careers@brightloop.example" });
   await assertSucceeds(addDoc(collection(admin, "marketJobs"), published));
+  // The private tracking ID must never be copied onto a public job.
+  await assertFails(addDoc(collection(admin, "marketJobs"), { ...published, requestId: REQ }));
   await assertFails(addDoc(collection(employer, "marketJobs"), { ...published, ownerUid: "hemployer" }));
   await assertFails(addDoc(collection(employer, "marketJobs"), communityJob({ kind: "request" })));
 });

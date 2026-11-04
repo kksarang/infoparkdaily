@@ -589,3 +589,21 @@
   .ln-practice a { padding-left: 72px; }
 }
 .ln-paths-grid { align-items: start; }
+
+/* worked examples, tables in lessons, static output, practice answers */
+.ln-body table, .ln-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; }
+.ln-body th, .ln-body td { padding: 8px 10px; border: 1px solid var(--ln-line); text-align: left; }
+.ln-body th { background: var(--ln-soft); }
+.ln-worked { margin: 14px 0; padding: 16px 18px; border: 1px solid var(--ln-line); border-left: 5px solid var(--ln-c); border-radius: 14px; background: var(--ln-surface); }
+.ln-worked p { margin: 0; }
+.ln-worked ol { margin: 8px 0; padding-left: 1.3em; }
+.ln-worked li { padding: 2px 0; }
+.ln-worked-a { color: var(--ij-good, #1d7a4c); }
+.ln-output-label { margin: 14px 0 6px; font-weight: 700; font-size: 0.9rem; }
+.ln-terminal--out { background: #0b0d11; color: #c9f2d6; }
+.ln-answer { margin-top: 10px; }
+.ln-answer summary { cursor: pointer; font-weight: 700; }
+.ln-answer p { margin: 8px 0 0; }
+kbd { padding: 1px 6px; border: 1px solid var(--ln-line, #ddd); border-bottom-width: 2px; border-radius: 6px; background: #fff; font: 0.85em/1.4 "SFMono-Regular", Menlo, Consolas, monospace; }
+/* site-wide code styles must not paint inside dark code blocks */
+.ln-page .ln-terminal code, .ln-page .ln-console code { padding: 0; border: 0; border-radius: 0; background: none; color: inherit; font: inherit; box-shadow: none; }

@@ -248,6 +248,8 @@
     if (frame) {
       window.addEventListener("message", (e) => {
         if (e.source !== frame.contentWindow || !e.data || !e.data.lnConsole) return;
+        /* Babel-in-browser always warns about precompiling; irrelevant for lessons. */
+        if (/in-browser Babel transformer/.test(e.data.text)) return;
         const line = document.createElement("span");
         line.className = "ln-log ln-log--" + e.data.type;
         line.textContent = (e.data.type === "error" ? "✖ " : "› ") + e.data.text + "\n";
