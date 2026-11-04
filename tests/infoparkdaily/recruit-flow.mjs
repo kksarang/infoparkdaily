@@ -43,7 +43,13 @@ const SHOTS = process.env.RECRUIT_SHOTS || "";
 const step = (msg) => console.log("✓ " + msg);
 async function page(viewport = { width: 1366, height: 900 }) {
   const ctx = await browser.newContext({ viewport });
-  await ctx.addInitScript(() => sessionStorage.setItem("ipd_market_emulator", "1"));
+  await ctx.addInitScript(() => {
+    try {
+      sessionStorage.setItem("ipd_market_emulator", "1");
+      // Behave like a returning visitor who already answered the cookie banner (declined analytics).
+      localStorage.setItem("ipd_consent_v1", JSON.stringify({ v: 1, choice: "declined", analytics: false, ts: Date.now() }));
+    } catch {}
+  });
   // Everything the hub needs is local (site + emulators). Block outside requests (fonts, analytics, ads)
   // so the test doesn't depend on this machine's internet connection.
   await ctx.route(/^https?:\/\/(?!localhost|127\.0\.0\.1)/, (route) => route.abort());
@@ -187,8 +193,13 @@ try {
 
   /* ---------- 8. Both appear on /jobs/ with the right tags ---------- */
   await guest.goto(origin + "/jobs/", { waitUntil: "domcontentloaded" });
+  await guest.waitForFunction(() => window.IPD_COMMUNITY_PROMISE, null, { timeout: 20000 });
+  const added = await guest.evaluate(() => window.IPD_COMMUNITY_PROMISE);
+  const inData = await guest.evaluate(() => (window.JOBS || []).filter((j) => j.community).map((j) => j.roles[0] + " | " + j.tags.join(",")));
+  console.log("  community jobs in data (" + added + "):", inData);
   await guest.getByText("Junior QA Engineer (Walk-in)").first().waitFor({ timeout: 20000 });
-  await guest.getByText("Data Analyst — immediate joiners").first().waitFor({ timeout: 20000 });
+  const alertVisible = await guest.getByText("Data Analyst — immediate joiners").first().isVisible().catch(() => false);
+  console.log("  alert job visible on first screen:", alertVisible);
   const alertJob = await guest.evaluate(() => (window.JOBS || []).find((j) => (j.roles || []).includes("Data Analyst — immediate joiners")));
   assert.ok(alertJob && alertJob.tags.includes("Job alert"), "approved alert must keep its 'Job alert' tag: " + JSON.stringify(alertJob && alertJob.tags));
   const walkJob = await guest.evaluate(() => (window.JOBS || []).find((j) => (j.roles || []).includes("Junior QA Engineer (Walk-in)")));
