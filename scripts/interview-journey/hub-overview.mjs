@@ -116,154 +116,170 @@ const PATH = [
   ["Accept & join", "/interview/preparation/#ch-offer-stage", "Offer, BGV and day one"]
 ];
 
+const PLANS = {
+  fresher: {
+    label: "Fresher / student plan",
+    intro: "No experience yet? That’s fine. Follow these steps in order — most freshers get interview-ready in 2–4 weeks.",
+    steps: [
+      ["Make your first resume", "Use a simple one-page template. Put projects, internships and skills first — you don’t need work experience.", "30 min", "/resume-builder/templates/", "Build my resume", "resume"],
+      ["Check it against a job", "Paste a job description and see which keywords are missing. Fix them honestly.", "10 min", "/ats-checker/", "Check my resume", "ats"],
+      ["Find fresher jobs & walk-ins", "Look for Trainee, Associate, Junior and Intern roles. Walk-ins are great practice.", "15 min a day", "/jobs/?type=fresher", "See fresher jobs", "jobs"],
+      ["Send a proper application email", "Short subject, 5–6 lines, resume attached as PDF. Copy a template and change the details.", "10 min", "/interview/email-guide/#email-job-application", "Get email template", "email"],
+      ["Practise HR & aptitude questions", "Start with “Tell me about yourself”, then aptitude and basics of your subject.", "30 min a day", "/interview/questions/?level=fresher", "Practise fresher questions", "questions"],
+      ["Learn & try live code", "Fill skill gaps with free courses and practise code right in your browser.", "Ongoing", "/interview/learning/", "Start learning", "code"],
+      ["Prepare for each interview round", "Understand HR, test, technical and manager rounds — what they check and how to answer.", "2–3 hrs", "/interview/preparation/", "Open the guide", "interview"],
+      ["Got an offer? Check it first", "Understand CTC vs in-hand, bond, joining date and documents before you accept.", "20 min", "/interview/preparation/#ch-offer-stage", "Read offer tips", "offer"]
+    ]
+  },
+  experienced: {
+    label: "Experienced professional plan",
+    intro: "Switching jobs? Work through these steps while you’re still employed — start 2–3 months before you want to move.",
+    steps: [
+      ["Update your resume with results", "Show achievements with numbers, not duties. Keep titles and dates exactly as in your letters.", "45 min", "/resume-builder/templates/", "Update my resume", "resume"],
+      ["Match it to the roles you want", "Check keywords against 2–3 target job descriptions.", "10 min per job", "/ats-checker/", "Check my resume", "ats"],
+      ["Find experienced roles & referrals", "Use InfoparkDaily’s experienced and referral filters, plus LinkedIn and Naukri.", "15 min a day", "/jobs/?type=experienced", "See experienced jobs", "jobs"],
+      ["Reach recruiters and referrers", "Send short referral requests and recruiter replies that get answered.", "15 min", "/interview/email-guide/#more-emails", "Get email templates", "email"],
+      ["Practise technical & managerial questions", "System questions, project stories and STAR answers for manager rounds.", "30 min a day", "/interview/questions/?level=experienced", "Practise experienced questions", "questions"],
+      ["Prepare salary & notice-period answers", "Know your current CTC, expected range, notice period and buyout options.", "30 min", "/interview/preparation/#ch-final-hr-round", "Salary & negotiation guide", "salary"],
+      ["Compare offers, then resign right", "Check the offer letter, accept in writing, then resign and hand over cleanly.", "30 min", "/interview/preparation/#ch-offer-stage", "Offer & resignation guide", "offer"]
+    ]
+  }
+};
+
+/* Flat illustrations for plan cards (240×140, brand colours). */
+const ART = {
+  resume: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="78" y="14" width="84" height="112" rx="10" fill="#fff" stroke="#12151b" stroke-width="3"/><circle cx="100" cy="38" r="10" fill="#ffc107"/><rect x="116" y="32" width="34" height="6" rx="3" fill="#12151b"/><rect x="116" y="42" width="22" height="5" rx="2.5" fill="#12151b" opacity=".35"/><rect x="92" y="62" width="58" height="5" rx="2.5" fill="#12151b" opacity=".45"/><rect x="92" y="74" width="50" height="5" rx="2.5" fill="#12151b" opacity=".45"/><rect x="92" y="86" width="56" height="5" rx="2.5" fill="#12151b" opacity=".45"/><rect x="92" y="98" width="40" height="5" rx="2.5" fill="#12151b" opacity=".45"/><circle cx="170" cy="104" r="18" fill="#12151b"/><path d="M161 104l6 6 12-13" fill="none" stroke="#ffc107" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  ats: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="40" y="22" width="96" height="98" rx="10" fill="#fff" stroke="#12151b" stroke-width="3"/><rect x="54" y="40" width="60" height="6" rx="3" fill="#12151b"/><rect x="54" y="54" width="68" height="5" rx="2.5" fill="#ffc107"/><rect x="54" y="66" width="48" height="5" rx="2.5" fill="#12151b" opacity=".35"/><rect x="54" y="78" width="62" height="5" rx="2.5" fill="#ffc107"/><rect x="54" y="90" width="40" height="5" rx="2.5" fill="#12151b" opacity=".35"/><circle cx="160" cy="76" r="36" fill="#12151b"/><path d="M160 76m-26 0a26 26 0 1 1 52 0" fill="none" stroke="#ffc107" stroke-width="8" stroke-linecap="round"/><text x="160" y="88" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="20" font-weight="700" fill="#fff">82%</text></svg>`,
+  jobs: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="56" y="40" width="128" height="80" rx="14" fill="#12151b"/><rect x="96" y="22" width="48" height="24" rx="8" fill="none" stroke="#12151b" stroke-width="6"/><rect x="56" y="72" width="128" height="6" fill="#ffc107"/><rect x="110" y="64" width="20" height="20" rx="5" fill="#fff"/><circle cx="186" cy="38" r="16" fill="#fff" stroke="#12151b" stroke-width="3"/><text x="186" y="44" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="15" font-weight="700" fill="#12151b">12</text></svg>`,
+  email: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="52" y="30" width="136" height="88" rx="12" fill="#fff" stroke="#12151b" stroke-width="3"/><path d="M52 42l68 42 68-42" fill="none" stroke="#12151b" stroke-width="4" stroke-linejoin="round"/><circle cx="186" cy="34" r="18" fill="#ffc107" stroke="#12151b" stroke-width="3"/><path d="M178 34l6 6 10-12" fill="none" stroke="#12151b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  questions: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="34" y="22" width="112" height="48" rx="14" fill="#12151b"/><path d="M52 70l-6 14 18-14" fill="#12151b"/><rect x="50" y="36" width="70" height="7" rx="3.5" fill="#ffc107"/><rect x="50" y="50" width="48" height="6" rx="3" fill="#fff" opacity=".55"/><rect x="96" y="76" width="112" height="44" rx="14" fill="#fff" stroke="#12151b" stroke-width="3"/><path d="M190 120l6 12-18-12" fill="#fff" stroke="#12151b" stroke-width="3" stroke-linejoin="round"/><rect x="112" y="90" width="76" height="6" rx="3" fill="#12151b"/><rect x="112" y="102" width="52" height="6" rx="3" fill="#12151b" opacity=".35"/><text x="182" y="58" font-family="Space Grotesk, Arial" font-size="36" font-weight="700" fill="#12151b">?</text></svg>`,
+  code: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="38" y="18" width="164" height="104" rx="12" fill="#12151b"/><rect x="38" y="18" width="164" height="20" rx="12" fill="#262b35"/><circle cx="52" cy="28" r="4" fill="#ff5f57"/><circle cx="64" cy="28" r="4" fill="#febc2e"/><circle cx="76" cy="28" r="4" fill="#28c840"/><path d="M70 66l-14 12 14 12M170 66l14 12-14 12" fill="none" stroke="#ffc107" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M130 58l-20 42" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  interview: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="36" y="34" width="72" height="72" rx="14" fill="#fff" stroke="#12151b" stroke-width="3"/><circle cx="72" cy="60" r="12" fill="#ffc107"/><rect x="54" y="78" width="36" height="16" rx="8" fill="#12151b"/><rect x="132" y="34" width="72" height="72" rx="14" fill="#12151b"/><circle cx="168" cy="60" r="12" fill="#fff"/><rect x="150" y="78" width="36" height="16" rx="8" fill="#ffc107"/><path d="M112 70h16" stroke="#12151b" stroke-width="3" stroke-dasharray="4 4"/></svg>`,
+  offer: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="64" y="16" width="112" height="112" rx="10" fill="#fff" stroke="#12151b" stroke-width="3"/><rect x="80" y="34" width="56" height="7" rx="3.5" fill="#12151b"/><rect x="80" y="50" width="80" height="5" rx="2.5" fill="#12151b" opacity=".35"/><rect x="80" y="62" width="72" height="5" rx="2.5" fill="#12151b" opacity=".35"/><rect x="80" y="74" width="60" height="5" rx="2.5" fill="#12151b" opacity=".35"/><circle cx="150" cy="104" r="16" fill="#ffc107" stroke="#12151b" stroke-width="3"/><path d="M142 118l-4 14 12-6 12 6-4-14" fill="#12151b"/><path d="M84 104c6-8 12 8 18 0s12 8 18 0" fill="none" stroke="#12151b" stroke-width="3" stroke-linecap="round"/></svg>`,
+  salary: `<svg viewBox="0 0 240 140" aria-hidden="true"><rect x="40" y="30" width="120" height="76" rx="12" fill="#12151b"/><circle cx="100" cy="68" r="20" fill="#ffc107"/><text x="100" y="76" text-anchor="middle" font-family="Space Grotesk, Arial" font-size="22" font-weight="700" fill="#12151b">₹</text><rect x="52" y="42" width="18" height="6" rx="3" fill="#ffc107"/><rect x="130" y="88" width="18" height="6" rx="3" fill="#ffc107"/><path d="M170 104l20-26 14 12 18-30" fill="none" stroke="#12151b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M212 58l10 2-2 10" fill="none" stroke="#12151b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+};
+const TONES = ["yellow", "ink", "cream", "soft"];
+
+const QUICK = [
+  ["Practise interview questions", "/interview/questions/", I.qa],
+  ["Write a job email", "/interview/email-guide/", I.mail],
+  ["Build or fix my resume", "/resume-builder/templates/", I.resume],
+  ["Find jobs today", "/jobs/", I.jobs]
+];
+
+const HELP = [
+  ["I’m a fresher with no experience. Is this for me?", "Yes. Choose <strong>Fresher / student</strong> above. Every step is written for people applying for their first job — projects and internships count."],
+  ["I don’t know which job to apply for.", "Start with <a href=\"/jobs/?type=fresher\">fresher jobs</a> or <a href=\"/jobs/?type=walkin\">walk-ins</a>, read a few job descriptions, and pick roles that match your degree and projects. The <a href=\"/interview/learning/\">Learning</a> page shows what each role needs."],
+  ["I have an interview tomorrow. What should I do?", "Practise “Tell me about yourself” and the <a href=\"/interview/questions/#q-hr-round\">HR questions</a>, revise your resume line by line, and read the <a href=\"/interview/preparation/#ch-initial-interview\">HR call</a> and <a href=\"/interview/preparation/#ch-technical-interview\">technical interview</a> chapters."],
+  ["Is everything free? Do I need to sign up?", "Everything here is free and works without signing up. Your progress is saved in your browser. Sign in only if you want to save resumes in the Resume Builder."],
+  ["Is InfoparkDaily the company hiring me?", "No. InfoparkDaily lists openings from companies and public sources. Always apply through the method on the job listing, and never pay anyone for a job."]
+];
+
 export function overviewPage() {
-  const chapters = [...chaptersA, ...chaptersB, ...chaptersC];
   const items = [["InfoparkDaily", "/"], ["Career Tools", "/resume-builder/"], ["Interview hub", "/interview/"]];
 
-  const SIZE = { preparation: "xl", questions: "wide", learning: "sm", email: "sm", resume: "wide", jobs: "wide" };
-  const course = (c) => {
-    const size = SIZE[c.key] || "sm";
-    const extraXl =
-      size === "xl"
-        ? `<ol class="bx-mods">${MODULES.map(
-            ([tag, title, , [from, to]]) => `<li><span>${tag.replace("Module ", "M")}</span>${title}<em>${to - from + 1} lessons</em></li>`
-          ).join("")}</ol><div class="bx-tracks"><span>Tracks</span><b>🎓 Fresher</b><b>💼 Experienced</b></div>`
-        : "";
+  const totalTime = (kind) => (kind === "fresher" ? "About 2–4 weeks" : "About 4–8 weeks alongside your job");
+  const plan = (kind) => {
+    const p = PLANS[kind];
     return `
-          <article class="bx bx--${size} bx--${c.tone} ij-reveal" id="hub-${c.key}">
-            <div class="bx-top">
-              <span class="bx-icon" aria-hidden="true">${svg(c.icon)}</span>
-              <span class="bx-cat">${c.cat}</span>
+          <div class="ez-plan" data-plan="${kind}">
+            <div class="ez-plan-bar">
+              <div class="ez-plan-left">
+                <span class="ez-plan-tag">${kind === "fresher" ? "🎓" : "💼"} ${p.label}</span>
+                <p>${p.intro}</p>
+              </div>
+              <ul class="ez-plan-facts">
+                <li><strong>${p.steps.length}</strong><span>steps</span></li>
+                <li><strong>${kind === "fresher" ? "2–4" : "4–8"}</strong><span>weeks</span></li>
+                <li><strong>Free</strong><span>no sign-up</span></li>
+              </ul>
             </div>
-            <h3><a href="${c.href}" class="bx-link">${c.title}</a></h3>
-            <p class="bx-text">${c.text}</p>
-            ${extraXl}
-            <ul class="bx-meta">${c.meta.map(([ic, t]) => `<li>${svg(ic)}${t}</li>`).join("")}</ul>
-            ${
-              c.progress
-                ? `<div class="ac-progress bx-progress" data-ac-progress="${c.progress}" data-total="${c.total}" data-unit="${c.unit}"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>`
-                : ""
-            }
-            <div class="bx-actions">
-              <span class="bx-cta" data-ac-cta="${c.progress || ""}">${c.cta} </span><span class="bx-arrow" aria-hidden="true">→</span>
-              ${(c.extra || []).map(([h, l]) => `<a class="bx-chip" href="${h}">${l}</a>`).join("")}
-            </div>
-          </article>`;
-  };
-
-  const module = ([tag, title, text, [from, to]]) => {
-    const list = chapters.slice(from - 1, to);
-    const mins = list.reduce((s, c) => s + c.time, 0);
-    return `
-          <details class="ac-module ij-reveal"${from === 1 ? " open" : ""}>
-            <summary>
-              <span class="ac-module-tag">${tag}</span>
-              <span class="ac-module-title"><strong>${title}</strong><small>${list.length} lessons · ${mins} min</small></span>
-              <span class="ac-module-chev" aria-hidden="true"></span>
-            </summary>
-            <p class="ac-module-text">${text}</p>
-            <ol class="ac-lessons">
-              ${list
+            <ol class="pc-grid" aria-label="${p.label}: ${totalTime(kind)}">
+              ${p.steps
                 .map(
-                  (c) => `<li data-ac-lesson="${c.id}"><a href="/interview/preparation/#ch-${c.id}"><span class="ac-lesson-num">${String(c.num).padStart(2, "0")}</span><span class="ac-lesson-title">${c.title}</span><span class="ac-lesson-time">${c.time} min</span><span class="ac-lesson-state" aria-hidden="true"></span></a></li>`
+                  ([t, d, time, href, cta, art], i) => `<li class="pc pc--${TONES[i % TONES.length]}">
+                <a class="pc-art" href="${href}" tabindex="-1" aria-hidden="true">${ART[art] || ""}<span class="pc-num">Step ${i + 1}</span></a>
+                <div class="pc-body">
+                  <h3><a href="${href}">${t}</a></h3>
+                  <p>${d}</p>
+                </div>
+                <div class="pc-foot">
+                  <span class="pc-time">${svg(I.clock)}${time}</span>
+                  <a class="pc-btn" href="${href}">${cta} <span aria-hidden="true">→</span></a>
+                </div>
+              </li>`
                 )
                 .join("")}
             </ol>
-          </details>`;
+            <p class="ez-switch">Not you? <button type="button" data-set-track="${kind === "fresher" ? "experienced" : "fresher"}">Switch to the ${kind === "fresher" ? "experienced" : "fresher"} plan</button></p>
+          </div>`;
   };
 
-  const CHIPS = [["HR round", "/interview/questions/#q-hr-round"], ["Java", "/interview/questions/#q-java"], ["SQL", "/interview/questions/#q-sql"], ["Python", "/interview/questions/#q-python"], ["Testing", "/interview/questions/#q-manual-testing"], ["Accounts", "/interview/questions/#q-accounts"]];
-  const main = `
-      <section class="ax-hero" aria-labelledby="hub-title">
-        <div class="ax-glow" aria-hidden="true"></div>
-        <div class="ij-wrap ax-grid">
-          <div class="ax-copy">
-            ${crumbs(items)}
-            <p class="ax-pill"><span>New</span> InfoparkDaily Career Academy · 100% free</p>
-            <h1 id="hub-title">Prepare. Learn. Improve.<br /><span>Get hired.</span></h1>
-            <p class="ax-lede">Everything you need for your next career move — from finding jobs to cracking interviews. Self-paced courses, 354 practice questions and live code, for freshers and experienced professionals.</p>
-            <form class="ax-search" action="/interview/questions/" method="get" role="search">
-              <label class="ij-sr" for="ax-q">Search interview questions</label>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
-              <input id="ax-q" name="q" type="search" placeholder="Search interview questions — e.g. “second highest salary”" autocomplete="off" />
-              <button type="submit">Search</button>
-            </form>
-            <div class="ax-chips"><span>Popular:</span>${CHIPS.map(([t, h]) => `<a href="${h}">${t}</a>`).join("")}</div>
-            <div class="ax-cta">
-              <a class="ax-btn ax-btn--yellow" href="/interview/preparation/" data-ac-continue>Start interview course →</a>
-              <a class="ax-btn ax-btn--ghost" href="#courses">Explore career resources</a>
-            </div>
-            <ul class="ax-stats">
-              <li><strong>17</strong> chapters</li>
-              <li><strong>354</strong> questions</li>
-              <li><strong>44</strong> subjects</li>
-              <li><strong>11</strong> email templates</li>
-            </ul>
-          </div>
+  const tile = (c) => `
+            <a class="ez-tile ez-tile--${c.tone}" href="${c.href}">
+              <span class="ez-tile-icon" aria-hidden="true">${svg(c.icon)}</span>
+              <span class="ez-tile-body"><strong>${c.title}</strong><span>${c.text}</span><em>${c.meta.map(([, t]) => t).slice(0, 2).join(" · ")}</em></span>
+              <span class="ez-tile-go" aria-hidden="true">→</span>
+            </a>`;
 
-          <div class="ax-visual" aria-hidden="true">
-            <div class="ax-card ax-card--course">
-              <div class="ax-card-head"><span class="ax-dot"></span>Interview Preparation<em>Course</em></div>
-              <div class="ax-course-row">
-                <div class="ac-ring ax-ring" data-ac-ring style="--p:0"><span data-ac-ring-pct>0%</span></div>
-                <div><strong>Your progress</strong><small>17 chapters · fresher &amp; experienced</small></div>
-              </div>
-              <ul class="ax-lessons">
-                <li class="is-done"><i></i>Job discovery</li>
-                <li class="is-done"><i></i>Resume creation</li>
-                <li class="is-now"><i></i>HR screening call</li>
-                <li><i></i>Technical interview</li>
-              </ul>
-            </div>
-            <div class="ax-card ax-card--q">
-              <span class="ax-q-tag">HR round · Fresher</span>
-              <p class="ax-q">“Tell me about yourself.”</p>
-              <p class="ax-a">Present → past → proof → future, in 60–90 seconds…</p>
-              <span class="ax-q-btn">Practised ✓</span>
-            </div>
-            <div class="ax-card ax-card--code">
-              <div class="ax-code-bar"><span></span><span></span><span></span><em>query.sql</em></div>
-              <pre><b>SELECT</b> MAX(salary)
-<b>FROM</b> employees
-<b>WHERE</b> salary &lt; (…);</pre>
-            </div>
-            <div class="ax-card ax-card--toast"><span class="ax-toast-icon">✓</span><div><strong>Offer received</strong><small>Java Developer · Infopark</small></div></div>
-          </div>
-        </div>
+  const main = `
+      <section class="ez-hero" aria-labelledby="hub-title">
+        <div class="ax-glow" aria-hidden="true"></div>
         <div class="ij-wrap">
-          <p class="ax-parks"><span>Built for jobs at</span> Infopark Kochi <i></i> Technopark <i></i> Cyberpark <i></i> UL CyberPark <i></i> SmartCity Kochi</p>
+          ${crumbs(items)}
+          <div class="ez-hero-copy">
+            <p class="ax-pill"><span>Free</span> InfoparkDaily career hub</p>
+            <h1 id="hub-title">Prepare. Learn. Improve. <span>Get hired.</span></h1>
+            <p class="ax-lede">A simple step-by-step plan to get your next job — from your resume to your offer letter. Tell us where you are, and we’ll show you what to do next.</p>
+          </div>
+          <div class="ez-choose" role="group" aria-labelledby="ez-q">
+            <p class="ez-q" id="ez-q">Who are you?</p>
+            <div class="ez-choices">
+              <button type="button" class="ez-choice" data-set-track="fresher" aria-pressed="false">
+                <span class="ez-choice-emoji" aria-hidden="true">🎓</span>
+                <span class="ez-choice-text"><strong>I’m a fresher / student</strong><small>Looking for my first job, internship or campus placement</small></span>
+                <span class="ez-choice-go" aria-hidden="true">→</span>
+              </button>
+              <button type="button" class="ez-choice" data-set-track="experienced" aria-pressed="false">
+                <span class="ez-choice-emoji" aria-hidden="true">💼</span>
+                <span class="ez-choice-text"><strong>I’m experienced</strong><small>Already working and want to switch or grow</small></span>
+                <span class="ez-choice-go" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+          <div class="ez-quick">
+            <span>Know what you need?</span>
+            ${QUICK.map(([t, h, ic]) => `<a href="${h}">${svg(ic)}${t}</a>`).join("")}
+          </div>
         </div>
       </section>
 ${hubNav("overview")}
-      <section class="ac-section ax-courses" id="courses" aria-labelledby="courses-title">
+      <section class="ez-section" id="plan" aria-labelledby="plan-title">
         <div class="ij-wrap">
-          <div class="ac-head">
-            <div>
-              <p class="ax-eyebrow">Course catalogue</p>
-              <h2 id="courses-title">Everything you need, in one academy</h2>
-              <p>Short overviews here — open any course for lessons, examples, templates and tools.</p>
-            </div>
-            <a class="ax-link" href="/interview/preparation/">View full curriculum →</a>
+          <div class="ez-head">
+            <p class="ax-eyebrow">Your plan</p>
+            <h2 id="plan-title">Your step-by-step plan</h2>
           </div>
-          <div class="bx-grid">${COURSES.map(course).join("")}</div>
+          <div class="ez-empty">
+            <p><strong>Choose “fresher” or “experienced” above</strong> to see your plan.</p>
+            <div class="ez-empty-btns">
+              <button type="button" class="ax-btn ax-btn--yellow" data-set-track="fresher">🎓 Show fresher plan</button>
+              <button type="button" class="ax-btn ez-btn-dark" data-set-track="experienced">💼 Show experienced plan</button>
+            </div>
+          </div>
+          ${plan("fresher")}
+          ${plan("experienced")}
         </div>
       </section>
 
-      <section class="ac-section ac-section--soft" id="curriculum" aria-labelledby="cur-title">
-        <div class="ij-wrap ac-curriculum">
-          <div class="ac-cur-intro">
-            <p class="ac-eyebrow">Curriculum</p>
-            <h2 id="cur-title">Interview Preparation course outline</h2>
-            <p>Four modules, seventeen lessons. Open any lesson directly, or follow them in order. Lessons you mark complete are ticked here.</p>
-            <dl class="ac-cur-facts">
-              <div><dt>Lessons</dt><dd>17</dd></div>
-              <div><dt>Duration</dt><dd>${Math.round(chapters.reduce((s, c) => s + c.time, 0) / 60 * 10) / 10} hrs</dd></div>
-              <div><dt>Tracks</dt><dd>Fresher · Experienced</dd></div>
-              <div><dt>Format</dt><dd>Guides, examples, templates</dd></div>
-            </dl>
-            <a class="ac-btn" href="/interview/preparation/" data-ac-continue>Start the course</a>
+      <section class="ez-section ez-section--soft" id="courses" aria-labelledby="courses-title">
+        <div class="ij-wrap">
+          <div class="ez-head">
+            <p class="ax-eyebrow">All resources</p>
+            <h2 id="courses-title">Or explore everything</h2>
+            <p>Every guide and tool, in one place.</p>
           </div>
-          <div class="ac-modules">${MODULES.map(module).join("")}</div>
+          <div class="ez-tiles">${COURSES.map(tile).join("")}</div>
         </div>
       </section>
 
@@ -273,7 +289,7 @@ ${hubNav("overview")}
             <div class="ac-jobs-main">
               <span class="ac-badge">Primary platform</span>
               <h2 id="js-title">Discover job opportunities with InfoparkDaily</h2>
-              <p>Find the latest openings, fresher opportunities, walk-in interviews and career updates from Infopark Kochi, Technopark, Cyberpark and other companies — collected from public sources into one community feed.</p>
+              <p>The latest openings, fresher roles, walk-in interviews and career updates from Infopark Kochi, Technopark, Cyberpark and other companies — in one community feed.</p>
               <ul class="ac-jobs-links">
                 <li><a href="/jobs/today/">Latest job updates</a></li>
                 <li><a href="/jobs/?type=fresher">Fresher jobs</a></li>
@@ -286,7 +302,7 @@ ${hubNav("overview")}
             </div>
             <div class="ac-jobs-side">
               <h3>Other job search platforms</h3>
-              <p>InfoparkDaily is your primary job discovery platform. No single portal lists every vacancy, so explore these too:</p>
+              <p>InfoparkDaily is your main starting point. No single site lists every vacancy, so check these too:</p>
               <ul>
                 ${[
                   ["LinkedIn Jobs", "https://www.linkedin.com/jobs/"],
@@ -304,12 +320,15 @@ ${hubNav("overview")}
         </div>
       </section>
 
-      <section class="ac-section ac-section--soft" aria-labelledby="route-title">
-        <div class="ij-wrap">
-          <div class="ac-head"><div><p class="ac-eyebrow">Learning path</p><h2 id="route-title">Your route from resume to offer</h2></div></div>
-          <ol class="ac-route ij-reveal">
-            ${PATH.map(([t, h, d], i) => `<li><a href="${h}"><span class="ac-route-num">Step ${i + 1}</span><strong>${t}</strong><small>${d}</small></a></li>`).join("")}
-          </ol>
+      <section class="ez-section ez-section--soft" id="help" aria-labelledby="help-title">
+        <div class="ij-wrap ez-narrow">
+          <div class="ez-head">
+            <p class="ax-eyebrow">Help</p>
+            <h2 id="help-title">Not sure where to start?</h2>
+          </div>
+          <div class="ez-help">
+            ${HELP.map(([q, a], i) => `<details class="ez-help-item"${i === 0 ? " open" : ""}><summary>${q}</summary><p>${a}</p></details>`).join("")}
+          </div>
         </div>
       </section>`;
 

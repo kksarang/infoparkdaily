@@ -37,10 +37,11 @@
     body.setAttribute("data-track", t);
     document.querySelectorAll("[data-set-track]").forEach((b) => b.setAttribute("aria-pressed", String(b.getAttribute("data-set-track") === t)));
     write(TRACK_KEY, t);
+    if (scroll) write("ipd-iq-level-v1", t);
     if (scroll) {
-      const first = document.querySelector(".prep-stages");
+      const first = document.querySelector("#plan, .prep-stages");
       if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-      toast(t === "all" ? "Showing both journeys" : t === "fresher" ? "Beginner / fresher journey" : "Experienced professional journey");
+      toast(t === "all" ? "Showing both" : t === "fresher" ? "Showing the fresher plan" : "Showing the experienced plan");
     }
   }
 

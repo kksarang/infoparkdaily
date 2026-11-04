@@ -74,7 +74,8 @@
   }
 
   /* ---------- filters ---------- */
-  let level = read(LEVEL_KEY) || "all";
+  const urlLevel = new URLSearchParams(location.search).get("level");
+  let level = urlLevel || read(LEVEL_KEY) || "all";
   if (!["all", "fresher", "experienced"].includes(level)) level = "all";
   let group = "all";
   let field = "all";
