@@ -120,28 +120,36 @@ export function overviewPage() {
   const chapters = [...chaptersA, ...chaptersB, ...chaptersC];
   const items = [["InfoparkDaily", "/"], ["Career Tools", "/resume-builder/"], ["Interview hub", "/interview/"]];
 
-  const course = (c) => `
-          <article class="ac-course ac-course--${c.tone} ij-reveal" id="hub-${c.key}">
-            <a class="ac-cover" href="${c.href}" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">${c.cat}</span>
-              ${svg(c.icon, "ac-cover-icon")}
-            </a>
-            <div class="ac-body">
-              <h3><a href="${c.href}">${c.title}</a></h3>
-              <p>${c.text}</p>
-              <ul class="ac-points">${c.points.map((p) => `<li>${svg(I.check)}${p}</li>`).join("")}</ul>
-              <ul class="ac-meta">${c.meta.map(([ic, t]) => `<li>${svg(ic)}${t}</li>`).join("")}</ul>
-              ${
-                c.progress
-                  ? `<div class="ac-progress" data-ac-progress="${c.progress}" data-total="${c.total}" data-unit="${c.unit}"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>`
-                  : ""
-              }
-              <div class="ac-actions">
-                <a class="ac-btn" href="${c.href}" data-ac-cta="${c.progress || ""}">${c.cta} <span aria-hidden="true">→</span></a>
-                ${(c.extra || []).map(([h, l]) => `<a class="ac-link" href="${h}">${l}</a>`).join("")}
-              </div>
+  const SIZE = { preparation: "xl", questions: "wide", learning: "sm", email: "sm", resume: "wide", jobs: "wide" };
+  const course = (c) => {
+    const size = SIZE[c.key] || "sm";
+    const extraXl =
+      size === "xl"
+        ? `<ol class="bx-mods">${MODULES.map(
+            ([tag, title, , [from, to]]) => `<li><span>${tag.replace("Module ", "M")}</span>${title}<em>${to - from + 1} lessons</em></li>`
+          ).join("")}</ol><div class="bx-tracks"><span>Tracks</span><b>🎓 Fresher</b><b>💼 Experienced</b></div>`
+        : "";
+    return `
+          <article class="bx bx--${size} bx--${c.tone} ij-reveal" id="hub-${c.key}">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true">${svg(c.icon)}</span>
+              <span class="bx-cat">${c.cat}</span>
+            </div>
+            <h3><a href="${c.href}" class="bx-link">${c.title}</a></h3>
+            <p class="bx-text">${c.text}</p>
+            ${extraXl}
+            <ul class="bx-meta">${c.meta.map(([ic, t]) => `<li>${svg(ic)}${t}</li>`).join("")}</ul>
+            ${
+              c.progress
+                ? `<div class="ac-progress bx-progress" data-ac-progress="${c.progress}" data-total="${c.total}" data-unit="${c.unit}"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>`
+                : ""
+            }
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="${c.progress || ""}">${c.cta} </span><span class="bx-arrow" aria-hidden="true">→</span>
+              ${(c.extra || []).map(([h, l]) => `<a class="bx-chip" href="${h}">${l}</a>`).join("")}
             </div>
           </article>`;
+  };
 
   const module = ([tag, title, text, [from, to]]) => {
     const list = chapters.slice(from - 1, to);
@@ -164,60 +172,80 @@ export function overviewPage() {
           </details>`;
   };
 
+  const CHIPS = [["HR round", "/interview/questions/#q-hr-round"], ["Java", "/interview/questions/#q-java"], ["SQL", "/interview/questions/#q-sql"], ["Python", "/interview/questions/#q-python"], ["Testing", "/interview/questions/#q-manual-testing"], ["Accounts", "/interview/questions/#q-accounts"]];
   const main = `
-      <section class="ac-hero" aria-labelledby="hub-title">
-        <div class="ij-wrap ac-hero-grid">
-          <div class="ac-hero-copy">
+      <section class="ax-hero" aria-labelledby="hub-title">
+        <div class="ax-glow" aria-hidden="true"></div>
+        <div class="ij-wrap ax-grid">
+          <div class="ax-copy">
             ${crumbs(items)}
-            <p class="ac-kicker"><span>InfoparkDaily</span> Career Academy</p>
+            <p class="ax-pill"><span>New</span> InfoparkDaily Career Academy · 100% free</p>
             <h1 id="hub-title">Prepare. Learn. Improve.<br /><span>Get hired.</span></h1>
-            <p class="ac-lede">Everything you need to prepare for your next career opportunity — from finding jobs to cracking interviews. Free, self-paced courses for freshers and experienced professionals.</p>
-            <div class="ac-hero-cta">
-              <a class="ac-btn ac-btn--lg" href="/interview/preparation/">Explore interview preparation <span aria-hidden="true">→</span></a>
-              <a class="ac-btn ac-btn--ghost ac-btn--lg" href="#courses">Explore career resources</a>
+            <p class="ax-lede">Everything you need for your next career move — from finding jobs to cracking interviews. Self-paced courses, 254 practice questions and live code, for freshers and experienced professionals.</p>
+            <form class="ax-search" action="/interview/questions/" method="get" role="search">
+              <label class="ij-sr" for="ax-q">Search interview questions</label>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
+              <input id="ax-q" name="q" type="search" placeholder="Search interview questions — e.g. “second highest salary”" autocomplete="off" />
+              <button type="submit">Search</button>
+            </form>
+            <div class="ax-chips"><span>Popular:</span>${CHIPS.map(([t, h]) => `<a href="${h}">${t}</a>`).join("")}</div>
+            <div class="ax-cta">
+              <a class="ax-btn ax-btn--yellow" href="/interview/preparation/" data-ac-continue>Start interview course →</a>
+              <a class="ax-btn ax-btn--ghost" href="#courses">Explore career resources</a>
             </div>
-            <ul class="ac-trust">
-              <li>${svg(I.check)}100% free</li>
-              <li>${svg(I.check)}No sign-up needed</li>
-              <li>${svg(I.check)}Fresher &amp; experienced tracks</li>
-              <li>${svg(I.check)}Progress saved on your device</li>
+            <ul class="ax-stats">
+              <li><strong>17</strong> chapters</li>
+              <li><strong>254</strong> questions</li>
+              <li><strong>30</strong> subjects</li>
+              <li><strong>11</strong> email templates</li>
             </ul>
           </div>
-          <aside class="ac-path-card" aria-labelledby="ac-path-title">
-            <div class="ac-path-head">
-              <div><p class="ac-path-kicker">Your learning path</p><h2 id="ac-path-title">Job-ready in 6 steps</h2></div>
-              <div class="ac-ring" data-ac-ring style="--p:0"><span data-ac-ring-pct>0%</span></div>
+
+          <div class="ax-visual" aria-hidden="true">
+            <div class="ax-card ax-card--course">
+              <div class="ax-card-head"><span class="ax-dot"></span>Interview Preparation<em>Course</em></div>
+              <div class="ax-course-row">
+                <div class="ac-ring ax-ring" data-ac-ring style="--p:0"><span data-ac-ring-pct>0%</span></div>
+                <div><strong>Your progress</strong><small>17 chapters · fresher &amp; experienced</small></div>
+              </div>
+              <ul class="ax-lessons">
+                <li class="is-done"><i></i>Job discovery</li>
+                <li class="is-done"><i></i>Resume creation</li>
+                <li class="is-now"><i></i>HR screening call</li>
+                <li><i></i>Technical interview</li>
+              </ul>
             </div>
-            <ol class="ac-path-list">
-              ${PATH.map(
-                ([t, h, d], i) => `<li><a href="${h}"><span class="ac-path-num">${i + 1}</span><span class="ac-path-text"><strong>${t}</strong><small>${d}</small></span><span aria-hidden="true">→</span></a></li>`
-              ).join("")}
-            </ol>
-            <a class="ac-btn ac-btn--block" href="/interview/preparation/" data-ac-continue>Start learning</a>
-          </aside>
+            <div class="ax-card ax-card--q">
+              <span class="ax-q-tag">HR round · Fresher</span>
+              <p class="ax-q">“Tell me about yourself.”</p>
+              <p class="ax-a">Present → past → proof → future, in 60–90 seconds…</p>
+              <span class="ax-q-btn">Practised ✓</span>
+            </div>
+            <div class="ax-card ax-card--code">
+              <div class="ax-code-bar"><span></span><span></span><span></span><em>query.sql</em></div>
+              <pre><b>SELECT</b> MAX(salary)
+<b>FROM</b> employees
+<b>WHERE</b> salary &lt; (…);</pre>
+            </div>
+            <div class="ax-card ax-card--toast"><span class="ax-toast-icon">✓</span><div><strong>Offer received</strong><small>Java Developer · Infopark</small></div></div>
+          </div>
         </div>
         <div class="ij-wrap">
-          <ul class="ac-stats">
-            <li><strong>6</strong><span>courses &amp; tools</span></li>
-            <li><strong>17</strong><span>interview chapters</span></li>
-            <li><strong>254</strong><span>practice questions</span></li>
-            <li><strong>30</strong><span>subjects covered</span></li>
-            <li><strong>11</strong><span>email templates</span></li>
-          </ul>
+          <p class="ax-parks"><span>Built for jobs at</span> Infopark Kochi <i></i> Technopark <i></i> Cyberpark <i></i> UL CyberPark <i></i> SmartCity Kochi</p>
         </div>
       </section>
 ${hubNav("overview")}
-      <section class="ac-section" id="courses" aria-labelledby="courses-title">
+      <section class="ac-section ax-courses" id="courses" aria-labelledby="courses-title">
         <div class="ij-wrap">
           <div class="ac-head">
             <div>
-              <p class="ac-eyebrow">Course catalogue</p>
-              <h2 id="courses-title">Explore the academy</h2>
-              <p>Pick a course to start. Each one has a short overview here and a detailed page with lessons, examples and templates.</p>
+              <p class="ax-eyebrow">Course catalogue</p>
+              <h2 id="courses-title">Everything you need, in one academy</h2>
+              <p>Short overviews here — open any course for lessons, examples, templates and tools.</p>
             </div>
-            <a class="ac-link" href="/interview/preparation/">View full curriculum →</a>
+            <a class="ax-link" href="/interview/preparation/">View full curriculum →</a>
           </div>
-          <div class="ac-courses">${COURSES.map(course).join("")}</div>
+          <div class="bx-grid">${COURSES.map(course).join("")}</div>
         </div>
       </section>
 

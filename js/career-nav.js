@@ -118,20 +118,22 @@
 
   /* ATS checker account nav — Firebase Auth as source of truth. */
   const accountNav = document.getElementById("account-nav");
-  if (accountNav && location.pathname.startsWith("/ats-checker")) {
+  const accountPage = location.pathname.startsWith("/ats-checker") || location.pathname.startsWith("/interview");
+  if (accountNav && accountPage) {
+    const here = location.pathname.startsWith("/ats-checker") ? "/ats-checker/" : location.pathname;
     import("/js/resume-builder/cloud.bundle.js?v=20260916del")
       .then((mod) => mod.request("/me"))
       .then((me) => {
         accountNav.innerHTML = me
           ? '<button type="button" class="store-signin" id="ats-logout">Log out</button>'
-          : '<a class="store-signin" href="/resume-builder/sign-in/?next=%2Fats-checker%2F">Sign in</a>';
+          : '<a class="store-signin" href="/resume-builder/sign-in/?next=' + encodeURIComponent(here) + '">Sign in</a>';
         document.getElementById("ats-logout")?.addEventListener("click", async () => {
           try {
             const mod = await import("/js/resume-builder/cloud.bundle.js?v=20260916del");
             await mod.request("/auth/logout", { method: "POST" });
-            window.IPDAnalytics?.track?.("logout", { feature: "ats_checker" });
+            window.IPDAnalytics?.track?.("logout", { feature: here.startsWith("/interview") ? "interview_hub" : "ats_checker" });
             window.IPDAnalytics?.clearUserId?.();
-            location.assign("/ats-checker/");
+            location.assign(here);
           } catch (e) {
             alert(e.message || "Sign-out failed. Please try again.");
           }

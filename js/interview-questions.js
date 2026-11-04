@@ -276,8 +276,17 @@
   window.addEventListener("hashchange", openFromHash);
 
   /* ---------- init ---------- */
+  const initialQ = new URLSearchParams(location.search).get("q");
+  if (initialQ && search) search.value = initialQ.slice(0, 80);
   setLevel(level);
   paintPractised();
   onScroll();
   openFromHash();
+  if (initialQ) {
+    const first = items.find((i) => !i.hidden);
+    if (first) {
+      first.open = true;
+      setTimeout(() => first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }), 120);
+    }
+  }
 })();

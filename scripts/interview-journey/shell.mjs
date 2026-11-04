@@ -79,6 +79,7 @@ export const storeNav = () => `
           <a href="/resume-builder/templates/">Resume templates</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
         </nav>`;
 
 export const header = () => `

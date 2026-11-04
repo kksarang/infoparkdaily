@@ -72,49 +72,71 @@
           <a href="/resume-builder/templates/">Resume templates</a>
           <a href="/portfolio/">Portfolio</a>
           <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
         </nav>
       </div>
     </header>
     <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
     <main id="main">
 
-      <section class="ac-hero" aria-labelledby="hub-title">
-        <div class="ij-wrap ac-hero-grid">
-          <div class="ac-hero-copy">
+      <section class="ax-hero" aria-labelledby="hub-title">
+        <div class="ax-glow" aria-hidden="true"></div>
+        <div class="ij-wrap ax-grid">
+          <div class="ax-copy">
             <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/resume-builder/">Career Tools</a> / <span aria-current="page">Interview hub</span></nav>
-            <p class="ac-kicker"><span>InfoparkDaily</span> Career Academy</p>
+            <p class="ax-pill"><span>New</span> InfoparkDaily Career Academy · 100% free</p>
             <h1 id="hub-title">Prepare. Learn. Improve.<br /><span>Get hired.</span></h1>
-            <p class="ac-lede">Everything you need to prepare for your next career opportunity — from finding jobs to cracking interviews. Free, self-paced courses for freshers and experienced professionals.</p>
-            <div class="ac-hero-cta">
-              <a class="ac-btn ac-btn--lg" href="/interview/preparation/">Explore interview preparation <span aria-hidden="true">→</span></a>
-              <a class="ac-btn ac-btn--ghost ac-btn--lg" href="#courses">Explore career resources</a>
+            <p class="ax-lede">Everything you need for your next career move — from finding jobs to cracking interviews. Self-paced courses, 254 practice questions and live code, for freshers and experienced professionals.</p>
+            <form class="ax-search" action="/interview/questions/" method="get" role="search">
+              <label class="ij-sr" for="ax-q">Search interview questions</label>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
+              <input id="ax-q" name="q" type="search" placeholder="Search interview questions — e.g. “second highest salary”" autocomplete="off" />
+              <button type="submit">Search</button>
+            </form>
+            <div class="ax-chips"><span>Popular:</span><a href="/interview/questions/#q-hr-round">HR round</a><a href="/interview/questions/#q-java">Java</a><a href="/interview/questions/#q-sql">SQL</a><a href="/interview/questions/#q-python">Python</a><a href="/interview/questions/#q-manual-testing">Testing</a><a href="/interview/questions/#q-accounts">Accounts</a></div>
+            <div class="ax-cta">
+              <a class="ax-btn ax-btn--yellow" href="/interview/preparation/" data-ac-continue>Start interview course →</a>
+              <a class="ax-btn ax-btn--ghost" href="#courses">Explore career resources</a>
             </div>
-            <ul class="ac-trust">
-              <li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>100% free</li>
-              <li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>No sign-up needed</li>
-              <li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Fresher &amp; experienced tracks</li>
-              <li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Progress saved on your device</li>
+            <ul class="ax-stats">
+              <li><strong>17</strong> chapters</li>
+              <li><strong>254</strong> questions</li>
+              <li><strong>30</strong> subjects</li>
+              <li><strong>11</strong> email templates</li>
             </ul>
           </div>
-          <aside class="ac-path-card" aria-labelledby="ac-path-title">
-            <div class="ac-path-head">
-              <div><p class="ac-path-kicker">Your learning path</p><h2 id="ac-path-title">Job-ready in 6 steps</h2></div>
-              <div class="ac-ring" data-ac-ring style="--p:0"><span data-ac-ring-pct>0%</span></div>
+
+          <div class="ax-visual" aria-hidden="true">
+            <div class="ax-card ax-card--course">
+              <div class="ax-card-head"><span class="ax-dot"></span>Interview Preparation<em>Course</em></div>
+              <div class="ax-course-row">
+                <div class="ac-ring ax-ring" data-ac-ring style="--p:0"><span data-ac-ring-pct>0%</span></div>
+                <div><strong>Your progress</strong><small>17 chapters · fresher &amp; experienced</small></div>
+              </div>
+              <ul class="ax-lessons">
+                <li class="is-done"><i></i>Job discovery</li>
+                <li class="is-done"><i></i>Resume creation</li>
+                <li class="is-now"><i></i>HR screening call</li>
+                <li><i></i>Technical interview</li>
+              </ul>
             </div>
-            <ol class="ac-path-list">
-              <li><a href="/resume-builder/templates/"><span class="ac-path-num">1</span><span class="ac-path-text"><strong>Build your resume</strong><small>Free ATS-friendly templates</small></span><span aria-hidden="true">→</span></a></li><li><a href="/ats-checker/"><span class="ac-path-num">2</span><span class="ac-path-text"><strong>Check it against a job</strong><small>Private keyword & readability check</small></span><span aria-hidden="true">→</span></a></li><li><a href="/jobs/"><span class="ac-path-num">3</span><span class="ac-path-text"><strong>Find & apply</strong><small>InfoparkDaily job board + alerts</small></span><span aria-hidden="true">→</span></a></li><li><a href="/interview/questions/"><span class="ac-path-num">4</span><span class="ac-path-text"><strong>Practise questions</strong><small>254 questions with answers</small></span><span aria-hidden="true">→</span></a></li><li><a href="/interview/preparation/"><span class="ac-path-num">5</span><span class="ac-path-text"><strong>Prepare each round</strong><small>17-chapter interview course</small></span><span aria-hidden="true">→</span></a></li><li><a href="/interview/preparation/#ch-offer-stage"><span class="ac-path-num">6</span><span class="ac-path-text"><strong>Accept & join</strong><small>Offer, BGV and day one</small></span><span aria-hidden="true">→</span></a></li>
-            </ol>
-            <a class="ac-btn ac-btn--block" href="/interview/preparation/" data-ac-continue>Start learning</a>
-          </aside>
+            <div class="ax-card ax-card--q">
+              <span class="ax-q-tag">HR round · Fresher</span>
+              <p class="ax-q">“Tell me about yourself.”</p>
+              <p class="ax-a">Present → past → proof → future, in 60–90 seconds…</p>
+              <span class="ax-q-btn">Practised ✓</span>
+            </div>
+            <div class="ax-card ax-card--code">
+              <div class="ax-code-bar"><span></span><span></span><span></span><em>query.sql</em></div>
+              <pre><b>SELECT</b> MAX(salary)
+<b>FROM</b> employees
+<b>WHERE</b> salary &lt; (…);</pre>
+            </div>
+            <div class="ax-card ax-card--toast"><span class="ax-toast-icon">✓</span><div><strong>Offer received</strong><small>Java Developer · Infopark</small></div></div>
+          </div>
         </div>
         <div class="ij-wrap">
-          <ul class="ac-stats">
-            <li><strong>6</strong><span>courses &amp; tools</span></li>
-            <li><strong>17</strong><span>interview chapters</span></li>
-            <li><strong>254</strong><span>practice questions</span></li>
-            <li><strong>30</strong><span>subjects covered</span></li>
-            <li><strong>11</strong><span>email templates</span></li>
-          </ul>
+          <p class="ax-parks"><span>Built for jobs at</span> Infopark Kochi <i></i> Technopark <i></i> Cyberpark <i></i> UL CyberPark <i></i> SmartCity Kochi</p>
         </div>
       </section>
 
@@ -125,117 +147,105 @@
           <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
         </div></div>
       </nav>
-      <section class="ac-section" id="courses" aria-labelledby="courses-title">
+      <section class="ac-section ax-courses" id="courses" aria-labelledby="courses-title">
         <div class="ij-wrap">
           <div class="ac-head">
             <div>
-              <p class="ac-eyebrow">Course catalogue</p>
-              <h2 id="courses-title">Explore the academy</h2>
-              <p>Pick a course to start. Each one has a short overview here and a detailed page with lessons, examples and templates.</p>
+              <p class="ax-eyebrow">Course catalogue</p>
+              <h2 id="courses-title">Everything you need, in one academy</h2>
+              <p>Short overviews here — open any course for lessons, examples, templates and tools.</p>
             </div>
-            <a class="ac-link" href="/interview/preparation/">View full curriculum →</a>
+            <a class="ax-link" href="/interview/preparation/">View full curriculum →</a>
           </div>
-          <div class="ac-courses">
-          <article class="ac-course ac-course--ink ij-reveal" id="hub-preparation">
-            <a class="ac-cover" href="/interview/preparation/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Core programme</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/interview/preparation/">Interview Preparation</a></h3>
-              <p>The complete hiring journey — from finding jobs to joining day — for freshers and experienced professionals.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Fresher & experienced tracks</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>HR, technical and managerial rounds</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Salary, offer and joining</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>17 chapters</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>3.5 hrs</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
-              <div class="ac-progress" data-ac-progress="journey" data-total="17" data-unit="chapters"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>
-              <div class="ac-actions">
-                <a class="ac-btn" href="/interview/preparation/" data-ac-cta="journey">Start course <span aria-hidden="true">→</span></a>
-                
-              </div>
+          <div class="bx-grid">
+          <article class="bx bx--xl bx--ink ij-reveal" id="hub-preparation">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+              <span class="bx-cat">Core programme</span>
             </div>
-          </article>
-          <article class="ac-course ac-course--yellow ij-reveal" id="hub-questions">
-            <a class="ac-cover" href="/interview/questions/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Practice lab</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v11H8l-4 4V4Zm7.1 3.2c-1.2 0-2 .6-2.3 1.7l1.3.5c.2-.6.5-.8 1-.8s.9.3.9.7c0 .3-.2.6-.7.9-.7.4-1 .9-1 1.6v.4h1.4v-.3c0-.4.2-.6.6-.9.8-.5 1.2-1 1.2-1.8 0-1.2-1-2-2.4-2Zm-.7 6.1v1.4h1.5v-1.4h-1.5Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/interview/questions/">Interview Questions & Answers</a></h3>
-              <p>Frequently asked HR, technical and role-based questions with sample answers you can adapt.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>HR & managerial questions</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>21 technical subjects</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Non-IT roles</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>254 questions</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>30 subjects</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>Self-paced</li></ul>
-              <div class="ac-progress" data-ac-progress="questions" data-total="254" data-unit="practised"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>
-              <div class="ac-actions">
-                <a class="ac-btn" href="/interview/questions/" data-ac-cta="questions">Start practising <span aria-hidden="true">→</span></a>
-                
-              </div>
-            </div>
-          </article>
-          <article class="ac-course ac-course--soft ij-reveal" id="hub-learning">
-            <a class="ac-cover" href="/interview/learning/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Skills</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/interview/learning/">Learning & Skill Development</a></h3>
-              <p>Role roadmaps, communication practice, free courses and certifications to build job-ready skills.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>8 role roadmaps</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Communication plan</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>19 free learning platforms</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>8 roadmaps</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>30-day plan</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>Beginner+</li></ul>
+            <h3><a href="/interview/preparation/" class="bx-link">Interview Preparation</a></h3>
+            <p class="bx-text">The complete hiring journey — from finding jobs to joining day — for freshers and experienced professionals.</p>
+            <ol class="bx-mods"><li><span>M1</span>Prepare & apply<em>6 lessons</em></li><li><span>M2</span>Inside the company<em>2 lessons</em></li><li><span>M3</span>Interview rounds<em>5 lessons</em></li><li><span>M4</span>Decision & joining<em>4 lessons</em></li></ol><div class="bx-tracks"><span>Tracks</span><b>🎓 Fresher</b><b>💼 Experienced</b></div>
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>17 chapters</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>3.5 hrs</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
+            <div class="ac-progress bx-progress" data-ac-progress="journey" data-total="17" data-unit="chapters"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="journey">Start course </span><span class="bx-arrow" aria-hidden="true">→</span>
               
-              <div class="ac-actions">
-                <a class="ac-btn" href="/interview/learning/" data-ac-cta="">Explore skills <span aria-hidden="true">→</span></a>
-                
-              </div>
             </div>
           </article>
-          <article class="ac-course ac-course--ink ij-reveal" id="hub-email">
-            <a class="ac-cover" href="/interview/email-guide/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Communication</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/interview/email-guide/">Professional Email Guide</a></h3>
-              <p>When to send each email, subject lines, samples to copy, and the dos and don’ts recruiters notice.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Application & resume emails</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Follow-up & confirmation</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Thank-you & offer emails</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>11 templates</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>20 min</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
+          <article class="bx bx--wide bx--yellow ij-reveal" id="hub-questions">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v11H8l-4 4V4Zm7.1 3.2c-1.2 0-2 .6-2.3 1.7l1.3.5c.2-.6.5-.8 1-.8s.9.3.9.7c0 .3-.2.6-.7.9-.7.4-1 .9-1 1.6v.4h1.4v-.3c0-.4.2-.6.6-.9.8-.5 1.2-1 1.2-1.8 0-1.2-1-2-2.4-2Zm-.7 6.1v1.4h1.5v-1.4h-1.5Z"/></svg></span>
+              <span class="bx-cat">Practice lab</span>
+            </div>
+            <h3><a href="/interview/questions/" class="bx-link">Interview Questions & Answers</a></h3>
+            <p class="bx-text">Frequently asked HR, technical and role-based questions with sample answers you can adapt.</p>
+            
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>254 questions</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>30 subjects</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>Self-paced</li></ul>
+            <div class="ac-progress bx-progress" data-ac-progress="questions" data-total="254" data-unit="practised"><div class="ac-bar"><span></span></div><p><span data-ac-status>Not started</span><b data-ac-pct>0%</b></p></div>
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="questions">Start practising </span><span class="bx-arrow" aria-hidden="true">→</span>
               
-              <div class="ac-actions">
-                <a class="ac-btn" href="/interview/email-guide/" data-ac-cta="">Open guide <span aria-hidden="true">→</span></a>
-                
-              </div>
             </div>
           </article>
-          <article class="ac-course ac-course--cream ij-reveal" id="hub-resume">
-            <a class="ac-cover" href="/interview/resume-ats/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Applications</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/interview/resume-ats/">Resume & ATS Preparation</a></h3>
-              <p>Structure a strong resume, understand ATS screening, fix common mistakes and optimise for each job.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Resume structure & bullets</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>How ATS reads resumes</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Free builder & ATS checker</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>5 modules</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>25 min</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
+          <article class="bx bx--sm bx--soft ij-reveal" id="hub-learning">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+              <span class="bx-cat">Skills</span>
+            </div>
+            <h3><a href="/interview/learning/" class="bx-link">Learning & Skill Development</a></h3>
+            <p class="bx-text">Role roadmaps, communication practice, free courses and certifications to build job-ready skills.</p>
+            
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>8 roadmaps</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>30-day plan</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>Beginner+</li></ul>
+            
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="">Explore skills </span><span class="bx-arrow" aria-hidden="true">→</span>
               
-              <div class="ac-actions">
-                <a class="ac-btn" href="/interview/resume-ats/" data-ac-cta="">Open guide <span aria-hidden="true">→</span></a>
-                <a class="ac-link" href="/resume-builder/templates/">Build resume</a><a class="ac-link" href="/ats-checker/">Check ATS</a>
-              </div>
             </div>
           </article>
-          <article class="ac-course ac-course--yellow ij-reveal" id="hub-jobs">
-            <a class="ac-cover" href="/jobs/" tabindex="-1" aria-hidden="true">
-              <span class="ac-cat">Job board</span>
-              <svg class="ac-cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6a2 2 0 0 1 2 2v2h4v12H3V7h4V5a2 2 0 0 1 2-2Zm0 4h6V5H9v2Zm-4 5v5h14v-5h-6v1h-2v-1H5Z"/></svg>
-            </a>
-            <div class="ac-body">
-              <h3><a href="/jobs/">Find Jobs on InfoparkDaily</a></h3>
-              <p>Latest openings, fresher roles, walk-ins and community updates from Infopark, Technopark and Cyberpark.</p>
-              <ul class="ac-points"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Fresher & experienced jobs</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>Walk-in interviews</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7l-9.2 9.2Z"/></svg>IT & non-IT openings</li></ul>
-              <ul class="ac-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>Updated daily</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>Alerts available</li></ul>
+          <article class="bx bx--sm bx--ink ij-reveal" id="hub-email">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+              <span class="bx-cat">Communication</span>
+            </div>
+            <h3><a href="/interview/email-guide/" class="bx-link">Professional Email Guide</a></h3>
+            <p class="bx-text">When to send each email, subject lines, samples to copy, and the dos and don’ts recruiters notice.</p>
+            
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>11 templates</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>20 min</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
+            
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="">Open guide </span><span class="bx-arrow" aria-hidden="true">→</span>
               
-              <div class="ac-actions">
-                <a class="ac-btn" href="/jobs/" data-ac-cta="">Browse jobs <span aria-hidden="true">→</span></a>
-                
-              </div>
+            </div>
+          </article>
+          <article class="bx bx--wide bx--cream ij-reveal" id="hub-resume">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+              <span class="bx-cat">Applications</span>
+            </div>
+            <h3><a href="/interview/resume-ats/" class="bx-link">Resume & ATS Preparation</a></h3>
+            <p class="bx-text">Structure a strong resume, understand ATS screening, fix common mistakes and optimise for each job.</p>
+            
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>5 modules</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>25 min</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li></ul>
+            
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="">Open guide </span><span class="bx-arrow" aria-hidden="true">→</span>
+              <a class="bx-chip" href="/resume-builder/templates/">Build resume</a><a class="bx-chip" href="/ats-checker/">Check ATS</a>
+            </div>
+          </article>
+          <article class="bx bx--wide bx--yellow ij-reveal" id="hub-jobs">
+            <div class="bx-top">
+              <span class="bx-icon" aria-hidden="true"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6a2 2 0 0 1 2 2v2h4v12H3V7h4V5a2 2 0 0 1 2-2Zm0 4h6V5H9v2Zm-4 5v5h14v-5h-6v1h-2v-1H5Z"/></svg></span>
+              <span class="bx-cat">Job board</span>
+            </div>
+            <h3><a href="/jobs/" class="bx-link">Find Jobs on InfoparkDaily</a></h3>
+            <p class="bx-text">Latest openings, fresher roles, walk-ins and community updates from Infopark, Technopark and Cyberpark.</p>
+            
+            <ul class="bx-meta"><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h12a2 2 0 0 1 2 2v16l-4-2-4 2-4-2-4 2V5a2 2 0 0 1 2-2Z"/></svg>Updated daily</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4V12H4v8Zm6 0h4V7h-4v13Zm6 0h4V3h-4v17Z"/></svg>All levels</li><li><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Zm1 3v5.4l3.5 2.1-1 1.7L11 13.5V7h2Z"/></svg>Alerts available</li></ul>
+            
+            <div class="bx-actions">
+              <span class="bx-cta" data-ac-cta="">Browse jobs </span><span class="bx-arrow" aria-hidden="true">→</span>
+              
             </div>
           </article></div>
         </div>
