@@ -67,6 +67,7 @@ export const paths = {
   reviews: "marketReviews",
   admins: "marketAdmins",
   requests: "hiringRequests",
+  alerts: "jobAlerts",
 };
 const rows = (snap) => snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 const now = () => serverTimestamp();
@@ -457,6 +458,38 @@ export async function adminRecords(kind) {
 export async function moderate(kind, id, status) {
   await updateDoc(doc(db, paths[kind], id), { status, updatedAt: now() });
 }
+/* ---------- Public (no sign-in) posts and job alerts ---------- */
+/** Unguessable ID, used as the private tracking/manage link. */
+export function secureId(prefix) {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes = new Uint8Array(14);
+  crypto.getRandomValues(bytes);
+  let out = "";
+  bytes.forEach((b) => (out += alphabet[b % alphabet.length]));
+  return `${prefix}-${out.slice(0, 4)}-${out.slice(4, 9)}-${out.slice(9, 14)}`;
+}
+export async function submitRequest(data) {
+  const id = secureId("IPD");
+  await setDoc(doc(db, paths.requests, id), { ...data, status: "pending", createdAt: now(), updatedAt: now() });
+  return id;
+}
+export async function getRequest(id) {
+  const d = await getDoc(doc(db, paths.requests, id));
+  return d.exists() ? { id: d.id, ...d.data() } : null;
+}
+export async function subscribeAlert(data) {
+  const id = secureId("ALT");
+  await setDoc(doc(db, paths.alerts, id), { ...data, consent: true, status: "active", createdAt: now(), updatedAt: now() });
+  return id;
+}
+export async function getAlert(id) {
+  const d = await getDoc(doc(db, paths.alerts, id));
+  return d.exists() ? { id: d.id, ...d.data() } : null;
+}
+export async function setAlertStatus(id, status) {
+  await updateDoc(doc(db, paths.alerts, id), { status, updatedAt: now() });
+}
+
 /* ---------- Quick hiring requests (/recruit/) ---------- */
 const clip = (v, n) => String(v ?? "").trim().slice(0, n);
 const isUrl = (v) => /^https?:\/\//i.test(String(v || "").trim());
@@ -499,7 +532,7 @@ export async function publishRequest(r, adminNote = "") {
     vacancies: Math.min(10000, Math.max(1, parseInt(r.vacancies, 10) || 1)),
     urgent: r.postType === "walkin",
     closingDate: clip(closing, 10),
-    postType: r.postType === "walkin" ? "walkin" : "job",
+    postType: ["walkin", "alert"].includes(r.postType) ? r.postType : "job",
     applyMethod: r.postType === "walkin" ? "walkin" : method.includes("email") && email ? "email" : link ? "link" : email ? "email" : "link",
     applyLink: clip(link, 500),
     applyEmail: clip(email, 200),

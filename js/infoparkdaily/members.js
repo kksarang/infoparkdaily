@@ -1,4 +1,5 @@
 import * as C from "./cloud.js";
+import { renderPost, renderTrack, renderAlerts } from "./recruit.js";
 import {
   ROOT,
   SECTORS,
@@ -76,7 +77,49 @@ const employerFields = () =>
 const password = () =>
   `<div class="field"><label for="password">Password</label><div class="password-field"><input id="password" name="password" type="password" required minlength="${S.route === "register" ? 10 : 1}" maxlength="128" autocomplete="${S.route === "register" ? "new-password" : "current-password"}"><button type="button" class="icon-btn" data-password aria-label="Show password">${icon("eye")}</button></div></div>`;
 function authView(register = false) {
-  return `<div class="auth-layout"><section class="auth-story"><p class="eyebrow">EMPLOYER HIRING HUB</p><h1>${register ? "Hire with<br>clarity." : "Welcome back,<br>hiring team."}</h1><p>${register ? "Create an employer account to post roles, discover talent and manage hiring conversations." : "Your roles, applications and talent conversations — ready when you are."}</p><div class="auth-benefits"><span>${icon("check")} Post roles for review</span><span>${icon("check")} Browse the talent directory</span><span>${icon("shield")} Private hiring workspace</span></div><img src="/assets/infoparkdaily/office.webp" alt="Colleagues collaborating in an office" width="600" height="350"></section><section class="auth-main"><div class="auth-box"><h2>${register ? "Create your employer account" : "Sign in to hire"}</h2><p>${register ? "Already have an account? " + link("Sign in", "sign-in", "text-link") : "New hiring team? " + link("Create an employer account", "register", "text-link")}</p><form class="stack" id="auth-form">${register ? employerFields() + field("Your name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) + field("Company name", "company", "", { required: true, max: 120, extra: 'autocomplete="organization"' }) : ""}${field("Work email", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}${password()}${register ? '<small class="muted">Use at least 10 characters. You’ll verify your email before posting roles.</small>' : `<div class="row spread">${check("Remember me", "remember")}<button type="button" class="btn quiet small" data-reset>Forgot password?</button></div>`}${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}${message()}<button class="btn wide" type="submit">${register ? "Create employer account" : "Sign in"} ${icon("right")}</button></form><div class="divider">or continue with</div><button class="btn secondary wide" data-google><span style="font-weight:800;font-size:1.1rem;color:#4285f4">G</span> Google</button><div class="auth-workflow" aria-label="Employer hiring workflow"><p class="auth-workflow-title">How hiring works here</p><ol><li><strong>Create</strong> employer account (email or Google)</li><li><strong>Verify</strong> work email (password sign-up only)</li><li><strong>Add</strong> company name in onboarding</li><li><strong>Post</strong> a role → our team reviews → goes live</li></ol></div><p class="small muted" style="text-align:center;margin:24px 0 0">${icon("shield")} Looking for a job? <a class="accent" href="/jobs/">Browse the jobs board</a> instead.</p></div></section></div>`;
+  const tab = (r, label) =>
+    `<a class="au-tab ${(r === "register") === register ? "is-on" : ""}" href="${href(r, location.search)}">${label}</a>`;
+  return `<div class="au">
+  <section class="au-brand" aria-hidden="false">
+    <div class="rx-glow" aria-hidden="true"></div>
+    <a class="au-logo" href="${href("")}"><img src="/assets/logo-infoparkdaily.png" alt="" width="40" height="40"><span>InfoparkDaily<small>Recruit</small></span></a>
+    <div class="au-copy">
+      <p class="rx-pill"><span>Employers</span> Kerala’s community hiring platform</p>
+      <h1>${register ? "Start hiring<br><em>in minutes.</em>" : "Welcome back,<br><em>hiring team.</em>"}</h1>
+      <p>${register ? "Create a free employer account to post jobs and walk-in drives, track every post and manage hiring in one place." : "Your posts, walk-in drives and applications — all in one employer workspace."}</p>
+      <ul class="au-points">
+        <li>${icon("briefcase")}<span><strong>Jobs, walk-ins &amp; job alerts</strong><small>Post any hiring format in minutes</small></span></li>
+        <li>${icon("shield")}<span><strong>Verified before it goes live</strong><small>Builds trust with candidates</small></span></li>
+        <li>${icon("bell")}<span><strong>Reach 77K+ job seekers</strong><small>Jobs board, WhatsApp &amp; Instagram alerts</small></span></li>
+      </ul>
+    </div>
+    <div class="au-mock" aria-hidden="true">
+      <div class="au-mock-row"><span class="rx-chip rx-chip--walk">Walk-in</span><span class="rx-chip rx-chip--ok">Live</span></div>
+      <strong>Junior QA Engineer</strong><small>Infopark Phase 1, Kochi</small>
+      <ol class="rx-flow"><li class="on"><i></i>Submitted</li><li class="on"><i></i>Verified</li><li class="on"><i></i>Live</li></ol>
+    </div>
+  </section>
+  <section class="au-main">
+    <div class="au-box">
+      <div class="au-tabs" role="tablist">${tab("sign-in", "Sign in")}${tab("register", "Create account")}</div>
+      <h2>${register ? "Create your employer account" : "Sign in to your workspace"}</h2>
+      <p class="au-sub">${register ? "Free for employers. Takes less than a minute." : "Use your work email or Google account."}</p>
+      <button class="au-google" type="button" data-google><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.8Z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24Z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1Z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1c.9-2.9 3.6-4.9 6.7-4.9Z"/></svg>Continue with Google</button>
+      <div class="au-or"><span>or with email</span></div>
+      <form class="stack au-form" id="auth-form">
+        ${register ? '<input type="hidden" name="role" value="employer">' + field("Your name", "name", "", { required: true, max: 100, extra: 'autocomplete="name"' }) + field("Company name", "company", "", { required: true, max: 120, extra: 'autocomplete="organization"' }) : ""}
+        ${field("Work email", "email", "", { type: "email", required: true, max: 254, extra: 'autocomplete="email"' })}
+        ${password()}
+        ${register ? '<small class="muted">At least 10 characters. You’ll verify your email before posting.</small>' : `<div class="row spread au-row">${check("Remember me", "remember")}<button type="button" class="au-link" data-reset>Forgot password?</button></div>`}
+        ${register ? `<label class="check"><input type="checkbox" name="consent" required><span>I agree to the <a class="accent" href="/terms/" target="_blank">Terms</a> and <a class="accent" href="/privacy/" target="_blank">Privacy Policy</a>.</span></label>` : ""}
+        ${message()}
+        <button class="btn wide au-submit" type="submit">${register ? "Create employer account" : "Sign in"} ${icon("right")}</button>
+      </form>
+      <a class="au-quick" href="${href("post")}"><span>${icon("plus")}</span><span><strong>Just one opening?</strong><small>Post without an account — no sign-in needed</small></span>${icon("right")}</a>
+      <p class="au-foot">${icon("shield")} Secure sign-in by Google Firebase · Looking for a job? <a class="accent" href="/jobs/">Browse jobs</a></p>
+    </div>
+  </section>
+</div>`;
 }
 function verifyView() {
   main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px"><div class="panel stack"><span class="feature-icon" style="width:max-content">${icon("mail")}</span><h1 style="font-size:2rem;margin:0">Check your inbox.</h1><p class="muted" style="margin:0">Open the confirmation link sent to <strong>${esc(S.user.email)}</strong>. Then come back here to finish your employer account.</p><div class="notice">Your email needs to be verified before you can post a role or contact talent.</div><div class="notice warn">(Sometimes this mail goes to Spam or Promotions. Open that folder, then mark InfoparkDaily as Not spam so the next one reaches Inbox.)</div><form id="verify-form" class="stack">${message()}<button class="btn" type="submit">I’ve verified my email ${icon("right")}</button><button type="button" class="btn secondary" data-resend>Resend verification email</button></form><button class="btn quiet" data-logout>Use another account</button></div></div></section>`;
@@ -122,21 +165,21 @@ async function run(event, task, success) {
 }
 function nav() {
   document.querySelector("#nav-account").innerHTML = S.user
-    ? `${link("Post a role", "post-job", "btn secondary")}${link("My workspace", "dashboard", "btn")}`
-    : `${link("Sign in", "sign-in", "btn quiet")}${link("Post a role", "post-job", "btn secondary")}${link("Get started", "register")}`;
+    ? `${link("Post a job", "post-job", "btn secondary")}${link("My workspace", "dashboard", "btn")}`
+    : `${link("Sign in", "sign-in", "btn quiet")}${link("Create account", "register")}`;
 }
 function workspace(title, text, body) {
   const links = [
     ["dashboard", "home", "Overview"],
-    [
-      "applications",
-      "briefcase",
-      "Hiring & applications",
-    ],
-    ["messages", "chat", "Messages"],
-    ["post-job", "plus", "Post a role"],
-    ["account", "settings", "Account"],
-    ...(S.admin ? [["admin", "shield", "Community review"]] : []),
+    ["post-job", "plus", "Post a job"],
+    ...(applications.length
+      ? [
+          ["applications", "briefcase", "Applications"],
+          ["messages", "chat", "Messages"],
+        ]
+      : []),
+    ["account", "settings", "Company & account"],
+    ...(S.admin ? [["admin", "shield", "Review queue"]] : []),
   ];
   main.innerHTML = `<section class="workspace"><div class="container workspace-grid"><nav class="workspace-nav" aria-label="Hiring workspace"><div class="member-name">${esc(S.member.name)}<small>${S.member.company ? esc(S.member.company) + " · " : ""}Employer workspace</small></div>${links.map(([r, i, l]) => `<a href="${href(r)}" ${S.route === r ? 'aria-current="page"' : ""}>${icon(i)}${l}</a>`).join("")}<button data-logout>${icon("logout")}Sign out</button></nav><div><div class="workspace-head"><h1>${title}</h1><p>${text}</p></div><div id="workspace-content">${body}</div></div></div></section>`;
 }
@@ -151,7 +194,8 @@ async function authChanged(user) {
   if (!user) {
     S.savedIds = new Set();
     if (S.route === "sign-in") {
-      location.replace("/resume-builder/sign-in/?next=" + encodeURIComponent("/infoparkdaily/dashboard/"));
+      main.innerHTML = authView(false);
+      bindAuth();
       return;
     }
     if (S.route === "register") {
@@ -276,7 +320,7 @@ async function renderPrivate() {
           ? "Your conversations."
           : "Every next step, together.",
       r === "dashboard"
-        ? "Your opportunities and connections, at a glance."
+        ? "Your posts, reviews and applicants, at a glance."
         : r === "messages"
           ? "Private conversations open after a community hire is approved."
           : "Follow applications and invitations from the first hello to completed work.",
@@ -460,7 +504,7 @@ async function renderJobForm() {
       ? "Give your role a fresh update."
       : "Find the person your team needs.",
     "Clear details help the right people find you. Every community post is reviewed.",
-    `<form id="job-form" class="panel stack"><fieldset class="pt-choose"><legend>What are you posting?</legend><label class="pt-opt"><input type="radio" name="postType" value="job" ${job.postType !== "walkin" ? "checked" : ""}><span><strong>${icon("briefcase")} Regular job</strong><small>Candidates apply online — on InfoparkDaily, your link or by email.</small></span></label><label class="pt-opt"><input type="radio" name="postType" value="walkin" ${job.postType === "walkin" ? "checked" : ""}><span><strong>${icon("pin")} Walk-in drive</strong><small>Candidates come to a venue on a set date and time.</small></span></label></fieldset><div class="form-grid">${field("Job title", "title", job.title, { required: true, max: 200, placeholder: "e.g. Customer support associate" })}${field("Company name", "company", job.company, { required: true, max: 150 })}${select("Category", "sector", SECTORS, job.sector, null)}${field("Location", "location", job.location, { required: true, max: 150, placeholder: "City, district or remote" })}${select("Employment type", "employmentType", ["Full-time", "Part-time", "Contract", "Internship", "Temporary", "Freelance"], job.employmentType || "Full-time", null)}${select("Work arrangement", "workMode", ["On-site", "Hybrid", "Remote"], job.workMode || "On-site", null)}${field("Experience required", "experience", job.experience, { max: 100, placeholder: "e.g. Freshers welcome or 2–4 years" })}${field("Number of openings", "vacancies", job.vacancies, { required: true, type: "number", extra: 'min="1" max="10000"' })}${field("Pay in ₹ (optional)", "pay", job.pay || "", { type: "number", extra: 'min="0" max="10000000" step="1"' })}${select("Pay basis", "basis", BASES, job.basis, null)}${field("Closing date", "closingDate", job.closingDate, { required: true, type: "date", extra: 'min="' + dateISO() + '"' })}<div class="field">${check("Mark as urgent hiring", "urgent", job.urgent)}</div><fieldset class="full pt-walkin" data-show-for="walkin"><legend>Walk-in details</legend><div class="form-grid">${field("Walk-in date", "walkDate", job.walkIn?.date, { type: "date", extra: 'min="' + dateISO() + '"' })}${field("Time", "walkTime", job.walkIn?.time, { max: 60, placeholder: "e.g. 10:00 am – 1:00 pm" })}<div class="full">${field("Venue address", "walkVenue", job.walkIn?.venue, { max: 300, placeholder: "Building, floor, park, city" })}</div>${field("Google Maps link (optional)", "walkMap", job.walkIn?.mapLink, { max: 500, type: "url", placeholder: "https://maps.app.goo.gl/…" })}${field("Documents to bring", "walkDocs", job.walkIn?.documents, { max: 500, placeholder: "Resume, ID proof, photos, certificates" })}</div></fieldset><fieldset class="full pt-apply" data-show-for="job"><legend>How should candidates apply?</legend><div class="form-grid">${select("Apply method", "applyMethod", [["portal", "On InfoparkDaily (applications in your workspace)"], ["link", "Our careers page / ATS link"], ["email", "By email"]], job.applyMethod && job.applyMethod !== "walkin" ? job.applyMethod : "portal", null)}${field("Apply link", "applyLink", job.applyLink, { max: 500, type: "url", placeholder: "https://careers.yourcompany.com/…" })}${field("Apply email", "applyEmail", job.applyEmail, { max: 200, type: "email", placeholder: "careers@yourcompany.com" })}</div></fieldset><div class="full">${area("About the role", "description", job.description, { required: true, max: 6000, placeholder: "Describe the work, responsibilities, team and what a typical day looks like." })}</div><div class="full">${area("Requirements (one per line)", "requirements", (job.requirements || []).join("\n"), { max: 3000, placeholder: "Add the qualifications and skills this role needs." })}</div><div class="full">${field("Skills (separate with commas)", "skills", (job.skills || []).join(", "), { max: 700 })}</div></div><div class="notice">Applications arrive in your workspace. Keep personal contact details out of the public description. Editing an approved post sends it back for review.</div>${message()}<button class="btn" type="submit">${edit ? "Resubmit job for review" : "Submit job for review"} ${icon("right")}</button></form>`,
+    `<form id="job-form" class="panel stack"><fieldset class="pt-choose"><legend>What are you posting?</legend><label class="pt-opt"><input type="radio" name="postType" value="job" ${job.postType !== "walkin" ? "checked" : ""}><span><strong>${icon("briefcase")} Regular job</strong><small>Candidates apply by email or on your careers page.</small></span></label><label class="pt-opt"><input type="radio" name="postType" value="walkin" ${job.postType === "walkin" ? "checked" : ""}><span><strong>${icon("pin")} Walk-in drive</strong><small>Candidates come to a venue on a set date and time.</small></span></label></fieldset><div class="form-grid">${field("Job title", "title", job.title, { required: true, max: 200, placeholder: "e.g. Customer support associate" })}${field("Company name", "company", job.company, { required: true, max: 150 })}${select("Category", "sector", SECTORS, job.sector, null)}${field("Location", "location", job.location, { required: true, max: 150, placeholder: "City, district or remote" })}${select("Employment type", "employmentType", ["Full-time", "Part-time", "Contract", "Internship", "Temporary", "Freelance"], job.employmentType || "Full-time", null)}${select("Work arrangement", "workMode", ["On-site", "Hybrid", "Remote"], job.workMode || "On-site", null)}${field("Experience required", "experience", job.experience, { max: 100, placeholder: "e.g. Freshers welcome or 2–4 years" })}${field("Number of openings", "vacancies", job.vacancies, { required: true, type: "number", extra: 'min="1" max="10000"' })}${field("Pay in ₹ (optional)", "pay", job.pay || "", { type: "number", extra: 'min="0" max="10000000" step="1"' })}${select("Pay basis", "basis", BASES, job.basis, null)}${field("Closing date", "closingDate", job.closingDate, { required: true, type: "date", extra: 'min="' + dateISO() + '"' })}<div class="field">${check("Mark as urgent hiring", "urgent", job.urgent)}</div><fieldset class="full pt-walkin" data-show-for="walkin"><legend>Walk-in details</legend><div class="form-grid">${field("Walk-in date", "walkDate", job.walkIn?.date, { type: "date", extra: 'min="' + dateISO() + '"' })}${field("Time", "walkTime", job.walkIn?.time, { max: 60, placeholder: "e.g. 10:00 am – 1:00 pm" })}<div class="full">${field("Venue address", "walkVenue", job.walkIn?.venue, { max: 300, placeholder: "Building, floor, park, city" })}</div>${field("Google Maps link (optional)", "walkMap", job.walkIn?.mapLink, { max: 500, type: "url", placeholder: "https://maps.app.goo.gl/…" })}${field("Documents to bring", "walkDocs", job.walkIn?.documents, { max: 500, placeholder: "Resume, ID proof, photos, certificates" })}</div></fieldset><fieldset class="full pt-apply" data-show-for="job"><legend>How should candidates apply?</legend><div class="form-grid">${select("Apply method", "applyMethod", [["email", "By email"], ["link", "Our careers page / ATS link"]], ["email", "link"].includes(job.applyMethod) ? job.applyMethod : "email", null)}${field("Apply link", "applyLink", job.applyLink, { max: 500, type: "url", placeholder: "https://careers.yourcompany.com/…" })}${field("Apply email", "applyEmail", job.applyEmail, { max: 200, type: "email", placeholder: "careers@yourcompany.com" })}</div></fieldset><div class="full">${area("About the role", "description", job.description, { required: true, max: 6000, placeholder: "Describe the work, responsibilities, team and what a typical day looks like." })}</div><div class="full">${area("Requirements (one per line)", "requirements", (job.requirements || []).join("\n"), { max: 3000, placeholder: "Add the qualifications and skills this role needs." })}</div><div class="full">${field("Skills (separate with commas)", "skills", (job.skills || []).join(", "), { max: 700 })}</div></div><div class="notice">Applications arrive in your workspace. Keep personal contact details out of the public description. Editing an approved post sends it back for review.</div>${message()}<button class="btn" type="submit">${edit ? "Resubmit job for review" : "Submit job for review"} ${icon("right")}</button></form>`,
   );
   const jobForm = document.querySelector("#job-form");
   const syncPostType = () => {
@@ -481,7 +525,7 @@ async function renderJobForm() {
       const postType = data.postType === "walkin" ? "walkin" : "job";
       if (postType === "walkin" && (!data.walkDate || !String(data.walkVenue || "").trim()))
         throw Error("Add the walk-in date and venue.");
-      const applyMethod = postType === "walkin" ? "walkin" : data.applyMethod || "portal";
+      const applyMethod = postType === "walkin" ? "walkin" : data.applyMethod || "email";
       if (applyMethod === "link" && !/^https?:\/\//i.test(String(data.applyLink || "").trim()))
         throw Error("Add your careers page or ATS link (starting with https://).");
       if (applyMethod === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(data.applyEmail || "").trim()))
@@ -533,7 +577,7 @@ function dashJobCard(j) {
     [j.status === "rejected" ? "Changes needed" : j.status === "closed" ? "Closed" : "Live", j.status === "approved" || j.status === "closed" || j.status === "rejected"],
   ];
   return `<article class="dj-card dj-card--${esc(j.status)}">
-    <div class="dj-top"><span class="rv-type rv-type--${walk ? "walkin" : "job"}">${walk ? "Walk-in drive" : "Job post"}</span>${statusTag(j.status)}</div>
+    <div class="dj-top"><span class="rv-type rv-type--${walk ? "walkin" : j.postType === "alert" ? "alert" : "job"}">${walk ? "Walk-in drive" : j.postType === "alert" ? "Job alert" : "Job post"}</span>${statusTag(j.status)}</div>
     <h3>${esc(j.title)}</h3>
     <p class="dj-sub">${esc(j.company)} · ${esc(j.location)}${j.closingDate ? " · Closes " + esc(j.closingDate === "Rolling" ? "rolling" : formatDate(j.closingDate)) : ""}</p>
     <ol class="dj-steps">${steps.map(([l, on], i) => `<li class="${on && (i < 2 || j.status !== "pending") ? "is-on" : ""} ${i === 2 && j.status === "rejected" ? "is-warn" : ""}"><span>${i + 1}</span>${l}</li>`).join("")}</ol>
@@ -735,10 +779,10 @@ async function renderAdmin() {
   }
   workspace(
     "Review queue.",
-    "Verify quick hiring requests, employer job posts, profiles and hires before they go live.",
+    "Verify every job, walk-in drive and job alert before it goes live on InfoparkDaily.",
     loading("Loading review queue…"),
   );
-  const kinds = ["requests", "jobs", "profiles", "applications", "private", "reviews"];
+  const kinds = ["requests", "jobs", "alerts", "profiles", "applications", "private", "reviews"];
   const results = await Promise.all(
     kinds.map(async (k) => {
       try {
@@ -765,7 +809,7 @@ function walkInBlock(w) {
 function requestCard(r) {
   const pending = r.status === "pending";
   return `<article class="rv-card ${pending ? "is-pending" : ""}">
-    <header class="rv-head"><div class="rv-badges"><span class="rv-type rv-type--${r.postType === "walkin" ? "walkin" : "job"}">${r.postType === "walkin" ? "Walk-in drive" : "Job post"}</span><span class="rv-src">Quick request</span>${statusTag(r.status)}</div><span class="rv-id">${esc(r.id)} · ${reqDate(r.createdAt)}</span></header>
+    <header class="rv-head"><div class="rv-badges"><span class="rv-type rv-type--${r.postType === "walkin" ? "walkin" : r.postType === "alert" ? "alert" : "job"}">${r.postType === "walkin" ? "Walk-in drive" : r.postType === "alert" ? "Job alert" : "Job post"}</span><span class="rv-src">No sign-in</span>${statusTag(r.status)}</div><span class="rv-id">${esc(r.id)} · ${reqDate(r.createdAt)}</span></header>
     <h3>${esc(r.title)}</h3>
     <p class="rv-sub">${esc(r.company)}${r.location ? " · " + esc(r.location) : ""}${r.park ? " · " + esc(r.park) : ""}</p>
     <dl class="rv-grid">
@@ -800,7 +844,7 @@ function requestCard(r) {
 function adminJobCard(r) {
   const pending = r.status === "pending";
   return `<article class="rv-card ${pending ? "is-pending" : ""}">
-    <header class="rv-head"><div class="rv-badges"><span class="rv-type rv-type--${r.postType === "walkin" ? "walkin" : "job"}">${r.postType === "walkin" ? "Walk-in drive" : "Job post"}</span><span class="rv-src">${r.kind === "request" ? "Quick request" : "Employer portal"}</span>${statusTag(r.status)}</div><span class="rv-id">${reqDate(r.updatedAt || r.createdAt)}</span></header>
+    <header class="rv-head"><div class="rv-badges"><span class="rv-type rv-type--${r.postType === "walkin" ? "walkin" : r.postType === "alert" ? "alert" : "job"}">${r.postType === "walkin" ? "Walk-in drive" : r.postType === "alert" ? "Job alert" : "Job post"}</span><span class="rv-src">${r.kind === "request" ? "No sign-in" : "Employer account"}</span>${statusTag(r.status)}</div><span class="rv-id">${reqDate(r.updatedAt || r.createdAt)}</span></header>
     <h3>${esc(r.title)}</h3>
     <p class="rv-sub">${esc(r.company)} · ${esc(r.location)}</p>
     <dl class="rv-grid">${rvRow("Category", esc(r.sector))}${rvRow("Experience", esc(r.experience))}${rvRow("Openings", esc(r.vacancies))}${rvRow("Type · mode", esc([r.employmentType, r.workMode].join(" · ")))}${rvRow("Pay", r.payText ? esc(r.payText) : r.pay ? money(r.pay, r.basis) : "")}${rvRow("Closing", esc(r.closingDate))}${rvRow("Apply", esc(r.applyMethod === "link" ? "External link" : r.applyMethod === "email" ? "By email" : r.applyMethod === "walkin" ? "Walk-in" : "InfoparkDaily applications"))}${rvRow("Skills", esc((r.skills || []).join(", ")))}</dl>
@@ -812,29 +856,31 @@ function adminJobCard(r) {
 function genericCard(tab, r) {
   return `<article class="record"><div class="row spread"><h3 style="margin:0">${esc((tab === "profiles" ? r.name : r.title) || r.name || r.jobTitle || r.authorName)}</h3>${r.status ? statusTag(r.status) : ""}</div><p style="margin-top:10px">${esc(r.company || r.location || r.email || r.text || "")}</p>${tab === "profiles" ? `<details><summary>Read worker profile</summary><p>${esc(r.title)} · ${esc(r.location)}</p><p>${esc(r.about)}</p><p>${esc((r.skills || []).join(", "))}</p><button class="btn secondary small" data-admin-docs="${esc(r.uid)}">View private documents</button></details>` : tab === "applications" ? `<p>${esc(r.workerName)} → ${esc(r.company)}</p><p>${esc(r.coverLetter)}</p>` : tab === "private" ? `<p>${esc(r.role)} · ${esc(r.email)} · ${esc(r.phone || "No phone")}</p><button class="btn secondary small" data-admin-docs="${esc(r.id)}">View private documents</button>` : tab === "reviews" ? `<p>${r.rating}/5 · ${esc(r.text)}</p>` : ""}<div class="row">${tab === "profiles" ? `<button class="btn small" data-moderate="${esc(r.id)}" data-kind="profiles" data-status="approved" ${r.status === "approved" ? "disabled" : ""}>Approve</button><button class="btn secondary small" data-moderate="${esc(r.id)}" data-kind="profiles" data-status="rejected">Request changes</button>${link("View details", "workers", "text-link", "?id=" + encodeURIComponent(r.id))}` : tab === "applications" && r.status === "hire_requested" ? `<button class="btn small" data-transition="${esc(r.id)}" data-status="approved">Approve hire & open chat</button><button class="btn secondary small" data-transition="${esc(r.id)}" data-status="declined">Decline hire</button>` : ""}</div></article>`;
 }
+function alertCard(r) {
+  return `<article class="rv-card ${r.status === "active" ? "" : "is-muted"}"><header class="rv-head"><div class="rv-badges"><span class="rv-type rv-type--alert">${r.channel === "email" ? "Email" : "WhatsApp"}</span>${statusTag(r.status === "active" ? "approved" : r.status === "paused" ? "pending" : "closed")}</div><span class="rv-id">${reqDate(r.createdAt)}</span></header><h3>${esc(r.keywords || "All jobs")}</h3><p class="rv-sub">${esc(r.name || "Job seeker")} · ${r.channel === "email" ? `<a class="accent" href="mailto:${esc(r.contact)}">${esc(r.contact)}</a>` : `<a class="accent" href="https://wa.me/${esc(String(r.contact).replace(/\D/g, ""))}" target="_blank" rel="noopener noreferrer">${esc(r.contact)}</a>`}</p><dl class="rv-grid">${rvRow("Locations", esc((r.locations || []).join(", ") || "Any"))}${rvRow("Experience", esc(r.experience))}${rvRow("Send", esc((r.types || []).join(", ")))}</dl></article>`;
+}
 const isPending = (tab, r) =>
   tab === "applications" ? r.status === "hire_requested" : ["requests", "jobs", "profiles"].includes(tab) ? r.status === "pending" : true;
 function renderAdminTab(tab) {
   if (!adminData[tab]) tab = "requests";
   const filterable = ["requests", "jobs", "profiles", "applications"].includes(tab);
+  if (tab === "alerts") adminFilter = adminFilter;
   const rowsAll = (adminData[tab] || []).slice().sort((a, b) => stamp(b.updatedAt || b.createdAt) - stamp(a.updatedAt || a.createdAt));
   const rows = filterable && adminFilter === "pending" ? rowsAll.filter((r) => isPending(tab, r)) : rowsAll;
   const count = (k) => (adminData[k] || []).filter((r) => isPending(k, r)).length;
   const TABS = [
-    ["requests", "Quick requests"],
-    ["jobs", "Job posts"],
-    ["profiles", "Worker profiles"],
-    ["applications", "Hire approvals"],
-    ["private", "Members"],
-    ["reviews", "Reviews"],
+    ["requests", "No sign-in posts"],
+    ["jobs", "Employer posts"],
+    ["alerts", "Alert subscribers"],
+    ["private", "Employer accounts"],
   ];
-  const card = (r) => (tab === "requests" ? requestCard(r) : tab === "jobs" ? adminJobCard(r) : genericCard(tab, r));
+  const card = (r) => (tab === "requests" ? requestCard(r) : tab === "jobs" ? adminJobCard(r) : tab === "alerts" ? alertCard(r) : genericCard(tab, r));
   document.querySelector("#workspace-content").innerHTML = `
     <div class="rv-stats">
-      <button class="rv-stat ${tab === "requests" ? "is-on" : ""}" data-admin-tab="requests"><strong>${count("requests")}</strong><span>Quick requests to verify</span></button>
+      <button class="rv-stat ${tab === "requests" ? "is-on" : ""}" data-admin-tab="requests"><strong>${count("requests")}</strong><span>No sign-in posts to verify</span></button>
       <button class="rv-stat ${tab === "jobs" ? "is-on" : ""}" data-admin-tab="jobs"><strong>${count("jobs")}</strong><span>Employer posts to review</span></button>
-      <button class="rv-stat ${tab === "profiles" ? "is-on" : ""}" data-admin-tab="profiles"><strong>${count("profiles")}</strong><span>Profiles to review</span></button>
-      <button class="rv-stat ${tab === "applications" ? "is-on" : ""}" data-admin-tab="applications"><strong>${count("applications")}</strong><span>Hires awaiting approval</span></button>
+      <button class="rv-stat" data-admin-tab="jobs"><strong>${(adminData.jobs || []).filter((r) => r.status === "approved").length}</strong><span>Live on the jobs board</span></button>
+      <button class="rv-stat ${tab === "alerts" ? "is-on" : ""}" data-admin-tab="alerts"><strong>${(adminData.alerts || []).filter((r) => r.status === "active").length}</strong><span>Active alert subscribers</span></button>
     </div>
     <div class="tabs">${TABS.map(([k, l]) => `<button class="pill ${tab === k ? "active" : ""}" data-admin-tab="${k}">${l} <span class="small">${(adminData[k] || []).length}</span></button>`).join("")}</div>
     <div class="row spread rv-toolbar">${filterable ? `<div class="rv-filter" role="group" aria-label="Filter"><button class="${adminFilter === "pending" ? "is-on" : ""}" data-admin-filter="pending">Needs action</button><button class="${adminFilter === "all" ? "is-on" : ""}" data-admin-filter="all">All</button></div>` : `<span class="small muted">${rowsAll.length} records</span>`}<button class="btn secondary small" data-export="${tab}">${icon("download")}Export CSV</button></div>
@@ -918,6 +964,9 @@ async function downloadFile(uid, slot, appId) {
 export async function start(state, target) {
   S = state;
   main = target;
+  if (S.route === "post") renderPost(main, C);
+  if (S.route === "track") renderTrack(main, C);
+  if (S.route === "alerts") renderAlerts(main, C);
   try {
     await C.completeGoogleRedirect();
   } catch (e) {
@@ -1203,7 +1252,9 @@ export async function start(state, target) {
       if (b.dataset.export) {
         const rows = adminData[b.dataset.export] || [];
         const columns =
-          b.dataset.export === "requests"
+          b.dataset.export === "alerts"
+            ? ["id", "name", "channel", "contact", "keywords", "locations", "experience", "types", "status"]
+            : b.dataset.export === "requests"
             ? ["id", "postType", "title", "company", "contactName", "contactEmail", "contactPhone", "location", "status"]
             : b.dataset.export === "private"
             ? ["id", "name", "email", "phone", "company", "role"]

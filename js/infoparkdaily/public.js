@@ -36,8 +36,8 @@ export function home(state) {
   const faq = [
     ["Is posting free?", "Yes. Both the quick hiring request and the employer workspace are free. Every post is reviewed before it goes live."],
     ["How long does review take?", "Usually within one working day. You can track a quick request with its ID, and employer posts show their status in your dashboard."],
-    ["Can I post a walk-in drive?", "Yes. Choose Walk-in drive and add the date, time, venue, map link and the documents candidates should bring."],
-    ["Do I need an account?", "No for a one-time post — use a quick hiring request. Create a free employer account to manage multiple posts, applications and hires."],
+    ["Can I post a walk-in drive or a quick job alert?", "Yes. Choose Walk-in drive to add date, time, venue and documents — or Quick job alert for just the role, contact and last date."],
+    ["Do I need an account?", "No. Use Post without sign-in for any job, walk-in or job alert. Create a free employer account if you want a dashboard for all your posts."],
     ["What gets rejected?", "Posts that ask candidates for money, use unverifiable contacts, or have unclear company details. We’ll add a note so you can fix and resubmit."],
     ["Where do approved posts appear?", "On the InfoparkDaily jobs board, its park pages and job search — and they can be shared to our WhatsApp and Instagram job channels."]
   ];
@@ -50,9 +50,9 @@ export function home(state) {
       <h1>Hire faster across<br><em>Kerala’s tech parks.</em></h1>
       <p class="rx-lede">Post a job or a walk-in drive, get it verified by the InfoparkDaily team, and reach 77K+ job seekers across Infopark, Technopark and Cyberpark.</p>
       <div class="rx-paths">
-        <a class="rx-path rx-path--quick" href="/recruit/">
+        <a class="rx-path rx-path--quick" href="${href("post")}">
           <span class="rx-path-icon">${icon("plus")}</span>
-          <span class="rx-path-text"><strong>Quick hiring request</strong><small>No account · one form · track by ID</small></span>
+          <span class="rx-path-text"><strong>Post without sign-in</strong><small>Job, walk-in or job alert · track by ID</small></span>
           ${icon("right")}
         </a>
         <a class="rx-path rx-path--work" href="${href("post-job")}">
@@ -98,25 +98,25 @@ export function home(state) {
     <div class="rx-ways">
       <article class="rx-way rx-way--quick">
         <span class="rx-way-tag">No account needed</span>
-        <h3>Quick hiring request</h3>
+        <h3>Post without sign-in</h3>
         <p>For one-time openings. Fill one guided form and our team publishes it after verification.</p>
         <ul>
-          <li>${icon("check")} 5-step guided form</li>
-          <li>${icon("check")} Job post or walk-in drive</li>
+          <li>${icon("check")} One guided form</li>
+          <li>${icon("check")} Job, walk-in drive or quick job alert</li>
           <li>${icon("check")} Track status by request ID</li>
           <li>${icon("check")} Candidates apply via your email or link</li>
         </ul>
-        <div class="rx-way-cta"><a class="btn" href="/recruit/">Post a hiring request ${icon("right")}</a><a class="text-link" href="/recruit/track/">Track a request</a></div>
+        <div class="rx-way-cta"><a class="btn" href="${href("post")}">Post without sign-in ${icon("right")}</a><a class="text-link" href="${href("track")}">Track a post</a></div>
       </article>
       <article class="rx-way rx-way--work">
         <span class="rx-way-tag">Free employer account</span>
         <h3>Employer workspace</h3>
-        <p>For teams that hire regularly. Manage every post, applicant and conversation in one dashboard.</p>
+        <p>For teams that hire regularly. Manage every job and walk-in drive from one dashboard.</p>
         <ul>
           <li>${icon("check")} Unlimited posts &amp; walk-ins</li>
-          <li>${icon("check")} Applications inside InfoparkDaily</li>
-          <li>${icon("check")} Invite reviewed talent</li>
-          <li>${icon("check")} Shortlist, hire &amp; chat</li>
+          <li>${icon("check")} Live status for every post</li>
+          <li>${icon("check")} Edit, repost or close any time</li>
+          <li>${icon("check")} Company profile saved for next time</li>
         </ul>
         <div class="rx-way-cta"><a class="btn" href="${href("register")}">Create employer account ${icon("right")}</a>${link("Sign in", "sign-in", "text-link")}</div>
       </article>
@@ -133,7 +133,7 @@ export function home(state) {
         ["shield", "Verified", "The InfoparkDaily team checks the company, contacts and details."],
         ["briefcase", "Live", "It appears on the jobs board and park pages."],
         ["bell", "Reach", "Shared to 77K+ followers on WhatsApp & Instagram alerts."],
-        ["users", "Hire", "Candidates apply or walk in — you shortlist and hire."]
+        ["users", "Hire", "Candidates apply by email, your link or walk in."]
       ].map(([i, t, d], n) => `<li><span class="rx-step-icon">${icon(i)}</span><span class="rx-step-n">0${n + 1}</span><strong>${t}</strong><p>${d}</p></li>`).join("")}
     </ol>
   </div>
@@ -152,15 +152,26 @@ export function home(state) {
         <a href="/jobs/?type=walkin">${icon("pin")}<span><strong>Walk-in listings</strong><small>Date, venue &amp; documents</small></span></a>
       </div>
     </div>
-    <div class="rx-reach-num"><strong>77K+</strong><span>people in the InfoparkDaily community</span><a class="btn" href="/recruit/">Post your opening ${icon("right")}</a></div>
+    <div class="rx-reach-num"><strong>77K+</strong><span>people in the InfoparkDaily community</span><a class="btn" href="${href("post")}">Post your opening ${icon("right")}</a></div>
   </div>
 </section>
 
-<section class="rx-section rx-section--soft">
-  <div class="container">
-    <div class="rx-head rx-head--row"><div><p class="rx-eyebrow">Talent directory</p><h2>Discover reviewed professionals.</h2><p>Browse by skill, location and availability — then invite them to your role.</p></div>${link("Open talent directory " + icon("right"), "workers", "text-link")}</div>
-    <div class="rx-cats">${SECTORS.map((sector) => `<a href="${href("workers", "?sector=" + encodeURIComponent(sector))}">${esc(sector)}</a>`).join("")}</div>
-    <div id="home-worker-grid">${workersHome(state.workers)}</div>
+<section class="rx-section rx-section--soft" id="alerts">
+  <div class="container rx-alerts">
+    <div class="rx-alert rx-alert--seek">
+      <span class="rx-alert-icon">${icon("bell")}</span>
+      <p class="rx-eyebrow">For job seekers</p>
+      <h2>Get job alerts on WhatsApp or email.</h2>
+      <p>Choose roles, parks and experience — we send matching jobs and walk-in drives. No sign-in, pause any time.</p>
+      <a class="btn" href="${href("alerts")}">Create a job alert ${icon("right")}</a>
+    </div>
+    <div class="rx-alert rx-alert--hire">
+      <span class="rx-alert-icon">${icon("plus")}</span>
+      <p class="rx-eyebrow rx-eyebrow--dark">For employers</p>
+      <h2>Post a quick job alert.</h2>
+      <p>Only the role, contact and last date. Verified and shared to the jobs board and alert subscribers.</p>
+      <a class="btn" href="${href("post", "?type=alert")}">Post a job alert ${icon("right")}</a>
+    </div>
   </div>
 </section>
 
@@ -173,8 +184,8 @@ export function home(state) {
         ["eye", "Track every step", "Request IDs and a live dashboard show exactly where each post stands."],
         ["pin", "Walk-in drives made simple", "Date, time, venue, map link and documents — clear for candidates."],
         ["chat", "Private hiring workspace", "Applications, shortlists and conversations stay in your account."],
-        ["users", "Community talent", "Invite reviewed professionals directly from the directory."],
-        ["star", "Real reviews", "Ratings are tied to completed hires, not anonymous comments."]
+        ["bell", "Job alerts for seekers", "Candidates subscribe to alerts, so the right people hear about your opening."],
+        ["star", "Free for employers", "Posting and the employer dashboard cost nothing — and candidates never pay."]
       ].map(([i, t, d]) => `<div class="rx-feature"><span>${icon(i)}</span><h3>${t}</h3><p>${d}</p></div>`).join("")}
     </div>
   </div>
@@ -190,7 +201,7 @@ export function home(state) {
 <section class="rx-section">
   <div class="container"><div class="rx-cta">
     <div><p class="rx-eyebrow rx-eyebrow--dark">Start hiring today</p><h2>Your next hire is in the community.</h2><p>Post a job or walk-in drive in minutes — free, verified and seen by 77K+ people.</p></div>
-    <div class="rx-cta-btns"><a class="btn" href="/recruit/">Quick hiring request ${icon("right")}</a>${link("Create employer account", "register", "btn secondary")}</div>
+    <div class="rx-cta-btns"><a class="btn" href="${href("post")}">Post without sign-in ${icon("right")}</a>${link("Create employer account", "register", "btn secondary")}</div>
   </div></div>
 </section>`;
 }

@@ -133,3 +133,45 @@ test("approved jobs are public; pending ones are not", async () => {
   await assertSucceeds(getDocs(query(collection(guest, "marketJobs"), where("status", "==", "approved"))));
   await assertFails(getDoc(doc(guest, "marketJobs/link1")));
 });
+
+test("quick job alerts (employer, no sign-in) allow a short note", async () => {
+  const ok = request({ postType: "alert", description: "" });
+  delete ok.walkIn;
+  await assertSucceeds(setDoc(doc(guest, "hiringRequests", "IPD-ALRT-AAAAA-BBBBB"), ok));
+  const bad = request({ postType: "job", description: "" });
+  delete bad.walkIn;
+  await assertFails(setDoc(doc(guest, "hiringRequests", "IPD-ALRT-AAAAA-CCCCC"), bad));
+});
+
+const alertSub = (over = {}) => ({
+  name: "Anjali",
+  channel: "whatsapp",
+  contact: "+91 9876543210",
+  keywords: "QA, testing",
+  locations: ["Infopark Kochi"],
+  experience: "fresher",
+  types: ["jobs", "walkins"],
+  consent: true,
+  status: "active",
+  createdAt: now(),
+  updatedAt: now(),
+  ...over
+});
+const ALT = "ALT-AB12-CD345-EF678";
+
+test("job seekers can subscribe to alerts without sign-in; data is validated", async () => {
+  await assertSucceeds(setDoc(doc(guest, "jobAlerts", ALT), alertSub()));
+  await assertFails(setDoc(doc(guest, "jobAlerts", "ALT-SHORT"), alertSub()));
+  await assertFails(setDoc(doc(guest, "jobAlerts", "ALT-ZZZZ-ZZZZZ-ZZZZ1"), alertSub({ consent: false })));
+  await assertFails(setDoc(doc(guest, "jobAlerts", "ALT-ZZZZ-ZZZZZ-ZZZZ2"), alertSub({ channel: "email", contact: "not-an-email" })));
+  await assertFails(setDoc(doc(guest, "jobAlerts", "ALT-ZZZZ-ZZZZZ-ZZZZ3"), alertSub({ status: "paused" })));
+});
+
+test("alert owners manage by ID; only admins can list subscribers", async () => {
+  await assertSucceeds(getDoc(doc(guest, "jobAlerts", ALT)));
+  await assertFails(getDocs(collection(guest, "jobAlerts")));
+  await assertSucceeds(getDocs(collection(admin, "jobAlerts")));
+  await assertSucceeds(updateDoc(doc(guest, "jobAlerts", ALT), { status: "paused", updatedAt: now() }));
+  await assertFails(updateDoc(doc(guest, "jobAlerts", ALT), { contact: "+91 9000000000", updatedAt: now() }));
+  await assertFails(updateDoc(doc(guest, "jobAlerts", ALT), { status: "hacked", updatedAt: now() }));
+});

@@ -31,7 +31,10 @@ const route = location.pathname
 
 // Seeker job browsing lives on the main board. A single community job (?id=) stays here so
 // candidates can apply through their InfoparkDaily profile.
-if (route === "jobs" && !new URLSearchParams(location.search).get("id")) {
+if (route === "workers") {
+  // Recruit-only hub: the talent directory is retired.
+  location.replace("/infoparkdaily/");
+} else if (route === "jobs" && !new URLSearchParams(location.search).get("id")) {
   location.replace("/jobs/" + location.search + location.hash);
 } else {
   const state = {

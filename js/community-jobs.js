@@ -32,7 +32,7 @@
         : p.applyMethod === "link"
           ? "Apply on the employer’s official page."
           : "Apply on InfoparkDaily — sign in and send your profile to the employer.";
-    const tags = [walk ? "Walk-in" : "", p.workMode || "", p.employmentType || "", p.sector || "", p.kind === "request" ? "Recruit" : "Employer post"].filter(Boolean);
+    const tags = [walk ? "Walk-in" : "", p.postType === "alert" ? "Job alert" : "", p.workMode || "", p.employmentType || "", p.sector || "", "Verified by InfoparkDaily"].filter(Boolean);
     return {
       id: "c-" + p.id,
       community: true,
