@@ -164,7 +164,7 @@ export const crumbsLd = (items) => ({
 const REL = {
   preparation: { tone: "ink", meta: "17 chapters · 3.5 hrs", icon: '<path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/>' },
   questions: { tone: "yellow", meta: "354 questions · 44 subjects", icon: '<path d="M4 4h16v11H8l-4 4V4Zm7.1 3.2c-1.2 0-2 .6-2.3 1.7l1.3.5c.2-.6.5-.8 1-.8s.9.3.9.7c0 .3-.2.6-.7.9-.7.4-1 .9-1 1.6v.4h1.4v-.3c0-.4.2-.6.6-.9.8-.5 1.2-1 1.2-1.8 0-1.2-1-2-2.4-2Zm-.7 6.1v1.4h1.5v-1.4h-1.5Z"/>' },
-  learning: { tone: "soft", meta: "8 roadmaps · live code", icon: '<path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/>' },
+  learning: { tone: "soft", meta: "31 learning paths · live code", icon: '<path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/>' },
   email: { tone: "ink", meta: "11 templates · 20 min", icon: '<path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/>' },
   resume: { tone: "cream", meta: "5 modules · 2 free tools", icon: '<path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/>' }
 };
@@ -219,7 +219,7 @@ export const hubRelated = (current, heading = "Continue your preparation") => {
 export const featureDuo = (current) => hubRelated(current === "journey" ? "preparation" : current);
 
 /** Full page document. */
-export const pageShell = ({ title, description, path, ogTitle, ogDescription, jsonLd, bodyClass = "", main, scripts = [], extraCss = [] }) => `<!doctype html>
+export const pageShell = ({ title, description, path, ogTitle, ogDescription, ogImage = `${SITE}/preview.jpg`, ogImageAlt = "InfoparkDaily — Kerala tech jobs and free career tools", jsonLd, bodyClass = "", main, scripts = [], extraCss = [] }) => `<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -234,8 +234,13 @@ export const pageShell = ({ title, description, path, ogTitle, ogDescription, js
     <meta property="og:description" content="${esc(ogDescription || description)}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${SITE}${path}" />
-    <meta property="og:image" content="${SITE}/preview.jpg" />
+    <meta property="og:image" content="${ogImage}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${esc(ogImageAlt)}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="${ogImage}" />
+    <meta name="twitter:image:alt" content="${esc(ogImageAlt)}" />
     <link rel="canonical" href="${SITE}${path}" />
     <link rel="icon" href="/favicon.ico" />
     <script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, "\\u003c")}</script>

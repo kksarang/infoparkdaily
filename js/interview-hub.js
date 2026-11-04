@@ -38,6 +38,15 @@
     document.querySelectorAll("[data-set-track]").forEach((b) => b.setAttribute("aria-pressed", String(b.getAttribute("data-set-track") === t)));
     write(TRACK_KEY, t);
     if (scroll) write("ipd-iq-level-v1", t);
+    /* Keep the chosen plan in the URL so shared or refreshed links open the same plan. */
+    if (scroll && document.getElementById("plan")) {
+      try {
+        const u = new URL(location.href);
+        if (t === "all") u.searchParams.delete("plan");
+        else u.searchParams.set("plan", t);
+        history.replaceState(null, "", u.pathname + u.search + "#plan");
+      } catch (_e) {}
+    }
     if (scroll) {
       const first = document.querySelector("#plan, .prep-stages");
       if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
@@ -258,6 +267,12 @@
     setLpField(startField === "it" || startField === "nonit" ? startField : "all");
   }
 
-  setTrack(read(TRACK_KEY) || body.getAttribute("data-track") || "all", false);
+  const urlPlan = new URLSearchParams(location.search).get("plan");
+  if (urlPlan === "fresher" || urlPlan === "experienced") {
+    setTrack(urlPlan, false);
+    write(TRACK_KEY, urlPlan);
+  } else {
+    setTrack(read(TRACK_KEY) || body.getAttribute("data-track") || "all", false);
+  }
   onScroll();
 })();

@@ -56,9 +56,9 @@ const COURSES = [
     cat: "Skills",
     tone: "soft",
     title: "Learning & Skill Development",
-    text: "Role roadmaps, communication practice, free courses and certifications to build job-ready skills.",
-    points: ["8 role roadmaps", "Communication plan", "19 free learning platforms"],
-    meta: [[I.book, "8 roadmaps"], [I.clock, "30-day plan"], [I.level, "Beginner+"]],
+    text: "31 learning paths for IT and non-IT careers, free courses, certifications and live code practice.",
+    points: ["31 learning paths (IT & non-IT)", "Live code with answer checking", "Free courses & certifications"],
+    meta: [[I.book, "31 learning paths"], [I.clock, "Self-paced"], [I.level, "All levels"]],
     cta: "Explore skills"
   },
   {
@@ -137,7 +137,7 @@ const PLANS = {
     steps: [
       ["Update your resume with results", "Show achievements with numbers, not duties. Keep titles and dates exactly as in your letters.", "45 min", "/resume-builder/templates/", "Update my resume", "resume"],
       ["Match it to the roles you want", "Check keywords against 2–3 target job descriptions.", "10 min per job", "/ats-checker/", "Check my resume", "ats"],
-      ["Find experienced roles & referrals", "Use InfoparkDaily’s experienced and referral filters, plus LinkedIn and Naukri.", "15 min a day", "/jobs/?type=experienced", "See experienced jobs", "jobs"],
+      ["Find experienced roles & referrals", "Use the Experienced and Referral filters on InfoparkDaily Jobs, plus LinkedIn and Naukri.", "15 min a day", "/jobs/?type=experienced", "See experienced jobs", "jobs"],
       ["Reach recruiters and referrers", "Send short referral requests and recruiter replies that get answered.", "15 min", "/interview/email-guide/#more-emails", "Get email templates", "email"],
       ["Practise technical & managerial questions", "System questions, project stories and STAR answers for manager rounds.", "30 min a day", "/interview/questions/?level=experienced", "Practise experienced questions", "questions"],
       ["Prepare salary & notice-period answers", "Know your current CTC, expected range, notice period and buyout options.", "30 min", "/interview/preparation/#ch-final-hr-round", "Salary & negotiation guide", "salary"],
@@ -176,9 +176,9 @@ const HELP = [
 ];
 
 export function overviewPage() {
-  const items = [["InfoparkDaily", "/"], ["Career Tools", "/resume-builder/"], ["Interview hub", "/interview/"]];
+  const items = [["InfoparkDaily", "/"], ["Interview hub", "/interview/"]];
 
-  const totalTime = (kind) => (kind === "fresher" ? "About 2–4 weeks" : "About 4–8 weeks alongside your job");
+  const totalTime = (kind) => (kind === "fresher" ? "About 2–4 weeks" : "About 8–12 weeks alongside your job");
   const plan = (kind) => {
     const p = PLANS[kind];
     return `
@@ -190,7 +190,7 @@ export function overviewPage() {
               </div>
               <ul class="ez-plan-facts">
                 <li><strong>${p.steps.length}</strong><span>steps</span></li>
-                <li><strong>${kind === "fresher" ? "2–4" : "4–8"}</strong><span>weeks</span></li>
+                <li><strong>${kind === "fresher" ? "2–4" : "8–12"}</strong><span>weeks</span></li>
               </ul>
             </div>
             <ol class="pc-grid" aria-label="${p.label}: ${totalTime(kind)}">
@@ -228,7 +228,7 @@ export function overviewPage() {
           ${crumbs(items)}
           <div class="ez-hero-copy">
             <p class="ax-pill"><span>Free</span> InfoparkDaily career hub</p>
-            <h1 id="hub-title">Prepare. Learn. Improve. <span>Get hired.</span></h1>
+            <h1 id="hub-title"><small class="ez-h1-kw">Interview preparation for Kerala IT jobs</small> Prepare. Learn. Improve. <span>Get hired.</span></h1>
             <p class="ax-lede">A simple step-by-step plan to get your next job — from your resume to your offer letter. Tell us where you are, and we’ll show you what to do next.</p>
           </div>
           <div class="ez-choose" role="group" aria-labelledby="ez-q">
@@ -309,7 +309,9 @@ ${channelsRow("dark")}
                   ["Naukri", "https://www.naukri.com/"],
                   ["Indeed", "https://in.indeed.com/"],
                   ["Company career pages", "https://www.google.com/search?q=company+careers"],
-                  ["IT park job boards", "https://infopark.in/companies-job"],
+                  ["Infopark job board", "https://infopark.in/companies-job"],
+                  ["Technopark job search", "https://technopark.in/job-search"],
+                  ["Cyberpark careers", "https://cyberparks.in/careers/"],
                   ["Internshala", "https://internshala.com/"]
                 ]
                   .map(([n, u]) => `<li><a href="${u}" target="_blank" rel="noopener noreferrer">${n} <span aria-hidden="true">↗</span></a></li>`)
@@ -333,11 +335,12 @@ ${channelsRow("dark")}
       </section>`;
 
   return pageShell({
-    title: "Career Academy – Interview Preparation, Questions, Learning &amp; Resume | InfoparkDaily",
-    description:
-      "InfoparkDaily Career Academy: free self-paced interview preparation for freshers and experienced, 354 interview questions with answers, skill roadmaps and free courses, professional email templates, and resume & ATS guides.",
+    title: "Interview Preparation &amp; Questions for Freshers | InfoparkDaily",
+    description: "Free interview prep for freshers & experienced: 354 Q&As, resume & ATS tips, email templates and Infopark, Technopark job links.",
     path: "/interview/",
-    ogTitle: "Prepare. Learn. Improve. Get hired. — InfoparkDaily Career Academy",
+    ogTitle: "Interview preparation for Kerala IT jobs — InfoparkDaily",
+    ogImage: "https://infoparkdaily.online/assets/og/interview-hub.jpg",
+    ogImageAlt: "InfoparkDaily interview preparation: plans for freshers and experienced, 354 questions, 31 learning paths",
     jsonLd: {
       "@context": "https://schema.org",
       "@graph": [
@@ -349,6 +352,14 @@ ${channelsRow("dark")}
             position: i + 1,
             url: `https://infoparkdaily.online${c.href}`,
             name: c.title
+          }))
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: HELP.map(([q, a]) => ({
+            "@type": "Question",
+            name: q.replace(/&rsquo;|’/g, "'"),
+            acceptedAnswer: { "@type": "Answer", text: a.replace(/<[^>]+>/g, "") }
           }))
         },
         crumbsLd(items)

@@ -5952,3 +5952,48 @@ body[data-track="experienced"] .ez-empty {
   box-shadow: none !important;
   border: 0 !important;
 }
+
+/* SEO keyword line inside the overview H1 */
+.ez-h1-kw {
+  display: block;
+  margin-bottom: 14px;
+  font: 700 clamp(0.95rem, 1.6vw, 1.15rem)/1.3 Inter, system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  color: var(--ij-yellow);
+  -webkit-text-fill-color: var(--ij-yellow);
+}
+
+/* Larger tap targets (≥ 24px) on hub pages */
+.hub-page .footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 4px 2px;
+}
+
+.hub-page .ij-crumbs a,
+.hub-page .ij-crumbs span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 2px 0;
+}
+
+.ez-help-item p a,
+.hub-page .ij-small a,
+.ch-all,
+.ez-switch button {
+  display: inline-block;
+  padding: 4px 0;
+  min-height: 24px;
+}
+
+.ac-jobs-side a {
+  min-height: 44px;
+  align-items: center;
+}
+
+.pc-body h3 a {
+  display: inline-block;
+  padding: 3px 0;
+}
