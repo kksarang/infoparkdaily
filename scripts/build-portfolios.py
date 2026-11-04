@@ -49,8 +49,8 @@ def head(title,desc,path,demo=False,css='store'):
  fonts=('family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Manrope:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500' if css=='demo' else 'family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700')
  theme='#fafaf7' if css=='store' else '#0c0c0e'
  enitexa_css='<link rel="stylesheet" href="/css/portfolio-enitexa.css?v=1">' if path=='/portfolio/' or css=='demo' else ''
- nav_js='' if demo or css!='store' else '<script defer src="/js/career-nav.js?v=20261104learn"></script><link rel="stylesheet" href="/css/career-nav.css?v=20261013header">'
- return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | InfoparkDaily Career Tools</title><meta name="description" content="{e(desc)}"><meta name="robots" content="'+('noindex,nofollow' if demo else 'index,follow')+f'"><link rel="canonical" href="{cfg["site"]}{path}"><meta name="theme-color" content="{theme}"><meta property="og:site_name" content="InfoparkDaily"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{cfg["site"]}{path}"><meta property="og:image" content="{cfg["site"]}/assets/portfolio/previews/flutter-studio.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/portfolio-{css}.css?v={20 if css=="store" else 11}"><script type="module" src="/js/portfolio/{css}.js?v={20 if css=="store" else 11}"></script>'+nav_js+enitexa_css+'</head>'
+ nav_js='' if demo or css!='store' else '<script defer src="/js/career-nav.js?v=20261104ui"></script><link rel="stylesheet" href="/css/career-nav.css?v=20261013header">'
+ return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | InfoparkDaily Career Tools</title><meta name="description" content="{e(desc)}"><meta name="robots" content="'+('noindex,nofollow' if demo else 'index,follow')+f'"><link rel="canonical" href="{cfg["site"]}{path}"><meta name="theme-color" content="{theme}"><meta property="og:site_name" content="InfoparkDaily"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{cfg["site"]}{path}"><meta property="og:image" content="{cfg["site"]}/assets/portfolio/previews/flutter-studio.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/portfolio-{css}.css?v={20 if css=="store" else 11}"><script type="module" src="/js/portfolio/{css}.js?v={"20261104menu" if css=="store" else 11}"></script>'+nav_js+enitexa_css+'</head>'
 def art(t,n=0):
  v=t['visual'];title=e(t['projects'][n%3]['title'])
  if v=='photo':return f'<img src="/assets/portfolio/{["landscape","forest","ocean"][n%3]}.jpg" alt="Illustrative { ["mountain landscape","forest canopy","coastal landscape"][n%3]} — sample collection" loading="lazy" width="1200" height="800">'
@@ -194,7 +194,45 @@ _svc=_svc.replace('<a href="/portfolio/templates/all/">Portfolio templates</a>',
 _about='<section class="width section service-explainer" id="about-service"><div class="section-heading"><div><p class="eyebrow">ABOUT THIS SERVICE</p><h2>A ready-made portfolio website, personalised for you.</h2></div><p>Not a website builder you have to learn — our team does the work.</p></div><div class="explainer-grid"><article><h3>What you get</h3><p>A complete personal website that shows your skills, projects, experience and contact links — with one link you can share with recruiters, clients and on LinkedIn.</p></article><article><h3>How it works</h3><p>You pick one of our ready designs and send your resume, projects and photos. We personalise the design with your content, you review it, and we launch it.</p></article><article><h3>Who it is for</h3><p>Freshers, developers, designers, freelancers, creators and professionals who want a professional online presence without coding.</p></article><article><h3>What it costs</h3><p>Plans start at ₹999 for a one-page portfolio. Domain, shop and extra-page plans are below; the final scope and price are confirmed in writing before you pay.</p></article></div><p class="explainer-cta"><a class="button" href="/portfolio/templates/all/">See all templates</a> <a class="button secondary" href="#pricing">Compare plans</a></p></section>'
 _svc=_svc.replace('<section class="width section featured-block">',_about+'<section class="width section featured-block">',1)
 _head=head('Portfolio Website Service – Personalised Portfolio Sites from ₹999',f'We build your personal portfolio website from a ready design: choose a template, share your details, and we personalise and launch it. Plans from ₹{p0["price"]:,}.','/portfolio/templates/').replace('</head>','<link rel="stylesheet" href="/css/portfolio-service.css?v=1"></head>',1)
-write('portfolio/templates/index.html',_head+'<body class="career-tools light"><a class="skip" href="#main">Skip to content</a><header'+h.split('<header',1)[1].split('</header>',1)[0]+'</header>'+_svc)
+def _service_ui(s):
+
+ ICON = {
+     'get': '<path d="M4 5h16v11H4zM2 18h20v2H2z"/>',
+     'how': '<path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.6 6.5 19.5l1-6.3L3 8.9 9 8z"/>',
+     'who': '<path d="M8 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm8 1a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM1 20c0-3.3 3.1-6 7-6s7 2.7 7 6zm15 0c0-1.9-.7-3.6-1.9-4.9.6-.1 1.2-.1 1.9-.1 3.3 0 6 2.2 6 5z"/>',
+     'cost': '<path d="M7 3h11v2h-4.1c.6.7 1 1.5 1.1 2.5H18v2h-3c-.5 2.4-2.6 4.1-5.4 4.4L16 21h-2.8l-6.2-7.3V12h2.5c1.6 0 2.8-.9 3.2-2.5H7v-2h5.6C12.2 6 11 5 9.5 5H7z"/>',
+ }
+ svg = lambda k: f'<span class="explainer-icon" aria-hidden="true"><svg viewBox="0 0 24 24">{ICON[k]}</svg></span>'
+
+ REPL = [
+     # hero: trust points under the buttons
+     ('<p class="hero-meta">',
+      '<ul class="hero-trust"><li>42 complete designs</li><li>Desktop, tablet &amp; mobile</li><li>Personalised by our team</li><li>Enquire on WhatsApp</li></ul><p class="hero-meta">'),
+     # explainer icons
+     ('<article><h3>What you get</h3>', f'<article>{svg("get")}<h3>What you get</h3>'),
+     ('<article><h3>How it works</h3>', f'<article>{svg("how")}<h3>How it works</h3>'),
+     ('<article><h3>Who it is for</h3>', f'<article>{svg("who")}<h3>Who it is for</h3>'),
+     ('<article><h3>What it costs</h3>', f'<article>{svg("cost")}<h3>What it costs</h3>'),
+ ]
+ for a, b in REPL:
+     assert s.count(a) == 1, a
+     s = s.replace(a, b)
+
+ # The thin "collection" stub becomes a CTA band that leads to the full list.
+ old = re.search(r'<section class="width section" id="collection">.*?</section>', s, re.S).group(0)
+ assert 'View all 42 designs' in old
+ band = ('<section class="width section cta-band" id="collection"><div class="cta-band-inner"><div>'
+         '<p class="eyebrow">THE COLLECTION</p><h2>42 designs for every profession.</h2>'
+         '<p>Filter by profession and style, preview complete demos, shortlist favourites and open each template’s details page.</p>'
+         '</div><a class="button" href="/portfolio/templates/all/">Browse all 42 templates →</a></div></section>')
+ s = s.replace(old, band, 1)
+
+ if 'class="career-tools light pf-service"' not in s:
+     s = s.replace('<body class="career-tools light">', '<body class="career-tools light pf-service">', 1)
+ s = s.replace('/css/portfolio-service.css?v=1', '/css/portfolio-service.css?v=2')
+
+ return s
+write('portfolio/templates/index.html',_service_ui(_head+'<body class="career-tools light"><a class="skip" href="#main">Skip to content</a><header'+h.split('<header',1)[1].split('</header>',1)[0]+'</header>'+_svc))
 write('portfolio/templates/all/index.html',head('All Portfolio Website Templates – 42 Designs','Browse all 42 portfolio website templates by profession and style. Preview each design, open its details and choose one to personalise.',LIST)+'<body class="career-tools light">'+header()+'<main id="main"><section class="width section" style="padding-bottom:0"><a class="text-link" href="/portfolio/templates/">← About the portfolio service</a><p class="eyebrow">Career Tools · Portfolio</p><h1>All portfolio templates</h1><p>Preview {N} complete designs. Open any template for its details, then choose one and our team personalises it with your projects and contact details.</p></section>'+gallery()+'</main>'+footer()+'</body></html>')
 write('portfolio/index.html','<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio templates | InfoparkDaily Career Tools</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://infoparkdaily.online/portfolio/templates/"><meta http-equiv="refresh" content="0; url=/portfolio/templates/"><script>location.replace("/portfolio/templates/"+location.search+location.hash)</script></head><body><p>Portfolio websites now live on one page: <a href="/portfolio/templates/">Portfolio templates</a>.</p></body></html>')
 write('portfolio/terms/index.html',head('Package scope, domains & renewals','Understand portfolio packages, domain eligibility, hosting, ownership, revisions and written quote requirements.','/portfolio/terms/')+'<body class="career-tools light">'+header()+'<main id="main"><section class="width section terms-intro"><p class="eyebrow">BEFORE YOU ORDER</p><h1>Clear expectations.<br> A better beginning.</h1><p>The listed prices are the starting packages for template personalisation. This page describes the enquiry process; the written quote records the final scope and commercial terms before payment.</p><div class="policy-box"><h2>What must be confirmed</h2><p>'+cfg['policy']+'</p></div><h2>Your domain, your ownership.</h2><p>'+cfg['domainPolicy']+'</p><p>The customer is recorded as the domain owner. Before registration, confirm the exact name, availability, first-year cost, renewal estimate, registrar access, renewal manager, transfer process, and separate hosting charges. Expiry can make the site unavailable; provider grace periods and recovery costs must be explained in the quote.</p><h2>Personalisation, not a software subscription.</h2><p>No self-service editor, CMS, business email, unlimited changes, custom application functionality, or complete redesign is included by default. Proposed scope is up to six projects and two consolidated revision rounds; both require written confirmation. Do not pay until taxes, final total, delivery estimate, hosting period, support period, cancellation stages, refunds, and any non-refundable third-party costs are agreed.</p><a class="button" href="/portfolio/templates/">Explore the templates</a></section>'+faqs(True)+'</main>'+footer()+'</body></html>')

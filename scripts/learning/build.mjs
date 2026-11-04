@@ -18,7 +18,7 @@ const TRACKS = [...WEB_TRACKS, PY_TRACK, SQL_TRACK, GIT_TRACK];
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261104learn2";
+const V = "20261104ui";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -54,23 +54,42 @@ const trackBar = (current) => `
 /* ---------------- hub ---------------- */
 function hubPage() {
   const lessonsTotal = TRACKS.reduce((n, t) => n + t.lessons.length, 0);
+  const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git" };
+  const runner = (t) => (t.lang === "shell" ? "Terminal walkthroughs" : t.lang === "python" ? "Runs Python in browser" : t.lang === "sql" ? "Live SQL database" : "Live Try-it editor");
   const trackCards = TRACKS.map(
     (t) => `
             <article class="ln-track" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
-              <div class="ln-track-badge" aria-hidden="true">${t.name}</div>
-              <h3><a href="${trackUrl(t)}">${t.long}</a></h3>
-              <p>${t.tagline}</p>
-              <p class="ln-meta">${t.lessons.length} lessons · ${t.level} · ${t.lang === "shell" ? "Terminal examples" : "Try-it editor"} · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">${MONO[t.key] || t.name}</span>
+                <div>
+                  <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
+                  <p>${t.tagline}</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>${t.lessons.length} lessons</li><li>${runner(t)}</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="${t.key}"></span></div>
-              <p class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</p>
-              <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start ${t.name}</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
+                <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start ${t.name} →</a>
+              </div>
             </article>`
   ).join("");
+
+  const POPULAR = [
+    ["CSS Flexbox", "/learning/css/flexbox/"],
+    ["Python loops", "/learning/python/loops/"],
+    ["SQL JOINs", "/learning/sql/joins/"],
+    ["JavaScript events", "/learning/javascript/events/"],
+    ["HTML forms", "/learning/html/forms/"],
+    ["Git branches", "/learning/git/branches/"]
+  ];
 
   const lessonIndex = TRACKS.map(
     (t) => `
             <div class="ln-index-col" style="--ln-c:${t.color}">
-              <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
+              <h3><a href="${trackUrl(t)}"><span class="ln-mono ln-mono--sm" aria-hidden="true">${MONO[t.key] || t.name}</span>${t.name}</a><small>${t.lessons.length} lessons</small></h3>
               <ol>${t.lessons.map((l) => `<li data-search="${esc((t.name + " " + l.title + " " + l.summary).toLowerCase())}"><a href="${lessonUrl(t, l)}" data-ln-lesson="${t.key}/${l.slug}">${l.title}</a></li>`).join("")}</ol>
             </div>`
   ).join("");
@@ -78,14 +97,14 @@ function hubPage() {
   const planned = PLANNED.map(
     ([name, desc, color]) => `
             <div class="ln-planned" style="--ln-c:${color}" data-search="${esc((name + " " + desc).toLowerCase())}">
-              <strong>${name}</strong><span>${desc}</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>${name}</strong><span>${desc}</span>
             </div>`
   ).join("");
 
   const careerCol = (field, label) => `
             <div>
               <h3>${label}</h3>
-              <ul class="ln-paths">${PATHS.filter((p) => p.field === field)
+              <ul class="ln-paths ln-chips">${PATHS.filter((p) => p.field === field)
                 .map((p) => `<li data-search="${esc((p.title + " " + (p.summary || "")).toLowerCase())}"><a href="/interview/learning/${p.slug}/">${esc(p.title)}</a></li>`)
                 .join("")}</ul>
             </div>`;
@@ -104,6 +123,7 @@ function hubPage() {
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
               <input type="search" placeholder="Search: flexbox, forms, loops, Excel, nursing…" data-ln-search autocomplete="off" />
             </label>
+            <nav class="ln-popular" aria-label="Popular topics"><span>Popular:</span>${POPULAR.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</nav>
           </div>
         </div>
       </section>
@@ -138,9 +158,9 @@ ${trackBar("")}
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Practice</p><h2 id="ln-practice">Practise like a real coding round</h2></div>
           <div class="ln-practice">
-            <a href="/interview/learning/live-code/"><strong>▶ Live code playground</strong><span>HTML/CSS/JS, JavaScript, SQL and Python challenges that check your answer.</span></a>
-            <a href="/interview/questions/?field=it"><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
-            <a href="/portfolio/templates/"><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
+            <a href="/interview/learning/live-code/"><span class="ln-pr-icon" aria-hidden="true">▶</span><strong>Live code playground</strong><span>HTML/CSS/JS, JavaScript, SQL and Python challenges that check your answer.</span></a>
+            <a href="/interview/questions/?field=it"><span class="ln-pr-icon" aria-hidden="true">?</span><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
+            <a href="/portfolio/templates/"><span class="ln-pr-icon" aria-hidden="true">★</span><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
           </div>
         </div>
       </section>

@@ -54,8 +54,8 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
-    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+    <link rel="stylesheet" href="/css/learning.css?v=20261104ui" />
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-hub light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>
@@ -97,6 +97,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
               <input type="search" placeholder="Search: flexbox, forms, loops, Excel, nursing…" data-ln-search autocomplete="off" />
             </label>
+            <nav class="ln-popular" aria-label="Popular topics"><span>Popular:</span><a href="/learning/css/flexbox/">CSS Flexbox</a><a href="/learning/python/loops/">Python loops</a><a href="/learning/sql/joins/">SQL JOINs</a><a href="/learning/javascript/events/">JavaScript events</a><a href="/learning/html/forms/">HTML forms</a><a href="/learning/git/branches/">Git branches</a></nav>
           </div>
         </div>
       </section>
@@ -114,58 +115,106 @@
           <div class="ez-head"><p class="ax-eyebrow">Tutorials</p><h2 id="ln-tutorials">Pick a tutorial and start learning</h2></div>
           <div class="ln-tracks">
             <article class="ln-track" style="--ln-c:#e44d26" data-ln-track="html" data-search="html html — hypertext markup language the structure of every web page. html introduction elements, tags &amp; attributes headings &amp; paragraphs links images lists tables forms semantic html">
-              <div class="ln-track-badge" aria-hidden="true">HTML</div>
-              <h3><a href="/learning/html/">HTML — HyperText Markup Language</a></h3>
-              <p>The structure of every web page.</p>
-              <p class="ln-meta">9 lessons · Beginner · Try-it editor · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">&lt;/&gt;</span>
+                <div>
+                  <h3><a href="/learning/html/">HTML</a></h3>
+                  <p>The structure of every web page.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>9 lessons</li><li>Live Try-it editor</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="html"></span></div>
-              <p class="ln-progress-label" data-ln-label="html" data-total="9">Not started</p>
-              <a class="ln-btn" href="/learning/html/introduction/" data-ln-continue="html">Start HTML</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="html" data-total="9">Not started</span>
+                <a class="ln-btn" href="/learning/html/introduction/" data-ln-continue="html">Start HTML →</a>
+              </div>
             </article>
             <article class="ln-track" style="--ln-c:#2965f1" data-ln-track="css" data-search="css css — cascading style sheets colours, layout and responsive design. css introduction selectors colours, fonts &amp; units the box model flexbox css grid responsive design">
-              <div class="ln-track-badge" aria-hidden="true">CSS</div>
-              <h3><a href="/learning/css/">CSS — Cascading Style Sheets</a></h3>
-              <p>Colours, layout and responsive design.</p>
-              <p class="ln-meta">7 lessons · Beginner · Try-it editor · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">{ }</span>
+                <div>
+                  <h3><a href="/learning/css/">CSS</a></h3>
+                  <p>Colours, layout and responsive design.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>7 lessons</li><li>Live Try-it editor</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="css"></span></div>
-              <p class="ln-progress-label" data-ln-label="css" data-total="7">Not started</p>
-              <a class="ln-btn" href="/learning/css/introduction/" data-ln-continue="css">Start CSS</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="css" data-total="7">Not started</span>
+                <a class="ln-btn" href="/learning/css/introduction/" data-ln-continue="css">Start CSS →</a>
+              </div>
             </article>
             <article class="ln-track" style="--ln-c:#d4a900" data-ln-track="javascript" data-search="javascript javascript — the language of the web make pages interactive. javascript introduction variables &amp; data types operators &amp; conditions loops functions arrays &amp; objects the dom events">
-              <div class="ln-track-badge" aria-hidden="true">JavaScript</div>
-              <h3><a href="/learning/javascript/">JavaScript — the language of the web</a></h3>
-              <p>Make pages interactive.</p>
-              <p class="ln-meta">8 lessons · Beginner · Try-it editor · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">JS</span>
+                <div>
+                  <h3><a href="/learning/javascript/">JavaScript</a></h3>
+                  <p>Make pages interactive.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>8 lessons</li><li>Live Try-it editor</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="javascript"></span></div>
-              <p class="ln-progress-label" data-ln-label="javascript" data-total="8">Not started</p>
-              <a class="ln-btn" href="/learning/javascript/introduction/" data-ln-continue="javascript">Start JavaScript</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="javascript" data-total="8">Not started</span>
+                <a class="ln-btn" href="/learning/javascript/introduction/" data-ln-continue="javascript">Start JavaScript →</a>
+              </div>
             </article>
             <article class="ln-track" style="--ln-c:#3776ab" data-ln-track="python" data-search="python python — readable programming for everyone logic, data and automation. python introduction variables &amp; data types strings conditions loops lists, tuples, sets &amp; dicts functions errors &amp; exceptions modules &amp; the standard library">
-              <div class="ln-track-badge" aria-hidden="true">Python</div>
-              <h3><a href="/learning/python/">Python — readable programming for everyone</a></h3>
-              <p>Logic, data and automation.</p>
-              <p class="ln-meta">9 lessons · Beginner · Try-it editor · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">Py</span>
+                <div>
+                  <h3><a href="/learning/python/">Python</a></h3>
+                  <p>Logic, data and automation.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>9 lessons</li><li>Runs Python in browser</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="python"></span></div>
-              <p class="ln-progress-label" data-ln-label="python" data-total="9">Not started</p>
-              <a class="ln-btn" href="/learning/python/introduction/" data-ln-continue="python">Start Python</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="python" data-total="9">Not started</span>
+                <a class="ln-btn" href="/learning/python/introduction/" data-ln-continue="python">Start Python →</a>
+              </div>
             </article>
             <article class="ln-track" style="--ln-c:#00758f" data-ln-track="sql" data-search="sql sql — talk to databases query, join and summarise data. sql introduction select &amp; where order by, limit &amp; distinct aggregates &amp; group by joins insert, update &amp; delete creating tables &amp; constraints subqueries &amp; ctes">
-              <div class="ln-track-badge" aria-hidden="true">SQL</div>
-              <h3><a href="/learning/sql/">SQL — talk to databases</a></h3>
-              <p>Query, join and summarise data.</p>
-              <p class="ln-meta">8 lessons · Beginner · Try-it editor · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">SQL</span>
+                <div>
+                  <h3><a href="/learning/sql/">SQL</a></h3>
+                  <p>Query, join and summarise data.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>8 lessons</li><li>Live SQL database</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="sql"></span></div>
-              <p class="ln-progress-label" data-ln-label="sql" data-total="8">Not started</p>
-              <a class="ln-btn" href="/learning/sql/introduction/" data-ln-continue="sql">Start SQL</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="sql" data-total="8">Not started</span>
+                <a class="ln-btn" href="/learning/sql/introduction/" data-ln-continue="sql">Start SQL →</a>
+              </div>
             </article>
             <article class="ln-track" style="--ln-c:#f05032" data-ln-track="git" data-search="git git &amp; github — version control for every developer track changes and work in teams. git introduction repositories &amp; commits branches &amp; merging remotes &amp; github pull requests &amp; teamwork undoing changes &amp; .gitignore">
-              <div class="ln-track-badge" aria-hidden="true">Git</div>
-              <h3><a href="/learning/git/">Git & GitHub — version control for every developer</a></h3>
-              <p>Track changes and work in teams.</p>
-              <p class="ln-meta">6 lessons · Beginner · Terminal examples · Quizzes · Interview Q&amp;A</p>
+              <div class="ln-track-top">
+                <span class="ln-mono" aria-hidden="true">Git</span>
+                <div>
+                  <h3><a href="/learning/git/">Git</a></h3>
+                  <p>Track changes and work in teams.</p>
+                </div>
+              </div>
+              <ul class="ln-track-facts">
+                <li>6 lessons</li><li>Terminal walkthroughs</li><li>Quizzes &amp; interview Q&amp;A</li>
+              </ul>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="git"></span></div>
-              <p class="ln-progress-label" data-ln-label="git" data-total="6">Not started</p>
-              <a class="ln-btn" href="/learning/git/introduction/" data-ln-continue="git">Start Git</a>
+              <div class="ln-track-foot">
+                <span class="ln-progress-label" data-ln-label="git" data-total="6">Not started</span>
+                <a class="ln-btn" href="/learning/git/introduction/" data-ln-continue="git">Start Git →</a>
+              </div>
             </article>
           </div>
           <p class="ln-empty" data-ln-empty hidden>No matches. Try another word, or browse the career paths below.</p>
@@ -176,27 +225,27 @@
           <div class="ez-head"><p class="ax-eyebrow">Every lesson</p><h2 id="ln-all">Jump straight to a topic</h2></div>
           <div class="ln-index">
             <div class="ln-index-col" style="--ln-c:#e44d26">
-              <h3><a href="/learning/html/">HTML</a></h3>
+              <h3><a href="/learning/html/"><span class="ln-mono ln-mono--sm" aria-hidden="true">&lt;/&gt;</span>HTML</a><small>9 lessons</small></h3>
               <ol><li data-search="html html introduction what html is, how a page is built and what a browser does with it."><a href="/learning/html/introduction/" data-ln-lesson="html/introduction">HTML introduction</a></li><li data-search="html elements, tags &amp; attributes opening and closing tags, nesting and attributes."><a href="/learning/html/elements/" data-ln-lesson="html/elements">Elements, tags & attributes</a></li><li data-search="html headings &amp; paragraphs h1–h6, paragraphs, line breaks and text formatting."><a href="/learning/html/headings-paragraphs/" data-ln-lesson="html/headings-paragraphs">Headings & paragraphs</a></li><li data-search="html links the &lt;a&gt; element, absolute vs relative urls and opening in a new tab."><a href="/learning/html/links/" data-ln-lesson="html/links">Links</a></li><li data-search="html images the &lt;img&gt; element, alt text, sizes and responsive images."><a href="/learning/html/images/" data-ln-lesson="html/images">Images</a></li><li data-search="html lists unordered, ordered and description lists."><a href="/learning/html/lists/" data-ln-lesson="html/lists">Lists</a></li><li data-search="html tables rows, cells, headers and captions for tabular data."><a href="/learning/html/tables/" data-ln-lesson="html/tables">Tables</a></li><li data-search="html forms inputs, labels, buttons and built-in validation."><a href="/learning/html/forms/" data-ln-lesson="html/forms">Forms</a></li><li data-search="html semantic html header, nav, main, section, article, footer — and why they matter."><a href="/learning/html/semantic/" data-ln-lesson="html/semantic">Semantic HTML</a></li></ol>
             </div>
             <div class="ln-index-col" style="--ln-c:#2965f1">
-              <h3><a href="/learning/css/">CSS</a></h3>
+              <h3><a href="/learning/css/"><span class="ln-mono ln-mono--sm" aria-hidden="true">{ }</span>CSS</a><small>7 lessons</small></h3>
               <ol><li data-search="css css introduction what css does, the rule syntax and three ways to add it."><a href="/learning/css/introduction/" data-ln-lesson="css/introduction">CSS introduction</a></li><li data-search="css selectors element, class, id, descendant and pseudo-class selectors."><a href="/learning/css/selectors/" data-ln-lesson="css/selectors">Selectors</a></li><li data-search="css colours, fonts &amp; units colour formats, fonts and px / rem / % / vw units."><a href="/learning/css/colors-units/" data-ln-lesson="css/colors-units">Colours, fonts & units</a></li><li data-search="css the box model content, padding, border, margin and box-sizing."><a href="/learning/css/box-model/" data-ln-lesson="css/box-model">The box model</a></li><li data-search="css flexbox one-dimensional layout: rows, columns, alignment and gaps."><a href="/learning/css/flexbox/" data-ln-lesson="css/flexbox">Flexbox</a></li><li data-search="css css grid two-dimensional layout with rows and columns."><a href="/learning/css/grid/" data-ln-lesson="css/grid">CSS Grid</a></li><li data-search="css responsive design the viewport meta tag, media queries and mobile-first css."><a href="/learning/css/responsive/" data-ln-lesson="css/responsive">Responsive design</a></li></ol>
             </div>
             <div class="ln-index-col" style="--ln-c:#d4a900">
-              <h3><a href="/learning/javascript/">JavaScript</a></h3>
+              <h3><a href="/learning/javascript/"><span class="ln-mono ln-mono--sm" aria-hidden="true">JS</span>JavaScript</a><small>8 lessons</small></h3>
               <ol><li data-search="javascript javascript introduction what javascript does, where to write it and console.log."><a href="/learning/javascript/introduction/" data-ln-lesson="javascript/introduction">JavaScript introduction</a></li><li data-search="javascript variables &amp; data types let, const, strings, numbers, booleans, null and undefined."><a href="/learning/javascript/variables/" data-ln-lesson="javascript/variables">Variables & data types</a></li><li data-search="javascript operators &amp; conditions arithmetic, comparison, logical operators and if / else."><a href="/learning/javascript/operators-conditions/" data-ln-lesson="javascript/operators-conditions">Operators & conditions</a></li><li data-search="javascript loops for, while, for…of and breaking out of loops."><a href="/learning/javascript/loops/" data-ln-lesson="javascript/loops">Loops</a></li><li data-search="javascript functions declaring functions, parameters, return values and arrow functions."><a href="/learning/javascript/functions/" data-ln-lesson="javascript/functions">Functions</a></li><li data-search="javascript arrays &amp; objects lists and key/value data, plus map, filter and find."><a href="/learning/javascript/arrays-objects/" data-ln-lesson="javascript/arrays-objects">Arrays & objects</a></li><li data-search="javascript the dom selecting elements and changing text, classes and styles."><a href="/learning/javascript/dom/" data-ln-lesson="javascript/dom">The DOM</a></li><li data-search="javascript events addeventlistener, click and input events, forms."><a href="/learning/javascript/events/" data-ln-lesson="javascript/events">Events</a></li></ol>
             </div>
             <div class="ln-index-col" style="--ln-c:#3776ab">
-              <h3><a href="/learning/python/">Python</a></h3>
+              <h3><a href="/learning/python/"><span class="ln-mono ln-mono--sm" aria-hidden="true">Py</span>Python</a><small>9 lessons</small></h3>
               <ol><li data-search="python python introduction what python is used for, running code and the print() function."><a href="/learning/python/introduction/" data-ln-lesson="python/introduction">Python introduction</a></li><li data-search="python variables &amp; data types creating variables, int, float, str, bool and converting between types."><a href="/learning/python/variables/" data-ln-lesson="python/variables">Variables & data types</a></li><li data-search="python strings f-strings, common string methods, indexing and slicing."><a href="/learning/python/strings/" data-ln-lesson="python/strings">Strings</a></li><li data-search="python conditions if, elif, else, comparison operators and and / or / not."><a href="/learning/python/conditions/" data-ln-lesson="python/conditions">Conditions</a></li><li data-search="python loops for loops with range(), looping over lists, while, break and continue."><a href="/learning/python/loops/" data-ln-lesson="python/loops">Loops</a></li><li data-search="python lists, tuples, sets &amp; dicts python's four everyday collections and list comprehensions."><a href="/learning/python/collections/" data-ln-lesson="python/collections">Lists, tuples, sets & dicts</a></li><li data-search="python functions def, parameters, default values, return and keyword arguments."><a href="/learning/python/functions/" data-ln-lesson="python/functions">Functions</a></li><li data-search="python errors &amp; exceptions reading tracebacks and handling problems with try / except / finally."><a href="/learning/python/errors/" data-ln-lesson="python/errors">Errors & exceptions</a></li><li data-search="python modules &amp; the standard library import, from … import, and useful built-in modules: math, random, datetime, json."><a href="/learning/python/modules/" data-ln-lesson="python/modules">Modules & the standard library</a></li></ol>
             </div>
             <div class="ln-index-col" style="--ln-c:#00758f">
-              <h3><a href="/learning/sql/">SQL</a></h3>
+              <h3><a href="/learning/sql/"><span class="ln-mono ln-mono--sm" aria-hidden="true">SQL</span>SQL</a><small>8 lessons</small></h3>
               <ol><li data-search="sql sql introduction databases, tables, rows and columns — and your first select."><a href="/learning/sql/introduction/" data-ln-lesson="sql/introduction">SQL introduction</a></li><li data-search="sql select &amp; where choosing columns and filtering rows with where, and, or, in, between and like."><a href="/learning/sql/select-where/" data-ln-lesson="sql/select-where">SELECT & WHERE</a></li><li data-search="sql order by, limit &amp; distinct sorting results, taking the top rows and removing duplicates."><a href="/learning/sql/order-limit/" data-ln-lesson="sql/order-limit">ORDER BY, LIMIT & DISTINCT</a></li><li data-search="sql aggregates &amp; group by count, sum, avg, min, max, grouping rows and filtering groups with having."><a href="/learning/sql/aggregates/" data-ln-lesson="sql/aggregates">Aggregates & GROUP BY</a></li><li data-search="sql joins combining tables with inner join and left join."><a href="/learning/sql/joins/" data-ln-lesson="sql/joins">JOINs</a></li><li data-search="sql insert, update &amp; delete adding, changing and removing rows safely."><a href="/learning/sql/modify-data/" data-ln-lesson="sql/modify-data">INSERT, UPDATE & DELETE</a></li><li data-search="sql creating tables &amp; constraints create table, data types, primary key, not null, unique, default and foreign key."><a href="/learning/sql/create-table/" data-ln-lesson="sql/create-table">Creating tables & constraints</a></li><li data-search="sql subqueries &amp; ctes queries inside queries, and readable with clauses."><a href="/learning/sql/subqueries/" data-ln-lesson="sql/subqueries">Subqueries & CTEs</a></li></ol>
             </div>
             <div class="ln-index-col" style="--ln-c:#f05032">
-              <h3><a href="/learning/git/">Git</a></h3>
+              <h3><a href="/learning/git/"><span class="ln-mono ln-mono--sm" aria-hidden="true">Git</span>Git</a><small>6 lessons</small></h3>
               <ol><li data-search="git git introduction what version control solves, git vs github, installing and configuring git."><a href="/learning/git/introduction/" data-ln-lesson="git/introduction">Git introduction</a></li><li data-search="git repositories &amp; commits git init, status, add, commit and log — the everyday cycle."><a href="/learning/git/commits/" data-ln-lesson="git/commits">Repositories & commits</a></li><li data-search="git branches &amp; merging creating branches, switching, merging and resolving conflicts."><a href="/learning/git/branches/" data-ln-lesson="git/branches">Branches & merging</a></li><li data-search="git remotes &amp; github connecting to github, push, pull, clone and fetch."><a href="/learning/git/github/" data-ln-lesson="git/github">Remotes & GitHub</a></li><li data-search="git pull requests &amp; teamwork the feature-branch workflow, pull requests and code review."><a href="/learning/git/pull-requests/" data-ln-lesson="git/pull-requests">Pull requests & teamwork</a></li><li data-search="git undoing changes &amp; .gitignore restore, revert, reset, amend and keeping files out of git."><a href="/learning/git/undo/" data-ln-lesson="git/undo">Undoing changes & .gitignore</a></li></ol>
             </div>
           </div>
@@ -217,9 +266,9 @@
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Practice</p><h2 id="ln-practice">Practise like a real coding round</h2></div>
           <div class="ln-practice">
-            <a href="/interview/learning/live-code/"><strong>▶ Live code playground</strong><span>HTML/CSS/JS, JavaScript, SQL and Python challenges that check your answer.</span></a>
-            <a href="/interview/questions/?field=it"><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
-            <a href="/portfolio/templates/"><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
+            <a href="/interview/learning/live-code/"><span class="ln-pr-icon" aria-hidden="true">▶</span><strong>Live code playground</strong><span>HTML/CSS/JS, JavaScript, SQL and Python challenges that check your answer.</span></a>
+            <a href="/interview/questions/?field=it"><span class="ln-pr-icon" aria-hidden="true">?</span><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
+            <a href="/portfolio/templates/"><span class="ln-pr-icon" aria-hidden="true">★</span><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
           </div>
         </div>
       </section>
@@ -229,11 +278,11 @@
           <div class="ln-paths-grid">
             <div>
               <h3>💻 Technical / IT</h3>
-              <ul class="ln-paths"><li data-search="web development (frontend) learn html, css, javascript and react, then build and deploy real projects."><a href="/interview/learning/web-development/">Web development (frontend)</a></li><li data-search="java backend development core java, oop, collections, sql and spring boot rest apis — the most-hired backend stack in kerala it parks."><a href="/interview/learning/java-backend/">Java backend development</a></li><li data-search="python development python fundamentals, problem-solving, django or fastapi, and automation scripts."><a href="/interview/learning/python-development/">Python development</a></li><li data-search="mobile app development dart and flutter (or kotlin for android), state management, apis and publishing."><a href="/interview/learning/mobile-apps/">Mobile app development</a></li><li data-search="data analyst excel, sql, power bi and basic statistics — turn data into decisions."><a href="/interview/learning/data-analyst/">Data analyst</a></li><li data-search="data science &amp; ai/ml python, statistics, machine learning with scikit-learn, and an introduction to deep learning and llms."><a href="/interview/learning/data-science/">Data science &amp; AI/ML</a></li><li data-search="sql &amp; databases write confident queries, design simple schemas and answer the classic sql interview questions."><a href="/interview/learning/sql-databases/">SQL &amp; databases</a></li><li data-search="devops &amp; cloud linux, git, ci/cd, docker, kubernetes and one cloud platform."><a href="/interview/learning/devops-cloud/">DevOps &amp; cloud</a></li><li data-search="cybersecurity networking, linux, web security, threats and defensive tools — the foundations for soc and security roles."><a href="/interview/learning/cybersecurity/">Cybersecurity</a></li><li data-search="networking &amp; system admin hardware, networking, windows/linux administration and troubleshooting."><a href="/interview/learning/networking-sysadmin/">Networking &amp; system admin</a></li><li data-search="software testing (qa) manual testing, test cases, bug reporting, api testing and selenium automation."><a href="/interview/learning/software-testing/">Software testing (QA)</a></li><li data-search="ui/ux design design principles, user research, wireframes, figma prototypes and a case-study portfolio."><a href="/interview/learning/ui-ux-design/">UI/UX design</a></li></ul>
+              <ul class="ln-paths ln-chips"><li data-search="web development (frontend) learn html, css, javascript and react, then build and deploy real projects."><a href="/interview/learning/web-development/">Web development (frontend)</a></li><li data-search="java backend development core java, oop, collections, sql and spring boot rest apis — the most-hired backend stack in kerala it parks."><a href="/interview/learning/java-backend/">Java backend development</a></li><li data-search="python development python fundamentals, problem-solving, django or fastapi, and automation scripts."><a href="/interview/learning/python-development/">Python development</a></li><li data-search="mobile app development dart and flutter (or kotlin for android), state management, apis and publishing."><a href="/interview/learning/mobile-apps/">Mobile app development</a></li><li data-search="data analyst excel, sql, power bi and basic statistics — turn data into decisions."><a href="/interview/learning/data-analyst/">Data analyst</a></li><li data-search="data science &amp; ai/ml python, statistics, machine learning with scikit-learn, and an introduction to deep learning and llms."><a href="/interview/learning/data-science/">Data science &amp; AI/ML</a></li><li data-search="sql &amp; databases write confident queries, design simple schemas and answer the classic sql interview questions."><a href="/interview/learning/sql-databases/">SQL &amp; databases</a></li><li data-search="devops &amp; cloud linux, git, ci/cd, docker, kubernetes and one cloud platform."><a href="/interview/learning/devops-cloud/">DevOps &amp; cloud</a></li><li data-search="cybersecurity networking, linux, web security, threats and defensive tools — the foundations for soc and security roles."><a href="/interview/learning/cybersecurity/">Cybersecurity</a></li><li data-search="networking &amp; system admin hardware, networking, windows/linux administration and troubleshooting."><a href="/interview/learning/networking-sysadmin/">Networking &amp; system admin</a></li><li data-search="software testing (qa) manual testing, test cases, bug reporting, api testing and selenium automation."><a href="/interview/learning/software-testing/">Software testing (QA)</a></li><li data-search="ui/ux design design principles, user research, wireframes, figma prototypes and a case-study portfolio."><a href="/interview/learning/ui-ux-design/">UI/UX design</a></li></ul>
             </div>
             <div>
               <h3>🧭 Non-IT careers</h3>
-              <ul class="ln-paths"><li data-search="accounting &amp; finance accounting principles, tally prime, gst and tds basics, reconciliation and excel."><a href="/interview/learning/accounting-finance/">Accounting &amp; finance</a></li><li data-search="banking &amp; financial services banking concepts, products, kyc, regulation, customer service and sales skills."><a href="/interview/learning/banking/">Banking &amp; financial services</a></li><li data-search="project management &amp; business analysis requirements, agile and scrum, planning, risk and stakeholder management."><a href="/interview/learning/project-management/">Project management &amp; business analysis</a></li><li data-search="digital marketing seo, social media, google and meta ads, analytics and content."><a href="/interview/learning/digital-marketing/">Digital marketing</a></li><li data-search="sales &amp; business development prospecting, pitching, objection handling, crm and negotiation."><a href="/interview/learning/sales-business-development/">Sales &amp; business development</a></li><li data-search="hr &amp; recruitment sourcing, screening, onboarding, hr operations, payroll basics and labour-law awareness."><a href="/interview/learning/hr-recruitment/">HR &amp; recruitment</a></li><li data-search="customer support &amp; bpo communication, empathy, ticketing tools, slas and typing speed."><a href="/interview/learning/customer-support/">Customer support &amp; BPO</a></li><li data-search="office administration &amp; ms excel ms office, excel formulas and pivots, reporting, records and front-desk skills."><a href="/interview/learning/office-admin-excel/">Office administration &amp; MS Excel</a></li><li data-search="graphic design design principles, photoshop, illustrator, branding and a strong portfolio."><a href="/interview/learning/graphic-design/">Graphic design</a></li><li data-search="content writing clear writing, seo content, copywriting and a writing portfolio."><a href="/interview/learning/content-writing/">Content writing</a></li><li data-search="mechanical engineering (cad &amp; production) engineering drawing, cad, manufacturing processes, quality tools and maintenance."><a href="/interview/learning/mechanical-engineering/">Mechanical engineering (CAD &amp; production)</a></li><li data-search="civil engineering (site &amp; design) drawings, concrete technology, estimation, structural software and site management."><a href="/interview/learning/civil-engineering/">Civil engineering (site &amp; design)</a></li><li data-search="electrical &amp; electronics circuits, machines, wiring and protection, plcs and safety."><a href="/interview/learning/electrical-engineering/">Electrical &amp; electronics</a></li><li data-search="hotel &amp; hospitality front office, f&amp;b service, housekeeping standards, food safety and guest service."><a href="/interview/learning/hotel-hospitality/">Hotel &amp; hospitality</a></li><li data-search="retail &amp; store operations customer service, selling, billing, inventory and store kpis."><a href="/interview/learning/retail-operations/">Retail &amp; store operations</a></li><li data-search="logistics &amp; supply chain inventory, warehousing, transport, procurement, documentation and analytics."><a href="/interview/learning/logistics-supply-chain/">Logistics &amp; supply chain</a></li><li data-search="nursing &amp; healthcare clinical basics, patient safety, communication, documentation and life-support certification."><a href="/interview/learning/nursing-healthcare/">Nursing &amp; healthcare</a></li><li data-search="teaching &amp; training lesson planning, classroom management, assessment, edtech and eligibility tests."><a href="/interview/learning/teaching-training/">Teaching &amp; training</a></li><li data-search="communication &amp; soft skills spoken english, self-introduction, emails, presentations, teamwork and interview confidence."><a href="/interview/learning/communication-soft-skills/">Communication &amp; soft skills</a></li></ul>
+              <ul class="ln-paths ln-chips"><li data-search="accounting &amp; finance accounting principles, tally prime, gst and tds basics, reconciliation and excel."><a href="/interview/learning/accounting-finance/">Accounting &amp; finance</a></li><li data-search="banking &amp; financial services banking concepts, products, kyc, regulation, customer service and sales skills."><a href="/interview/learning/banking/">Banking &amp; financial services</a></li><li data-search="project management &amp; business analysis requirements, agile and scrum, planning, risk and stakeholder management."><a href="/interview/learning/project-management/">Project management &amp; business analysis</a></li><li data-search="digital marketing seo, social media, google and meta ads, analytics and content."><a href="/interview/learning/digital-marketing/">Digital marketing</a></li><li data-search="sales &amp; business development prospecting, pitching, objection handling, crm and negotiation."><a href="/interview/learning/sales-business-development/">Sales &amp; business development</a></li><li data-search="hr &amp; recruitment sourcing, screening, onboarding, hr operations, payroll basics and labour-law awareness."><a href="/interview/learning/hr-recruitment/">HR &amp; recruitment</a></li><li data-search="customer support &amp; bpo communication, empathy, ticketing tools, slas and typing speed."><a href="/interview/learning/customer-support/">Customer support &amp; BPO</a></li><li data-search="office administration &amp; ms excel ms office, excel formulas and pivots, reporting, records and front-desk skills."><a href="/interview/learning/office-admin-excel/">Office administration &amp; MS Excel</a></li><li data-search="graphic design design principles, photoshop, illustrator, branding and a strong portfolio."><a href="/interview/learning/graphic-design/">Graphic design</a></li><li data-search="content writing clear writing, seo content, copywriting and a writing portfolio."><a href="/interview/learning/content-writing/">Content writing</a></li><li data-search="mechanical engineering (cad &amp; production) engineering drawing, cad, manufacturing processes, quality tools and maintenance."><a href="/interview/learning/mechanical-engineering/">Mechanical engineering (CAD &amp; production)</a></li><li data-search="civil engineering (site &amp; design) drawings, concrete technology, estimation, structural software and site management."><a href="/interview/learning/civil-engineering/">Civil engineering (site &amp; design)</a></li><li data-search="electrical &amp; electronics circuits, machines, wiring and protection, plcs and safety."><a href="/interview/learning/electrical-engineering/">Electrical &amp; electronics</a></li><li data-search="hotel &amp; hospitality front office, f&amp;b service, housekeeping standards, food safety and guest service."><a href="/interview/learning/hotel-hospitality/">Hotel &amp; hospitality</a></li><li data-search="retail &amp; store operations customer service, selling, billing, inventory and store kpis."><a href="/interview/learning/retail-operations/">Retail &amp; store operations</a></li><li data-search="logistics &amp; supply chain inventory, warehousing, transport, procurement, documentation and analytics."><a href="/interview/learning/logistics-supply-chain/">Logistics &amp; supply chain</a></li><li data-search="nursing &amp; healthcare clinical basics, patient safety, communication, documentation and life-support certification."><a href="/interview/learning/nursing-healthcare/">Nursing &amp; healthcare</a></li><li data-search="teaching &amp; training lesson planning, classroom management, assessment, edtech and eligibility tests."><a href="/interview/learning/teaching-training/">Teaching &amp; training</a></li><li data-search="communication &amp; soft skills spoken english, self-introduction, emails, presentations, teamwork and interview confidence."><a href="/interview/learning/communication-soft-skills/">Communication &amp; soft skills</a></li></ul>
             </div>
           </div>
         </div>
@@ -243,19 +292,19 @@
           <div class="ez-head"><p class="ax-eyebrow">On the roadmap</p><h2 id="ln-next">More tutorials are on the way</h2></div>
           <div class="ln-planned-grid">
             <div class="ln-planned" style="--ln-c:#149eca" data-search="react components, state and modern frontend apps.">
-              <strong>React</strong><span>Components, state and modern frontend apps.</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>React</strong><span>Components, state and modern frontend apps.</span>
             </div>
             <div class="ln-planned" style="--ln-c:#b07219" data-search="java oop and backend foundations.">
-              <strong>Java</strong><span>OOP and backend foundations.</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>Java</strong><span>OOP and backend foundations.</span>
             </div>
             <div class="ln-planned" style="--ln-c:#1d6f42" data-search="ms excel formulas, pivot tables and reports.">
-              <strong>MS Excel</strong><span>Formulas, pivot tables and reports.</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>MS Excel</strong><span>Formulas, pivot tables and reports.</span>
             </div>
             <div class="ln-planned" style="--ln-c:#7c3aed" data-search="data structures &amp; algorithms arrays, stacks, sorting and searching for coding rounds.">
-              <strong>Data structures & algorithms</strong><span>Arrays, stacks, sorting and searching for coding rounds.</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>Data structures & algorithms</strong><span>Arrays, stacks, sorting and searching for coding rounds.</span>
             </div>
             <div class="ln-planned" style="--ln-c:#b45309" data-search="aptitude &amp; reasoning quantitative, logical and verbal practice for placement tests.">
-              <strong>Aptitude & reasoning</strong><span>Quantitative, logical and verbal practice for placement tests.</span><em>Coming soon</em>
+              <em>Coming soon</em><strong>Aptitude & reasoning</strong><span>Quantitative, logical and verbal practice for placement tests.</span>
             </div>
           </div>
         </div>
@@ -281,7 +330,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/learning.js?v=20261104ui" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

@@ -1,15 +1,162 @@
-/* Portfolio service page (/portfolio/templates/): "About this service" explainer block. */
+/* Portfolio service page (/portfolio/templates/) — layered on portfolio-store.css, scoped to body.pf-service. */
+
+/* ---------- hero ---------- */
+.pf-service .store-hero {
+  position: relative;
+  padding-block: 3.5rem 2.75rem;
+  background:
+    radial-gradient(60rem 28rem at 85% -10%, rgba(255, 193, 7, 0.18), transparent 60%),
+    radial-gradient(40rem 22rem at -10% 110%, rgba(94, 120, 74, 0.12), transparent 60%);
+}
+.pf-service .hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #ecdca0;
+  border-radius: 999px;
+  background: #fff8dc;
+  color: #6b5808;
+}
+.pf-service .store-hero h1 { font-size: clamp(2.3rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.02em; }
+.pf-service .hero-lead { font-size: 1.08rem; max-width: 34rem; }
+.pf-service .hero-trust {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  gap: 0.5rem 1.5rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pf-service .hero-trust li { display: flex; align-items: center; gap: 0.5rem; }
+.pf-service .hero-trust li::before {
+  content: "";
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: #1d7a4c url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6L20.1 8.4 18.7 7z'/%3E%3C/svg%3E") center / 0.8rem no-repeat;
+}
+.pf-service .hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  align-items: center;
+  font-size: 0.88rem;
+}
+.pf-service .hero-meta > span { display: none; }
+.pf-service .hero-meta strong {
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.85rem;
+}
+.pf-service .hero-visual { box-shadow: 0 30px 60px -30px rgba(18, 21, 27, 0.35); border-radius: 1.25rem; }
+
+/* ---------- audience pills ---------- */
+.pf-service .audience { border-bottom: 0; padding-block: 1.25rem; }
+.pf-service .audience nav { gap: 0.5rem; }
+.pf-service .audience a {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+}
+.pf-service .audience a:hover { border-color: var(--ink); background: #fff8dc; transform: translateY(-1px); }
+
+/* ---------- about this service ---------- */
 .service-explainer .explainer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
 }
 .service-explainer article {
-  padding: 22px;
+  position: relative;
+  padding: 24px;
   border: 1px solid #e4e5dc;
-  border-radius: 18px;
+  border-radius: 20px;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-explainer article:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(18, 21, 27, 0.35); }
+.explainer-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background: #fff3c4;
+}
+.explainer-icon svg { width: 22px; height: 22px; fill: #12151b; }
+.service-explainer h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.service-explainer article p { margin: 0; color: #5c6370; line-height: 1.6; font-size: 0.95rem; }
+.service-explainer .explainer-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* ---------- collection CTA band ---------- */
+.pf-service .cta-band { padding-block: 1.5rem; }
+.pf-service .cta-band-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.25rem 2.5rem;
+  border-radius: 24px;
+  background:
+    radial-gradient(30rem 14rem at 100% 0%, rgba(255, 193, 7, 0.28), transparent 70%),
+    #12151b;
+  color: #fff;
+}
+.pf-service .cta-band .eyebrow { color: #ffd54a; }
+.pf-service .cta-band h2 { margin: 0.4rem 0 0.5rem; color: #fff; }
+.pf-service .cta-band p:not(.eyebrow) { margin: 0; color: #c9ced8; max-width: 36rem; }
+.pf-service .cta-band .button { background: #ffc107; border-color: #ffc107; color: #12151b; }
+.pf-service .cta-band .button:hover { background: #ffd54a; }
+
+/* ---------- steps as cards ---------- */
+.pf-service #how-it-works .section-heading { display: block; }
+.pf-service #how-it-works h2 { margin-top: 0.5rem; }
+.pf-service .steps { gap: 16px; counter-reset: none; }
+.pf-service .steps li {
+  position: relative;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
   background: #fff;
 }
-.service-explainer h3 { margin: 0 0 8px; font-size: 1.1rem; }
-.service-explainer article p { margin: 0; color: #5c6370; line-height: 1.6; }
-.service-explainer .explainer-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.pf-service .steps span {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffc107;
+  color: #12151b;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ---------- FAQ: heading column + list ---------- */
+.pf-service #faqs { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 2.5rem; align-items: start; }
+.pf-service #faqs .section-heading { display: block; position: sticky; top: calc(var(--header, 72px) + 1.5rem); }
+.pf-service #faqs .section-heading h2 { text-align: left; margin-top: 0.5rem; }
+.pf-service #faqs .faq-list,
+.pf-service #faqs .faq-list + .text-link { margin-left: 0; grid-column: 2; }
+.pf-service .faq-list details { padding-inline: 0.25rem; }
+.pf-service .faq-list summary { padding-block: 1.1rem; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .pf-service .store-hero { padding-block: 1.75rem 1.5rem; }
+  .pf-service .hero-trust { grid-template-columns: 1fr; }
+  .pf-service .cta-band-inner { padding: 1.75rem 1.25rem; }
+  .pf-service #faqs { display: block; }
+  .pf-service #faqs .section-heading { position: static; margin-bottom: 1rem; }
+}

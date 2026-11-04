@@ -84,6 +84,10 @@
   const menu = header.querySelector("#store-menu");
   const nav = header.querySelector("#store-nav");
   if (menu && nav) {
+    /* Some generated pages (portfolio) ship a plain "Menu" text button — give it the shared bars icon. */
+    if (!menu.querySelector(".store-menu-bars")) {
+      menu.innerHTML = '<span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>';
+    }
     header.classList.add("menu-ready");
     const open = (value) => {
       header.classList.toggle("menu-open", value);

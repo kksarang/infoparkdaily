@@ -276,7 +276,7 @@ export const pageShell = ({ title, description, path, ogTitle, ogDescription, og
     <link rel="stylesheet" href="/css/interview-journey.css?v=${ASSET_V}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${ASSET_V}" />
     ${extraCss.map((c) => `<link rel="stylesheet" href="${c}" />`).join("\n    ")}
-    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+    <script defer src="/js/career-nav.js?v=20261104ui"></script>
   </head>
   <body class="career-tools ij-page hub-page ${bodyClass} light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>

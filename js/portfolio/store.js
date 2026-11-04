@@ -69,7 +69,7 @@ document.querySelectorAll('.store-header .store-brand').forEach((a)=>{
   a.setAttribute('aria-label','Infopark Daily home');
 });
 const menu=$('#store-menu');
-if(menu){const header=$('.store-header');header.classList.add('menu-ready');const open=value=>{header.classList.toggle('menu-open',value);menu.setAttribute('aria-expanded',String(value));};menu.addEventListener('click',()=>open(menu.getAttribute('aria-expanded')!=='true'));header.addEventListener('keydown',ev=>{if(ev.key==='Escape'){open(false);menu.focus();}});$('#store-nav').addEventListener('click',()=>open(false));document.addEventListener('click',ev=>{if(!header.contains(ev.target))open(false);});}
+if(menu&&!document.querySelector('script[src*="/js/career-nav.js"]')){const header=$('.store-header');header.classList.add('menu-ready');const open=value=>{header.classList.toggle('menu-open',value);menu.setAttribute('aria-expanded',String(value));};menu.addEventListener('click',()=>open(menu.getAttribute('aria-expanded')!=='true'));header.addEventListener('keydown',ev=>{if(ev.key==='Escape'){open(false);menu.focus();}});$('#store-nav').addEventListener('click',()=>open(false));document.addEventListener('click',ev=>{if(!header.contains(ev.target))open(false);});}
 
 /* --- Favourites + gallery filters --------------------------------------- */
 const favouriteKey='ipd.portfolio.favourites.v1';const rawSaved=safeRead(favouriteKey,[]);let saved=new Set(Array.isArray(rawSaved)?rawSaved.filter(slug=>templates.some(t=>t.slug===slug)):[]);
