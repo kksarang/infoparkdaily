@@ -77,12 +77,15 @@
   let level = read(LEVEL_KEY) || "all";
   if (!["all", "fresher", "experienced"].includes(level)) level = "all";
   let group = "all";
+  let field = "all";
 
   function applyFilters() {
     const q = search ? search.value.trim().toLowerCase() : "";
     let shown = 0;
     subjects.forEach((s) => {
-      const groupOk = group === "all" || s.getAttribute("data-group") === group;
+      const sf = s.getAttribute("data-field");
+      const fieldOk = field === "all" || sf === field || sf === "common";
+      const groupOk = fieldOk && (group === "all" || s.getAttribute("data-group") === group);
       let inSubject = 0;
       s.querySelectorAll(".iq-item").forEach((item) => {
         const lv = item.getAttribute("data-level");
@@ -106,7 +109,7 @@
       if (list) list.hidden = !visible;
     });
     if (result) {
-      const filtered = q || level !== "all" || group !== "all";
+      const filtered = q || level !== "all" || group !== "all" || field !== "all";
       result.textContent = filtered ? "Showing " + shown + " of " + total + " questions" : "";
     }
     if (empty) empty.hidden = shown > 0;
@@ -117,6 +120,18 @@
     write(LEVEL_KEY, value);
     document.querySelectorAll("[data-iq-level]").forEach((b) => b.setAttribute("aria-pressed", String(b.getAttribute("data-iq-level") === value)));
     applyFilters();
+  }
+
+  function setField(value) {
+    field = value;
+    document.querySelectorAll("[data-iq-field]").forEach((b) => b.setAttribute("aria-pressed", String(b.getAttribute("data-iq-field") === value)));
+    document.querySelectorAll(".iq-chips [data-field]").forEach((chip) => {
+      const f = chip.getAttribute("data-field");
+      chip.hidden = !(value === "all" || f === value || f === "common");
+    });
+    const current = document.querySelector('.iq-chips [data-iq-group][aria-pressed="true"]');
+    if (current && current.hidden) group = "all";
+    setGroup(group);
   }
 
   function setGroup(value) {
@@ -175,6 +190,8 @@
     if (!e.target.closest) return;
     const lv = e.target.closest("[data-iq-level]");
     if (lv) return setLevel(lv.getAttribute("data-iq-level"));
+    const fd = e.target.closest("[data-iq-field]");
+    if (fd) return setField(fd.getAttribute("data-iq-field"));
     const gr = e.target.closest("[data-iq-group]");
     if (gr) return setGroup(gr.getAttribute("data-iq-group"));
     const pr = e.target.closest("[data-practised]");
@@ -219,6 +236,8 @@
     }
     if (e.target.closest("[data-iq-clear]")) {
       if (search) search.value = "";
+      field = "all";
+      setField("all");
       setGroup("all");
       setLevel("all");
       return;
@@ -277,8 +296,10 @@
 
   /* ---------- init ---------- */
   const initialQ = new URLSearchParams(location.search).get("q");
+  const initialField = new URLSearchParams(location.search).get("field");
   if (initialQ && search) search.value = initialQ.slice(0, 80);
   setLevel(level);
+  if (initialField === "it" || initialField === "nonit") setField(initialField);
   paintPractised();
   onScroll();
   openFromHash();

@@ -9,6 +9,7 @@ import { esc } from "./helpers.mjs";
 import { header, footer, hubNav, hubRelated, ASSET_V } from "./shell.mjs";
 import { GENERAL } from "./questions-general.mjs";
 import { TECH } from "./questions-tech.mjs";
+import { NONIT } from "./questions-nonit.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
@@ -19,11 +20,26 @@ const SITE = "https://infoparkdaily.online";
 const PAGE = `${SITE}/interview/questions/`;
 
 const LEVEL = { f: ["fresher", "Fresher"], e: ["experienced", "Experienced"], b: ["both", "Fresher & experienced"] };
-const GROUP_ORDER = ["HR & behavioural", "Core CS", "Programming", "Web & mobile", "Data & cloud", "Testing", "Non-IT"];
+const GROUP_ORDER = [
+  "HR & behavioural",
+  "Core CS",
+  "Programming",
+  "Web & mobile",
+  "Data & cloud",
+  "Testing",
+  "Business & finance",
+  "Office & support",
+  "Marketing & creative",
+  "Core engineering",
+  "Healthcare & education",
+  "Hospitality, retail & logistics"
+];
+const IT_GROUPS = new Set(["Core CS", "Programming", "Web & mobile", "Data & cloud", "Testing"]);
+const fieldOf = (g) => (g === "HR & behavioural" ? "common" : IT_GROUPS.has(g) ? "it" : "nonit");
 
 export function buildQuestions() {
   const hr = GENERAL.filter((s) => s.group === "HR & behavioural");
-  const nonIt = GENERAL.filter((s) => s.group !== "HR & behavioural");
+  const nonIt = [...GENERAL.filter((s) => s.group !== "HR & behavioural"), ...NONIT];
   const subjects = [...hr, ...TECH, ...nonIt].sort(
     (a, b) => GROUP_ORDER.indexOf(a.group) - GROUP_ORDER.indexOf(b.group)
   );
@@ -42,10 +58,10 @@ export function buildQuestions() {
   const plain = (h) => String(h).replace(/<[^>]+>/g, "").replace(/&[a-z]+;/g, " ");
 
   const subjectHtml = (s) => `
-<section class="iq-subject ij-reveal" id="q-${s.id}" data-group="${esc(s.group)}" aria-labelledby="q-${s.id}-title">
+<section class="iq-subject ij-reveal" id="q-${s.id}" data-group="${esc(s.group)}" data-field="${fieldOf(s.group)}" aria-labelledby="q-${s.id}-title">
   <header class="iq-subject-head">
     <div>
-      <p class="iq-subject-meta"><span class="iq-round iq-round--${s.round.toLowerCase()}">${s.round} round</span> ${s.group}</p>
+      <p class="iq-subject-meta"><span class="iq-round iq-round--${s.round.toLowerCase().replace(/[^a-z]+/g, "-")}">${s.round === "Role-based" ? "Role-based" : s.round + " round"}</span> ${s.group}</p>
       <h2 id="q-${s.id}-title">${s.name}</h2>
       <p>${s.intro}</p>
     </div>
@@ -102,7 +118,7 @@ export function buildQuestions() {
     <title>${total}+ Interview Questions &amp; Answers – HR &amp; Technical Rounds | InfoparkDaily</title>
     <meta
       name="description"
-      content="Free interview question bank: ${total} questions with sample answers across ${subjects.length} subjects — HR, managerial, Java, Python, JavaScript, React, SQL, testing, data, DevOps, Android, Flutter, accounts, support and more. Fresher and experienced."
+      content="Free interview question bank: ${total} questions with sample answers across ${subjects.length} subjects — HR, Java, Python, SQL, testing, data, DevOps, plus non-IT careers: banking, accounts, nursing, teaching, mechanical, civil, electrical, hospitality, retail, logistics and sales. Fresher and experienced."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#fafaf7" />
@@ -159,15 +175,15 @@ ${header()}
           <p class="ij-badge-hero"><b>FREE</b> ${total} questions · ${subjects.length} subjects · sample answers</p>
           <h1 id="iq-title">Interview questions<br /><span>for every round.</span></h1>
           <p class="ij-lede">
-            HR, managerial and technical questions you’re likely to be asked — from <strong>Java, Python and SQL</strong> to
-            <strong>testing, data, DevOps, mobile, accounts and customer support</strong>. Each has a sample answer you can adapt.
-            Filter by subject, round and experience, then mark questions as practised.
+            HR, managerial and role-based questions for <strong>IT and non-IT careers</strong> — from Java, SQL and testing to
+            <strong>banking, accounts, nursing, teaching, engineering, hospitality, retail, logistics and sales</strong>. Each has a
+            sample answer you can adapt. Filter by field, subject and experience, then mark questions as practised.
           </p>
           <ul class="ij-hero-stats">
             <li><strong>${total}</strong><span>questions</span></li>
             <li><strong>${subjects.length}</strong><span>subjects</span></li>
-            <li><strong>${count("f")}</strong><span>for freshers</span></li>
-            <li><strong>${count("e")}</strong><span>for experienced</span></li>
+            <li><strong>${subjects.filter((s) => fieldOf(s.group) === "it").length}</strong><span>IT subjects</span></li>
+            <li><strong>${subjects.filter((s) => fieldOf(s.group) === "nonit").length}</strong><span>non-IT fields</span></li>
           </ul>
           <div class="ij-hero-progress iq-progress" aria-live="polite">
             <div class="ij-ring ij-ring--sm" data-ring style="--p: 0"><span data-iq-pct>0%</span></div>
@@ -188,9 +204,16 @@ ${hubNav("questions")}
             </div>
             <button type="button" class="ij-btn ij-btn--yellow iq-random" data-iq-random>Random question</button>
           </div>
+          <div class="iq-field-row">
+            <div class="iq-field" role="group" aria-label="Career field">
+              <button type="button" data-iq-field="all" aria-pressed="true">All fields</button>
+              <button type="button" data-iq-field="it" aria-pressed="false">IT / software</button>
+              <button type="button" data-iq-field="nonit" aria-pressed="false">Non-IT careers</button>
+            </div>
+          </div>
           <div class="iq-chips" role="group" aria-label="Question group">
             <button type="button" data-iq-group="all" aria-pressed="true">All subjects</button>
-            ${groups.map((g) => `<button type="button" data-iq-group="${esc(g)}" aria-pressed="false">${g}</button>`).join("")}
+            ${groups.map((g) => `<button type="button" data-iq-group="${esc(g)}" data-field="${fieldOf(g)}" aria-pressed="false">${g}</button>`).join("")}
           </div>
         </div>
       </div>
@@ -202,7 +225,7 @@ ${hubNav("questions")}
               <p class="ij-kicker">Subjects</p>
               ${groups
                 .map(
-                  (g) => `<p class="iq-index-group">${g}</p><ul>${subjects
+                  (g) => `<p class="iq-index-group" data-field="${fieldOf(g)}">${g}</p><ul>${subjects
                     .filter((s) => s.group === g)
                     .map((s) => `<li data-index="${s.id}"><a href="#q-${s.id}">${s.name}<span>${s.qs.length}</span></a></li>`)
                     .join("")}</ul>`

@@ -5068,3 +5068,55 @@ body.ij-page {
   flex: none;
   white-space: nowrap;
 }
+
+/* Question bank: career field switch + role-based badge */
+.iq-field-row {
+  margin-top: 10px;
+}
+
+.iq-field {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--ij-line);
+  border-radius: 12px;
+  background: var(--ij-surface);
+}
+
+.iq-field button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ij-muted);
+  font: 700 0.86rem Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.iq-field button:hover {
+  color: var(--ij-ink);
+}
+
+.iq-field button[aria-pressed="true"] {
+  background: var(--ij-yellow);
+  color: var(--ij-ink);
+}
+
+.iq-chips button[hidden] {
+  display: none;
+}
+
+.iq-round--role-based {
+  background: #e3f4ea;
+  color: #1d6b43;
+}
+
+.iq-subject[data-field="nonit"]::before {
+  background: var(--ph-decision, #2fa36b);
+}
+
+.iq-subject[data-field="common"]::before {
+  background: var(--ph-company, #7c8db5);
+}

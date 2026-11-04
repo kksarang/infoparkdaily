@@ -42,10 +42,10 @@ const COURSES = [
     tone: "yellow",
     title: "Interview Questions & Answers",
     text: "Frequently asked HR, technical and role-based questions with sample answers you can adapt.",
-    points: ["HR & managerial questions", "21 technical subjects", "Non-IT roles"],
-    meta: [[I.book, "254 questions"], [I.level, "30 subjects"], [I.clock, "Self-paced"]],
+    points: ["HR & managerial questions", "21 IT subjects", "21 non-IT career fields"],
+    meta: [[I.book, "354 questions"], [I.level, "44 subjects"], [I.clock, "Self-paced"]],
     progress: "questions",
-    total: 254,
+    total: 354,
     unit: "practised",
     cta: "Start practising"
   },
@@ -111,7 +111,7 @@ const PATH = [
   ["Build your resume", "/resume-builder/templates/", "Free ATS-friendly templates"],
   ["Check it against a job", "/ats-checker/", "Private keyword & readability check"],
   ["Find & apply", "/jobs/", "InfoparkDaily job board + alerts"],
-  ["Practise questions", "/interview/questions/", "254 questions with answers"],
+  ["Practise questions", "/interview/questions/", "354 questions · IT & non-IT"],
   ["Prepare each round", "/interview/preparation/", "17-chapter interview course"],
   ["Accept & join", "/interview/preparation/#ch-offer-stage", "Offer, BGV and day one"]
 ];
@@ -181,7 +181,7 @@ export function overviewPage() {
             ${crumbs(items)}
             <p class="ax-pill"><span>New</span> InfoparkDaily Career Academy · 100% free</p>
             <h1 id="hub-title">Prepare. Learn. Improve.<br /><span>Get hired.</span></h1>
-            <p class="ax-lede">Everything you need for your next career move — from finding jobs to cracking interviews. Self-paced courses, 254 practice questions and live code, for freshers and experienced professionals.</p>
+            <p class="ax-lede">Everything you need for your next career move — from finding jobs to cracking interviews. Self-paced courses, 354 practice questions and live code, for freshers and experienced professionals.</p>
             <form class="ax-search" action="/interview/questions/" method="get" role="search">
               <label class="ij-sr" for="ax-q">Search interview questions</label>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
@@ -195,8 +195,8 @@ export function overviewPage() {
             </div>
             <ul class="ax-stats">
               <li><strong>17</strong> chapters</li>
-              <li><strong>254</strong> questions</li>
-              <li><strong>30</strong> subjects</li>
+              <li><strong>354</strong> questions</li>
+              <li><strong>44</strong> subjects</li>
               <li><strong>11</strong> email templates</li>
             </ul>
           </div>
@@ -311,36 +311,12 @@ ${hubNav("overview")}
             ${PATH.map(([t, h, d], i) => `<li><a href="${h}"><span class="ac-route-num">Step ${i + 1}</span><strong>${t}</strong><small>${d}</small></a></li>`).join("")}
           </ol>
         </div>
-      </section>
-
-      <section class="ac-section" aria-labelledby="how-title">
-        <div class="ij-wrap">
-          <div class="ac-head"><div><p class="ac-eyebrow">How it works</p><h2 id="how-title">Learn the way that suits you</h2></div></div>
-          <div class="ac-features">
-            <div><span>${svg(I.book)}</span><h3>Self-paced lessons</h3><p>Read one chapter at a time or jump to the stage you’re at.</p></div>
-            <div><span>${svg(I.level)}</span><h3>Two tracks</h3><p>Switch between fresher and experienced content anywhere.</p></div>
-            <div><span>${svg(I.check)}</span><h3>Track progress</h3><p>Mark lessons and questions complete — saved on your device.</p></div>
-            <div><span>${svg(I.mail)}</span><h3>Real templates</h3><p>Copy emails, answers and scripts and adapt them to you.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="ij-wrap ac-final" aria-labelledby="final-title">
-        <div>
-          <p class="ac-eyebrow">Ready?</p>
-          <h2 id="final-title">Start your first lesson today.</h2>
-          <p>Build your resume, practise questions and apply to today’s openings — all free.</p>
-        </div>
-        <div class="ac-hero-cta">
-          <a class="ac-btn ac-btn--yellow ac-btn--lg" href="/interview/preparation/" data-ac-continue>Start learning</a>
-          <a class="ac-btn ac-btn--ghost-dark ac-btn--lg" href="/jobs/">Browse jobs</a>
-        </div>
       </section>`;
 
   return pageShell({
     title: "Career Academy – Interview Preparation, Questions, Learning &amp; Resume | InfoparkDaily",
     description:
-      "InfoparkDaily Career Academy: free self-paced interview preparation for freshers and experienced, 254 interview questions with answers, skill roadmaps and free courses, professional email templates, and resume & ATS guides.",
+      "InfoparkDaily Career Academy: free self-paced interview preparation for freshers and experienced, 354 interview questions with answers, skill roadmaps and free courses, professional email templates, and resume & ATS guides.",
     path: "/interview/",
     ogTitle: "Prepare. Learn. Improve. Get hired. — InfoparkDaily Career Academy",
     jsonLd: {

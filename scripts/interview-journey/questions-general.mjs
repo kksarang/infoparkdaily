@@ -53,8 +53,8 @@ export const GENERAL = [
   {
     id: "accounts",
     name: "Accounts & finance",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Business & finance",
+    round: "Role-based",
     intro: "For accountant, accounts executive, AP/AR and finance associate roles.",
     qs: [
       ["f", "What are the golden rules of accounting?", "Personal account: debit the receiver, credit the giver. Real account: debit what comes in, credit what goes out. Nominal account: debit expenses and losses, credit incomes and gains."],
@@ -73,8 +73,8 @@ export const GENERAL = [
   {
     id: "hr-recruiter",
     name: "HR & recruitment roles",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Office & support",
+    round: "Role-based",
     intro: "For HR executive, recruiter, talent acquisition and HR generalist roles.",
     qs: [
       ["f", "What does a recruiter do day to day?", "Understands requirements, sources candidates (portals, LinkedIn, referrals), screens, schedules interviews, coordinates feedback, negotiates offers and follows up until joining."],
@@ -90,8 +90,8 @@ export const GENERAL = [
   {
     id: "customer-support",
     name: "Customer support & BPO",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Office & support",
+    round: "Role-based",
     intro: "For voice, non-voice, chat, email and technical support roles.",
     qs: [
       ["f", "How would you handle an angry customer?", "Listen without interrupting, acknowledge the feeling, apologise for the experience, take action or explain next steps with a timeline, and follow up."],
@@ -106,8 +106,8 @@ export const GENERAL = [
   {
     id: "sales",
     name: "Sales & business development",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Business & finance",
+    round: "Role-based",
     intro: "For inside sales, business development and account management roles.",
     qs: [
       ["f", "Sell me this pen.", "Ask questions first to learn the buyer’s need (“When did you last need to sign something important?”), then position the pen as the solution, handle one objection and ask for the sale."],
@@ -121,8 +121,8 @@ export const GENERAL = [
   {
     id: "digital-marketing",
     name: "Digital marketing",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Marketing & creative",
+    round: "Role-based",
     intro: "For SEO, social media, performance marketing and content roles.",
     qs: [
       ["f", "What is SEO and its main types?", "Search Engine Optimisation — improving visibility in organic search. On-page (content, titles, headings), off-page (backlinks, mentions) and technical SEO (speed, crawlability, mobile)."],
@@ -137,8 +137,8 @@ export const GENERAL = [
   {
     id: "office-admin",
     name: "Office admin & MS Excel",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Office & support",
+    round: "Role-based",
     intro: "For admin, MIS, data entry and back-office roles.",
     qs: [
       ["f", "What does VLOOKUP do? Write an example.", "Looks up a value in the first column of a range and returns a value from another column: <code>=VLOOKUP(A2, Sheet2!A:C, 3, FALSE)</code>. FALSE means exact match."],
@@ -153,8 +153,8 @@ export const GENERAL = [
   {
     id: "content-writing",
     name: "Content writing",
-    group: "Non-IT",
-    round: "Technical",
+    group: "Marketing & creative",
+    round: "Role-based",
     intro: "For content writer, copywriter and technical writer roles.",
     qs: [
       ["f", "How do you research a topic you don’t know?", "Read official and reputable sources, note key facts, check dates, compare at least two sources, and keep a list of references."],
