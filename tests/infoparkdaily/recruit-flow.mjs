@@ -44,6 +44,9 @@ const step = (msg) => console.log("✓ " + msg);
 async function page(viewport = { width: 1366, height: 900 }) {
   const ctx = await browser.newContext({ viewport });
   await ctx.addInitScript(() => sessionStorage.setItem("ipd_market_emulator", "1"));
+  // Everything the hub needs is local (site + emulators). Block outside requests (fonts, analytics, ads)
+  // so the test doesn't depend on this machine's internet connection.
+  await ctx.route(/^https?:\/\/(?!localhost|127\.0\.0\.1)/, (route) => route.abort());
   const p = await ctx.newPage();
   p.on("pageerror", (e) => errors.push(p.url() + " :: " + e.message));
   // Console errors count, except network noise (offline blips) and the known relative sw.js registration 404 from js/site.js.
