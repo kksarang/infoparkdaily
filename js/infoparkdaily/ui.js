@@ -84,6 +84,9 @@ export const loading = (text = "Loading your workspace…") =>
   `<div class="loading" role="status">${text}</div>`;
 export const pageHero = (title, text, extra = "", crumb = "") =>
   `<section class="page-hero"><div class="container"><div class="breadcrumb">${link("Home", "", "")}<span aria-hidden="true">/</span><span>${esc(crumb || title)}</span></div><h1>${title}</h1><p>${text}</p>${extra}</div></section>`;
+/** Dark page header used across the recruit hub (matches Post / Alerts / Track). */
+export const darkHero = (kicker, title, text, extra = "") =>
+  `<section class="rp-hero"><div class="rx-glow" aria-hidden="true"></div><div class="container"><p class="rx-pill"><span>${kicker}</span> InfoparkDaily Recruit</p><h1>${title}</h1><p class="rp-lede">${text}</p>${extra}</div></section>`;
 export const photoFor = (sector) =>
   ["Construction", "Driving", "Logistics"].includes(sector)
     ? "trades"

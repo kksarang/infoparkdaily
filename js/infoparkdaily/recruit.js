@@ -217,6 +217,16 @@ export function renderTrack(main, C) {
     <form class="rp-track-form" id="rp-track"><label class="rp-field"><span>Request ID</span><input name="id" placeholder="IPD-XXXX-XXXXX-XXXXX" autocomplete="off" spellcheck="false" value="${esc(params.get("id") || "")}"></label><button class="btn" type="submit">${icon("search")} Check status</button></form>
     <div id="rp-track-out" aria-live="polite"></div>
     <div id="rp-track-local"></div>
+    <div class="tk-help">
+      <div class="tk-help-card"><h3>${icon("search")} Where’s my request ID?</h3><p>It appears on the confirmation screen right after you post, and starts with <code>IPD-</code>. Posts made from this browser are also listed above.</p></div>
+      <div class="tk-help-card"><h3>${icon("pending")} What the statuses mean</h3><ul class="tk-legend">
+        <li><span class="rp-state rp-state--amber">Submitted</span> Waiting for our team to review it.</li>
+        <li><span class="rp-state rp-state--green">Approved</span> Live on the jobs board — open it from the status card.</li>
+        <li><span class="rp-state rp-state--red">Changes requested</span> Read our note, then submit an updated post.</li>
+        <li><span class="rp-state rp-state--red">Not approved</span> The note explains why. Posts that ask candidates for money are always rejected.</li>
+      </ul></div>
+      <div class="tk-help-card"><h3>${icon("chat")} Need help?</h3><p>Lost your ID or need to correct a live post? Send us the company name and job title.</p><p class="tk-help-links"><a class="text-link" href="${href("contact")}">Contact the team ${icon("arrow")}</a><a class="text-link" href="${href("post")}">Post another job ${icon("arrow")}</a></p></div>
+    </div>
   </div></section>`;
   const out = main.querySelector("#rp-track-out");
   const when = (v) => {

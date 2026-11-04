@@ -17,6 +17,7 @@ import {
   mark,
   empty,
   pageHero,
+  darkHero,
   jobCard,
   workerCard,
   avatar,
@@ -434,89 +435,116 @@ export function workerDetail(w, reviews = []) {
     )}</div><div class="panel prose"><h2>Meet ${esc(w.name.split(" ")[0])}</h2><p>${esc(w.about)}</p><h3>Skills & expertise</h3><div class="tags">${w.skills.map((s) => `<span class="tag neutral">${esc(s)}</span>`).join("")}</div></div><div class="panel" style="margin-top:24px"><h2>Reviews from completed work</h2>${reviews.length ? reviews.map((r) => `<div class="record"><div class="row spread"><strong>${esc(r.authorName)}</strong><span class="accent">${"★".repeat(r.rating)} <span class="muted">${r.rating}/5</span></span></div><p style="margin-top:12px">${esc(r.text)}</p><small class="muted">${formatDate(r.createdAt)}</small></div>`).join("") : '<p class="small muted" style="margin:0">Reviews appear here after a community hire is completed.</p>'}</div></div><aside class="panel"><h2>Good work starts with hello.</h2><div class="pay">${w.rate ? money(w.rate, w.basis) : "Rate open for discussion"}</div>${w.availableFrom ? `<p class="small muted">Available from ${formatDate(w.availableFrom)}</p>` : ""}<button class="btn wide" data-invite="${esc(w.uid)}">Invite to a job ${icon("right")}</button><p class="small muted" style="margin:20px 0 0">Choose one of your approved job posts. Once the invitation is accepted and the hire is approved, your private conversation opens.</p></aside></div></div>`;
 }
 export function about() {
-  const proof = [
-    ["77K+", "Community across Kerala IT"],
-    ["Reels", "Daily stories & hiring tips"],
-    ["3 parks", "Infopark · Technopark · Cyberpark"],
-    ["Free", "Employer workspace to start"],
+  const tick = `<span class="hw-yes" aria-label="Yes">${icon("check")}</span>`;
+  const dash = `<span class="hw-no" aria-label="No">—</span>`;
+  const compare = [
+    ["No account needed", tick, dash],
+    ["Regular jobs, walk-in drives & quick job alerts", tick, tick],
+    ["Reviewed before it goes live", tick, tick],
+    ["Track status", "Request ID", "Live dashboard"],
+    ["All your posts in one place", dash, tick],
+    ["Edit, repost or close any time", dash, tick],
+    ["Company details saved for next time", dash, tick],
   ]
-    .map(
-      ([n, l]) =>
-        `<div class="about-proof-item"><strong>${n}</strong><span>${l}</span></div>`,
-    )
+    .map(([label, a, b]) => `<tr><th scope="row">${label}</th><td>${a}</td><td>${b}</td></tr>`)
     .join("");
-  const jumps = [
-    ["#how-it-works", "How hiring works"],
-    ["#community", "Our community"],
-    ["#what-you-get", "What you get"],
-    ["#guidelines", "FAQ"],
+  const steps = [
+    ["plus", "Submit", "Fill one guided form — a regular job, a walk-in drive or a quick job alert. No account needed."],
+    ["shield", "We verify", "The InfoparkDaily team checks the company, contacts and details — usually within one working day."],
+    ["eye", "Track it", "Use your request ID (or your dashboard) to see Submitted → Verified → Live, plus any note from us."],
+    ["bell", "Go live", "Approved posts appear on the jobs board and park pages, and can be shared to our WhatsApp & Instagram alerts."],
+    ["briefcase", "Hire", "Candidates apply the way you chose — by email, your careers link, or by walking in."],
   ]
-    .map(([h, l]) => `<a class="about-jump" href="${h}">${l}</a>`)
+    .map(([i, t, d], n) => `<li class="hw-step"><span class="hw-step-icon">${icon(i)}</span><span class="hw-step-num">0${n + 1}</span><h3>${t}</h3><p>${d}</p></li>`)
     .join("");
-  return `${pageHero(
-    "How hiring works here.",
-    "A clear path for HR and talent teams: post a role, discover people, and manage conversations — backed by Kerala’s largest independent IT community.",
-    `<div class="row about-hero-actions">${link("Post a role " + icon("right"), "post-job")}${link("Find talent", "workers", "btn secondary")}</div><nav class="about-jumps" aria-label="On this page">${jumps}</nav>`,
+  const checks = [
+    "A real company with a working website or official contact",
+    "Contact details that match the company",
+    "A clear role, location and way to apply",
+    "No fees asked from candidates — ever",
+  ];
+  const rejects = [
+    "Posts that ask candidates for money",
+    "Contacts we can't verify",
+    "Unclear or missing company details",
+  ];
+  const faqs = [
+    ["Is posting free?", "Yes. Both posting without sign-in and the employer workspace are free. Every post is reviewed before it goes live."],
+    ["How long does review take?", "Usually within one working day. Track a no-sign-in post with its request ID; employer posts show their status in your dashboard."],
+    ["Do I need an account?", "No. Use Post a job for any job, walk-in or job alert. Create a free employer account only if you want a dashboard for all your posts."],
+    ["What if my post needs changes?", "We add a short note explaining what to fix. You'll see it on the tracking page or in your dashboard, and you can submit an updated post."],
+    ["Where do approved posts appear?", "On the InfoparkDaily jobs board, its park pages and job search — and they can be shared to our WhatsApp and Instagram job channels."],
+    ["I'm looking for a job. Is this for me?", "This hub is for hiring teams. Job seekers can browse the jobs board and set up free job alerts on WhatsApp or email."],
+    ["How do I report a fake or misleading post?", "Contact us with the job link and a short description. Never send passwords or verification codes to anyone."],
+  ]
+    .map(([q, a]) => `<details><summary>${q}<span aria-hidden="true">${icon("plus")}</span></summary><p>${a}</p></details>`)
+    .join("");
+  return `${darkHero(
     "How it works",
-  )}<section class="about-proof" aria-label="Community reach"><div class="container about-proof-grid">${proof}</div></section><section class="section" id="community"><div class="container about-split"><div class="about-split-copy"><p class="eyebrow">FROM OUR 77K+ COMMUNITY</p><h2>Built where Kerala’s tech community already gathers.</h2><p class="muted">InfoparkDaily is an independent community — not the parks, not company HR. We share jobs, walk-ins, campus stories and now short <strong>reels</strong> so hiring signals travel farther and faster.</p><ul class="about-bullets"><li>${icon("users")} <span><strong>77K+</strong> people in the InfoparkDaily community family</span></li><li>${icon("star")} <span><strong>Reels</strong> for quick hiring tips, openings and campus moments</span></li><li>${icon("pin")} <span>Reach across <strong>Infopark, Technopark and Cyberpark</strong></span></li><li>${icon("shield")} <span>Community posts and talent profiles are <strong>reviewed</strong> before they go live</span></li></ul><div class="row about-links">${link("Create employer account", "register")}<a class="text-link" href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Watch reels on Instagram ${icon("arrow")}</a></div></div><figure class="about-split-media"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Trusted by teams hiring across Kerala’s IT parks.</figcaption></figure></div></section>${howItWorks()}<section class="section soft" id="what-you-get"><div class="container"><div class="section-head"><div><p class="eyebrow">YOUR EMPLOYER TOOLKIT</p><h2>What hiring teams get.</h2><p>Everything you need to post, discover and follow up — in one workspace.</p></div></div><div class="grid two feature-grid">${[
-    [
-      "plus",
-      "Post a role",
-      "Share a clear opening with company details. It appears after a short review.",
-    ],
-    [
-      "users",
-      "Find talent",
-      "Browse reviewed professionals by skill, location and availability, then invite a fit.",
-    ],
-    [
-      "briefcase",
-      "Hiring workspace",
-      "Track applications, invites and updates from your employer dashboard.",
-    ],
-    [
-      "chat",
-      "Private conversations",
-      "After a hire is approved, talk directly in your secure workspace.",
-    ],
+    "From post to hire, <span>verified.</span>",
+    "Post a regular job, walk-in drive or quick job alert. Our team checks it, then it reaches Kerala’s IT community on the jobs board and job alerts.",
+    `<div class="hw-hero-actions">${link("Post a job — no sign-in " + icon("right"), "post")}${link("Create employer account", "register", "btn secondary")}</div><nav class="hw-jumps" aria-label="On this page"><a href="#steps">The steps</a><a href="#compare">Two ways to post</a><a href="#checks">What we check</a><a href="#faq">FAQ</a></nav>`,
+  )}
+<section class="hw-proof" aria-label="Community reach"><div class="container hw-proof-grid">${[
+    ["77K+", "people in the InfoparkDaily community"],
+    ["3", "IT parks — Infopark, Technopark, Cyberpark"],
+    ["Free", "to post, and free for candidates"],
+    ["1 day", "usual review time"],
   ]
-    .map(
-      ([i, t, d]) =>
-        `<div class="feature"><span class="feature-icon">${icon(i)}</span><div><h3>${t}</h3><p>${d}</p></div></div>`,
-    )
-    .join("")}</div></div></section><section class="section"><div class="container"><div class="about-seeker-note"><div><p class="eyebrow">LOOKING FOR WORK?</p><h2>Job seekers use a different door.</h2><p>Browse openings on the public jobs board, and use Career Tools for resumes, ATS checks and portfolios. This hub stays focused on hiring teams.</p></div><div class="row">${'<a class="btn secondary" href="/jobs/">Browse jobs board</a>'}<a class="btn quiet" href="/resume-builder/">Career Tools</a></div></div></div></section><section class="section soft" id="guidelines"><div class="container"><p class="eyebrow">CLEAR EXPECTATIONS</p><h2>Common questions from hiring teams.</h2><div class="faq">${[
-    [
-      "Who is this hub for?",
-      "Employers, HR and talent acquisition teams. Job seekers should use the public jobs board and Career Tools.",
-    ],
-    [
-      "How do I post a role?",
-      "Create an employer account, verify your email, add your company name, then submit from Post a role. Posts appear after review.",
-    ],
-    [
-      "How does Find talent work?",
-      "Approved professional profiles appear in the directory. Invite someone to one of your open roles. Conversations open after a hire request is approved.",
-    ],
-    [
-      "What is the 77K+ community?",
-      "InfoparkDaily’s independent Instagram and community family across Infopark, Technopark and Cyberpark — jobs, stories and reels people already follow.",
-    ],
-    [
-      "Is there a fee?",
-      "Employer accounts and community role posts are currently free. Pay and contract terms are agreed directly between you and the professional.",
-    ],
-    [
-      "How can I report a problem?",
-      "Contact us with the listing or profile link and a short description. Never send passwords or verification codes.",
-    ],
-  ]
-    .map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`)
-    .join(
-      "",
-    )}</div></div></section><section class="section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start hiring</p><h2>Ready to hire with the community behind you?</h2><p>Open a free employer account and post your next role today.</p></div>${link("Get started " + icon("right"), "register")}</div></div></section>`;
+    .map(([n, l]) => `<div><strong>${n}</strong><span>${l}</span></div>`)
+    .join("")}</div></section>
+<section class="section" id="steps"><div class="container">
+  <div class="hw-head"><p class="eyebrow">THE STEPS</p><h2>Five steps, one clear status.</h2><p class="muted">You always know where your post stands.</p></div>
+  <ol class="hw-steps">${steps}</ol>
+</div></section>
+<section class="section soft" id="compare"><div class="container hw-compare-wrap">
+  <div class="hw-head"><p class="eyebrow">TWO WAYS TO POST</p><h2>Post once, or hire regularly.</h2><p class="muted">Both are free and both are reviewed. Pick what fits your hiring.</p>
+    <div class="hw-compare-actions">${link("Post without sign-in " + icon("right"), "post")}${link("Create employer account", "register", "btn secondary")}</div></div>
+  <div class="hw-table-card"><table class="hw-table"><thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Without sign-in</th><th scope="col">Employer workspace</th></tr></thead><tbody>${compare}</tbody></table></div>
+</div></section>
+<section class="section" id="checks"><div class="container hw-checks">
+  <div class="hw-check-card"><span class="hw-check-icon">${icon("shield")}</span><h2>What we check</h2><ul>${checks.map((c) => `<li>${icon("check")}${c}</li>`).join("")}</ul></div>
+  <div class="hw-check-card hw-check-card--warn"><span class="hw-check-icon">${icon("close")}</span><h2>What gets sent back</h2><ul>${rejects.map((c) => `<li>${icon("close")}${c}</li>`).join("")}</ul><p class="muted small">We add a note so you can fix it and resubmit.</p></div>
+  <figure class="hw-photo"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Built where Kerala’s tech community already gathers — 77K+ people across the IT parks.</figcaption></figure>
+</div></section>
+<section class="section soft"><div class="container"><div class="hw-seeker">
+  <span class="hw-check-icon">${icon("bell")}</span>
+  <div><p class="eyebrow">LOOKING FOR A JOB?</p><h2>Get matching jobs on WhatsApp or email.</h2><p class="muted">Free job alerts for roles across Kerala’s IT parks — pause or stop any time. Or browse every opening on the jobs board.</p></div>
+  <div class="hw-seeker-actions">${link("Create a job alert " + icon("right"), "alerts")}<a class="btn secondary" href="/jobs/">Browse jobs board</a></div>
+</div></div></section>
+<section class="section" id="faq"><div class="container hw-faq">
+  <div class="hw-head"><p class="eyebrow">FAQ</p><h2>Questions from hiring teams.</h2><p class="muted">Can’t find an answer? ${link("Contact us", "contact", "text-link")}</p></div>
+  <div class="hw-faq-list">${faqs}</div>
+</div></section>
+<section class="section"><div class="container"><div class="cta"><div><p class="eyebrow cta-eyebrow">Start hiring</p><h2>Your next hire is in the community.</h2><p>Post a job or walk-in drive in minutes — free and verified.</p></div><div class="row">${link("Post a job " + icon("right"), "post")}${link("Track a post", "track", "btn secondary")}</div></div></div></section>`;
 }
 export function contact() {
-  return `${pageHero("We’re here to help hiring teams.", "Questions about your employer account, a job post or a community hire? Get in touch with the InfoparkDaily team.")}<section class="section soft"><div class="container grid three"><div class="contact-card">${icon("mail")}<h3>Send us an email</h3><p>For employer account support, listing corrections and reports. Include the page link so we can take a look.</p><a class="text-link" href="mailto:infoparkstorieskochi@gmail.com">Email InfoparkDaily ${icon("arrow")}</a></div><div class="contact-card">${icon("chat")}<h3>Start a conversation</h3><p>Prefer WhatsApp? Tell us what your hiring team needs help with and share the relevant listing.</p><a class="text-link" href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">Open WhatsApp ${icon("arrow")}</a></div><div class="contact-card">${icon("settings")}<h3>Build something custom</h3><p>For websites, business software or an AI solution, explore what Enitexa.ai can help you create.</p><a class="text-link" href="/software-solutions/">Meet Enitexa.ai ${icon("arrow")}</a></div></div></section>`;
+  const cards = [
+    ["mail", "Email the team", "Account help, corrections to a post, or reporting a problem. Include the page link or your request ID.", `<a class="text-link" href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com ${icon("arrow")}</a>`],
+    ["chat", "WhatsApp us", "Prefer chatting? Tell us what your hiring team needs and share the relevant listing.", `<a class="text-link" href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">+91 99952 54290 ${icon("arrow")}</a>`],
+    ["star", "Build something custom", "Websites, business software or an AI solution for your company — explore Enitexa.ai.", `<a class="text-link" href="/software-solutions/">Meet Enitexa.ai ${icon("arrow")}</a>`],
+  ]
+    .map(([i, t, d, a]) => `<article class="ct-card"><span class="hw-check-icon">${icon(i)}</span><h2>${t}</h2><p>${d}</p>${a}</article>`)
+    .join("");
+  const quick = [
+    ["eye", "Check a post’s status", "Use your request ID — no need to contact us.", link("Track a post " + icon("arrow"), "track", "text-link")],
+    ["plus", "Post a job", "Regular job, walk-in or quick job alert — no sign-in.", link("Post a job " + icon("arrow"), "post", "text-link")],
+    ["bell", "Looking for a job?", "Set up free job alerts on WhatsApp or email.", link("Create a job alert " + icon("arrow"), "alerts", "text-link")],
+    ["file", "How it works & FAQ", "Steps, review checks and common questions.", link("Read how it works " + icon("arrow"), "about", "text-link")],
+  ]
+    .map(([i, t, d, a]) => `<div class="ct-quick-item"><span class="ct-quick-icon">${icon(i)}</span><div><h3>${t}</h3><p>${d}</p>${a}</div></div>`)
+    .join("");
+  return `${darkHero(
+    "Contact",
+    "We’re here to help <span>hiring teams.</span>",
+    "Questions about a job post, your employer account or something that doesn’t look right? Reach the InfoparkDaily team directly.",
+  )}
+<section class="section soft"><div class="container ct-grid">${cards}</div></section>
+<section class="section"><div class="container">
+  <div class="hw-head"><p class="eyebrow">QUICK ANSWERS</p><h2>You might not need to wait for us.</h2></div>
+  <div class="ct-quick">${quick}</div>
+  <div class="ct-safety"><span class="hw-check-icon">${icon("shield")}</span><p><strong>Stay safe:</strong> InfoparkDaily never charges candidates and never asks for passwords or verification codes. If anyone asks you to pay for a job, report it to us with the link.</p></div>
+</div></section>`;
 }
 
 export function discovery(jobs) {
