@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>SQL INSERT, UPDATE & DELETE – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Adding, changing and removing rows safely. Free SQL lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="SQL INSERT, UPDATE &amp; DELETE – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Adding, changing and removing rows safely. Free SQL lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/sql/modify-data/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/sql/modify-data/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"SQL: INSERT, UPDATE & DELETE","description":"Adding, changing and removing rows safely.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/sql/modify-data/","isPartOf":{"@type":"Course","name":"SQL tutorial","url":"https://infoparkdaily.online/learning/sql/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"SQL","item":"https://infoparkdaily.online/learning/sql/"},{"@type":"ListItem","position":4,"name":"INSERT, UPDATE & DELETE","item":"https://infoparkdaily.online/learning/sql/modify-data/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f" aria-current="page">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#00758f">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>SQL tutorial <small data-ln-label="sql" data-total="8"></small></summary>
+            <ol>
+              <li><a href="/learning/sql/introduction/" data-ln-lesson="sql/introduction">SQL introduction</a></li>
+              <li><a href="/learning/sql/select-where/" data-ln-lesson="sql/select-where">SELECT & WHERE</a></li>
+              <li><a href="/learning/sql/order-limit/" data-ln-lesson="sql/order-limit">ORDER BY, LIMIT & DISTINCT</a></li>
+              <li><a href="/learning/sql/aggregates/" data-ln-lesson="sql/aggregates">Aggregates & GROUP BY</a></li>
+              <li><a href="/learning/sql/joins/" data-ln-lesson="sql/joins">JOINs</a></li>
+              <li><a href="/learning/sql/modify-data/" data-ln-lesson="sql/modify-data" aria-current="page">INSERT, UPDATE & DELETE</a></li>
+              <li><a href="/learning/sql/create-table/" data-ln-lesson="sql/create-table">Creating tables & constraints</a></li>
+              <li><a href="/learning/sql/subqueries/" data-ln-lesson="sql/subqueries">Subqueries & CTEs</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="sql/modify-data">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/sql/">SQL</a> / <span aria-current="page">INSERT, UPDATE & DELETE</span></nav>
+          <p class="ax-eyebrow">SQL · Lesson 6 of 8</p>
+          <h1>INSERT, UPDATE & DELETE</h1>
+          <p class="ln-summary">Adding, changing and removing rows safely.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/sql/joins/" rel="prev">← JOINs</a>
+              <a href="/learning/sql/create-table/" rel="next">Creating tables & constraints →</a>
+            </nav>
+          <div class="ln-body">
+<p>These statements change data:</p>
+<ul>
+<li><code>INSERT INTO jobs (title, city) VALUES ('Tester', 'Kochi');</code> — add a row. Name the columns so the statement survives table changes.</li>
+<li><code>UPDATE jobs SET salary_lpa = 4 WHERE id = 1;</code> — change rows.</li>
+<li><code>DELETE FROM jobs WHERE id = 9;</code> — remove rows.</li>
+</ul>
+<p><strong>Always write the WHERE clause first.</strong> UPDATE or DELETE without WHERE changes every row. In real systems, run a SELECT with the same WHERE to preview, and use transactions (<code>BEGIN</code> … <code>COMMIT</code> / <code>ROLLBACK</code>).</p>
+<p>Don't worry here — the sample database is rebuilt every time you press Run.</p>
+          </div>
+          <section class="ln-try" aria-labelledby="try-modify-data" data-tryit data-lang="sql">
+            <div class="ln-try-head">
+              <h2 id="try-modify-data">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>INSERT INTO jobs (title, company_id, city, min_exp, salary_lpa, posted_on)
+VALUES ('Junior Tester', 4, 'Kozhikode', 0, 3.2, '2026-11-01');
+
+UPDATE jobs SET salary_lpa = salary_lpa + 0.5 WHERE city = 'Kozhikode';
+
+DELETE FROM jobs WHERE company_id IS NULL;
+
+SELECT id, title, city, salary_lpa FROM jobs ORDER BY id;</textarea></label>
+              <div class="ln-output">
+                <div class="ln-result ln-result--sql" data-result-box aria-live="polite" aria-label="Query results"><p class="ln-result-hint">Press Run to see the results.</p></div>
+              </div>
+            </div>
+            <template data-seed>CREATE TABLE companies (
+  id INTEGER PRIMARY KEY,
+  name TEXT NOT NULL,
+  park TEXT,
+  employees INTEGER
+);
+CREATE TABLE jobs (
+  id INTEGER PRIMARY KEY,
+  title TEXT NOT NULL,
+  company_id INTEGER REFERENCES companies(id),
+  city TEXT,
+  min_exp INTEGER,
+  salary_lpa REAL,
+  posted_on TEXT
+);
+INSERT INTO companies VALUES
+ (1,'Backwater Labs','Infopark',420),
+ (2,'Coconut Cloud','Technopark',1200),
+ (3,'Spice Route Analytics','Infopark',85),
+ (4,'Monsoon Mobile','Cyberpark',60),
+ (5,'Periyar Systems','Technopark',2300);
+INSERT INTO jobs VALUES
+ (1,'QA Engineer',1,'Kochi',0,3.6,'2026-10-02'),
+ (2,'React Developer',2,'Thiruvananthapuram',2,8.0,'2026-10-05'),
+ (3,'Data Analyst',3,'Kochi',1,6.0,'2026-10-11'),
+ (4,'Flutter Developer',4,'Kozhikode',1,5.5,'2026-10-14'),
+ (5,'DevOps Engineer',5,'Thiruvananthapuram',3,12.0,'2026-10-20'),
+ (6,'Python Developer',1,'Kochi',2,7.5,'2026-10-22'),
+ (7,'UI/UX Designer',2,'Thiruvananthapuram',1,5.0,'2026-10-25'),
+ (8,'Business Analyst',3,'Kochi',3,9.0,'2026-10-28'),
+ (9,'Support Engineer',NULL,'Kochi',0,3.0,'2026-10-30');</template>
+            <p class="ln-try-note">Runs on a small fictional sample database (companies, jobs) that is rebuilt on every run, so you can't break anything.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-modify-data">
+            <h2 id="pts-modify-data">Key points</h2>
+            <ul><li>Name columns in INSERT.</li><li>Never run UPDATE/DELETE without WHERE by accident.</li><li>Preview with SELECT; use transactions in production.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-sql-modify-data" data-quiz data-answer="2">
+            <h2 id="q-sql-modify-data">Quick check</h2>
+            <p>What happens with DELETE FROM jobs; (no WHERE)?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-sql-modify-data" value="0"> <span>Nothing</span></label>
+              <label><input type="radio" name="q-sql-modify-data" value="1"> <span>The table is dropped</span></label>
+              <label><input type="radio" name="q-sql-modify-data" value="2"> <span>Every row is deleted</span></label>
+              <label><input type="radio" name="q-sql-modify-data" value="3"> <span>Only the first row is deleted</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Without WHERE, DELETE removes all rows (the table itself stays).</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-modify-data">
+            <h2 id="prac-modify-data">Practice task</h2>
+            <p>Add a new company in 'Cyberpark' with 40 employees, then show all Cyberpark companies.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-modify-data">
+            <h2 id="iv-modify-data">Interview corner</h2>
+            <details><summary>DELETE vs TRUNCATE vs DROP?</summary><p>DELETE removes chosen rows and can be rolled back. TRUNCATE quickly removes all rows (not available in SQLite). DROP removes the whole table and its structure.</p></details>
+            <details><summary>What is a transaction and what does ACID mean?</summary><p>A group of statements that succeed or fail together. ACID: Atomicity, Consistency, Isolation, Durability.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-modify-data">
+            <h2 id="fr-modify-data">Further reading</h2>
+            <ul><li><a href="https://www.sqlite.org/lang_insert.html" target="_blank" rel="noopener">SQLite INSERT ↗</a></li><li><a href="https://www.sqlite.org/lang_update.html" target="_blank" rel="noopener">SQLite UPDATE ↗</a></li><li><a href="https://www.sqlite.org/lang_delete.html" target="_blank" rel="noopener">SQLite DELETE ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/sql/joins/" rel="prev">← JOINs</a>
+              <a href="/learning/sql/create-table/" rel="next">Creating tables & constraints →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

@@ -6,21 +6,29 @@ import { fileURLToPath } from "node:url";
 import { pageShell, crumbs, crumbsLd, SITE } from "../interview-journey/shell.mjs";
 import { esc } from "../interview-journey/helpers.mjs";
 import { PATHS } from "../interview-journey/learning-paths.mjs";
-import { TRACKS } from "./tracks-web.mjs";
+import { TRACKS as WEB_TRACKS } from "./tracks-web.mjs";
+import { WEB_EXTRAS } from "./extras-web.mjs";
+import { PY_TRACK } from "./track-python.mjs";
+import { SQL_TRACK } from "./track-sql.mjs";
+import { GIT_TRACK } from "./track-git.mjs";
+
+/* Web lessons get their practice / interview / further-reading extras merged in. */
+for (const t of WEB_TRACKS) for (const l of t.lessons) Object.assign(l, WEB_EXTRAS[`${t.key}/${l.slug}`] || {});
+const TRACKS = [...WEB_TRACKS, PY_TRACK, SQL_TRACK, GIT_TRACK];
+const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261104learn";
+const V = "20261104learn2";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
 /* Tracks that are planned but not written yet — shown honestly as "coming soon". */
 const PLANNED = [
-  ["Python", "Programming basics, data handling and automation.", "#3776ab"],
-  ["SQL", "Query, join and summarise data in databases.", "#00758f"],
-  ["Git & GitHub", "Version control and collaborating on code.", "#f05032"],
   ["React", "Components, state and modern frontend apps.", "#149eca"],
   ["Java", "OOP and backend foundations.", "#b07219"],
-  ["MS Excel", "Formulas, pivot tables and reports.", "#1d6f42"]
+  ["MS Excel", "Formulas, pivot tables and reports.", "#1d6f42"],
+  ["Data structures & algorithms", "Arrays, stacks, sorting and searching for coding rounds.", "#7c3aed"],
+  ["Aptitude & reasoning", "Quantitative, logical and verbal practice for placement tests.", "#b45309"]
 ];
 
 const write = (rel, html) => {
@@ -52,7 +60,7 @@ function hubPage() {
               <div class="ln-track-badge" aria-hidden="true">${t.name}</div>
               <h3><a href="${trackUrl(t)}">${t.long}</a></h3>
               <p>${t.tagline}</p>
-              <p class="ln-meta">${t.lessons.length} lessons · ${t.level} · Try-it editor · Quizzes</p>
+              <p class="ln-meta">${t.lessons.length} lessons · ${t.level} · ${t.lang === "shell" ? "Terminal examples" : "Try-it editor"} · Quizzes · Interview Q&amp;A</p>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="${t.key}"></span></div>
               <p class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</p>
               <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start ${t.name}</a>
@@ -90,7 +98,7 @@ function hubPage() {
           <div class="lh-hero-copy">
             <p class="ax-pill"><span>Free</span> ${TRACKS.length} tutorials · ${lessonsTotal} lessons · ${PATHS.length} career paths</p>
             <h1 id="ln-title">Learn to code. <span>Build job-ready skills.</span></h1>
-            <p class="ax-lede">Short, practical tutorials with a live “Try it yourself” editor, quick quizzes and progress saved in your browser. Start with HTML, CSS and JavaScript, then follow a full career path.</p>
+            <p class="ax-lede">Short, practical tutorials with a live “Try it yourself” editor, quick quizzes and progress saved in your browser. HTML, CSS, JavaScript, Python, SQL and Git — all written by the InfoparkDaily team and free forever.</p>
             <label class="lh-search">
               <span class="ij-sr">Search learning</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
@@ -102,7 +110,7 @@ function hubPage() {
 ${trackBar("")}
       <section class="ez-section" aria-labelledby="ln-tutorials">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Tutorials</p><h2 id="ln-tutorials">Start with the web foundations</h2></div>
+          <div class="ez-head"><p class="ax-eyebrow">Tutorials</p><h2 id="ln-tutorials">Pick a tutorial and start learning</h2></div>
           <div class="ln-tracks">${trackCards}
           </div>
           <p class="ln-empty" data-ln-empty hidden>No matches. Try another word, or browse the career paths below.</p>
@@ -122,7 +130,7 @@ ${trackBar("")}
             <div><span>1</span><strong>Read a short lesson</strong><p>Each page explains one idea with plain examples.</p></div>
             <div><span>2</span><strong>Try it yourself</strong><p>Edit the code and press Run — the result appears instantly.</p></div>
             <div><span>3</span><strong>Answer the quiz</strong><p>One quick question checks that the idea stuck.</p></div>
-            <div><span>4</span><strong>Track progress</strong><p>Mark lessons complete; your progress stays on this device.</p></div>
+            <div><span>4</span><strong>Prepare for interviews</strong><p>Each lesson ends with real interview questions and model answers.</p></div>
           </div>
         </div>
       </section>
@@ -149,11 +157,12 @@ ${trackBar("")}
           <div class="ln-planned-grid">${planned}
           </div>
         </div>
-      </section>`;
+      </section>
+      <p class="ij-wrap ln-hub-owner">All lessons, examples, quizzes and interview answers on this page are original InfoparkDaily content, free to learn — no paid courses or subscriptions.</p>`;
 
   return pageShell({
-    title: "Learning – Free HTML, CSS & JavaScript Tutorials and Career Paths | InfoparkDaily",
-    description: `Free coding tutorials with a live Try-it editor and quizzes: ${lessonsTotal} lessons in HTML, CSS and JavaScript, plus ${PATHS.length} career learning paths for IT and non-IT jobs.`,
+    title: "Learning – Free HTML, CSS, JavaScript, Python, SQL & Git Tutorials | InfoparkDaily",
+    description: `Free, original coding tutorials with a live Try-it editor, quizzes and interview questions: ${lessonsTotal} lessons in HTML, CSS, JavaScript, Python, SQL and Git, plus ${PATHS.length} career learning paths.`,
     path: "/learning/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -180,7 +189,7 @@ function trackPage(t) {
           <div class="lh-hero-copy">
             <p class="ax-pill"><span>${t.level}</span> ${t.lessons.length} lessons · free</p>
             <h1 id="ln-title">${t.name} tutorial <span>${t.tagline}</span></h1>
-            <p class="ax-lede">${t.long}. Every lesson has a runnable example you can edit, key points and a one-question quiz.</p>
+            <p class="ax-lede">${t.long}. ${t.lang === "shell" ? "Every lesson has a terminal walkthrough" : "Every lesson has a runnable example you can edit"}, key points, a practice task, a quiz and interview questions.</p>
             <div class="ln-hero-actions">
               <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start learning ${t.name}</a>
               <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
@@ -226,6 +235,46 @@ ${trackBar(t.key)}
   });
 }
 
+/* ---------------- try-it block per language ---------------- */
+function tryBlock(t, l) {
+  const lang = t.lang || "web";
+  if (lang === "shell") {
+    return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
+            <div class="ln-try-head"><h2 id="try-${l.slug}">Example in the terminal</h2><span class="ln-try-badge">Run these on your own computer</span></div>
+            <pre class="ln-terminal"><code>${esc(l.example)}</code></pre>
+            <p class="ln-try-note">Lines starting with <code>$</code> are commands you type; the rest is what Git prints. Names and URLs are examples.</p>
+          </section>`;
+  }
+  const label = { web: "Result of the example code", python: "Python output", sql: "Query results" }[lang];
+  const output =
+    lang === "web"
+      ? `<iframe title="${label}" sandbox="allow-scripts allow-modals" data-frame></iframe>
+                <pre class="ln-console" data-console aria-live="polite" hidden></pre>`
+      : `<div class="ln-result ln-result--${lang}" data-result-box aria-live="polite" aria-label="${label}"><p class="ln-result-hint">Press Run to see the ${lang === "sql" ? "results" : "output"}.</p></div>`;
+  const note = {
+    web: "Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.",
+    python: "Edit and press Run (or Ctrl/⌘ + Enter). Python runs in your browser — the first run downloads the Python engine and takes a few seconds.",
+    sql: "Runs on a small fictional sample database (companies, jobs) that is rebuilt on every run, so you can't break anything."
+  }[lang];
+  return `          <section class="ln-try" aria-labelledby="try-${l.slug}" data-tryit data-lang="${lang}">
+            <div class="ln-try-head">
+              <h2 id="try-${l.slug}">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>${esc(l.example)}</textarea></label>
+              <div class="ln-output">
+                ${output}
+              </div>
+            </div>
+            ${lang === "sql" ? `<template data-seed>${esc(t.seed)}</template>` : ""}
+            <p class="ln-try-note">${note}</p>
+          </section>`;
+}
+
 /* ---------------- lesson ---------------- */
 function lessonPage(t, l, i) {
   const prev = t.lessons[i - 1];
@@ -257,23 +306,7 @@ ${pager("top")}
           <div class="ln-body">
 ${l.body}
           </div>
-          <section class="ln-try" aria-labelledby="try-${l.slug}" data-tryit>
-            <div class="ln-try-head">
-              <h2 id="try-${l.slug}">Try it yourself</h2>
-              <div class="ln-try-actions">
-                <button type="button" class="ln-btn" data-run>▶ Run</button>
-                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
-              </div>
-            </div>
-            <div class="ln-try-grid">
-              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>${esc(l.example)}</textarea></label>
-              <div class="ln-output">
-                <iframe title="Result of the example code" sandbox="allow-scripts allow-modals" data-frame></iframe>
-                <pre class="ln-console" data-console aria-live="polite" hidden></pre>
-              </div>
-            </div>
-            <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
-          </section>
+${tryBlock(t, l)}
           <section class="ln-points" aria-labelledby="pts-${l.slug}">
             <h2 id="pts-${l.slug}">Key points</h2>
             <ul>${l.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
@@ -288,10 +321,24 @@ ${l.body}
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>${esc(l.quiz.why)}</p>
           </section>
+${l.practice ? `          <section class="ln-practice-task" aria-labelledby="prac-${l.slug}">
+            <h2 id="prac-${l.slug}">Practice task</h2>
+            <p>${esc(l.practice)}</p>
+          </section>` : ""}
+${(l.interview || []).length ? `          <section class="ln-interview" aria-labelledby="iv-${l.slug}">
+            <h2 id="iv-${l.slug}">Interview corner</h2>
+            ${l.interview.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("\n            ")}
+          </section>` : ""}
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+${(l.further || []).length ? `          <section class="ln-further" aria-labelledby="fr-${l.slug}">
+            <h2 id="fr-${l.slug}">Further reading</h2>
+            <ul>${l.further.map(([label, url]) => `<li><a href="${url}" target="_blank" rel="noopener">${esc(label)} ↗</a></li>`).join("")}</ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>` : ""}
 ${pager("bottom")}
+          <p class="ln-owner">${OWNER}</p>
         </article>
       </div>`;
   return pageShell({

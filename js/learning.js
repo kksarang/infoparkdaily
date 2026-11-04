@@ -83,26 +83,178 @@
     return BRIDGE + code;
   };
 
+  /* ----- Python: Pyodide inside a Web Worker, so a runaway loop can be stopped ----- */
+  const PYODIDE_DIR = "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/";
+  const PY_LIMIT_MS = 10000;
+  const PY_WORKER_SRC =
+    "importScripts('" + PYODIDE_DIR + "pyodide.js');" +
+    "let py=null;" +
+    "self.onmessage=async(e)=>{" +
+    " try{ if(!py){ py=await loadPyodide({indexURL:'" + PYODIDE_DIR + "'}); }" +
+    "  self.postMessage({type:'start'});" +
+    "  py.setStdout({batched:(t)=>self.postMessage({type:'log',text:t})});" +
+    "  py.setStderr({batched:(t)=>self.postMessage({type:'error',text:t})});" +
+    "  await py.runPythonAsync(e.data.code,{globals:py.toPy({'__name__':'__main__'})});" +
+    " }catch(err){ self.postMessage({type:'error',text:String(err&&err.message||err)}); }" +
+    " self.postMessage({type:'done'});" +
+    "};";
+  let pyWorker = null;
+  const newPyWorker = () => new Worker(URL.createObjectURL(new Blob([PY_WORKER_SRC], { type: "text/javascript" })));
+  /* Keep only the user-relevant part of a Pyodide traceback. */
+  const tidyTraceback = (text) => {
+    const lines = text.split("\n");
+    const at = lines.findIndex((l) => l.includes('File "<exec>"'));
+    return at > 0 ? ["Traceback (most recent call last):", ...lines.slice(at)].join("\n").replace(/File "<exec>", line (\d+)/g, "Line $1") : text;
+  };
+
+  function runPython(code, box) {
+    box.textContent = "";
+    const pre = document.createElement("pre");
+    pre.className = "ln-console ln-console--py";
+    pre.textContent = pyWorker ? "Running…\n" : "Loading Python (first run takes a few seconds)…\n";
+    box.append(pre);
+    if (!pyWorker) pyWorker = newPyWorker();
+    const worker = pyWorker;
+    let started = false;
+    let printed = false;
+    let timer = null;
+    const write = (cls, text) => {
+      if (!printed) {
+        pre.textContent = "";
+        printed = true;
+      }
+      const span = document.createElement("span");
+      span.className = "ln-log ln-log--" + cls;
+      span.textContent = text + "\n";
+      pre.append(span);
+    };
+    worker.onmessage = (e) => {
+      const m = e.data || {};
+      if (m.type === "start") {
+        started = true;
+        pre.textContent = "";
+        timer = setTimeout(() => {
+          worker.terminate();
+          pyWorker = null;
+          write("error", "Stopped: the code ran for more than 10 seconds (is there an endless loop?).");
+        }, PY_LIMIT_MS);
+      } else if (m.type === "log") write("log", m.text);
+      else if (m.type === "error") write("error", tidyTraceback(m.text));
+      else if (m.type === "done") {
+        clearTimeout(timer);
+        if (!printed) write("muted", started ? "(no output — add print() to see values)" : "Could not start Python.");
+      }
+    };
+    worker.onerror = () => {
+      clearTimeout(timer);
+      write("error", "Python could not load. Check your internet connection and try again.");
+      pyWorker = null;
+    };
+    worker.postMessage({ code });
+  }
+
+  /* ----- SQL: sql.js (SQLite compiled to WebAssembly), fresh sample database per run ----- */
+  const SQLJS_DIR = "https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/";
+  let sqlReady = null;
+  const loadSqlJs = () =>
+    sqlReady ||
+    (sqlReady = new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = SQLJS_DIR + "sql-wasm.js";
+      s.onload = () => window.initSqlJs({ locateFile: (f) => SQLJS_DIR + f }).then(resolve, reject);
+      s.onerror = () => {
+        sqlReady = null;
+        reject(new Error("SQL engine could not load. Check your internet connection and try again."));
+      };
+      document.head.append(s);
+    }));
+
+  function renderTable(res) {
+    const wrap = document.createElement("div");
+    wrap.className = "ln-table-wrap";
+    const table = document.createElement("table");
+    const head = table.createTHead().insertRow();
+    res.columns.forEach((c) => {
+      const th = document.createElement("th");
+      th.textContent = c;
+      head.append(th);
+    });
+    const body = table.createTBody();
+    res.values.forEach((row) => {
+      const tr = body.insertRow();
+      row.forEach((v) => {
+        const td = tr.insertCell();
+        td.textContent = v === null ? "NULL" : String(v);
+        if (v === null) td.className = "is-null";
+      });
+    });
+    wrap.append(table);
+    const count = document.createElement("p");
+    count.className = "ln-result-count";
+    count.textContent = res.values.length + (res.values.length === 1 ? " row" : " rows");
+    wrap.append(count);
+    return wrap;
+  }
+
+  async function runSql(code, box, seed) {
+    box.textContent = "";
+    const msg = document.createElement("p");
+    msg.className = "ln-result-hint";
+    msg.textContent = "Running…";
+    box.append(msg);
+    let db = null;
+    try {
+      const SQL = await loadSqlJs();
+      db = new SQL.Database();
+      db.run(seed);
+      const results = db.exec(code);
+      box.textContent = "";
+      if (!results.length) {
+        const p = document.createElement("p");
+        p.className = "ln-result-hint";
+        p.textContent = "Statement ran successfully — no rows to show. Add a SELECT to see data.";
+        box.append(p);
+      }
+      results.forEach((r) => box.append(renderTable(r)));
+    } catch (err) {
+      box.textContent = "";
+      const p = document.createElement("p");
+      p.className = "ln-result-error";
+      p.textContent = "✖ " + (err && err.message ? err.message : String(err));
+      box.append(p);
+    } finally {
+      if (db) db.close();
+    }
+  }
+
   document.querySelectorAll("[data-tryit]").forEach((box) => {
     const area = box.querySelector("[data-code]");
+    const lang = box.dataset.lang || "web";
     const frame = box.querySelector("[data-frame]");
     const out = box.querySelector("[data-console]");
+    const resultBox = box.querySelector("[data-result-box]");
+    const seedTpl = box.querySelector("template[data-seed]");
+    const seed = seedTpl ? seedTpl.content.textContent : "";
     const original = area.value;
 
     const run = () => {
+      if (lang === "python") return runPython(area.value, resultBox);
+      if (lang === "sql") return runSql(area.value, resultBox, seed);
       out.textContent = "";
       out.hidden = true;
       frame.srcdoc = withBridge(area.value);
     };
 
-    window.addEventListener("message", (e) => {
-      if (e.source !== frame.contentWindow || !e.data || !e.data.lnConsole) return;
-      const line = document.createElement("span");
-      line.className = "ln-log ln-log--" + e.data.type;
-      line.textContent = (e.data.type === "error" ? "✖ " : "› ") + e.data.text + "\n";
-      out.append(line);
-      out.hidden = false;
-    });
+    if (frame) {
+      window.addEventListener("message", (e) => {
+        if (e.source !== frame.contentWindow || !e.data || !e.data.lnConsole) return;
+        const line = document.createElement("span");
+        line.className = "ln-log ln-log--" + e.data.type;
+        line.textContent = (e.data.type === "error" ? "✖ " : "› ") + e.data.text + "\n";
+        out.append(line);
+        out.hidden = false;
+      });
+    }
 
     box.querySelector("[data-run]").addEventListener("click", run);
     box.querySelector("[data-reset]").addEventListener("click", () => {
@@ -116,10 +268,11 @@
       } else if (e.key === "Tab" && !e.shiftKey) {
         e.preventDefault();
         const { selectionStart: a, selectionEnd: b } = area;
-        area.setRangeText("  ", a, b, "end");
+        area.setRangeText(lang === "python" ? "    " : "  ", a, b, "end");
       }
     });
-    run();
+    /* Web and SQL examples run immediately; Python waits for Run (its engine is a large download). */
+    if (lang !== "python") run();
   });
 
   /* ---------- quiz ---------- */

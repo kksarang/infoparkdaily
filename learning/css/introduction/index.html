@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
     <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
@@ -88,7 +88,7 @@
       <nav class="ln-trackbar" aria-label="Tutorials">
         <div class="ij-wrap ln-trackbar-track">
           <a href="/learning/">All learning</a>
-          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1" aria-current="page">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1" aria-current="page">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
           <a href="/interview/learning/live-code/">Live code</a>
           <a href="/interview/learning/">Career paths</a>
         </div>
@@ -128,7 +128,7 @@
 <h3>The cascade</h3>
 <p>When rules conflict, the more specific selector wins; if specificity is equal, the later rule wins.</p>
           </div>
-          <section class="ln-try" aria-labelledby="try-introduction" data-tryit>
+          <section class="ln-try" aria-labelledby="try-introduction" data-tryit data-lang="web">
             <div class="ln-try-head">
               <h2 id="try-introduction">Try it yourself</h2>
               <div class="ln-try-actions">
@@ -156,6 +156,7 @@
                 <pre class="ln-console" data-console aria-live="polite" hidden></pre>
               </div>
             </div>
+            
             <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
           </section>
           <section class="ln-points" aria-labelledby="pts-introduction">
@@ -175,14 +176,29 @@
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>A rule is selector { property: value; }.</p>
           </section>
+          <section class="ln-practice-task" aria-labelledby="prac-introduction">
+            <h2 id="prac-introduction">Practice task</h2>
+            <p>Style the page so headings use a dark colour and paragraphs have 1.6 line-height and a different font size.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-introduction">
+            <h2 id="iv-introduction">Interview corner</h2>
+            <details><summary>What does 'cascading' mean in CSS?</summary><p>When several rules target the same element, the browser decides which wins by origin and importance, then specificity, then source order.</p></details>
+            <details><summary>Why prefer external stylesheets?</summary><p>One file can style many pages, the browser can cache it, and HTML stays clean.</p></details>
+          </section>
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+          <section class="ln-further" aria-labelledby="fr-introduction">
+            <h2 id="fr-introduction">Further reading</h2>
+            <ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics" target="_blank" rel="noopener">MDN: CSS first steps ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
               <a href="/learning/css/">← CSS home</a>
               <a href="/learning/css/selectors/" rel="next">Selectors →</a>
             </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
       </div>
     </main>
@@ -205,7 +221,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

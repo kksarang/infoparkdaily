@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Python introduction – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="What Python is used for, running code and the print() function. Free Python lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Python introduction – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="What Python is used for, running code and the print() function. Free Python lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/python/introduction/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/python/introduction/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Python: Python introduction","description":"What Python is used for, running code and the print() function.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/python/introduction/","isPartOf":{"@type":"Course","name":"Python tutorial","url":"https://infoparkdaily.online/learning/python/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Python","item":"https://infoparkdaily.online/learning/python/"},{"@type":"ListItem","position":4,"name":"Python introduction","item":"https://infoparkdaily.online/learning/python/introduction/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab" aria-current="page">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#3776ab">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Python tutorial <small data-ln-label="python" data-total="9"></small></summary>
+            <ol>
+              <li><a href="/learning/python/introduction/" data-ln-lesson="python/introduction" aria-current="page">Python introduction</a></li>
+              <li><a href="/learning/python/variables/" data-ln-lesson="python/variables">Variables & data types</a></li>
+              <li><a href="/learning/python/strings/" data-ln-lesson="python/strings">Strings</a></li>
+              <li><a href="/learning/python/conditions/" data-ln-lesson="python/conditions">Conditions</a></li>
+              <li><a href="/learning/python/loops/" data-ln-lesson="python/loops">Loops</a></li>
+              <li><a href="/learning/python/collections/" data-ln-lesson="python/collections">Lists, tuples, sets & dicts</a></li>
+              <li><a href="/learning/python/functions/" data-ln-lesson="python/functions">Functions</a></li>
+              <li><a href="/learning/python/errors/" data-ln-lesson="python/errors">Errors & exceptions</a></li>
+              <li><a href="/learning/python/modules/" data-ln-lesson="python/modules">Modules & the standard library</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="python/introduction">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/python/">Python</a> / <span aria-current="page">Python introduction</span></nav>
+          <p class="ax-eyebrow">Python · Lesson 1 of 9</p>
+          <h1>Python introduction</h1>
+          <p class="ln-summary">What Python is used for, running code and the print() function.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/python/">← Python home</a>
+              <a href="/learning/python/variables/" rel="next">Variables & data types →</a>
+            </nav>
+          <div class="ln-body">
+<p>Python is a general-purpose language known for code that reads almost like English. Teams in Kerala's IT parks use it for backend services (Django, FastAPI), data analysis (pandas), automation scripts, testing and machine learning.</p>
+<h3>Your first program</h3>
+<p><code>print()</code> shows a value on the screen. Text goes inside quotes; numbers don't need them. Python runs your file from top to bottom, one line at a time.</p>
+<h3>Comments and indentation</h3>
+<p>Anything after <code>#</code> is a comment — Python ignores it. Unlike many languages, Python uses <strong>indentation</strong> (spaces at the start of a line) to group code, so be consistent: four spaces per level is the convention.</p>
+          </div>
+          <section class="ln-try" aria-labelledby="try-introduction" data-tryit data-lang="python">
+            <div class="ln-try-head">
+              <h2 id="try-introduction">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code># My first Python program
+print(&quot;Namaskaram, Python!&quot;)
+print(&quot;Lessons completed:&quot;, 1)
+print(10 + 5)</textarea></label>
+              <div class="ln-output">
+                <div class="ln-result ln-result--python" data-result-box aria-live="polite" aria-label="Python output"><p class="ln-result-hint">Press Run to see the output.</p></div>
+              </div>
+            </div>
+            
+            <p class="ln-try-note">Edit and press Run (or Ctrl/⌘ + Enter). Python runs in your browser — the first run downloads the Python engine and takes a few seconds.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-introduction">
+            <h2 id="pts-introduction">Key points</h2>
+            <ul><li>print() displays output.</li><li># starts a comment.</li><li>Indentation is part of Python's syntax — use 4 spaces.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-python-introduction" data-quiz data-answer="1">
+            <h2 id="q-python-introduction">Quick check</h2>
+            <p>Which symbol starts a comment in Python?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-python-introduction" value="0"> <span>//</span></label>
+              <label><input type="radio" name="q-python-introduction" value="1"> <span>#</span></label>
+              <label><input type="radio" name="q-python-introduction" value="2"> <span>&lt;!--</span></label>
+              <label><input type="radio" name="q-python-introduction" value="3"> <span>--</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>Python comments start with #; // is used in JavaScript and Java.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-introduction">
+            <h2 id="prac-introduction">Practice task</h2>
+            <p>Change the program so it prints your name on one line and the city you want to work in on the next.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-introduction">
+            <h2 id="iv-introduction">Interview corner</h2>
+            <details><summary>Why is Python popular for beginners and companies alike?</summary><p>Its syntax is short and readable, it has a huge standard library and third-party packages, and it is used across web, data, automation and AI — so one language covers many jobs.</p></details>
+            <details><summary>Is Python compiled or interpreted?</summary><p>CPython compiles source to bytecode and then interprets that bytecode on a virtual machine. In everyday terms it is called an interpreted language because you run the source directly without a separate build step.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-introduction">
+            <h2 id="fr-introduction">Further reading</h2>
+            <ul><li><a href="https://docs.python.org/3/tutorial/index.html" target="_blank" rel="noopener">Python tutorial (official) ↗</a></li><li><a href="https://docs.python.org/3/library/functions.html#print" target="_blank" rel="noopener">Built-in print() ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/python/">← Python home</a>
+              <a href="/learning/python/variables/" rel="next">Variables & data types →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

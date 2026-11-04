@@ -372,3 +372,57 @@
 .ln-page.ij-page a.ln-btn.ln-btn, .ln-page.ij-page a.ln-btn.ln-btn:hover { color: #fff; text-decoration: none; }
 .ln-page.ij-page .ln-hero-actions a.ln-btn.ln-btn { color: var(--ln-ink); }
 .ln-page.ij-page a.ln-btn.ln-btn--ghost { color: var(--ln-ink); }
+
+/* ---------- Python / SQL output, terminal, practice, interview, further reading ---------- */
+.ln-result {
+  min-height: 320px;
+  height: 100%;
+  overflow: auto;
+  border: 1px solid var(--ln-line);
+  border-radius: 12px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.ln-result .ln-console--py { max-height: none; min-height: 100%; border-radius: 0; box-sizing: border-box; }
+.ln-result-hint { margin: 0; padding: 14px; color: var(--ln-muted); font-size: 0.92rem; }
+.ln-result-error { margin: 0; padding: 14px; color: var(--ij-bad, #b42318); font: 0.88rem/1.5 "SFMono-Regular", Menlo, Consolas, monospace; white-space: pre-wrap; }
+.ln-log--muted { color: #8a93a3; }
+.ln-table-wrap { padding: 10px; overflow-x: auto; }
+.ln-table-wrap + .ln-table-wrap { border-top: 1px dashed var(--ln-line); }
+.ln-table-wrap table { border-collapse: collapse; font-size: 0.86rem; min-width: 100%; }
+.ln-table-wrap th, .ln-table-wrap td { padding: 6px 10px; border: 1px solid var(--ln-line); text-align: left; white-space: nowrap; }
+.ln-table-wrap th { background: var(--ln-soft); font-weight: 700; }
+.ln-table-wrap td.is-null { color: #8a93a3; font-style: italic; }
+.ln-result-count { margin: 6px 0 0; font-size: 0.8rem; color: var(--ln-muted); }
+
+.ln-try--shell .ln-try-badge { font-size: 0.82rem; color: var(--ln-muted); }
+.ln-terminal {
+  margin: 0;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--ln-code-bg);
+  color: var(--ln-code-ink);
+  font: 0.88rem/1.6 "SFMono-Regular", Menlo, Consolas, monospace;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.ln-practice-task, .ln-interview, .ln-further {
+  margin: 24px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--ln-line);
+  border-radius: 16px;
+  background: var(--ln-surface);
+}
+.ln-practice-task { background: var(--ij-yellow-soft, #fff6d6); border-color: #f1e2a8; }
+.ln-practice-task h2, .ln-interview h2, .ln-further h2 { margin: 0 0 8px; font-size: 1.15rem; }
+.ln-practice-task p { margin: 0; }
+.ln-interview details { border-top: 1px solid var(--ln-line); }
+.ln-interview details:first-of-type { border-top: 0; }
+.ln-interview summary { padding: 12px 0; font-weight: 600; cursor: pointer; }
+.ln-interview details p { margin: 0 0 12px; color: var(--ln-muted); line-height: 1.6; }
+.ln-further ul { margin: 0; padding-left: 1.2em; }
+.ln-further li { padding: 3px 0; }
+.ln-note { margin: 10px 0 0; font-size: 0.82rem; color: var(--ln-muted); }
+.ln-owner { margin: 20px 0 0; font-size: 0.82rem; color: var(--ln-muted); }
+.ln-hub-owner { margin: 0; padding: 18px 0 32px; text-align: center; font-size: 0.85rem; color: var(--ln-muted); }

@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
     <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
@@ -88,7 +88,7 @@
       <nav class="ln-trackbar" aria-label="Tutorials">
         <div class="ij-wrap ln-trackbar-track">
           <a href="/learning/">All learning</a>
-          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
           <a href="/interview/learning/live-code/">Live code</a>
           <a href="/interview/learning/">Career paths</a>
         </div>
@@ -131,7 +131,7 @@
 }</code></pre>
 <p>The ternary <code>cond ? a : b</code> is a short if/else for values.</p>
           </div>
-          <section class="ln-try" aria-labelledby="try-operators-conditions" data-tryit>
+          <section class="ln-try" aria-labelledby="try-operators-conditions" data-tryit data-lang="web">
             <div class="ln-try-head">
               <h2 id="try-operators-conditions">Try it yourself</h2>
               <div class="ln-try-actions">
@@ -165,6 +165,7 @@
                 <pre class="ln-console" data-console aria-live="polite" hidden></pre>
               </div>
             </div>
+            
             <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
           </section>
           <section class="ln-points" aria-labelledby="pts-operators-conditions">
@@ -184,14 +185,29 @@
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>=== compares type too: a string is not a number, so it's false.</p>
           </section>
+          <section class="ln-practice-task" aria-labelledby="prac-operators-conditions">
+            <h2 id="prac-operators-conditions">Practice task</h2>
+            <p>Write code that prints 'Fizz' for multiples of 3, 'Buzz' for 5, 'FizzBuzz' for both, for numbers 1–20.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-operators-conditions">
+            <h2 id="iv-operators-conditions">Interview corner</h2>
+            <details><summary>== vs ===?</summary><p>== converts types before comparing (&quot;5&quot; == 5 is true). === compares value and type, so it's predictable — use it.</p></details>
+            <details><summary>What are truthy and falsy values?</summary><p>Falsy: false, 0, -0, 0n, '', null, undefined, NaN. Everything else is truthy.</p></details>
+          </section>
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+          <section class="ln-further" aria-labelledby="fr-operators-conditions">
+            <h2 id="fr-operators-conditions">Further reading</h2>
+            <ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators" target="_blank" rel="noopener">MDN: Expressions and operators ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
               <a href="/learning/javascript/variables/" rel="prev">← Variables & data types</a>
               <a href="/learning/javascript/loops/" rel="next">Loops →</a>
             </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
       </div>
     </main>
@@ -214,7 +230,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

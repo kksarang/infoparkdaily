@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
     <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
@@ -88,7 +88,7 @@
       <nav class="ln-trackbar" aria-label="Tutorials">
         <div class="ij-wrap ln-trackbar-track">
           <a href="/learning/">All learning</a>
-          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
           <a href="/interview/learning/live-code/">Live code</a>
           <a href="/interview/learning/">Career paths</a>
         </div>
@@ -128,7 +128,7 @@
 <li><code>break</code> stops the loop; <code>continue</code> skips to the next round.</li>
 </ul>
           </div>
-          <section class="ln-try" aria-labelledby="try-loops" data-tryit>
+          <section class="ln-try" aria-labelledby="try-loops" data-tryit data-lang="web">
             <div class="ln-try-head">
               <h2 id="try-loops">Try it yourself</h2>
               <div class="ln-try-actions">
@@ -162,6 +162,7 @@
                 <pre class="ln-console" data-console aria-live="polite" hidden></pre>
               </div>
             </div>
+            
             <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
           </section>
           <section class="ln-points" aria-labelledby="pts-loops">
@@ -181,14 +182,29 @@
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>i takes the values 0, 1 and 2 — three iterations.</p>
           </section>
+          <section class="ln-practice-task" aria-labelledby="prac-loops">
+            <h2 id="prac-loops">Practice task</h2>
+            <p>Use a loop to calculate the total of [3.5, 6, 8, 12] and print the average.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-loops">
+            <h2 id="iv-loops">Interview corner</h2>
+            <details><summary>for…of vs for…in?</summary><p>for…of iterates values of arrays and other iterables. for…in iterates property keys of an object — avoid it for arrays.</p></details>
+            <details><summary>How do you stop a loop early?</summary><p>Use break. continue skips just the current iteration.</p></details>
+          </section>
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+          <section class="ln-further" aria-labelledby="fr-loops">
+            <h2 id="fr-loops">Further reading</h2>
+            <ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration" target="_blank" rel="noopener">MDN: Loops and iteration ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
               <a href="/learning/javascript/operators-conditions/" rel="prev">← Operators & conditions</a>
               <a href="/learning/javascript/functions/" rel="next">Functions →</a>
             </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
       </div>
     </main>
@@ -211,7 +227,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

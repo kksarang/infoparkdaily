@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>SQL Tutorial – Free Lessons with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Learn SQL free: 8 short lessons with live examples you can edit, key points and quizzes. Query, join and summarise data." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="SQL Tutorial – Free Lessons with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Learn SQL free: 8 short lessons with live examples you can edit, key points and quizzes. Query, join and summarise data." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/sql/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/sql/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"SQL tutorial","description":"Query, join and summarise data.","provider":{"@type":"Organization","name":"InfoparkDaily","sameAs":"https://infoparkdaily.online"},"url":"https://infoparkdaily.online/learning/sql/","isAccessibleForFree":true},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"SQL","item":"https://infoparkdaily.online/learning/sql/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+      <section class="lh-hero lh-hero--short ln-hero" aria-labelledby="ln-title" style="--ln-c:#00758f">
+        <div class="ax-glow" aria-hidden="true"></div>
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <span aria-current="page">SQL</span></nav>
+          <div class="lh-hero-copy">
+            <p class="ax-pill"><span>Beginner</span> 8 lessons · free</p>
+            <h1 id="ln-title">SQL tutorial <span>Query, join and summarise data.</span></h1>
+            <p class="ax-lede">SQL — talk to databases. Every lesson has a runnable example you can edit, key points, a practice task, a quiz and interview questions.</p>
+            <div class="ln-hero-actions">
+              <a class="ln-btn" href="/learning/sql/introduction/" data-ln-continue="sql">Start learning SQL</a>
+              <span class="ln-progress-label" data-ln-label="sql" data-total="8">Not started</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f" aria-current="page">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <section class="ez-section" aria-labelledby="ln-lessons">
+        <div class="ij-wrap">
+          <div class="ez-head"><p class="ax-eyebrow">Lessons</p><h2 id="ln-lessons">What you'll learn</h2></div>
+          <ol class="ln-syllabus" style="--ln-c:#00758f">
+            <li><a href="/learning/sql/introduction/" data-ln-lesson="sql/introduction"><span class="ln-num">01</span><span><strong>SQL introduction</strong><small>Databases, tables, rows and columns — and your first SELECT.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/select-where/" data-ln-lesson="sql/select-where"><span class="ln-num">02</span><span><strong>SELECT & WHERE</strong><small>Choosing columns and filtering rows with WHERE, AND, OR, IN, BETWEEN and LIKE.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/order-limit/" data-ln-lesson="sql/order-limit"><span class="ln-num">03</span><span><strong>ORDER BY, LIMIT & DISTINCT</strong><small>Sorting results, taking the top rows and removing duplicates.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/aggregates/" data-ln-lesson="sql/aggregates"><span class="ln-num">04</span><span><strong>Aggregates & GROUP BY</strong><small>COUNT, SUM, AVG, MIN, MAX, grouping rows and filtering groups with HAVING.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/joins/" data-ln-lesson="sql/joins"><span class="ln-num">05</span><span><strong>JOINs</strong><small>Combining tables with INNER JOIN and LEFT JOIN.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/modify-data/" data-ln-lesson="sql/modify-data"><span class="ln-num">06</span><span><strong>INSERT, UPDATE & DELETE</strong><small>Adding, changing and removing rows safely.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/create-table/" data-ln-lesson="sql/create-table"><span class="ln-num">07</span><span><strong>Creating tables & constraints</strong><small>CREATE TABLE, data types, PRIMARY KEY, NOT NULL, UNIQUE, DEFAULT and FOREIGN KEY.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/sql/subqueries/" data-ln-lesson="sql/subqueries"><span class="ln-num">08</span><span><strong>Subqueries & CTEs</strong><small>Queries inside queries, and readable WITH clauses.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Git Branches & merging – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Creating branches, switching, merging and resolving conflicts. Free Git lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Git Branches &amp; merging – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Creating branches, switching, merging and resolving conflicts. Free Git lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/git/branches/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/git/branches/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Git: Branches & merging","description":"Creating branches, switching, merging and resolving conflicts.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/git/branches/","isPartOf":{"@type":"Course","name":"Git tutorial","url":"https://infoparkdaily.online/learning/git/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Git","item":"https://infoparkdaily.online/learning/git/"},{"@type":"ListItem","position":4,"name":"Branches & merging","item":"https://infoparkdaily.online/learning/git/branches/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032" aria-current="page">Git</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#f05032">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Git tutorial <small data-ln-label="git" data-total="6"></small></summary>
+            <ol>
+              <li><a href="/learning/git/introduction/" data-ln-lesson="git/introduction">Git introduction</a></li>
+              <li><a href="/learning/git/commits/" data-ln-lesson="git/commits">Repositories & commits</a></li>
+              <li><a href="/learning/git/branches/" data-ln-lesson="git/branches" aria-current="page">Branches & merging</a></li>
+              <li><a href="/learning/git/github/" data-ln-lesson="git/github">Remotes & GitHub</a></li>
+              <li><a href="/learning/git/pull-requests/" data-ln-lesson="git/pull-requests">Pull requests & teamwork</a></li>
+              <li><a href="/learning/git/undo/" data-ln-lesson="git/undo">Undoing changes & .gitignore</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="git/branches">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/git/">Git</a> / <span aria-current="page">Branches & merging</span></nav>
+          <p class="ax-eyebrow">Git · Lesson 3 of 6</p>
+          <h1>Branches & merging</h1>
+          <p class="ln-summary">Creating branches, switching, merging and resolving conflicts.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/git/commits/" rel="prev">← Repositories & commits</a>
+              <a href="/learning/git/github/" rel="next">Remotes & GitHub →</a>
+            </nav>
+          <div class="ln-body">
+<p>A <strong>branch</strong> is an independent line of work. Build a feature on its own branch, keep <code>main</code> stable, and merge when it's ready.</p>
+<ul>
+<li><code>git switch -c feature/login</code> — create and move to a new branch.</li>
+<li><code>git branch</code> — list branches (the * marks the current one).</li>
+<li><code>git merge feature/login</code> — bring that branch's commits into the current branch.</li>
+</ul>
+<h3>Merge conflicts</h3>
+<p>If both branches changed the same lines, Git stops and marks the file with <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>. Edit the file to the correct final version, remove the markers, then <code>git add</code> and <code>git commit</code>.</p>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-branches">
+            <div class="ln-try-head"><h2 id="try-branches">Example in the terminal</h2><span class="ln-try-badge">Run these on your own computer</span></div>
+            <pre class="ln-terminal"><code>$ git switch -c feature/salary-filter
+Switched to a new branch 'feature/salary-filter'
+
+$ git add filter.js
+$ git commit -m &quot;Add salary range filter&quot;
+
+$ git switch main
+$ git merge feature/salary-filter
+Updating 3f2c1aa..8b41d07
+Fast-forward
+ filter.js | 24 ++++++++++++++++++++++++
+
+$ git branch -d feature/salary-filter
+Deleted branch feature/salary-filter</code></pre>
+            <p class="ln-try-note">Lines starting with <code>$</code> are commands you type; the rest is what Git prints. Names and URLs are examples.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-branches">
+            <h2 id="pts-branches">Key points</h2>
+            <ul><li>One branch per feature or fix.</li><li>Merge back into main when done.</li><li>Conflicts = same lines changed; edit, add, commit.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-git-branches" data-quiz data-answer="1">
+            <h2 id="q-git-branches">Quick check</h2>
+            <p>Which command creates and switches to a new branch?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-git-branches" value="0"> <span>git branch -m</span></label>
+              <label><input type="radio" name="q-git-branches" value="1"> <span>git switch -c name</span></label>
+              <label><input type="radio" name="q-git-branches" value="2"> <span>git merge name</span></label>
+              <label><input type="radio" name="q-git-branches" value="3"> <span>git checkout --orphan</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>git switch -c creates the branch and moves you onto it (older equivalent: git checkout -b).</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-branches">
+            <h2 id="prac-branches">Practice task</h2>
+            <p>Make a branch, change one line of README.md there, change the same line differently on main, merge, and resolve the conflict.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-branches">
+            <h2 id="iv-branches">Interview corner</h2>
+            <details><summary>Merge vs rebase?</summary><p>Merge joins histories with a merge commit and keeps the true timeline. Rebase replays your commits on top of another branch for a straight history — but don't rebase commits others already pulled.</p></details>
+            <details><summary>What is a fast-forward merge?</summary><p>When main has no new commits since the branch started, Git just moves main's pointer forward — no merge commit is needed.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-branches">
+            <h2 id="fr-branches">Further reading</h2>
+            <ul><li><a href="https://git-scm.com/docs/git-switch" target="_blank" rel="noopener">git switch ↗</a></li><li><a href="https://git-scm.com/docs/git-merge" target="_blank" rel="noopener">git merge ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/git/commits/" rel="prev">← Repositories & commits</a>
+              <a href="/learning/git/github/" rel="next">Remotes & GitHub →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Git Undoing changes & .gitignore – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="restore, revert, reset, amend and keeping files out of Git. Free Git lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Git Undoing changes &amp; .gitignore – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="restore, revert, reset, amend and keeping files out of Git. Free Git lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/git/undo/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/git/undo/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Git: Undoing changes & .gitignore","description":"restore, revert, reset, amend and keeping files out of Git.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/git/undo/","isPartOf":{"@type":"Course","name":"Git tutorial","url":"https://infoparkdaily.online/learning/git/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Git","item":"https://infoparkdaily.online/learning/git/"},{"@type":"ListItem","position":4,"name":"Undoing changes & .gitignore","item":"https://infoparkdaily.online/learning/git/undo/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032" aria-current="page">Git</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#f05032">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Git tutorial <small data-ln-label="git" data-total="6"></small></summary>
+            <ol>
+              <li><a href="/learning/git/introduction/" data-ln-lesson="git/introduction">Git introduction</a></li>
+              <li><a href="/learning/git/commits/" data-ln-lesson="git/commits">Repositories & commits</a></li>
+              <li><a href="/learning/git/branches/" data-ln-lesson="git/branches">Branches & merging</a></li>
+              <li><a href="/learning/git/github/" data-ln-lesson="git/github">Remotes & GitHub</a></li>
+              <li><a href="/learning/git/pull-requests/" data-ln-lesson="git/pull-requests">Pull requests & teamwork</a></li>
+              <li><a href="/learning/git/undo/" data-ln-lesson="git/undo" aria-current="page">Undoing changes & .gitignore</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="git/undo">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/git/">Git</a> / <span aria-current="page">Undoing changes & .gitignore</span></nav>
+          <p class="ax-eyebrow">Git · Lesson 6 of 6</p>
+          <h1>Undoing changes & .gitignore</h1>
+          <p class="ln-summary">restore, revert, reset, amend and keeping files out of Git.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/git/pull-requests/" rel="prev">← Pull requests & teamwork</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+          <div class="ln-body">
+<p>Different mistakes need different tools:</p>
+<ul>
+<li><code>git restore file</code> — throw away uncommitted edits to a file.</li>
+<li><code>git restore --staged file</code> — unstage, keeping your edits.</li>
+<li><code>git commit --amend</code> — fix the last commit's message or add a forgotten file (only before pushing).</li>
+<li><code>git revert &lt;commit&gt;</code> — make a new commit that undoes an old one. Safe for shared branches.</li>
+<li><code>git reset --soft HEAD~1</code> — undo the last commit but keep its changes staged (local only).</li>
+</ul>
+<p>Avoid <code>git reset --hard</code> and force-pushing on shared branches — they rewrite history others depend on.</p>
+<h3>.gitignore</h3>
+<p>A <code>.gitignore</code> file lists things Git should never track: <code>node_modules/</code>, <code>.venv/</code>, build output, logs and especially secrets such as <code>.env</code> files.</p>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-undo">
+            <div class="ln-try-head"><h2 id="try-undo">Example in the terminal</h2><span class="ln-try-badge">Run these on your own computer</span></div>
+            <pre class="ln-terminal"><code>$ git status
+modified:   app.js
+
+$ git restore app.js          # discard the edit
+
+$ git log --oneline
+a91e0c2 Remove salary filter by mistake
+8b41d07 Add salary range filter
+
+$ git revert a91e0c2
+[main 5d7f310] Revert &quot;Remove salary filter by mistake&quot;
+
+$ cat .gitignore
+node_modules/
+.venv/
+.env
+*.log</code></pre>
+            <p class="ln-try-note">Lines starting with <code>$</code> are commands you type; the rest is what Git prints. Names and URLs are examples.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-undo">
+            <h2 id="pts-undo">Key points</h2>
+            <ul><li>restore = discard local edits.</li><li>revert = safe undo on shared history.</li><li>.gitignore keeps secrets and junk out of the repo.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-git-undo" data-quiz data-answer="1">
+            <h2 id="q-git-undo">Quick check</h2>
+            <p>Which command safely undoes a commit that's already pushed to a shared branch?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-git-undo" value="0"> <span>git reset --hard</span></label>
+              <label><input type="radio" name="q-git-undo" value="1"> <span>git revert</span></label>
+              <label><input type="radio" name="q-git-undo" value="2"> <span>git commit --amend</span></label>
+              <label><input type="radio" name="q-git-undo" value="3"> <span>git push --force</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>revert adds a new commit that reverses the old one, without rewriting shared history.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-undo">
+            <h2 id="prac-undo">Practice task</h2>
+            <p>Add a .gitignore that ignores *.log and .env, create both files and confirm git status doesn't list them.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-undo">
+            <h2 id="iv-undo">Interview corner</h2>
+            <details><summary>git reset vs git revert?</summary><p>reset moves the branch pointer back (rewriting history) — fine for local work. revert creates a new commit that undoes changes — safe for shared branches.</p></details>
+            <details><summary>You committed a password. What do you do?</summary><p>Rotate the secret immediately (assume it's leaked), remove it from the code, add the file to .gitignore, and if needed purge it from history with a history-rewriting tool — then coordinate with the team.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-undo">
+            <h2 id="fr-undo">Further reading</h2>
+            <ul><li><a href="https://git-scm.com/docs/git-restore" target="_blank" rel="noopener">git restore ↗</a></li><li><a href="https://git-scm.com/docs/git-revert" target="_blank" rel="noopener">git revert ↗</a></li><li><a href="https://git-scm.com/docs/gitignore" target="_blank" rel="noopener">gitignore ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/git/pull-requests/" rel="prev">← Pull requests & teamwork</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

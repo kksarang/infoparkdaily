@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
     <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
@@ -88,7 +88,7 @@
       <nav class="ln-trackbar" aria-label="Tutorials">
         <div class="ij-wrap ln-trackbar-track">
           <a href="/learning/">All learning</a>
-          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1" aria-current="page">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1" aria-current="page">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
           <a href="/interview/learning/live-code/">Live code</a>
           <a href="/interview/learning/">Career paths</a>
         </div>
@@ -132,7 +132,7 @@
 }</code></pre>
 <p>Resize the preview below to see the layout switch.</p>
           </div>
-          <section class="ln-try" aria-labelledby="try-responsive" data-tryit>
+          <section class="ln-try" aria-labelledby="try-responsive" data-tryit data-lang="web">
             <div class="ln-try-head">
               <h2 id="try-responsive">Try it yourself</h2>
               <div class="ln-try-actions">
@@ -162,6 +162,7 @@
                 <pre class="ln-console" data-console aria-live="polite" hidden></pre>
               </div>
             </div>
+            
             <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
           </section>
           <section class="ln-points" aria-labelledby="pts-responsive">
@@ -181,14 +182,29 @@
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>Mobile-first writes phone styles as the base and adds larger-screen styles with min-width queries.</p>
           </section>
+          <section class="ln-practice-task" aria-labelledby="prac-responsive">
+            <h2 id="prac-responsive">Practice task</h2>
+            <p>Make a two-column profile layout that stacks into one column below 600px, and make images never overflow.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-responsive">
+            <h2 id="iv-responsive">Interview corner</h2>
+            <details><summary>What is mobile-first design?</summary><p>Write base styles for small screens, then add min-width media queries for larger screens — simpler CSS and faster on phones.</p></details>
+            <details><summary>What does the viewport meta tag do?</summary><p>It makes mobile browsers use the device width instead of a zoomed-out desktop width, so media queries work as expected.</p></details>
+          </section>
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+          <section class="ln-further" aria-labelledby="fr-responsive">
+            <h2 id="fr-responsive">Further reading</h2>
+            <ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener">MDN: Responsive design ↗</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank" rel="noopener">MDN: Media queries ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
               <a href="/learning/css/grid/" rel="prev">← CSS Grid</a>
               <a href="/learning/">All learning →</a>
             </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
       </div>
     </main>
@@ -211,7 +227,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

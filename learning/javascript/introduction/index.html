@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn2" />
     <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
@@ -88,7 +88,7 @@
       <nav class="ln-trackbar" aria-label="Tutorials">
         <div class="ij-wrap ln-trackbar-track">
           <a href="/learning/">All learning</a>
-          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a>
           <a href="/interview/learning/live-code/">Live code</a>
           <a href="/interview/learning/">Career paths</a>
         </div>
@@ -124,7 +124,7 @@
 <p>Add JS with a <code>&lt;script&gt;</code> tag — usually a file: <code>&lt;script src="app.js" defer&gt;&lt;/script&gt;</code>. <code>defer</code> runs it after the HTML has loaded.</p>
 <p><code>console.log()</code> prints values to the console — your main debugging tool. In the Try-it editor, console output appears under the preview.</p>
           </div>
-          <section class="ln-try" aria-labelledby="try-introduction" data-tryit>
+          <section class="ln-try" aria-labelledby="try-introduction" data-tryit data-lang="web">
             <div class="ln-try-head">
               <h2 id="try-introduction">Try it yourself</h2>
               <div class="ln-try-actions">
@@ -151,6 +151,7 @@
                 <pre class="ln-console" data-console aria-live="polite" hidden></pre>
               </div>
             </div>
+            
             <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
           </section>
           <section class="ln-points" aria-labelledby="pts-introduction">
@@ -170,14 +171,29 @@
             <p class="ln-quiz-result" data-result role="status" hidden></p>
             <p class="ln-quiz-why" data-why hidden>2 and 3 are numbers, so + adds them: 5.</p>
           </section>
+          <section class="ln-practice-task" aria-labelledby="prac-introduction">
+            <h2 id="prac-introduction">Practice task</h2>
+            <p>Print your name and today's date to the console, then change the page heading to 'I am learning JavaScript'.</p>
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-introduction">
+            <h2 id="iv-introduction">Interview corner</h2>
+            <details><summary>What is the difference between defer and async on a script?</summary><p>Both download in parallel. defer runs after HTML parsing, in order; async runs as soon as it downloads, in any order.</p></details>
+            <details><summary>Is JavaScript the same as Java?</summary><p>No. They are different languages with different designs; the similar name was a marketing choice.</p></details>
+          </section>
           <div class="ln-complete">
             <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
           </div>
+          <section class="ln-further" aria-labelledby="fr-introduction">
+            <h2 id="fr-introduction">Further reading</h2>
+            <ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank" rel="noopener">MDN: JavaScript guide ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
               <a href="/learning/javascript/">← JavaScript home</a>
               <a href="/learning/javascript/variables/" rel="next">Variables & data types →</a>
             </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
       </div>
     </main>
@@ -200,7 +216,7 @@
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/learning.js?v=20261104learn2" defer></script>
     <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>
