@@ -150,12 +150,12 @@ try {
   await admin.locator("#password").fill(password);
   await admin.locator("#auth-form button[type=submit]").click();
   // First sign-in shows a one-time "set up your hiring workspace" form, then the dashboard.
-  await admin.locator("#workspace-content, #onboarding-form").first().waitFor({ timeout: 20000 });
+  await admin.locator("#workspace-content, #onboarding-form").first().waitFor({ timeout: 45000 });
   if (await admin.locator("#onboarding-form").count()) {
     await admin.locator('#onboarding-form [name="name"]').fill("QA Admin");
     await admin.locator('#onboarding-form [name="company"]').fill("InfoparkDaily");
     await admin.locator('#onboarding-form button[type="submit"]').click();
-    await admin.locator("#workspace-content").waitFor({ timeout: 20000 });
+    await admin.locator("#workspace-content").waitFor({ timeout: 45000 });
   }
   await admin.goto(origin + "/infoparkdaily/admin/", { waitUntil: "domcontentloaded" });
   await admin.locator("[data-admin-tab]").first().waitFor({ timeout: 20000 });

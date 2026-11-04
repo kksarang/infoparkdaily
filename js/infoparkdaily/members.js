@@ -90,7 +90,7 @@ function authView(register = false) {
       <ul class="au-points">
         <li>${icon("briefcase")}<span><strong>Jobs, walk-ins &amp; job alerts</strong><small>Post any hiring format in minutes</small></span></li>
         <li>${icon("shield")}<span><strong>Verified before it goes live</strong><small>Builds trust with candidates</small></span></li>
-        <li>${icon("bell")}<span><strong>Reach 77K+ job seekers</strong><small>Jobs board, WhatsApp &amp; Instagram alerts</small></span></li>
+        <li>${icon("bell")}<span><strong>Reach 78K+ job seekers</strong><small>Jobs board, WhatsApp &amp; Instagram alerts</small></span></li>
       </ul>
     </div>
     <div class="au-mock" aria-hidden="true">
