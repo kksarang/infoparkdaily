@@ -229,13 +229,37 @@
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://infoparkdaily.online/interview-journey/</loc>
+    <loc>https://infoparkdaily.online/interview/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/interview/preparation/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://infoparkdaily.online/interview-journey/questions/</loc>
+    <loc>https://infoparkdaily.online/interview/questions/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/interview/learning/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/interview/email-guide/</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://infoparkdaily.online/interview/resume-ats/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>

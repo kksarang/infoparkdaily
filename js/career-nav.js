@@ -23,11 +23,11 @@
   /* Interview Journey: add to the Career Tools menu on every page that lacks it. */
   const storeNav = header.querySelector("#store-nav");
   if (storeNav) {
-    const extras = [
-      ["/interview-journey/", "Interview journey"],
-      ["/interview-journey/questions/", "Interview questions"],
-      ["https://sarangrajan.in/enitexa.ai/learning/", "Learning", true]
-    ];
+    const extras = [["/interview/", "Interview prep"]];
+    /* Older pages may still carry the earlier separate links — fold them into the hub link. */
+    storeNav
+      .querySelectorAll('a[href="/interview-journey/"], a[href="/interview-journey/questions/"], a[href*="enitexa.ai/learning"]')
+      .forEach((a) => a.remove());
     let after = storeNav.querySelector('a[href="/ats-checker/"]');
     extras.forEach(([href, label, external]) => {
       let link = storeNav.querySelector('a[href="' + href + '"]');
@@ -51,9 +51,7 @@
     const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
     let on = false;
     if (href === "/ats-checker") on = path.startsWith("/ats-checker");
-    else if (href === "/interview-journey/questions") on = path.startsWith("/interview-journey/questions");
-    else if (href === "/interview-journey")
-      on = path.startsWith("/interview-journey") && !path.startsWith("/interview-journey/questions");
+    else if (href === "/interview") on = path.startsWith("/interview");
     else if (href === "/career-tools/faq") on = path.startsWith("/career-tools/faq");
     else if (href === "/resume-builder/email-examples")
       on = path.startsWith("/resume-builder/email-examples");

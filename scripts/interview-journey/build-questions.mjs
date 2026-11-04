@@ -1,21 +1,22 @@
 /**
- * Builds /interview-journey/questions/index.html — the interview question bank.
+ * Builds /interview/questions/index.html — the interview question bank.
  * Called from build.mjs (npm run build:journey).
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { esc } from "./helpers.mjs";
-import { header, footer, featureDuo } from "./shell.mjs";
+import { header, footer, hubNav, hubRelated, ASSET_V } from "./shell.mjs";
 import { GENERAL } from "./questions-general.mjs";
 import { TECH } from "./questions-tech.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
-const OUT = path.join(root, "interview-journey/questions/index.html");
-const VERSION = "20261104iq";
+const OUT = path.join(root, "interview/questions/index.html");
+const OLD = path.join(root, "interview-journey/questions/index.html");
+const VERSION = ASSET_V;
 const SITE = "https://infoparkdaily.online";
-const PAGE = `${SITE}/interview-journey/questions/`;
+const PAGE = `${SITE}/interview/questions/`;
 
 const LEVEL = { f: ["fresher", "Fresher"], e: ["experienced", "Experienced"], b: ["both", "Fresher & experienced"] };
 const GROUP_ORDER = ["HR & behavioural", "Core CS", "Programming", "Web & mobile", "Data & cloud", "Testing", "Non-IT"];
@@ -86,7 +87,7 @@ export function buildQuestions() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "InfoparkDaily", item: `${SITE}/` },
-          { "@type": "ListItem", position: 2, name: "Interview Journey", item: `${SITE}/interview-journey/` },
+          { "@type": "ListItem", position: 2, name: "Interview hub", item: `${SITE}/interview/` },
           { "@type": "ListItem", position: 3, name: "Interview questions", item: PAGE }
         ]
       }
@@ -144,16 +145,17 @@ export function buildQuestions() {
     <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${VERSION}" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=${VERSION}" />
     <script defer src="/js/career-nav.js?v=${VERSION}"></script>
   </head>
-  <body class="career-tools ij-page iq-page light">
+  <body class="career-tools ij-page hub-page iq-page light">
     <a class="skip" href="#main">Skip to content</a>
 ${header()}
     <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
     <main id="main">
       <section class="ij-hero iq-hero" aria-labelledby="iq-title">
         <div class="ij-wrap">
-          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview-journey/">Interview Journey</a> / <span>Interview questions</span></nav>
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <span aria-current="page">Interview questions</span></nav>
           <p class="ij-badge-hero"><b>FREE</b> ${total} questions · ${subjects.length} subjects · sample answers</p>
           <h1 id="iq-title">Interview questions<br /><span>for every round.</span></h1>
           <p class="ij-lede">
@@ -174,6 +176,7 @@ ${header()}
         </div>
       </section>
 
+${hubNav("questions")}
       <div class="iq-toolbar" role="search">
         <div class="ij-wrap">
           <div class="iq-toolbar-row">
@@ -236,10 +239,10 @@ ${header()}
             <div class="ij-card"><h4>Use STAR for behaviour</h4><p>Situation, Task, Action, Result — and say what <em>you</em> did.</p></div>
             <div class="ij-card"><h4>Know your resume</h4><p>Every skill on your resume is fair game. Practise those subjects first.</p></div>
           </div>
-          <p class="ij-small" style="margin-top:16px">Want the full process — HR screening, tests, salary talks and offers? Read the <a href="/interview-journey/">Interview Journey</a>. Sample answers are guidance; adapt them honestly to your own background.</p>
+          <p class="ij-small" style="margin-top:16px">Want the full process — HR screening, tests, salary talks and offers? Read the <a href="/interview/preparation/">Interview Journey</a>. Sample answers are guidance; adapt them honestly to your own background.</p>
         </div>
       </section>
-${featureDuo("questions")}
+${hubRelated("questions")}
     </main>
 ${footer()}
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
@@ -252,5 +255,10 @@ ${footer()}
 
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, html);
+  fs.mkdirSync(path.dirname(OLD), { recursive: true });
+  fs.writeFileSync(
+    OLD,
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Interview questions moved | InfoparkDaily</title><meta name="robots" content="noindex"><link rel="canonical" href="${PAGE}"><meta http-equiv="refresh" content="0; url=/interview/questions/"><script>location.replace("/interview/questions/" + location.hash);</script></head><body><p>Moved to <a href="/interview/questions/">Interview questions</a>.</p></body></html>\n`
+  );
   console.log(`Wrote ${path.relative(root, OUT)} — ${total} questions across ${subjects.length} subjects`);
 }

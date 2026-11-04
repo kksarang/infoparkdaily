@@ -1,5 +1,6 @@
 /**
- * Builds /interview-journey/index.html from the chapter files.
+ * Builds /interview/preparation/index.html (the 17-chapter Interview Journey) from the chapter files.
+ * /interview-journey/ becomes a redirect to it.
  * Run: npm run build:journey
  * Content lives in chapters-a/b/c.mjs; edit there, then rebuild.
  */
@@ -11,15 +12,18 @@ import { chaptersA } from "./chapters-a.mjs";
 import { chaptersB } from "./chapters-b.mjs";
 import { chaptersC } from "./chapters-c.mjs";
 import { EXTRA, GLOSSARY, FAQ } from "./chapters-extra.mjs";
-import { header, footer, featureDuo } from "./shell.mjs";
+import { header, footer, featureDuo, hubNav } from "./shell.mjs";
 import { buildQuestions } from "./build-questions.mjs";
+import { learningPage, emailPage, resumePage } from "./hub-pages.mjs";
+import { overviewPage } from "./hub-overview.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
-const OUT = path.join(root, "interview-journey/index.html");
-const VERSION = "20261104iq";
+const OUT = path.join(root, "interview/preparation/index.html");
+const OLD_OUT = path.join(root, "interview-journey/index.html");
+const VERSION = "20261104hub";
 const SITE = "https://infoparkdaily.online";
-const PAGE = `${SITE}/interview-journey/`;
+const PAGE = `${SITE}/interview/preparation/`;
 
 const chapters = [...chaptersA, ...chaptersB, ...chaptersC];
 /* Append extra depth and derive reading time from real word count (~200 wpm, capped list skims faster). */
@@ -308,13 +312,13 @@ const jsonLd = {
         {
           "@type": "ListItem",
           position: 2,
-          name: "Career Tools",
-          item: `${SITE}/resume-builder/`,
+          name: "Interview hub",
+          item: `${SITE}/interview/`,
         },
         {
           "@type": "ListItem",
           position: 3,
-          name: "Interview Journey",
+          name: "Interview preparation",
           item: PAGE,
         },
       ],
@@ -329,7 +333,7 @@ const html = `<!doctype html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Interview Journey – Complete Job Search &amp; Hiring Process Guide | InfoparkDaily</title>
+    <title>Interview Preparation – Complete Job Search &amp; Interview Journey | InfoparkDaily</title>
     <meta
       name="description"
       content="Learn the full hiring journey in 17 free chapters: find jobs on InfoparkDaily and other portals, write an ATS-friendly resume, pass HR screening, tests and interviews, negotiate CTC, read offer letters and join. Fresher and experienced tracks."
@@ -381,9 +385,10 @@ const html = `<!doctype html>
     <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${VERSION}" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=${VERSION}" />
     <script defer src="/js/career-nav.js?v=${VERSION}"></script>
   </head>
-  <body class="career-tools ij-page light" data-track="all">
+  <body class="career-tools ij-page hub-page light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>
 ${header()}
 
@@ -392,7 +397,7 @@ ${header()}
       <section class="ij-hero" aria-labelledby="ij-title">
         <div class="ij-wrap ij-hero-grid">
           <div class="ij-hero-copy">
-            <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/resume-builder/">Career Tools</a> / <span>Interview Journey</span></nav>
+            <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <span aria-current="page">Interview preparation</span></nav>
             <p class="ij-badge-hero"><b>FREE</b> 17 chapters · fresher &amp; experienced tracks</p>
             <h1 id="ij-title">From job search<br /><span>to joining day.</span></h1>
             <p class="ij-lede">
@@ -441,6 +446,7 @@ ${header()}
         </div>
       </section>
 
+${hubNav("preparation", true)}
       <nav class="ij-subnav" aria-label="On this page">
         <div class="ij-wrap"><div class="ij-subnav-track">
           <a href="#where" data-spy="where">Where am I?</a>
@@ -453,7 +459,7 @@ ${header()}
           <a href="#glossary" data-spy="glossary">Glossary</a>
           <a href="#faq" data-spy="faq">FAQ</a>
           <a href="#tools" data-spy="tools">Tools</a>
-          <a href="#more" data-spy="more">Learning &amp; questions</a>
+          <a href="#more" data-spy="more">Career hub</a>
         </div></div>
       </nav>
 
@@ -738,4 +744,23 @@ console.log(
   `Wrote ${path.relative(root, OUT)} — ${chapters.length} chapters, ~${words} words, ${totalMinutes} min`,
 );
 
+fs.mkdirSync(path.dirname(OLD_OUT), { recursive: true });
+fs.writeFileSync(
+  OLD_OUT,
+  `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Interview preparation | InfoparkDaily</title><meta name="robots" content="noindex"><link rel="canonical" href="${PAGE}"><meta http-equiv="refresh" content="0; url=/interview/preparation/"><script>location.replace("/interview/preparation/" + location.hash);</script></head><body><p>Moved to <a href="/interview/preparation/">Interview preparation</a>.</p></body></html>\n`
+);
+
 buildQuestions();
+
+const HUB_OUT = {
+  "interview/index.html": overviewPage,
+  "interview/learning/index.html": learningPage,
+  "interview/email-guide/index.html": emailPage,
+  "interview/resume-ats/index.html": resumePage
+};
+for (const [rel, fn] of Object.entries(HUB_OUT)) {
+  const file = path.join(root, rel);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, fn());
+  console.log(`Wrote ${rel}`);
+}
