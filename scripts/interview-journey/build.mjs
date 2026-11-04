@@ -14,7 +14,8 @@ import { chaptersC } from "./chapters-c.mjs";
 import { EXTRA, GLOSSARY, FAQ } from "./chapters-extra.mjs";
 import { header, footer, featureDuo, hubNav } from "./shell.mjs";
 import { buildQuestions } from "./build-questions.mjs";
-import { learningPage, emailPage, resumePage } from "./hub-pages.mjs";
+import { emailPage, resumePage, PLATFORMS, KERALA } from "./hub-pages.mjs";
+import { learningHubPage, learningPathPage, liveCodePage, PATHS } from "./hub-learning.mjs";
 import { overviewPage } from "./hub-overview.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -754,7 +755,8 @@ buildQuestions();
 
 const HUB_OUT = {
   "interview/index.html": overviewPage,
-  "interview/learning/index.html": learningPage,
+  "interview/learning/index.html": () => learningHubPage(PLATFORMS, KERALA),
+  "interview/learning/live-code/index.html": liveCodePage,
   "interview/email-guide/index.html": emailPage,
   "interview/resume-ats/index.html": resumePage
 };
@@ -764,3 +766,9 @@ for (const [rel, fn] of Object.entries(HUB_OUT)) {
   fs.writeFileSync(file, fn());
   console.log(`Wrote ${rel}`);
 }
+for (const p of PATHS) {
+  const file = path.join(root, `interview/learning/${p.slug}/index.html`);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, learningPathPage(p));
+}
+console.log(`Wrote ${PATHS.length} learning path pages`);

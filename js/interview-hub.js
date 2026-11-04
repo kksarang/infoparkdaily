@@ -185,6 +185,79 @@
     }
   }
 
+  /* ---------- learning hub: field, category and search filters ---------- */
+  const lpCards = [...document.querySelectorAll(".lp-grid:not(.lp-grid--related) [data-lp-field]")];
+  if (lpCards.length) {
+    let lpField = "all";
+    let lpCat = "all";
+    const lpSearch = document.querySelector("[data-lp-search]");
+    const lpCount = document.querySelector("[data-lp-count]");
+    const lpEmpty = document.querySelector("[data-lp-empty]");
+    function applyLp() {
+      const q = lpSearch ? lpSearch.value.trim().toLowerCase() : "";
+      let shown = 0;
+      lpCards.forEach((c) => {
+        const ok =
+          (lpField === "all" || c.dataset.lpField === lpField) &&
+          (lpCat === "all" || c.dataset.lpCat === lpCat) &&
+          (!q || c.dataset.lpText.includes(q));
+        c.hidden = !ok;
+        if (ok) shown += 1;
+      });
+      if (lpCount) lpCount.textContent = shown + (shown === 1 ? " path" : " paths");
+      if (lpEmpty) lpEmpty.hidden = shown > 0;
+    }
+    function setLpField(v) {
+      lpField = v;
+      document.querySelectorAll("[data-lp-fieldbtn]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lpFieldbtn === v)));
+      document.querySelectorAll("[data-lp-catbtn]").forEach((b) => {
+        const f = b.dataset.lpCatfield;
+        b.hidden = !!f && v !== "all" && f !== "both" && f !== v;
+      });
+      const active = document.querySelector('[data-lp-catbtn][aria-pressed="true"]');
+      if (active && active.hidden) setLpCat("all");
+      else applyLp();
+      try {
+        const u = new URL(location.href);
+        if (v === "all") u.searchParams.delete("field");
+        else u.searchParams.set("field", v);
+        history.replaceState(null, "", u);
+      } catch (_e) {}
+    }
+    function setLpCat(v) {
+      lpCat = v;
+      document.querySelectorAll("[data-lp-catbtn]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lpCatbtn === v)));
+      applyLp();
+    }
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest) return;
+      const fb = e.target.closest("[data-lp-fieldbtn]");
+      if (fb) return setLpField(fb.dataset.lpFieldbtn);
+      const cb = e.target.closest("[data-lp-catbtn]");
+      if (cb) return setLpCat(cb.dataset.lpCatbtn);
+      if (e.target.closest("[data-lp-clear]")) {
+        if (lpSearch) lpSearch.value = "";
+        setLpField("all");
+        setLpCat("all");
+      }
+    });
+    let lpTimer = 0;
+    if (lpSearch)
+      lpSearch.addEventListener("input", () => {
+        clearTimeout(lpTimer);
+        lpTimer = setTimeout(() => {
+          applyLp();
+          if (lpSearch.value.trim()) {
+            const grid = document.getElementById("paths");
+            if (grid && grid.getBoundingClientRect().top > window.innerHeight * 0.6)
+              grid.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+          }
+        }, 150);
+      });
+    const startField = new URLSearchParams(location.search).get("field");
+    setLpField(startField === "it" || startField === "nonit" ? startField : "all");
+  }
+
   setTrack(read(TRACK_KEY) || body.getAttribute("data-track") || "all", false);
   onScroll();
 })();

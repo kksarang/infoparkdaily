@@ -1,5 +1,5 @@
 /* /interview/ — InfoparkDaily Career Academy overview (course-catalogue layout). */
-import { pageShell, hubNav, crumbs, crumbsLd, ASSET_V } from "./shell.mjs";
+import { pageShell, hubNav, crumbs, crumbsLd, ASSET_V, channelsRow } from "./shell.mjs";
 import { chaptersA } from "./chapters-a.mjs";
 import { chaptersB } from "./chapters-b.mjs";
 import { chaptersC } from "./chapters-c.mjs";
@@ -299,6 +299,7 @@ ${hubNav("overview")}
                 <li><a href="/join/">Job alerts</a></li>
               </ul>
               <div class="ac-hero-cta"><a class="ac-btn ac-btn--yellow" href="/jobs/">Explore jobs → infoparkdaily.online/jobs</a></div>
+${channelsRow("dark")}
             </div>
             <div class="ac-jobs-side">
               <h3>Other job search platforms</h3>

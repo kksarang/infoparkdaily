@@ -69,6 +69,33 @@ export const ILLUS = {
   jobs: `<svg viewBox="0 0 240 150" role="img" aria-hidden="true"><rect width="240" height="150" rx="18" fill="#ffc107"/><rect x="30" y="40" width="180" height="90" rx="14" fill="#12151b"/><rect x="92" y="24" width="56" height="22" rx="8" fill="none" stroke="#12151b" stroke-width="6"/><rect x="30" y="78" width="180" height="6" fill="#ffc107"/><rect x="108" y="70" width="24" height="22" rx="5" fill="#fff"/></svg>`
 };
 
+/* ---------- InfoparkDaily community channels ---------- */
+export const CHANNELS = [
+  ["whatsapp", "WhatsApp channel", "Daily job alerts", "https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22"],
+  ["whatsapp", "WhatsApp group", "Community group", "https://chat.whatsapp.com/CpjcQa9otzR3yu9sVP05eB"],
+  ["instagram", "@infoparkdaily.jobs", "Job posts on Instagram", "https://www.instagram.com/infoparkdaily.jobs/"],
+  ["instagram", "@infoparkdaily", "Community & reels", "https://www.instagram.com/infoparkdaily/"]
+];
+const CH_ICON = {
+  whatsapp:
+    '<path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/>',
+  instagram:
+    '<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm5.3-3.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/>'
+};
+
+/** Row of community channel links (dark or light variant). */
+export const channelsRow = (variant = "dark", heading = "Join our job alert channels") => `
+            <div class="ch-row ch-row--${variant}">
+              <p class="ch-title">${heading}</p>
+              <div class="ch-list">
+                ${CHANNELS.map(
+                  ([kind, name, desc, url]) =>
+                    `<a class="ch ch--${kind}" href="${url}" target="_blank" rel="noopener noreferrer"><span class="ch-icon" aria-hidden="true"><svg viewBox="0 0 24 24">${CH_ICON[kind]}</svg></span><span class="ch-text"><strong>${name}</strong><small>${desc}</small></span><span class="ch-go" aria-hidden="true">↗</span></a>`
+                ).join("")}
+              </div>
+              <a class="ch-all" href="/join/">All ways to join InfoparkDaily →</a>
+            </div>`;
+
 /* ---------- menu + chrome ---------- */
 export const storeNav = () => `
         <nav id="store-nav" aria-label="Career tools">

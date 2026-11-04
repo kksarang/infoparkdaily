@@ -39,7 +39,11 @@
       { name: "Event loop order", code: 'console.log("1: sync");\nsetTimeout(() => console.log("4: setTimeout (macrotask)"), 0);\nPromise.resolve().then(() => console.log("3: promise (microtask)"));\nconsole.log("2: sync");\n\n// Interview question: what order is printed — and why?' },
       { name: "Closure counter", code: "function makeCounter() {\n  let count = 0;            // private variable\n  return () => ++count;     // the closure remembers count\n}\n\nconst next = makeCounter();\nconsole.log(next(), next(), next()); // 1 2 3" },
       { name: "0.1 + 0.2", code: "console.log(0.1 + 0.2);            // 0.30000000000000004\nconsole.log(0.1 + 0.2 === 0.3);    // false\nconsole.log(Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON); // true\nconsole.log(typeof null);          // \"object\"\nconsole.log('5' == 5, '5' === 5);   // true false" },
-      { name: "FizzBuzz", code: 'for (let i = 1; i <= 15; i++) {\n  console.log(i % 15 === 0 ? "FizzBuzz" : i % 3 === 0 ? "Fizz" : i % 5 === 0 ? "Buzz" : i);\n}' }
+      { name: "FizzBuzz", code: 'for (let i = 1; i <= 15; i++) {\n  console.log(i % 15 === 0 ? "FizzBuzz" : i % 3 === 0 ? "Fizz" : i % 5 === 0 ? "Buzz" : i);\n}' },
+      { name: "🏆 Challenge: reverse a string", task: "Complete <code>reverse(s)</code> so that <code>console.log(reverse(\"kochi\"))</code> prints <code>ihcok</code>.", code: "function reverse(s) {\n  // your code here\n}\n\nconsole.log(reverse(\"kochi\"));", expect: ["ihcok"] },
+      { name: "🏆 Challenge: sum of even numbers", task: "Print the sum of all even numbers from 1 to 100 (one number only).", code: "let total = 0;\n// your loop here\n\nconsole.log(total);", expect: ["2550"] },
+      { name: "🏆 Challenge: count vowels", task: "Print how many vowels (a, e, i, o, u — any case) are in <code>\"Infopark Daily\"</code>.", code: "const text = \"Infopark Daily\";\n// count the vowels\n\nconsole.log(/* your answer */);", expect: ["5"] },
+      { name: "🏆 Challenge: largest number", task: "Print the largest number in <code>[12, 45, 7, 45, 33]</code> without using <code>Math.max</code>.", code: "const nums = [12, 45, 7, 45, 33];\n// find the largest\n\nconsole.log(/* your answer */);", expect: ["45"] }
     ],
     sql: [
       { name: "Second highest salary", code: "SELECT MAX(salary) AS second_highest\nFROM employees\nWHERE salary < (SELECT MAX(salary) FROM employees);" },
@@ -48,7 +52,11 @@
       { name: "Top 2 salaries per department", code: "SELECT * FROM (\n  SELECT e.name, d.name AS department, e.salary,\n         DENSE_RANK() OVER (PARTITION BY e.dept_id ORDER BY e.salary DESC) AS rnk\n  FROM employees e JOIN departments d ON d.id = e.dept_id\n) t\nWHERE rnk <= 2;" },
       { name: "Average salary by department", code: "SELECT d.name AS department, COUNT(*) AS people, ROUND(AVG(e.salary)) AS avg_salary\nFROM employees e JOIN departments d ON d.id = e.dept_id\nGROUP BY d.name\nHAVING COUNT(*) >= 2\nORDER BY avg_salary DESC;" },
       { name: "LEFT JOIN — departments with no employees", code: "SELECT d.name, COUNT(e.id) AS employees\nFROM departments d\nLEFT JOIN employees e ON e.dept_id = d.id\nGROUP BY d.name;" },
-      { name: "Show all tables", code: "SELECT * FROM employees;\n-- Tables: employees(id, name, dept_id, salary, joined), departments(id, name), users(id, email)" }
+      { name: "Show all tables", code: "SELECT * FROM employees;\n-- Tables: employees(id, name, dept_id, salary, joined), departments(id, name), users(id, email)" },
+      { name: "🏆 Challenge: QA team names", task: "List the <strong>names</strong> of employees in the <strong>QA</strong> department, sorted alphabetically (one column).", code: "-- Hint: join employees with departments\nSELECT ...", expect: [["Anjali Menon"], ["Divya S"], ["Nikhil Joseph"]] },
+      { name: "🏆 Challenge: headcount by department", task: "Show each department name and its number of employees, highest count first (two columns). Leave out departments with no employees.", code: "SELECT ...", expect: [["Engineering", "4"], ["QA", "3"], ["Sales", "2"], ["HR", "1"]] },
+      { name: "🏆 Challenge: Engineering salary bill", task: "Return the <strong>total salary</strong> of the Engineering department (one number).", code: "SELECT ...", expect: [["3360000"]] },
+      { name: "🏆 Challenge: duplicate emails", task: "Return each email that appears more than once, sorted alphabetically (one column).", code: "SELECT ...", expect: [["anjali@example.com"], ["rahul@example.com"]] }
     ],
     py: [
       { name: "Palindrome check", code: 'def is_palindrome(s):\n    s = "".join(c.lower() for c in s if c.isalnum())\n    return s == s[::-1]\n\nprint(is_palindrome("Malayalam"))  # True\nprint(is_palindrome("Kochi"))      # False' },
@@ -56,7 +64,11 @@
       { name: "Mutable default trap", code: 'def add_item(item, bag=[]):      # bug: the same list is reused\n    bag.append(item)\n    return bag\n\nprint(add_item("a"))  # [\'a\']\nprint(add_item("b"))  # [\'a\', \'b\']  <- surprise!\n\ndef add_item_fixed(item, bag=None):\n    bag = [] if bag is None else bag\n    bag.append(item)\n    return bag\n\nprint(add_item_fixed("a"), add_item_fixed("b"))' },
       { name: "List comprehension & generator", code: "squares = [x * x for x in range(10) if x % 2 == 0]\nprint(squares)\n\ndef countdown(n):\n    while n > 0:\n        yield n\n        n -= 1\n\nprint(list(countdown(5)))" },
       { name: "Decorator", code: 'import time\n\ndef timer(fn):\n    def wrapper(*args, **kwargs):\n        start = time.perf_counter()\n        result = fn(*args, **kwargs)\n        print(f"{fn.__name__} took {time.perf_counter() - start:.4f}s")\n        return result\n    return wrapper\n\n@timer\ndef total(n):\n    return sum(range(n))\n\nprint(total(1_000_000))' },
-      { name: "Two-sum with a dict", code: "def two_sum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        if target - x in seen:\n            return seen[target - x], i\n        seen[x] = i\n\nprint(two_sum([2, 7, 11, 15], 9))  # (0, 1)" }
+      { name: "Two-sum with a dict", code: "def two_sum(nums, target):\n    seen = {}\n    for i, x in enumerate(nums):\n        if target - x in seen:\n            return seen[target - x], i\n        seen[x] = i\n\nprint(two_sum([2, 7, 11, 15], 9))  # (0, 1)" },
+      { name: "🏆 Challenge: factorial", task: "Complete <code>factorial(n)</code> so that <code>print(factorial(5))</code> prints <code>120</code>.", code: "def factorial(n):\n    # your code here\n    pass\n\nprint(factorial(5))", expect: ["120"] },
+      { name: "🏆 Challenge: count words", task: "Print the number of words in <code>\"practice makes a person perfect\"</code>.", code: "sentence = \"practice makes a person perfect\"\n# your code here\n", expect: ["5"] },
+      { name: "🏆 Challenge: primes under 20", task: "Print a Python list of all prime numbers below 20, e.g. <code>[2, 3, ...]</code>.", code: "primes = []\n# fill the list\n\nprint(primes)", expect: ["[2, 3, 5, 7, 11, 13, 17, 19]"] },
+      { name: "🏆 Challenge: FizzBuzz to 15", task: "Print the numbers 1 to 15, one per line, but print <code>Fizz</code> for multiples of 3, <code>Buzz</code> for multiples of 5 and <code>FizzBuzz</code> for both.", code: "for i in range(1, 16):\n    # your code here\n    pass", expect: ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"] }
     ]
   };
 
@@ -91,6 +103,34 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
   function fillSelect(sel, list) {
     sel.innerHTML = list.map((e, i) => `<option value="${i}">${esc(e.name)}</option>`).join("");
   }
+  /* ---------- challenges: task panel + automatic answer check ---------- */
+  function showTask(lang, ex) {
+    const box = $('[data-task="' + lang + '"]');
+    if (!box) return;
+    if (!ex || !ex.task) {
+      box.hidden = true;
+      box.innerHTML = "";
+      return;
+    }
+    box.hidden = false;
+    box.innerHTML = '<p class="pg-task-title">🏆 Challenge</p><p class="pg-task-text">' + ex.task + '</p><p class="pg-verdict" data-verdict>Write your answer, then press <strong>Run</strong> to check it.</p>';
+  }
+  function verdict(lang, ok, got, expect) {
+    const el = $('[data-task="' + lang + '"] [data-verdict]');
+    if (!el) return;
+    el.className = "pg-verdict " + (ok ? "is-ok" : "is-no");
+    if (ok) {
+      el.innerHTML = "✓ <strong>Correct!</strong> Nice work — try the next challenge.";
+    } else {
+      const show = (v) => esc(Array.isArray(v) ? v.map((r) => (Array.isArray(r) ? r.join(" | ") : r)).join(" · ") : v);
+      el.innerHTML = "✗ <strong>Not yet.</strong> Expected: <code>" + show(expect) + "</code>" + (got && got.length ? " — you got: <code>" + show(got) + "</code>" : " — no output yet.");
+    }
+  }
+  const norm = (v) => String(v).trim();
+  function sameLines(got, expect) {
+    return got.length === expect.length && got.every((g, i) => norm(g) === norm(expect[i]));
+  }
+
   /* Tab inserts two spaces; Ctrl/Cmd+Enter runs. */
   function enhanceEditor(ta, run) {
     ta.addEventListener("keydown", (e) => {
@@ -163,7 +203,9 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
   fillSelect(jsSel, EX.js);
   let jsFrame = null;
   let jsToken = "";
+  let jsLines = [];
   function printJs(kind, text) {
+    if (kind === "log") jsLines.push(text);
     const line = document.createElement("div");
     line.className = "pg-line pg-line--" + kind;
     line.textContent = text;
@@ -194,14 +236,19 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
     <\/script><script>\n${jsEd.value.replace(/<\/script/gi, "<\\/script")}\n<\/script>`;
     jsFrame.srcdoc = runner;
     document.body.appendChild(jsFrame);
+    jsLines = [];
+    const ex = EX.js[Number(jsSel.value)];
     setTimeout(() => {
       if (!jsOut.childNodes.length) printJs("muted", "(no output — use console.log)");
+      if (ex && ex.expect) verdict("js", sameLines(jsLines, ex.expect), jsLines, ex.expect);
     }, 1200);
   }
   enhanceEditor(jsEd, runJs);
   jsSel.addEventListener("change", () => {
-    jsEd.value = EX.js[Number(jsSel.value)].code;
+    const ex = EX.js[Number(jsSel.value)];
+    jsEd.value = ex.code;
     jsOut.textContent = "";
+    showTask("js", ex);
   });
   $("[data-js-run]").addEventListener("click", runJs);
   $("[data-js-clear]").addEventListener("click", () => (jsOut.textContent = ""));
@@ -233,6 +280,13 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
     try {
       const db = await getSql();
       const results = db.exec(sqlEd.value);
+      const ex = EX.sql[Number(sqlSel.value)];
+      if (ex && ex.expect) {
+        const last = results[results.length - 1];
+        const got = last ? last.values.map((r) => r.map((v) => (v === null ? "NULL" : String(v)))) : [];
+        const ok = got.length === ex.expect.length && got.every((r, i) => r.length === ex.expect[i].length && r.every((v, j) => norm(v) === norm(ex.expect[i][j])));
+        verdict("sql", ok, got.slice(0, 6), ex.expect);
+      }
       if (!results.length) {
         sqlOut.innerHTML = '<p class="pg-status">Query ran. No rows returned.</p>';
         return;
@@ -247,11 +301,14 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
         .join("");
     } catch (err) {
       sqlOut.innerHTML = `<p class="pg-line pg-line--error">${esc(err.message || err)}</p>`;
+      const ex = EX.sql[Number(sqlSel.value)];
+      if (ex && ex.expect) verdict("sql", false, ["Error: " + (err.message || err)], ex.expect);
     }
   }
   enhanceEditor(sqlEd, runSql);
   sqlSel.addEventListener("change", () => {
     sqlEd.value = EX.sql[Number(sqlSel.value)].code;
+    showTask("sql", EX.sql[Number(sqlSel.value)]);
     sqlOut.innerHTML = '<p class="pg-status">Press Run to see the result.</p>';
   });
   $("[data-sql-run]").addEventListener("click", runSql);
@@ -266,7 +323,9 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
   const pySel = $("[data-py-ex]");
   fillSelect(pySel, EX.py);
   let pyLoading = null;
+  let pyLines = [];
   function printPy(kind, text) {
+    if (kind === "log") pyLines.push(...String(text).split("\n"));
     const line = document.createElement("div");
     line.className = "pg-line pg-line--" + kind;
     line.textContent = text;
@@ -286,12 +345,17 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
     try {
       const py = await getPy();
       pyOut.textContent = "";
+      pyLines = [];
       py.setStdout({ batched: (t) => printPy("log", t) });
       py.setStderr({ batched: (t) => printPy("error", t) });
       await py.runPythonAsync(pyEd.value);
       if (!pyOut.childNodes.length) printPy("muted", "(no output — use print())");
+      const ex = EX.py[Number(pySel.value)];
+      if (ex && ex.expect) verdict("py", sameLines(pyLines.filter((l) => l.trim() !== ""), ex.expect), pyLines, ex.expect);
     } catch (err) {
       printPy("error", String(err.message || err).trim().split("\n").slice(-3).join("\n"));
+      const ex = EX.py[Number(pySel.value)];
+      if (ex && ex.expect) verdict("py", false, pyLines, ex.expect);
     } finally {
       btn.disabled = false;
     }
@@ -299,6 +363,7 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
   enhanceEditor(pyEd, runPy);
   pySel.addEventListener("change", () => {
     pyEd.value = EX.py[Number(pySel.value)].code;
+    showTask("py", EX.py[Number(pySel.value)]);
     pyOut.textContent = "";
   });
   $("[data-py-run]").addEventListener("click", runPy);
@@ -312,5 +377,6 @@ INSERT INTO users VALUES (1,'anjali@example.com'),(2,'rahul@example.com'),(3,'an
   jsEd.value = EX.js[0].code;
   sqlEd.value = EX.sql[0].code;
   pyEd.value = EX.py[0].code;
-  showTab("web");
+  const startTab = root.dataset.pgDefault;
+  showTab(["web", "js", "sql", "py"].includes(startTab) ? startTab : "web");
 })();
