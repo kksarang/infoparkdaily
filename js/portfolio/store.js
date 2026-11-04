@@ -108,7 +108,7 @@ document.addEventListener('click',(ev)=>{
   }
 });
 
-$$('[data-back-gallery]').forEach(a=>{const state=safeRead(stateKey,{});const params=new URLSearchParams();for(const [key,val] of Object.entries(state))if(val&&!(key==='sort'&&val==='featured'))params.set(key,String(val));a.href='/portfolio/templates/'+(params.size?'?'+params:'');});
+$$('[data-back-gallery]').forEach(a=>{const state=safeRead(stateKey,{});const params=new URLSearchParams();for(const [key,val] of Object.entries(state))if(val&&!(key==='sort'&&val==='featured'))params.set(key,String(val));a.href='/portfolio/templates/all/'+(params.size?'?'+params:'');});
 
 /* --- Order / enquire dialog --------------------------------------------- */
 const dialog=$('#order-dialog'),form=$('#order-form');let selected=null,lastFocus=null;

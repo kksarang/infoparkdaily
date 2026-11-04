@@ -1,0 +1,15 @@
+/* Portfolio service page (/portfolio/templates/): "About this service" explainer block. */
+.service-explainer .explainer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.service-explainer article {
+  padding: 22px;
+  border: 1px solid #e4e5dc;
+  border-radius: 18px;
+  background: #fff;
+}
+.service-explainer h3 { margin: 0 0 8px; font-size: 1.1rem; }
+.service-explainer article p { margin: 0; color: #5c6370; line-height: 1.6; }
+.service-explainer .explainer-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
