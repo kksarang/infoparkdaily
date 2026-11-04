@@ -23,10 +23,11 @@
   /* Interview Journey: add to the Career Tools menu on every page that lacks it. */
   const storeNav = header.querySelector("#store-nav");
   if (storeNav) {
-    const extras = [["/interview/", "Interview prep"]];
-    /* Older pages may still carry the earlier separate links — fold them into the hub link. */
+    const extras = [["/interview/", "Interview prep"], ["/learning/", "Learning"]];
+    /* Older pages may still carry the earlier separate links — fold them into the hub link.
+       "Portfolio" merged into "Portfolio templates" (one menu entry for the whole portfolio store). */
     storeNav
-      .querySelectorAll('a[href="/interview-journey/"], a[href="/interview-journey/questions/"], a[href*="enitexa.ai/learning"]')
+      .querySelectorAll('a[href="/interview-journey/"], a[href="/interview-journey/questions/"], a[href*="enitexa.ai/learning"], a[href="/portfolio/"]')
       .forEach((a) => a.remove());
     let after = storeNav.querySelector('a[href="/ats-checker/"]');
     extras.forEach(([href, label, external]) => {
@@ -51,7 +52,10 @@
     const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
     let on = false;
     if (href === "/ats-checker") on = path.startsWith("/ats-checker");
-    else if (href === "/interview") on = path.startsWith("/interview");
+    else if (href === "/interview")
+      on = path.startsWith("/interview") && !path.startsWith("/interview/learning");
+    else if (href === "/learning")
+      on = path.startsWith("/learning") || path.startsWith("/interview/learning");
     else if (href === "/career-tools/faq") on = path.startsWith("/career-tools/faq");
     else if (href === "/resume-builder/email-examples")
       on = path.startsWith("/resume-builder/email-examples");
@@ -60,11 +64,7 @@
         path.startsWith("/resume-builder/templates") ||
         path.startsWith("/resume-builder/editor");
     else if (href === "/portfolio/templates")
-      on = path.startsWith("/portfolio/templates");
-    else if (href === "/portfolio")
-      on =
-        path.startsWith("/portfolio") &&
-        !path.startsWith("/portfolio/templates");
+      on = path.startsWith("/portfolio") && !path.includes("/sign-in");
     else if (href === "/resume-builder")
       on =
         path.startsWith("/resume-builder") &&

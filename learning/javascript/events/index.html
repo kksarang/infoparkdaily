@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>JavaScript Events – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="addEventListener, click and input events, forms. Free JavaScript lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="JavaScript Events – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="addEventListener, click and input events, forms. Free JavaScript lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/javascript/events/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/javascript/events/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"JavaScript: Events","description":"addEventListener, click and input events, forms.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/javascript/events/","isPartOf":{"@type":"Course","name":"JavaScript tutorial","url":"https://infoparkdaily.online/learning/javascript/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"JavaScript","item":"https://infoparkdaily.online/learning/javascript/"},{"@type":"ListItem","position":4,"name":"Events","item":"https://infoparkdaily.online/learning/javascript/events/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261104hub" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261104learn" />
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="store-header career-store-header">
+      <div class="width">
+        <a class="store-brand" href="/" aria-label="Infopark Daily home">
+          <img src="/assets/icons/favicon-192.png" alt="" width="36" height="36" />
+          <span>InfoparkDaily<small>CAREER TOOLS</small></span>
+        </a>
+        <button id="store-menu" type="button" aria-expanded="false" aria-controls="store-nav" aria-label="Open menu">
+          <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <nav id="store-nav" aria-label="Career tools">
+          <a href="/resume-builder/">Resume builder</a>
+          <a href="/ats-checker/">ATS checker</a>
+          <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
+          <a href="/resume-builder/email-examples/">Email examples</a>
+          <a href="/resume-builder/templates/">Resume templates</a>
+          <a href="/portfolio/templates/">Portfolio templates</a>
+          <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
+        </nav>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900" aria-current="page">JavaScript</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#d4a900">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>JavaScript tutorial <small data-ln-label="javascript" data-total="8"></small></summary>
+            <ol>
+              <li><a href="/learning/javascript/introduction/" data-ln-lesson="javascript/introduction">JavaScript introduction</a></li>
+              <li><a href="/learning/javascript/variables/" data-ln-lesson="javascript/variables">Variables & data types</a></li>
+              <li><a href="/learning/javascript/operators-conditions/" data-ln-lesson="javascript/operators-conditions">Operators & conditions</a></li>
+              <li><a href="/learning/javascript/loops/" data-ln-lesson="javascript/loops">Loops</a></li>
+              <li><a href="/learning/javascript/functions/" data-ln-lesson="javascript/functions">Functions</a></li>
+              <li><a href="/learning/javascript/arrays-objects/" data-ln-lesson="javascript/arrays-objects">Arrays & objects</a></li>
+              <li><a href="/learning/javascript/dom/" data-ln-lesson="javascript/dom">The DOM</a></li>
+              <li><a href="/learning/javascript/events/" data-ln-lesson="javascript/events" aria-current="page">Events</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="javascript/events">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/javascript/">JavaScript</a> / <span aria-current="page">Events</span></nav>
+          <p class="ax-eyebrow">JavaScript · Lesson 8 of 8</p>
+          <h1>Events</h1>
+          <p class="ln-summary">addEventListener, click and input events, forms.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/javascript/dom/" rel="prev">← The DOM</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+          <div class="ln-body">
+<p>Events let code react to the user: <code>click</code>, <code>input</code>, <code>submit</code>, <code>keydown</code>, <code>change</code>.</p>
+<pre><code>button.addEventListener("click", () =&gt; {
+  …
+});</code></pre>
+<ul>
+<li>The handler receives an <code>event</code> object — <code>event.target</code> is the element.</li>
+<li><code>event.preventDefault()</code> stops default behaviour such as a form reload.</li>
+<li>Prefer <code>addEventListener</code> over inline <code>onclick=""</code> attributes.</li>
+</ul>
+          </div>
+          <section class="ln-try" aria-labelledby="try-events" data-tryit>
+            <div class="ln-try-head">
+              <h2 id="try-events">Try it yourself</h2>
+              <div class="ln-try-actions">
+                <button type="button" class="ln-btn" data-run>▶ Run</button>
+                <button type="button" class="ln-btn ln-btn--ghost" data-reset>Reset</button>
+              </div>
+            </div>
+            <div class="ln-try-grid">
+              <label class="ln-editor"><span class="ij-sr">Code editor</span><textarea spellcheck="false" autocapitalize="off" autocomplete="off" data-code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;input id=&quot;name&quot; placeholder=&quot;Type your name&quot;&gt;
+  &lt;p id=&quot;out&quot;&gt;Hello, …&lt;/p&gt;
+  &lt;button id=&quot;btn&quot;&gt;Click me&lt;/button&gt;
+  &lt;script&gt;
+    const input = document.querySelector(&quot;#name&quot;);
+    const out = document.querySelector(&quot;#out&quot;);
+    const btn = document.querySelector(&quot;#btn&quot;);
+    let clicks = 0;
+    input.addEventListener(&quot;input&quot;, e =&gt; {
+      out.textContent = &quot;Hello, &quot; + (e.target.value || &quot;…&quot;);
+    });
+    btn.addEventListener(&quot;click&quot;, () =&gt; {
+      clicks++;
+      btn.textContent = &quot;Clicked &quot; + clicks + &quot; times&quot;;
+      console.log(&quot;click&quot;, clicks);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea></label>
+              <div class="ln-output">
+                <iframe title="Result of the example code" sandbox="allow-scripts allow-modals" data-frame></iframe>
+                <pre class="ln-console" data-console aria-live="polite" hidden></pre>
+              </div>
+            </div>
+            <p class="ln-try-note">Edit the code and press Run (or Ctrl/⌘ + Enter). Code runs only in your browser, in a sandbox.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-events">
+            <h2 id="pts-events">Key points</h2>
+            <ul><li>addEventListener(type, handler).</li><li>event.target is the element.</li><li>preventDefault stops form reloads.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-javascript-events" data-quiz data-answer="1">
+            <h2 id="q-javascript-events">Quick check</h2>
+            <p>Which call stops a form from reloading the page on submit?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-javascript-events" value="0"> <span>event.stop()</span></label>
+              <label><input type="radio" name="q-javascript-events" value="1"> <span>event.preventDefault()</span></label>
+              <label><input type="radio" name="q-javascript-events" value="2"> <span>return true</span></label>
+              <label><input type="radio" name="q-javascript-events" value="3"> <span>form.reset()</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>preventDefault cancels the browser's default action for that event.</p>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/javascript/dom/" rel="prev">← The DOM</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261104learn" defer></script>
+    <script src="/js/site.js?v=20261102chk5" defer></script>
+  </body>
+</html>

@@ -492,7 +492,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
-  <url><loc>https://infoparkdaily.online/portfolio/</loc></url>
   <url><loc>https://infoparkdaily.online/portfolio/templates/</loc></url>
   <url><loc>https://infoparkdaily.online/portfolio/terms/</loc></url>
   <url><loc>https://infoparkdaily.online/portfolio/templates/developer-pro/</loc></url>
@@ -549,4 +548,32 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url><loc>https://infoparkdaily.online/learning/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/introduction/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/elements/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/headings-paragraphs/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/links/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/images/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/lists/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/tables/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/forms/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/html/semantic/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/introduction/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/selectors/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/colors-units/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/box-model/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/flexbox/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/grid/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/css/responsive/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/introduction/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/variables/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/operators-conditions/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/loops/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/functions/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/arrays-objects/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/dom/</loc></url>
+  <url><loc>https://infoparkdaily.online/learning/javascript/events/</loc></url>
 </urlset>

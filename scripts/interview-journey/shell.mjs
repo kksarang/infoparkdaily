@@ -102,9 +102,9 @@ export const storeNav = () => `
           <a href="/resume-builder/">Resume builder</a>
           <a href="/ats-checker/">ATS checker</a>
           <a href="/interview/">Interview prep</a>
+          <a href="/learning/">Learning</a>
           <a href="/resume-builder/email-examples/">Email examples</a>
           <a href="/resume-builder/templates/">Resume templates</a>
-          <a href="/portfolio/">Portfolio</a>
           <a href="/portfolio/templates/">Portfolio templates</a>
           <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
         </nav>`;
@@ -276,7 +276,7 @@ export const pageShell = ({ title, description, path, ogTitle, ogDescription, og
     <link rel="stylesheet" href="/css/interview-journey.css?v=${ASSET_V}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${ASSET_V}" />
     ${extraCss.map((c) => `<link rel="stylesheet" href="${c}" />`).join("\n    ")}
-    <script defer src="/js/career-nav.js?v=${ASSET_V}"></script>
+    <script defer src="/js/career-nav.js?v=20261104learn"></script>
   </head>
   <body class="career-tools ij-page hub-page ${bodyClass} light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>
