@@ -44,9 +44,11 @@
       const next = links.find((a) => !isDone(a.dataset.lnLesson));
       if (next) {
         btn.href = next.getAttribute("href");
-        btn.textContent = "Continue: " + next.textContent.trim();
+        const title = (next.querySelector("strong") || next).textContent.trim();
+        btn.textContent = btn.classList.contains("ln-card-go") ? "Continue →" : "Continue: " + title;
+        btn.title = "Continue: " + title;
       } else {
-        btn.textContent = "Review lessons ✓";
+        btn.textContent = btn.classList.contains("ln-card-go") ? "Review ✓" : "Review lessons ✓";
       }
     });
     const current = document.querySelector("[data-ln-current]");
@@ -299,23 +301,88 @@
     });
   });
 
-  /* ---------- hub search ---------- */
-  const search = document.querySelector("[data-ln-search]");
-  if (search) {
-    const items = [...document.querySelectorAll("[data-search]")];
-    const empty = document.querySelector("[data-ln-empty]");
-    const filter = () => {
-      const q = search.value.trim().toLowerCase();
-      let shown = 0;
-      items.forEach((el) => {
-        const hit = !q || el.dataset.search.includes(q);
-        el.hidden = !hit;
-        if (hit) shown++;
-      });
-      if (empty) empty.hidden = shown > 0;
-    };
-    search.addEventListener("input", filter);
+  /* ---------- remember the last lesson opened (for "Continue where you left off") ---------- */
+  const LAST = "ipd-learning-last-v1";
+  const current = document.querySelector("[data-ln-current]");
+  if (current) {
+    try {
+      const h1 = document.querySelector(".ln-article h1");
+      localStorage.setItem(LAST, JSON.stringify({ id: current.dataset.lnCurrent, title: h1 ? h1.textContent.trim() : "", url: location.pathname, at: Date.now() }));
+    } catch (_e) {}
   }
+  const resume = document.querySelector("[data-ln-resume]");
+  if (resume) {
+    try {
+      const last = JSON.parse(localStorage.getItem(LAST) || "null");
+      if (last && last.url && /^\/learning\/[a-z-]+\/[a-z-]+\/$/.test(last.url)) {
+        resume.href = last.url;
+        resume.querySelector("[data-ln-resume-title]").textContent = last.title || "your last lesson";
+        resume.hidden = false;
+      }
+    } catch (_e) {}
+  }
+
+  /* ---------- hub: curriculum tabs ---------- */
+  const curriculum = document.querySelector("[data-ln-curriculum]");
+  const tabs = curriculum ? [...curriculum.querySelectorAll("[data-ln-tab]")] : [];
+  const panels = curriculum ? [...curriculum.querySelectorAll("[data-ln-panel]")] : [];
+  function selectTab(key, focus) {
+    tabs.forEach((t) => {
+      const on = t.dataset.lnTab === key;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    panels.forEach((p) => p.toggleAttribute("data-ln-hidden", p.dataset.lnPanel !== key));
+  }
+  if (curriculum) {
+    curriculum.classList.add("is-tabbed");
+    selectTab(tabs[0].dataset.lnTab, false);
+    tabs.forEach((t, i) => {
+      t.addEventListener("click", () => selectTab(t.dataset.lnTab, false));
+      t.addEventListener("keydown", (e) => {
+        const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (step) {
+          e.preventDefault();
+          selectTab(tabs[(i + step + tabs.length) % tabs.length].dataset.lnTab, true);
+        } else if (e.key === "Home" || e.key === "End") {
+          e.preventDefault();
+          selectTab(tabs[e.key === "Home" ? 0 : tabs.length - 1].dataset.lnTab, true);
+        }
+      });
+    });
+  }
+
+  /* ---------- hub: category filter + search ---------- */
+  const search = document.querySelector("[data-ln-search]");
+  const filterBtns = [...document.querySelectorAll("[data-ln-filter]")];
+  let group = "all";
+  function applyHub() {
+    const q = search ? search.value.trim().toLowerCase() : "";
+    document.body.classList.toggle("ln-searching", !!q);
+    if (curriculum) curriculum.classList.toggle("is-tabbed", !q);
+    let shownCards = 0;
+    document.querySelectorAll("[data-search]").forEach((el) => {
+      const textHit = !q || el.dataset.search.includes(q);
+      const groupHit = !el.dataset.groups || group === "all" || el.dataset.groups.split(" ").includes(group);
+      el.hidden = !(textHit && groupHit);
+      if (!el.hidden && el.classList.contains("ln-card")) shownCards++;
+    });
+    /* While searching, show every panel that still has a matching lesson. */
+    panels.forEach((p) => {
+      p.toggleAttribute("data-ln-empty-panel", !!q && !p.querySelector("li:not([hidden])"));
+    });
+    const empty = document.querySelector("[data-ln-empty]");
+    if (empty) empty.hidden = shownCards > 0 || !!q && !!document.querySelector(".ln-panel-list li:not([hidden])");
+  }
+  filterBtns.forEach((b) =>
+    b.addEventListener("click", () => {
+      group = b.dataset.lnFilter;
+      filterBtns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      applyHub();
+    })
+  );
+  if (search) search.addEventListener("input", applyHub);
 
   /* Lesson list starts collapsed on phones so the lesson itself is first on screen. */
   if (window.matchMedia && matchMedia("(max-width: 900px)").matches) {

@@ -23,7 +23,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, PY_TRACK, SQL_TRACK, GIT_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261104max2";
+const V = "20261104hub3b";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -61,42 +61,69 @@ const trackBar = (current) => `
 /* ---------------- hub ---------------- */
 function hubPage() {
   const lessonsTotal = TRACKS.reduce((n, t) => n + t.lessons.length, 0);
+  const byKey = Object.fromEntries(TRACKS.map((t) => [t.key, t]));
   const runner = (t) => t.feature || (t.lang === "shell" ? "Terminal walkthroughs" : t.lang === "python" ? "Runs Python in browser" : t.lang === "sql" ? "Live SQL database" : "Live Try-it editor");
+
+  /* Category of each track — drives the filter chips on the hub. */
+  const GROUPS = [
+    ["web", "Web development", ["html", "css", "javascript", "react"]],
+    ["code", "Programming", ["python", "java", "dsa", "git"]],
+    ["data", "Data & office", ["sql", "excel"]],
+    ["prep", "Placement prep", ["aptitude", "dsa"]]
+  ];
+  const groupsOf = (key) => GROUPS.filter(([, , keys]) => keys.includes(key)).map(([g]) => g).join(" ");
+
+  /* Goal-based starting points. Each step links to a real track. */
+  const GOALS = [
+    ["Frontend developer", "Build websites and web apps.", ["html", "css", "javascript", "react", "git"], "#e44d26"],
+    ["Data analyst", "Turn spreadsheets and databases into answers.", ["excel", "sql", "python"], "#00758f"],
+    ["Placement & coding rounds", "Clear aptitude tests and technical interviews.", ["aptitude", "dsa", "java"], "#7c3aed"]
+  ];
+  const goalCards = GOALS.map(([title, desc, keys, color]) => {
+    const steps = keys.filter((k) => byKey[k]);
+    const count = steps.reduce((n, k) => n + byKey[k].lessons.length, 0);
+    const first = byKey[steps[0]];
+    return `
+            <article class="ln-goal" style="--ln-c:${color}">
+              <p class="ln-goal-kicker">${count} lessons · ${steps.length} tutorials</p>
+              <h3>${title}</h3>
+              <p>${desc}</p>
+              <ol class="ln-goal-steps">${steps.map((k) => `<li><a href="${trackUrl(byKey[k])}" style="--ln-c:${byKey[k].color}"><span class="ln-mono ln-mono--xs" aria-hidden="true">${MONO[k]}</span>${byKey[k].name}</a></li>`).join("")}</ol>
+              <a class="ln-goal-cta" href="${lessonUrl(first, first.lessons[0])}">Start with ${first.name} →</a>
+            </article>`;
+  }).join("");
+
   const trackCards = TRACKS.map(
     (t) => `
-            <article class="ln-track" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
-              <div class="ln-track-top">
-                <span class="ln-mono" aria-hidden="true">${MONO[t.key] || t.name}</span>
-                <div>
-                  <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
-                  <p>${t.tagline}</p>
-                </div>
-              </div>
-              <ul class="ln-track-facts">
-                <li>${t.lessons.length} lessons</li><li>${runner(t)}</li><li>Quizzes &amp; interview Q&amp;A</li>
-              </ul>
+            <article class="ln-card" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-groups="${groupsOf(t.key)}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
+              <span class="ln-mono" aria-hidden="true">${MONO[t.key] || t.name}</span>
+              <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
+              <p>${t.tagline}</p>
+              <p class="ln-card-meta">${t.lessons.length} lessons · ${runner(t)}</p>
               <div class="ln-progress" aria-hidden="true"><span data-ln-bar="${t.key}"></span></div>
-              <div class="ln-track-foot">
+              <div class="ln-card-foot">
                 <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
-                <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start ${t.name} →</a>
+                <a class="ln-card-go" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start →</a>
               </div>
             </article>`
   ).join("");
 
   const POPULAR = [
     ["CSS Flexbox", "/learning/css/flexbox/"],
-    ["Python loops", "/learning/python/loops/"],
+    ["React state", "/learning/react/state/"],
     ["SQL JOINs", "/learning/sql/joins/"],
-    ["JavaScript events", "/learning/javascript/events/"],
-    ["HTML forms", "/learning/html/forms/"],
-    ["Git branches", "/learning/git/branches/"]
+    ["Excel XLOOKUP", "/learning/excel/lookups/"],
+    ["Binary search", "/learning/dsa/binary-search/"],
+    ["Percentages", "/learning/aptitude/percentages/"]
   ];
 
-  const lessonIndex = TRACKS.map(
-    (t) => `
-            <div class="ln-index-col" style="--ln-c:${t.color}">
-              <h3><a href="${trackUrl(t)}"><span class="ln-mono ln-mono--sm" aria-hidden="true">${MONO[t.key] || t.name}</span>${t.name}</a><small>${t.lessons.length} lessons</small></h3>
-              <ol>${t.lessons.map((l) => `<li data-search="${esc((t.name + " " + l.title + " " + l.summary).toLowerCase())}"><a href="${lessonUrl(t, l)}" data-ln-lesson="${t.key}/${l.slug}">${l.title}</a></li>`).join("")}</ol>
+  /* Curriculum: one tab per track; without JavaScript every panel is shown. */
+  const tabs = TRACKS.map((t, i) => `<button type="button" role="tab" id="tab-${t.key}" aria-controls="panel-${t.key}" aria-selected="${i === 0}" style="--ln-c:${t.color}" data-ln-tab="${t.key}"><span class="ln-mono ln-mono--xs" aria-hidden="true">${MONO[t.key]}</span>${t.name}</button>`).join("");
+  const panels = TRACKS.map(
+    (t, i) => `
+            <div class="ln-panel" role="tabpanel" id="panel-${t.key}" aria-labelledby="tab-${t.key}" data-ln-panel="${t.key}" style="--ln-c:${t.color}"${i === 0 ? "" : " data-ln-hidden"}>
+              <div class="ln-panel-head"><div><h3>${t.long}</h3><p>${t.lessons.length} lessons · ${t.level} · ${runner(t)}</p></div><a class="ln-btn" href="${trackUrl(t)}">Open ${t.name} tutorial →</a></div>
+              <ol class="ln-panel-list">${t.lessons.map((l, n) => `<li data-search="${esc((t.name + " " + l.title + " " + l.summary).toLowerCase())}"><a href="${lessonUrl(t, l)}" data-ln-lesson="${t.key}/${l.slug}"><span class="ln-num">${String(n + 1).padStart(2, "0")}</span><span><strong>${l.title}</strong><small>${esc(l.summary)}</small></span></a></li>`).join("")}</ol>
             </div>`
   ).join("");
 
@@ -123,48 +150,59 @@ function hubPage() {
           <div class="lh-hero-copy">
             <p class="ax-pill"><span>Free</span> ${TRACKS.length} tutorials · ${lessonsTotal} lessons · ${PATHS.length} career paths</p>
             <h1 id="ln-title">Learn to code. <span>Build job-ready skills.</span></h1>
-            <p class="ax-lede">Short, practical tutorials with a live “Try it yourself” editor, quick quizzes and progress saved in your browser. HTML, CSS, JavaScript, Python, SQL and Git — all written by the InfoparkDaily team and free forever.</p>
+            <p class="ax-lede">Short lessons with live code editors, quizzes and interview questions — web development, Python, Java, SQL, Excel, DSA and aptitude. Written by the InfoparkDaily team and free forever.</p>
             <label class="lh-search">
               <span class="ij-sr">Search learning</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
-              <input type="search" placeholder="Search: flexbox, forms, loops, Excel, nursing…" data-ln-search autocomplete="off" />
+              <input type="search" placeholder="Search ${lessonsTotal} lessons: flexbox, joins, XLOOKUP, recursion…" data-ln-search autocomplete="off" />
             </label>
             <nav class="ln-popular" aria-label="Popular topics"><span>Popular:</span>${POPULAR.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</nav>
+            <a class="ln-resume" href="#" data-ln-resume hidden><span class="ln-resume-label">Continue where you left off</span><strong data-ln-resume-title></strong><span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>
 ${trackBar("")}
-      <section class="ez-section" aria-labelledby="ln-tutorials">
+      <section class="ez-section ln-search-hide" aria-labelledby="ln-goals">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Tutorials</p><h2 id="ln-tutorials">Pick a tutorial and start learning</h2></div>
-          <div class="ln-tracks">${trackCards}
+          <div class="ez-head"><p class="ax-eyebrow">Where to start</p><h2 id="ln-goals">Pick a goal, follow the order</h2><p>Not sure what to learn first? Each goal lists the tutorials in the order we recommend.</p></div>
+          <div class="ln-goals">${goalCards}
+          </div>
+        </div>
+      </section>
+      <section class="ez-section ez-section--soft" aria-labelledby="ln-tutorials">
+        <div class="ij-wrap">
+          <div class="ln-head-row">
+            <div class="ez-head"><p class="ax-eyebrow">All tutorials</p><h2 id="ln-tutorials">${TRACKS.length} tutorials, ${lessonsTotal} lessons</h2></div>
+            <div class="ln-filters" role="group" aria-label="Filter tutorials">
+              <button type="button" aria-pressed="true" data-ln-filter="all">All</button>${GROUPS.map(([g, label]) => `<button type="button" aria-pressed="false" data-ln-filter="${g}">${label}</button>`).join("")}
+            </div>
+          </div>
+          <div class="ln-cards">${trackCards}
           </div>
           <p class="ln-empty" data-ln-empty hidden>No matches. Try another word, or browse the career paths below.</p>
         </div>
       </section>
-      <section class="ez-section ez-section--soft" aria-labelledby="ln-all">
+      <section class="ez-section" aria-labelledby="ln-all">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Every lesson</p><h2 id="ln-all">Jump straight to a topic</h2></div>
-          <div class="ln-index">${lessonIndex}
+          <div class="ez-head"><p class="ax-eyebrow">Curriculum</p><h2 id="ln-all">Browse every lesson</h2></div>
+          <div class="ln-curriculum" data-ln-curriculum>
+            <div class="ln-tabs" role="tablist" aria-label="Tutorials">${tabs}</div>
+            <div class="ln-panels">${panels}
+            </div>
           </div>
         </div>
       </section>
-      <section class="ez-section" aria-labelledby="ln-how">
+      <section class="ez-section ez-section--soft ln-search-hide" aria-labelledby="ln-practice">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">How it works</p><h2 id="ln-how">Read. Try. Check. Move on.</h2></div>
-          <div class="lh-steps">
-            <div><span>1</span><strong>Read a short lesson</strong><p>Each page explains one idea with plain examples.</p></div>
-            <div><span>2</span><strong>Try it yourself</strong><p>Edit the code and press Run — the result appears instantly.</p></div>
-            <div><span>3</span><strong>Answer the quiz</strong><p>One quick question checks that the idea stuck.</p></div>
-            <div><span>4</span><strong>Prepare for interviews</strong><p>Each lesson ends with real interview questions and model answers.</p></div>
-          </div>
-        </div>
-      </section>
-      <section class="ez-section ez-section--soft" aria-labelledby="ln-practice">
-        <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Practice</p><h2 id="ln-practice">Practise like a real coding round</h2></div>
+          <div class="ez-head"><p class="ax-eyebrow">How it works</p><h2 id="ln-practice">Read. Try. Check. Get interview-ready.</h2></div>
+          <ol class="ln-how">
+            <li><span>1</span><strong>Read a short lesson</strong><p>One idea per page, with plain examples.</p></li>
+            <li><span>2</span><strong>Try it yourself</strong><p>Edit the code and press Run — results appear instantly.</p></li>
+            <li><span>3</span><strong>Check with a quiz</strong><p>A quick question plus a practice task.</p></li>
+            <li><span>4</span><strong>Prepare for interviews</strong><p>Real questions with model answers in every lesson.</p></li>
+          </ol>
           <div class="ln-practice">
-            <a href="/interview/learning/live-code/"><span class="ln-pr-icon" aria-hidden="true">▶</span><strong>Live code playground</strong><span>HTML/CSS/JS, JavaScript, SQL and Python challenges that check your answer.</span></a>
+            <a href="/interview/learning/live-code/"><span class="ln-pr-icon" aria-hidden="true">▶</span><strong>Live code playground</strong><span>Coding challenges that check your answer automatically.</span></a>
             <a href="/interview/questions/?field=it"><span class="ln-pr-icon" aria-hidden="true">?</span><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
             <a href="/portfolio/templates/"><span class="ln-pr-icon" aria-hidden="true">★</span><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
           </div>
@@ -187,8 +225,8 @@ ${trackBar("")}
       <p class="ij-wrap ln-hub-owner">All lessons, examples, quizzes and interview answers on this page are original InfoparkDaily content, free to learn — no paid courses or subscriptions.</p>`;
 
   return pageShell({
-    title: "Learning – Free HTML, CSS, JavaScript, Python, SQL & Git Tutorials | InfoparkDaily",
-    description: `Free, original coding tutorials with a live Try-it editor, quizzes and interview questions: ${lessonsTotal} lessons in HTML, CSS, JavaScript, Python, SQL and Git, plus ${PATHS.length} career learning paths.`,
+    title: "Learning – Free Tutorials: HTML, CSS, JavaScript, React, Python, Java, SQL, Excel, DSA | InfoparkDaily",
+    description: `Free, original tutorials with live code editors, quizzes and interview questions: ${lessonsTotal} lessons across ${TRACKS.length} tracks — web development, Python, Java, SQL, Excel, DSA and aptitude — plus ${PATHS.length} career learning paths.`,
     path: "/learning/",
     jsonLd: {
       "@context": "https://schema.org",

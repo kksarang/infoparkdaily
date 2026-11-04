@@ -607,3 +607,202 @@
 kbd { padding: 1px 6px; border: 1px solid var(--ln-line, #ddd); border-bottom-width: 2px; border-radius: 6px; background: #fff; font: 0.85em/1.4 "SFMono-Regular", Menlo, Consolas, monospace; }
 /* site-wide code styles must not paint inside dark code blocks */
 .ln-page .ln-terminal code, .ln-page .ln-console code { padding: 0; border: 0; border-radius: 0; background: none; color: inherit; font: inherit; box-shadow: none; }
+
+/* =========================================================
+   Hub v3 — goals, compact cards, filters, curriculum tabs
+   ========================================================= */
+.ln-mono--xs { width: 22px; height: 22px; border-radius: 7px; font-size: 0.6rem; box-shadow: none; }
+[style*="#d4a900"] > .ln-mono, [data-ln-tab="javascript"] .ln-mono, .ln-goal-steps a[style*="#d4a900"] .ln-mono { color: #12151b; }
+
+/* continue banner in the hero */
+.ln-page.ij-page a.ln-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  padding: 10px 16px 10px 18px;
+  border-radius: 14px;
+  background: #ffc107;
+  color: #12151b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 30px -12px rgba(255, 193, 7, 0.6);
+}
+.ln-page.ij-page a.ln-resume[hidden] { display: none; }
+.ln-resume-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.75; }
+.ln-resume strong { font-weight: 700; }
+
+/* goals */
+.ln-goals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.ln-goal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid var(--ln-line);
+  border-radius: 22px;
+  background:
+    radial-gradient(22rem 10rem at 100% 0%, color-mix(in srgb, var(--ln-c) 16%, transparent), transparent 70%),
+    var(--ln-surface);
+  overflow: hidden;
+}
+.ln-goal::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--ln-c); }
+.ln-goal-kicker { margin: 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ln-muted); }
+.ln-goal h3 { margin: 0; font-size: 1.35rem; }
+.ln-goal > p:not(.ln-goal-kicker) { margin: 0; color: var(--ln-muted); }
+.ln-goal-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 6px 0 4px; padding: 0; list-style: none; }
+.ln-goal-steps li { display: flex; align-items: center; gap: 6px; }
+.ln-goal-steps li + li::before { content: "→"; color: var(--ln-muted); font-size: 0.85rem; }
+.ln-page.ij-page .ln-goal-steps a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 4px;
+  border: 1px solid var(--ln-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ln-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.ln-page.ij-page .ln-goal-steps a:hover { border-color: var(--ln-c); }
+.ln-page.ij-page a.ln-goal-cta { margin-top: auto; padding-top: 6px; color: var(--ln-ink); font-weight: 700; text-decoration: none; }
+.ln-page.ij-page a.ln-goal-cta:hover { text-decoration: underline; }
+
+/* section head with filters on the right */
+.ln-head-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.ln-head-row .ez-head { margin-bottom: 0; }
+.ln-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.ln-filters button {
+  padding: 8px 14px;
+  border: 1px solid var(--ln-line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ln-ink);
+  font: 600 0.88rem/1 Inter, system-ui, sans-serif;
+  cursor: pointer;
+}
+.ln-filters button:hover { border-color: var(--ln-ink); }
+.ln-filters button[aria-pressed="true"] { background: var(--ln-ink); border-color: var(--ln-ink); color: #fff; }
+
+/* compact track cards */
+.ln-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.ln-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--ln-line);
+  border-radius: 18px;
+  background: var(--ln-surface);
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+.ln-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--ln-c) 45%, var(--ln-line)); box-shadow: 0 18px 36px -24px rgba(18, 21, 27, 0.45); }
+.ln-card[hidden] { display: none; }
+.ln-card .ln-mono { width: 44px; height: 44px; border-radius: 13px; font-size: 0.9rem; margin-bottom: 4px; }
+.ln-card h3 { margin: 0; font-size: 1.12rem; }
+.ln-page.ij-page .ln-card h3 a { color: var(--ln-ink); text-decoration: none; }
+.ln-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }   /* whole card clickable */
+.ln-card > p { margin: 0; color: var(--ln-muted); font-size: 0.9rem; line-height: 1.45; }
+.ln-card .ln-card-meta { font-size: 0.8rem; color: var(--ln-ink); font-weight: 600; }
+.ln-card .ln-progress { margin-top: auto; }
+.ln-card-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.ln-card-foot .ln-progress-label { margin: 0; font-size: 0.8rem; }
+.ln-page.ij-page a.ln-card-go { position: relative; z-index: 1; color: var(--ln-ink); font-size: 0.86rem; font-weight: 700; text-decoration: none; white-space: nowrap; max-width: 60%; overflow: hidden; text-overflow: ellipsis; }
+.ln-page.ij-page a.ln-card-go:hover { text-decoration: underline; }
+
+/* curriculum tabs */
+.ln-curriculum { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 20px; align-items: start; }
+.ln-tabs { display: flex; flex-direction: column; gap: 4px; position: sticky; top: 90px; }
+.ln-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ln-ink);
+  font: 600 0.93rem/1.2 Inter, system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+.ln-tabs button:hover { background: var(--ln-soft); }
+.ln-tabs button[aria-selected="true"] { background: color-mix(in srgb, var(--ln-c) 14%, #fff); box-shadow: inset 3px 0 0 var(--ln-c); }
+.ln-tabs button:focus-visible { outline: 3px solid var(--ij-yellow, #ffc107); outline-offset: 1px; }
+.ln-curriculum:not(.is-tabbed) .ln-tabs { display: none; }
+.ln-curriculum:not(.is-tabbed) { grid-template-columns: minmax(0, 1fr); }
+.ln-curriculum.is-tabbed .ln-panel[data-ln-hidden] { display: none; }
+.ln-panel[data-ln-empty-panel] { display: none; }
+.ln-panels { display: grid; gap: 16px; }
+.ln-panel { padding: 20px; border: 1px solid var(--ln-line); border-radius: 20px; background: var(--ln-surface); border-top: 4px solid var(--ln-c); }
+.ln-panel-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.ln-panel-head h3 { margin: 0; font-size: 1.2rem; }
+.ln-panel-head p { margin: 4px 0 0; color: var(--ln-muted); font-size: 0.88rem; }
+.ln-panel-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ln-panel-list li[hidden] { display: none; }
+.ln-page.ij-page .ln-panel-list a {
+  display: flex;
+  gap: 12px;
+  height: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--ln-line);
+  border-radius: 12px;
+  color: var(--ln-ink);
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.ln-page.ij-page .ln-panel-list a:hover { border-color: var(--ln-c); background: color-mix(in srgb, var(--ln-c) 5%, #fff); }
+.ln-panel-list .ln-num { flex: none; font: 700 0.85rem/1.5 "Space Grotesk", Inter, sans-serif; color: var(--ln-c); }
+[style*="#d4a900"] .ln-panel-list .ln-num { color: #8a6d00; }
+.ln-panel-list strong { display: block; font-size: 0.95rem; }
+.ln-panel-list small { display: block; margin-top: 2px; color: var(--ln-muted); font-size: 0.82rem; line-height: 1.4; }
+.ln-panel-list a.is-done::after { content: "✓"; margin-left: auto; color: var(--ij-good, #1d7a4c); font-weight: 800; }
+
+/* how it works strip */
+.ln-how { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 22px; padding: 0; list-style: none; counter-reset: none; }
+.ln-how li { padding: 18px; border-radius: 16px; background: var(--ln-surface); border: 1px solid var(--ln-line); }
+.ln-how span { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: #ffc107; font-weight: 800; margin-bottom: 8px; }
+.ln-how strong { display: block; }
+.ln-how p { margin: 4px 0 0; color: var(--ln-muted); font-size: 0.9rem; }
+
+/* searching: hide guidance sections, keep results */
+.ln-searching .ln-search-hide { display: none; }
+
+@media (max-width: 1080px) {
+  .ln-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ln-goals { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .ln-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ln-how { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ln-curriculum, .ln-curriculum.is-tabbed { grid-template-columns: minmax(0, 1fr); }
+  .ln-tabs { position: static; flex-direction: row; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .ln-tabs::-webkit-scrollbar { display: none; }
+  .ln-tabs button { flex: none; }
+  .ln-tabs button[aria-selected="true"] { box-shadow: inset 0 -3px 0 var(--ln-c); }
+  .ln-panel-list { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 520px) {
+  .ln-cards { grid-template-columns: minmax(0, 1fr); }
+  .ln-how { grid-template-columns: minmax(0, 1fr); }
+  .ln-page.ij-page a.ln-resume { flex-wrap: wrap; gap: 4px 10px; }
+}
+/* phones: compact track rows and title-only lesson lists */
+@media (max-width: 520px) {
+  .ln-cards { gap: 10px; }
+  .ln-card { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; row-gap: 4px; padding: 14px; align-items: center; }
+  .ln-card .ln-mono { grid-row: span 2; margin: 0; }
+  .ln-card h3 { font-size: 1.05rem; }
+  .ln-card > p:not(.ln-card-meta) { display: none; }
+  .ln-card .ln-card-meta { font-weight: 500; color: var(--ln-muted); }
+  .ln-card .ln-progress, .ln-card-foot { grid-column: 1 / -1; }
+  .ln-card .ln-progress { margin-top: 6px; }
+  .ln-panel { padding: 14px; }
+  .ln-panel-list small { display: none; }
+  .ln-page.ij-page .ln-panel-list a { padding: 10px 12px; }
+  .ln-goal { padding: 18px; }
+}
