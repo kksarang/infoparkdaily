@@ -29,8 +29,9 @@ const route = location.pathname
   .replace(/^\/infoparkdaily\/?/, "")
   .replace(/\/$/, "");
 
-// Seeker job browse lives on the main board; this hub is employer-only.
-if (route === "jobs") {
+// Seeker job browsing lives on the main board. A single community job (?id=) stays here so
+// candidates can apply through their InfoparkDaily profile.
+if (route === "jobs" && !new URLSearchParams(location.search).get("id")) {
   location.replace("/jobs/" + location.search + location.hash);
 } else {
   const state = {

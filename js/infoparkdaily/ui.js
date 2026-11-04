@@ -49,7 +49,7 @@ export function header(route) {
     )
     .join(
       "",
-    )}<div class="nav-account" id="nav-account">${link("Sign in", "sign-in", "btn quiet")}${link("Post a role", "post-job", "btn secondary")}${link("Get started", "register")}</div></nav></div></header>`;
+    )}<a href="/recruit/" class="nav-quick">Quick request</a><div class="nav-account" id="nav-account">${link("Sign in", "sign-in", "btn quiet")}${link("Post a role", "post-job", "btn secondary")}${link("Get started", "register")}</div></nav></div></header>`;
 }
 export function footer() {
   return `<footer class="market-footer"><div class="container"><div class="footer-grid"><div class="footer-brand">${brand()}<p>Built for HR and hiring teams in Kerala. Post roles, discover talent, and manage hiring in one place.</p><a href="/" class="text-link" >Back to InfoparkDaily ${icon("arrow")}</a></div><div><h3>For hiring teams</h3><div class="footer-links">${link("Find talent", "workers", "")}${link("Post a role", "post-job", "")}${link("Employer dashboard", "dashboard", "")}${link("How it works", "about", "", "#how-it-works")}${link("Contact us", "contact", "")}</div></div><div><h3>Looking for a job?</h3><div class="footer-links"><a href="/jobs/">Browse jobs on InfoparkDaily</a><a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/portfolio/">Portfolio websites</a></div></div><div><h3>Let’s stay connected</h3><div class="footer-links"><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a><a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">WhatsApp · +91 99952 54290</a><a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram ${icon("arrow")}</a></div></div></div><div class="footer-custom"><div><strong>Have something bigger in mind?</strong><p>For custom software, websites and AI solutions, meet Enitexa.ai.</p></div><a href="/software-solutions/">Explore Enitexa.ai ${icon("arrow")}</a></div><div class="footer-base"><span>© ${new Date().getFullYear()} InfoparkDaily. All rights reserved.</span><span><a href="/privacy/">Privacy policy</a> &nbsp; · &nbsp; <a href="/terms/">Terms of use</a> &nbsp; · &nbsp; ${link("Hiring guidelines", "about", "", "#guidelines")}</span></div></div></footer>`;
@@ -59,6 +59,7 @@ export const statusLabel = (s) =>
     pending: "Awaiting review",
     approved: "Approved",
     rejected: "Changes needed",
+    changes: "Changes requested",
     closed: "Closed",
     submitted: "Application sent",
     invited: "Invitation received",
@@ -70,7 +71,7 @@ export const statusLabel = (s) =>
     completed: "Completed",
   })[s] || s;
 export const statusTag = (s) =>
-  `<span class="tag ${["pending", "hire_requested", "completion_requested", "invited"].includes(s) ? "amber" : ["rejected", "declined", "withdrawn", "closed"].includes(s) ? "neutral" : ""}">${esc(statusLabel(s))}</span>`;
+  `<span class="tag ${["pending", "hire_requested", "completion_requested", "invited"].includes(s) ? "amber" : ["rejected", "declined", "withdrawn", "closed", "changes"].includes(s) ? "neutral" : ""}">${esc(statusLabel(s))}</span>`;
 export const mark = (value, n = 0) =>
   `<span class="company-mark ${["", "blue", "purple"][n % 3]}">${esc(initials(value))}</span>`;
 export const avatar = (w, size = "") =>

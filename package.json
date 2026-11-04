@@ -14,7 +14,7 @@
     "test": "node --experimental-strip-types --test tests/resume-builder/*.test.ts",
     "resume:fixtures": "node --experimental-strip-types scripts/resume-fixtures.ts",
     "build:community": "node scripts/build-community.mjs",
-    "test:community": "node --test tests/infoparkdaily/security.test.mjs",
+    "test:community": "node --test --test-concurrency=1 tests/infoparkdaily/security.test.mjs tests/infoparkdaily/hiring.test.mjs",
     "build:journey": "node scripts/interview-journey/build.mjs"
   },
   "dependencies": {

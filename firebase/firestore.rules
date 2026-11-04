@@ -145,9 +145,17 @@ service cloud.firestore {
       allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
         && request.resource.data.status in ['approved','rejected','pending'] && request.resource.data.updatedAt==request.time;
     }
+    function optText(data, key, maximum) { return !(key in data) || shortText(data[key], maximum); }
+    function validWalkIn(data) {
+      return !('walkIn' in data) || (data.walkIn is map
+        && data.walkIn.keys().hasOnly(['date','time','venue','mapLink','documents'])
+        && optText(data.walkIn,'date',10) && optText(data.walkIn,'time',60) && optText(data.walkIn,'venue',300)
+        && optText(data.walkIn,'mapLink',500) && optText(data.walkIn,'documents',500));
+    }
     function validMarketJob(data) {
-      return data.keys().hasOnly(['ownerUid','kind','title','company','sector','location','description','requirements','skills','experience','pay','basis','employmentType','workMode','vacancies','urgent','closingDate','status','createdAt','updatedAt'])
-        && data.kind=='community' && shortText(data.title,200) && data.title.size()>0
+      return data.keys().hasOnly(['ownerUid','kind','title','company','sector','location','description','requirements','skills','experience','pay','basis','employmentType','workMode','vacancies','urgent','closingDate','status','createdAt','updatedAt',
+          'postType','walkIn','applyMethod','applyLink','applyEmail','howToApply','park','payText','website','requestId'])
+        && data.kind in ['community','request'] && shortText(data.title,200) && data.title.size()>0
         && shortText(data.company,150) && data.company.size()>0 && shortText(data.sector,50)
         && shortText(data.location,150) && shortText(data.description,6000) && data.description.size()>=30
         && data.requirements is list && data.requirements.size()<=20 && data.skills is list && data.skills.size()<=20
@@ -155,18 +163,57 @@ service cloud.firestore {
         && data.basis in ['hour','day','week','month','year','project','contract']
         && shortText(data.employmentType,50) && shortText(data.workMode,50)
         && data.vacancies is int && data.vacancies>=1 && data.vacancies<=10000 && data.urgent is bool
-        && shortText(data.closingDate,10) && data.createdAt is timestamp && data.updatedAt==request.time;
+        && shortText(data.closingDate,10) && data.createdAt is timestamp && data.updatedAt==request.time
+        && (!('postType' in data) || data.postType in ['job','walkin']) && validWalkIn(data)
+        && (!('applyMethod' in data) || data.applyMethod in ['portal','link','email','walkin'])
+        && optText(data,'applyLink',500) && optText(data,'applyEmail',200) && optText(data,'howToApply',1000)
+        && optText(data,'park',60) && optText(data,'payText',100) && optText(data,'website',300) && optText(data,'requestId',40);
     }
     match /marketJobs/{id} {
       allow read: if resource.data.status=='approved' || (marketMember() && request.auth.uid==resource.data.ownerUid) || marketAdmin();
-      allow create: if marketMember() && request.resource.data.ownerUid==request.auth.uid
+      // Cheap checks first so only the matching rule runs the full validation (Firestore caps evaluation cost).
+      allow create: if request.resource.data.kind=='community' && request.resource.data.status=='pending'
+        && marketMember() && request.resource.data.ownerUid==request.auth.uid && request.resource.data.createdAt==request.time
         && get(/databases/$(database)/documents/marketMembers/$(request.auth.uid)).data.role=='employer'
-        && validMarketJob(request.resource.data) && request.resource.data.status=='pending' && request.resource.data.createdAt==request.time;
-      allow update: if marketMember() && resource.data.ownerUid==request.auth.uid
-        && validMarketJob(request.resource.data) && request.resource.data.ownerUid==resource.data.ownerUid
-        && request.resource.data.createdAt==resource.data.createdAt && request.resource.data.status in ['pending','closed'];
-      allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
-        && request.resource.data.status in ['approved','rejected','pending','closed'] && request.resource.data.updatedAt==request.time;
+        && validMarketJob(request.resource.data);
+      // Admin publishes an approved quick hiring request as a public job.
+      allow create: if request.resource.data.kind=='request' && request.resource.data.status=='approved'
+        && request.resource.data.ownerUid==request.auth.uid && request.resource.data.createdAt==request.time
+        && marketAdmin() && validMarketJob(request.resource.data);
+      allow update: if request.resource.data.status in ['pending','closed'] && marketMember() && resource.data.ownerUid==request.auth.uid
+        && request.resource.data.ownerUid==resource.data.ownerUid && request.resource.data.kind==resource.data.kind
+        && request.resource.data.createdAt==resource.data.createdAt && validMarketJob(request.resource.data);
+      allow update: if request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','updatedAt'])
+        && request.resource.data.status in ['approved','rejected','pending','closed'] && request.resource.data.updatedAt==request.time
+        && marketAdmin();
+    }
+    // Quick hiring requests from /recruit/ (no login). The random document ID is the tracking ID:
+    // anyone holding it can read that one request; only admins can list or review.
+    function validHiringRequest(data) {
+      return data.keys().hasOnly(['postType','contactName','designation','contactEmail','contactPhone','company','website','linkedin','location','park',
+          'title','extraRoles','vacancies','experience','employmentType','workMode','sector','skills','closingDate','salary',
+          'applyMethod','applyContact','applyLink','walkIn','description','status','createdAt','updatedAt'])
+        && data.postType in ['job','walkin'] && data.status=='pending'
+        && shortText(data.contactName,100) && data.contactName.size()>0 && shortText(data.designation,100)
+        && shortText(data.contactEmail,200) && data.contactEmail.matches('.+@.+[.].+') && shortText(data.contactPhone,30)
+        && shortText(data.company,150) && data.company.size()>0 && shortText(data.website,300) && shortText(data.linkedin,300)
+        && shortText(data.location,150) && shortText(data.park,60)
+        && shortText(data.title,200) && data.title.size()>0 && shortText(data.extraRoles,600) && shortText(data.vacancies,20)
+        && shortText(data.experience,100) && shortText(data.employmentType,50) && shortText(data.workMode,50) && shortText(data.sector,50)
+        && shortText(data.skills,700) && shortText(data.closingDate,20) && shortText(data.salary,100)
+        && shortText(data.applyMethod,40) && shortText(data.applyContact,300) && shortText(data.applyLink,500)
+        && validWalkIn(data) && shortText(data.description,6000) && data.description.size()>=20
+        && data.createdAt==request.time && data.updatedAt==request.time;
+    }
+    match /hiringRequests/{id} {
+      allow get: if true;
+      allow list: if marketAdmin();
+      allow create: if id.size()>=16 && id.size()<=40 && validHiringRequest(request.resource.data);
+      allow update: if marketAdmin() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status','adminNote','jobId','reviewedAt','updatedAt'])
+        && request.resource.data.status in ['pending','approved','changes','rejected']
+        && (!('adminNote' in request.resource.data) || shortText(request.resource.data.adminNote,1000))
+        && (!('jobId' in request.resource.data) || shortText(request.resource.data.jobId,60))
+        && request.resource.data.updatedAt==request.time;
     }
     function validMarketApplication(data,id) {
       let job=get(/databases/$(database)/documents/marketJobs/$(data.jobId)).data;

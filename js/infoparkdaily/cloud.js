@@ -53,6 +53,11 @@ export const auth = getAuth(app),
 if (localEmulator) {
   connectAuthEmulator(auth, "http://127.0.0.1:9099", { disableWarnings: true });
   connectFirestoreEmulator(db, "127.0.0.1", 8080);
+  // Emulator-only test hook (never active on the live site): sign in without the shared login page.
+  window.__ipdEmulatorLogin = (email, password) =>
+    import("firebase/auth").then(({ signInWithEmailAndPassword }) =>
+      signInWithEmailAndPassword(auth, email, password),
+    );
 }
 export const paths = {
   private: "marketMembers",
@@ -61,6 +66,7 @@ export const paths = {
   applications: "marketApplications",
   reviews: "marketReviews",
   admins: "marketAdmins",
+  requests: "hiringRequests",
 };
 const rows = (snap) => snap.docs.map((d) => ({ id: d.id, ...d.data() }));
 const now = () => serverTimestamp();
@@ -451,6 +457,78 @@ export async function adminRecords(kind) {
 export async function moderate(kind, id, status) {
   await updateDoc(doc(db, paths[kind], id), { status, updatedAt: now() });
 }
+/* ---------- Quick hiring requests (/recruit/) ---------- */
+const clip = (v, n) => String(v ?? "").trim().slice(0, n);
+const isUrl = (v) => /^https?:\/\//i.test(String(v || "").trim());
+const isMail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v || "").trim());
+export async function reviewRequest(id, status, adminNote = "") {
+  await updateDoc(doc(db, paths.requests, id), {
+    status,
+    adminNote: clip(adminNote, 1000),
+    reviewedAt: now(),
+    updatedAt: now(),
+  });
+}
+/** Approve a quick request: publish it as a public job, then mark the request approved. */
+export async function publishRequest(r, adminNote = "") {
+  const u = member();
+  const method = String(r.applyMethod || "").toLowerCase();
+  const link = isUrl(r.applyLink) ? r.applyLink : isUrl(r.applyContact) ? r.applyContact : "";
+  const email = isMail(r.applyContact) ? r.applyContact : "";
+  let description = clip(r.description, 6000);
+  if (description.length < 30) description = clip(description + "\n\nPosted via InfoparkDaily Recruit.", 6000);
+  const closing = /^\d{4}-\d{2}-\d{2}$/.test(r.closingDate || "") ? r.closingDate : r.closingDate === "Rolling" ? "Rolling" : "";
+  const job = {
+    ownerUid: u.uid,
+    kind: "request",
+    requestId: clip(r.id, 40),
+    title: clip(r.title, 200),
+    company: clip(r.company, 150),
+    sector: clip(r.sector || "Other", 50),
+    location: clip(r.location || r.park || "Kerala", 150),
+    park: clip(r.park, 60),
+    description,
+    requirements: [],
+    skills: String(r.skills || "").split(",").map((s) => s.trim()).filter(Boolean).slice(0, 20),
+    experience: clip(r.experience, 100),
+    pay: 0,
+    payText: clip(r.salary, 100),
+    basis: "month",
+    employmentType: clip(r.employmentType || "Full-time", 50),
+    workMode: clip(r.workMode || "On-site", 50),
+    vacancies: Math.min(10000, Math.max(1, parseInt(r.vacancies, 10) || 1)),
+    urgent: r.postType === "walkin",
+    closingDate: clip(closing, 10),
+    postType: r.postType === "walkin" ? "walkin" : "job",
+    applyMethod: r.postType === "walkin" ? "walkin" : method.includes("email") && email ? "email" : link ? "link" : email ? "email" : "link",
+    applyLink: clip(link, 500),
+    applyEmail: clip(email, 200),
+    howToApply: clip([r.applyMethod, r.applyContact].filter(Boolean).join(": "), 1000),
+    website: clip(r.website, 300),
+    status: "approved",
+    createdAt: now(),
+    updatedAt: now(),
+  };
+  if (r.postType === "walkin" && r.walkIn) {
+    job.walkIn = {
+      date: clip(r.walkIn.date, 10),
+      time: clip(r.walkIn.time, 60),
+      venue: clip(r.walkIn.venue, 300),
+      mapLink: clip(r.walkIn.mapLink, 500),
+      documents: clip(r.walkIn.documents, 500),
+    };
+  }
+  const d = await addDoc(collection(db, paths.jobs), job);
+  await updateDoc(doc(db, paths.requests, r.id), {
+    status: "approved",
+    jobId: d.id,
+    adminNote: clip(adminNote, 1000),
+    reviewedAt: now(),
+    updatedAt: now(),
+  });
+  return d.id;
+}
+
 export async function markRead() {
   await updateDoc(doc(db, paths.private, member().uid), { lastReadAt: now() });
 }

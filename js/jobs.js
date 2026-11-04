@@ -69,6 +69,16 @@
   const defaultLocation = parkPageLocation() || "all";
   const jobIndex = new Map(JOBS.map((job, index) => [job, index]));
 
+  /* Approved community posts arrive asynchronously (js/community-jobs.js). */
+  window.addEventListener("ipd:jobs-added", () => {
+    JOBS.forEach((job, index) => jobIndex.set(job, index));
+    try {
+      render();
+    } catch (err) {
+      console.warn("Could not refresh with community jobs", err);
+    }
+  });
+
   let activeFilter = "all";
   const savedOnly = window.IPD_SAVED_ONLY === true;
   const saveActions = window.IPDJobActions || null;

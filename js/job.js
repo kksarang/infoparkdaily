@@ -2433,6 +2433,17 @@
   }
 
   const job = findJob(jobId);
+  if (!job && /^c-/.test(jobId) && window.IPD_COMMUNITY_PROMISE && !window.__IPD_JOB_RETRY__) {
+    /* Community post: wait for approved posts to load, then run this script again. */
+    window.__IPD_JOB_RETRY__ = true;
+    const self = document.querySelector('script[src*="/js/job.js"]');
+    window.IPD_COMMUNITY_PROMISE.finally(() => {
+      const again = document.createElement("script");
+      again.src = self ? self.src : "/js/job.js";
+      document.body.appendChild(again);
+    });
+    return;
+  }
   if (!job) {
     renderMissing();
     return;

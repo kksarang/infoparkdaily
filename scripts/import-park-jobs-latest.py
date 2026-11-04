@@ -19,7 +19,7 @@ UA = {
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
     )
 }
-TODAY = date(2026, 11, 2)  # bump when re-importing
+TODAY = date(2026, 11, 4)  # bump when re-importing
 INFOPARK_MIN_POSTED = "2026-10-13"  # portal still lists multi-year-old rows
 NOTE = (
     "Job details can change after publishing. Always verify the opening on the "

@@ -40,7 +40,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
-    <link rel="stylesheet" href="/css/recruit-premium.css?v=20260905g" />
+    <link rel="stylesheet" href="/css/recruit-premium.css?v=20261104rq" />
   </head>
   <body class="contact-body dark recruit-body">
     <script>
@@ -76,20 +76,24 @@
         <p class="rq-kicker">Recruit</p>
         <h1>Track your hiring request</h1>
         <p class="recruit-hero-lead">
-          Request IDs from this browser are stored locally. Status after “Submitted” is updated by InfoparkDaily during review.
+          Enter the request ID from your confirmation screen. Status is updated live by the InfoparkDaily review team — from any device.
         </p>
       </section>
       <form id="track-form" class="rq-track-form" action="/recruit/track/" method="get" role="search">
         <div class="rq-track-row">
           <label class="hiring-field" for="track-id">
             <span class="rq-label">Request ID</span>
-            <input id="track-id" name="id" type="text" placeholder="IPD-20260904-1234" autocomplete="off" spellcheck="false" />
+            <input id="track-id" name="id" type="text" placeholder="IPD-XXXX-XXXXX-XXXXX" autocomplete="off" spellcheck="false" />
           </label>
           <button id="track-lookup" class="btn btn-primary" type="submit">Look up</button>
         </div>
         <p id="track-status" class="rq-track-status" role="status"></p>
       </form>
-      <div id="track-result" class="rq-track-list"></div>
+      <div id="track-result" class="rq-track-list" aria-live="polite"></div>
+      <section id="track-local-wrap" class="rq-track-local" hidden>
+        <h2>Requests sent from this browser</h2>
+        <div id="track-local" class="rq-track-list"></div>
+      </section>
       <p class="hiring-help" style="margin-top: 1rem">
         Need help? <a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>
         · <a href="/recruit/">Post another job</a>
@@ -97,14 +101,32 @@
     </main>
 
     <script src="/js/site.js?v=20261102chk5" defer></script>
+    <script src="/js/ipd-firestore-rest.js?v=20261104rq" defer></script>
     <script>
-      (function () {
+      document.addEventListener("DOMContentLoaded", function () {
         var KEY = "ipd-recruit-submissions-v1";
         var form = document.getElementById("track-form");
         var input = document.getElementById("track-id");
         var out = document.getElementById("track-result");
         var statusEl = document.getElementById("track-status");
-        var lookupBtn = document.getElementById("track-lookup");
+        var localWrap = document.getElementById("track-local-wrap");
+        var localOut = document.getElementById("track-local");
+        var STEPS = [
+          ["pending", "Submitted"],
+          ["review", "Under review"],
+          ["approved", "Approved & live"]
+        ];
+        var LABEL = {
+          pending: "Submitted — waiting for review",
+          approved: "Approved — your job is live",
+          changes: "Changes requested",
+          rejected: "Not approved"
+        };
+        function esc(v) {
+          return String(v == null ? "" : v).replace(/[&<>"]/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+          });
+        }
         function list() {
           try {
             var raw = JSON.parse(localStorage.getItem(KEY) || "[]");
@@ -113,86 +135,92 @@
             return [];
           }
         }
-        function esc(value) {
-          return String(value || "")
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;");
+        function setStatus(t) {
+          if (statusEl) statusEl.textContent = t || "";
         }
-        function card(item) {
-          var when = item.createdAt ? new Date(item.createdAt).toLocaleString("en-IN") : "";
-          var status =
-            item.status === "submitted" ? "Submitted — under verification" : item.status || "Unknown";
+        function when(v) {
+          if (!v) return "";
+          var d = new Date(v);
+          return isNaN(d) ? "" : d.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });
+        }
+        function pipeline(status) {
+          var reached = status === "approved" ? 3 : status === "pending" ? 1 : 2;
           return (
-            '<article class="rq-track-card"><strong>' +
-            esc(item.id) +
-            "</strong><p>" +
-            esc(item.company) +
-            " · " +
-            esc(item.role) +
-            "</p><p>Status: " +
-            esc(status) +
-            "</p><p>" +
-            esc(when) +
-            "</p></article>"
+            '<ol class="rq-pipe">' +
+            STEPS.map(function (s, i) {
+              var cls = i < reached ? "is-done" : "";
+              if (i === 1 && (status === "changes" || status === "rejected")) cls = "is-stop";
+              return '<li class="' + cls + '"><span>' + (i + 1) + "</span>" + esc(i === 1 && status === "changes" ? "Changes requested" : i === 1 && status === "rejected" ? "Not approved" : s[1]) + "</li>";
+            }).join("") +
+            "</ol>"
           );
         }
-        function setStatus(text) {
-          if (statusEl) statusEl.textContent = text || "";
+        function onlineCard(r) {
+          var note = r.adminNote ? '<p class="rq-note"><strong>Note from InfoparkDaily:</strong> ' + esc(r.adminNote) + "</p>" : "";
+          var live = r.status === "approved" && r.jobId ? '<p><a class="btn btn-primary" href="/job/c-' + encodeURIComponent(r.jobId) + '/">View your live job →</a></p>' : "";
+          var redo = r.status === "changes" || r.status === "rejected" ? '<p><a class="btn btn-secondary" href="/recruit/">Submit an updated request</a></p>' : "";
+          return (
+            '<article class="rq-track-card rq-track-card--live">' +
+            '<p class="rq-track-id">' + esc(r.id) + "</p>" +
+            "<h2>" + esc(r.title) + "</h2>" +
+            "<p>" + esc(r.company) + (r.location ? " · " + esc(r.location) : "") + " · " + (r.postType === "walkin" ? "Walk-in drive" : "Job post") + "</p>" +
+            '<p class="rq-track-state rq-track-state--' + esc(r.status) + '">' + esc(LABEL[r.status] || r.status) + "</p>" +
+            pipeline(r.status) + note + live + redo +
+            '<p class="rq-track-time">Submitted ' + esc(when(r.createdAt)) + (r.updatedAt && r.updatedAt !== r.createdAt ? " · Updated " + esc(when(r.updatedAt)) : "") + "</p>" +
+            "</article>"
+          );
         }
-        function render(id, announce) {
-          if (!out) return;
+        function localCard(item) {
+          return (
+            '<a class="rq-track-card" href="?id=' + encodeURIComponent(item.id) + '"><strong>' + esc(item.id) + "</strong><p>" +
+            esc(item.company) + " · " + esc(item.role) + "</p><p>" + esc(when(item.createdAt)) + "</p></a>"
+          );
+        }
+        function renderLocal() {
           var items = list();
-          if (id) {
-            items = items.filter(function (item) {
-              return String(item.id || "").toUpperCase() === id.toUpperCase();
-            });
-          }
-          if (!items.length) {
-            out.innerHTML = id
-              ? "<p>No local record for that ID. Check the ID on your confirmation screen, or email us with the company name.</p>"
-              : "";
-            setStatus(id ? "No local record for " + id + "." : "");
-            return;
-          }
-          out.innerHTML = items.map(card).join("");
-          if (announce) {
-            out.classList.remove("is-updated");
-            void out.offsetWidth;
-            out.classList.add("is-updated");
-            setStatus(id ? "Showing " + id + "." : "Showing requests saved in this browser.");
-          } else {
-            setStatus("");
-          }
+          if (localWrap) localWrap.hidden = !items.length;
+          if (localOut) localOut.innerHTML = items.map(localCard).join("");
         }
-        function lookup(announce) {
-          var id = (input && input.value.trim()) || "";
-          render(id, announce);
+        async function lookup(id) {
+          id = String(id || "").trim().toUpperCase();
           try {
             var url = new URL(window.location.href);
             if (id) url.searchParams.set("id", id);
             else url.searchParams.delete("id");
             history.replaceState({}, "", url.pathname + url.search);
           } catch (_e) {}
+          if (!id) {
+            out.innerHTML = "";
+            setStatus("");
+            return;
+          }
+          setStatus("Checking " + id + "…");
+          try {
+            var r = window.IPDFirestore ? await window.IPDFirestore.get("hiringRequests", id) : null;
+            if (r) {
+              out.innerHTML = onlineCard(r);
+              setStatus("");
+              return;
+            }
+            var local = list().find(function (x) { return String(x.id || "").toUpperCase() === id; });
+            out.innerHTML = local
+              ? '<article class="rq-track-card"><strong>' + esc(local.id) + "</strong><p>" + esc(local.company) + " · " + esc(local.role) +
+                "</p><p>This request was sent by email, so live status isn’t available. Our team will reply by email.</p></article>"
+              : "<p>We couldn’t find that ID. Check it on your confirmation screen, or email us with your company name.</p>";
+            setStatus("");
+          } catch (err) {
+            setStatus("Couldn’t check right now. Please try again in a moment.");
+          }
         }
-        var params = new URLSearchParams(window.location.search);
-        var q = params.get("id") || "";
-        if (input) input.value = q;
-        render(q, false);
-        if (form) {
-          form.addEventListener("submit", function (event) {
-            event.preventDefault();
-            lookup(true);
-          });
-        }
-        if (lookupBtn) {
-          lookupBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            lookup(true);
-          });
-        }
-      })();
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          lookup(input.value);
+        });
+        var q = new URLSearchParams(window.location.search).get("id") || "";
+        input.value = q;
+        renderLocal();
+        if (q) lookup(q);
+      });
     </script>
   </body>
 </html>

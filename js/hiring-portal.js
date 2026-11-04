@@ -365,9 +365,56 @@
   }
 
   function makeRequestId() {
+    if (window.IPDFirestore) return window.IPDFirestore.secureId("IPD");
     const stamp = new Date().toISOString().slice(0, 10).replace(/-/g, "");
     const n = String(Math.floor(1000 + Math.random() * 9000));
     return `IPD-${stamp}-${n}`;
+  }
+
+  /* Record saved to Firestore (hiringRequests). Lengths match firebase/firestore.rules. */
+  function cut(v, n) {
+    return String(v || "").trim().slice(0, n);
+  }
+  function cloudRecord() {
+    const walk = val("hp-jobtype") === "Walk-in" || val("hp-intent") === "walkin";
+    const record = {
+      postType: walk ? "walkin" : "job",
+      contactName: cut(val("hp-name"), 100),
+      designation: cut(val("hp-designation"), 100),
+      contactEmail: cut(val("hp-channel"), 200),
+      contactPhone: cut(val("hp-phone"), 30),
+      company: cut(val("hp-company"), 150),
+      website: cut(val("hp-website"), 300),
+      linkedin: cut(val("hp-linkedin"), 300),
+      location: cut(val("hp-location"), 150),
+      park: cut(val("hp-park"), 60),
+      title: cut(val("hp-role"), 200),
+      extraRoles: cut(extraRoles().join(" | "), 600),
+      vacancies: cut(val("hp-vacancies"), 20),
+      experience: cut(val("hp-experience"), 100),
+      employmentType: cut(val("hp-jobtype") || "Full-time", 50),
+      workMode: cut(val("hp-workmode") || "On-site", 50),
+      sector: cut(val("hp-category"), 50),
+      skills: cut(val("hp-skills"), 700),
+      closingDate: cut(deadlineForPayload(), 20),
+      salary: cut(salaryPayload(), 100),
+      applyMethod: cut(val("hp-apply-via"), 40),
+      applyContact: cut(val("hp-apply"), 300),
+      applyLink: cut(val("hp-apply-link"), 500),
+      description: cut(val("hp-details"), 6000),
+      status: "pending"
+    };
+    if (walk) {
+      const time = [val("hp-walkin-start"), val("hp-walkin-end")].filter(Boolean).join(" – ");
+      record.walkIn = {
+        date: cut(val("hp-walkin-date"), 10),
+        time: cut(time, 60),
+        venue: cut(val("hp-walkin-venue"), 300),
+        mapLink: cut(val("hp-walkin-maps"), 500),
+        documents: cut(val("hp-walkin-docs"), 500)
+      };
+    }
+    return record;
   }
 
   const STORE_KEY = "ipd-recruit-submissions-v1";
@@ -542,6 +589,24 @@
       status: "submitted",
       createdAt: new Date().toISOString()
     });
+
+    if (val("hp-details").length < 20) {
+      goStep(2);
+      setStatus("Please describe the role in at least 20 characters.", true);
+      return;
+    }
+
+    /* 1) Preferred: save to the InfoparkDaily review queue (Firestore). */
+    if (window.IPDFirestore) {
+      try {
+        await window.IPDFirestore.create("hiringRequests", requestId, cloudRecord());
+        finishSuccess(requestId);
+        return;
+      } catch (err) {
+        console.warn("Recruit request could not be saved online:", err);
+        setStatus("Couldn’t save online. Opening your email app instead…", true);
+      }
+    }
 
     if (FORMSPREE_ENDPOINT) {
       try {
