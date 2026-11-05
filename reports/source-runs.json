@@ -3,139 +3,139 @@
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "technopark": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "cyberpark": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "ul-cyberpark": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "kmrl": {
   "ok": false,
   "http": null,
   "result": "unreachable",
   "error": "<urlopen error timed out>",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": "2026-11-01T07:51:31Z"
  },
  "accenture": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "wipro": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "conduent": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "exl": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "ey": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "hpe": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "advenxa": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "tcs": {
   "ok": false,
   "http": 403,
   "result": "blocked",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": null
  },
  "cognizant": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "whatsapp-posters": {
   "result": "not-probed",
-  "checked": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z"
  },
  "kerala-psc": {
   "ok": false,
   "http": 403,
   "result": "blocked",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": null
  },
  "kerala-employment": {
   "ok": false,
   "http": 403,
   "result": "blocked",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": null
  },
  "cochin-shipyard": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "nats": {
   "ok": false,
   "http": null,
   "result": "unreachable",
   "error": "<urlopen error timed out>",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": "2026-10-29T18:59:14Z"
  },
  "naps": {
   "ok": false,
   "http": 403,
   "result": "blocked",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": "2026-10-29T18:59:14Z"
  },
  "upsc": {
@@ -143,36 +143,36 @@
   "http": null,
   "result": "unreachable",
   "error": "<urlopen error timed out>",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": null
  },
  "ssc": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "india-post": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "sbi": {
   "ok": true,
   "http": 200,
   "result": "reachable",
-  "checked": "2026-11-04T07:48:21Z",
-  "last_success": "2026-11-04T07:48:21Z"
+  "checked": "2026-11-05T08:12:42Z",
+  "last_success": "2026-11-05T08:12:42Z"
  },
  "ibps": {
   "ok": false,
   "http": null,
   "result": "unreachable",
   "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>",
-  "checked": "2026-11-04T07:48:21Z",
+  "checked": "2026-11-05T08:12:42Z",
   "last_success": "2026-10-29T18:59:14Z"
  }
 }
