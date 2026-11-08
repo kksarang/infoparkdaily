@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "portfolio" / "templates" / "index.html"
-V = "20261108pf3"
+V = "20261108pf4"
 
 FEATURED = [
     ("developer-pro", "Developers", "Developer Pro", "Dark", "Software developer portfolio",
@@ -29,14 +29,14 @@ FEATURED = [
      "Fresh Start pairs education with practical project work."),
     ("independent-pro", "Freelancers", "Independent Pro", "Bold", "Independent web designer portfolio",
      "Independent Pro pairs services with selected work and enquiries."),
-    ("sidebar-folio", "Developers", "Sidebar Folio", "Dark", "Full-stack developer portfolio",
-     "Sidebar Folio pairs a fixed left navigation with a dark, developer-first story."),
+    ("spotlight", "Influencers", "Spotlight", "Bold", "Travel &amp; food creator",
+     "Spotlight is a creator page with audience figures, a video content grid, collaborations and packages."),
     ("split-portrait", "Designers", "Split Portrait", "Light", "UI designer portfolio",
      "Split Portrait places your story beside a strong portrait panel — clean and personal."),
     ("agency-landing", "Professionals", "Agency Landing", "Light", "Product consultant portfolio",
      "Agency Landing is a polished enterprise-style site for consultants and small studios."),
 ]
-PROFESSIONS = ["Developers", "Designers", "Freshers", "Freelancers", "Creators", "Professionals"]
+PROFESSIONS = list(dict.fromkeys(f[1] for f in FEATURED))
 
 STEPS = [
     ("Choose your design", "Preview complete websites and find a design that fits your work."),
@@ -60,6 +60,10 @@ def frame(slug: str, cls: str, label: str) -> str:
         f'<figure class="pfh-frame {cls}"><div class="pfh-frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>'
         f'<img src="/assets/portfolio/previews/{slug}.webp" width="1200" height="900" alt="{esc(label)}" {load}></figure>'
     )
+
+
+import json as _json
+N = len(_json.loads((ROOT / "data" / "portfolio" / "catalog.json").read_text(encoding="utf-8")))
 
 
 def card(slug, cat, name, style, prof, blurb) -> str:
@@ -115,8 +119,8 @@ def hero_html() -> str:
 <p class="pfh-kicker"><span class="pfh-kicker-dot" aria-hidden="true"></span>Portfolio websites · From ₹999</p>
 <h1 id="pfh-title"><span>Your skills.</span> <span>Your work.</span> <span>Your own <em>website.</em></span></h1>
 <p class="pfh-lead">Choose a complete design. We personalise it with your projects, experience, and contact details — then you share one link.</p>
-<div class="pfh-actions"><a class="pfh-btn pfh-btn--ink pfh-btn--lg" href="/portfolio/templates/all/">Browse 42 templates {ARROW}</a><a class="pfh-btn pfh-btn--line pfh-btn--lg" href="#pricing">See plans</a></div>
-<ul class="pfh-trust"><li>{CHECK}42 complete designs</li><li>{CHECK}Desktop, tablet &amp; mobile</li><li>{CHECK}Personalised by our team</li><li>{CHECK}Enquire on WhatsApp</li></ul>
+<div class="pfh-actions"><a class="pfh-btn pfh-btn--ink pfh-btn--lg" href="/portfolio/templates/all/">Browse {N} templates {ARROW}</a><a class="pfh-btn pfh-btn--line pfh-btn--lg" href="#pricing">See plans</a></div>
+<ul class="pfh-trust"><li>{CHECK}{N} complete designs</li><li>{CHECK}Desktop, tablet &amp; mobile</li><li>{CHECK}Personalised by our team</li><li>{CHECK}Enquire on WhatsApp</li></ul>
 </div>
 <div class="pfh-show" data-pfh-show data-items="{esc(data)}">
 <div class="pfh-show-tabs" role="group" aria-label="See a design made for a">{tabs}</div>
@@ -165,8 +169,39 @@ def wall_html() -> str:
         for r, lst in enumerate(rows)
     )
     return f"""<section class="pfh-wall" aria-labelledby="pfh-wall-title">
-<div class="pfh-wrap pfh-head pfh-wall-head"><div><p class="pfh-eyebrow">The collection</p><h2 id="pfh-wall-title">42 complete designs, ready to personalise.</h2></div><div class="pfh-wall-ctrl"><button type="button" class="pfh-wall-pause" data-pfh-wall-toggle aria-pressed="false">Pause</button><a class="pfh-link" href="/portfolio/templates/all/">Browse the collection {ARROW}</a></div></div>
+<div class="pfh-wrap pfh-head pfh-wall-head"><div><p class="pfh-eyebrow">The collection</p><h2 id="pfh-wall-title">{N} complete designs, ready to personalise.</h2></div><div class="pfh-wall-ctrl"><button type="button" class="pfh-wall-pause" data-pfh-wall-toggle aria-pressed="false">Pause</button><a class="pfh-link" href="/portfolio/templates/all/">Browse the collection {ARROW}</a></div></div>
 <div class="pfh-wall-viewport" data-pfh-wall>{tracks}</div>
+</section>"""
+
+
+
+WEBSITE_TYPES = [
+    ("Blog", "Bloggers", "Cover stories, topics and a post feed that invites the next read.", [("ink-margin", "Ink & Margin"), ("night-notes", "Night Notes")]),
+    ("Story", "Storytellers", "A life or travel story told in chapters, photos and milestones.", [("chapter-one", "Chapter One"), ("long-way-home", "Long Way Home")]),
+    ("Profile", "Profiles", "A link-in-bio card or a digital business card — one link for everything.", [("link-card", "Link Card"), ("calling-card", "Calling Card")]),
+    ("Business", "Business", "Services, process, packages and an enquiry form for local businesses.", [("kayal-interiors", "Kayal Interiors"), ("brightpath-tutors", "Brightpath Tutors")]),
+    ("E-commerce", "Online stores", "A product catalogue with prices and WhatsApp enquiry — no checkout needed.", [("chai-clay", "Chai & Clay"), ("kasavu-lane", "Kasavu Lane")]),
+    ("Influencer", "Influencers", "Audience figures, a content grid and collaboration packages in a media-kit style.", [("spotlight", "Spotlight"), ("glow-diaries", "Glow Diaries")]),
+]
+
+
+def types_html() -> str:
+    cards = []
+    for label, cat, line, designs in WEBSITE_TYPES:
+        a, b = designs
+        shots = "".join(
+            f'<img src="/assets/portfolio/previews/{slug}.webp" width="1200" height="900" alt="" loading="lazy">' for slug, _n in designs
+        )
+        links = " · ".join(f'<a href="/portfolio/preview/{slug}/">{esc(name)}</a>' for slug, name in designs)
+        cards.append(
+            f'<article class="pfh-type pfh-reveal"><a class="pfh-type-shots" href="/portfolio/templates/all/?category={cat.replace(" ", "+")}" aria-label="See {label.lower()} designs">{shots}</a>'
+            f'<div class="pfh-type-body"><p class="pfh-type-label">{label} <span>2 designs</span></p><p>{line}</p><p class="pfh-type-links">{links}</p></div></article>'
+        )
+    return f"""<section class="pfh-section pfh-types" id="website-types" aria-labelledby="pfh-types-title">
+<div class="pfh-wrap">
+<div class="pfh-head pfh-reveal"><div><p class="pfh-eyebrow">New · Beyond portfolios</p><h2 id="pfh-types-title">A website for every kind of story.</h2><p class="pfh-sub">Blogs, life stories, profiles, local businesses, small shops and creators — each with its own complete demo, personalised by our team.</p></div><a class="pfh-link" href="/portfolio/templates/all/">Browse all {N} designs {ARROW}</a></div>
+<div class="pfh-types-grid">{"".join(cards)}</div>
+</div>
 </section>"""
 
 
@@ -197,15 +232,17 @@ def build_main(plans: str, details: str) -> str:
 
 <section class="pfh-section pfh-showcase" id="designs" aria-labelledby="pfh-designs">
 <div class="pfh-wrap">
-<div class="pfh-head pfh-reveal"><div><p class="pfh-eyebrow">Featured designs</p><h2 id="pfh-designs">Fresh starting points. 42 to explore.</h2></div><a class="pfh-link" href="/portfolio/templates/all/" data-pfh-all>View all 42 designs {ARROW}</a></div>
+<div class="pfh-head pfh-reveal"><div><p class="pfh-eyebrow">Featured designs</p><h2 id="pfh-designs">Fresh starting points. {N} to explore.</h2></div><a class="pfh-link" href="/portfolio/templates/all/" data-pfh-all>View all {N} designs {ARROW}</a></div>
 <div class="pfh-filters" role="group" aria-label="Show featured designs for">{filters}</div>
 <p class="pfh-sr" aria-live="polite" data-pfh-status></p>
 <div class="pfh-grid" id="pfh-grid">
 {cards}
 </div>
-<div class="pfh-collection pfh-reveal" id="collection"><div><h3>42 designs for every profession.</h3><p>Filter by profession and style, preview complete demos, shortlist favourites and open each template’s details page.</p></div><a class="pfh-btn pfh-btn--ink" href="/portfolio/templates/all/">Browse all 42 templates {ARROW}</a></div>
+<div class="pfh-collection pfh-reveal" id="collection"><div><h3>{N} designs for every profession.</h3><p>Filter by profession and style, preview complete demos, shortlist favourites and open each template’s details page.</p></div><a class="pfh-btn pfh-btn--ink" href="/portfolio/templates/all/">Browse all {N} templates {ARROW}</a></div>
 </div>
 </section>
+
+{types_html()}
 
 <section class="pfh-section" id="how-it-works" aria-labelledby="pfh-how">
 <div class="pfh-wrap"><div class="pfh-process">

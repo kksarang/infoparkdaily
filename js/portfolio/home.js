@@ -26,7 +26,7 @@
         allLink.innerHTML = allText;
       } else {
         allLink.setAttribute("href", `${allHref}?category=${encodeURIComponent(group)}`);
-        allLink.innerHTML = allText.replace(/View all 42 designs/, `All ${group.replace(/s$/, "").toLowerCase()} templates`);
+        allLink.innerHTML = allText.replace(/View all \d+ designs/, `All ${group.replace(/s$/, "").toLowerCase()} templates`);
       }
     }
     if (status) status.textContent = group === "all" ? `Showing all ${shown} featured designs` : `Showing ${shown} featured design${shown === 1 ? "" : "s"} for ${group.toLowerCase()}`;

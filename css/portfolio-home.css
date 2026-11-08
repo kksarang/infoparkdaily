@@ -1793,3 +1793,110 @@
     max-width: 100%;
   }
 }
+
+/* =====================================================================
+   New section — website types beyond portfolios
+   ===================================================================== */
+.pfh-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.pfh-type {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--p-line);
+  border-radius: var(--p-r);
+  background: var(--p-surface);
+  transition: transform 0.35s var(--p-ease), box-shadow 0.35s ease;
+}
+.pfh-type:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--p-shadow-lg);
+}
+.pfh-type-shots {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--p-bg-2);
+}
+.pfh-type-shots img {
+  position: absolute;
+  width: 72%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(23, 28, 36, 0.1);
+  box-shadow: 0 14px 30px rgba(23, 28, 36, 0.18);
+  transition: transform 0.5s var(--p-ease);
+}
+.pfh-type-shots img:first-child {
+  left: 6%;
+  top: 10%;
+  transform: rotate(-3deg);
+}
+.pfh-type-shots img:last-child {
+  right: 6%;
+  bottom: -12%;
+  transform: rotate(3deg);
+}
+.pfh-type:hover .pfh-type-shots img:first-child {
+  transform: rotate(-5deg) translateY(-4px);
+}
+.pfh-type:hover .pfh-type-shots img:last-child {
+  transform: rotate(5deg) translateY(-6px);
+}
+.pfh-type-body {
+  display: grid;
+  gap: 8px;
+  padding: 20px 22px 22px;
+}
+.pfh-type-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--p-display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.pfh-type-label span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--p-accent-soft);
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--p-accent-ink);
+}
+.pfh-type-body > p:nth-child(2) {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--p-muted);
+}
+.pfh-type-links {
+  font-size: 14px;
+  font-weight: 650;
+}
+.pfh-type-links a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  color: var(--p-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--p-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1080px) {
+  .pfh-types-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .pfh-types-grid {
+    grid-template-columns: 1fr;
+  }
+}
