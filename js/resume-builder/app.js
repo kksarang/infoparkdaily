@@ -8,6 +8,7 @@ import {
 import { renderResume, esc } from "./render.js?v=20260920tpl";
 import { publicTemplates } from "./catalog.js?v=20261102tools";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20261102chk6";
+import { resumePdfBlob, saveBlob, sharePdf, canSharePdf, pdfFilename } from "./pdf-export.js?v=20261108pdf";
 const base = "/resume-builder/";
 const main = document.getElementById("main");
 const modal = document.getElementById("modal");
@@ -821,7 +822,7 @@ function editor() {
   document.querySelector(".footer").style.display = "none";
   const t =
     templates.find((x) => x.id === resume.template_id) || resume.template;
-  main.innerHTML = `${verifyBanner()}<div class="editor-toolbar"><div><input id="resume-title" aria-label="Resume title" value="${esc(resume.title)}" maxlength="120"><div id="save-status" class="save-status" role="status" aria-live="polite">Saved · ${date(resume.updated_at)}</div></div><div class="actions"><button class="button small secondary" data-action="sample">Use sample content</button><button class="button small secondary" data-action="change-template">Change template</button><button class="button small" id="export-button" data-action="export">${useLocalApi() ? "Download PDF ↓" : "Print / Save PDF"}</button></div></div><div class="mobile-editor-tabs"><button class="chip active" data-action="editor-edit">Edit details</button><button class="chip" data-action="editor-preview">Preview resume</button></div><div class="editor-layout" id="editor-layout"><aside class="section-nav" aria-label="Resume sections"><p>YOUR RESUME</p>${Object.entries(
+  main.innerHTML = `${verifyBanner()}<div class="editor-toolbar"><div><input id="resume-title" aria-label="Resume title" value="${esc(resume.title)}" maxlength="120"><div id="save-status" class="save-status" role="status" aria-live="polite">Saved · ${date(resume.updated_at)}</div></div><div class="actions"><button class="button small secondary" data-action="sample">Use sample content</button><button class="button small secondary" data-action="change-template">Change template</button><button class="button small" id="export-button" data-action="export">Download PDF ↓</button></div></div><div class="mobile-editor-tabs"><button class="chip active" data-action="editor-edit">Edit details</button><button class="chip" data-action="editor-preview">Preview resume</button></div><div class="editor-layout" id="editor-layout"><aside class="section-nav" aria-label="Resume sections"><p>YOUR RESUME</p>${Object.entries(
     sections,
   )
     .map(
@@ -830,7 +831,7 @@ function editor() {
     )
     .join(
       "",
-    )}<button class="settings-button" data-action="edit-section" data-section="appearance"><span>◈</span>Design & order</button><a class="text-link" href="${base}my-resumes/" style="display:block;font-size:11px;margin:25px 10px">← All my resumes</a></aside><section class="edit-panel" id="edit-panel"></section><section class="preview-panel"><div class="preview-toolbar"><span id="preview-template-name">${esc(t?.name || resume.template_id)}</span><label style="margin:0;font-size:11px">Zoom <select id="preview-zoom" aria-label="Preview zoom"><option value="fit">Fit page</option><option value="0.7">70%</option><option value="1">100%</option></select></label></div><div class="preview-canvas" id="preview-canvas"></div><p class="preview-note">A4 · Text-based PDF · ${useLocalApi() ? "Final page breaks are applied on export" : "Use Print → Save as PDF for a text-based download"}</p></section></div><div class="editor-footer"><span>${resume.job_id ? "Job-linked draft · " + esc(resume.job_id) : "Your content stays yours. Only include accurate information."}</span><span>${useLocalApi() ? "Local preview · no real payments" : me?.email_verified ? "Saved to your InfoparkDaily account" : "Verify email to cloud-save"}</span></div>`;
+    )}<button class="settings-button" data-action="edit-section" data-section="appearance"><span>◈</span>Design & order</button><a class="text-link" href="${base}my-resumes/" style="display:block;font-size:11px;margin:25px 10px">← All my resumes</a></aside><section class="edit-panel" id="edit-panel"></section><section class="preview-panel"><div class="preview-toolbar"><span id="preview-template-name">${esc(t?.name || resume.template_id)}</span><label style="margin:0;font-size:11px">Zoom <select id="preview-zoom" aria-label="Preview zoom"><option value="fit">Fit page</option><option value="0.7">70%</option><option value="1">100%</option></select></label></div><div class="preview-canvas" id="preview-canvas"></div><p class="preview-note">A4 · ATS-readable PDF · ${useLocalApi() ? "Final page breaks are applied on export" : `Downloads straight to your device. <button type="button" class="preview-print" data-action="print-resume">Print instead</button>`}</p></section></div><div class="editor-footer"><span>${resume.job_id ? "Job-linked draft · " + esc(resume.job_id) : "Your content stays yours. Only include accurate information."}</span><span>${useLocalApi() ? "Local preview · no real payments" : me?.email_verified ? "Saved to your InfoparkDaily account" : "Verify email to cloud-save"}</span></div>`;
   sectionForm();
   renderPreview();
   if (params.get("select"))
@@ -975,7 +976,23 @@ function renderPreview() {
   wrap.innerHTML =
     '<div class="empty"><h2>Preview unavailable</h2><p>Choose another template to continue editing this resume.</p><button class="button small" data-action="change-template">Choose a template</button></div>';
 }
+const isTouch = () => window.matchMedia?.("(pointer: coarse)").matches;
+/* Phones (Android Chrome in particular) print the whole page, not a hidden frame. Give the
+   resume its own tab there so only the resume prints, on A4. Must run inside the tap handler. */
 function printResumeHtml(html) {
+  if (isTouch()) {
+    const w = window.open("", "_blank");
+    if (w) {
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+      setTimeout(() => {
+        w.focus();
+        w.print();
+      }, 500);
+      return;
+    }
+  }
   document.getElementById("resume-print-frame")?.remove();
   const frame = document.createElement("iframe");
   frame.id = "resume-print-frame";
@@ -1003,6 +1020,23 @@ function printResumeHtml(html) {
   win.print();
   setTimeout(cleanup, 120000);
 }
+let lastPdf = null;
+/* Build the PDF in the browser and save it straight to the device — no print dialog. */
+async function deliverPdf(html, title, placement) {
+  const blob = await resumePdfBlob(html, title || "Resume");
+  const name = pdfFilename(title);
+  saveBlob(blob, name);
+  analyticsTrack("resume_export_success", { template_id: resume?.template_id || "", method: "direct", placement });
+  lastPdf = { blob, name, title: title || "Resume" };
+  if (isTouch() && canSharePdf()) {
+    showDialog(
+      "Your resume PDF is ready",
+      `<p>It is saved in your phone’s <strong>Downloads</strong>. You can also send it straight to WhatsApp, Gmail or Drive.</p><div class="actions">${button("Share PDF", "share-pdf", "", "")}${button("Done", "close")}</div>`,
+    );
+  } else {
+    toast("Your PDF is downloading. Find it in your Downloads folder.");
+  }
+}
 function showPortfolioSuggestion() {
   if (document.getElementById("portfolio-after-export")) return;
   const footer = document.querySelector(".editor-footer");
@@ -1023,7 +1057,7 @@ async function downloadPDF() {
   const btn = document.getElementById("export-button");
   btn.disabled = true;
   const previous = btn.textContent;
-  btn.textContent = useLocalApi() ? "Preparing PDF…" : "Opening print dialog…";
+  btn.textContent = "Preparing PDF…";
   analyticsTrack("resume_export_start", {
     template_id: resume?.template_id || "",
   });
@@ -1033,13 +1067,17 @@ async function downloadPDF() {
         templates.find((x) => x.id === resume.template_id) || resume.template;
       if (!t?.config)
         throw Error("This template cannot export yet. Choose another design.");
-      printResumeHtml(renderResume(resume.data, t.config));
-      toast("In the print dialog, choose Save as PDF.");
-      analyticsTrack("resume_export_success", {
-        template_id: resume?.template_id || "",
-      });
-      showPortfolioSuggestion();
+      const html = renderResume(resume.data, t.config);
       save().catch((e) => toast(e.message));
+      try {
+        await deliverPdf(html, resume.title, "editor");
+      } catch (err) {
+        /* Very old browsers: fall back to the print view. */
+        analyticsTrack("resume_export_error", { error_category: "direct_failed" });
+        printResumeHtml(html);
+        toast("Direct download is not supported here. In the print view, choose Save as PDF.");
+      }
+      showPortfolioSuggestion();
       return;
     }
     await save();
@@ -1490,6 +1528,25 @@ async function act(el) {
     case "export":
       await downloadPDF();
       break;
+    case "share-pdf":
+      if (lastPdf) {
+        try {
+          await sharePdf(lastPdf.blob, lastPdf.name, lastPdf.title);
+          analyticsTrack("resume_share", { method: "share_sheet" });
+        } catch (e) {
+          if (e?.name !== "AbortError") toast("Sharing did not work. The PDF is still in your Downloads.");
+        }
+      }
+      closeDialog();
+      break;
+    case "print-resume": {
+      if (!resume) break;
+      const t = templates.find((x) => x.id === resume.template_id) || resume.template;
+      if (!t?.config) break;
+      printResumeHtml(renderResume(resume.data, t.config));
+      analyticsTrack("resume_export_success", { template_id: resume.template_id || "", method: "print", placement: "editor" });
+      break;
+    }
     case "account-download": {
       if (useLocalApi()) {
         location.assign(base + "editor/?id=" + encodeURIComponent(id));
@@ -1498,9 +1555,24 @@ async function act(el) {
       const r = await api("/resumes/" + encodeURIComponent(id));
       const t = templates.find((x) => x.id === r.template_id) || r.template;
       if (!t?.config) throw Error("This template cannot export yet. Open the resume and choose another design.");
-      printResumeHtml(renderResume(r.data, t.config));
-      toast("In the print dialog, choose Save as PDF.");
-      analyticsTrack("resume_export_success", { template_id: r.template_id || "", placement: "account" });
+      const html = renderResume(r.data, t.config);
+      const btnEl = el;
+      const label = btnEl ? btnEl.textContent : "";
+      if (btnEl) {
+        btnEl.disabled = true;
+        btnEl.textContent = "Preparing PDF…";
+      }
+      try {
+        await deliverPdf(html, r.title, "account");
+      } catch (err) {
+        printResumeHtml(html);
+        toast("Direct download is not supported here. In the print view, choose Save as PDF.");
+      } finally {
+        if (btnEl) {
+          btnEl.disabled = false;
+          btnEl.textContent = label;
+        }
+      }
       break;
     }
     case "editor-edit":
