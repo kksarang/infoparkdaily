@@ -2180,5 +2180,586 @@
       "SQL"
     ],
     "visual": "dashboard"
+  },
+  {
+    "category": "Bloggers",
+    "description": "Ink & Margin is a magazine-style blog with a featured cover story, topic browsing and an author band.",
+    "featured": false,
+    "headline": "Small rituals. Slow stories.",
+    "id": "PF-043",
+    "layout": "blog-mag",
+    "mobileThumbnail": "/assets/portfolio/previews/ink-margin-mobile.webp",
+    "name": "Ink & Margin",
+    "person": "Meera Pillai",
+    "previewPath": "/portfolio/preview/ink-margin/",
+    "profession": "Writer & blogger",
+    "projects": [
+      {
+        "description": "A food essay with a featured cover photo.",
+        "title": "The slow art of a Sunday breakfast"
+      },
+      {
+        "description": "A travel piece in the latest-stories grid.",
+        "title": "Notes from a hill-station bookshop"
+      },
+      {
+        "description": "A craft post filed under its topic.",
+        "title": "Writing every day for a hundred days"
+      }
+    ],
+    "skills": [
+      "Essays",
+      "Food writing",
+      "Travel",
+      "Newsletters"
+    ],
+    "slug": "ink-margin",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "supportedSections": [
+      "Featured story",
+      "Latest posts",
+      "Topics",
+      "About the writer",
+      "Newsletter",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/ink-margin.webp",
+    "version": "1.0",
+    "visual": "article"
+  },
+  {
+    "category": "Bloggers",
+    "description": "Night Notes is a dark, minimal tech blog with a dated post list, tags and a /now panel.",
+    "featured": false,
+    "headline": "Notes on building for the web.",
+    "id": "PF-044",
+    "layout": "blog-night",
+    "mobileThumbnail": "/assets/portfolio/previews/night-notes-mobile.webp",
+    "name": "Night Notes",
+    "person": "Rahul Varma",
+    "previewPath": "/portfolio/preview/night-notes/",
+    "profession": "Tech blogger",
+    "projects": [
+      {
+        "description": "A long-form explainer in the post list.",
+        "title": "Understanding caching without the jargon"
+      },
+      {
+        "description": "A backend note with tags and read time.",
+        "title": "A gentle introduction to message queues"
+      },
+      {
+        "description": "A practical post for beginners.",
+        "title": "Debugging habits that saved me hours"
+      }
+    ],
+    "skills": [
+      "Web",
+      "Backend",
+      "Tools",
+      "Writing"
+    ],
+    "slug": "night-notes",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "supportedSections": [
+      "Post list",
+      "Tags",
+      "Now panel",
+      "About",
+      "Subscribe",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/night-notes.webp",
+    "version": "1.0",
+    "visual": "article"
+  },
+  {
+    "category": "Storytellers",
+    "description": "Chapter One tells a life story in numbered chapters with pull quotes, photos and milestones.",
+    "featured": false,
+    "headline": "Every chapter counts.",
+    "id": "PF-045",
+    "layout": "story-chapters",
+    "mobileThumbnail": "/assets/portfolio/previews/chapter-one-mobile.webp",
+    "name": "Chapter One",
+    "person": "Ananya Krishnan",
+    "previewPath": "/portfolio/preview/chapter-one/",
+    "profession": "Writer & speaker",
+    "projects": [
+      {
+        "description": "Chapter one of a personal story.",
+        "title": "Where it began"
+      },
+      {
+        "description": "A chapter with a pull quote.",
+        "title": "The first stage"
+      },
+      {
+        "description": "A closing chapter with a photo.",
+        "title": "What I know now"
+      }
+    ],
+    "skills": [
+      "Storytelling",
+      "Public speaking",
+      "Workshops",
+      "Writing"
+    ],
+    "slug": "chapter-one",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "supportedSections": [
+      "Story chapters",
+      "Pull quote",
+      "Milestones",
+      "Speaking invite",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/chapter-one.webp",
+    "version": "1.0",
+    "visual": "article"
+  },
+  {
+    "category": "Storytellers",
+    "description": "Long Way Home is a cinematic travel story with a full-bleed photo hero, trip figures and a route of stops.",
+    "featured": false,
+    "headline": "The long way is the good way.",
+    "id": "PF-046",
+    "layout": "story-journey",
+    "mobileThumbnail": "/assets/portfolio/previews/long-way-home-mobile.webp",
+    "name": "Long Way Home",
+    "person": "Joseph Mathew",
+    "previewPath": "/portfolio/preview/long-way-home/",
+    "profession": "Travel storyteller",
+    "projects": [
+      {
+        "description": "The first stop on the route.",
+        "title": "Kochi"
+      },
+      {
+        "description": "A stop with a photo and short story.",
+        "title": "Munnar"
+      },
+      {
+        "description": "A sunrise chapter on the road.",
+        "title": "Hampi"
+      }
+    ],
+    "skills": [
+      "Travel writing",
+      "Photography",
+      "Route maps",
+      "Field notes"
+    ],
+    "slug": "long-way-home",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "supportedSections": [
+      "Cinematic hero",
+      "Trip figures",
+      "Route stops",
+      "About",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/long-way-home.webp",
+    "version": "1.0",
+    "visual": "photo"
+  },
+  {
+    "category": "Profiles",
+    "description": "Link Card is a link-in-bio profile: avatar, short bio, big link buttons and highlights on one screen.",
+    "featured": false,
+    "headline": "Helping good products find their people.",
+    "id": "PF-047",
+    "layout": "profile-links",
+    "mobileThumbnail": "/assets/portfolio/previews/link-card-mobile.webp",
+    "name": "Link Card",
+    "person": "Sneha Rao",
+    "previewPath": "/portfolio/preview/link-card/",
+    "profession": "Product marketer",
+    "projects": [
+      {
+        "description": "A highlight tile.",
+        "title": "Launch playbook"
+      },
+      {
+        "description": "A highlight tile.",
+        "title": "Pricing page rewrite"
+      },
+      {
+        "description": "A highlight tile.",
+        "title": "Community newsletter"
+      }
+    ],
+    "skills": [
+      "Positioning",
+      "Launches",
+      "Content",
+      "Analytics"
+    ],
+    "slug": "link-card",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "supportedSections": [
+      "Profile card",
+      "Link buttons",
+      "Social links",
+      "Highlights",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/link-card.webp",
+    "version": "1.0",
+    "visual": "browser"
+  },
+  {
+    "category": "Profiles",
+    "description": "Calling Card is a digital business card with a card hero, contact grid, availability and services.",
+    "featured": false,
+    "headline": "Clear advice. Practical results.",
+    "id": "PF-048",
+    "layout": "profile-card",
+    "mobileThumbnail": "/assets/portfolio/previews/calling-card-mobile.webp",
+    "name": "Calling Card",
+    "person": "Adithya Menon",
+    "previewPath": "/portfolio/preview/calling-card/",
+    "profession": "Business consultant",
+    "projects": [
+      {
+        "description": "A service listing.",
+        "title": "Operations review"
+      },
+      {
+        "description": "A service listing.",
+        "title": "Growth planning"
+      },
+      {
+        "description": "A service listing.",
+        "title": "Team workshops"
+      }
+    ],
+    "skills": [
+      "Operations",
+      "Growth strategy",
+      "Process design",
+      "Workshops"
+    ],
+    "slug": "calling-card",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "supportedSections": [
+      "Business card",
+      "At a glance",
+      "Contact grid",
+      "Services",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/calling-card.webp",
+    "version": "1.0",
+    "visual": "browser"
+  },
+  {
+    "category": "Business",
+    "description": "Kayal Interiors is a studio business site with services, a four-step process, project work and packages.",
+    "featured": false,
+    "headline": "Spaces that feel like you.",
+    "id": "PF-049",
+    "layout": "biz-studio",
+    "mobileThumbnail": "/assets/portfolio/previews/kayal-interiors-mobile.webp",
+    "name": "Kayal Interiors",
+    "person": "Divya Suresh",
+    "previewPath": "/portfolio/preview/kayal-interiors/",
+    "profession": "Interior design studio",
+    "projects": [
+      {
+        "description": "A calm family home with natural light.",
+        "title": "Courtyard home"
+      },
+      {
+        "description": "Storage-first kitchen for a small apartment.",
+        "title": "Compact kitchen"
+      },
+      {
+        "description": "A focused workspace for a five-person team.",
+        "title": "Founder’s office"
+      }
+    ],
+    "skills": [
+      "Residential",
+      "Kitchens",
+      "Workspaces",
+      "Consultations"
+    ],
+    "slug": "kayal-interiors",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "supportedSections": [
+      "Services",
+      "Process",
+      "Selected work",
+      "Packages",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/kayal-interiors.webp",
+    "version": "1.0",
+    "visual": "design"
+  },
+  {
+    "category": "Business",
+    "description": "Brightpath Tutors is a bold local-business site with subjects, a timetable, areas served and FAQs.",
+    "featured": false,
+    "headline": "Learning that clicks.",
+    "id": "PF-050",
+    "layout": "biz-local",
+    "mobileThumbnail": "/assets/portfolio/previews/brightpath-tutors-mobile.webp",
+    "name": "Brightpath Tutors",
+    "person": "Faisal Ahmed",
+    "previewPath": "/portfolio/preview/brightpath-tutors/",
+    "profession": "Home tuition centre",
+    "projects": [
+      {
+        "description": "Classes 8–10.",
+        "title": "Maths batch"
+      },
+      {
+        "description": "Practicals included.",
+        "title": "Science batch"
+      },
+      {
+        "description": "Ages 9–14.",
+        "title": "Coding for kids"
+      }
+    ],
+    "skills": [
+      "Mathematics",
+      "Science",
+      "English",
+      "Coding for kids"
+    ],
+    "slug": "brightpath-tutors",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "supportedSections": [
+      "Subjects",
+      "Why us",
+      "Timetable",
+      "Areas served",
+      "FAQ",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/brightpath-tutors.webp",
+    "version": "1.0",
+    "visual": "checklist"
+  },
+  {
+    "category": "Online stores",
+    "description": "Chai & Clay is a craft shop with an illustrated product grid, prices and WhatsApp enquiry buttons.",
+    "featured": false,
+    "headline": "Handmade for slow mornings.",
+    "id": "PF-051",
+    "layout": "store-craft",
+    "mobileThumbnail": "/assets/portfolio/previews/chai-clay-mobile.webp",
+    "name": "Chai & Clay",
+    "person": "Lakshmi Nair",
+    "previewPath": "/portfolio/preview/chai-clay/",
+    "profession": "Handmade ceramics",
+    "projects": [
+      {
+        "description": "A product card with price.",
+        "title": "Monsoon mug"
+      },
+      {
+        "description": "A product card with price.",
+        "title": "Little teapot"
+      },
+      {
+        "description": "A product card with a tag.",
+        "title": "Bud vase"
+      }
+    ],
+    "skills": [
+      "Ceramics",
+      "Gifting",
+      "Small batches",
+      "WhatsApp orders"
+    ],
+    "slug": "chai-clay",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "supportedSections": [
+      "Shop bar",
+      "Product grid",
+      "Categories",
+      "Maker story",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/chai-clay.webp",
+    "version": "1.0",
+    "visual": "brand"
+  },
+  {
+    "category": "Online stores",
+    "description": "Kasavu Lane is a lookbook-style clothing store with collections, products, a size guide and ordering steps.",
+    "featured": false,
+    "headline": "Woven slowly. Worn often.",
+    "id": "PF-052",
+    "layout": "store-loom",
+    "mobileThumbnail": "/assets/portfolio/previews/kasavu-lane-mobile.webp",
+    "name": "Kasavu Lane",
+    "person": "Reshma Thomas",
+    "previewPath": "/portfolio/preview/kasavu-lane/",
+    "profession": "Handloom clothing label",
+    "projects": [
+      {
+        "description": "A collection tile.",
+        "title": "Kasavu sarees"
+      },
+      {
+        "description": "A collection tile.",
+        "title": "Everyday kurtas"
+      },
+      {
+        "description": "A collection tile.",
+        "title": "Festive sets"
+      }
+    ],
+    "skills": [
+      "Handloom",
+      "Sarees",
+      "Kurtas",
+      "Custom sizing"
+    ],
+    "slug": "kasavu-lane",
+    "styleTags": [
+      "Dark",
+      "Editorial"
+    ],
+    "supportedSections": [
+      "Lookbook hero",
+      "Collections",
+      "Products",
+      "How to order",
+      "Size guide",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/kasavu-lane.webp",
+    "version": "1.0",
+    "visual": "brand"
+  },
+  {
+    "category": "Influencers",
+    "description": "Spotlight is a creator page with audience figures, a video content grid, collaborations and packages.",
+    "featured": false,
+    "headline": "Slow travel. Big flavours.",
+    "id": "PF-053",
+    "layout": "creator-media",
+    "mobileThumbnail": "/assets/portfolio/previews/spotlight-mobile.webp",
+    "name": "Spotlight",
+    "person": "Nikhil Das",
+    "previewPath": "/portfolio/preview/spotlight/",
+    "profession": "Travel & food creator",
+    "projects": [
+      {
+        "description": "A video tile.",
+        "title": "Street food at midnight"
+      },
+      {
+        "description": "A video tile.",
+        "title": "Sunrise above the clouds"
+      },
+      {
+        "description": "A video tile.",
+        "title": "The coastal train"
+      }
+    ],
+    "skills": [
+      "Short video",
+      "Food",
+      "Travel",
+      "Brand stories"
+    ],
+    "slug": "spotlight",
+    "styleTags": [
+      "Bold",
+      "Dark"
+    ],
+    "supportedSections": [
+      "Creator hero",
+      "Audience figures",
+      "Content grid",
+      "Collaborations",
+      "Packages",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/spotlight.webp",
+    "version": "1.0",
+    "visual": "social"
+  },
+  {
+    "category": "Influencers",
+    "description": "Glow Diaries is a media-kit style site with audience charts, content pillars and recent collaborations.",
+    "featured": false,
+    "headline": "Calm routines. Honest finds.",
+    "id": "PF-054",
+    "layout": "creator-kit",
+    "mobileThumbnail": "/assets/portfolio/previews/glow-diaries-mobile.webp",
+    "name": "Glow Diaries",
+    "person": "Aisha Rahman",
+    "previewPath": "/portfolio/preview/glow-diaries/",
+    "profession": "Lifestyle creator",
+    "projects": [
+      {
+        "description": "A content pillar.",
+        "title": "Skincare routines"
+      },
+      {
+        "description": "A content pillar.",
+        "title": "Slow living"
+      },
+      {
+        "description": "A content pillar.",
+        "title": "Honest finds"
+      }
+    ],
+    "skills": [
+      "Skincare",
+      "Lifestyle",
+      "Reviews",
+      "Brand partnerships"
+    ],
+    "slug": "glow-diaries",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "supportedSections": [
+      "Media kit hero",
+      "Audience charts",
+      "Content pillars",
+      "Collaborations",
+      "Contact"
+    ],
+    "thumbnail": "/assets/portfolio/previews/glow-diaries.webp",
+    "version": "1.0",
+    "visual": "social"
   }
 ]

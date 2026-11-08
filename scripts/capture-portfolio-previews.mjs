@@ -14,7 +14,8 @@ async function toWebp(pngPath){
   try{await exec('cwebp',['-q','82',pngPath,'-o',webp]);}
   catch(err){console.warn('cwebp failed for',pngPath,err.message);}
 }
-for(const t of templates){
+const only=(process.env.ONLY||"").split(",").filter(Boolean);
+for(const t of templates.filter(t=>!only.length||only.includes(t.slug))){
  await page.setViewportSize({width:1200,height:900});await page.goto(`${base}/portfolio/demo/${t.slug}/`,{waitUntil:'load'});await page.evaluate(()=>document.fonts.ready);
  const desk=new URL(`${t.slug}.png`,out).pathname;await page.screenshot({path:desk});await toWebp(desk);
  for(const width of [390,320]){await page.setViewportSize({width,height:844});const actual=await page.evaluate(()=>document.documentElement.scrollWidth);if(actual>width)issues.push({slug:t.slug,width,actual});if(width===390){const mob=new URL(`${t.slug}-mobile.png`,out).pathname;await page.screenshot({path:mob});await toWebp(mob);}}
