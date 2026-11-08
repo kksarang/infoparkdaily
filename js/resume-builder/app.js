@@ -355,24 +355,55 @@ async function selectTemplate(id) {
   analyticsTrack("resume_start", { template_id: id });
   location.assign(base + "editor/?id=" + r.id);
 }
+/* Where the person came from decides the headline, so they know why they are signing in.
+   `key` matches an item in the account preview, which gets highlighted. */
+function authContext() {
+  const raw = params.get("next") || "";
+  if (!raw) return null; /* plain visit to the sign-in page: no special message */
+  const next = returnPath();
+  if (/^\/jobs\/saved/.test(next))
+    return { key: "jobs", title: "Your saved jobs are waiting.", lead: "Sign in to see your shortlist on this phone or computer — and every other device you use." };
+  if (/^\/jobs\//.test(next))
+    return { key: "jobs", title: "Save jobs to your list.", lead: "Sign in to keep a shortlist of jobs and open it on any device." };
+  if (/^\/resume-builder\/templates/.test(next))
+    return { key: "resume", title: "Your template is waiting.", lead: "Sign in so we can save your draft and let you continue later." };
+  if (/^\/resume-builder\//.test(next))
+    return { key: "resume", title: "Open your resumes.", lead: "Sign in to edit, save and download your resumes as PDF." };
+  if (/^\/portfolio\//.test(next))
+    return { key: "portfolio", title: "Save the designs you like.", lead: "Sign in to keep your favourite portfolio designs and continue your enquiry." };
+  if (/^\/(infoparkdaily|recruit)\//.test(next))
+    return { key: "hiring", title: "Manage your job posts.", lead: "Sign in to post jobs, track applications and reach Kerala IT talent." };
+  return null;
+}
 function auth() {
   document.body.classList.add("career-tools-auth");
   main.className = "auth-page";
   const signup = authMode === "signup";
-  const waitingTemplate = params.get("next")?.includes("templates");
+  const ctx = me ? null : authContext();
+  const heading = signup
+    ? ctx
+      ? "Create your free account."
+      : "Create your account."
+    : ctx
+      ? ctx.title
+      : "Welcome back.";
   const lead = me
     ? ""
     : signup
-      ? "One free account for saved jobs, resumes, portfolios and hiring on InfoparkDaily."
-      : waitingTemplate
-        ? "Your template is waiting. Sign in so we can save your draft and let you continue later."
+      ? ctx
+        ? ctx.lead.replace(/^Sign in/, "Create a free account")
+        : "One free account for saved jobs, resumes, portfolios and hiring on InfoparkDaily."
+      : ctx
+        ? ctx.lead
         : "Sign in to your InfoparkDaily account. The same account works across the whole site.";
-  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><a class="auth-back" href="/">← Back to Home</a><div><p class="auth-eyebrow">ONE INFOPARKDAILY ACCOUNT</p><h2>One sign-in for<br>everything.</h2><p class="auth-story-lead">Jobs, resumes, portfolios and hiring, all with the same free account.</p><div class="auth-workspace-preview auth-account-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR ACCOUNT</span><span>✦</span></div><ul class="auth-preview-list"><li><span>♥</span><div><strong>Saved jobs</strong><small>Your shortlist on every device</small></div></li><li><span>≡</span><div><strong>Resumes</strong><small>Build, save and download as PDF</small></div></li><li><span>◫</span><div><strong>Portfolio</strong><small>A personal website for your work</small></div></li><li><span>✉</span><div><strong>Hiring</strong><small>Post jobs and reach Kerala IT talent</small></div></li></ul></div><ul class="auth-benefits"><li>Free, and no spam</li><li>Works on phone and computer</li><li>Delete your account anytime</li></ul></div><p class="auth-story-bottom">Kerala's largest tech &amp; business community · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
+  const ctxKey = ctx ? ctx.key : "";
+  const hl = (k) => (k === ctxKey ? ' class="is-context"' : "");
+  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><a class="auth-back" href="/">← Back to Home</a><div><p class="auth-eyebrow">ONE INFOPARKDAILY ACCOUNT</p><h2>One sign-in for<br>everything.</h2><p class="auth-story-lead">Jobs, resumes, portfolios and hiring, all with the same free account.</p><div class="auth-workspace-preview auth-account-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR ACCOUNT</span><span>✦</span></div><ul class="auth-preview-list"><li${hl("jobs")}><span>♥</span><div><strong>Saved jobs</strong><small>Your shortlist on every device</small></div></li><li${hl("resume")}><span>≡</span><div><strong>Resumes</strong><small>Build, save and download as PDF</small></div></li><li${hl("portfolio")}><span>◫</span><div><strong>Portfolio</strong><small>A personal website for your work</small></div></li><li${hl("hiring")}><span>✉</span><div><strong>Hiring</strong><small>Post jobs and reach Kerala IT talent</small></div></li></ul></div><ul class="auth-benefits"><li>Free, and no spam</li><li>Works on phone and computer</li><li>Delete your account anytime</li></ul></div><p class="auth-story-bottom">Kerala's largest tech &amp; business community · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
           ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
       : `<p class="ct-kicker">WELCOME TO INFOPARKDAILY</p>
-      <h1>${signup ? "Create your account." : "Welcome back."}</h1>
+      <h1>${heading}</h1>
       ${params.get("deleted") === "1" ? `<p class="auth-deleted" role="status">Your account and cloud-saved resumes were deleted. You can create a new account anytime.</p>` : ""}
       <p class="auth-lead">${lead}</p>
       <div class="auth-mode-tabs" role="group" aria-label="Account access">
@@ -382,20 +413,19 @@ function auth() {
       <div id="auth-error" role="alert" tabindex="-1"></div>
       ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login"><span class="auth-google-mark" aria-hidden="true">G</span>Continue with Google</button><p class="auth-or">or continue with email</p>`}
       <form id="auth-form">
-      ${signup ? `<div class="field"><label for="auth-name">Name</label><input id="auth-name" name="name" autocomplete="name" placeholder="Your name" required maxlength="100" value="${esc(authDraft.name)}"></div>` : ""}
       <div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
-      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "At least 10 characters" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">Use at least 10 characters.</small>' : ""}</div>
-      ${signup ? '<div class="field"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" name="confirmPassword" type="password" autocomplete="new-password" required minlength="10" maxlength="128" placeholder="Enter it again"></div>' : ""}
-      <div class="auth-form-options">${signup ? `<label class="check-label"><input type="checkbox" name="agree" value="yes" required><span>I agree to the <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</span></label>` : `<label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label>`}${!signup ? '<button type="button" class="auth-help-link" data-action="account-help">Need help?</button>' : ""}</div>
-      <button class="button auth-primary" type="submit">${signup ? "Create account" : "Sign in"}</button>
-      </form>`
+      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "Create a password" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">At least 10 characters. Tap Show to check what you typed.</small>' : ""}</div>
+      ${signup ? "" : `<div class="auth-form-options"><label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label><button type="button" class="auth-help-link" data-action="account-help">Forgot password?</button></div>`}
+      <button class="button auth-primary" type="submit">${signup ? "Create free account" : "Sign in"}</button>
+      </form>
+      <p class="auth-switch">${signup ? `Already have an account? <button type="button" data-action="auth-mode" data-mode="login">Sign in</button>` : `New to InfoparkDaily? <button type="button" data-action="auth-mode" data-mode="signup">Create a free account</button>`}</p>`
       }
       ${
         me
           ? ""
           : useLocalApi()
           ? `<div class="auth-note"><span class="auth-local-tag">LOCAL</span><p>Accounts on this computer only — not Firebase.</p></div><details class="preview-tools"><summary>Owner preview</summary><p>Shared demo for product checks. Use your own account for drafts.</p><button type="button" class="button secondary small" data-action="local-login">Open demo workspace</button></details>`
-          : `<p class="auth-note">By continuing, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
+          : `<p class="auth-note">By continuing${signup ? " or creating an account" : ""}, you agree to our <a href="/terms/#career-tools">Terms</a> and <a href="/privacy/#career-tools">Privacy Policy</a>.</p>`
       }
       <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/#career-tools">Privacy</a></div>
     </section></div>`;
@@ -1612,10 +1642,9 @@ document.addEventListener("submit", async (event) => {
       toast("If an account exists for that email, a reset link is on its way.");
     }
     if (form.id === "auth-form") {
-      if (authMode === "signup" && fields.password !== fields.confirmPassword)
-        throw Error(
-          "Your passwords do not match. Enter the same password in both fields.",
-        );
+      /* Name is asked later; until then use the part before @, as Google sign-in does. */
+      if (authMode === "signup" && !fields.name)
+        fields.name = String(fields.email || "").split("@")[0].slice(0, 100) || "Member";
       const method = "email";
       analyticsTrack("login_start", {
         method,
@@ -1637,6 +1666,9 @@ document.addEventListener("submit", async (event) => {
           feature: "resume_builder",
           error_category: "auth_failed",
         });
+        /* Firebase will not say whether an email has an account, so point new people to sign-up. */
+        if (authMode === "login" && /incorrect/i.test(err.message || ""))
+          throw Error(err.message + " New to InfoparkDaily? Choose Create account above — it’s free.");
         throw err;
       }
       location.assign(returnPath());

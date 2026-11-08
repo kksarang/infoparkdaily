@@ -90,3 +90,10 @@ body.career-tools-auth > .site-header {
   .career-tools-auth .auth-card h1 { font-size: 27px; }
   .career-tools-auth .auth-bottom-links { gap: 10px; }
 }
+
+/* "New to InfoparkDaily? Create a free account" / "Already have an account? Sign in" */
+.career-tools-auth .auth-switch { margin: 14px 0 0; text-align: center; font-size: 14px; color: #5f6670; }
+.career-tools-auth .auth-switch button { min-height: 44px; padding: 0 4px; border: 0; background: none; color: #171c24; font: inherit; font-weight: 700; text-decoration: underline; text-decoration-color: #ffc107; text-decoration-thickness: 2px; text-underline-offset: 4px; cursor: pointer; }
+/* The account item that matches why you are signing in (e.g. Saved jobs) */
+.career-tools-auth .auth-preview-list li.is-context { position: relative; border-radius: 12px; background: #fff8e1; box-shadow: 0 0 0 1px #ffe38a; }
+.career-tools-auth .auth-preview-list li.is-context::after { content: "You’re here"; position: absolute; top: 50%; right: 10px; transform: translateY(-50%); padding: 3px 8px; border-radius: 999px; background: #171c24; color: #fff; font-size: 10px; font-weight: 700; }
