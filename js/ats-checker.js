@@ -15,6 +15,7 @@
   const jdError = document.getElementById("ats-jd-error");
   const resumeBlock = document.getElementById("ats-resume-block");
   const jdBlock = document.getElementById("ats-jd-block");
+  const checkHint = document.getElementById("ats-check-hint");
 
   if (!checkBtn || !drop || !fileInput || !jdInput) return;
 
@@ -208,8 +209,129 @@
     "devops",
     "uiux",
     "ux",
-    "ui"
+    "ui",
+    "jest",
+    "tailwind",
+    "microservices",
+    "vuejs"
   ]);
+
+  /* Spellings of the same skill collapse to one canonical key, so "React", "React.js"
+     and "react js" show once and match each other between resume and job post. */
+  const ALIASES = {
+    reactjs: "react",
+    "react.js": "react",
+    "react js": "react",
+    node: "nodejs",
+    "node js": "nodejs",
+    vue: "vuejs",
+    "vue js": "vuejs",
+    "next js": "nextjs",
+    "next.js": "nextjs",
+    "express js": "express",
+    expressjs: "express",
+    "express.js": "express",
+    "restful api": "rest api",
+    "rest apis": "rest api",
+    "restful apis": "rest api",
+    "micro services": "microservices",
+    "dot net": "dotnet",
+    "asp net": "aspnet",
+    postgres: "postgresql",
+    "power bi": "powerbi",
+    golang: "go"
+  };
+
+  /* Job titles are matched as JD keywords, but they are not skills. */
+  const ROLE_PHRASES = new Set([
+    "full stack",
+    "front end",
+    "back end",
+    "business analyst",
+    "data analyst",
+    "software engineer",
+    "software developer",
+    "web developer",
+    "mobile developer",
+    "android developer",
+    "ios developer"
+  ]);
+
+  /* Hint words that are too vague to show on their own as a "skill". */
+  const VAGUE_SKILLS = new Set(["manual", "automation", "testing", "api", "rest", "embedded", "node"]);
+
+  /* Nouns that turn a skill into a phrase, not a new skill ("react developer"). */
+  const BIGRAM_NOISE = new Set(
+    "developer developers engineer engineers framework frameworks based integration integrations services service development apps app application applications components component projects project dashboards dashboard migration panel backend frontend".split(
+      " "
+    )
+  );
+
+  const DISPLAY = {
+    cplusplus: "C++",
+    csharp: "C#",
+    dotnet: ".NET",
+    nodejs: "Node.js",
+    nextjs: "Next.js",
+    vuejs: "Vue.js",
+    aspnet: "ASP.NET",
+    powerbi: "Power BI",
+    postgresql: "PostgreSQL",
+    mongodb: "MongoDB",
+    javascript: "JavaScript",
+    typescript: "TypeScript",
+    react: "React",
+    "react native": "React Native",
+    "rest api": "REST API",
+    api: "API",
+    graphql: "GraphQL",
+    sql: "SQL",
+    mysql: "MySQL",
+    "sql server": "SQL Server",
+    html: "HTML",
+    css: "CSS",
+    aws: "AWS",
+    "aws cloud": "AWS",
+    gcp: "GCP",
+    "google cloud": "Google Cloud",
+    azure: "Azure",
+    "azure cloud": "Azure",
+    git: "Git",
+    github: "GitHub",
+    gitlab: "GitLab",
+    php: "PHP",
+    "ci cd": "CI/CD",
+    "spring boot": "Spring Boot",
+    qa: "QA",
+    seo: "SEO",
+    sem: "SEM",
+    crm: "CRM",
+    sap: "SAP",
+    gst: "GST",
+    ui: "UI",
+    ux: "UX",
+    uiux: "UI/UX",
+    ios: "iOS",
+    jquery: "jQuery",
+    nestjs: "NestJS",
+    fastapi: "FastAPI",
+    devops: "DevOps",
+    vlsi: "VLSI",
+    matlab: "MATLAB",
+    autocad: "AutoCAD",
+    wordpress: "WordPress",
+    "pcb design": "PCB design"
+  };
+
+  function canonical(key) {
+    const k = String(key || "").trim();
+    return ALIASES[k] || k;
+  }
+
+  function isSkillWord(word) {
+    /* "+"/"#" only mark a skill when they follow letters (C++, C#), never "+91". */
+    return SKILL_HINTS.has(word) || SKILL_HINTS.has(canonical(word)) || /^[a-z][a-z0-9]*[+#]+$/.test(word);
+  }
 
   let resumeText = "";
   let readingFile = false;
@@ -240,22 +362,18 @@
   }
 
   function displayName(token) {
-    const map = {
-      cplusplus: "C++",
-      csharp: "C#",
-      dotnet: ".NET",
-      nodejs: "Node.js",
-      nextjs: "Next.js",
-      vuejs: "Vue.js",
-      aspnet: "ASP.NET",
-      powerbi: "Power BI",
-      postgresql: "PostgreSQL",
-      mongodb: "MongoDB",
-      javascript: "JavaScript",
-      typescript: "TypeScript"
-    };
-    if (map[token]) return map[token];
-    return token.replace(/-/g, " ");
+    const key = canonical(token);
+    if (DISPLAY[key]) return DISPLAY[key];
+    const text = key.replace(/-/g, " ");
+    /* Known single-word tools get a capital ("Docker", "Python"); phrases get sentence case
+       with any known acronym kept upper-case ("Unit testing", "SQL Server"). */
+    if (!text.includes(" ")) {
+      return SKILL_HINTS.has(text) ? text.charAt(0).toUpperCase() + text.slice(1) : text;
+    }
+    return text
+      .split(" ")
+      .map((w, i) => DISPLAY[w] || (i === 0 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+      .join(" ");
   }
 
   function rawTokens(text) {
@@ -268,7 +386,8 @@
   function looksLikeSkill(word) {
     if (!word || GENERIC.has(word)) return false;
     if (SKILL_HINTS.has(word)) return true;
-    if (/[+#.]/.test(word)) return true;
+    if (/@|\.(?:com|in|org|net|io|co)$/.test(word)) return false; /* emails, domains */
+    if (/^[a-z][a-z0-9]*[+#]+$/.test(word) || /^[a-z]+\.[a-z]+$/.test(word)) return true;
     if (/\d/.test(word) && /[a-z]/.test(word)) return true;
     if (word.length >= 4) return true;
     return false;
@@ -283,11 +402,25 @@
       if (norm.includes(phrase)) found.push(phrase);
     });
 
-    for (let i = 0; i < toks.length - 1; i += 1) {
-      const a = toks[i];
-      const b = toks[i + 1];
+    /* Pairs never cross a line break or comma: "Summary / React developer" is not "summary react". */
+    const pairs = [];
+    String(text || "")
+      .split(/[\n,;|•()/]+/)
+      .forEach((chunk) => {
+        const ct = rawTokens(chunk);
+        for (let i = 0; i < ct.length - 1; i += 1) pairs.push([ct[i], ct[i + 1]]);
+      });
+    for (const [a, b] of pairs) {
       if (GENERIC.has(a) || GENERIC.has(b) || a.length < 3 || b.length < 3) continue;
-      if (SKILL_HINTS.has(a) || SKILL_HINTS.has(b)) found.push(`${a} ${b}`);
+      const pair = `${a} ${b}`;
+      if (PHRASES.includes(pair) || ALIASES[pair]) continue; /* already counted as a phrase */
+      /* Two skills side by side ("react javascript") are two skills, not a new one;
+         a skill plus a plain noun ("react developer") is not a skill either. */
+      if (isSkillWord(a) && isSkillWord(b)) continue;
+      if (BIGRAM_NOISE.has(a) || BIGRAM_NOISE.has(b)) continue;
+      /* "jest unit testing" is Jest + Unit testing, not "jest unit". */
+      if (PHRASES.some((ph) => ph.startsWith(`${b} `) || ph.endsWith(` ${a}`))) continue;
+      if (isSkillWord(a) || isSkillWord(b)) found.push(pair);
     }
 
     toks.forEach((w) => {
@@ -297,11 +430,19 @@
     const unique = [];
     const seen = new Set();
     found.forEach((item) => {
-      const key = item.trim();
+      let key = canonical(item.trim());
+      /* "rest" is only the REST API skill when "api" is also on the page. */
+      if (key === "rest") key = norm.includes(" api") || norm.startsWith("api") ? "rest api" : "";
       if (!key || seen.has(key)) return;
       seen.add(key);
       unique.push(key);
     });
+    /* Drop single words that only appear inside a phrase already listed ("api" in "REST API"). */
+    const phrases = unique.filter((k) => PHRASES.includes(k));
+    for (let i = unique.length - 1; i >= 0; i -= 1) {
+      const k = unique[i];
+      if (!k.includes(" ") && phrases.some((p) => p.split(" ").includes(k))) unique.splice(i, 1);
+    }
 
     unique.sort((a, b) => {
       const aHint = SKILL_HINTS.has(a) || PHRASES.includes(a) ? 1 : 0;
@@ -322,11 +463,56 @@
   }
 
   function guessEducation(resume) {
+    /* (?![a-z]) stops "ba" matching inside "backend" or "ma" inside "manual". */
     const m = String(resume || "").match(
-      /\b(b\.?\s*tech|b\.?\s*e\.?|b\.?\s*com|bcom|mba|mca|bca|m\.?\s*tech|bsc|msc|ba|ma)(?:\s+(?:in|of)\s+([a-z][a-z\s]{2,32}))?/i
+      /\b(b\.?\s*tech|b\.?\s*e\.?|b\.?\s*com|bcom|mba|mca|bca|m\.?\s*tech|b\.?\s*sc|m\.?\s*sc|b\.?\s*a\.?|m\.?\s*a\.?)(?![a-z])(?:[ \t]+(?:in|of)[ \t]+([a-z][a-z \t]{2,32}))?/i
     );
     if (!m) return "";
     return m[0].replace(/\s+/g, " ").trim();
+  }
+
+  const ROLE_KINDS = [
+    ["qa", /selenium|playwright|cypress|\bqa\b|test (?:cases|engineer|automation)|manual testing|automation testing/],
+    ["dev", /\b(?:java|python|javascript|typescript|react|node(?:\.?js)?|angular|vue|\.net|php|laravel|django|flutter|kotlin|android|full stack|developer|software engineer)\b/],
+    ["data", /\bdata analy|power ?bi|tableau|\bsql\b.*\bexcel\b|\bexcel\b.*\bsql\b|data science|machine learning/],
+    ["design", /\bfigma\b|photoshop|illustrator|ui\/?ux|graphic design/],
+    ["hr", /recruit|talent acquisition|payroll|onboarding|\bhr\b/],
+    ["finance", /\baccount(?:s|ing|ant)\b|\btally\b|\bgst\b|\bfinance\b|\bb\.?\s*com\b|\bbcom\b/],
+    ["sales", /lead generation|business development|\bsales\b|cold calling|telecall/],
+    ["support", /customer (?:support|service|care)|\bcrm\b|inbound|outbound|helpdesk|help desk/]
+  ];
+
+  const ROLE_DEFAULT_TITLE = {
+    qa: "QA engineer",
+    dev: "Software developer",
+    data: "Data analyst",
+    design: "Designer",
+    hr: "HR professional",
+    finance: "Finance professional",
+    sales: "Sales professional",
+    support: "Customer support professional",
+    general: "Professional"
+  };
+
+  const TITLE_CASE = { "ui/ux": "UI/UX", qa: "QA", ios: "iOS", react: "React", java: "Java", python: "Python", php: "PHP", devops: "DevOps", angular: "Angular", flutter: "Flutter", android: "Android" };
+
+  /* Work out what kind of resume this is from its own text, so advice and the suggested
+     summary fit a developer, a tester or a support executive rather than one generic voice. */
+  function detectRole(resume) {
+    const text = String(resume || "");
+    const lower = text.toLowerCase();
+    const kind = (ROLE_KINDS.find(([, re]) => re.test(lower)) || ["general"])[0];
+    const head = text.split(/\n/).slice(0, 8).join("\n");
+    const t = head.match(
+      /\b((?:senior |junior |lead |associate )?(?:software|frontend|front[- ]end|backend|back[- ]end|full[- ]?stack|web|mobile|android|ios|react|angular|java|python|\.net|php|flutter|qa|test|automation|data|devops|cloud|ui\/ux|ux|ui|graphic|product)\s+(?:developer|engineer|analyst|designer|tester))\b/i
+    );
+    let title = ROLE_DEFAULT_TITLE[kind];
+    if (t) {
+      const words = t[1].toLowerCase().split(/\s+/).map((w) => TITLE_CASE[w] || w);
+      words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+      title = words.join(" ");
+    }
+    return { kind, title };
   }
 
   function guessTenure(resume) {
@@ -339,7 +525,7 @@
 
   function profileBadge(resume, matched) {
     const blob = `${resume} ${matched.join(" ")}`.toLowerCase();
-    const finance = /finance|accounting|tally|gst|b\.?\s*com|bcom/.test(blob);
+    const finance = /finance|accounting|tally|\bgst\b|\bb\.?\s*com\b|\bbcom\b/.test(blob);
     const support = /customer|crm|support|inbound|outbound|service/.test(blob);
     const qa = /selenium|playwright|cypress|testing|qa\b/.test(blob);
     const dev = /java|python|javascript|react|node|angular|\.net|full stack/.test(blob);
@@ -407,26 +593,47 @@
     return issues;
   }
 
-  function weakPhrasingItems(lines, missing) {
+  const STRONG_VERB = {
+    handled: "Managed",
+    "responsible for": "Owned",
+    "worked on": "Built",
+    "helped with": "Contributed to",
+    "assisted in": "Supported",
+    performed: "Carried out",
+    did: "Completed",
+    "was involved in": "Contributed to",
+    "looked after": "Managed"
+  };
+
+  const RESULT_HINT = {
+    dev: "add the result: users, speed gained or bugs cut",
+    qa: "add the result: test cases, defects caught or release time saved",
+    data: "add the result: reports shipped, hours saved or decisions informed",
+    design: "add the result: screens shipped, usability gains or conversions",
+    support: "add the result: tickets per day, CSAT or response time",
+    sales: "add the result: leads, meetings booked or revenue",
+    hr: "add the result: roles closed, time-to-hire or joiners",
+    finance: "add the result: entries per month, accuracy or closing time",
+    general: "add the result: a number, a scale or time saved"
+  };
+
+  /* Swap duty language for a stronger verb. We never invent the outcome: the rewrite
+     leaves a bracketed prompt for the real number instead of a made-up KPI. */
+  function weakPhrasingItems(lines, role) {
     const weak = /^(handled|responsible for|worked on|helped with|assisted in|performed|did|was involved in|looked after)\b/i;
     const items = [];
-    const insert = missing.slice(0, 2).map(displayName);
+    const hint = RESULT_HINT[role.kind] || RESULT_HINT.general;
     lines.forEach((line) => {
       if (items.length >= 3) return;
-      if (!weak.test(line) || /\d/.test(line)) return;
-      let rewrite = line.replace(weak, "Delivered");
-      if (insert.length) {
-        rewrite = rewrite.replace(/\.$/, "");
-        rewrite += `, using ${insert.join(" and ")} to meet process KPIs.`;
-      } else if (!/consistently|volume|quality|sla/i.test(rewrite)) {
-        rewrite = rewrite.replace(/\.$/, "") + ", consistently meeting response-time KPIs.";
-      }
+      const m = line.match(weak);
+      if (!m || /\d/.test(line)) return;
+      const verb = STRONG_VERB[m[1].toLowerCase()] || "Delivered";
+      const rest = line.slice(m[0].length).replace(/\.$/, "");
       items.push({
         original: line,
         issue: "Passive / duty language",
-        fix: "Focus on the outcome of the interactions.",
-        rewrite,
-        tags: insert.length ? insert : ["KPIs"]
+        fix: "Start with a strong verb and add the result you got.",
+        rewrite: `${verb}${rest} [${hint}].`
       });
     });
     return items;
@@ -444,12 +651,14 @@
     return recs.slice(0, 4);
   }
 
-  function jobFitItems(resume, matched, missing) {
+  /* Job fit compares the resume with a job post, so it only exists when one was given. */
+  function jobFitItems(resume, matched, missing, jdMode) {
+    if (!jdMode) return null;
     const blob = resume.toLowerCase();
     const strengths = [];
     const gaps = [];
     if (matched.some((k) => /crm|salesforce/.test(k)) || /\bcrm\b/.test(blob)) strengths.push("Relevant CRM experience");
-    if (/finance|b\.?\s*com|accounting|tally/.test(blob)) strengths.push("Educational background in Finance");
+    if (/\bfinance\b|\bb\.?\s*com\b|\bbcom\b|accounting|\btally\b/.test(blob)) strengths.push("Educational background in Finance");
     if (/sap|tally/.test(blob) || matched.some((k) => /sap|tally/.test(k))) {
       strengths.push("Technical certifications or tools (SAP, Tally, or similar)");
     }
@@ -457,7 +666,8 @@
       strengths.push("Customer service / communication keywords present");
     }
     if (matched.length >= 5) strengths.push("Core JD skills already appear in the resume");
-    if (!strengths.length) strengths.push("Some overlapping terms with this job description");
+    else if (matched.length) strengths.push(`Shares ${matched.slice(0, 3).map(displayName).join(", ")} with this job`);
+    if (!strengths.length) strengths.push("Few of this job’s skills appear yet. See Missing above.");
 
     if (!/\d+%|\d+\+|kpi|sla|volume|reduced|increased|handled \d+/i.test(resume)) {
       gaps.push("Quantified achievements");
@@ -475,25 +685,69 @@
     return { strengths: strengths.slice(0, 4), gaps: gaps.slice(0, 4) };
   }
 
-  function optimizedSummary(resume, matched, missing) {
+  /* Two openings per kind of role; "Try another" cycles through them. Every tool named comes
+     from the resume itself, so the summary never claims a skill the person did not list. */
+  const SUMMARY_TEMPLATES = {
+    dev: [
+      "{title}{exp} building web applications with {tools}. Writes clean, tested code and works closely with design and backend teams to ship features on time.",
+      "{title}{exp} experienced in {tools}. Focused on maintainable code, reliable API integrations and features that hold up in production."
+    ],
+    qa: [
+      "{title}{exp} skilled in {tools}. Designs test cases, tracks defects to closure and helps teams release with fewer bugs.",
+      "{title}{exp} working with {tools} across manual and automated testing, with a focus on clear bug reports and stable releases."
+    ],
+    data: [
+      "{title}{exp} working with {tools} to clean data, build reports and turn numbers into clear decisions.",
+      "{title}{exp} skilled in {tools}. Builds accurate dashboards and explains findings in plain language for business teams."
+    ],
+    design: [
+      "{title}{exp} using {tools} to design clear, usable interfaces from wireframe to developer handoff.",
+      "{title}{exp} skilled in {tools}, with an eye for layout, consistency and how real users move through a product."
+    ],
+    support: [
+      "{title}{exp} using {tools} to resolve customer issues quickly, follow process and keep service quality high.",
+      "{title}{exp} skilled in {tools}. Handles queries calmly, documents cases clearly and works toward first-contact resolution."
+    ],
+    finance: [
+      "{title}{exp} with hands-on use of {tools} for accurate bookkeeping, reconciliation and reporting.",
+      "{title}{exp} skilled in {tools}, focused on clean records, on-time filings and clear month-end reports."
+    ],
+    hr: [
+      "{title}{exp} using {tools} across sourcing, screening and onboarding.",
+      "{title}{exp} skilled in {tools}, with a focus on a smooth candidate experience and accurate HR records."
+    ],
+    sales: [
+      "{title}{exp} using {tools} to generate leads, follow up consistently and move deals to close.",
+      "{title}{exp} skilled in {tools}, with steady pipeline habits and clear communication with prospects."
+    ],
+    general: [
+      "{title}{exp} skilled in {tools}. Brings ownership, clear communication and steady delivery to the team.",
+      "{title}{exp} with working knowledge of {tools}, eager to take on responsibility and learn quickly."
+    ]
+  };
+
+  function summaryVariants(resume, skills, role) {
     const edu = guessEducation(resume);
     const tenure = guessTenure(resume);
-    const tools = [...matched.slice(0, 3), ...missing.slice(0, 2)].map(displayName);
-    const uniqueTools = [];
-    tools.forEach((t) => {
-      if (t && !uniqueTools.includes(t)) uniqueTools.push(t);
+    const tools = [];
+    skills.map(displayName).forEach((t) => {
+      if (t && !tools.includes(t)) tools.push(t);
     });
-    const toolBit = uniqueTools.slice(0, 4).join(", ");
-    const who = edu ? `professional with ${edu}` : "professional";
-    const exp = tenure ? ` and ${tenure}` : "";
-    return `Customer-focused ${who}${exp}. Adept at using ${
-      toolBit || "the tools listed in this job"
-    } to improve service quality, streamline support, and ensure long-term customer satisfaction.`;
+    const list = tools.slice(0, 4);
+    const toolBit =
+      list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list[list.length - 1]}` : list[0] || "the tools in your Skills section";
+    const exp = tenure ? ` with ${tenure}` : edu ? ` with a ${edu}` : "";
+    return (SUMMARY_TEMPLATES[role.kind] || SUMMARY_TEMPLATES.general).map((tpl) =>
+      tpl.replace("{title}", role.title).replace("{exp}", exp).replace("{tools}", toolBit)
+    );
   }
 
-  function recruiterNotes(ranking, fit, missing) {
+  function recruiterNotes(ranking, fit, missing, skills) {
     const notes = [];
-    if (fit.strengths[0]) notes.push(`${fit.strengths[0]} is a useful selling point — keep it near the top.`);
+    if (fit && fit.strengths[0]) notes.push(`${fit.strengths[0]} is a useful selling point. Keep it near the top.`);
+    else if (!fit && skills.length) {
+      notes.push(`Your Skills list (${skills.slice(0, 4).map(displayName).join(", ")}) reads as plain text. Keep it near the top.`);
+    }
     if (ranking.some((i) => /personal/i.test(i.title))) {
       notes.push("Remove personal declarations and static headers to free space for impact statements.");
     }
@@ -506,7 +760,18 @@
     return notes.slice(0, 4);
   }
 
-  function resumeHasKeyword(resumeNorm, resumeTokSet, keyword) {
+  /* Real tools and skills only: no role titles, vague words or plain 4-letter nouns. */
+  function knownSkills(list) {
+    return list.filter(
+      (k) =>
+        !ROLE_PHRASES.has(k) &&
+        !VAGUE_SKILLS.has(k) &&
+        (SKILL_HINTS.has(k) || PHRASES.includes(k) || /^[a-z][a-z0-9]*[+#]+$/.test(k))
+    );
+  }
+
+  function resumeHasKeyword(resumeNorm, resumeTokSet, keyword, resumeCanon) {
+    if (resumeCanon && resumeCanon.has(keyword)) return true;
     if (keyword.includes(" ")) return resumeNorm.includes(keyword);
     if (resumeTokSet.has(keyword)) return true;
     if (keyword.endsWith("s") && resumeTokSet.has(keyword.slice(0, -1))) return true;
@@ -531,6 +796,16 @@
     const resumeReady = currentResume().length >= MIN_RESUME;
     const jdReady = hasJobDescription(jdInput.value);
     checkBtn.disabled = readingFile || !resumeReady;
+    if (checkHint) {
+      checkHint.textContent = readingFile
+        ? "Reading your file…"
+        : resumeReady
+          ? jdReady
+            ? "Ready: readability plus keyword match."
+            : "Ready: readability check. Add a job post for keyword match."
+          : "Add a resume to continue. Upload a file or paste a few lines.";
+      checkHint.classList.toggle("is-ready", resumeReady && !readingFile);
+    }
 
     if (step1Status) {
       step1Status.textContent = resumeReady ? "Ready" : "Waiting";
@@ -670,13 +945,27 @@
     const jdMode = hasJobDescription(jd);
     const resumeNorm = normalize(resume);
     const resumeTokSet = new Set(rawTokens(resume));
-    const resumeSkills = extractKeywords(resume);
-    const jdKeywords = jdMode ? extractKeywords(jd) : [];
+    const resumeKeywords = extractKeywords(resume);
+    const resumeCanon = new Set(resumeKeywords);
+    const resumeSkills = knownSkills(resumeKeywords);
+    const role = detectRole(resume);
+    /* JD keywords: real tools, curated phrases, and other words only when the post repeats them.
+       This keeps "building", "reusable" or "include" out of Matched / Missing. */
+    const jdNorm = normalize(jd);
+    const repeats = (k) => (jdNorm.match(new RegExp(`\\b${k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "g")) || []).length;
+    const jdKeywords = jdMode
+      ? extractKeywords(jd).filter(
+          (k) =>
+            knownSkills([k]).length ||
+            PHRASES.includes(k) ||
+            (!k.includes(" ") && k.length >= 5 && !BIGRAM_NOISE.has(k) && repeats(k) >= 2)
+        )
+      : [];
     const matched = jdMode
-      ? jdKeywords.filter((k) => resumeHasKeyword(resumeNorm, resumeTokSet, k))
+      ? jdKeywords.filter((k) => resumeHasKeyword(resumeNorm, resumeTokSet, k, resumeCanon))
       : resumeSkills;
     const missing = jdMode
-      ? jdKeywords.filter((k) => !resumeHasKeyword(resumeNorm, resumeTokSet, k))
+      ? jdKeywords.filter((k) => !resumeHasKeyword(resumeNorm, resumeTokSet, k, resumeCanon))
       : [];
     const coverage = jdKeywords.length ? matched.length / jdKeywords.length : 0;
 
@@ -743,6 +1032,15 @@
     }
     score = Math.max(12, Math.min(96, score));
 
+    /* The score must agree with "Fix these first": a High issue keeps it out of the good
+       range and a Medium issue keeps it out of the top band. */
+    const ranking = rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount);
+    const highCount = ranking.filter((i) => i.severity === "High").length;
+    const mediumCount = ranking.filter((i) => i.severity === "Medium").length;
+    if (highCount) score = Math.min(score, 59);
+    else if (mediumCount) score = Math.min(score, 79);
+    const fixCount = highCount + mediumCount;
+
     let label = "Needs work";
     let tone = "weak";
     if (score >= 80) {
@@ -772,10 +1070,9 @@
       jdMode
     });
 
-    const ranking = rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount);
-    const phrasing = weakPhrasingItems(resumeLines(resume), missing);
-    const fit = jobFitItems(resume, matched, missing);
-    const summaryText = optimizedSummary(resume, matched, missing);
+    const phrasing = weakPhrasingItems(resumeLines(resume), role);
+    const fit = jobFitItems(resume, matched, missing, jdMode);
+    const summaries = summaryVariants(resume, jdMode ? matched.filter((k) => resumeSkills.includes(k)).concat(resumeSkills) : resumeSkills, role);
     const resumeGaps = [];
     if (!hasEmail) resumeGaps.push("Plain-text email");
     if (!hasPhone) resumeGaps.push("Phone number");
@@ -783,11 +1080,10 @@
     if (hasTablesHint) resumeGaps.push("Simple one-column layout");
     if (hasPersonal) resumeGaps.push("No personal-detail fields");
     if (!/\d+%|\d+\+|kpi|sla/i.test(resume)) resumeGaps.push("Measurable KPIs");
-    const suggested = jdMode
-      ? missing.slice(0, 8).map(displayName)
-      : ["text PDF", "comma-separated Skills", "3–5 outcome bullets"];
+    /* With a JD the missing list already says what to add; extras are for the no-JD check. */
+    const suggested = jdMode ? [] : ["text PDF", "comma-separated Skills", "3–5 outcome bullets"];
     const topFixes = [];
-    if (ranking[0]) topFixes.push({ title: ranking[0].title, why: ranking[0].why });
+    if (ranking[0]) topFixes.push({ title: ranking[0].title, why: ranking[0].why, severity: ranking[0].severity });
     if (phrasing[0]) topFixes.push({ title: "Rewrite weak bullets", why: phrasing[0].fix });
     if (jdMode && missing.length) {
       topFixes.push({
@@ -817,9 +1113,11 @@
       ranking,
       phrasing,
       fit,
-      summaryText,
+      summaryText: summaries[0],
+      summaries,
+      fixCount,
       sections: sectionRecommendations(foundSections),
-      recruiter: recruiterNotes(ranking, fit, missing),
+      recruiter: recruiterNotes(ranking, fit, missing, resumeSkills),
       badge: jdMode
         ? profileBadge(resume, matched)
         : "ATS-friendliness check from the resume file — no job description needed.",
@@ -950,20 +1248,40 @@
       )
       .join("");
 
+    const fitHtml = report.fit
+      ? `<section class="ats-report-block">
+          <h3>Job fit</h3>
+          <div class="ats-report-fit">
+            <div>
+              <p class="ats-sub">Strengths</p>
+              <ul class="ats-fit ats-fit--ok">${report.fit.strengths.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+            </div>
+            ${report.fit.gaps.length
+              ? `<div><p class="ats-sub">Gaps</p><ul class="ats-fit ats-fit--gap">${report.fit.gaps.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul></div>`
+              : ""}
+          </div>
+        </section>`
+      : `<section class="ats-report-block ats-report-jdcta">
+          <h3>Job fit</h3>
+          <p>Add a job description to see which of the job’s skills your resume already covers.</p>
+          <button type="button" class="ats-btn ats-btn--secondary" data-ats-add-jd>Add a job description</button>
+        </section>`;
+
     result.innerHTML = `
       <article class="ats-report ats-report--${tone}">
         <header class="ats-report-head">
           <div class="ats-report-score">
             <strong>${report.score}</strong>
             <span>${escapeHtml(report.label)}</span>
+            ${report.fixCount ? `<em>${report.fixCount} fix${report.fixCount > 1 ? "es" : ""} to make</em>` : ""}
           </div>
           <div class="ats-report-verdict">
             ${report.badge ? `<p class="ats-badge">${escapeHtml(report.badge)}</p>` : ""}
             <h2>${escapeHtml(report.comments.overall)}</h2>
             <p>${
               report.jdMode
-                ? `Keyword coverage ${Math.round(report.coverage * 100)}%. Local estimate — not the employer’s ATS.`
-                : "File readability and structure. Local estimate — not an employer ATS."
+                ? `Score = keyword coverage (${Math.round(report.coverage * 100)}%) plus contact details, headings and length. Local estimate, not the employer’s ATS.`
+                : "Score = how easily a tracker can read this file: contact details, standard headings, length and layout. It does not measure job fit. Local estimate, not an employer ATS."
             }</p>
           </div>
         </header>
@@ -974,7 +1292,7 @@
                 <ol class="ats-report-fixes">${topFixes
                   .map(
                     (fix, i) =>
-                      `<li><span>${i + 1}</span><div><strong>${escapeHtml(fix.title)}</strong><p>${escapeHtml(fitWhy(fix))}</p>${fixLink(fix.title)}</div></li>`
+                      `<li><span>${i + 1}</span><div><div class="ats-fix-title"><strong>${escapeHtml(fix.title)}</strong>${fix.severity ? `<em class="ats-sev ats-sev--${escapeHtml(fix.severity.toLowerCase())}">${escapeHtml(fix.severity)}</em>` : ""}</div><p>${escapeHtml(fitWhy(fix))}</p>${fixLink(fix.title)}</div></li>`
                   )
                   .join("")}</ol>
               </section>`
@@ -995,18 +1313,6 @@
               : ""
           }
         </section>
-        <section class="ats-report-block">
-          <h3>${report.jdMode ? "Job fit" : "ATS fit"}</h3>
-          <div class="ats-report-fit">
-            <div>
-              <p class="ats-sub">Strengths</p>
-              <ul class="ats-fit ats-fit--ok">${(report.fit.strengths || []).map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
-            </div>
-            ${(report.fit.gaps || []).length
-              ? `<div><p class="ats-sub">Gaps</p><ul class="ats-fit ats-fit--gap">${report.fit.gaps.map((s) => `<li>${escapeHtml(s)}</li>`).join("")}</ul></div>`
-              : ""}
-          </div>
-        </section>
         ${
           rankingHtml
             ? `<section class="ats-report-block">
@@ -1015,11 +1321,27 @@
               </section>`
             : ""
         }
+        ${fitHtml}
         ${
           phrasingHtml
             ? `<section class="ats-report-block">
                 <h3>Clearer bullets</h3>
                 <ul class="ats-report-list">${phrasingHtml}</ul>
+              </section>`
+            : ""
+        }
+        ${
+          report.summaryText
+            ? `<section class="ats-report-block">
+                <div class="ats-insight-head">
+                  <h3>Suggested summary</h3>
+                  <span class="ats-insight-actions">
+                    ${(report.summaries || []).length > 1 ? `<button type="button" class="ats-copy" data-ats-regen>Try another</button>` : ""}
+                    <button type="button" class="ats-copy" data-ats-copy>Copy</button>
+                  </span>
+                </div>
+                <p class="ats-summary-text" data-ats-summary>${escapeHtml(report.summaryText)}</p>
+                <p class="ats-sub ats-summary-note">Built from the skills on your resume. Edit it so every claim is true for you.</p>
               </section>`
             : ""
         }
@@ -1032,17 +1354,6 @@
             : ""
         }
         ${
-          report.summaryText
-            ? `<section class="ats-report-block">
-                <div class="ats-insight-head">
-                  <h3>Suggested summary</h3>
-                  <button type="button" class="ats-copy" data-ats-copy>Copy</button>
-                </div>
-                <p class="ats-summary-text" data-ats-summary>${escapeHtml(report.summaryText)}</p>
-              </section>`
-            : ""
-        }
-        ${
           sections.length
             ? `<section class="ats-report-block">
                 <h3>Sections</h3>
@@ -1050,24 +1361,91 @@
               </section>`
             : ""
         }
-        <p class="ats-report-foot"><a class="ats-jobs-link" href="/jobs/">Browse open jobs →</a></p>
+        <div class="ats-report-actions" role="group" aria-label="Report actions">
+          <button type="button" class="ats-btn ats-btn--primary" data-ats-reset>Check another resume</button>
+          <button type="button" class="ats-btn ats-btn--secondary" data-ats-copy-report>Copy report</button>
+          <a class="ats-btn ats-btn--tertiary" href="/resume-builder/templates/">Open Resume Builder →</a>
+        </div>
       </article>
     `;
 
+    const flash = (btn, text, reset) => {
+      btn.textContent = text;
+      setTimeout(() => (btn.textContent = reset), 1600);
+    };
     const copyBtn = result.querySelector("[data-ats-copy]");
     const summaryEl = result.querySelector("[data-ats-summary]");
     if (copyBtn && summaryEl) {
       copyBtn.addEventListener("click", async () => {
         try {
           await navigator.clipboard.writeText(summaryEl.textContent || "");
-          copyBtn.textContent = "Copied";
-          setTimeout(() => (copyBtn.textContent = "Copy"), 1600);
+          flash(copyBtn, "Copied", "Copy");
         } catch (_e) {
-          copyBtn.textContent = "Copy failed";
+          flash(copyBtn, "Copy failed", "Copy");
         }
       });
     }
+    const regenBtn = result.querySelector("[data-ats-regen]");
+    if (regenBtn && summaryEl) {
+      let at = 0;
+      regenBtn.addEventListener("click", () => {
+        at = (at + 1) % report.summaries.length;
+        summaryEl.textContent = report.summaries[at];
+      });
+    }
+    const reportBtn = result.querySelector("[data-ats-copy-report]");
+    if (reportBtn) {
+      reportBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(reportText(report, summaryEl ? summaryEl.textContent : ""));
+          flash(reportBtn, "Report copied", "Copy report");
+        } catch (_e) {
+          flash(reportBtn, "Copy failed", "Copy report");
+        }
+      });
+    }
+    result.querySelector("[data-ats-reset]")?.addEventListener("click", resetChecker);
+    result.querySelector("[data-ats-add-jd]")?.addEventListener("click", () => {
+      (jdBlock || jdInput).scrollIntoView({ behavior: "smooth", block: "center" });
+      jdInput.focus({ preventScroll: true });
+    });
     if (resultPanel) resultPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function reportText(report, summary) {
+    const lines = [`ATS check · ${report.score}/100 · ${report.label}`, report.comments.overall, ""];
+    if (report.topFixes.length) {
+      lines.push("Fix these first:");
+      report.topFixes.forEach((f, i) => lines.push(`${i + 1}. ${f.title} - ${f.why}`));
+      lines.push("");
+    }
+    lines.push(`${report.jdMode ? "Matched keywords" : "Skills found"}: ${report.matched.join(", ") || "none"}`);
+    if (report.missing.length) lines.push(`${report.jdMode ? "Missing" : "Possible gaps"}: ${report.missing.join(", ")}`);
+    if (report.ranking.length) {
+      lines.push("", "Structure issues:");
+      report.ranking.forEach((r) => lines.push(`- ${r.title} (${r.severity}): ${r.evidence}`));
+    }
+    if (summary) lines.push("", "Suggested summary:", summary);
+    lines.push("", "Local estimate from infoparkdaily.online/ats-checker/, not an employer ATS.");
+    return lines.join("\n");
+  }
+
+  /* "Check another resume": clear the resume, keep any job description, back to the start. */
+  function resetChecker() {
+    resumeText = "";
+    if (pasteResume) pasteResume.value = "";
+    fileInput.value = "";
+    drop.classList.remove("is-ready");
+    if (fileHint) fileHint.textContent = "PDF, DOCX or TXT · 5MB";
+    setFieldError(resumeError, resumeBlock, "");
+    result.hidden = true;
+    result.innerHTML = "";
+    if (empty) empty.hidden = false;
+    document.querySelector(".ats-layout")?.classList.remove("is-scored");
+    document.body.classList.remove("ats-has-report");
+    syncEnabled();
+    (resumeBlock || drop).scrollIntoView({ behavior: "smooth", block: "start" });
+    drop.focus({ preventScroll: true });
   }
 
   const FIX_SECTIONS = {

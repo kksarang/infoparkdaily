@@ -3,7 +3,7 @@ import { esc } from "./helpers.mjs";
 import { pageShell, hubNav, hubRelated, crumbs, crumbsLd, ASSET_V, channelsRow, SITE } from "./shell.mjs";
 import { PATHS, CATEGORIES, pathBySlug } from "./learning-paths.mjs";
 
-const HUB_JS = `/js/interview-hub.js?v=${ASSET_V}`;
+const HUB_JS = `/js/interview-hub.js?v=20261108ui`;
 const PG_JS = `/js/code-playground.js?v=${ASSET_V}`;
 const base = [["InfoparkDaily", "/"], ["Interview hub", "/interview/"], ["Learning", "/interview/learning/"]];
 
@@ -154,8 +154,8 @@ export function learningHubPage(platforms, kerala) {
           </div>
           <div class="lh-fields" role="group" aria-label="Field">
             <button type="button" data-lp-fieldbtn="all" aria-pressed="true"><strong>All paths</strong><small>${PATHS.length} paths</small></button>
-            <button type="button" data-lp-fieldbtn="it" aria-pressed="false"><strong>💻 Technical / IT</strong><small>${it} paths</small></button>
-            <button type="button" data-lp-fieldbtn="nonit" aria-pressed="false"><strong>🧭 Non-IT careers</strong><small>${nonit} paths</small></button>
+            <button type="button" data-lp-fieldbtn="it" aria-pressed="false"><strong><svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4zM2 19h20"/></svg> Technical / IT</strong><small>${it} paths</small></button>
+            <button type="button" data-lp-fieldbtn="nonit" aria-pressed="false"><strong><svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg> Non-IT careers</strong><small>${nonit} paths</small></button>
             <a href="/interview/learning/live-code/" class="lh-live"><strong>▶ Live code</strong><small>Run &amp; check code</small></a>
           </div>
         </div>

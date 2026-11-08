@@ -1,0 +1,484 @@
+/* Career Tools design system.
+   Loaded LAST on Resume Builder, ATS checker, Interview prep, Learning and Portfolio so these
+   shared tokens and fixes win over the older per-page layers (blue theme, mixed gutters). */
+
+body.career-tools {
+  --cs-accent: #ffc107;
+  --cs-accent-soft: #fff4cc;
+  --cs-accent-ink: #7a5600; /* accent-coloured text that passes WCAG AA on cream/white */
+  --cs-ink: #171c24;
+  --cs-muted: #5f6670;
+  --cs-surface: #ffffff;
+  --cs-border: #e5e7dd;
+  --cs-border-strong: #d9ddd0;
+  --cs-success: #166534;
+  --cs-success-soft: #ecfdf3;
+  --cs-warning: #92400e;
+  --cs-warning-soft: #fff7e6;
+  --cs-danger: #b42318;
+  --cs-danger-soft: #fef3f2;
+  --cs-radius-sm: 8px;
+  --cs-radius: 12px;
+  --cs-radius-lg: 16px;
+  --cs-radius-xl: 24px;
+  --cs-btn-h: 46px;
+  /* One content column for every section: 1172px max, 20px gutter (16px on phones). */
+  --cs-col: min(1172px, calc(100% - 40px));
+}
+@media (max-width: 640px) {
+  body.career-tools {
+    --cs-col: calc(100% - 32px);
+  }
+}
+
+/* ---------- Focus: one ring everywhere ----------
+   A single 2px ink outline with a 2px gap. (Yellow on white is under 3:1, so the accent is not
+   used for the ring itself.) Replaces the old blue outline + green/blue box-shadow pairs. */
+body.career-tools :is(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--cs-ink) !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+body.career-tools :is(input, textarea, select):focus {
+  border-color: var(--cs-ink) !important;
+  box-shadow: none !important;
+}
+body.career-tools :is(input, textarea, select):focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.career-tools *,
+  body.career-tools *::before,
+  body.career-tools *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- ATS checker ---------- */
+
+/* "What this checker looks for" and the closing band lost their side padding to .ct-band. */
+body.career-tools-ats .ats-tips,
+body.career-tools-ats .ats-split-wrap {
+  width: var(--cs-col);
+  max-width: none;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+
+/* Off-palette blues → brand tokens */
+body.career-tools-ats .ats-paste-details[open] summary {
+  color: var(--cs-ink);
+}
+body.career-tools-ats .ats-paste-details summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+body.career-tools-ats .ats-tips .ct-how span {
+  color: var(--cs-accent-ink);
+  font-weight: 700;
+}
+
+body.career-tools-ats .ats-check:hover:not(:disabled) {
+  background: #e6ad00;
+  color: var(--cs-ink);
+}
+
+/* Disabled button explains itself */
+.ats-check-wrap {
+  display: grid;
+  gap: 0.45rem;
+}
+body.career-tools-ats .ats-check:disabled {
+  background: #e9eae3;
+  color: var(--cs-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.ats-check-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--cs-muted);
+  text-align: center;
+}
+.ats-check-hint.is-ready {
+  color: var(--cs-success);
+}
+
+/* Report */
+body.career-tools-ats .ats-report--ok .ats-report-score {
+  background: var(--cs-accent-soft);
+  color: var(--cs-ink);
+}
+body.career-tools-ats .ats-report-score {
+  width: auto;
+  min-width: 104px;
+  height: auto;
+  min-height: 92px;
+  padding: 10px 12px;
+}
+body.career-tools-ats .ats-report-score em {
+  display: block;
+  margin-top: 6px;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--cs-warning);
+}
+body.career-tools-ats .ats-report-fixes li > span {
+  background: var(--cs-accent-soft);
+  color: var(--cs-ink);
+}
+.ats-fix-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ats-fix-title .ats-sev {
+  font-style: normal;
+}
+.ats-insight-actions {
+  display: inline-flex;
+  gap: 6px;
+}
+.ats-summary-note {
+  margin: 8px 0 0;
+}
+.ats-report-jdcta p {
+  margin: 0 0 12px;
+  color: var(--cs-muted);
+}
+
+/* Buttons used inside the report */
+.ats-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--cs-btn-h);
+  padding: 0 18px;
+  border-radius: var(--cs-radius);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.ats-btn--primary {
+  background: var(--cs-ink);
+  color: #fff;
+}
+.ats-btn--secondary {
+  background: var(--cs-surface);
+  color: var(--cs-ink);
+  border-color: var(--cs-border-strong);
+}
+.ats-btn--secondary:hover {
+  border-color: var(--cs-ink);
+}
+.ats-btn--tertiary {
+  background: transparent;
+  color: var(--cs-ink);
+  padding-inline: 6px;
+}
+.ats-btn--tertiary:hover {
+  text-decoration: underline;
+}
+
+/* Action bar stays at the bottom of the screen while the report is in view */
+.ats-report-actions {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(23, 28, 36, 0.08);
+}
+@media (max-width: 520px) {
+  .ats-report-actions .ats-btn {
+    flex: 1 1 100%;
+  }
+}
+
+/* ---------- Learning: lesson results under the search box ---------- */
+.ln-results {
+  margin-top: 10px;
+  padding: 12px;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  background: var(--cs-surface);
+  color: var(--cs-ink);
+  box-shadow: 0 12px 30px rgba(23, 28, 36, 0.12);
+  text-align: left;
+}
+.ln-results-count {
+  margin: 2px 4px 8px;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--cs-muted);
+}
+.ln-results ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+.ln-results li a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  align-items: baseline;
+  min-height: 44px;
+  padding: 8px 10px;
+  border-radius: var(--cs-radius-sm);
+  color: var(--cs-ink);
+  text-decoration: none;
+}
+.ln-results li a:hover {
+  background: #f6f6f1;
+}
+.ln-results-track {
+  grid-row: span 2;
+  align-self: start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--ln-c, var(--cs-border-strong));
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.ln-results li strong {
+  font-size: 0.95rem;
+}
+.ln-results li small {
+  grid-column: 2;
+  color: var(--cs-muted);
+  font-size: 0.8rem;
+}
+.ln-results-more {
+  display: inline-block;
+  margin: 8px 6px 2px;
+  font-size: 0.85rem;
+  font-weight: 650;
+  color: var(--cs-ink);
+}
+.ln-results {
+  max-width: 620px;
+  margin-inline: auto;
+}
+/* The search box already shows focus with its yellow frame; no second ring on the input. */
+body.career-tools .lh-search input:focus,
+body.career-tools .lh-search input:focus-visible {
+  outline: none !important;
+  border: 0 !important;
+}
+
+/* ---------- Portfolio: personalisation demo is a framed preview, not a scroll trap ---------- */
+.personalise-shot {
+  position: relative;
+  height: 38rem;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius-lg);
+  background: var(--cs-surface);
+}
+.personalise-shot::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 5rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), #fff);
+  pointer-events: none;
+}
+body.career-tools .personalisation .personalise-shot iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  pointer-events: none; /* the page keeps the mouse wheel; use "Open the full demo" to interact */
+}
+.personalise-open {
+  margin: 1rem 0 0;
+}
+@media (max-width: 900px) {
+  .personalise-shot {
+    height: 28rem;
+  }
+}
+
+/* ---------- Interview prep ---------- */
+/* The hub tabs link to separate pages, not page sections. Sticky, they looked like a broken
+   scroll-spy and stacked ~130px of chrome on phones; now they scroll away with the page. */
+body.career-tools .hub-tabs {
+  position: static;
+  top: auto;
+}
+/* Card descriptions show in full (no "…" mid-sentence). */
+body.career-tools .ez-tile-body > span,
+body.career-tools .hub-mini-body > span:not(.hub-mini-num),
+body.career-tools .rel-text {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+/* One card style for every step; step 1 is marked by its border + yellow button only. */
+body.career-tools .pc:first-child {
+  box-shadow: none;
+}
+
+/* Line icons in place of emoji (Career paths headings). */
+.cs-ico {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.18em;
+  margin-right: 0.3em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Badges only when they differentiate ---------- */
+/* Every card in "Featured designs" said FEATURED; every home template said NEW · STUDIO. */
+body.career-tools .featured-block .editorial-tag,
+body.rh-page .studio-tag {
+  display: none;
+}
+
+/* ---------- Enitexa promo button → brand accent ---------- */
+body.career-tools .enitexa-promo-actions .enitexa-promo-primary {
+  background: var(--cs-accent);
+  color: var(--cs-ink);
+}
+body.career-tools .enitexa-promo-actions .enitexa-promo-primary:hover {
+  background: #e6ad00;
+  color: var(--cs-ink);
+}
+
+/* ---------- Learning ---------- */
+/* Coming-soon cards: solid border, colour strip clipped to the card's own corners. */
+body.career-tools .ln-planned {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  border-radius: var(--cs-radius);
+  padding-top: 20px;
+}
+body.career-tools .ln-planned::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--ln-c);
+}
+body.career-tools .ln-planned em {
+  color: var(--cs-accent-ink);
+}
+/* Scrolling tab strips fade at the edge that has more tabs, so a cut-off label reads as "scroll". */
+body.career-tools [data-cs-scroll].cs-more-right {
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+}
+body.career-tools [data-cs-scroll].cs-more-left {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px);
+  mask-image: linear-gradient(90deg, transparent, #000 48px);
+}
+body.career-tools [data-cs-scroll].cs-more-left.cs-more-right {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 48px, #000 calc(100% - 48px), transparent);
+}
+
+/* ---------- Resume Builder: rounded bands never touch the screen edge ---------- */
+@media (max-width: 1220px) {
+  body.rh-page .rh-wrap.rh-ats,
+  body.rh-page .rh-wrap.rh-portfolio,
+  body.rh-page .rh-wrap.rh-final {
+    width: var(--cs-col);
+    margin-inline: auto;
+  }
+}
+
+/* Footer links stay on one line ("Resume builder", not "Resume / builder"); the row wraps instead. */
+body.career-tools footer a {
+  white-space: nowrap;
+}
+
+/* ---------- Portfolio cards ---------- */
+/* Hearts: one solid style on every image (was translucent, so grey or white by thumbnail). */
+body.career-tools .template-card .favourite {
+  width: 44px;
+  height: 44px;
+  background: #fff;
+  border: 1px solid var(--cs-border);
+  box-shadow: 0 2px 8px rgba(23, 28, 36, 0.12);
+  backdrop-filter: none;
+  color: var(--cs-ink);
+}
+body.career-tools .template-card .favourite[aria-pressed="true"] {
+  color: #c2410c;
+}
+/* "Preview Website" is a real secondary button, "Choose Template" the primary. */
+body.career-tools .template-card .card-actions {
+  gap: 8px;
+  font-size: 0.8rem;
+}
+body.career-tools .template-card .card-actions a {
+  flex: 1 1 0;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 12px;
+  border-radius: var(--cs-radius);
+  border: 1px solid var(--cs-border-strong);
+  background: var(--cs-surface);
+  color: var(--cs-ink);
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+}
+body.career-tools .template-card .card-actions a:hover {
+  border-color: var(--cs-ink);
+}
+body.career-tools .template-card .card-actions .card-choose {
+  background: var(--cs-ink);
+  border-color: var(--cs-ink);
+  color: #fff;
+}
+/* Price is stated once (hero + plans), not repeated on each featured card. */
+body.career-tools .featured-block .card-prices {
+  display: none;
+}
+
+/* ---------- Mobile: full-width hero buttons on every tool page ---------- */
+@media (max-width: 640px) {
+  body.career-tools .hero-actions .button,
+  body.career-tools .ct-cta .button {
+    flex: 1 1 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  /* ATS: the upload card comes into the first screen — drop the decorative scan art and pills. */
+  body.career-tools-ats .ats-hero-art,
+  body.career-tools-ats .ats-hero .ct-pills {
+    display: none;
+  }
+  body.career-tools-ats .ats-hero .ct-stage-inner {
+    padding-block: 24px 8px;
+  }
+}

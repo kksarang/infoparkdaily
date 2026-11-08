@@ -53,9 +53,9 @@
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/ats-checker.css?v=20261102tools" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20261020tips" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261108ui" />
     <link rel="stylesheet" href="/css/career-home.css?v=20260920r" />
-    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+    <script defer src="/js/career-nav.js?v=20261108ui"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -69,6 +69,7 @@
       }
     </script>
       <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+      <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
 </head>
   <body class="career-tools career-tools-ats light">
     <a class="skip" href="#ats-tool">Skip to ATS checker</a>
@@ -199,7 +200,10 @@
 
             <div class="ats-actions">
               <p class="ats-secure">Stays in this browser · not Naukri, Zoho Recruit or the employer’s ATS.</p>
-              <button id="ats-check" class="ats-check" type="button">Check resume</button>
+              <div class="ats-check-wrap">
+                <button id="ats-check" class="ats-check" type="button" aria-describedby="ats-check-hint">Check resume</button>
+                <p id="ats-check-hint" class="ats-check-hint" aria-live="polite">Add a resume to continue. Upload a file or paste a few lines.</p>
+              </div>
             </div>
           </aside>
 
@@ -303,7 +307,7 @@
         <a href="/contact/">Contact</a>
       </div>
     </footer>
-    <script src="/js/ats-checker.js?v=20261102tools" defer></script>
+    <script src="/js/ats-checker.js?v=20261108ui" defer></script>
       <script src="/js/site.js?v=20261102chk5" defer></script>
   </body>
 </html>

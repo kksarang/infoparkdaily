@@ -29,11 +29,14 @@
       const total = Number(el.dataset.total) || 0;
       const done = Object.keys(progress).filter((k) => progress[k] && k.startsWith(track + "/")).length;
       totals[track] = { done, total };
-      el.textContent = done ? `${Math.min(done, total)} of ${total} complete` : el.tagName === "SMALL" ? "" : "Not started";
+      /* First-time visitors see no "Not started" / empty bars; progress appears once they start. */
+      el.textContent = done ? `${Math.min(done, total)} of ${total} complete` : "";
+      el.hidden = !done;
     });
     document.querySelectorAll("[data-ln-bar]").forEach((bar) => {
       const t = totals[bar.dataset.lnBar];
       bar.style.width = t && t.total ? `${Math.round((Math.min(t.done, t.total) / t.total) * 100)}%` : "0%";
+      if (bar.parentElement) bar.parentElement.hidden = !(t && t.done);
     });
     /* "Continue" buttons → first lesson not yet complete on this page's lesson list. */
     document.querySelectorAll("[data-ln-continue]").forEach((btn) => {
@@ -374,6 +377,74 @@
     });
     const empty = document.querySelector("[data-ln-empty]");
     if (empty) empty.hidden = shownCards > 0 || !!q && !!document.querySelector(".ln-panel-list li:not([hidden])");
+    renderResults(q);
+  }
+
+  /* Lesson-level results right under the search box, so typing "join" shows the JOINs lesson
+     immediately instead of only filtering tutorial cards further down the page. */
+  const lessonIndex = [...document.querySelectorAll(".ln-panel")].flatMap((panel) => {
+    const track = ((panel.querySelector(".ln-panel-head h3") || {}).textContent || "").split(" — ")[0].trim();
+    const color = panel.style.getPropertyValue("--ln-c");
+    return [...panel.querySelectorAll(".ln-panel-list li[data-search]")].map((li) => {
+      const a = li.querySelector("a");
+      return {
+        track,
+        color,
+        href: a ? a.getAttribute("href") : "#",
+        title: ((li.querySelector("strong") || {}).textContent || "").trim(),
+        desc: ((li.querySelector("small") || {}).textContent || "").trim(),
+        hay: li.dataset.search
+      };
+    });
+  });
+  let results = null;
+  if (search && lessonIndex.length) {
+    results = document.createElement("div");
+    results.className = "ln-results";
+    results.id = "ln-results";
+    results.setAttribute("role", "region");
+    results.setAttribute("aria-label", "Matching lessons");
+    results.hidden = true;
+    (search.closest("label") || search).insertAdjacentElement("afterend", results);
+    search.setAttribute("aria-controls", "ln-results");
+  }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  function renderResults(q) {
+    if (!results) return;
+    if (!q) {
+      results.hidden = true;
+      results.innerHTML = "";
+      return;
+    }
+    const hits = lessonIndex
+      .filter((l) => l.hay.includes(q))
+      .sort((a, b) => Number(b.title.toLowerCase().includes(q)) - Number(a.title.toLowerCase().includes(q)));
+    const shown = hits.slice(0, 6);
+    results.hidden = false;
+    results.innerHTML = hits.length
+      ? `<p class="ln-results-count" role="status">${hits.length} lesson${hits.length > 1 ? "s match" : " matches"} “${esc(q)}”</p>
+         <ol>${shown
+           .map(
+             (l) =>
+               `<li><a href="${esc(l.href)}"><span class="ln-results-track" style="--ln-c:${esc(l.color)}">${esc(l.track)}</span><strong>${esc(l.title)}</strong><small>${esc(l.desc)}</small></a></li>`
+           )
+           .join("")}</ol>
+         ${hits.length > shown.length ? `<a class="ln-results-more" href="#ln-all">See all ${hits.length} in the curriculum ↓</a>` : ""}`
+      : `<p class="ln-results-count" role="status">No lessons match “${esc(q)}”. Try another word, like “loops” or “joins”.</p>`;
+  }
+  if (search) {
+    search.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const first = results && results.querySelector("li a");
+        if (first) {
+          e.preventDefault();
+          location.assign(first.getAttribute("href"));
+        }
+      } else if (e.key === "Escape" && search.value) {
+        search.value = "";
+        applyHub();
+      }
+    });
   }
   filterBtns.forEach((b) =>
     b.addEventListener("click", () => {

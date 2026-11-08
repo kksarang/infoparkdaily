@@ -271,12 +271,13 @@ export const pageShell = ({ title, description, path, ogTitle, ogDescription, og
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261013header" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261108ui" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${ASSET_V}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${ASSET_V}" />
     ${extraCss.map((c) => `<link rel="stylesheet" href="${c}" />`).join("\n    ")}
-    <script defer src="/js/career-nav.js?v=20261104ui"></script>
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <script defer src="/js/career-nav.js?v=20261108ui"></script>
   </head>
   <body class="career-tools ij-page hub-page ${bodyClass} light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>

@@ -145,3 +145,21 @@
       })
       .catch(() => {});
   }
+
+/* Horizontal tab strips (Learning tutorials, Interview hub tabs, curriculum tabs): mark which
+   side has hidden tabs so CSS can fade that edge. Updates on scroll and resize. */
+(function () {
+  const strips = document.querySelectorAll(".ln-trackbar-track, .hub-tabs-track, .ln-tabs");
+  if (!strips.length) return;
+  const update = (el) => {
+    const max = el.scrollWidth - el.clientWidth;
+    el.classList.toggle("cs-more-left", max > 2 && el.scrollLeft > 2);
+    el.classList.toggle("cs-more-right", max > 2 && el.scrollLeft < max - 2);
+  };
+  strips.forEach((el) => {
+    el.setAttribute("data-cs-scroll", "");
+    update(el);
+    el.addEventListener("scroll", () => update(el), { passive: true });
+  });
+  window.addEventListener("resize", () => strips.forEach(update), { passive: true });
+})();

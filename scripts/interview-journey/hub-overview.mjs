@@ -367,6 +367,6 @@ ${channelsRow("dark")}
     },
     bodyClass: "hub-overview ac-page",
     main,
-    scripts: [`/js/interview-hub.js?v=${ASSET_V}`]
+    scripts: [`/js/interview-hub.js?v=20261108ui`]
   });
 }

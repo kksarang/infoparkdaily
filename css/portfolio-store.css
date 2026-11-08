@@ -703,7 +703,9 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
   .includes-layout{gap:2rem}
 }
 
-@media(max-width:900px){
+.store-signin{white-space:nowrap;flex:0 0 auto}
+/* Header collapses to the menu before 7 links + Sign in clip (matches career-nav.css). */
+@media(max-width:1180px){
   .store-header>.width{flex-wrap:wrap;min-height:auto;padding-block:.7rem;gap:.65rem}
   .store-header nav{
     width:100%;flex-wrap:wrap;order:3;gap:.65rem 1.15rem;
@@ -712,9 +714,11 @@ dialog .owned-domain{display:flex!important;gap:.6rem;align-items:center}
   .store-header.menu-ready nav{display:none}
   .store-header.menu-open nav{display:flex}
   #store-menu{
-    display:block;border:1px solid var(--line-strong);padding:.55rem .8rem;
-    border-radius:.55rem;font-size:.78rem;min-height:2.5rem;font-weight:650;background:var(--white);
+    display:inline-flex;margin-left:auto;
   }
+}
+
+@media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:1.5rem}
   .hero-shot{grid-template-columns:1.4fr .65fr}
   .section{padding-block:2.75rem}

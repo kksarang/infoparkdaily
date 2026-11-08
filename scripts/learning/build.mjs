@@ -23,7 +23,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, PY_TRACK, SQL_TRACK, GIT_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261104hub3b";
+const V = "20261108ui";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -211,7 +211,7 @@ ${trackBar("")}
       <section class="ez-section" aria-labelledby="ln-paths">
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Career paths</p><h2 id="ln-paths">Step-by-step roadmaps for ${PATHS.length} careers</h2><p>Each path has modules, free resources, certifications and projects.</p></div>
-          <div class="ln-paths-grid">${careerCol("it", "💻 Technical / IT")}${careerCol("nonit", "🧭 Non-IT careers")}
+          <div class="ln-paths-grid">${careerCol("it", `<svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4zM2 19h20"/></svg> Technical / IT`)}${careerCol("nonit", `<svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg> Non-IT careers`)}
           </div>
         </div>
       </section>

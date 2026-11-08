@@ -266,7 +266,7 @@ if(fullPreview){
     report('Preview could not load. Use Open website to view the demo.');
   });
 }
-$$('[data-personalise]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.personalise;$('#personalise-frame').src='/portfolio/demo/flutter-studio/'+(mode==='alternate'?'?personalise=alternate':'');$$('[data-personalise]').forEach(b=>{b.setAttribute('aria-pressed',String(b===button));b.classList.toggle('active',b===button);});}));
+$$('[data-personalise]').forEach(button=>button.addEventListener('click',()=>{const mode=button.dataset.personalise;const demoUrl='/portfolio/demo/flutter-studio/'+(mode==='alternate'?'?personalise=alternate':'');$('#personalise-frame').src=demoUrl;const openDemo=$('.personalise-open a');if(openDemo)openDemo.href=demoUrl;$$('[data-personalise]').forEach(b=>{b.setAttribute('aria-pressed',String(b===button));b.classList.toggle('active',b===button);});}));
 
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const nextParam=new URLSearchParams(location.search).get('next')||'';

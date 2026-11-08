@@ -142,7 +142,13 @@
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const y = window.scrollY;
     if (readbar) readbar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, y / max) : 0) + ")";
-    if (topBtn) topBtn.hidden = y < 1200;
+    if (topBtn) {
+      topBtn.hidden = y < 1200;
+      /* Lift the button above the footer so it never sits on the footer links. */
+      const foot = document.querySelector("body > footer, .ij-footer, footer.footer");
+      const overlap = foot ? window.innerHeight - foot.getBoundingClientRect().top : 0;
+      topBtn.style.bottom = overlap > 0 ? overlap + 18 + "px" : "";
+    }
   }
   window.addEventListener(
     "scroll",

@@ -2,7 +2,7 @@
 import { esc, ul, ol, tip, warn, fact, table, copy, cards, ext } from "./helpers.mjs";
 import { pageShell, hubNav, hubRelated, crumbs, crumbsLd, ILLUS, HUB, ASSET_V } from "./shell.mjs";
 
-const HUB_JS = `/js/interview-hub.js?v=${ASSET_V}`;
+const HUB_JS = `/js/interview-hub.js?v=20261108ui`;
 const hubCrumb = [["InfoparkDaily", "/"], ["Interview hub", "/interview/"]];
 
 const detailHero = (key, items, badge, h1a, h1b, lede, extra = "") => `
