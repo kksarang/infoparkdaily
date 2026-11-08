@@ -730,7 +730,7 @@ ${footer()}
       })),
     ).replace(/</g, "\\u003c")};</script>
     <script src="/js/interview-journey.js?v=${VERSION}" defer></script>
-    <script src="/js/site.js?v=20261102chk5" defer></script>
+    <script src="/js/site.js?v=20261108sw" defer></script>
   </body>
 </html>
 `;
