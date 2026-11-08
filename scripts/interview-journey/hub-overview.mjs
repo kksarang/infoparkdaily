@@ -26,7 +26,7 @@ const COURSES = [
     cat: "Core programme",
     tone: "ink",
     title: "Interview Preparation",
-    text: "The complete hiring journey — from finding jobs to joining day — for freshers and experienced professionals.",
+    text: "Every step of getting hired, explained simply — finding jobs, each interview round, salary talks, the offer and your first day.",
     points: ["Fresher & experienced tracks", "HR, technical and managerial rounds", "Salary, offer and joining"],
     meta: [[I.book, "17 chapters"], [I.clock, "3.5 hrs"], [I.level, "All levels"]],
     progress: "journey",
@@ -41,7 +41,7 @@ const COURSES = [
     cat: "Practice lab",
     tone: "yellow",
     title: "Interview Questions & Answers",
-    text: "Frequently asked HR, technical and role-based questions with sample answers you can adapt.",
+    text: "Common HR, technical and job-specific questions, each with a sample answer you can change to fit you.",
     points: ["HR & managerial questions", "21 IT subjects", "21 non-IT career fields"],
     meta: [[I.book, "354 questions"], [I.level, "44 subjects"], [I.clock, "Self-paced"]],
     progress: "questions",
@@ -56,7 +56,7 @@ const COURSES = [
     cat: "Skills",
     tone: "soft",
     title: "Learning & Skill Development",
-    text: "31 learning paths for IT and non-IT careers, free courses, certifications and live code practice.",
+    text: "Learn the skills jobs ask for — 31 learning paths for IT and non-IT careers, free courses and coding practice in your browser.",
     points: ["31 learning paths (IT & non-IT)", "Live code with answer checking", "Free courses & certifications"],
     meta: [[I.book, "31 learning paths"], [I.clock, "Self-paced"], [I.level, "All levels"]],
     cta: "Explore skills"
@@ -68,7 +68,7 @@ const COURSES = [
     cat: "Communication",
     tone: "ink",
     title: "Professional Email Guide",
-    text: "When to send each email, subject lines, samples to copy, and the dos and don’ts recruiters notice.",
+    text: "Ready-to-copy emails for applying, following up, accepting an offer and more — with subject lines and simple dos and don’ts.",
     points: ["Application & resume emails", "Follow-up & confirmation", "Thank-you & offer emails"],
     meta: [[I.book, "11 templates"], [I.clock, "20 min"], [I.level, "All levels"]],
     cta: "Open guide"
@@ -80,7 +80,7 @@ const COURSES = [
     cat: "Applications",
     tone: "cream",
     title: "Resume & ATS Preparation",
-    text: "Structure a strong resume, understand ATS screening, fix common mistakes and optimise for each job.",
+    text: "How to write a resume that both recruiters and resume-sorting software (ATS) can read — plus free tools to build and check it.",
     points: ["Resume structure & bullets", "How ATS reads resumes", "Free builder & ATS checker"],
     meta: [[I.book, "5 modules"], [I.clock, "25 min"], [I.level, "All levels"]],
     cta: "Open guide",
@@ -119,29 +119,29 @@ const PATH = [
 const PLANS = {
   fresher: {
     label: "Fresher / student plan",
-    intro: "No experience yet? That’s fine. Follow these steps in order — most freshers get interview-ready in 2–4 weeks.",
+    intro: "No work experience yet? That’s fine — projects, internships and college work all count. Do these steps in order. Most take less than an hour; doing a little each day, you can finish them in 2–4 weeks.",
     steps: [
-      ["Make your first resume", "Use a simple one-page template. Put projects, internships and skills first — you don’t need work experience.", "30 min", "/resume-builder/templates/", "Build my resume", "resume"],
-      ["Check it against a job", "Paste a job description and see which keywords are missing. Fix them honestly.", "10 min", "/ats-checker/", "Check my resume", "ats"],
-      ["Find fresher jobs & walk-ins", "Look for Trainee, Associate, Junior and Intern roles. Walk-ins are great practice.", "15 min a day", "/jobs/?type=fresher", "See fresher jobs", "jobs"],
-      ["Send a proper application email", "Short subject, 5–6 lines, resume attached as PDF. Copy a template and change the details.", "10 min", "/interview/email-guide/#email-job-application", "Get email template", "email"],
-      ["Practise HR & aptitude questions", "Start with “Tell me about yourself”, then aptitude and basics of your subject.", "30 min a day", "/interview/questions/?level=fresher", "Practise fresher questions", "questions"],
-      ["Learn & try live code", "Fill skill gaps with free courses and practise code right in your browser.", "Ongoing", "/interview/learning/", "Start learning", "code"],
-      ["Prepare for each interview round", "Understand HR, test, technical and manager rounds — what they check and how to answer.", "2–3 hrs", "/interview/preparation/", "Open the guide", "interview"],
-      ["Got an offer? Check it first", "Understand CTC vs in-hand, bond, joining date and documents before you accept.", "20 min", "/interview/preparation/#ch-offer-stage", "Read offer tips", "offer"]
+      ["Make your first resume", "Pick a simple one-page template. Put your projects, internships and skills near the top — you don’t need work experience.", "30 min", "/resume-builder/templates/", "Build my resume", "resume"],
+      ["Check it against a job", "Many companies use software (an ATS) to sort resumes first. Paste a job post and see which skills it asks for that your resume doesn’t mention — add them only if you really have them.", "10 min", "/ats-checker/", "Check my resume", "ats"],
+      ["Find fresher jobs & walk-ins", "Look for jobs with Trainee, Associate, Junior or Intern in the title. Walk-in drives let you go straight to the interview with your resume — good practice even if you’re not selected.", "15 min a day", "/jobs/?type=fresher", "See fresher jobs", "jobs"],
+      ["Send a proper application email", "Write a clear subject line and 5–6 short lines, and attach your resume as a PDF. Copy our template and change the details to yours.", "10 min", "/interview/email-guide/#email-job-application", "Get email template", "email"],
+      ["Practise HR & aptitude questions", "Start with “Tell me about yourself”. Then practise aptitude (maths and logic questions) and the basics of your subject.", "30 min a day", "/interview/questions/?level=fresher", "Practise fresher questions", "questions"],
+      ["Learn & try live code", "Missing a skill that jobs ask for? Learn it free and practise code right in your browser — nothing to install.", "Ongoing", "/interview/learning/", "Start learning", "code"],
+      ["Prepare for each interview round", "Most companies have 3–4 rounds: an HR call, a test, a technical interview and a final HR or manager round. Learn what each one checks and how to answer.", "2–3 hrs", "/interview/preparation/", "Open the guide", "interview"],
+      ["Got an offer? Check it first", "Before you say yes, check the in-hand salary (what reaches your bank each month — not the yearly CTC), any bond or penalty, the joining date and the documents they need.", "20 min", "/interview/preparation/#ch-offer-stage", "Read offer tips", "offer"]
     ]
   },
   experienced: {
     label: "Experienced professional plan",
-    intro: "Switching jobs? Work through these steps while you’re still employed — start 2–3 months before you want to move.",
+    intro: "Planning a job change? Do these steps while you’re still working. Start 2–3 months before you want to move — most companies expect a notice period of 30 to 90 days.",
     steps: [
-      ["Update your resume with results", "Show achievements with numbers, not duties. Keep titles and dates exactly as in your letters.", "45 min", "/resume-builder/templates/", "Update my resume", "resume"],
-      ["Match it to the roles you want", "Check keywords against 2–3 target job descriptions.", "10 min per job", "/ats-checker/", "Check my resume", "ats"],
-      ["Find experienced roles & referrals", "Use the Experienced and Referral filters on InfoparkDaily Jobs, plus LinkedIn and Naukri.", "15 min a day", "/jobs/?type=experienced", "See experienced jobs", "jobs"],
-      ["Reach recruiters and referrers", "Send short referral requests and recruiter replies that get answered.", "15 min", "/interview/email-guide/#more-emails", "Get email templates", "email"],
-      ["Practise technical & managerial questions", "System questions, project stories and STAR answers for manager rounds.", "30 min a day", "/interview/questions/?level=experienced", "Practise experienced questions", "questions"],
-      ["Prepare salary & notice-period answers", "Know your current CTC, expected range, notice period and buyout options.", "30 min", "/interview/preparation/#ch-final-hr-round", "Salary & negotiation guide", "salary"],
-      ["Compare offers, then resign right", "Check the offer letter, accept in writing, then resign and hand over cleanly.", "30 min", "/interview/preparation/#ch-offer-stage", "Offer & resignation guide", "offer"]
+      ["Update your resume with results", "Show results with numbers (for example, “cut report time by 40%”), not just duties. Keep job titles and dates exactly as in your offer and relieving letters.", "45 min", "/resume-builder/templates/", "Update my resume", "resume"],
+      ["Match it to the roles you want", "Compare your resume with 2–3 job posts you want and add the skills they ask for that you really have.", "10 min per job", "/ats-checker/", "Check my resume", "ats"],
+      ["Find experienced roles & referrals", "On InfoparkDaily Jobs, use the Experienced and Referral filters. Also check LinkedIn, Naukri and company career pages.", "15 min a day", "/jobs/?type=experienced", "See experienced jobs", "jobs"],
+      ["Reach recruiters and referrers", "Ask former colleagues for referrals and reply to recruiters with short, clear messages. Copy our ready-made emails.", "15 min", "/interview/email-guide/#more-emails", "Get email templates", "email"],
+      ["Practise technical & managerial questions", "Practise explaining your projects, technical questions for your role, and STAR answers (Situation, Task, Action, Result) for manager rounds.", "30 min a day", "/interview/questions/?level=experienced", "Practise experienced questions", "questions"],
+      ["Prepare salary & notice-period answers", "Know your current CTC (total yearly pay), the range you expect, your notice period, and whether you can buy it out (pay to leave early).", "30 min", "/interview/preparation/#ch-final-hr-round", "Salary & negotiation guide", "salary"],
+      ["Compare offers, then resign right", "Read the offer letter fully and accept in writing — only then resign. Hand over your work properly and collect your relieving letter.", "30 min", "/interview/preparation/#ch-offer-stage", "Offer & resignation guide", "offer"]
     ]
   }
 };
@@ -171,6 +171,9 @@ const HELP = [
   ["I’m a fresher with no experience. Is this for me?", "Yes. Choose <strong>Fresher / student</strong> above. Every step is written for people applying for their first job — projects and internships count."],
   ["I don’t know which job to apply for.", "Start with <a href=\"/jobs/?type=fresher\">fresher jobs</a> or <a href=\"/jobs/?type=walkin\">walk-ins</a>, read a few job descriptions, and pick roles that match your degree and projects. The <a href=\"/interview/learning/\">Learning</a> page shows what each role needs."],
   ["I have an interview tomorrow. What should I do?", "Practise “Tell me about yourself” and the <a href=\"/interview/questions/#q-hr-round\">HR questions</a>, revise your resume line by line, and read the <a href=\"/interview/preparation/#ch-initial-interview\">HR call</a> and <a href=\"/interview/preparation/#ch-technical-interview\">technical interview</a> chapters."],
+  ["What is an ATS, and why does it matter?", "An ATS (applicant tracking system) is software many companies use to collect and sort resumes before a person reads them. It reads the text of your resume, so use a simple layout and the same skill names the job post uses. <a href=\"/ats-checker/\">Check your resume free</a>."],
+  ["What do CTC and in-hand salary mean?", "CTC (cost to company) is everything the company spends on you in a year, including things like PF and insurance. In-hand is what actually reaches your bank each month after deductions, so it is always less than CTC divided by 12. Ask for the monthly in-hand amount before you accept. <a href=\"/guides/offer-letter-notice-period-guide/\">Read the offer letter guide</a>."],
+  ["How do I spot a fake job offer?", "Real companies never ask you to pay for an application, interview, training or joining kit. Be careful with offers that come without any interview, only through WhatsApp or a personal email, or that push you to decide quickly. <a href=\"/guides/verify-jobs-before-you-apply/\">How to check a job is real</a>."],
   ["Is everything free? Do I need to sign up?", "Everything here is free and works without signing up. Your progress is saved in your browser. Sign in only if you want to save resumes in the Resume Builder."],
   ["Is InfoparkDaily the company hiring me?", "No. InfoparkDaily lists openings from companies and public sources. Always apply through the method on the job listing, and never pay anyone for a job."]
 ];
@@ -229,7 +232,7 @@ export function overviewPage() {
           <div class="ez-hero-copy">
             <p class="ax-pill"><span>Free</span> InfoparkDaily career hub</p>
             <h1 id="hub-title"><small class="ez-h1-kw">Interview preparation for Kerala IT jobs</small> Prepare. Learn. Improve. <span>Get hired.</span></h1>
-            <p class="ax-lede">A simple step-by-step plan to get your next job — from your resume to your offer letter. Tell us where you are, and we’ll show you what to do next.</p>
+            <p class="ax-lede">Free guides, practice questions and tools to help you get a job — from your first resume to your offer letter. Choose who you are below and you’ll get a simple plan to follow, one step at a time. No sign-up needed.</p>
           </div>
           <div class="ez-choose" role="group" aria-labelledby="ez-q">
             <p class="ez-q" id="ez-q">Who are you?</p>
@@ -276,7 +279,7 @@ ${hubNav("overview")}
           <div class="ez-head">
             <p class="ax-eyebrow">All resources</p>
             <h2 id="courses-title">Or explore everything</h2>
-            <p>Every guide and tool, in one place.</p>
+            <p>Every free guide and tool, in one place. Open them in any order.</p>
           </div>
           <div class="ez-tiles">${COURSES.map(tile).join("")}</div>
         </div>
@@ -295,6 +298,8 @@ ${hubNav("overview")}
                 <li><a href="/jobs/?type=experienced">Experienced jobs</a></li>
                 <li><a href="/jobs/?type=walkin">Walk-in interviews</a></li>
                 <li><a href="/jobs/?type=nonit">Non-IT jobs</a></li>
+                <li><a href="/jobs/?type=internship">Internships</a></li>
+                <li><a href="/jobs/?type=referral">Referral jobs</a></li>
                 <li><a href="/join/">Job alerts</a></li>
               </ul>
               <div class="ac-hero-cta"><a class="ac-btn ac-btn--yellow" href="/jobs/">Explore jobs → infoparkdaily.online/jobs</a></div>
@@ -308,7 +313,7 @@ ${channelsRow("dark")}
                   ["LinkedIn Jobs", "https://www.linkedin.com/jobs/"],
                   ["Naukri", "https://www.naukri.com/"],
                   ["Indeed", "https://in.indeed.com/"],
-                  ["Company career pages", "https://www.google.com/search?q=company+careers"],
+                  ["Search company career pages", "https://www.google.com/search?q=company+careers"],
                   ["Infopark job board", "https://infopark.in/companies-job"],
                   ["Technopark job search", "https://technopark.in/job-search"],
                   ["Cyberpark careers", "https://cyberparks.in/careers/"],
@@ -317,6 +322,7 @@ ${channelsRow("dark")}
                   .map(([n, u]) => `<li><a href="${u}" target="_blank" rel="noopener noreferrer">${n} <span aria-hidden="true">↗</span></a></li>`)
                   .join("")}
               </ul>
+              <p>Never pay anyone for a job, interview or training. <a href="/guides/verify-jobs-before-you-apply/">How to check a job is real →</a></p>
             </div>
           </div>
         </div>
