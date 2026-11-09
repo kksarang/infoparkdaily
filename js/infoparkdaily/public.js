@@ -30,8 +30,25 @@ import {
   dialog,
   toast,
 } from "./ui.js";
+/* The companies with the most open roles on the board right now (real listings data). */
+function topCompanies(jobs, n = 12) {
+  const clean = (s) =>
+    String(s || "")
+      .replace(/\b(private|pvt\.?|ltd\.?|limited|llp|inc\.?|\(p\))\b\.?/gi, "")
+      .replace(/[.,]+\s*$/, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  const counts = new Map();
+  for (const j of jobs) {
+    const name = clean(j.company);
+    if (!name || name.length < 2) continue;
+    counts.set(name, (counts.get(name) || 0) + 1);
+  }
+  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, n);
+}
 export function home(state) {
   const companies = new Set(state.jobs.map((j) => j.company)).size;
+  const hiring = topCompanies(state.jobs);
   const WA = "https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22";
   const IG = "https://www.instagram.com/infoparkdaily.jobs/";
   const faq = [
@@ -77,9 +94,13 @@ export function home(state) {
         <ol class="rx-flow"><li class="on"><i></i>Submitted</li><li class="on"><i></i>Verified</li><li class="on"><i></i>Live on /jobs/</li></ol>
       </div>
       <div class="rx-card rx-card--stats">
-        <p class="rx-k">This week</p>
-        <div class="rx-bars"><span style="--h:40%"></span><span style="--h:62%"></span><span style="--h:48%"></span><span style="--h:80%"></span><span style="--h:66%"></span><span style="--h:92%"></span><span style="--h:74%"></span></div>
-        <p class="rx-big"><strong>128</strong> candidate views</p>
+        <p class="rx-k">Your post appears on</p>
+        <ul class="rx-reachlist">
+          <li>${icon("briefcase")}<span>InfoparkDaily jobs board</span></li>
+          <li>${icon("pin")}<span>Park pages · Kochi, TVM, Kozhikode</span></li>
+          <li>${icon("chat")}<span>WhatsApp job channel</span></li>
+          <li>${icon("star")}<span>Instagram job posts</span></li>
+        </ul>
       </div>
       <div class="rx-card rx-card--toast"><span>${icon("check")}</span><div><strong>Approved by InfoparkDaily</strong><small>Your post is now live</small></div></div>
       <div class="rx-card rx-card--reach"><span>${icon("bell")}</span><div><strong>Shared to job alerts</strong><small>WhatsApp · Instagram</small></div></div>
@@ -92,6 +113,13 @@ export function home(state) {
     <div><strong>3</strong><span>IT parks · Kochi, TVM, Kozhikode</span></div>
   </div></div>
 </section>
+${
+  hiring.length
+    ? `<section class="rx-hiring" aria-labelledby="rx-hiring-title"><div class="container"><p class="rx-hiring-k" id="rx-hiring-title">Companies with open roles on the board right now</p><ul class="rx-hiring-list">${hiring
+        .map(([name, n]) => `<li><a href="/jobs/?company=${encodeURIComponent(name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""))}">${esc(name)}<span>${n} open</span></a></li>`)
+        .join("")}</ul></div></section>`
+    : ""
+}
 
 <section class="rx-section" id="two-ways">
   <div class="container">

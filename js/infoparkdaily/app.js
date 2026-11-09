@@ -1,4 +1,5 @@
 import { curatedJobs } from "./model.js";
+import { bindSiteHeader } from "../site-header.js";
 import {
   header,
   footer,
@@ -62,27 +63,10 @@ if (route === "workers") {
   else if (route === "contact") main.innerHTML = contact();
   else main.innerHTML = loading();
 
-  const menu = document.querySelector("#market-nav"),
-    toggle = document.querySelector("#market-menu-toggle");
-  function setMenu(open) {
-    menu.classList.toggle("open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-    toggle.innerHTML = icon(open ? "close" : "menu");
-  }
-  toggle.onclick = (e) => {
-    e.stopPropagation();
-    setMenu(!menu.classList.contains("open"));
-  };
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && menu.classList.contains("open")) {
-      setMenu(false);
-      toggle.focus();
-    }
-  });
-  document.addEventListener("click", (e) => {
-    if (!e.target.closest(".market-header")) setMenu(false);
-  });
+  /* Recruit is light-only: the shared header uses its light look here. */
+  document.body.classList.add("has-site-header", "light");
+  document.documentElement.classList.add("theme-light");
+  bindSiteHeader();
   document.addEventListener("click", (e) => {
     const target = e.target.closest("button");
     if (!target) return;

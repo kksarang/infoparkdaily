@@ -1,5 +1,6 @@
 /* Shared chrome for the Interview & Career Hub (/interview/) and Interview Journey pages. */
 import { esc } from "./helpers.mjs";
+import { applySiteHeader } from "../apply-site-header.mjs";
 
 export const SITE = "https://infoparkdaily.online";
 export const ASSET_V = "20261104hub";
@@ -109,7 +110,8 @@ export const storeNav = () => `
           <span id="account-nav"><a class="store-signin" href="/resume-builder/sign-in/?next=%2Finterview%2F">Sign in</a></span>
         </nav>`;
 
-export const header = () => `
+/* The home header's design with the Career Tools menu. */
+export const header = () => applySiteHeader(`
     <header class="store-header career-store-header">
       <div class="width">
         <a class="store-brand" href="/" aria-label="Infopark Daily home">
@@ -120,7 +122,7 @@ export const header = () => `
           <span class="store-menu-bars" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>${storeNav()}
       </div>
-    </header>`;
+    </header>`);
 
 export const footer = () => `
     <footer class="footer rb-width">
@@ -271,13 +273,13 @@ export const pageShell = ({ title, description, path, ogTitle, ogDescription, og
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261108ui" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109sec" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${ASSET_V}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${ASSET_V}" />
     ${extraCss.map((c) => `<link rel="stylesheet" href="${c}" />`).join("\n    ")}
     <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
-    <script defer src="/js/career-nav.js?v=20261108ui"></script>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
   </head>
   <body class="career-tools ij-page hub-page ${bodyClass} light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>

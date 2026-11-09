@@ -1,6 +1,6 @@
-/* Career Tools: Portfolio-style store header (text links + yellow underline). */
+/* Career Tools: header behaviour (current tool highlight, account links). */
 (function () {
-  const header = document.querySelector(".store-header");
+  const header = document.querySelector(".store-header") || document.querySelector(".site-header[data-section]");
   if (!header) return;
 
   /* Header logo → main site home */
@@ -14,11 +14,7 @@
     el.remove();
   });
 
-  const siteHeader = document.querySelector("body.career-tools > .site-header");
-  if (siteHeader) {
-    siteHeader.hidden = true;
-    siteHeader.setAttribute("aria-hidden", "true");
-  }
+  /* The main site header is shown on Career Tools pages (same as the home page). */
 
   /* Interview Journey: add to the Career Tools menu on every page that lacks it. */
   const storeNav = header.querySelector("#store-nav");
@@ -48,7 +44,7 @@
   }
 
   const path = location.pathname.replace(/\/$/, "") || "/";
-  header.querySelectorAll("#store-nav > a, .career-tools-nav > a").forEach((a) => {
+  document.querySelectorAll("#site-nav > a:not(.nav-account), #store-nav > a, .career-tools-nav > a").forEach((a) => {
     const href = (a.getAttribute("href") || "").replace(/\/$/, "") || "/";
     let on = false;
     if (href === "/ats-checker") on = path.startsWith("/ats-checker");
@@ -66,10 +62,9 @@
     else if (href === "/portfolio/templates")
       on = path.startsWith("/portfolio") && !path.includes("/sign-in");
     else if (href === "/resume-builder")
+      /* Templates and the editor belong to Resume builder in the Career Tools menu. */
       on =
         path.startsWith("/resume-builder") &&
-        !path.startsWith("/resume-builder/templates") &&
-        !path.startsWith("/resume-builder/editor") &&
         !path.startsWith("/resume-builder/email-examples") &&
         !path.includes("/sign-in") &&
         !path.includes("/pricing") &&

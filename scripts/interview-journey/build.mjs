@@ -383,12 +383,12 @@ const html = `<!doctype html>
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261108ui" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109sec" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${VERSION}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${VERSION}" />
     <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
-    <script defer src="/js/career-nav.js?v=20261108ui"></script>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
   </head>
   <body class="career-tools ij-page hub-page light" data-track="all">
     <a class="skip" href="#main">Skip to content</a>

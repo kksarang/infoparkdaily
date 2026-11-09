@@ -85,8 +85,8 @@ export function renderPost(main, C) {
         ${sel("Apply via", "applyMethod", ["Email", "Careers page", "WhatsApp", "Phone"], "Email")}
         ${inp("Email / link / number", "applyContact", { required: true, max: 300, placeholder: "careers@company.com or https://…" })}
       </div>
-      <label class="rp-consent"><input type="checkbox" name="noFee" required> I confirm candidates will <strong>never be asked to pay</strong> for applying, interviews or joining.</label>
-      <label class="rp-consent"><input type="checkbox" name="terms" required> I agree to the <a class="accent" href="/terms/" target="_blank" rel="noopener">Terms</a> and <a class="accent" href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</label>
+      <label class="rp-consent"><input type="checkbox" name="noFee" required><span>I confirm candidates will <strong>never be asked to pay</strong> for applying, interviews or joining.</span></label>
+      <label class="rp-consent"><input type="checkbox" name="terms" required><span>I agree to the <a class="accent" href="/terms/" target="_blank" rel="noopener">Terms</a> and <a class="accent" href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</span></label>
       </div>
 
       <p class="rp-error" role="alert" hidden></p>
@@ -313,7 +313,7 @@ export function renderAlerts(main, C) {
         <p class="ja-label">Experience</p><div class="ja-chips">${[["any", "Any"], ["fresher", "Fresher"], ["experienced", "Experienced"]].map(([v, l], i) => `<label class="ja-chip"><input type="radio" name="experience" value="${v}" ${i === 0 ? "checked" : ""}><span>${l}</span></label>`).join("")}</div>
         <p class="ja-label">Send me</p><div class="ja-chips">${chk("types", "jobs", "Jobs", true)}${chk("types", "walkins", "Walk-in drives", true)}${chk("types", "alerts", "Quick job alerts", true)}</div>
       </div>
-      <div class="rp-card"><label class="rp-consent"><input type="checkbox" name="consent" required> I agree to receive job alerts from InfoparkDaily on the contact above, and to the <a class="accent" href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>. I can pause or stop any time.</label></div>
+      <div class="rp-card"><label class="rp-consent"><input type="checkbox" name="consent" required><span>I agree to receive job alerts from InfoparkDaily on the contact above, and to the <a class="accent" href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>. I can pause or stop any time.</span></label></div>
       <p class="rp-error" role="alert" hidden></p>
       <div class="rp-submit"><button class="btn" type="submit">${icon("bell")} Create my job alert</button></div>
     </form>`;

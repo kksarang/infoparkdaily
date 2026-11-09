@@ -6704,3 +6704,22 @@ body {
 .account-files[hidden] { display: none !important; }
 @media (max-width: 760px) { .dj-tips { grid-template-columns: minmax(0, 1fr); } }
 .dj-list > .empty, .dj-list > .empty-state { grid-column: 1 / -1; }
+
+/* Hero: where an approved post is shared (replaces an illustrative views chart). */
+.rx-reachlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.rx-reachlist li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; font-weight: 600; color: rgba(255, 255, 255, 0.88); }
+.rx-reachlist svg { flex: none; width: 28px; height: 28px; padding: 6px; border-radius: 9px; background: rgba(255, 193, 7, 0.16); color: #ffc107; }
+/* One card style for both ways to hire: the offset shadow appeared nowhere else on the site. */
+.rx-way--quick { box-shadow: 0 18px 40px rgba(18, 21, 27, 0.08); border-width: 1px; border-color: var(--line, #e5e7dd); }
+
+/* Companies with open roles on the board (live from listings data) */
+.rx-hiring { padding: 28px 0 8px; background: var(--paper, #fff); border-bottom: 1px solid var(--line, #e5e7dd); }
+.rx-hiring-k { margin: 0 0 14px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted, #5f6670); }
+.rx-hiring-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+.rx-hiring-list a { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line, #e5e7dd); border-radius: 999px; background: #fff; color: var(--ink, #12151b); font-size: 0.86rem; font-weight: 600; text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+.rx-hiring-list a:hover { border-color: var(--ink, #12151b); background: #fffbe8; }
+.rx-hiring-list span { padding: 2px 8px; border-radius: 999px; background: #fff4cc; color: #7a5600; font-size: 0.72rem; font-weight: 700; }
+@media (max-width: 640px) {
+  .rx-hiring-list { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+  .rx-hiring-list li { flex: none; }
+}

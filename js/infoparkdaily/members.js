@@ -1,3 +1,4 @@
+import { setSiteAccount } from "../site-header.js";
 import * as C from "./cloud.js";
 import { renderPost, renderTrack, renderAlerts } from "./recruit.js";
 import {
@@ -164,9 +165,12 @@ async function run(event, task, success) {
   }
 }
 function nav() {
-  document.querySelector("#nav-account").innerHTML = S.user
-    ? `${link("Post a job", "post-job", "btn secondary")}${link("My workspace", "dashboard", "btn")}`
-    : `${link("Sign in", "sign-in", "btn quiet")}${link("Create account", "register")}`;
+  /* The header's account icon (and its phone-menu entry) leads to sign-in or the workspace. */
+  setSiteAccount(
+    S.user
+      ? { signedIn: true, href: href("dashboard"), label: "My workspace" }
+      : { signedIn: false, href: "/resume-builder/sign-in/?next=" + encodeURIComponent("/infoparkdaily/dashboard/"), label: "Employer sign-in" },
+  );
 }
 function workspace(title, text, body) {
   const links = [

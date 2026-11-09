@@ -13,10 +13,6 @@ body.career-tools {
   --ct-gutter: max(1.15rem, calc((100vw - 1172px) / 2), env(safe-area-inset-left, 0px));
 }
 
-/* Hide main site menu on Career Tools pages */
-body.career-tools > .site-header {
-  display: none !important;
-}
 
 .career-store-header.store-header,
 body.career-tools .store-header {
@@ -258,3 +254,31 @@ body.career-tools.dark .store-header {
   border-bottom-color: #e5e7dd;
   color: #171c24;
 }
+
+
+/* =====================================================================
+   Career Tools use the home header's design with their own menu
+   (written by scripts/apply-site-header.mjs).
+   ===================================================================== */
+@media (max-width: 1099px) {
+  body.career-tools:not(.career-tools-auth) { padding-top: calc(4.25rem + env(safe-area-inset-top, 0px)); }
+}
+@media (max-width: 640px) {
+  body.career-tools:not(.career-tools-auth) { padding-top: calc(4rem + env(safe-area-inset-top, 0px)); }
+}
+body.career-tools .site-header .theme-toggle { display: none !important; }
+
+/* Career Tools redefine --text/--muted for their own pages; pin the home header's values
+   on the header so it is identical to the home page here too. */
+body.career-tools .site-header,
+body.career-tools .nav-backdrop {
+  --text: #0f172a;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --muted: #64748b;
+  --line: #e5e7eb;
+  --line-strong: #cbd5e1;
+  --accent: #ffc107;
+  color: #0f172a;
+}
+body.career-tools .site-header .brand-name { color: var(--text); }

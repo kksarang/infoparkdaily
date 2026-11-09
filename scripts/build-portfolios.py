@@ -49,7 +49,7 @@ def head(title,desc,path,demo=False,css='store'):
  fonts=('family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Manrope:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500' if css=='demo' else 'family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700')
  theme='#fafaf7' if css=='store' else '#0c0c0e'
  enitexa_css='<link rel="stylesheet" href="/css/portfolio-enitexa.css?v=1">' if path=='/portfolio/' or css=='demo' else ''
- nav_js='' if demo or css!='store' else '<script defer src="/js/career-nav.js?v=20261108ui"></script><link rel="stylesheet" href="/css/career-nav.css?v=20261108ui">'
+ nav_js='' if demo or css!='store' else '<script defer src="/js/career-nav.js?v=20261109nb"></script><link rel="stylesheet" href="/css/career-nav.css?v=20261109sec">'
  return f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)} | InfoparkDaily Career Tools</title><meta name="description" content="{e(desc)}"><meta name="robots" content="'+('noindex,nofollow' if demo else 'index,follow')+f'"><link rel="canonical" href="{cfg["site"]}{path}"><meta name="theme-color" content="{theme}"><meta property="og:site_name" content="InfoparkDaily"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:type" content="website"><meta property="og:url" content="{cfg["site"]}{path}"><meta property="og:image" content="{cfg["site"]}/assets/portfolio/previews/flutter-studio.webp"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/favicon.ico"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/portfolio-{css}.css?v={21 if css=="store" else 12}"><script type="module" src="/js/portfolio/{css}.js?v={"20261108ui" if css=="store" else 11}"></script>'+nav_js+enitexa_css+'</head>'
 def art(t,n=0):
  v=t['visual'];title=e(t['projects'][n%3]['title'])
@@ -253,4 +253,6 @@ paths=['/portfolio/templates/','/portfolio/templates/all/','/portfolio/terms/']+
 for path in paths:
  if cfg['site']+path+'</loc>' not in smap:smap=smap.replace('</urlset>',f'  <url><loc>{cfg["site"]}{path}</loc></url>\n</urlset>')
 sitemap.write_text(smap)
+# Main site header + Career Tools section bar on every portfolio page (shared with all Career Tools).
+import subprocess;subprocess.run(['node',str(R/'scripts/apply-site-header.mjs'),'portfolio'],cwd=R,check=True)
 print(f'Built storefront, {len(items)} detail pages, {len(items)} preview wrappers, and {len(items)} complete demos.')
