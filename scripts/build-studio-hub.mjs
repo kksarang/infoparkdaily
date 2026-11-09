@@ -80,14 +80,15 @@ const write = async (path, html) => {
   await writeFile(join(dir, "index.html"), html);
   out.push(path);
 };
-const hero = (crumbs, eyebrow, h1, lead, ctas = "") => `
+const hero = (crumbs, eyebrow, h1, lead, ctas = "", extra = "") => `
     <section class="dp-hero hb-hero" aria-labelledby="dp-title">
       <div class="lx-wrap hb-hero-in">
         ${crumbsHtml(crumbs)}
-        ${eyebrow ? `<p class="lx-eyebrow" style="margin-top:22px">${esc(eyebrow)}</p>` : ""}
+        ${eyebrow ? `<p class="hb-pill">${esc(eyebrow)}</p>` : ""}
         <h1 id="dp-title">${esc(h1)}</h1>
         <p class="lx-sub">${esc(lead)}</p>
         ${ctas}
+        ${extra}
       </div>
     </section>`;
 const statusKey = `<p class="st-key">${badge("live")} usable today ${badge("next")} being built now ${badge("later")} planned · <a href="/studio/roadmap/">See the roadmap</a></p>`;
@@ -147,20 +148,31 @@ ${ctaBand()}`;
 /* ---------- Pricing ---------- */
 {
   const crumbs = [["Studio", "/studio/"], ["Pricing"]];
-  const free = FEATURES.filter((f) => ["Guided setup", "12 website types", "First-look homepage preview", "54 designs to preview", "Studio account and cloud saving", "Template marketplace", "Visual editor", "Code export (ZIP)"].includes(f[1]));
-  const plan = (name, price, sub, lines, cta, featured) => `<article class="pc-card${featured ? " pc-card--feat" : ""}">${featured ? '<span class="pc-flag">Early access</span>' : ""}<h3>${name}</h3><p class="pc-price">${price}</p><p class="pc-sub">${sub}</p>${cta}<ul>${lines.join("")}</ul></article>`;
-  const li = (t, s) => `<li${s && s !== "live" ? ' class="pc-planned"' : ""}>${ICO(s && s !== "live" ? "clock" : "check")}<span>${esc(t)}${s && s !== "live" ? ` ${badge(s)}` : ""}</span></li>`;
-  const planned = (items) => items.map((t) => li(t, "later"));
-  const cards = [
-    plan("Free", "₹0", "During early access. No card needed.", free.map((f) => li(f[1] === "Studio account and cloud saving" ? "Save up to 50 sites to your account" : f[1], f[2])), `<a class="pc-btn pc-btn--ink" href="${NEW()}">Start free</a>`, true),
-    plan("Pro", "Waitlist", "For freelancers and small businesses.", planned(["Everything in Free", "Premium templates", "Remove the “Made with Studio” link", "Forms and SEO settings", "Custom domain help", "Priority support"]), `<a class="pc-btn"${linkAttr(WAITLIST("Pro"))}>Join the waitlist</a>`),
-    plan("Business", "Waitlist", "For shops and growing businesses.", planned(["Everything in Pro", "Product catalogue", "UPI and Razorpay payment links", "Analytics", "Several sites"]), `<a class="pc-btn"${linkAttr(WAITLIST("Business"))}>Join the waitlist</a>`),
-    plan("Agency", "Waitlist", "For agencies building for clients.", planned(["Everything in Business", "Many client sites", "Client handover", "White-label export", "Team seats"]), `<a class="pc-btn"${linkAttr(WAITLIST("Agency"))}>Join the waitlist</a>`),
-  ].join("");
+  const has = (t) => FEATURES.find((f) => f[1] === t);
+  const today = ["Guided setup", "12 website types", "First-look homepage preview", "54 designs to preview", "Studio account and cloud saving", "Google sign-in", "WhatsApp support"].map(has);
+  const soonFree = ["Template marketplace", "Visual editor", "Code export (ZIP)"].map(has);
+  const tick = (t) => `<li>${ICO("check")}<span>${esc(t)}</span></li>`;
+  const clock = (t) => `<li class="pc-planned">${ICO("clock")}<span>${esc(t)}</span></li>`;
+  const freeCard = `<article class="pv-free">
+      <div class="pv-free-top"><span class="pc-flag">Early access</span><h3>Studio Free</h3><p class="pv-price">₹0<small>/ forever on the Free plan</small></p><p class="pv-sub">Everything that’s live today, free. No card needed.</p>
+      <a class="pc-btn pc-btn--yellow" href="${NEW()}">Start building free ${ICO("arrow")}</a></div>
+      <div class="pv-free-lists"><div><p class="pv-h">Included today</p><ul>${today.map((f) => tick(f[1] === "Studio account and cloud saving" ? "Save up to 50 sites to your account" : f[1])).join("")}</ul></div>
+      <div><p class="pv-h">Coming next, also free</p><ul>${soonFree.map((f) => clock(f[1])).join("")}</ul></div></div>
+    </article>`;
+  const PAID = [
+    ["Pro", "For freelancers and small businesses", ["Everything in Free", "Premium templates", "Remove the “Made with Studio” link", "Forms and SEO settings", "Custom domain help", "Priority support"]],
+    ["Business", "For shops and growing businesses", ["Everything in Pro", "Product catalogue", "UPI and Razorpay payment links", "Analytics", "Several sites"]],
+    ["Agency", "For agencies building for clients", ["Everything in Business", "Many client sites", "Client handover", "White-label export", "Team seats"]],
+  ];
+  const paid = `<section class="pv-paid" aria-labelledby="pv-paid-h"><div class="pv-paid-head"><div><span class="st-badge st-badge--later">Coming soon</span><h3 id="pv-paid-h">Paid plans</h3><p>Features may change and prices aren’t set yet. Join a waitlist and we’ll message you first.</p></div></div>
+      <div class="pv-paid-grid">${PAID.map(([n, who, items]) => `<div class="pv-plan"><h4>${n}</h4><p class="pv-who">${who}</p><ul>${items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul><a class="pc-btn"${linkAttr(WAITLIST(n))} aria-label="Join the ${n} waitlist on WhatsApp">Join waitlist</a></div>`).join("")}</div></section>`;
   const money = (p) => (p.price ? `₹${p.price.toLocaleString("en-IN")}` : p.priceLabel);
-  const dfy = config.packages
-    .map((p) => `<article class="pc-dfy"><h3>${esc(p.name)}</h3><p class="pc-price pc-price--sm">${money(p)}${p.price ? "<small> one-time</small>" : ""}</p><p class="pc-sub">${esc(p.description)}</p><ul>${p.features.map((f) => `<li>${ICO("check")}<span>${esc(f)}</span></li>`).join("")}</ul>${p.cta === "enitexa" ? `<a class="pc-btn" href="${esc(config.enitexaContact)}">Request a quote</a>` : `<a class="pc-btn"${linkAttr(wa(`Hi InfoparkDaily, I’m interested in the ${p.name} package (${money(p)}).`))}>Order on WhatsApp</a>`}</article>`)
-    .join("");
+  const BEST = { website: "Freshers and job seekers", domain: "Professionals who want their own name", shop: "Home bakers, boutiques and makers", pages: "Consultants, agencies and freelancers" };
+  const pk = config.packages.filter((p) => p.price);
+  const biz = config.packages.find((p) => !p.price);
+  const dfyCards = pk.map((p) => `<article class="pv-dfy${p.id === "domain" ? " pv-dfy--pop" : ""}">${p.id === "domain" ? '<span class="pc-flag">Most popular</span>' : ""}<h3>${esc(p.name)}</h3><p class="pv-price pv-price--sm">${money(p)}<small> one-time</small></p><p class="pv-best">Best for: ${esc(BEST[p.id] || "")}</p><ul>${p.features.map(tick).join("")}</ul><a class="pc-btn${p.id === "domain" ? " pc-btn--yellow" : " pc-btn--ink"}"${linkAttr(wa(`Hi InfoparkDaily, I’m interested in the ${p.name} package (${money(p)}).`))}>Order on WhatsApp</a></article>`).join("");
+  const bizCard = biz ? `<article class="pv-biz"><div><span class="hb-pill hb-pill--dark">Business</span><h3>${esc(biz.name)}</h3><p>${esc(biz.description)}</p><a class="pc-btn pc-btn--yellow" href="${esc(config.enitexaContact)}">Request a quote ${ICO("arrow")}</a></div><ul>${biz.features.map(tick).join("")}</ul></article>` : "";
+  const STEPS = [["Choose a design", "Pick any of our 54 designs."], ["Share your content", "Send your details, photos and links."], ["Review", "See your site and ask for the agreed changes."], ["Launch", "We publish it and hand everything over."]];
   /* Comparison: Free reflects today; paid plans are planned. ✓ = included, P = planned, — = not included */
   const ROWS = [
     ["Building", [["Guided setup for 12 website types", "✓", "P", "P", "P"], ["First-look homepage preview", "✓", "P", "P", "P"], ["Sites per account", "50", "P", "P", "P"], ["Pages per site", "12", "P", "P", "P"], ["Template marketplace", "Next", "P", "P", "P"], ["Premium templates", "—", "P", "P", "P"], ["Visual editor", "Next", "P", "P", "P"], ["Section library", "Later", "P", "P", "P"]]],
@@ -172,31 +184,37 @@ ${ctaBand()}`;
     ["Support", [["WhatsApp support", "✓", "P", "P", "P"], ["Priority support", "—", "P", "P", "P"], ["Done-for-you option", "✓ from ₹1,999", "✓", "✓", "✓"]]],
   ];
   const cell = (v) => (v === "✓" ? `<td class="ok">${ICO("check")}<span class="sr">Included</span></td>` : v === "P" ? `<td class="pl">Planned</td>` : v === "—" ? `<td class="no"><span aria-hidden="true">—</span><span class="sr">Not included</span></td>` : /^(Next|Later)$/.test(v) ? `<td>${badge(v.toLowerCase())}</td>` : `<td>${esc(v)}</td>`);
-  const table = `<div class="cmp-wrap" tabindex="0" role="region" aria-label="Plan comparison"><table class="cmp"><thead><tr><th scope="col">Feature</th><th scope="col">Free<small>Today</small></th><th scope="col">Pro<small>Planned</small></th><th scope="col">Business<small>Planned</small></th><th scope="col">Agency<small>Planned</small></th></tr></thead>${ROWS.map(
+  const table = `<div class="cmp-wrap" tabindex="0" role="region" aria-label="Plan comparison"><table class="cmp"><thead><tr><th scope="col">Feature</th><th scope="col" class="cmp-hl">Free<small>Today</small></th><th scope="col">Pro<small>Planned</small></th><th scope="col">Business<small>Planned</small></th><th scope="col">Agency<small>Planned</small></th></tr></thead>${ROWS.map(
     ([g, rows]) => `<tbody><tr class="cmp-group"><th scope="rowgroup" colspan="5">${g}</th></tr>${rows.map(([n, ...v]) => `<tr><th scope="row">${esc(n)}</th>${v.map(cell).join("")}</tr>`).join("")}</tbody>`,
   ).join("")}</table></div>`;
   const FAQ = [
     ["Is Daily Web Studio really free?", "Yes. Everything in Studio is free during early access, with no card needed. When paid plans launch, the Free plan stays, and exporting your own site will always be free."],
-    ["When do Pro, Business and Agency launch?", "After the template marketplace, visual editor and code export. Join the waitlist and we’ll message you first. Their features and prices are still being decided."],
+    ["When do Pro, Business and Agency launch?", "After the template marketplace, visual editor and code export. Join a waitlist and we’ll message you first. Their features and prices are still being decided."],
     ["What do done-for-you prices include?", "Each package lists what’s included. Domain eligibility, hosting, renewals, revisions, delivery time, taxes and cancellation terms are confirmed in a written quote before you pay."],
     ["Do prices include GST?", "Any applicable taxes are shown in your written quote before you pay, so the total you agree to is the total you pay."],
     ["Can I get a refund?", "Studio Free has no charges to refund. For done-for-you work, cancellation and refund stages are agreed in writing before payment."],
-    ["Do you offer student or non-profit discounts?", "We plan to. Mention it when you join the waitlist or order a done-for-you site, and we’ll tell you what we can offer."],
+    ["Do you offer student or non-profit discounts?", "We plan to. Mention it when you join a waitlist or order a done-for-you site, and we’ll tell you what we can offer."],
     ["How do I pay for done-for-you work?", "We confirm the scope and total on WhatsApp or email first, then share payment details. Don’t pay anyone who contacts you without a written quote from InfoparkDaily."],
     ["Will my price go up later?", "Early-access users will be told about any changes in advance. Sites you build stay yours and can be exported."],
   ];
-  const body = `${hero(crumbs, "Pricing", "Free while we build it with you.", "Studio is free during early access. Paid plans come later, and you can join their waitlists now. Prefer we build it for you? Done-for-you websites start at ₹1,999.")}
-    <section class="dp-section" style="padding-top:0"><div class="lx-wrap"><div class="pc-grid">${cards}</div>
-      <p class="pc-note">Paid plans are planned: features may change and prices aren’t set yet. Waitlist buttons open WhatsApp with a ready-made message.</p></div></section>
-    <section class="dp-section dp-section--soft" id="done-for-you" aria-labelledby="dfy"><div class="lx-wrap">
-      <div class="dp-head"><div><p class="lx-eyebrow">Done for you</p><h2 class="lx-h2" id="dfy" style="margin-top:12px">Rather we build it? From ₹1,999.</h2><p class="lx-sub" style="margin-top:10px">Our team personalises one of our designs with your content and launches it. Available today.</p></div><a class="dp-more" href="/portfolio/templates/">Browse designs ${ICO("arrow")}</a></div>
-      <div class="pc-dfy-grid">${dfy}</div>
+  const switcher = `<div class="pv-switch" role="tablist" aria-label="Pricing options">
+      <button type="button" role="tab" id="pv-tab-diy" aria-controls="pv-diy" aria-selected="true" data-pv="diy">Build it yourself<small>Free</small></button>
+      <button type="button" role="tab" id="pv-tab-dfy" aria-controls="done-for-you" aria-selected="false" data-pv="done-for-you">We build it for you<small>from ₹1,999</small></button>
+    </div>
+    <ul class="pv-trust"><li>${ICO("check")}No card needed</li><li>${ICO("check")}You own your website</li><li>${ICO("check")}Written quote before you pay</li><li>${ICO("check")}WhatsApp support</li></ul>`;
+  const body = `${hero(crumbs, "Pricing", "Simple pricing. Free to start.", "Build your website yourself for free during early access, or let our team build and launch it for you from ₹1,999.", "", switcher)}
+    <section class="pv-panel" id="pv-diy" role="tabpanel" aria-labelledby="pv-tab-diy"><div class="lx-wrap pv-diy">${freeCard}${paid}</div></section>
+    <section class="pv-panel" id="done-for-you" role="tabpanel" aria-labelledby="pv-tab-dfy"><div class="lx-wrap">
+      <div class="pv-dfy-head"><h2 class="lx-h2">Done for you, from ₹1,999.</h2><p class="lx-sub">Our team personalises one of our designs with your content and launches it. Available today.</p></div>
+      <div class="pv-dfy-grid">${dfyCards}</div>
+      ${bizCard}
+      <ol class="pv-steps">${STEPS.map(([t, d], i) => `<li><span>${i + 1}</span><strong>${t}</strong><small>${d}</small></li>`).join("")}</ol>
       <p class="pc-note">${esc(config.policy)}</p>
     </div></section>
-    <section class="dp-section" aria-labelledby="cmp"><div class="lx-wrap"><div class="dp-head"><div><h2 class="lx-h2" id="cmp">Compare plans</h2><p class="lx-sub" style="margin-top:8px">The Free column shows Studio today. Paid columns show what’s planned.</p></div></div>${table}</div></section>
+    <section class="dp-section" aria-labelledby="cmp"><div class="lx-wrap"><div class="dp-head pv-center"><div><h2 class="lx-h2" id="cmp">Compare plans</h2><p class="lx-sub" style="margin-top:8px">The Free column shows Studio today. Paid columns show what’s planned.</p></div></div>${table}</div></section>
 ${faqBlock("pc-faq", "Pricing questions", FAQ)}
 ${ctaBand()}`;
-  await write("studio/pricing", layout({ path: "/studio/pricing/", title: "Pricing · Daily Web Studio", desc: "Daily Web Studio is free during early access. Join the Pro, Business and Agency waitlists, or get a done-for-you website from ₹1,999.", crumbs, jsonld: [APP, faqLd(FAQ)], body }));
+  await write("studio/pricing", layout({ path: "/studio/pricing/", title: "Pricing · Daily Web Studio", desc: "Daily Web Studio is free during early access. Join the Pro, Business and Agency waitlists, or get a done-for-you website from ₹1,999.", crumbs, jsonld: [APP, faqLd(FAQ)], body, scripts: ["/js/studio/hub.js"] }));
 }
 
 /* ---------- How it works ---------- */
@@ -266,6 +284,8 @@ const HELP = [
     ["How long does a done-for-you site take?", "It depends on the package and how quickly you share your content. We confirm the delivery estimate in your written quote."],
     ["How do revisions work?", "The number of revision rounds is agreed in your written quote before you pay."],
     ["How do I pay safely?", "Only pay after you receive a written quote from InfoparkDaily. We never ask for payment from unknown numbers."],
+    ["Can I get a refund?", "Studio Free has no charges to refund. For done-for-you work, cancellation and refund stages are agreed in your written quote before you pay."],
+    ["Are taxes included in the price?", "Any applicable taxes are shown in your written quote, so the total you agree to is the total you pay."],
   ]],
   ["privacy", "Privacy and security", [
     ["What does Studio store about me?", "Your account email and name, and for each site the setup answers: name, tagline, city, type, look, colour and pages. See the security page for details."],
@@ -277,11 +297,15 @@ const HELP = [
 {
   const crumbs = [["Studio", "/studio/"], ["Help centre"]];
   const all = HELP.flatMap(([, , qs]) => qs);
-  const body = `${hero(crumbs, "Help centre", "How can we help?", `${all.length} answers about Daily Web Studio, grouped by topic. Can’t find yours? Message us on WhatsApp.`)}
+  const HELP_ICON = { start: "bolt", account: "user", designs: "desktop", editing: "copy", store: "bag", hosting: "cloud", billing: "hand", privacy: "unlock" };
+  const search = `<label class="hc-search hc-search--hero"><span class="sr">Search help</span>${ICO("rows")}<input type="search" id="hc-q" placeholder="Search ${all.length} answers, e.g. domain, refund, WhatsApp" autocomplete="off"></label>`;
+  const body = `${hero(crumbs, "Help centre", "How can we help?", `Answers about Daily Web Studio, grouped by topic. Can’t find yours? Message us on WhatsApp.`, "", search)}
+    <section class="dp-section" style="padding-top:0"><div class="lx-wrap">
+      <div class="hc-topics">${HELP.map(([id, n, qs]) => `<a class="hc-topic" href="#${id}"><span class="dp-feat-ico">${ICO(HELP_ICON[id] || "check")}</span><strong>${n}</strong><small>${qs.length} answers</small></a>`).join("")}</div>
+    </div></section>
     <section class="dp-section" style="padding-top:0"><div class="lx-wrap hc-wrap">
-      <aside class="hc-side"><label class="hc-search"><span class="sr">Search help</span>${ICO("rows")}<input type="search" id="hc-q" placeholder="Search, e.g. domain" autocomplete="off"></label>
-        <nav aria-label="Help topics"><ul>${HELP.map(([id, n, qs]) => `<li><a href="#${id}">${n}<small>${qs.length}</small></a></li>`).join("")}</ul></nav>
-        <a class="hc-ask"${linkAttr(wa("Hi InfoparkDaily, I have a question about Daily Web Studio: "))}>${ICO("chat")}Ask on WhatsApp</a></aside>
+      <aside class="hc-side"><nav aria-label="Help topics"><p class="hc-side-h">Topics</p><ul>${HELP.map(([id, n, qs]) => `<li><a href="#${id}">${n}<small>${qs.length}</small></a></li>`).join("")}</ul></nav>
+        <div class="hc-askbox"><strong>Still stuck?</strong><p>We usually reply within one working day.</p><a class="hc-ask"${linkAttr(wa("Hi InfoparkDaily, I have a question about Daily Web Studio: "))}>${ICO("chat")}Ask on WhatsApp</a></div></aside>
       <div class="hc-main">${HELP.map(
         ([id, n, qs]) => `<section class="hc-group" id="${id}" aria-labelledby="hc-${id}"><h2 id="hc-${id}">${n}</h2><div class="lx-acc">${qs.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div></section>`,
       ).join("")}<p class="hc-empty" id="hc-empty" hidden>No answers match. Try another word, or ask us on WhatsApp.</p></div>

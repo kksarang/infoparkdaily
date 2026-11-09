@@ -85,3 +85,38 @@
     }),
   );
 })();
+
+/* ---------- /studio/pricing/ : "Build it yourself" / "We build it for you" switch ---------- */
+(() => {
+  const tabs = [...document.querySelectorAll("[data-pv]")];
+  if (!tabs.length) return;
+  const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
+  function show(key, focus) {
+    tabs.forEach((t, i) => {
+      const on = t.dataset.pv === key;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[i].hidden = !on;
+      if (on && focus) t.focus();
+    });
+    history.replaceState(null, "", key === "done-for-you" ? "#done-for-you" : location.pathname + location.search);
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => show(t.dataset.pv));
+    t.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      show(tabs[(i + 1) % tabs.length].dataset.pv, true);
+    });
+  });
+  show(location.hash === "#done-for-you" ? "done-for-you" : "diy");
+  /* Links elsewhere on the page to #done-for-you switch the tab too. */
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href$="#done-for-you"]');
+    if (a && new URL(a.href).pathname === location.pathname) {
+      e.preventDefault();
+      show("done-for-you");
+      document.getElementById("pv-tab-dfy").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+})();
