@@ -19,23 +19,23 @@ const MENU = [
       {
         title: "Create",
         items: [
-          ["Website builder", "Set up a site in minutes with a few simple questions.", NEW()],
-          ["Website designs", "Complete, phone-ready designs to start from.", "#designs"],
-          ["Visual editor", "Click to change text, images, colours and sections.", "#how", "Soon"],
-          ["Export your code", "Download clean HTML and host it anywhere, free.", "#own"],
+          ["Website builder", "Set up a site in minutes with a few simple questions.", "/studio/website-builder/"],
+          ["Website designs", "Complete, phone-ready designs to start from.", "/studio/designs/"],
+          ["Visual editor", "Click to change text, images, colours and sections.", "/studio/visual-editor/", "Soon"],
+          ["Export your code", "Download clean HTML and host it anywhere, free.", "/studio/export/"],
         ],
       },
       {
         title: "Build for",
         items: [
-          ["Online store", "Sell with WhatsApp orders and payment links.", NEW("ecommerce")],
-          ["Portfolio website", "Show your work and get hired.", NEW("portfolio")],
-          ["Restaurant website", "Menu, location and table bookings.", NEW("restaurant")],
-          ["Event website", "Schedule, speakers and registration.", NEW("event")],
+          ["Online store", "Sell with WhatsApp orders and payment links.", "/studio/online-store/"],
+          ["Portfolio website", "Show your work and get hired.", "/studio/portfolio-website/"],
+          ["Restaurant website", "Menu, location and table bookings.", "/studio/restaurant-website/"],
+          ["Event website", "Schedule, speakers and registration.", "/studio/event-website/"],
         ],
       },
     ],
-    band: ["All 12 website types", "Business, agency, startup, education, real estate and more.", "#types"],
+    band: ["All 12 website types", "Business, agency, startup, education, real estate and more.", "/studio/website-types/"],
   },
   {
     id: "solutions",
@@ -44,19 +44,19 @@ const MENU = [
       {
         title: "By business",
         items: [
-          ["Business website", "Services, opening hours and enquiries.", NEW("business")],
-          ["Agency website", "Case studies and a team that sells.", NEW("agency")],
-          ["Startup website", "Product, pricing and early sign-ups.", NEW("startup")],
-          ["Education website", "Courses, faculty and admissions.", NEW("education")],
+          ["Business website", "Services, opening hours and enquiries.", "/studio/business-website/"],
+          ["Agency website", "Case studies and a team that sells.", "/studio/agency-website/"],
+          ["Startup website", "Product, pricing and early sign-ups.", "/studio/startup-website/"],
+          ["Education website", "Courses, faculty and admissions.", "/studio/education-website/"],
         ],
       },
       {
         title: "Grow",
         items: [
-          ["Orders on WhatsApp", "Customers message you straight from each product.", "#features"],
-          ["Fast and search-friendly", "Plain HTML pages that load quickly.", "#features"],
-          ["Free hosting", "Cloudflare Pages, Netlify or GitHub Pages.", "#own"],
-          ["Domains", "Connect your own name, prices shown up front.", "#pricing", "Soon"],
+          ["Orders on WhatsApp", "Customers message you straight from each product.", "/studio/whatsapp-orders/"],
+          ["Fast and search-friendly", "Plain HTML pages that load quickly.", "/studio/fast-websites/"],
+          ["Free hosting", "Cloudflare Pages, Netlify or GitHub Pages.", "/studio/free-hosting/"],
+          ["Domains", "Connect your own name, prices shown up front.", "/studio/domains/", "Soon"],
         ],
       },
       {
@@ -76,8 +76,8 @@ const MENU = [
       {
         title: "Learn",
         items: [
-          ["Help and FAQ", "Answers about saving, accounts, hosting and code.", "#faq"],
-          ["How it works", "From idea to live site in three steps.", "#how"],
+          ["Help and FAQ", "Answers about saving, accounts, hosting and code.", "/studio/#faq"],
+          ["How it works", "From idea to live site in three steps.", "/studio/#how"],
           ["InfoparkDaily blog", "News and guides for Kerala’s tech community.", "/news/"],
         ],
       },
@@ -117,14 +117,14 @@ function buildNav() {
   if (!nav || !megaHost) return;
   nav.innerHTML =
     MENU.map((m) => `<button type="button" class="lx-nav-btn" aria-expanded="false" aria-controls="mega-${m.id}" data-mega="${m.id}">${m.label}${CHEV}</button>`).join("") +
-    `<a href="#pricing">Pricing</a><span class="lx-nav-sep" aria-hidden="true"></span><a href="/portfolio/templates/#pricing">Done for you</a>`;
+    `<a href="/studio/#pricing">Pricing</a><span class="lx-nav-sep" aria-hidden="true"></span><a href="/portfolio/templates/#pricing">Done for you</a>`;
   megaHost.innerHTML = MENU.map(megaPanel).join("");
   if (drawer)
     drawer.innerHTML =
       MENU.map(
         (m) => `<div class="lx-acc-sec"><button type="button" class="lx-acc-btn" aria-expanded="false" aria-controls="dr-${m.id}">${m.label}${CHEV}</button>
           <div class="lx-acc-panel" id="dr-${m.id}" hidden>${m.cols.map((c) => `<p class="lx-mega-h">${c.title}</p><ul>${c.items.map(item).join("")}</ul>`).join("")}</div></div>`,
-      ).join("") + `<a class="lx-dr-link" href="#pricing">Pricing</a><a class="lx-dr-link" href="/portfolio/templates/#pricing">Done for you</a>`;
+      ).join("") + `<a class="lx-dr-link" href="/studio/#pricing">Pricing</a><a class="lx-dr-link" href="/portfolio/templates/#pricing">Done for you</a>`;
 }
 
 /* ---------- desktop mega menus ---------- */
