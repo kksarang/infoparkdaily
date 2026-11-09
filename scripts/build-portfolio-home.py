@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "portfolio" / "templates" / "index.html"
-V = "20261109ab3"
+V = "20261109ab4"
 
 FEATURED = [
     ("developer-pro", "Developers", "Developer Pro", "Dark", "Software developer portfolio",
@@ -238,7 +238,7 @@ def studio_html() -> str:
 <h2 id="pfh-studio-title">Rather build it yourself? <span>Start your own online store.</span></h2>
 <p class="pfh-studio-lead">Daily Web Studio is our new do-it-yourself website builder. Set up a store, portfolio or business site in minutes, and keep the code to host free.</p>
 <ol class="pfh-studio-steps">{steps_html}</ol>
-<div class="pfh-studio-ctas"><a class="pfh-btn pfh-btn--lg pfh-studio-go" href="/studio/">Explore Daily Web Studio {ARROW}</a><a class="pfh-studio-link" href="/studio/app/#/new?type=ecommerce">Start a store, free</a></div>
+<div class="pfh-studio-ctas"><a class="pfh-btn pfh-btn--lg pfh-studio-go" href="/studio/" target="_blank" rel="noopener">Explore Daily Web Studio {ARROW}<span class="pfh-sr"> (opens in a new tab)</span></a><a class="pfh-studio-link" href="/studio/app/#/new?type=ecommerce" target="_blank" rel="noopener">Start a store, free<span class="pfh-sr"> (opens in a new tab)</span></a></div>
 <p class="pfh-studio-trust">Free in early access · No card needed · 12 website types</p>
 </div>
 <div class="pfh-studio-show">
