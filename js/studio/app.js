@@ -351,7 +351,7 @@ function pageSoon(key) {
     <div class="soon">
       <span class="soon-icon">${icon(ic, 30)}</span>
       <p>Your sites are ready for it: everything you set up now carries over.</p>
-      <div class="soon-actions"><a class="btn" href="#/new">Create a site</a>${key === "templates" ? '<a class="btn btn--ghost" href="/studio/templates/" target="_blank" rel="noopener">Browse all 54 designs ↗</a>' : key === "billing" || key === "domains" ? '<a class="btn btn--ghost" href="/studio/pricing/#done-for-you" target="_blank" rel="noopener">Done-for-you packages ↗</a>' : '<a class="btn btn--ghost" href="#/sites">My sites</a>'}</div>
+      <div class="soon-actions"><a class="btn" href="#/new">Create a site</a>${key === "templates" ? '<a class="btn btn--ghost" href="/studio/templates/" target="_blank" rel="noopener">Browse all 66 designs ↗</a>' : key === "billing" || key === "domains" ? '<a class="btn btn--ghost" href="/studio/pricing/#done-for-you" target="_blank" rel="noopener">Done-for-you packages ↗</a>' : '<a class="btn btn--ghost" href="#/sites">My sites</a>'}</div>
     </div>`;
 }
 

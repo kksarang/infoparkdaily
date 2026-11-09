@@ -30,7 +30,7 @@ const FEATURES = [
   ["Build", "Template marketplace", "next", "Pick a full template for your type and start editing from a finished site.", "/studio/templates/", "rows"],
   ["Build", "Visual editor", "next", "Click to edit text and images, reorder sections, undo and redo, with autosave.", "/studio/visual-editor/", "copy"],
   ["Build", "Section library", "later", "Ready-made sections such as heroes, menus, pricing, galleries, team and FAQs.", "/studio/roadmap/", "plus"],
-  ["Design", "54 designs to preview", "live", "Complete, phone-ready designs in the InfoparkDaily collection, each with a live preview.", "/studio/templates/", "desktop"],
+  ["Design", "66 designs to preview", "live", "Complete, phone-ready designs in the InfoparkDaily collection, each with a live preview.", "/studio/templates/", "desktop"],
   ["Design", "Looks and accent colours", "live", "Four starting looks (Clean, Bold, Warm, Editorial) and six accent colours.", "/studio/website-builder/", "bolt"],
   ["Design", "Fonts, colours and spacing controls", "next", "Theme controls in the visual editor that apply across your whole site.", "/studio/visual-editor/", "bolt"],
   ["Design", "Desktop, tablet and phone editing", "next", "Fine-tune how each section looks on every screen size.", "/studio/visual-editor/", "phone"],
@@ -129,6 +129,7 @@ ${ctaBand()}`;
 
 /* ---------- Changelog (real releases only) ---------- */
 const CHANGELOG = [
+  ["2026-11-09", "12 new website templates", ["Two designs each for restaurants, events, startups, real estate, corporate sites and landing pages: Malabar Table, Filter House, Kochi Dev Summit, Onam Utsav, Ledgerly, Kadal Connect, Backwater Homes, Palm Grove Residences, Meridian Logistics, Techvale Systems, FocusFlow and Weekend UI Workshop.", "Every one of the 12 website types now has at least one design."]],
   ["2026-11-09", "Pricing, features, roadmap, templates and help centre", ["New pages: Pricing, Features, Roadmap, Changelog, How it works and a Help centre with over 30 answers.", "Template gallery with all 54 designs, filters by website type and style, and a page for every design.", "Security and privacy page explaining what Studio stores and how to delete it."]],
   ["2026-11-09", "Clearer feature status", ["Features that aren’t live yet are now labelled “Coming soon” across the site.", "Saving and account answers updated for account saving."]],
   ["2026-11-09", "17 product and solution pages", ["Every menu item now opens its own page: website builder, designs, visual editor, export, store, portfolio, restaurant, event, business, agency, startup, education, WhatsApp orders, fast websites, free hosting, domains and website types."]],
@@ -149,7 +150,7 @@ ${ctaBand()}`;
 {
   const crumbs = [["Studio", "/studio/"], ["Pricing"]];
   const has = (t) => FEATURES.find((f) => f[1] === t);
-  const today = ["Guided setup", "12 website types", "First-look homepage preview", "54 designs to preview", "Studio account and cloud saving", "Google sign-in", "WhatsApp support"].map(has);
+  const today = ["Guided setup", "12 website types", "First-look homepage preview", "66 designs to preview", "Studio account and cloud saving", "Google sign-in", "WhatsApp support"].map(has);
   const soonFree = ["Template marketplace", "Visual editor", "Code export (ZIP)"].map(has);
   const tick = (t) => `<li>${ICO("check")}<span>${esc(t)}</span></li>`;
   const clock = (t) => `<li class="pc-planned">${ICO("clock")}<span>${esc(t)}</span></li>`;
@@ -172,7 +173,7 @@ ${ctaBand()}`;
   const biz = config.packages.find((p) => !p.price);
   const dfyCards = pk.map((p) => `<article class="pv-dfy${p.id === "domain" ? " pv-dfy--pop" : ""}">${p.id === "domain" ? '<span class="pc-flag">Most popular</span>' : ""}<h3>${esc(p.name)}</h3><p class="pv-price pv-price--sm">${money(p)}<small> one-time</small></p><p class="pv-best">Best for: ${esc(BEST[p.id] || "")}</p><ul>${p.features.map(tick).join("")}</ul><a class="pc-btn${p.id === "domain" ? " pc-btn--yellow" : " pc-btn--ink"}"${linkAttr(wa(`Hi InfoparkDaily, I’m interested in the ${p.name} package (${money(p)}).`))}>Order on WhatsApp</a></article>`).join("");
   const bizCard = biz ? `<article class="pv-biz"><div><span class="hb-pill hb-pill--dark">Business</span><h3>${esc(biz.name)}</h3><p>${esc(biz.description)}</p><a class="pc-btn pc-btn--yellow" href="${esc(config.enitexaContact)}">Request a quote ${ICO("arrow")}</a></div><ul>${biz.features.map(tick).join("")}</ul></article>` : "";
-  const STEPS = [["Choose a design", "Pick any of our 54 designs."], ["Share your content", "Send your details, photos and links."], ["Review", "See your site and ask for the agreed changes."], ["Launch", "We publish it and hand everything over."]];
+  const STEPS = [["Choose a design", "Pick any of our 66 designs."], ["Share your content", "Send your details, photos and links."], ["Review", "See your site and ask for the agreed changes."], ["Launch", "We publish it and hand everything over."]];
   /* Comparison: Free reflects today; paid plans are planned. ✓ = included, P = planned, — = not included */
   const ROWS = [
     ["Building", [["Guided setup for 12 website types", "✓", "P", "P", "P"], ["First-look homepage preview", "✓", "P", "P", "P"], ["Sites per account", "50", "P", "P", "P"], ["Pages per site", "12", "P", "P", "P"], ["Template marketplace", "Next", "P", "P", "P"], ["Premium templates", "—", "P", "P", "P"], ["Visual editor", "Next", "P", "P", "P"], ["Section library", "Later", "P", "P", "P"]]],
@@ -256,10 +257,10 @@ const HELP = [
     ["How do I back up my sites?", "Open Settings in Studio and choose “Download backup (JSON)”."],
   ]],
   ["designs", "Designs and templates", [
-    ["How many designs are there?", "54 complete designs today, mostly portfolios plus business sites, stores, blogs and creator pages. More types arrive with the template marketplace."],
+    ["How many designs are there?", "66 complete designs today, covering all 12 website types: portfolios, business sites, stores, blogs, restaurants, events, startups, real estate, corporate sites and landing pages."],
     ["Can I use a design in Studio now?", "You can preview every design. They become editable Studio templates when the marketplace opens; until then our team can personalise any of them for you."],
     ["Are the people and businesses in the designs real?", "No. All sample names, photos and details are fictional and replaced with yours."],
-    ["Which website types have designs today?", "Portfolios, business sites, online stores, blogs and creator pages. Restaurant, event, startup, corporate, real estate and landing page designs are coming."],
+    ["Which website types have designs today?", "All 12. Every website type has at least one complete design, and portfolios have the most."],
   ]],
   ["editing", "Editing", [
     ["When is the visual editor coming?", "It’s being built now, right after the template marketplace. Early-access users get it first."],
@@ -360,10 +361,10 @@ const TYPE_OF = (t) => {
   if (t.slug === "brightpath-tutors") return "education";
   if (t.slug === "agency-landing") return "agency";
   if (t.slug === "shop-window") return "ecommerce";
-  return { "Online stores": "ecommerce", Business: "business", Bloggers: "blog", Storytellers: "blog" }[t.category] || "portfolio";
+  return { "Online stores": "ecommerce", Business: "business", Bloggers: "blog", Storytellers: "blog", Restaurants: "restaurant", Events: "event", Startups: "startup", "Real estate": "realestate", Corporate: "corporate", "Landing pages": "landing" }[t.category] || "portfolio";
 };
 const typeLabel = (id) => SITE_TYPES.find((x) => x.id === id)?.label || id;
-const TYPE_PAGE = { ecommerce: "online-store", portfolio: "portfolio-website", business: "business-website", agency: "agency-website", education: "education-website" };
+const TYPE_PAGE = { ecommerce: "online-store", portfolio: "portfolio-website", business: "business-website", agency: "agency-website", education: "education-website", restaurant: "restaurant-website", event: "event-website", startup: "startup-website" };
 {
   const crumbs = [["Studio", "/studio/"], ["Templates"]];
   const counts = Object.fromEntries(SITE_TYPES.map((t) => [t.id, templates.filter((x) => TYPE_OF(x) === t.id).length]));
@@ -384,7 +385,7 @@ const TYPE_PAGE = { ecommerce: "online-store", portfolio: "portfolio-website", b
       <p class="tg-count" id="tg-count" role="status">${templates.length} designs</p>
       <div class="lx-show tg-grid" id="tg-grid">${cards}</div>
       <p class="hc-empty" id="tg-empty" hidden>No designs match. Try another word or filter.</p>
-      <div class="tg-gap"><h2>Designs for these types are coming</h2><p>${SITE_TYPES.filter((t) => !counts[t.id]).map((t) => esc(t.label)).join(", ")}. You can still set up these sites today and see a first look.</p><a class="dp-ghost" href="${NEW()}">Set up a site ${ICO("arrow")}</a></div>
+      ${SITE_TYPES.some((t) => !counts[t.id]) ? `<div class="tg-gap"><h2>Designs for these types are coming</h2><p>${SITE_TYPES.filter((t) => !counts[t.id]).map((t) => esc(t.label)).join(", ")}. You can still set up these sites today and see a first look.</p><a class="dp-ghost" href="${NEW()}">Set up a site ${ICO("arrow")}</a></div>` : ""}
     </div></section>
 ${ctaBand("Found one you like?", "Set up your site now, or let our team build it with your chosen design, from ₹1,999.")}`;
   await write("studio/templates", layout({ path: "/studio/templates/", title: "Website templates · Daily Web Studio", desc: `${templates.length} complete, phone-ready website designs for portfolios, businesses, stores, blogs and creators. Preview free.`, crumbs, jsonld: [{ "@type": "CollectionPage", name: "Daily Web Studio templates", hasPart: templates.map((t) => ({ "@type": "CreativeWork", name: t.name, url: `${SITE}/studio/templates/${t.slug}/` })) }], body, scripts: ["/js/studio/hub.js"] }));

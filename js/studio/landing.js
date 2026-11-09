@@ -20,7 +20,7 @@ const MENU = [
         title: "Create",
         items: [
           ["Website builder", "Set up a site in minutes with a few simple questions.", "/studio/website-builder/"],
-          ["Templates", "54 complete, phone-ready designs to preview.", "/studio/templates/"],
+          ["Templates", "66 complete, phone-ready designs to preview.", "/studio/templates/"],
           ["Visual editor", "Click to change text, images, colours and sections.", "/studio/visual-editor/", "Soon"],
           ["Export your code", "Download clean HTML and host it anywhere, free.", "/studio/export/"],
         ],

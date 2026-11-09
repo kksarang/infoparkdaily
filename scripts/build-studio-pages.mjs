@@ -36,7 +36,10 @@ const DESIGNS = {
   portfolio: [["developer-pro", "Developer Pro", "Software developer"], ["product-designer", "Product Designer", "Product designer"], ["fresh-start", "Fresh Start", "Graduate"], ["photo-journal", "Photo Journal", "Photographer"], ["independent-pro", "Independent Pro", "Freelance web designer"], ["executive-minimal", "Executive Minimal", "Business leader"]],
   business: [["kayal-interiors", "Kayal Interiors", "Interior design studio"], ["brightpath-tutors", "Brightpath Tutors", "Home tuition centre"], ["consultant-signature", "Consultant Signature", "Strategy consultant"]],
   agency: [["agency-landing", "Agency Landing", "Product consultancy"], ["orbit-studio", "Orbit Studio", "Digital marketing"], ["brand-atelier", "Brand Atelier", "Brand studio"]],
-  all: [["chai-clay", "Chai & Clay", "Online store"], ["kayal-interiors", "Kayal Interiors", "Business"], ["brightpath-tutors", "Brightpath Tutors", "Education"], ["ink-margin", "Ink & Margin", "Blog"], ["developer-pro", "Developer Pro", "Portfolio"], ["spotlight", "Spotlight", "Creator"], ["kasavu-lane", "Kasavu Lane", "Clothing store"], ["agency-landing", "Agency Landing", "Agency"], ["photo-journal", "Photo Journal", "Photographer"]],
+  restaurant: [["malabar-table", "Malabar Table", "Seafood restaurant"], ["filter-house", "Filter House", "Café and bakery"]],
+  event: [["kochi-dev-summit", "Kochi Dev Summit", "Tech conference"], ["onam-utsav", "Onam Utsav", "Community festival"]],
+  startup: [["ledgerly", "Ledgerly", "SaaS billing app"], ["kadal-connect", "Kadal Connect", "Mobile app"]],
+  all: [["chai-clay", "Chai & Clay", "Online store"], ["malabar-table", "Malabar Table", "Restaurant"], ["kochi-dev-summit", "Kochi Dev Summit", "Event"], ["ledgerly", "Ledgerly", "Startup"], ["backwater-homes", "Backwater Homes", "Real estate"], ["kayal-interiors", "Kayal Interiors", "Business"], ["brightpath-tutors", "Brightpath Tutors", "Education"], ["ink-margin", "Ink & Margin", "Blog"], ["developer-pro", "Developer Pro", "Portfolio"], ["spotlight", "Spotlight", "Creator"], ["kasavu-lane", "Kasavu Lane", "Clothing store"], ["agency-landing", "Agency Landing", "Agency"], ["photo-journal", "Photo Journal", "Photographer"]],
 };
 
 const STATUS = { now: ["Available now", "now"], early: ["In early access", "early"], soon: ["Coming soon", "soon"] };
@@ -80,7 +83,7 @@ const PAGES = [
     designs: "all", designsTitle: "A few of the designs",
     steps: [["Browse", "Filter designs by your field and style, and open full previews."], ["Choose", "Pick the one that fits your work and brand."], ["Make it yours", "Personalise it in Studio, or let our team do it for you."]],
     faq: [
-      ["How many designs are there?", "There are 54 designs today across portfolios, business sites, stores, blogs and creator pages, with more added regularly."],
+      ["How many designs are there?", "There are 66 designs today across all 12 website types, from portfolios and stores to restaurants, events, startups, real estate and corporate sites, with more added regularly."],
       ["Can I use these designs in Studio now?", "You can preview all of them now. They become editable Studio templates when the template marketplace opens; until then our team can personalise any of them for you."],
       ["Are the names and photos real?", "No. Every design uses fictional sample content that you replace with your own."],
       ["Will my site look the same as someone else’s?", "Your colours, fonts, text, photos and sections make it yours. Many people can start from the same design and end up with very different sites."],
@@ -184,7 +187,7 @@ const PAGES = [
     h1: "A restaurant website that fills tables.",
     lead: "Put your menu, opening hours, location and photos online, with a one-tap way to call, get directions or reserve a table. Built for restaurants, cafés, bakeries and cloud kitchens.",
     cta: ["Build your restaurant site", NEW("restaurant")],
-    visual: () => firstLook({ name: "Malabar Spice Kitchen", tagline: "Slow-cooked Malabar flavours since 1998", location: "Kakkanad, Kochi", type: "restaurant", look: "warm", accent: "amber", pages: ["Home", "Menu", "Gallery", "Visit us", "Contact"] }, "First look of a restaurant website"),
+    visual: () => VIS.shots("malabar-table", "filter-house"),
     features: [
       ["food", "Menu page", "Dishes, prices, categories and today’s specials, easy to read on a phone."],
       ["clock", "Hours and location", "Opening times, a map link and one-tap directions."],
@@ -193,12 +196,13 @@ const PAGES = [
       ["bolt", "Fast on mobile data", "Light pages that load quickly for hungry customers on the move."],
       ["globe", "Found on Google", "Clean pages that search engines read easily, with your name, area and cuisine."],
     ],
+    designs: "restaurant", designsTitle: "Restaurant designs",
     steps: [["Choose Restaurant & café", "Add your restaurant name, a tagline and your area."], ["Pick your pages", "Menu, gallery, visit us and contact are suggested for you."], ["Share it", "Add the link to Google Maps, Instagram and your WhatsApp profile."]],
     faq: [
       ["Can customers order food on my site?", "They can send orders on WhatsApp from your menu. Full online ordering with payments and delivery tracking isn’t part of Studio yet."],
       ["Can I update the menu myself?", "Yes. When the visual editor launches you can change dishes and prices any time."],
       ["Does it work with Swiggy or Zomato?", "You can add buttons that link to your Swiggy and Zomato pages."],
-      ["Are restaurant designs available now?", "You can set up a restaurant site and see its first look today. Full restaurant templates arrive with the template marketplace."],
+      ["Are restaurant designs available now?", "Yes. Preview Malabar Table and Filter House today. Our team can personalise either for you now, and they become editable Studio templates when the marketplace opens."],
     ],
     related: ["whatsapp-orders", "business-website", "website-builder"],
   },
@@ -207,7 +211,7 @@ const PAGES = [
     h1: "One page for everything about your event.",
     lead: "Share the schedule, speakers, venue and registration link in one clean place. For meetups, conferences, workshops, college fests, weddings and community events.",
     cta: ["Build your event site", NEW("event")],
-    visual: () => firstLook({ name: "Kochi Product Meetup", tagline: "An evening of talks and networking for product people", location: "Infopark, Kochi", type: "event", look: "bold", accent: "indigo", pages: ["Home", "Schedule", "Speakers", "Venue", "Register"] }, "First look of an event website"),
+    visual: () => VIS.shots("kochi-dev-summit", "onam-utsav"),
     features: [
       ["clock", "Schedule", "Sessions, times and rooms laid out clearly, day by day."],
       ["user", "Speakers", "Photos, titles and short bios for every speaker."],
@@ -216,11 +220,12 @@ const PAGES = [
       ["chat", "Updates on WhatsApp", "Point attendees to your WhatsApp or Telegram group for last-minute news."],
       ["bolt", "Ready in an afternoon", "A focused one- or few-page site you can set up quickly."],
     ],
+    designs: "event", designsTitle: "Event designs",
     steps: [["Choose Event website", "Add the event name, date line and city."], ["Add the details", "Schedule, speakers, venue and a registration link."], ["Share everywhere", "Post the link on social media, in emails and on posters with a QR code."]],
     faq: [
       ["Can people buy tickets on the site?", "Yes, through a payment link or an external ticketing page. Studio doesn’t sell tickets itself."],
       ["Can I reuse the site for next year’s event?", "Yes. Duplicate the site and update the details."],
-      ["Is there a countdown timer?", "A countdown section is planned for event templates in the marketplace."],
+      ["Are there event designs?", "Yes. Kochi Dev Summit (a conference) and Onam Utsav (a community festival) are ready to preview."],
       ["Can I collect registrations without payment?", "Yes. Link a free form such as Google Forms or Tally."],
     ],
     related: ["website-builder", "free-hosting", "domains"],
@@ -276,7 +281,7 @@ const PAGES = [
     h1: "Launch your startup’s website today.",
     lead: "Explain your product, show pricing and collect early sign-ups on a fast landing site. Ship it before your launch post, then grow it as your product grows.",
     cta: ["Build your startup site", NEW("startup")],
-    visual: () => firstLook({ name: "Ledgerly", tagline: "Simple GST billing for small shops in Kerala", location: "Kochi", type: "startup", look: "clean", accent: "teal", pages: ["Home", "Product", "Pricing", "About", "Contact"] }, "First look of a startup website"),
+    visual: () => VIS.shots("ledgerly", "kadal-connect"),
     features: [
       ["bolt", "Clear product story", "A focused hero, how it works and the problem you solve."],
       ["bag", "Pricing", "Plans side by side with what each one includes."],
@@ -285,6 +290,7 @@ const PAGES = [
       ["unlock", "Grow with your code", "Export the site and hand it to your developers as you scale."],
       ["cloud", "Free hosting", "Launch on Cloudflare Pages or Netlify without a hosting bill."],
     ],
+    designs: "startup", designsTitle: "Startup designs",
     steps: [["Choose Startup website", "Add your product name and one line about the problem it solves."], ["Tell the story", "Product, pricing, about and contact pages are ready for you."], ["Launch", "Share the link with your first users and investors."]],
     faq: [
       ["Can I connect analytics?", "Yes. Exported sites can include any analytics snippet you choose, such as Google Analytics or Plausible."],
@@ -427,7 +433,7 @@ const PAGES = [
       ["My business isn’t listed. What should I choose?", "Choose Business website. It works for almost any local business or service."],
       ["Can I change my website type later?", "Yes. Your type only decides the starting pages and suggested designs."],
       ["Can one site do more than one thing?", "Yes. Add any pages you need, such as a shop page on a portfolio site."],
-      ["Which types have full designs today?", "Portfolios, business sites, stores, blogs and creator pages. More arrive with the template marketplace."],
+      ["Which types have full designs today?", "All 12 website types have at least one complete design you can preview."],
     ],
     related: ["website-builder", "designs", "online-store"],
   },
