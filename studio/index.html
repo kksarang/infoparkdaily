@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="/css/studio.css?v=20261109f">
+  <link rel="stylesheet" href="/css/studio.css?v=20261109i">
 </head>
 <body class="lx">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -45,50 +45,51 @@
     <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></symbol>
     <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10M17 21V3c-2.2 1.4-3.5 4-3.5 7v3H17"/></symbol>
     <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.9-5.5 7-5.5s5.8 1.9 7 5.5"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20.5 5.4 16A8.5 8.5 0 1 1 8.6 19L4 20.5Z"/><path d="M9.2 8.6c.2-.4.5-.5.8-.5h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.1.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3-.1.6-.5.8-.6.4-1.5.5-2.5.1a8.6 8.6 0 0 1-4.8-4.8c-.4-1-.3-1.9.1-2.5Z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21 4.5 3.5 11.3c-.9.4-.9 1.1 0 1.4l4.4 1.4 1.7 5.2c.2.6.8.7 1.2.3l2.5-2.3 4.4 3.3c.6.4 1.2.2 1.4-.6L22 5.6c.2-1-.3-1.5-1-1.1Z"/><path d="m8 14 9.5-6.5"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8.5V7c0-.8.5-1.3 1.3-1.3H17V2.5h-2.6C11.9 2.5 10.5 4 10.5 6.5v2H8v3.2h2.5v9.8H14v-9.8h2.6l.4-3.2h-3Z"/></symbol>
+    <symbol id="i-th" viewBox="0 0 24 24"><path d="M16.6 11.2c-.3-2.8-2-4.2-4.6-4.2-2.2 0-3.8 1-4.5 2.9M8.9 14.3c0 1.7 1.4 2.8 3.4 2.7 2.4-.1 3.9-1.9 3.9-4.7 0-3-3.2-3.4-5.1-2.6-1.5.6-2.2 2-2.2 4.6M19.5 13c0 4.7-3 8-7.5 8S4.5 17.7 4.5 12 7.5 3 12 3c3.6 0 6.2 1.9 7.1 5.3"/></symbol>
   </svg>
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="lx-top">
-    <div class="lx-wrap">
+  <header class="lx-hd">
+    <div class="lx-hd-bar">
       <a class="lx-brand" href="/studio/" aria-label="Daily Web Studio home">
         <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>
         <span><strong>Daily Web Studio</strong><small>by InfoparkDaily</small></span>
       </a>
-      <nav class="lx-nav" aria-label="Studio">
-        <a href="#designs">Designs</a>
-        <a href="#how">How it works</a>
-        <a href="#own">Own your code</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#faq">FAQ</a>
+      <nav class="lx-nav2" id="lx-nav" aria-label="Main">
+        <a href="#designs">Designs</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
       </nav>
-      <div class="lx-actions">
-        <a class="lx-signin" href="/studio/sign-in/?next=%2Fstudio%2Fapp%2F">Sign in</a>
-        <a class="btn" href="/studio/app/#/new">Start building<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <div class="lx-hd-act">
+        <a class="lx-login" href="/studio/sign-in/?next=%2Fstudio%2Fapp%2F">Log in</a>
+        <a class="lx-start" href="/studio/app/#/new">Start for free</a>
+        <button type="button" class="lx-burger" id="lx-burger" aria-expanded="false" aria-controls="lx-drawer" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
+    <div id="lx-megas"></div>
+    <div class="lx-drawer" id="lx-drawer" hidden>
+      <div id="lx-drawer-body"></div>
+      <div class="lx-dr-cta"><a class="lx-start" href="/studio/app/#/new">Start for free</a><a class="lx-login" href="/studio/sign-in/?next=%2Fstudio%2Fapp%2F">Log in</a></div>
+    </div>
   </header>
+  <div class="lx-scrim" aria-hidden="true"></div>
 
   <main id="main">
     <!-- Hero -->
-    <section class="lx-hero">
-      <div class="lx-wrap">
-        <div class="lx-hero-copy">
-          <a class="lx-pill" href="#pricing"><b>Early access</b>Free while we build it with you</a>
-          <h1>Websites you build.<br>Code you <span class="lx-mark">own.</span></h1>
-          <p class="lx-sub">Pick a design made for your work, make it yours, and take it anywhere. Clean HTML you can host free on Cloudflare Pages, Netlify or GitHub Pages. No lock-in, no monthly hosting bill.</p>
-          <div class="lx-ctas">
-            <a class="btn btn--ink" href="/studio/app/#/new">Start building, it’s free<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost" href="#designs">Explore designs</a>
-          </div>
-          <ul class="lx-proof">
-            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No card needed</li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>12 website types</li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Works on every phone</li>
-          </ul>
-        </div>
-
-        <div class="lx-stage">
+    <section class="lx-hero2" aria-labelledby="lx-title">
+      <div class="lx-wrap lx-hero2-copy">
+        <a class="lx-pill" href="#pricing"><b>Early access</b>Free while we build it with you</a>
+        <h1 id="lx-title">Build a website that’s<br>truly yours.</h1>
+        <p class="lx-sub">Daily Web Studio is where Kerala’s makers, shops and professionals build their website. Pick a design, make it yours, then keep the code and host it free.</p>
+        <a class="lx-go" href="/studio/app/#/new">Get started</a>
+        <p class="lx-note2">Free during early access. No card needed.</p>
+      </div>
+      <div class="lx-collage">
+        <div class="lx-cl lx-cl--l" aria-hidden="true"><em>Online store</em><img src="/assets/portfolio/previews/kasavu-lane.webp" width="1200" height="900" alt=""></div>
+        <div class="lx-cl-main">
           <div class="lx-app" aria-hidden="true">
             <div class="lx-app-bar">
               <div class="lx-app-file">
@@ -129,15 +130,14 @@
               </div>
             </div>
           </div>
-          <div class="lx-float lx-float--a" aria-hidden="true"><span class="lx-float-ico"><svg class="i"><use href="#i-chat"/></svg></span><span><strong>Orders on WhatsApp</strong><small>One tap from any product</small></span></div>
-          <div class="lx-float lx-float--b" aria-hidden="true"><span class="lx-float-ico lx-float-ico--y"><svg class="i"><use href="#i-zip"/></svg></span><span><strong>chai-and-clay.zip</strong><small>HTML · CSS · images</small></span></div>
-          <p class="lx-caption">A preview of the visual editor, which is coming to early access. The store shown is a sample design.</p>
         </div>
+        <div class="lx-cl lx-cl--r" aria-hidden="true"><em>Phone view</em><div class="lx-cl-phone"><img src="/assets/portfolio/previews/chai-clay-mobile.webp" width="390" height="844" alt=""></div></div>
       </div>
+      <p class="lx-caption">A preview of the visual editor, which is coming to early access. Stores shown are sample designs.</p>
     </section>
 
     <!-- Website types -->
-    <section class="lx-types" aria-labelledby="lx-types-title">
+    <section class="lx-types" id="website-types" aria-labelledby="lx-types-title">
       <div class="lx-wrap">
         <p class="lx-types-label" id="lx-types-title">One builder. Twelve kinds of websites.</p>
         <div class="lx-chips" id="types"></div>
@@ -198,7 +198,7 @@
     </section>
 
     <!-- Features -->
-    <section class="lx-section" aria-labelledby="lx-feat" style="padding-top:0">
+    <section class="lx-section" id="features" aria-labelledby="lx-feat" style="padding-top:0">
       <div class="lx-wrap">
         <div class="lx-head"><p class="lx-eyebrow">Made for Kerala</p><h2 class="lx-h2" id="lx-feat">Everything a small business needs. Nothing it doesn’t.</h2></div>
         <div class="lx-bento">
@@ -318,28 +318,33 @@
     </div>
   </main>
 
-  <footer class="lx-foot">
+  <footer class="lx-foot2">
     <div class="lx-wrap">
-      <div class="lx-foot-top">
-        <div>
-          <a class="lx-brand" href="/studio/" aria-label="Daily Web Studio home">
-            <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>
-            <span><strong>Daily Web Studio</strong><small>by InfoparkDaily</small></span>
-          </a>
-          <p>A website builder for Kerala’s makers, shops, professionals and small businesses. Build it yourself, or let our team build it for you.</p>
-        </div>
-        <div>
-          <h3>Studio</h3>
-          <ul><li><a href="/studio/app/#/new">Create a site</a></li><li><a href="#designs">Designs</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul>
-        </div>
-        <div>
-          <h3>Company</h3>
-          <ul><li><a href="/">InfoparkDaily</a></li><li><a href="/contact/">Contact</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">Privacy</a></li></ul>
+      <div class="lx-f-grid">
+        <div><h3>Product</h3><ul><li><a href="/studio/app/#/new">Website builder</a></li><li><a href="#designs">Website designs</a></li><li><a href="#how">Visual editor</a></li><li><a href="#own">Export your code</a></li><li><a href="/studio/app/#/new?type=ecommerce">Online store</a></li><li><a href="/studio/app/#/new?type=portfolio">Portfolio website</a></li><li><a href="/studio/app/#/new?type=restaurant">Restaurant website</a></li><li><a href="/studio/app/#/new?type=landing">Landing page</a></li></ul></div>
+        <div><h3>Solutions</h3><ul><li><a href="/studio/app/#/new?type=business">Business website</a></li><li><a href="/studio/app/#/new?type=agency">Agency website</a></li><li><a href="/studio/app/#/new?type=startup">Startup website</a></li><li><a href="/studio/app/#/new?type=corporate">Corporate website</a></li><li><a href="/studio/app/#/new?type=education">Education website</a></li><li><a href="/studio/app/#/new?type=realestate">Real estate website</a></li><li><a href="/studio/app/#/new?type=blog">Blog or news</a></li><li><a href="/portfolio/templates/#pricing">Done-for-you websites</a></li></ul></div>
+        <div><h3>Resources</h3><ul><li><a href="#how">How it works</a></li><li><a href="#faq">Help and FAQ</a></li><li><a href="#own">Free hosting</a></li><li><a href="/news/">InfoparkDaily blog</a></li><li><a href="/resume-builder/">Resume builder</a></li><li><a href="/jobs/">Kerala IT jobs</a></li></ul></div>
+        <div><h3>Support</h3><ul><li><a href="/contact/">Contact us</a></li><li><a href="/studio/sign-in/?next=%2Fstudio%2Fapp%2F">Log in</a></li><li><a href="/studio/sign-in/?mode=signup&next=%2Fstudio%2Fapp%2F">Create an account</a></li><li><a href="/join/">Join our community</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="/">InfoparkDaily</a></li><li><a href="/media/">About us</a></li><li><a href="https://sarangrajan.in/enitexa.ai/" target="_blank" rel="noopener">Enitexa.ai</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/privacy/">Privacy policy</a></li></ul></div>
+        <div class="lx-f-about">
+          <a class="lx-brand" href="/studio/" aria-label="Daily Web Studio home"><svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg><span><strong>Daily Web Studio</strong><small>by InfoparkDaily</small></span></a>
+          <p>Daily Web Studio is a website builder from InfoparkDaily, Kochi. It helps makers, shops, professionals and small businesses across Kerala build a site they own, keep the code, and host it free, with our team on hand when they’d rather we build it.</p>
+          <a class="lx-f-strong" href="/media/">About</a>
+          <a class="lx-f-strong" href="/contact/">Contact us</a>
         </div>
       </div>
-      <div class="lx-foot-base"><span>© 2026 InfoparkDaily · Kochi, Kerala</span><a href="/">Back to InfoparkDaily →</a></div>
+      <div class="lx-f-base">
+        <div class="lx-social" aria-label="InfoparkDaily on social media">
+          <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#i-ig"/></svg></a>
+          <a href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener" aria-label="WhatsApp channel"><svg class="i"><use href="#i-wa"/></svg></a>
+          <a href="https://t.me/infoparkDailyupdate" target="_blank" rel="noopener" aria-label="Telegram channel"><svg class="i"><use href="#i-tg"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61590569168309" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i"><use href="#i-fb"/></svg></a>
+          <a href="https://www.threads.com/@infoparkdaily" target="_blank" rel="noopener" aria-label="Threads"><svg class="i"><use href="#i-th"/></svg></a>
+        </div>
+        <nav class="lx-f-legal" aria-label="Legal"><a href="/terms/">Terms of use</a><a href="/privacy/">Privacy policy</a><span>© 2026 InfoparkDaily</span></nav>
+      </div>
     </div>
   </footer>
-  <script type="module" src="/js/studio/landing.js?v=20261109c"></script>
+  <script type="module" src="/js/studio/landing.js?v=20261109n"></script>
 </body>
 </html>
