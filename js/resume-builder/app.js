@@ -379,7 +379,7 @@ function authContext() {
 }
 /* The brand side shows the part of the account the person came for. Examples only. */
 function authShowcase(key, hl) {
-  const tag = '<span class="as-example">Example</span>';
+  const tag = ""; /* decorative previews; aria-hidden, so screen readers skip them */
   if (key === "jobs")
     return `<div class="as-show as-show--jobs" aria-hidden="true">${tag}${[
       ["Software Engineer", "Infopark, Kochi", true],
@@ -430,11 +430,12 @@ function auth() {
         : "Sign in to your InfoparkDaily account. The same account works across the whole site.";
   const ctxKey = ctx ? ctx.key : "";
   const hl = (k) => (k === ctxKey ? ' class="is-context"' : "");
-  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><div class="as-top"><a class="as-brand" href="/"><img src="/assets/icons/favicon-192.png" width="34" height="34" alt=""><span>InfoparkDaily</span></a><a class="auth-back" href="/">← Back to home</a></div><div class="as-main"><p class="auth-eyebrow">ONE FREE ACCOUNT</p><h2>Your career,<br><em>in one place.</em></h2><p class="auth-story-lead">Saved jobs, resumes, portfolio and hiring — one sign-in across InfoparkDaily.</p>${authShowcase(ctxKey, hl)}</div><div class="as-foot"><p class="as-proof"><b>80K+</b><span>people in the InfoparkDaily community</span></p><ul class="as-trust"><li>Free</li><li>No spam</li><li>Delete anytime</li></ul></div></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
+  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><div class="as-top"><a class="as-brand" href="/"><img src="/assets/icons/favicon-192.png" width="34" height="34" alt=""><span>InfoparkDaily</span></a><a class="auth-back" href="/">← Back to home</a></div><div class="as-main"><p class="auth-eyebrow">ONE FREE ACCOUNT</p><h2>Your career,<br><em>in one place.</em></h2><p class="auth-story-lead">Saved jobs, resumes, portfolio and hiring — one sign-in across InfoparkDaily.</p>${authShowcase(ctxKey, hl)}</div><div class="as-foot"><p class="as-proof"><b>80K+</b><span>people in the InfoparkDaily community</span></p><ul class="as-trust"><li>Free forever</li><li>No spam</li><li>Delete anytime</li></ul></div></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
           ? `${authBrand()}<h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
       : `${authBrand()}
+      <p class="auth-kicker">InfoparkDaily account</p>
       <h1>${heading}</h1>
       ${params.get("deleted") === "1" ? `<p class="auth-deleted" role="status">Your account and cloud-saved resumes were deleted. You can create a new account anytime.</p>` : ""}
       <p class="auth-lead">${lead}</p>

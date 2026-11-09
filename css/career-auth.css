@@ -426,3 +426,66 @@ html body.career-tools-auth .auth-card { background: #fff !important; }
    clips overflow, so the full-screen frame must not use overflow:hidden. */
 body.career-tools-auth .auth-shell { overflow: visible; }
 body.career-tools-auth .auth-story { align-self: start; }
+
+/* =====================================================================
+   v3.1 — alignment and type refinements
+   Both columns share one top line (TOP) so the left label and the right
+   label sit at the same height, and the form headline leads.
+   ===================================================================== */
+body.career-tools-auth { --auth-top: clamp(120px, 15vh, 168px); }
+/* Left: brand row, then content from the shared top line, footer at the bottom */
+body.career-tools-auth .auth-story { justify-content: flex-start; padding-top: 36px; padding-bottom: 32px; }
+body.career-tools-auth .as-main { margin-top: calc(var(--auth-top) - 36px - 34px); }
+body.career-tools-auth .as-foot { margin-top: auto; }
+body.career-tools-auth .auth-story .auth-eyebrow { margin: 0 0 16px; font-size: 12px; line-height: 16px; }
+body.career-tools-auth .auth-story h2 { font-size: clamp(34px, 3.3vw, 46px); line-height: 1.06; letter-spacing: -0.04em; }
+body.career-tools-auth .auth-story-lead { margin-top: 16px; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.7); }
+/* Right: same top line, matching label, headline leads */
+@media (min-width: 901px) {
+  body.career-tools-auth .auth-card { padding-top: var(--auth-top); padding-bottom: 56px; margin-top: 0; align-self: start; }
+}
+.auth-kicker { margin: 0 0 16px; font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #7a5600; }
+body.career-tools-auth .auth-card h1 { font-size: clamp(32px, 2.9vw, 40px); line-height: 1.06; letter-spacing: -0.035em; margin: 0 0 14px; }
+body.career-tools-auth .auth-lead { margin: 0 0 28px; font-size: 16px; line-height: 1.6; color: #5f6670; max-width: 40ch; }
+body.career-tools-auth .auth-card input::placeholder { color: #9aa0a8; }
+body.career-tools-auth .auth-or { margin: 22px 0; }
+body.career-tools-auth .auth-card .field { margin-bottom: 18px; }
+body.career-tools-auth .auth-card label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #2b3037; }
+/* Remember me / Forgot password on one aligned row, neutral colours */
+body.career-tools-auth .auth-form-options { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 0 22px; }
+body.career-tools-auth .auth-form-options .check-label { display: inline-flex; align-items: center; gap: 10px; margin: 0; font-size: 14px; color: #2b3037; }
+body.career-tools-auth .auth-form-options input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: #171c24; }
+body.career-tools-auth .auth-help-link { min-height: 40px; padding: 0; border: 0; background: none; font-size: 14px; font-weight: 600; color: #4b5563; cursor: pointer; }
+body.career-tools-auth .auth-help-link:hover { color: #171c24; text-decoration: underline; text-underline-offset: 3px; }
+body.career-tools-auth .auth-switch { margin-top: 22px; font-size: 15px; color: #6b7280; }
+body.career-tools-auth .auth-note { margin-top: 18px; font-size: 12px; line-height: 1.6; color: #8a8f98; }
+body.career-tools-auth .auth-bottom-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; }
+body.career-tools-auth .auth-bottom-links a { color: #6b7280; }
+body.career-tools-auth .auth-bottom-links a:hover { color: #171c24; }
+/* Job cards: same width, depth by fading (no uneven sideways shifts) */
+.as-job:nth-child(3), .as-job:nth-child(4) { transform: none; }
+.as-job:nth-child(3) { opacity: 0.82; }
+.as-job:nth-child(4) { opacity: 0.6; }
+.as-show { max-width: 460px; }
+/* Footer: number over label, trust items as neat chips */
+body.career-tools-auth .as-foot { align-items: flex-end; padding-top: 24px; }
+body.career-tools-auth .as-proof { display: grid; gap: 4px; }
+body.career-tools-auth .as-proof b { font-size: 30px; line-height: 1; }
+body.career-tools-auth .as-proof span { font-size: 13px; color: rgba(255, 255, 255, 0.65); }
+body.career-tools-auth .as-trust { gap: 8px; flex-wrap: wrap; }
+body.career-tools-auth .as-trust li { padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.04); font-size: 12px; color: rgba(255, 255, 255, 0.82); }
+body.career-tools-auth .as-trust li::before { content: "✓"; margin-right: 6px; color: #ffc107; font-weight: 700; }
+/* Phones: label above the headline, tighter top */
+@media (max-width: 900px) {
+  .auth-kicker { margin-bottom: 12px; }
+  body.career-tools-auth .auth-card h1 { font-size: 30px; }
+}
+/* Exact shared top line (brand row + its spacing measured at 98px) */
+body.career-tools-auth .as-main { margin-top: calc(var(--auth-top) - 98px); }
+/* Short laptop screens: start higher and keep the footer on screen */
+@media (max-height: 780px) and (min-width: 901px) {
+  body.career-tools-auth { --auth-top: 112px; }
+  body.career-tools-auth .as-show { margin-top: 20px; }
+  body.career-tools-auth .auth-story-lead { margin-top: 12px; }
+  body.career-tools-auth .as-foot { padding-top: 16px; }
+}
