@@ -325,3 +325,21 @@ html:has(body main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero)) {
    narrow phones does "Sign in" move into the menu. */
 @media (max-width: 599px) { .site-header .header-account.header-account--text { display: none; } }
 @media (max-width: 1419px) { .site-header .header-account.header-account--text { height: 40px; padding: 0 16px; } }
+
+/* Sign in button: the original Career Tools style (white, thin border, normal case). */
+.site-header .header-account.header-account--text {
+  height: 2.4rem;
+  min-height: 2.4rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #d9ddd0;
+  border-radius: 0.55rem;
+  background: #fff;
+  color: #171c24;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  text-transform: none;
+  box-shadow: none;
+}
+.site-header .header-account.header-account--text:hover { background: #fff; border-color: #171c24; color: #171c24; }
+@media (max-width: 1419px) { .site-header .header-account.header-account--text { height: 2.4rem; padding: 0.4rem 0.9rem; } }

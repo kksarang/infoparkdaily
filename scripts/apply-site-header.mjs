@@ -14,7 +14,7 @@ const ROOTS = process.argv.slice(2).length
   ? process.argv.slice(2)
   : ["resume-builder", "ats-checker", "career-tools", "interview", "learning", "portfolio"];
 
-const ASSET_V = "20261109si2";
+const ASSET_V = "20261109old";
 
 /** The tools menu item for a page path, so the current tool is marked in the header. */
 export function toolFor(path = "") {

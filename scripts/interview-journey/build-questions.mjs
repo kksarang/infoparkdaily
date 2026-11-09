@@ -158,7 +158,7 @@ export function buildQuestions() {
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261109si2" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${VERSION}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${VERSION}" />
