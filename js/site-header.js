@@ -24,7 +24,7 @@ export const SECTIONS = {
       ["/media/", "About Us"],
       ["/contact/", "Contact"],
     ],
-    pill: ["/software-solutions/", "Enitexa.ai"],
+    pill: ["https://sarangrajan.in/enitexa.ai/", "Enitexa.ai"],
   },
   recruit: {
     tagline: "Recruit · Hiring for Kerala teams",
@@ -58,7 +58,8 @@ export function siteHeaderHtml(section = "home", current = "") {
   const cfg = SECTIONS[section] || SECTIONS.home;
   const mark = (href) => (href === current ? ' aria-current="page"' : "");
   const nav = cfg.links.map(([href, label]) => `<a href="${href}"${mark(href)}>${label}</a>`).join("");
-  const pill = cfg.pill ? `<a href="${cfg.pill[0]}" class="nav-enitexa"${mark(cfg.pill[0])}>${cfg.pill[1]}</a>` : "";
+  const external = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "");
+  const pill = cfg.pill ? `<a href="${cfg.pill[0]}" class="nav-enitexa"${mark(cfg.pill[0])}${external(cfg.pill[0])}>${cfg.pill[1]}</a>` : "";
   return `<header class="site-header glass" data-section="${section}">
       <a class="brand" href="/" aria-label="Infopark Daily home">
         <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />

@@ -3,7 +3,7 @@
 import { readFile, writeFile, readdir } from "node:fs/promises";
 import { header } from "../js/infoparkdaily/ui.js";
 
-const V = process.argv[2] || "20261109sec2";
+const V = process.argv[2] || "20261109dk2";
 const dirs = ["", ...(await readdir("infoparkdaily", { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name)];
 let done = 0;
 for (const route of dirs) {
