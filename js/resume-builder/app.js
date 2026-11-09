@@ -41,7 +41,8 @@ let templates = [],
   previewTimer,
   lastSaveStarted = 0;
 let authDraft = { email: "", name: "" };
-let authMode = "login",
+/* ?mode=signup opens the Create account tab (used by "Create account" links site-wide). */
+let authMode = params.get("mode") === "signup" ? "signup" : "login",
   category = "All",
   access = "all",
   search = "";
@@ -376,6 +377,36 @@ function authContext() {
     return { key: "hiring", title: "Manage your job posts.", lead: "Sign in to post jobs, track applications and reach Kerala IT talent." };
   return null;
 }
+/* The brand side shows the part of the account the person came for. Examples only. */
+function authShowcase(key, hl) {
+  const tag = '<span class="as-example">Example</span>';
+  if (key === "jobs")
+    return `<div class="as-show as-show--jobs" aria-hidden="true">${tag}${[
+      ["Software Engineer", "Infopark, Kochi", true],
+      ["UI/UX Designer", "Technopark, Thiruvananthapuram", false],
+      ["Data Analyst", "Cyberpark, Kozhikode", false],
+    ]
+      .map(([r, l, s]) => `<div class="as-job${s ? " is-saved" : ""}"><span class="as-job-logo">${r[0]}</span><div><b>${r}</b><small>${l}</small></div><i>${s ? "♥ Saved" : "♡"}</i></div>`)
+      .join("")}</div>`;
+  if (key === "resume")
+    return `<div class="as-show as-show--resume" aria-hidden="true">${tag}<div class="as-page"><b class="as-page-name"></b><i class="as-page-role"></i><span class="as-rule"></span><i></i><i></i><i class="short"></i><span class="as-rule"></span><i></i><i class="mid"></i><i></i><i class="short"></i></div><span class="as-pdf">PDF ready ↓</span></div>`;
+  if (key === "portfolio")
+    return `<div class="as-show as-show--portfolio" aria-hidden="true">${tag}${["developer-pro", "product-designer", "fresh-start"]
+      .map((s) => `<img src="/assets/portfolio/previews/${s}.webp" width="1200" height="900" alt="" loading="lazy">`)
+      .join("")}</div>`;
+  if (key === "hiring")
+    return `<div class="as-show as-show--hiring" aria-hidden="true">${tag}<p class="as-h">Your job posts</p>${[
+      ["React Developer", "Live", "live"],
+      ["Walk-in · Customer Support", "In review", "review"],
+      ["QA Engineer", "Draft", "draft"],
+    ]
+      .map(([r, s, c]) => `<div class="as-post"><b>${r}</b><span class="as-pill as-pill--${c}">${s}</span></div>`)
+      .join("")}</div>`;
+  return `<ul class="as-show as-list" aria-hidden="true"><li${hl("jobs")}><span>♥</span><div><strong>Saved jobs</strong><small>Your shortlist on every device</small></div></li><li${hl("resume")}><span>≡</span><div><strong>Resumes</strong><small>Build, save and download as PDF</small></div></li><li${hl("portfolio")}><span>◫</span><div><strong>Portfolio</strong><small>A personal website for your work</small></div></li><li${hl("hiring")}><span>✉</span><div><strong>Hiring</strong><small>Post jobs and reach Kerala IT talent</small></div></li></ul>`;
+}
+function authBrand() {
+  return `<div class="auth-brand"><a class="auth-brand-logo" href="/" aria-label="InfoparkDaily home"><img src="/assets/icons/favicon-192.png" width="36" height="36" alt=""><span>InfoparkDaily</span></a><a class="auth-brand-home" href="/">← Home</a></div>`;
+}
 function auth() {
   document.body.classList.add("career-tools-auth");
   main.className = "auth-page";
@@ -399,11 +430,11 @@ function auth() {
         : "Sign in to your InfoparkDaily account. The same account works across the whole site.";
   const ctxKey = ctx ? ctx.key : "";
   const hl = (k) => (k === ctxKey ? ' class="is-context"' : "");
-  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><a class="auth-back" href="/">← Back to Home</a><div><p class="auth-eyebrow">ONE INFOPARKDAILY ACCOUNT</p><h2>One sign-in for<br>everything.</h2><p class="auth-story-lead">Jobs, resumes, portfolios and hiring, all with the same free account.</p><div class="auth-workspace-preview auth-account-preview" aria-hidden="true"><div class="auth-preview-top"><span>YOUR ACCOUNT</span><span>✦</span></div><ul class="auth-preview-list"><li${hl("jobs")}><span>♥</span><div><strong>Saved jobs</strong><small>Your shortlist on every device</small></div></li><li${hl("resume")}><span>≡</span><div><strong>Resumes</strong><small>Build, save and download as PDF</small></div></li><li${hl("portfolio")}><span>◫</span><div><strong>Portfolio</strong><small>A personal website for your work</small></div></li><li${hl("hiring")}><span>✉</span><div><strong>Hiring</strong><small>Post jobs and reach Kerala IT talent</small></div></li></ul></div><ul class="auth-benefits"><li>Free, and no spam</li><li>Works on phone and computer</li><li>Delete your account anytime</li></ul></div><p class="auth-story-bottom">Kerala's largest tech &amp; business community · InfoparkDaily</p></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
+  main.innerHTML = `<div class="auth-shell"><aside class="auth-story" aria-label="Your InfoparkDaily account"><div class="as-top"><a class="as-brand" href="/"><img src="/assets/icons/favicon-192.png" width="34" height="34" alt=""><span>InfoparkDaily</span></a><a class="auth-back" href="/">← Back to home</a></div><div class="as-main"><p class="auth-eyebrow">ONE FREE ACCOUNT</p><h2>Your career,<br><em>in one place.</em></h2><p class="auth-story-lead">Saved jobs, resumes, portfolio and hiring — one sign-in across InfoparkDaily.</p>${authShowcase(ctxKey, hl)}</div><div class="as-foot"><p class="as-proof"><b>80K+</b><span>people in the InfoparkDaily community</span></p><ul class="as-trust"><li>Free</li><li>No spam</li><li>Delete anytime</li></ul></div></aside><section class="auth-card" aria-label="${me ? "Signed in" : signup ? "Create account" : "Sign in"}">
       ${
         me
-          ? `<p class="ct-kicker">Signed in</p><h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
-      : `<p class="ct-kicker">WELCOME TO INFOPARKDAILY</p>
+          ? `${authBrand()}<h1>You’re in.</h1><p class="auth-lead">Continue as <strong>${esc(me.name)}</strong><br><span class="hint">${esc(me.email)}</span></p><a class="button auth-primary" href="${esc(returnPath())}">Continue</a><button type="button" class="button secondary auth-logout" data-action="logout">Log out</button><button type="button" class="auth-delete" data-action="delete-account">Delete account</button>`
+      : `${authBrand()}
       <h1>${heading}</h1>
       ${params.get("deleted") === "1" ? `<p class="auth-deleted" role="status">Your account and cloud-saved resumes were deleted. You can create a new account anytime.</p>` : ""}
       <p class="auth-lead">${lead}</p>
@@ -412,13 +443,14 @@ function auth() {
         <button type="button" data-action="auth-mode" data-mode="signup" aria-pressed="${signup}" class="${signup ? "active" : ""}">Create account</button>
       </div>
       <div id="auth-error" role="alert" tabindex="-1"></div>
-      ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login"><span class="auth-google-mark" aria-hidden="true">G</span>Continue with Google</button><p class="auth-or">or continue with email</p>`}
+      ${useLocalApi() ? "" : `<button type="button" class="button secondary auth-google" data-action="google-login"><svg class="auth-google-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>Continue with Google</button><p class="auth-or">or continue with email</p>`}
       <form id="auth-form">
       <div class="field"><label for="auth-email">Email</label><input id="auth-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@example.com" required maxlength="254" value="${esc(authDraft.email)}"></div>
-      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "Create a password" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" data-action="toggle-password" aria-label="Show password" aria-pressed="false">Show</button></div>${signup ? '<small id="password-help">At least 10 characters. Tap Show to check what you typed.</small>' : ""}</div>
+      <div class="field"><label for="auth-password">Password</label><div class="password-field"><input id="auth-password" name="password" type="password" autocomplete="${signup ? "new-password" : "current-password"}" placeholder="${signup ? "Create a password" : "Password"}" required minlength="10" maxlength="128" ${signup ? 'aria-describedby="password-help"' : ""}><button type="button" class="pw-eye" data-action="toggle-password" aria-label="Show password" aria-pressed="false"><svg class="eye-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><svg class="eye-shut" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.1 6.1A17.5 17.5 0 0 0 2 12s3.6 7 10 7a9.6 9.6 0 0 0 4.3-1M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></button></div><p class="pw-caps" id="pw-caps" hidden>Caps Lock is on</p>${signup ? '<div class="pw-meter" aria-hidden="true"><i></i><i></i><i></i></div><small id="password-help" aria-live="polite">At least 10 characters.</small>' : ""}</div>
       ${signup ? "" : `<div class="auth-form-options"><label class="check-label"><input type="checkbox" name="remember" value="yes">Remember me</label><button type="button" class="auth-help-link" data-action="account-help">Forgot password?</button></div>`}
       <button class="button auth-primary" type="submit">${signup ? "Create free account" : "Sign in"}</button>
       </form>
+      <p class="auth-secure"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5z"/></svg>Secure sign-in powered by Google Firebase</p>
       <p class="auth-switch">${signup ? `Already have an account? <button type="button" data-action="auth-mode" data-mode="login">Sign in</button>` : `New to InfoparkDaily? <button type="button" data-action="auth-mode" data-mode="signup">Create a free account</button>`}</p>`
       }
       ${
@@ -430,6 +462,38 @@ function auth() {
       }
       <div class="auth-bottom-links"><a href="${base}templates/">Browse templates</a><a href="/ats-checker/">ATS checker</a><a href="/terms/#career-tools">Terms</a><a href="/privacy/#career-tools">Privacy</a></div>
     </section></div>`;
+  bindAuthExtras();
+}
+/* Password strength (sign-up) and Caps Lock warning. Strength is advice only; the rule is 10+ characters. */
+function bindAuthExtras() {
+  const pw = document.getElementById("auth-password");
+  if (!pw) return;
+  const meter = document.querySelector(".pw-meter");
+  const help = document.getElementById("password-help");
+  const caps = document.getElementById("pw-caps");
+  pw.addEventListener("input", () => {
+    if (!meter || !help) return;
+    const v = pw.value;
+    let score = 0;
+    if (v.length >= 10) score = 1;
+    if (score && /[a-z]/i.test(v) && /\d/.test(v)) score = 2;
+    if (score === 2 && (v.length >= 14 || /[^a-z0-9]/i.test(v))) score = 3;
+    meter.dataset.score = String(score);
+    help.textContent = !v
+      ? "At least 10 characters."
+      : score === 0
+        ? `${10 - v.length} more character${10 - v.length === 1 ? "" : "s"} needed.`
+        : score === 1
+          ? "OK. Add numbers to make it stronger."
+          : score === 2
+            ? "Good password."
+            : "Strong password.";
+  });
+  const capsCheck = (e) => {
+    if (caps && e.getModifierState) caps.hidden = !e.getModifierState("CapsLock");
+  };
+  pw.addEventListener("keydown", capsCheck);
+  pw.addEventListener("keyup", capsCheck);
 }
 function verifyCopy(inDialog = false) {
   const heading = inDialog
@@ -1236,7 +1300,6 @@ async function act(el) {
       const password = document.getElementById("auth-password");
       const show = password.type === "password";
       password.type = show ? "text" : "password";
-      el.textContent = show ? "Hide" : "Show";
       el.setAttribute("aria-label", show ? "Hide password" : "Show password");
       el.setAttribute("aria-pressed", String(show));
       break;
@@ -1705,6 +1768,7 @@ document.addEventListener("submit", async (event) => {
   event.preventDefault();
   const submit = form.querySelector('[type="submit"]');
   submit.disabled = true;
+  submit.classList.add("is-loading");
   try {
     const fields = Object.fromEntries(new FormData(form));
     if (form.id === "reset-form") {
@@ -1801,6 +1865,7 @@ document.addEventListener("submit", async (event) => {
     } else toast(e.message);
   } finally {
     submit.disabled = false;
+    submit.classList.remove("is-loading");
   }
 });
 window.addEventListener("beforeunload", (event) => {

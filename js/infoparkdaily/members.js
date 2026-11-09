@@ -193,15 +193,17 @@ async function authChanged(user) {
   if (registering) return;
   if (!user) {
     S.savedIds = new Set();
-    if (S.route === "sign-in") {
-      main.innerHTML = authView(false);
-      bindAuth();
+    /* One sign-in page for the whole site: the hub sends people to the shared page, which
+       brings them back here. Company details are then collected by onboarding() below. */
+    if (S.route === "sign-in" || S.route === "register") {
+      const back = new URLSearchParams(location.search).get("next");
+      const next = back && back.startsWith("/infoparkdaily/") && !back.startsWith("//") ? back : "/infoparkdaily/dashboard/";
+      location.replace(
+        "/resume-builder/sign-in/?next=" + encodeURIComponent(next) + (S.route === "register" ? "&mode=signup" : ""),
+      );
       return;
     }
-    if (S.route === "register") {
-      main.innerHTML = authView(true);
-      bindAuth();
-    } else if (privateRoutes.includes(S.route)) {
+    if (privateRoutes.includes(S.route)) {
       main.innerHTML = `<section class="section soft"><div class="container" style="max-width:650px">${empty("Sign in to your hiring workspace.", "Post roles, browse talent and manage applications from your employer dashboard.", link("Sign in", "sign-in", "btn", "?next=" + encodeURIComponent(location.pathname + location.search)) + " " + link("Create employer account", "register", "btn secondary"), "users")}</div></section>`;
     }
     return;
