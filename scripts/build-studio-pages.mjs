@@ -5,30 +5,10 @@
 // The header, icon sprite, footer and editor/code visuals are copied from studio/index.html,
 // so the landing page stays the single source for shared chrome. Content lives in PAGES below.
 // Pages are honest about status: "Available now", "In early access" or "Coming soon".
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { writeFile, mkdir } from "node:fs/promises";
+import { join } from "node:path";
 import { previewHtml } from "../js/studio/preview.js";
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const V = "20261109au";
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const NEW = (t) => `/studio/app/#/new${t ? `?type=${t}` : ""}`;
-const ICO = (n) => `<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
-
-/* ---------- shared chrome from the landing page ---------- */
-const landing = await readFile(join(ROOT, "studio/index.html"), "utf8");
-const cut = (from, to, incl = true) => {
-  const a = landing.indexOf(from);
-  const b = landing.indexOf(to, a);
-  if (a < 0 || b < 0) throw new Error(`Landing marker missing: ${from}`);
-  return landing.slice(a, incl ? b + to.length : b);
-};
-const SPRITE = cut('<svg width="0" height="0"', "</svg>\n");
-const HEADER = cut('  <header class="lx-hd">', '<div class="lx-scrim" aria-hidden="true"></div>');
-const FOOTER = cut('  <footer class="lx-foot2">', "</footer>");
-const EDITOR = cut('<div class="lx-app" aria-hidden="true">', '\n        </div>\n        <div class="lx-cl lx-cl--r"', false);
-const CODE = cut('<div class="lx-code" aria-label="Example of an exported site">', "</pre>\n            </div>\n          </div>");
+import { ROOT, esc, ICO, NEW, EDITOR, CODE, layout, faqLd, APP, crumbsHtml, updateSitemap } from "./studio/shell.mjs";
 
 /* ---------- visuals ---------- */
 const shot = (slug, alt) => `<div class="dp-browser"><span class="dp-bar" aria-hidden="true"><i></i><i></i><i></i><em>${slug}.pages.dev</em></span><img src="/assets/portfolio/previews/${slug}.webp" width="1200" height="900" alt="${esc(alt)}"></div>`;
@@ -475,8 +455,8 @@ function page(p) {
   const visual = typeof p.visual === "function" ? p.visual() : "";
   const features = (p.features || []).map(([i, t, d]) => `<div class="dp-feat"><span class="dp-feat-ico">${ICO(i)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></div>`).join("");
   const designs = p.designs
-    ? `<section class="dp-section" aria-labelledby="dp-designs"><div class="lx-wrap"><div class="dp-head"><h2 class="lx-h2" id="dp-designs">${esc(p.designsTitle)}</h2><a class="dp-more" href="/portfolio/templates/all/">See all designs ${ICO("arrow")}</a></div>
-      <div class="lx-show">${DESIGNS[p.designs].map(([s, n, t]) => `<a class="lx-card" href="/portfolio/preview/${s}/"><span class="lx-card-img"><img src="/assets/portfolio/previews/${s}.webp" width="1200" height="900" alt="${esc(n)} design" loading="lazy"><em>${esc(t)}</em></span><span class="lx-card-body"><span><strong>${esc(n)}</strong><small>Open full preview</small></span><span class="lx-card-go">${ICO("arrow")}</span></span></a>`).join("")}</div></div></section>`
+    ? `<section class="dp-section" aria-labelledby="dp-designs"><div class="lx-wrap"><div class="dp-head"><h2 class="lx-h2" id="dp-designs">${esc(p.designsTitle)}</h2><a class="dp-more" href="/studio/templates/">See all designs ${ICO("arrow")}</a></div>
+      <div class="lx-show">${DESIGNS[p.designs].map(([s, n, t]) => `<a class="lx-card" href="/studio/templates/${s}/"><span class="lx-card-img"><img src="/assets/portfolio/previews/${s}.webp" width="1200" height="900" alt="${esc(n)} design" loading="lazy"><em>${esc(t)}</em></span><span class="lx-card-body"><span><strong>${esc(n)}</strong><small>Open full preview</small></span><span class="lx-card-go">${ICO("arrow")}</span></span></a>`).join("")}</div></div></section>`
     : "";
   const types = p.types
     ? `<section class="dp-section" aria-labelledby="dp-types"><div class="lx-wrap"><h2 class="lx-h2" id="dp-types" style="margin-bottom:28px">Choose your website type</h2><div class="dp-types">${TYPES.map(
@@ -491,35 +471,12 @@ function page(p) {
     .map((r) => `<a class="dp-rel" href="/studio/${r.slug}/"><small>${esc(r.group)}</small><strong>${esc(r.title)}</strong><span>${esc(r.lead.split(". ")[0])}.</span><em>Learn more ${ICO("arrow")}</em></a>`).join("");
   const cta2 = p.cta2 || (p.type ? ["See designs", "/studio/designs/"] : ["How it works", "/studio/#how"]);
   const desc = `${p.title} with Daily Web Studio by InfoparkDaily. ${p.lead.split(". ")[0]}.`;
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>${esc(p.title)} · Daily Web Studio</title>
-  <meta name="description" content="${esc(desc)}">
-  <!-- Early access: keep out of search results until the editor launches. -->
-  <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="canonical" href="https://infoparkdaily.online/studio/${p.slug}/">
-  <link rel="icon" href="/assets/studio/favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="${esc(p.title)} · Daily Web Studio">
-  <meta property="og:description" content="${esc(desc)}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="/css/studio.css?v=${V}">
-</head>
-<body class="lx dp">
-  ${SPRITE}
-  <a class="skip" href="#main">Skip to content</a>
-${HEADER}
-
-  <main id="main">
+  const crumbs = [["Studio", "/studio/"], [p.group], [p.title]];
+  const body = `
     <section class="dp-hero" aria-labelledby="dp-title">
       <div class="lx-wrap dp-hero-grid">
         <div class="dp-hero-copy">
-          <nav class="dp-crumbs" aria-label="Breadcrumb"><a href="/studio/">Studio</a><span aria-hidden="true">/</span><span>${esc(p.group)}</span><span aria-hidden="true">/</span><span aria-current="page">${esc(p.title)}</span></nav>
+          ${crumbsHtml(crumbs)}
           <span class="dp-status dp-status--${statusKey}">${statusLabel}</span>
           <h1 id="dp-title">${esc(p.h1)}</h1>
           <p class="lx-sub">${esc(p.lead)}</p>
@@ -537,7 +494,7 @@ ${types}
 ${designs}
 ${guide}
     <section class="dp-section" aria-labelledby="dp-faq"><div class="lx-wrap lx-faq">
-      <div class="lx-faq-aside"><p class="lx-eyebrow">Questions</p><h2 class="lx-h2" id="dp-faq" style="margin-top:12px">${esc(p.title)}: good to know</h2><p class="lx-sub">Something else on your mind? We usually reply within one working day.</p><a class="btn btn--ghost" href="/contact/">Contact us</a></div>
+      <div class="lx-faq-aside"><p class="lx-eyebrow">Questions</p><h2 class="lx-h2" id="dp-faq" style="margin-top:12px">${esc(p.title)}: good to know</h2><p class="lx-sub">Something else on your mind? We usually reply within one working day.</p><a class="btn btn--ghost" href="/studio/help/">Visit the help centre</a></div>
       <div class="lx-acc">${p.faq.map(([q, a], i) => `<details${i === 0 ? " open" : ""}><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join("")}</div>
     </div></section>
 
@@ -550,13 +507,16 @@ ${guide}
         <a class="btn" href="${p.cta[1].startsWith("/studio/app") ? p.cta[1] : NEW()}">Start building${ICO("arrow")}</a>
       </section>
     </div>
-  </main>
-
-${FOOTER}
-  <script type="module" src="/js/studio/landing.js?v=${V}"></script>
-</body>
-</html>
 `;
+  return layout({
+    path: `/studio/${p.slug}/`,
+    title: `${p.title} · Daily Web Studio`,
+    desc,
+    crumbs,
+    jsonld: [APP, faqLd(p.faq)],
+    body,
+  });
+
 }
 
 /* Website-type icons (same drawings as js/studio/data.js). */
@@ -567,4 +527,6 @@ for (const p of PAGES) {
   await mkdir(dir, { recursive: true });
   await writeFile(join(dir, "index.html"), page(p));
 }
+const n = await updateSitemap();
+console.log(`Sitemap: ${n} Studio pages`);
 console.log(`Wrote ${PAGES.length} Studio detail pages: ${PAGES.map((p) => p.slug).join(", ")}`);

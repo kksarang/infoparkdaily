@@ -20,7 +20,7 @@ const MENU = [
         title: "Create",
         items: [
           ["Website builder", "Set up a site in minutes with a few simple questions.", "/studio/website-builder/"],
-          ["Website designs", "Complete, phone-ready designs to start from.", "/studio/designs/"],
+          ["Templates", "54 complete, phone-ready designs to preview.", "/studio/templates/"],
           ["Visual editor", "Click to change text, images, colours and sections.", "/studio/visual-editor/", "Soon"],
           ["Export your code", "Download clean HTML and host it anywhere, free.", "/studio/export/"],
         ],
@@ -35,7 +35,7 @@ const MENU = [
         ],
       },
     ],
-    band: ["All 12 website types", "Business, agency, startup, education, real estate and more.", "/studio/website-types/"],
+    band: ["See every feature", "What’s live today, what’s being built, and what’s planned.", "/studio/features/"],
   },
   {
     id: "solutions",
@@ -76,9 +76,10 @@ const MENU = [
       {
         title: "Learn",
         items: [
-          ["Help and FAQ", "Answers about saving, accounts, hosting and code.", "/studio/#faq"],
-          ["How it works", "From idea to live site in three steps.", "/studio/#how"],
-          ["InfoparkDaily blog", "News and guides for Kerala’s tech community.", "/news/"],
+          ["Help centre", "Over 30 answers about saving, designs, hosting and billing.", "/studio/help/"],
+          ["How it works", "Every step, with an honest label on each.", "/studio/how-it-works/"],
+          ["Roadmap", "What’s live, what’s next, and what’s later.", "/studio/roadmap/"],
+          ["Changelog", "Every release, newest first.", "/studio/changelog/"],
         ],
       },
       {
@@ -86,7 +87,8 @@ const MENU = [
         items: [
           ["Contact us", "We usually reply within one working day.", "/contact/"],
           ["Join our community", "WhatsApp, Telegram and Instagram channels.", "/join/"],
-          ["Terms and privacy", "How Studio works and what we keep.", "/terms/"],
+          ["Security and privacy", "What Studio stores and how to delete it.", "/studio/security/"],
+          ["InfoparkDaily blog", "News and guides for Kerala’s tech community.", "/news/"],
         ],
       },
     ],
@@ -117,14 +119,14 @@ function buildNav() {
   if (!nav || !megaHost) return;
   nav.innerHTML =
     MENU.map((m) => `<button type="button" class="lx-nav-btn" aria-expanded="false" aria-controls="mega-${m.id}" data-mega="${m.id}">${m.label}${CHEV}</button>`).join("") +
-    `<a href="/studio/#pricing">Pricing</a><span class="lx-nav-sep" aria-hidden="true"></span><a href="/portfolio/templates/#pricing">Done for you</a>`;
+    `<a href="/studio/pricing/">Pricing</a><span class="lx-nav-sep" aria-hidden="true"></span><a href="/portfolio/templates/#pricing">Done for you</a>`;
   megaHost.innerHTML = MENU.map(megaPanel).join("");
   if (drawer)
     drawer.innerHTML =
       MENU.map(
         (m) => `<div class="lx-acc-sec"><button type="button" class="lx-acc-btn" aria-expanded="false" aria-controls="dr-${m.id}">${m.label}${CHEV}</button>
           <div class="lx-acc-panel" id="dr-${m.id}" hidden>${m.cols.map((c) => `<p class="lx-mega-h">${c.title}</p><ul>${c.items.map(item).join("")}</ul>`).join("")}</div></div>`,
-      ).join("") + `<a class="lx-dr-link" href="/studio/#pricing">Pricing</a><a class="lx-dr-link" href="/portfolio/templates/#pricing">Done for you</a>`;
+      ).join("") + `<a class="lx-dr-link" href="/studio/pricing/">Pricing</a><a class="lx-dr-link" href="/portfolio/templates/#pricing">Done for you</a>`;
 }
 
 /* ---------- desktop mega menus ---------- */
