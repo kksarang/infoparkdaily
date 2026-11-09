@@ -371,6 +371,8 @@ function authContext() {
     return { key: "resume", title: "Your template is waiting.", lead: "Sign in so we can save your draft and let you continue later." };
   if (/^\/resume-builder\//.test(next))
     return { key: "resume", title: "Open your resumes.", lead: "Sign in to edit, save and download your resumes as PDF." };
+  if (/^\/studio\//.test(next))
+    return { key: "portfolio", title: "Build your website with Daily Web Studio.", lead: "Sign in with your InfoparkDaily account so your sites can sync to every device once account sync launches." };
   if (/^\/portfolio\//.test(next))
     return { key: "portfolio", title: "Save the designs you like.", lead: "Sign in to keep your favourite portfolio designs and continue your enquiry." };
   if (/^\/(infoparkdaily|recruit)\//.test(next))
