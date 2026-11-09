@@ -524,3 +524,31 @@ html:has(body main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero)) {
   background-size: 100% 360px;
   background-repeat: no-repeat;
 }
+
+/* Text "Sign in" button (Recruit, Career Tools) in place of the account icon. */
+.site-header .header-account.header-account--text {
+  width: auto;
+  min-width: 0;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid #0f172a;
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.site-header .header-account.header-account--text:hover { background: #1e293b; border-color: #1e293b; color: #fff; }
+.site-header .header-account--text .ha-in { display: none; }
+.site-header .header-account--text.is-signed-in .ha-in { display: inline; }
+.site-header .header-account--text.is-signed-in .ha-out { display: none; }
+/* The button stays visible on laptops and tablets (the home icon hides below 1420px); only on
+   narrow phones does "Sign in" move into the menu. */
+@media (max-width: 599px) { .site-header .header-account.header-account--text { display: none; } }
+@media (max-width: 1419px) { .site-header .header-account.header-account--text { height: 40px; padding: 0 16px; } }

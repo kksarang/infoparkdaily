@@ -60,6 +60,12 @@ export function siteHeaderHtml(section = "home", current = "") {
   const nav = cfg.links.map(([href, label]) => `<a href="${href}"${mark(href)}>${label}</a>`).join("");
   const external = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : "");
   const pill = cfg.pill ? `<a href="${cfg.pill[0]}" class="nav-enitexa"${mark(cfg.pill[0])}${external(cfg.pill[0])}>${cfg.pill[1]}</a>` : "";
+  /* Recruit and Career Tools show a text "Sign in" button (the home page keeps its icon).
+     It carries both labels; CSS shows "My workspace/My account" once .is-signed-in is set. */
+  const signIn =
+    section === "home"
+      ? ""
+      : `<a class="header-account header-account--text" href="/resume-builder/sign-in/?next=${section === "recruit" ? "%2Finfoparkdaily%2Fdashboard%2F" : "%2Fresume-builder%2F"}" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">${section === "recruit" ? "My workspace" : "My account"}</span></a>`;
   return `<header class="site-header glass" data-section="${section}">
       <a class="brand" href="/" aria-label="Infopark Daily home">
         <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
@@ -74,6 +80,7 @@ export function siteHeaderHtml(section = "home", current = "") {
       </nav>
       <div class="header-actions">
         <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        ${signIn}
         <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
           <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>

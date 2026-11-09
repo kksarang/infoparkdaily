@@ -158,7 +158,7 @@ export function buildQuestions() {
     />
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
     <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
-    <link rel="stylesheet" href="/css/career-nav.css?v=20261109dk2" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109si2" />
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=${VERSION}" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=${VERSION}" />
@@ -272,7 +272,7 @@ ${footer()}
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
     <script src="/js/interview-questions.js?v=${VERSION}" defer></script>
-    <script src="/js/site.js?v=20261108sw" defer></script>
+    <script src="/js/site.js?v=20261109si" defer></script>
   </body>
 </html>
 `;

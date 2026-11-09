@@ -740,9 +740,11 @@ window.IPDAuthHint =
   window.IPDPaintAccount = function (state) {
     const signedIn = state === true;
     const checking = state === "checking";
+    /* Section pages (Career Tools) come back to the page you were on; elsewhere, your saved jobs. */
+    const back = document.querySelector(".site-header[data-section]") ? location.pathname + location.search : "/jobs/saved/";
     const href = signedIn
       ? "/resume-builder/account/"
-      : "/resume-builder/sign-in/?next=" + encodeURIComponent("/jobs/saved/");
+      : "/resume-builder/sign-in/?next=" + encodeURIComponent(back);
     const label = checking ? "Checking sign-in" : signedIn ? "My account" : "Sign in";
     document.querySelectorAll(".nav-account, .header-account").forEach((el) => {
       el.href = href;
