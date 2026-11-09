@@ -62,12 +62,12 @@ const MENU = [
       {
         title: "Get help",
         items: [
-          ["Done-for-you websites", "Our team builds and launches it, from ₹999.", "/portfolio/templates/#pricing"],
+          ["Done-for-you websites", "Our team builds and launches it, from ₹1,999.", "/portfolio/templates/#pricing"],
           ["Custom software", "Bigger projects with Enitexa.ai.", "https://sarangrajan.in/enitexa.ai/"],
         ],
       },
     ],
-    band: ["Prefer we build it?", "Done-for-you websites from ₹999, launched by our team.", "/portfolio/templates/#pricing"],
+    band: ["Prefer we build it?", "Done-for-you websites from ₹1,999, launched by our team.", "/portfolio/templates/#pricing"],
   },
   {
     id: "resources",

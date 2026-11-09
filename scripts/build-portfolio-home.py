@@ -116,7 +116,7 @@ def hero_html() -> str:
     return f"""<section class="pfh-hero" aria-labelledby="pfh-title">
 <div class="pfh-wrap pfh-hero-grid">
 <div class="pfh-hero-copy">
-<p class="pfh-kicker"><span class="pfh-kicker-dot" aria-hidden="true"></span>Portfolio websites · From ₹999</p>
+<p class="pfh-kicker"><span class="pfh-kicker-dot" aria-hidden="true"></span>Portfolio websites · From ₹1,999</p>
 <h1 id="pfh-title"><span>Your skills.</span> <span>Your work.</span> <span>Your own <em>website.</em></span></h1>
 <p class="pfh-lead">Choose a complete design. We personalise it with your projects, experience, and contact details — then you share one link.</p>
 <div class="pfh-actions"><a class="pfh-btn pfh-btn--ink pfh-btn--lg" href="/portfolio/templates/all/">Browse {N} templates {ARROW}</a><a class="pfh-btn pfh-btn--line pfh-btn--lg" href="#pricing">See plans</a></div>
@@ -135,10 +135,10 @@ def hero_html() -> str:
 </div>
 </div>
 <div class="pfh-wrap"><ul class="pfh-prices" aria-label="Plans at a glance">
-<li><a href="#pricing"><strong>₹999</strong><span>Portfolio website</span></a></li>
-<li><a href="#pricing"><strong>₹1,999</strong><span>+ Domain</span></a></li>
-<li><a href="#pricing"><strong>₹3,499</strong><span>Shop + Domain</span></a></li>
-<li><a href="#pricing"><strong>₹4,999</strong><span>Extra pages + Domain</span></a></li>
+<li><a href="#pricing"><strong>₹1,999</strong><span>Portfolio website</span></a></li>
+<li><a href="#pricing"><strong>₹2,999</strong><span>+ Domain</span></a></li>
+<li><a href="#pricing"><strong>₹4,499</strong><span>Shop + Domain</span></a></li>
+<li><a href="#pricing"><strong>₹6,999</strong><span>Extra pages + Domain</span></a></li>
 <li><a href="#pricing"><strong>Quote</strong><span>Business + Mail</span></a></li>
 </ul></div>
 </section>"""
@@ -286,7 +286,7 @@ def build_main(plans: str, details: str) -> str:
 <div class="pfh-b-card pfh-b-cost pfh-reveal">
 <span class="pfh-b-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 8.5h10M7 4c4 0 6 1.8 6 4.5S11 13 7 13l7 7"/></svg></span>
 <h3>What it costs</h3>
-<p class="pfh-b-price"><small>From</small>₹999<small>one-time</small></p>
+<p class="pfh-b-price"><small>From</small>₹1,999<small>one-time</small></p>
 <p>For a one-page portfolio. Domain, shop and extra-page plans are below. Scope and price are confirmed in writing before you pay.</p>
 </div>
 </div>

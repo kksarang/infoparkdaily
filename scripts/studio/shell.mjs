@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const SITE = "https://infoparkdaily.online";
-export const V = "20261109b1";
+export const V = "20261109b2";
 export const OG_IMAGE = `${SITE}/assets/studio/og.jpg`;
 export const WHATSAPP = "919995254290";
 

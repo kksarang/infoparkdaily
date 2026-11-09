@@ -320,7 +320,7 @@ function pageSite(id) {
         </section>
         <section class="panel panel--accent">
           <h2>Need it sooner?</h2>
-          <p>Our team can build and launch your site for you, from ₹999.</p>
+          <p>Our team can build and launch your site for you, from ₹1,999.</p>
           <a class="btn btn--ghost" href="/portfolio/templates/#pricing">See done-for-you packages ${icon("arrow", 16)}</a>
         </section>
         <button type="button" class="danger-link" data-act="delete" data-id="${p.id}">${icon("trash", 16)}Delete this site</button>

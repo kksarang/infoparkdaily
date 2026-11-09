@@ -53,7 +53,7 @@ const FEATURES = [
   ["Account", "Malayalam interface", "later", "Use Studio in Malayalam, with Hindi and Tamil to follow.", "/studio/roadmap/", "globe"],
   ["Account", "AI writing help", "later", "Draft and rewrite your site text, and translate it to Malayalam.", "/studio/roadmap/", "bolt"],
   ["Account", "Team and client access", "later", "For agencies building sites for clients: shared access and handover.", "/studio/roadmap/", "user"],
-  ["Support", "Done-for-you websites", "live", "Our team builds and launches your site, from ₹999.", "/studio/pricing/#done-for-you", "hand"],
+  ["Support", "Done-for-you websites", "live", "Our team builds and launches your site, from ₹1,999.", "/studio/pricing/#done-for-you", "hand"],
   ["Support", "WhatsApp support", "live", "Message us on WhatsApp. We usually reply within one working day.", wa("Hi InfoparkDaily, I have a question about Daily Web Studio."), "chat"],
 ];
 const GROUPS = [
@@ -169,7 +169,7 @@ ${ctaBand()}`;
     ["Growth", [["SEO settings per page", "Later", "P", "P", "P"], ["Contact and booking forms", "Later", "P", "P", "P"], ["Analytics", "—", "—", "P", "P"]]],
     ["Ownership and hosting", [["Code export (ZIP)", "Next", "P", "P", "P"], ["Push to GitHub", "Later", "P", "P", "P"], ["One-click publish", "Later", "P", "P", "P"], ["Free hosting on Cloudflare Pages or Netlify", "Next", "P", "P", "P"], ["Custom domain help", "—", "P", "P", "P"], ["HTTPS certificate (through your host)", "Next", "P", "P", "P"]]],
     ["Account and safety", [["Cloud saving to your account", "✓", "P", "P", "P"], ["Google sign-in", "✓", "P", "P", "P"], ["JSON backup download", "✓", "P", "P", "P"], ["Delete account and all sites", "✓", "P", "P", "P"], ["Team seats", "—", "—", "—", "P"], ["Client handover", "—", "—", "—", "P"]]],
-    ["Support", [["WhatsApp support", "✓", "P", "P", "P"], ["Priority support", "—", "P", "P", "P"], ["Done-for-you option", "✓ from ₹999", "✓", "✓", "✓"]]],
+    ["Support", [["WhatsApp support", "✓", "P", "P", "P"], ["Priority support", "—", "P", "P", "P"], ["Done-for-you option", "✓ from ₹1,999", "✓", "✓", "✓"]]],
   ];
   const cell = (v) => (v === "✓" ? `<td class="ok">${ICO("check")}<span class="sr">Included</span></td>` : v === "P" ? `<td class="pl">Planned</td>` : v === "—" ? `<td class="no"><span aria-hidden="true">—</span><span class="sr">Not included</span></td>` : /^(Next|Later)$/.test(v) ? `<td>${badge(v.toLowerCase())}</td>` : `<td>${esc(v)}</td>`);
   const table = `<div class="cmp-wrap" tabindex="0" role="region" aria-label="Plan comparison"><table class="cmp"><thead><tr><th scope="col">Feature</th><th scope="col">Free<small>Today</small></th><th scope="col">Pro<small>Planned</small></th><th scope="col">Business<small>Planned</small></th><th scope="col">Agency<small>Planned</small></th></tr></thead>${ROWS.map(
@@ -185,18 +185,18 @@ ${ctaBand()}`;
     ["How do I pay for done-for-you work?", "We confirm the scope and total on WhatsApp or email first, then share payment details. Don’t pay anyone who contacts you without a written quote from InfoparkDaily."],
     ["Will my price go up later?", "Early-access users will be told about any changes in advance. Sites you build stay yours and can be exported."],
   ];
-  const body = `${hero(crumbs, "Pricing", "Free while we build it with you.", "Studio is free during early access. Paid plans come later, and you can join their waitlists now. Prefer we build it for you? Done-for-you websites start at ₹999.")}
+  const body = `${hero(crumbs, "Pricing", "Free while we build it with you.", "Studio is free during early access. Paid plans come later, and you can join their waitlists now. Prefer we build it for you? Done-for-you websites start at ₹1,999.")}
     <section class="dp-section" style="padding-top:0"><div class="lx-wrap"><div class="pc-grid">${cards}</div>
       <p class="pc-note">Paid plans are planned: features may change and prices aren’t set yet. Waitlist buttons open WhatsApp with a ready-made message.</p></div></section>
     <section class="dp-section dp-section--soft" id="done-for-you" aria-labelledby="dfy"><div class="lx-wrap">
-      <div class="dp-head"><div><p class="lx-eyebrow">Done for you</p><h2 class="lx-h2" id="dfy" style="margin-top:12px">Rather we build it? From ₹999.</h2><p class="lx-sub" style="margin-top:10px">Our team personalises one of our designs with your content and launches it. Available today.</p></div><a class="dp-more" href="/portfolio/templates/">Browse designs ${ICO("arrow")}</a></div>
+      <div class="dp-head"><div><p class="lx-eyebrow">Done for you</p><h2 class="lx-h2" id="dfy" style="margin-top:12px">Rather we build it? From ₹1,999.</h2><p class="lx-sub" style="margin-top:10px">Our team personalises one of our designs with your content and launches it. Available today.</p></div><a class="dp-more" href="/portfolio/templates/">Browse designs ${ICO("arrow")}</a></div>
       <div class="pc-dfy-grid">${dfy}</div>
       <p class="pc-note">${esc(config.policy)}</p>
     </div></section>
     <section class="dp-section" aria-labelledby="cmp"><div class="lx-wrap"><div class="dp-head"><div><h2 class="lx-h2" id="cmp">Compare plans</h2><p class="lx-sub" style="margin-top:8px">The Free column shows Studio today. Paid columns show what’s planned.</p></div></div>${table}</div></section>
 ${faqBlock("pc-faq", "Pricing questions", FAQ)}
 ${ctaBand()}`;
-  await write("studio/pricing", layout({ path: "/studio/pricing/", title: "Pricing · Daily Web Studio", desc: "Daily Web Studio is free during early access. Join the Pro, Business and Agency waitlists, or get a done-for-you website from ₹999.", crumbs, jsonld: [APP, faqLd(FAQ)], body }));
+  await write("studio/pricing", layout({ path: "/studio/pricing/", title: "Pricing · Daily Web Studio", desc: "Daily Web Studio is free during early access. Join the Pro, Business and Agency waitlists, or get a done-for-you website from ₹1,999.", crumbs, jsonld: [APP, faqLd(FAQ)], body }));
 }
 
 /* ---------- How it works ---------- */
@@ -208,12 +208,12 @@ ${ctaBand()}`;
     ["next", "Edit visually", "Click any text to change it, swap photos, reorder sections and set your fonts and colours.", ["Click-to-edit text and images", "Sections list with drag to reorder", "Desktop, tablet and phone views", "Undo, redo and autosave"]],
     ["next", "Export and go live", "Download your site as clean code and publish it free, with your own domain if you like.", ["ZIP download of HTML, CSS and images", "Free hosting guides for Cloudflare Pages, Netlify and GitHub Pages", "Connect your own domain"]],
   ];
-  const DFY = [["Choose your design", "Preview complete websites and pick the one that fits."], ["Select your package", "From ₹999 for a one-page portfolio to multi-page sites with a domain."], ["Share your content", "Send your details, projects, photos and links."], ["Review and launch", "Review your personalised preview, request the agreed revisions, then go live."]];
+  const DFY = [["Choose your design", "Preview complete websites and pick the one that fits."], ["Select your package", "From ₹1,999 for a one-page portfolio to multi-page sites with a domain."], ["Share your content", "Send your details, projects, photos and links."], ["Review and launch", "Review your personalised preview, request the agreed revisions, then go live."]];
   const body = `${hero(crumbs, "How it works", "From idea to website, step by step.", "Here’s the whole journey in Daily Web Studio, with an honest label on each step. Not ready to do it yourself? Our team can build it for you.", `<div class="dp-ctas"><a class="lx-go" href="${NEW()}">Start step 1 now</a><a class="dp-ghost" href="#done-for-you">Or let us build it ${ICO("arrow")}</a></div>`)}
     <section class="dp-section" style="padding-top:0"><div class="lx-wrap hw-list">${STEPS.map(
       ([s, t, d, items], i) => `<article class="hw-step"><div class="hw-num">${i + 1}</div><div class="hw-body"><div class="hw-top"><h2>${esc(t)}</h2>${badge(s)}</div><p>${esc(d)}</p><ul>${items.map((x) => `<li>${ICO("check")}${esc(x)}</li>`).join("")}</ul>${i === 0 ? `<a class="dp-ghost" href="${NEW()}">Try it now ${ICO("arrow")}</a>` : `<a class="dp-ghost" href="/studio/roadmap/">See the roadmap ${ICO("arrow")}</a>`}</div></article>`,
     ).join("")}</div></section>
-    <section class="dp-section dp-section--soft" id="done-for-you" aria-labelledby="hw-dfy"><div class="lx-wrap"><div class="dp-head"><div><p class="lx-eyebrow">Done for you</p><h2 class="lx-h2" id="hw-dfy" style="margin-top:12px">Or let our team build it.</h2><p class="lx-sub" style="margin-top:10px">Available today, from ₹999.</p></div><a class="dp-more" href="/studio/pricing/#done-for-you">See packages ${ICO("arrow")}</a></div>
+    <section class="dp-section dp-section--soft" id="done-for-you" aria-labelledby="hw-dfy"><div class="lx-wrap"><div class="dp-head"><div><p class="lx-eyebrow">Done for you</p><h2 class="lx-h2" id="hw-dfy" style="margin-top:12px">Or let our team build it.</h2><p class="lx-sub" style="margin-top:10px">Available today, from ₹1,999.</p></div><a class="dp-more" href="/studio/pricing/#done-for-you">See packages ${ICO("arrow")}</a></div>
       <ol class="dp-steps dp-steps--4">${DFY.map(([t, d], i) => `<li><span>${i + 1}</span><h3>${esc(t)}</h3><p>${esc(d)}</p></li>`).join("")}</ol></div></section>
 ${ctaBand()}`;
   await write("studio/how-it-works", layout({ path: "/studio/how-it-works/", title: "How it works · Daily Web Studio", desc: "How Daily Web Studio works, step by step: set up, choose a template, edit visually and export, with a clear label on what’s live today.", crumbs, jsonld: [{ "@type": "HowTo", name: "Build a website with Daily Web Studio", step: STEPS.map(([, t, d]) => ({ "@type": "HowToStep", name: t, text: d })) }], body }));
@@ -224,7 +224,7 @@ const HELP = [
   ["start", "Getting started", [
     ["What is Daily Web Studio?", "A website builder from InfoparkDaily in Kochi. You set up a site by answering a few questions, and soon you’ll edit it visually and export it as clean code you own."],
     ["What can I do in Studio today?", "Set up sites for 12 website types, choose a look, colour and pages, see a first look of your homepage, and save sites to your account. The template marketplace, visual editor and code export are next. See the roadmap for details."],
-    ["How much does it cost?", "Nothing during early access. Paid plans come later with a waitlist; done-for-you websites start at ₹999."],
+    ["How much does it cost?", "Nothing during early access. Paid plans come later with a waitlist; done-for-you websites start at ₹1,999."],
     ["Which website type should I choose?", "The closest match to what you do. If you’re not sure, choose Business website. Your type only decides the starting pages and suggested designs, and you can change anything later."],
     ["Do I need to know how to code?", "No. Setup is a few simple questions, and the visual editor will work by clicking and typing."],
   ]],
@@ -262,7 +262,7 @@ const HELP = [
     ["Do I get HTTPS?", "Yes. Cloudflare Pages, Netlify and GitHub Pages add a secure certificate automatically."],
   ]],
   ["billing", "Done-for-you and billing", [
-    ["What is done-for-you?", "Our team personalises one of our designs with your content and launches it, from ₹999."],
+    ["What is done-for-you?", "Our team personalises one of our designs with your content and launches it, from ₹1,999."],
     ["How long does a done-for-you site take?", "It depends on the package and how quickly you share your content. We confirm the delivery estimate in your written quote."],
     ["How do revisions work?", "The number of revision rounds is agreed in your written quote before you pay."],
     ["How do I pay safely?", "Only pay after you receive a written quote from InfoparkDaily. We never ask for payment from unknown numbers."],
@@ -362,7 +362,7 @@ const TYPE_PAGE = { ecommerce: "online-store", portfolio: "portfolio-website", b
       <p class="hc-empty" id="tg-empty" hidden>No designs match. Try another word or filter.</p>
       <div class="tg-gap"><h2>Designs for these types are coming</h2><p>${SITE_TYPES.filter((t) => !counts[t.id]).map((t) => esc(t.label)).join(", ")}. You can still set up these sites today and see a first look.</p><a class="dp-ghost" href="${NEW()}">Set up a site ${ICO("arrow")}</a></div>
     </div></section>
-${ctaBand("Found one you like?", "Set up your site now, or let our team build it with your chosen design, from ₹999.")}`;
+${ctaBand("Found one you like?", "Set up your site now, or let our team build it with your chosen design, from ₹1,999.")}`;
   await write("studio/templates", layout({ path: "/studio/templates/", title: "Website templates · Daily Web Studio", desc: `${templates.length} complete, phone-ready website designs for portfolios, businesses, stores, blogs and creators. Preview free.`, crumbs, jsonld: [{ "@type": "CollectionPage", name: "Daily Web Studio templates", hasPart: templates.map((t) => ({ "@type": "CreativeWork", name: t.name, url: `${SITE}/studio/templates/${t.slug}/` })) }], body, scripts: ["/js/studio/hub.js"] }));
 
   for (const t of templates) {
@@ -373,7 +373,7 @@ ${ctaBand("Found one you like?", "Set up your site now, or let our team build it
     <section class="dp-hero td-hero" aria-labelledby="dp-title"><div class="lx-wrap">
       ${crumbsHtml(tc)}
       <div class="td-head"><div><span class="dp-status dp-status--early">Preview now · editable in Studio soon</span><h1 id="dp-title">${esc(t.name)}</h1><p class="lx-sub">${esc(t.description)} Made for: ${esc(t.profession)}.</p></div>
-        <div class="dp-ctas"><a class="lx-go" href="/portfolio/templates/${t.slug}/">Get it built from ₹999</a><a class="dp-ghost" href="${NEW(type)}">Start ${/^[aeiou]/i.test(typeLabel(type)) ? "an" : "a"} ${esc(typeLabel(type).toLowerCase())} ${ICO("arrow")}</a></div></div>
+        <div class="dp-ctas"><a class="lx-go" href="/portfolio/templates/${t.slug}/">Get it built from ₹1,999</a><a class="dp-ghost" href="${NEW(type)}">Start ${/^[aeiou]/i.test(typeLabel(type)) ? "an" : "a"} ${esc(typeLabel(type).toLowerCase())} ${ICO("arrow")}</a></div></div>
       <div class="td-stage">
         <div class="td-bar"><span class="dots"><i></i><i></i><i></i></span><div class="seg td-seg" role="group" aria-label="Preview size"><button type="button" data-size="desktop" aria-pressed="true">Desktop</button><button type="button" data-size="tablet" aria-pressed="false">Tablet</button><button type="button" data-size="phone" aria-pressed="false">Phone</button></div><a class="td-open" href="${t.previewPath}" target="_blank" rel="noopener">Open full preview ${ICO("arrow")}</a></div>
         <div class="td-frame-wrap" id="td-wrap"><iframe class="td-frame" id="td-frame" title="Live preview of ${esc(t.name)}" src="/portfolio/demo/${t.slug}/" loading="lazy"></iframe></div>
@@ -382,7 +382,7 @@ ${ctaBand("Found one you like?", "Set up your site now, or let our team build it
     <section class="dp-section" style="padding-top:0"><div class="lx-wrap td-info">
       <article class="sp-card"><h2>Sections included</h2><ul class="td-tags">${t.supportedSections.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></article>
       <article class="sp-card"><h2>Details</h2><dl class="td-dl"><div><dt>Website type</dt><dd><a href="${TYPE_PAGE[type] ? `/studio/${TYPE_PAGE[type]}/` : "/studio/website-types/"}">${esc(typeLabel(type))}</a></dd></div><div><dt>Category</dt><dd>${esc(t.category)}</dd></div><div><dt>Style</dt><dd>${t.styleTags.map(esc).join(", ")}</dd></div><div><dt>Responsive</dt><dd>Desktop, tablet and phone</dd></div></dl></article>
-      <article class="sp-card"><h2>How to use it</h2><ul><li>${ICO("check")}<span>Today: our team personalises it with your content, from ₹999.</span></li><li>${ICO("clock")}<span>Soon: pick it in the Studio template marketplace and edit it yourself.</span></li><li>${ICO("check")}<span>All sample names and content are fictional.</span></li></ul></article>
+      <article class="sp-card"><h2>How to use it</h2><ul><li>${ICO("check")}<span>Today: our team personalises it with your content, from ₹1,999.</span></li><li>${ICO("clock")}<span>Soon: pick it in the Studio template marketplace and edit it yourself.</span></li><li>${ICO("check")}<span>All sample names and content are fictional.</span></li></ul></article>
     </div></section>
 ${similar.length ? `    <section class="dp-section" style="padding-top:0"><div class="lx-wrap"><div class="dp-head"><h2 class="lx-h2">Similar designs</h2><a class="dp-more" href="/studio/templates/">All templates ${ICO("arrow")}</a></div><div class="lx-show">${similar.map((x) => `<a class="lx-card" href="/studio/templates/${x.slug}/"><span class="lx-card-img"><img src="${x.thumbnail}" width="1200" height="900" alt="${esc(x.name)} design" loading="lazy"><em>${esc(x.category)}</em></span><span class="lx-card-body"><span><strong>${esc(x.name)}</strong><small>${esc(x.profession)}</small></span><span class="lx-card-go">${ICO("arrow")}</span></span></a>`).join("")}</div></div></section>` : ""}
 ${ctaBand()}`;

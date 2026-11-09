@@ -6,7 +6,7 @@
     {
       "id": "website",
       "name": "Portfolio Website",
-      "price": 999,
+      "price": 1999,
       "description": "One-page portfolio personalised from any listed template.",
       "cta": "whatsapp",
       "includesDomain": false,
@@ -27,7 +27,7 @@
     {
       "id": "domain",
       "name": "Portfolio + Domain",
-      "price": 1999,
+      "price": 2999,
       "description": "Portfolio website plus an eligible custom domain for the first year.",
       "cta": "whatsapp",
       "includesDomain": true,
@@ -47,7 +47,7 @@
     {
       "id": "shop",
       "name": "Shop Portfolio + Domain",
-      "price": 3499,
+      "price": 4499,
       "description": "Portfolio with a simple product or catalogue section, plus domain.",
       "cta": "whatsapp",
       "includesDomain": true,
@@ -66,8 +66,8 @@
     },
     {
       "id": "pages",
-      "name": "Portfolio + Extra Pages + Domain",
-      "price": 4999,
+      "name": "Website + Extra Pages + Domain",
+      "price": 6999,
       "description": "Multi-page site with separate About, Services & Contact pages, plus domain.",
       "cta": "whatsapp",
       "includesDomain": true,
