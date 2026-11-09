@@ -20,8 +20,8 @@ const CONTENT_PX = Math.round(CONTENT_PT / PX);
 const PAGE_PX = (A4.h - M.top - M.bottom) / PX;
 const SCALE = 2.5; // image resolution: 2.5 × 96 dpi = 240 dpi
 /* A resume that overflows one page by a little (a stray last line) is shrunk to fit one page
-   instead of starting a mostly empty second page. Text stays at least 87% of its size. */
-const FIT_LIMIT = 1.15;
+   instead of starting a mostly empty second page. Text stays at least 83% of its size. */
+const FIT_LIMIT = 1.2;
 
 let loading = null;
 function loadLibs() {
@@ -141,9 +141,26 @@ function pageBreaks(doc, lines, total) {
   return breaks;
 }
 
-/** Build the PDF and return it as a Blob. */
-export async function resumePdfBlob(html, title = "Resume") {
+/* Safety limits: a resume that hits any of these is not downloaded broken — the caller
+   falls back to the print view instead. */
+const TIME_LIMIT_MS = 30000;
+const MAX_PAGES = 12;
+const MIN_BYTES = 2000;
+const MAX_BYTES = 15 * 1024 * 1024;
+
+/** Build the PDF and return it as a Blob. Rejects (never returns a broken file) on any problem. */
+export function resumePdfBlob(html, title = "Resume") {
+  let timer;
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error("Making the PDF took too long on this device.")), TIME_LIMIT_MS);
+  });
+  return Promise.race([buildPdf(html, title), timeout]).finally(() => clearTimeout(timer));
+}
+
+async function buildPdf(html, title) {
   await loadLibs();
+  /* Phones with little memory get a slightly lighter image (still ≈190 dpi). */
+  const scale = (navigator.deviceMemory || 4) <= 2 ? 2 : SCALE;
   const frame = document.createElement("iframe");
   frame.setAttribute("aria-hidden", "true");
   frame.tabIndex = -1;
@@ -167,12 +184,15 @@ export async function resumePdfBlob(html, title = "Resume") {
     const total = Math.ceil(doc.body.scrollHeight);
     frame.style.height = total + "px";
     const lines = collectLines(doc);
+    if (!lines.length || total < 20) throw new Error("The resume looks empty, so there is nothing to download yet.");
     const links = [...doc.querySelectorAll("a[href]")]
       .map((a) => ({ href: a.getAttribute("href"), r: a.getBoundingClientRect() }))
       .filter((l) => /^(https?:|mailto:|tel:)/i.test(l.href) && l.r.width);
     const fit = total > PAGE_PX && total <= PAGE_PX * FIT_LIMIT ? PAGE_PX / total : 1;
     const breaks = fit < 1 ? [0, total] : pageBreaks(doc, lines, total);
+    if (breaks.length - 1 > MAX_PAGES) throw new Error("This resume is longer than " + MAX_PAGES + " pages.");
     const k = PX * fit; /* CSS px → PDF pt on the page */
+    let written = 0;
     const x0 = M.left + (CONTENT_PT - CONTENT_PT * fit) / 2; /* keep a shrunk page centred */
 
     const { jsPDF } = window.jspdf;
@@ -185,7 +205,7 @@ export async function resumePdfBlob(html, title = "Resume") {
       const y1 = breaks[p + 1];
       if (p > 0) pdf.addPage("a4", "portrait");
       const canvas = await window.html2canvas(doc.body, {
-        scale: SCALE,
+        scale,
         x: 0,
         y: y0,
         width: CONTENT_PX,
@@ -196,6 +216,7 @@ export async function resumePdfBlob(html, title = "Resume") {
         logging: false,
         useCORS: true,
       });
+      if (!canvas.width || !canvas.height) throw new Error("The page image could not be drawn on this device.");
       pdf.addImage(canvas.toDataURL("image/jpeg", 0.9), "JPEG", x0, M.top, CONTENT_PT * fit, (y1 - y0) * k, undefined, "FAST");
       canvas.width = canvas.height = 0; /* free memory on phones */
 
@@ -211,13 +232,18 @@ export async function resumePdfBlob(html, title = "Resume") {
           renderingMode: "invisible",
           horizontalScale: Math.max(0.3, Math.min(3, target / natural)),
         });
+        written += 1;
       }
       for (const q of links) {
         if (q.r.top < y0 || q.r.top >= y1) continue;
         pdf.link(x0 + q.r.left * k, M.top + (q.r.top - y0) * k, q.r.width * k, q.r.height * k, { url: q.href });
       }
     }
-    return pdf.output("blob");
+    /* Final checks before anyone gets the file. */
+    if (!written) throw new Error("The PDF text could not be written.");
+    const blob = pdf.output("blob");
+    if (blob.size < MIN_BYTES || blob.size > MAX_BYTES) throw new Error("The PDF came out the wrong size.");
+    return blob;
   } finally {
     frame.remove();
   }
