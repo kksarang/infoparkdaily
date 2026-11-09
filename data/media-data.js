@@ -77,6 +77,15 @@ var SOCIAL_CHANNELS = [
     cta: "Join"
   },
   {
+    id: "telegram",
+    badge: "TG",
+    tone: "wa",
+    name: "Telegram",
+    blurb: "Community & general updates",
+    url: "https://t.me/infoparkDailyupdate",
+    cta: "Join"
+  },
+  {
     id: "facebook",
     badge: "FB",
     tone: "ig",

@@ -1290,3 +1290,22 @@ body.join-page {
     transform: none;
   }
 }
+
+/* Telegram channel card */
+.join-channel-card--telegram {
+  border-color: rgba(34, 158, 217, 0.55);
+  background: linear-gradient(145deg, rgba(34, 158, 217, 0.14), var(--surface) 55%);
+}
+.join-channel-card--telegram:hover,
+.join-channel-card--telegram:focus-visible {
+  border-color: rgba(34, 158, 217, 0.9);
+}
+.join-channel-card--telegram .join-channel-icon {
+  background: rgba(34, 158, 217, 0.2);
+  border-color: rgba(34, 158, 217, 0.35);
+}
+.join-channel-card--telegram .join-channel-action {
+  background: linear-gradient(135deg, #2aabee, #229ed9);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(34, 158, 217, 0.35);
+}

@@ -20,7 +20,7 @@ const view = $("#view");
 const SIGN_IN = "/resume-builder/sign-in/?next=%2Fstudio%2Fapp%2F";
 
 export const LOGO =
-  '<svg class="dws-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#14151a"/><rect x="7" y="8" width="18" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2"/><path d="M7.5 13h17" stroke="#fff" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#fff"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#fff" opacity=".6"/></svg>';
+  '<svg class="dws-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>';
 
 /* ---------- small helpers ---------- */
 const ago = (t) => {

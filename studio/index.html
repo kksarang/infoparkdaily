@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Daily Web Studio · Build your website. Own the code.</title>
-  <meta name="description" content="Pick a design, make it yours, and download clean HTML you can host free on Cloudflare Pages, Netlify or GitHub Pages. Daily Web Studio by InfoparkDaily.">
+  <meta name="description" content="Pick a design made for your work, make it yours, and download clean HTML you can host free on Cloudflare Pages, Netlify or GitHub Pages. Daily Web Studio by InfoparkDaily.">
   <!-- Early access: keep out of search results until the editor launches. -->
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#f7f6f2">
+  <meta name="theme-color" content="#fbfaf6">
   <link rel="canonical" href="https://infoparkdaily.online/studio/">
   <link rel="icon" href="/assets/studio/favicon.svg" type="image/svg+xml">
   <meta property="og:title" content="Daily Web Studio · Build your website. Own the code.">
@@ -16,149 +16,290 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="/css/studio.css?v=20261109a">
+  <link rel="stylesheet" href="/css/studio.css?v=20261109d">
 </head>
-<body>
+<body class="lx">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16.5V20"/></symbol>
+    <symbol id="i-tablet" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></symbol>
+    <symbol id="i-rows" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="1.5"/><rect x="4" y="14" width="16" height="6" rx="1.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 19.5 5.3 16A8 8 0 1 1 8 18.7L4 19.5Z"/></symbol>
+    <symbol id="i-zip" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v4h4M11 6h2M11 9h2M11 12h2v3h-2z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z"/></symbol>
+    <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 7.6-1.8"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5a5 5 0 0 1-.5 10H7Z"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12M11 11V4.5a1.5 1.5 0 0 1 3 0V12M14 11.5V6a1.5 1.5 0 0 1 3 0v8c0 3.9-2.7 7-6.5 7-2.6 0-4.3-1.3-5.6-3.4L3.3 15a1.5 1.5 0 0 1 2.5-1.6L8 16"/></symbol>
+    <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M18 11.5c0 3-3 3.5-6 3.5H8"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></symbol>
+    <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10M17 21V3c-2.2 1.4-3.5 4-3.5 7v3H17"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.9-5.5 7-5.5s5.8 1.9 7 5.5"/></symbol>
+  </svg>
+
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="l-head">
-    <div class="l-wrap">
-      <a class="l-brand" href="/studio/" aria-label="Daily Web Studio home">
-        <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#14151a"/><rect x="7" y="8" width="18" height="16" rx="3" fill="none" stroke="#fff" stroke-width="2"/><path d="M7.5 13h17" stroke="#fff" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#fff"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#fff" opacity=".6"/></svg>
+  <header class="lx-top">
+    <div class="lx-wrap">
+      <a class="lx-brand" href="/studio/" aria-label="Daily Web Studio home">
+        <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>
         <span><strong>Daily Web Studio</strong><small>by InfoparkDaily</small></span>
       </a>
-      <nav class="l-nav" aria-label="Studio">
+      <nav class="lx-nav" aria-label="Studio">
+        <a href="#designs">Designs</a>
         <a href="#how">How it works</a>
-        <a href="#types">Website types</a>
         <a href="#own">Own your code</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <div class="l-actions">
-        <a class="l-signin" href="/resume-builder/sign-in/?next=%2Fstudio%2Fapp%2F">Sign in</a>
-        <a class="btn btn--accent" href="/studio/app/#/new"><span>Start building</span><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="lx-actions">
+        <a class="lx-signin" href="/resume-builder/sign-in/?next=%2Fstudio%2Fapp%2F">Sign in</a>
+        <a class="btn" href="/studio/app/#/new">Start building<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="l-hero">
-      <div class="l-wrap">
-        <div>
-          <span class="l-badge"><b>Early access</b>Free while we build it with you</span>
-          <h1>Build your website. <em>Own the code.</em></h1>
-          <p class="lead">Pick a design made for what you do, make it yours, and download clean HTML you can host free on Cloudflare Pages, Netlify or GitHub Pages. No lock-in, no monthly hosting bill.</p>
-          <div class="l-ctas">
-            <a class="btn btn--accent btn--lg" href="/studio/app/#/new">Start building, it’s free</a>
-            <a class="btn btn--ghost btn--lg" href="#how">See how it works</a>
+    <!-- Hero -->
+    <section class="lx-hero">
+      <div class="lx-wrap">
+        <div class="lx-hero-copy">
+          <a class="lx-pill" href="#pricing"><b>Early access</b>Free while we build it with you</a>
+          <h1>Websites you build.<br>Code you <span class="lx-mark">own.</span></h1>
+          <p class="lx-sub">Pick a design made for your work, make it yours, and take it anywhere. Clean HTML you can host free on Cloudflare Pages, Netlify or GitHub Pages. No lock-in, no monthly hosting bill.</p>
+          <div class="lx-ctas">
+            <a class="btn btn--ink" href="/studio/app/#/new">Start building, it’s free<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--ghost" href="#designs">Explore designs</a>
           </div>
-          <ul class="l-proof">
-            <li><svg class="ico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>No card needed</li>
-            <li><svg class="ico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>12 website types</li>
-            <li><svg class="ico" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Made in Kerala</li>
+          <ul class="lx-proof">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No card needed</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>12 website types</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Works on every phone</li>
           </ul>
         </div>
-        <div class="mock" aria-hidden="true">
-          <div class="mock-top"><span class="dots"><i></i><i></i><i></i></span><span>malabar-spice.pages.dev</span><em>Publish</em></div>
-          <div class="mock-body">
-            <div class="mock-pane"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="mock-canvas">
-              <div class="mc-nav"><b></b><span><i></i><i></i><i></i></span></div>
-              <div class="mc-h">Slow-cooked Malabar flavours</div>
-              <div class="mc-p"></div>
-              <div class="mc-btn"></div>
-              <div class="mc-grid"><i></i><i></i><i></i></div>
-              <div class="mc-sel"></div>
-              <div class="mc-drag">Gallery</div>
+
+        <div class="lx-stage">
+          <div class="lx-app" aria-hidden="true">
+            <div class="lx-app-bar">
+              <div class="lx-app-file">
+                <svg viewBox="0 0 32 32" width="22" height="22"><rect width="32" height="32" rx="8" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/></svg>
+                Chai &amp; Clay <span>/ Home</span>
+              </div>
+              <div class="lx-seg"><i class="on"><svg class="i"><use href="#i-desktop"/></svg></i><i><svg class="i"><use href="#i-tablet"/></svg></i><i><svg class="i"><use href="#i-phone"/></svg></i></div>
+              <div class="lx-app-act">
+                <span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><span class="ic"><svg class="i"><use href="#i-redo"/></svg></span>
+                <span class="pv">Preview</span><span class="pb">Publish</span>
+              </div>
             </div>
-            <div class="mock-pane mock-pane--r"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="lx-app-body">
+              <div class="lx-pane lx-pane--l">
+                <div class="lx-tabs"><span class="on">Sections</span><span>Layers</span></div>
+                <ul class="lx-layers">
+                  <li><svg class="i"><use href="#i-rows"/></svg>Header</li>
+                  <li class="on"><svg class="i"><use href="#i-rows"/></svg>Hero</li>
+                  <li><svg class="i"><use href="#i-rows"/></svg>Products</li>
+                  <li><svg class="i"><use href="#i-rows"/></svg>Our story</li>
+                  <li><svg class="i"><use href="#i-rows"/></svg>Reviews</li>
+                  <li><svg class="i"><use href="#i-rows"/></svg>Footer</li>
+                </ul>
+                <div class="lx-add"><svg class="i"><use href="#i-plus"/></svg>Add section</div>
+              </div>
+              <div class="lx-canvas">
+                <div class="lx-page">
+                  <img src="/assets/portfolio/previews/chai-clay.webp" width="1200" height="900" alt="">
+                  <div class="lx-sel"><em>Hero</em><span><i><svg class="i"><use href="#i-up"/></svg></i><i><svg class="i"><use href="#i-down"/></svg></i><i><svg class="i"><use href="#i-copy"/></svg></i><i><svg class="i"><use href="#i-trash"/></svg></i></span></div>
+                </div>
+              </div>
+              <div class="lx-pane lx-pane--r">
+                <div class="lx-tabs"><span class="on">Style</span><span>Settings</span></div>
+                <div class="lx-prop"><b>Colours</b><div class="lx-sw"><i class="on" style="background:#c8784e"></i><i style="background:#2a211a"></i><i style="background:#f6eedf"></i><i style="background:#456a7d"></i><i style="background:#e3c9a7"></i></div></div>
+                <div class="lx-prop"><b>Typography</b><div class="lx-row"><span>Heading</span><strong>Fraunces</strong></div><div class="lx-row"><span>Body</span><strong>DM Sans</strong></div></div>
+                <div class="lx-prop"><b>Corner radius</b><div class="lx-slider"><i style="width:62%"></i></div></div>
+                <div class="lx-prop"><b>Buttons</b><div class="lx-seg2"><span class="on">Solid</span><span>Outline</span></div></div>
+              </div>
+            </div>
           </div>
+          <div class="lx-float lx-float--a" aria-hidden="true"><span class="lx-float-ico"><svg class="i"><use href="#i-chat"/></svg></span><span><strong>Orders on WhatsApp</strong><small>One tap from any product</small></span></div>
+          <div class="lx-float lx-float--b" aria-hidden="true"><span class="lx-float-ico lx-float-ico--y"><svg class="i"><use href="#i-zip"/></svg></span><span><strong>chai-and-clay.zip</strong><small>HTML · CSS · images</small></span></div>
+          <p class="lx-caption">A preview of the visual editor, which is coming to early access. The store shown is a sample design.</p>
         </div>
       </div>
     </section>
 
-    <section class="l-section" id="how">
-      <div class="l-wrap">
-        <div class="l-sh"><p class="eyebrow">How it works</p><h2>From idea to live site in three steps.</h2><p class="lead">Answer a few simple questions, shape the design in a visual editor, then take your site wherever you like.</p></div>
-        <ol class="l-steps">
-          <li><h3>Choose</h3><p>Tell us what you’re building. We set up pages and suggest designs made for your kind of site.</p></li>
-          <li><h3>Customise</h3><p>Click to change text and images, reorder sections, and set your colours and fonts. No code needed.</p></li>
-          <li><h3>Export &amp; publish</h3><p>Download the code as a ZIP, push it to GitHub, or publish free on Cloudflare Pages or Netlify.</p></li>
+    <!-- Website types -->
+    <section class="lx-types" aria-labelledby="lx-types-title">
+      <div class="lx-wrap">
+        <p class="lx-types-label" id="lx-types-title">One builder. Twelve kinds of websites.</p>
+        <div class="lx-chips" id="types"></div>
+      </div>
+    </section>
+
+    <!-- Designs -->
+    <section class="lx-section" id="designs" aria-labelledby="lx-designs">
+      <div class="lx-wrap">
+        <div class="lx-head"><p class="lx-eyebrow">Designs</p><h2 class="lx-h2" id="lx-designs">Start from a design made for your work.</h2><p class="lx-sub">Stores, studios, tutors, writers and developers. Every design is complete, responsive and ready for your words and photos.</p></div>
+        <div class="lx-show">
+          <a class="lx-card" href="/portfolio/preview/chai-clay/"><span class="lx-card-img"><img src="/assets/portfolio/previews/chai-clay.webp" width="1200" height="900" alt="Chai &amp; Clay store design" loading="lazy"><em>Online store</em></span><span class="lx-card-body"><span><strong>Chai &amp; Clay</strong><small>Handmade ceramics shop</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+          <a class="lx-card" href="/portfolio/preview/kasavu-lane/"><span class="lx-card-img"><img src="/assets/portfolio/previews/kasavu-lane.webp" width="1200" height="900" alt="Kasavu Lane clothing store design" loading="lazy"><em>Clothing store</em></span><span class="lx-card-body"><span><strong>Kasavu Lane</strong><small>Handloom clothing label</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+          <a class="lx-card" href="/portfolio/preview/kayal-interiors/"><span class="lx-card-img"><img src="/assets/portfolio/previews/kayal-interiors.webp" width="1200" height="900" alt="Kayal Interiors business website design" loading="lazy"><em>Business</em></span><span class="lx-card-body"><span><strong>Kayal Interiors</strong><small>Interior design studio</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+          <a class="lx-card" href="/portfolio/preview/brightpath-tutors/"><span class="lx-card-img"><img src="/assets/portfolio/previews/brightpath-tutors.webp" width="1200" height="900" alt="Brightpath Tutors education website design" loading="lazy"><em>Education</em></span><span class="lx-card-body"><span><strong>Brightpath Tutors</strong><small>Home tuition centre</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+          <a class="lx-card" href="/portfolio/preview/ink-margin/"><span class="lx-card-img"><img src="/assets/portfolio/previews/ink-margin.webp" width="1200" height="900" alt="Ink &amp; Margin blog design" loading="lazy"><em>Blog</em></span><span class="lx-card-body"><span><strong>Ink &amp; Margin</strong><small>Magazine-style blog</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+          <a class="lx-card" href="/portfolio/preview/developer-pro/"><span class="lx-card-img"><img src="/assets/portfolio/previews/developer-pro.webp" width="1200" height="900" alt="Developer Pro portfolio design" loading="lazy"><em>Portfolio</em></span><span class="lx-card-body"><span><strong>Developer Pro</strong><small>Software developer portfolio</small></span><span class="lx-card-go"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></span></a>
+        </div>
+        <div class="lx-show-foot"><span>These designs come from the InfoparkDaily collection and become Studio templates when the template marketplace opens.</span><a href="/portfolio/templates/all/">See all 54 designs<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="lx-section" id="how" aria-labelledby="lx-how" style="padding-top:0">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center"><p class="lx-eyebrow">How it works</p><h2 class="lx-h2" id="lx-how">From idea to live site in three steps.</h2></div>
+        <ol class="lx-steps">
+          <li class="lx-step">
+            <div class="lx-viz" aria-hidden="true">
+              <div class="lx-viz-opt on"><span><svg class="i"><use href="#i-bag"/></svg></span>Online store<em><svg class="i"><use href="#i-check"/></svg></em></div>
+              <div class="lx-viz-opt"><span><svg class="i"><use href="#i-food"/></svg></span>Restaurant &amp; café<em></em></div>
+              <div class="lx-viz-opt"><span><svg class="i"><use href="#i-user"/></svg></span>Personal portfolio<em></em></div>
+            </div>
+            <span class="lx-step-n"><i>1</i>CHOOSE</span>
+            <h3>Tell us what you’re building</h3>
+            <p>Answer a few simple questions. We set up your pages and suggest designs made for your kind of site.</p>
+          </li>
+          <li class="lx-step">
+            <div class="lx-viz" aria-hidden="true">
+              <div class="lx-viz-look"><span class="lx-viz-aa on">Aa</span><span class="lx-viz-aa" style="font-family:Inter,sans-serif;font-weight:700">Aa</span></div>
+              <div class="lx-sw"><i class="on" style="background:#ffc107"></i><i style="background:#c8784e"></i><i style="background:#0d9488"></i><i style="background:#4f46e5"></i><i style="background:#e11d48"></i></div>
+            </div>
+            <span class="lx-step-n"><i>2</i>CUSTOMISE</span>
+            <h3>Make it look like you</h3>
+            <p>Change text and photos, reorder sections, and pick your colours and fonts. No code needed.</p>
+          </li>
+          <li class="lx-step">
+            <div class="lx-viz" aria-hidden="true">
+              <div class="lx-viz-file"><span><svg class="i"><use href="#i-zip"/></svg></span><div><strong>chai-and-clay.zip</strong><small>index.html · styles.css · images</small></div></div>
+              <div class="lx-viz-host">Cloudflare Pages<em><svg class="i"><use href="#i-check"/></svg>Live</em></div>
+            </div>
+            <span class="lx-step-n"><i>3</i>PUBLISH</span>
+            <h3>Export and go live</h3>
+            <p>Download the code as a ZIP, push it to GitHub, or publish free on Cloudflare Pages or Netlify.</p>
+          </li>
         </ol>
       </div>
     </section>
 
-    <section class="l-section" style="padding-top:0">
-      <div class="l-wrap">
-        <div class="l-sh"><p class="eyebrow">Website types</p><h2>Start with what you do.</h2></div>
-        <div class="l-types" id="types"></div>
+    <!-- Features -->
+    <section class="lx-section" aria-labelledby="lx-feat" style="padding-top:0">
+      <div class="lx-wrap">
+        <div class="lx-head"><p class="lx-eyebrow">Made for Kerala</p><h2 class="lx-h2" id="lx-feat">Everything a small business needs. Nothing it doesn’t.</h2></div>
+        <div class="lx-bento">
+          <div class="lx-feat"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg></span><h3>Orders on WhatsApp</h3><p>Add WhatsApp buttons to products and services so customers message you directly. No checkout fees.</p></div>
+          <div class="lx-feat"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg></span><h3>Looks right on phones</h3><p>Every design adapts to phones, tablets and laptops, because most of your visitors arrive on a phone.</p></div>
+          <div class="lx-feat"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-bolt"/></svg></span><h3>Fast and search-friendly</h3><p>Plain HTML pages load quickly and are easy for Google to read. No heavy scripts slowing you down.</p></div>
+          <div class="lx-feat"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-unlock"/></svg></span><h3>No lock-in, ever</h3><p>Export your site any time and keep it even if you stop using Studio. Your work stays yours.</p></div>
+          <div class="lx-feat"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-cloud"/></svg></span><h3>Free to host</h3><p>Publish on Cloudflare Pages or Netlify at no cost. You only pay if you want your own domain.</p></div>
+          <div class="lx-feat lx-feat--ink"><span class="lx-feat-ico"><svg class="i" aria-hidden="true"><use href="#i-hand"/></svg></span><h3>Help when you want it</h3><p>Rather not build it yourself? Our team can design and launch it for you, from ₹999.</p><a href="/portfolio/templates/#pricing">See done-for-you packages<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
       </div>
     </section>
 
-    <section class="l-section l-section--ink" id="own">
-      <div class="l-wrap own">
-        <div>
-          <p class="eyebrow">You own the code</p>
-          <h2 style="font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.035em;margin-top:10px">Your website is yours. Take it anywhere.</h2>
-          <p class="lead" style="margin-top:14px">Every Studio site exports as plain HTML, CSS and images. Open it on your computer, edit it in any code editor, or host it free on any of these:</p>
-          <div class="hosts">
-            <div class="host"><strong>Cloudflare Pages</strong><small>Fast worldwide, free HTTPS and custom domains</small><em>Free · business OK</em></div>
-            <div class="host"><strong>Netlify</strong><small>Simple deploys with built-in contact forms</small><em>Free · business OK</em></div>
-            <div class="host"><strong>GitHub Pages</strong><small>Great for personal portfolios and résumés</small><em class="lim">Personal sites only</em></div>
+    <!-- Own the code -->
+    <section class="lx-section" id="own" aria-labelledby="lx-own" style="padding-top:0">
+      <div class="lx-wrap">
+        <div class="lx-own">
+          <div>
+            <p class="lx-eyebrow">You own the code</p>
+            <h2 class="lx-h2" id="lx-own">Your website is yours. Take it anywhere.</h2>
+            <p class="lx-sub">Every Studio site exports as plain HTML, CSS and images, with no Studio code inside. Open it on your computer, edit it in any editor, or host it free:</p>
+            <div class="lx-hosts">
+              <div class="lx-host"><span><svg class="i" aria-hidden="true"><use href="#i-cloud"/></svg></span><div><strong>Cloudflare Pages</strong><small>Fast worldwide, free HTTPS and custom domains</small></div><em>Business OK</em></div>
+              <div class="lx-host"><span><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg></span><div><strong>Netlify</strong><small>Simple deploys with built-in contact forms</small></div><em>Business OK</em></div>
+              <div class="lx-host"><span><svg class="i" aria-hidden="true"><use href="#i-git"/></svg></span><div><strong>GitHub Pages</strong><small>Great for personal portfolios and résumés</small></div><em class="lim">Personal only</em></div>
+            </div>
+          </div>
+          <div class="lx-code" aria-label="Example of an exported site">
+            <div class="lx-code-bar"><span class="dots"><i></i><i></i><i></i></span><b>chai-and-clay/</b></div>
+            <div class="lx-code-grid">
+              <ul class="lx-tree">
+                <li>▾ chai-and-clay</li>
+                <li class="in on">index.html</li>
+                <li class="in">shop.html</li>
+                <li class="in">story.html</li>
+                <li class="in">styles.css</li>
+                <li class="in">▸ images</li>
+                <li class="in">README.md</li>
+              </ul>
+<pre class="lx-src"><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="t">&lt;header</span> <span class="a">class</span>=<span class="s">"site-head"</span><span class="t">&gt;</span>
+  <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"/"</span><span class="t">&gt;</span>Chai &amp; Clay<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;/header&gt;</span>
+<span class="t">&lt;section</span> <span class="a">class</span>=<span class="s">"hero"</span><span class="t">&gt;</span>
+  <span class="t">&lt;h1&gt;</span>Handmade for slow mornings.<span class="t">&lt;/h1&gt;</span>
+  <span class="t">&lt;a</span> <span class="a">href</span>=<span class="s">"https://wa.me/…"</span><span class="t">&gt;</span>
+    Order on WhatsApp
+  <span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;/section&gt;</span></pre>
+            </div>
           </div>
         </div>
-        <div class="files" aria-label="Example of an exported site">
-          <div class="files-head"><span><b>malabar-spice.zip</b> · 1.4 MB</span><span>Export</span></div>
-          <ul>
-            <li><span>▾</span>malabar-spice/</li>
-            <li class="in"><span>•</span><b class="ext-html">index.html</b></li>
-            <li class="in"><span>•</span><b class="ext-html">menu.html</b></li>
-            <li class="in"><span>•</span><b class="ext-html">contact.html</b></li>
-            <li class="in"><span>•</span><b class="ext-css">styles.css</b></li>
-            <li class="in"><span>▸</span><b class="ext-img">images/</b></li>
-            <li class="in"><span>•</span><b class="ext-md">README.md</b><span>how to publish</span></li>
-          </ul>
-        </div>
       </div>
     </section>
 
-    <section class="l-section" id="pricing">
-      <div class="l-wrap">
-        <div class="l-sh"><p class="eyebrow">Pricing</p><h2>Free to build. Help when you want it.</h2><p class="lead">Studio is free during early access. Paid plans with premium templates come later, and you’ll always be able to export what you’ve built.</p></div>
-        <div class="l-plans">
-          <article class="plan">
+    <!-- Pricing -->
+    <section class="lx-section" id="pricing" aria-labelledby="lx-pricing" style="padding-top:0">
+      <div class="lx-wrap">
+        <div class="lx-head lx-head--center"><p class="lx-eyebrow">Pricing</p><h2 class="lx-h2" id="lx-pricing">Free to build. Help when you want it.</h2><p class="lx-sub">Studio is free during early access. Paid plans with premium templates come later, and you’ll always be able to export what you’ve built.</p></div>
+        <div class="lx-plans">
+          <article class="lx-plan lx-plan--feat">
             <h3>Studio Free</h3>
-            <p class="price">₹0 <small>during early access</small></p>
+            <p class="lx-price">₹0<small>during early access</small></p>
+            <p>Set up your website yourself, at your own pace.</p>
             <ul>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Guided setup for 12 website types</li>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Save up to 50 sites in your browser</li>
-              <li class="soon-li"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></svg>Template marketplace (coming next)</li>
-              <li class="soon-li"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></svg>Visual editor and ZIP export (coming soon)</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Guided setup for 12 website types</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>First-look preview of your homepage</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Save up to 50 sites in your browser</li>
+              <li class="lx-soon"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Template marketplace<em>Next</em></li>
+              <li class="lx-soon"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Visual editor and ZIP export<em>Soon</em></li>
             </ul>
-            <a class="btn btn--accent" href="/studio/app/#/new">Start building</a>
+            <a class="btn btn--yellow" href="/studio/app/#/new">Start building<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
-          <article class="plan plan--dark">
+          <article class="lx-plan">
             <h3>Done for you</h3>
-            <p class="price">₹999 <small>one-time, from</small></p>
-            <p>Our team builds and launches your site from any of our designs. Talk to us on WhatsApp.</p>
+            <p class="lx-price">₹999<small>one-time, from</small></p>
+            <p>Our team builds and launches your site from any of our designs.</p>
             <ul>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Portfolio website ₹999</li>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>With your own domain ₹1,999</li>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Shop or multi-page sites ₹3,499–₹4,999</li>
-              <li><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Business sites with email: custom quote</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Portfolio website · ₹999</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>With your own domain · ₹1,999</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Shop or multi-page site · ₹3,499–₹4,999</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Business site with email · custom quote</li>
             </ul>
-            <a class="btn btn--ghost" href="/portfolio/templates/#pricing">See packages</a>
+            <a class="btn btn--ghost" href="/portfolio/templates/#pricing">See packages<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </article>
         </div>
-        <p class="l-note">Domain prices depend on the extension and are shown before you pay, including the renewal price. See <a href="/portfolio/terms/">package &amp; renewal terms</a>.</p>
+        <p class="lx-note">Domain prices depend on the extension and are shown before you pay, including the renewal price. See <a href="/portfolio/terms/">package &amp; renewal terms</a>.</p>
       </div>
     </section>
 
-    <section class="l-section" id="faq" style="padding-top:0">
-      <div class="l-wrap">
-        <div class="l-sh"><p class="eyebrow">Questions</p><h2>Good to know.</h2></div>
-        <div class="faq">
-          <details><summary>What can I do in Studio today?</summary><p>You can set up sites for 12 website types: choose a look, an accent colour and your pages, and see a first look of your homepage. The template marketplace comes next, followed by the visual editor and code export. Every site you set up now carries over.</p></details>
+    <!-- FAQ -->
+    <section class="lx-section" id="faq" aria-labelledby="lx-faq" style="padding-top:0">
+      <div class="lx-wrap lx-faq">
+        <div class="lx-faq-aside">
+          <p class="lx-eyebrow">Questions</p>
+          <h2 class="lx-h2" id="lx-faq" style="margin-top:12px">Good to know.</h2>
+          <p class="lx-sub">Can’t find your answer? We usually reply within one working day.</p>
+          <a class="btn btn--ghost" href="/contact/">Contact us</a>
+        </div>
+        <div class="lx-acc">
+          <details open><summary>What can I do in Studio today?</summary><p>You can set up sites for 12 website types: choose a look, an accent colour and your pages, and see a first look of your homepage. The template marketplace comes next, followed by the visual editor and code export. Every site you set up now carries over.</p></details>
           <details><summary>Where are my sites saved?</summary><p>During early access, sites are saved in your browser on this device. Nothing is uploaded. You can download a backup from Settings. Syncing to your InfoparkDaily account arrives with the editor.</p></details>
           <details><summary>Do I need an account?</summary><p>Not yet. Signing in is optional and uses the same InfoparkDaily account as our resume builder and job tools.</p></details>
           <details><summary>Will I really own the code?</summary><p>Yes. Exported sites are plain HTML, CSS and images with no Studio code inside. You can host them anywhere, edit them in any editor, and keep them even if you stop using Studio.</p></details>
@@ -168,26 +309,37 @@
       </div>
     </section>
 
-    <div class="l-wrap">
-      <section class="l-cta">
-        <h2>Your website is a few minutes away.</h2>
+    <div class="lx-wrap">
+      <section class="lx-cta" aria-labelledby="lx-cta">
+        <h2 id="lx-cta">Your website is a few minutes away.</h2>
         <p>Start free. Set up your site now and be first to try the editor.</p>
-        <a class="btn btn--lg" href="/studio/app/#/new">Start building</a>
+        <a class="btn" href="/studio/app/#/new">Start building<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </section>
     </div>
   </main>
 
-  <footer class="l-foot">
-    <div class="l-wrap">
-      <p>Daily Web Studio is a product of <a href="/">InfoparkDaily</a> · Kochi, Kerala</p>
-      <nav aria-label="Footer">
-        <a href="/terms/">Terms</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/contact/">Contact</a>
-        <a href="/">Back to InfoparkDaily</a>
-      </nav>
+  <footer class="lx-foot">
+    <div class="lx-wrap">
+      <div class="lx-foot-top">
+        <div>
+          <a class="lx-brand" href="/studio/" aria-label="Daily Web Studio home">
+            <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>
+            <span><strong>Daily Web Studio</strong><small>by InfoparkDaily</small></span>
+          </a>
+          <p>A website builder for Kerala’s makers, shops, professionals and small businesses. Build it yourself, or let our team build it for you.</p>
+        </div>
+        <div>
+          <h3>Studio</h3>
+          <ul><li><a href="/studio/app/#/new">Create a site</a></li><li><a href="#designs">Designs</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#faq">FAQ</a></li></ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul><li><a href="/">InfoparkDaily</a></li><li><a href="/contact/">Contact</a></li><li><a href="/terms/">Terms</a></li><li><a href="/privacy/">Privacy</a></li></ul>
+        </div>
+      </div>
+      <div class="lx-foot-base"><span>© 2026 InfoparkDaily · Kochi, Kerala</span><a href="/">Back to InfoparkDaily →</a></div>
     </div>
   </footer>
-  <script type="module" src="/js/studio/landing.js?v=20261109a"></script>
+  <script type="module" src="/js/studio/landing.js?v=20261109c"></script>
 </body>
 </html>

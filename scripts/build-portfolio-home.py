@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "portfolio" / "templates" / "index.html"
-V = "20261108pf4"
+V = "20261109ab3"
 
 FEATURED = [
     ("developer-pro", "Developers", "Developer Pro", "Dark", "Software developer portfolio",
@@ -205,6 +205,50 @@ def types_html() -> str:
 </section>"""
 
 
+def studio_html() -> str:
+    """Daily Web Studio promo: copy + a store switcher (desktop and phone previews). Links to /studio/."""
+    logo = '<svg viewBox="0 0 32 32" width="46" height="46" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>'
+    stores = [
+        ("chai-clay", "Chai &amp; Clay", "Handmade ceramics", "chai-and-clay"),
+        ("kasavu-lane", "Kasavu Lane", "Handloom clothing", "kasavu-lane"),
+        ("shop-window", "Shop Window", "Maker &amp; seller", "shop-window"),
+    ]
+    tabs = "".join(
+        f'<button type="button" role="tab" id="pfh-st-{s}" aria-controls="pfh-sp-{s}" aria-selected="{"true" if i == 0 else "false"}" tabindex="{0 if i == 0 else -1}" data-studio-tab="{s}">{n}</button>'
+        for i, (s, n, _t, _u) in enumerate(stores)
+    )
+    slides = "".join(
+        f'<figure class="pfh-sx{" is-on" if i == 0 else ""}" role="tabpanel" id="pfh-sp-{s}" aria-labelledby="pfh-st-{s}" data-studio-slide="{s}"{"" if i == 0 else " hidden"}>'
+        f'<div class="pfh-sx-browser"><span class="pfh-sx-bar" aria-hidden="true"><i></i><i></i><i></i><em>{u}.pages.dev</em></span>'
+        f'<img src="/assets/portfolio/previews/{s}.webp" width="1200" height="900" alt="{n} online store design on a laptop" loading="lazy"></div>'
+        f'<div class="pfh-sx-phone"><img src="/assets/portfolio/previews/{s}-mobile.webp" width="390" height="844" alt="{n} on a phone" loading="lazy"></div>'
+        f'<figcaption><span><strong>{n}</strong>{t} · sample store</span><a href="/portfolio/preview/{s}/">Preview store {ARROW}</a></figcaption></figure>'
+        for i, (s, n, t, u) in enumerate(stores)
+    )
+    steps = [
+        ("Pick a store design", "Start from a complete, phone-ready layout."),
+        ("Add your products", "Photos, prices and descriptions, in your words."),
+        ("Take orders on WhatsApp", "Customers message you straight from each product."),
+    ]
+    steps_html = "".join(f'<li><span>{i + 1}</span><div><strong>{t}</strong><small>{d}</small></div></li>' for i, (t, d) in enumerate(steps))
+    return f"""<section class="pfh-section pfh-studio" id="daily-web-studio" aria-labelledby="pfh-studio-title">
+<div class="pfh-wrap"><div class="pfh-studio-card pfh-reveal">
+<div class="pfh-studio-copy">
+<p class="pfh-studio-brand">{logo}<span><b>Daily Web Studio</b><small>by InfoparkDaily</small></span><em>New</em></p>
+<h2 id="pfh-studio-title">Rather build it yourself? <span>Start your own online store.</span></h2>
+<p class="pfh-studio-lead">Daily Web Studio is our new do-it-yourself website builder. Set up a store, portfolio or business site in minutes, and keep the code to host free.</p>
+<ol class="pfh-studio-steps">{steps_html}</ol>
+<div class="pfh-studio-ctas"><a class="pfh-btn pfh-btn--lg pfh-studio-go" href="/studio/">Explore Daily Web Studio {ARROW}</a><a class="pfh-studio-link" href="/studio/app/#/new?type=ecommerce">Start a store, free</a></div>
+<p class="pfh-studio-trust">Free in early access · No card needed · 12 website types</p>
+</div>
+<div class="pfh-studio-show">
+<div class="pfh-studio-tabs" role="tablist" aria-label="Example online stores">{tabs}</div>
+<div class="pfh-sx-stack">{slides}</div>
+</div>
+</div></div>
+</section>"""
+
+
 def build_main(plans: str, details: str) -> str:
     filters = '<button type="button" aria-pressed="true" data-pfh-filter="all">All <span>9</span></button>' + "".join(
         f'<button type="button" aria-pressed="false" data-pfh-filter="{p}">{p} <span>{sum(1 for f in FEATURED if f[1] == p)}</span></button>'
@@ -219,14 +263,32 @@ def build_main(plans: str, details: str) -> str:
 
 {wall_html()}
 
-<section class="pfh-section" id="about-service" aria-labelledby="pfh-about">
-<div class="pfh-wrap pfh-about">
-<div class="pfh-about-head pfh-reveal"><p class="pfh-eyebrow">About this service</p><h2 id="pfh-about">A ready-made portfolio website, personalised for you.</h2><p class="pfh-sub">Not a website builder you have to learn — our team does the work.</p></div>
-<ul class="pfh-values">
-<li class="pfh-reveal"><span class="pfh-value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM2 19h20"/></svg></span><div><h3>What you get</h3><p>A complete personal website that shows your skills, projects, experience and contact links — with one link you can share with recruiters, clients and on LinkedIn.</p></div></li>
-<li class="pfh-reveal"><span class="pfh-value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.2-5.5 6.5-5.5s5.9 2.1 6.5 5.5M16 4.8a3.3 3.3 0 0 1 0 6.4M18.5 14.8c1.7.8 2.8 2.6 3 5.2"/></svg></span><div><h3>Who it is for</h3><p>Freshers, developers, designers, freelancers, creators and professionals who want a professional online presence without coding.</p></div></li>
-<li class="pfh-reveal"><span class="pfh-value-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 8.5h10M7 4c4 0 6 1.8 6 4.5S11 13 7 13l7 7"/></svg></span><div><h3>What it costs</h3><p>Plans start at ₹999 for a one-page portfolio. Domain, shop and extra-page plans are below; the final scope and price are confirmed in writing before you pay.</p></div></li>
-</ul>
+<section class="pfh-section pfh-about2" id="about-service" aria-labelledby="pfh-about">
+<div class="pfh-wrap pfh-bento">
+<div class="pfh-b-main pfh-reveal">
+<p class="pfh-eyebrow">About this service</p>
+<h2 id="pfh-about">A ready-made portfolio website, personalised for you.</h2>
+<p class="pfh-b-lead">Not a website builder you have to learn. You choose a design and send your details; our team builds it, checks it on every screen and launches it for you.</p>
+<ol class="pfh-b-flow"><li><span>1</span>You choose a design</li><li><span>2</span>You send your details</li><li><span>3</span>We build &amp; launch</li></ol>
+<div class="pfh-b-ctas"><a class="pfh-btn pfh-btn--accent" href="#pricing">See plans {ARROW}</a><a class="pfh-b-link" href="#designs">Browse designs</a></div>
+</div>
+<div class="pfh-b-card pfh-b-get pfh-reveal">
+<span class="pfh-b-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H4zM2 19h20"/></svg></span>
+<h3>What you get</h3>
+<ul class="pfh-b-checks"><li>{CHECK}A complete website that works on phones, tablets and laptops</li><li>{CHECK}Your skills, projects, experience and resume download</li><li>{CHECK}Contact and social links in one place</li><li>{CHECK}One link to share with recruiters, clients and on LinkedIn</li></ul>
+</div>
+<div class="pfh-b-card pfh-b-who pfh-reveal">
+<span class="pfh-b-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.2-5.5 6.5-5.5s5.9 2.1 6.5 5.5M16 4.8a3.3 3.3 0 0 1 0 6.4M18.5 14.8c1.7.8 2.8 2.6 3 5.2"/></svg></span>
+<h3>Who it is for</h3>
+<ul class="pfh-b-chips"><li>Freshers</li><li>Developers</li><li>Designers</li><li>Freelancers</li><li>Creators</li><li>Professionals</li></ul>
+<p>Anyone who wants a professional online presence without writing code.</p>
+</div>
+<div class="pfh-b-card pfh-b-cost pfh-reveal">
+<span class="pfh-b-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4h10M7 8.5h10M7 4c4 0 6 1.8 6 4.5S11 13 7 13l7 7"/></svg></span>
+<h3>What it costs</h3>
+<p class="pfh-b-price"><small>From</small>₹999<small>one-time</small></p>
+<p>For a one-page portfolio. Domain, shop and extra-page plans are below. Scope and price are confirmed in writing before you pay.</p>
+</div>
 </div>
 </section>
 
@@ -244,6 +306,8 @@ def build_main(plans: str, details: str) -> str:
 
 {types_html()}
 
+{studio_html()}
+
 <section class="pfh-section" id="how-it-works" aria-labelledby="pfh-how">
 <div class="pfh-wrap"><div class="pfh-process">
 <div class="pfh-head pfh-head--dark"><div><p class="pfh-eyebrow">From template to yours</p><h2 id="pfh-how">You bring the story. We bring it together.</h2></div><p class="pfh-sub">You pick one of our ready designs and send your resume, projects and photos. We personalise the design with your content, you review it, and we launch it.</p></div>
@@ -251,19 +315,31 @@ def build_main(plans: str, details: str) -> str:
 </div></div>
 </section>
 
-<section class="pfh-section personalisation pfh-demo" aria-labelledby="pfh-demo">
-<div class="pfh-wrap pfh-demo-grid">
+<section class="pfh-section personalisation pfh-demo pfh-demo2" aria-labelledby="pfh-demo">
+<div class="pfh-wrap"><div class="pfh-demo-card">
 <div class="pfh-demo-copy pfh-reveal">
-<p class="pfh-eyebrow">A personalisation demonstration</p>
-<h2 id="pfh-demo">Same foundation. Entirely your story.</h2>
-<p class="pfh-sub">Names, initials, accent colours, skills, projects, and contact labels can change within the selected layout. These examples are fictional.</p>
-<ul class="pfh-changes"><li>{CHECK}Name &amp; initials</li><li>{CHECK}Accent colours</li><li>{CHECK}Skills &amp; projects</li><li>{CHECK}Contact labels</li></ul>
-<div class="personalisation-controls pfh-seg" role="group" aria-label="Choose a sample"><button type="button" class="active" data-personalise="original" aria-pressed="true">Neha’s sample</button><button type="button" data-personalise="alternate" aria-pressed="false">Arun’s sample</button></div>
-<p class="personalise-open"><a class="pfh-link" href="/portfolio/demo/flutter-studio/" target="_blank" rel="noopener">Open the full demo ↗</a></p>
-<p class="policy-note">Profile photos can replace initials where the selected layout supports them. Layout redesigns require a separate quote.</p>
+<p class="pfh-eyebrow">See it personalised</p>
+<h2 id="pfh-demo">Same design. <span>Entirely your story.</span></h2>
+<p class="pfh-sub">Switch between two fictional people below and watch the same layout change: name, colours, headline, projects and skills.</p>
+<div class="personalisation-controls pfh-people" role="group" aria-label="Choose a sample">
+<button type="button" class="active" data-personalise="original" aria-pressed="true"><span class="pfh-av" style="--av:#d8ecb0">NM</span><span><b>Neha’s sample</b><small>Flutter &amp; mobile developer</small></span></button>
+<button type="button" data-personalise="alternate" aria-pressed="false"><span class="pfh-av" style="--av:#ffd18f">AD</span><span><b>Arun’s sample</b><small>Mobile product engineer</small></span></button>
 </div>
+<p class="pfh-changes-label">What we change for you</p>
+<ul class="pfh-changes2">
+<li><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.4-3.6 4.4-5.5 8-5.5s6.6 1.9 8 5.5"/></svg></span>Name &amp; initials</li>
+<li><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h8.5"/></svg></span>Accent colours</li>
+<li><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h13"/></svg></span>Skills &amp; projects</li>
+<li><span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>Contact links</li>
+</ul>
+<div class="pfh-demo-foot"><p class="personalise-open"><a class="pfh-btn pfh-btn--ink pfh-btn--sm" href="/portfolio/demo/flutter-studio/" target="_blank" rel="noopener">Open the full demo ↗</a></p>
+<p class="policy-note">Examples are fictional. Profile photos can replace initials where the layout supports them; layout redesigns need a separate quote.</p></div>
+</div>
+<div class="pfh-demo-stage">
+<span class="pfh-live" aria-hidden="true"><i></i>Live preview</span>
 <div class="pfh-browser"><div class="pfh-browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>yourname.com</span></div><div class="personalise-shot"><iframe id="personalise-frame" title="Flutter Studio personalisation demonstration (preview)" src="/portfolio/demo/flutter-studio/" tabindex="-1" scrolling="no"></iframe></div></div>
 </div>
+</div></div>
 </section>
 
 <section class="pfh-section pricing-section pfh-pricing" id="pricing" aria-labelledby="pfh-plans">

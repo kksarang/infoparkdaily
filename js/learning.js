@@ -468,3 +468,18 @@
     }
   });
 })();
+
+/* Career-path tabs on /learning/ (All · Technical / IT · Non-IT). Uses a class, not `hidden`,
+   so it never fights the page search, which sets `hidden` on [data-search] items. */
+(() => {
+  const tabs = [...document.querySelectorAll("[data-lp-tab]")];
+  const wrap = document.querySelector("[data-lp-wrap]");
+  if (!tabs.length || !wrap) return;
+  const show = (key) => {
+    tabs.forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.lpTab === key)));
+    wrap.dataset.lpShow = key;
+    wrap.querySelectorAll("[data-lp-group]").forEach((g) => g.classList.toggle("lp-off", key !== "all" && g.dataset.lpGroup !== key));
+  };
+  tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.lpTab)));
+  show("all");
+})();

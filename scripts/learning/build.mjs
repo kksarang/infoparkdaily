@@ -5,7 +5,8 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { pageShell, crumbs, crumbsLd, SITE } from "../interview-journey/shell.mjs";
 import { esc } from "../interview-journey/helpers.mjs";
-import { PATHS } from "../interview-journey/learning-paths.mjs";
+import { PATHS, CATEGORIES } from "../interview-journey/learning-paths.mjs";
+import { ICON as PATH_ICON } from "../interview-journey/hub-learning.mjs";
 import { TRACKS as WEB_TRACKS } from "./tracks-web.mjs";
 import { WEB_EXTRAS } from "./extras-web.mjs";
 import { PY_TRACK } from "./track-python.mjs";
@@ -23,7 +24,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, PY_TRACK, SQL_TRACK, GIT_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261108ui";
+const V = "20261109lq";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -134,13 +135,34 @@ function hubPage() {
             </div>`
   ).join("");
 
-  const careerCol = (field, label) => `
-            <div>
-              <h3>${label}</h3>
-              <ul class="ln-paths ln-chips">${PATHS.filter((p) => p.field === field)
-                .map((p) => `<li data-search="${esc((p.title + " " + (p.summary || "")).toLowerCase())}"><a href="/interview/learning/${p.slug}/">${esc(p.title)}</a></li>`)
-                .join("")}</ul>
+  /* Career paths: one card per path (icon, summary, level, length), grouped IT / non-IT with tabs. */
+  const CAT_TONE = { software: "#2f5bd3", data: "#7c3aed", cloud: "#0e7490", testing: "#15803d", design: "#db2777", business: "#b45309", marketing: "#ea580c", office: "#4f46e5", engineering: "#475569", hospitality: "#be123c", health: "#dc2626", logistics: "#0f766e", soft: "#a16207" };
+  const CAT_NAME = Object.fromEntries(CATEGORIES.map(([k, n]) => [k, n]));
+  const pathCard = (p) => `
+              <li class="lp-item" data-field="${p.field}" data-search="${esc((p.title + " " + (p.summary || "") + " " + (p.tools || []).join(" ")).toLowerCase())}">
+                <a class="lp-card" href="/interview/learning/${p.slug}/" style="--lp-c:${CAT_TONE[p.cat] || "#171c24"}">
+                  <span class="lp-top"><span class="lp-ico"><svg viewBox="0 0 24 24" aria-hidden="true">${PATH_ICON[p.icon] || PATH_ICON.code}</svg></span><span class="lp-cat">${esc(CAT_NAME[p.cat] || "")}</span></span>
+                  <strong class="lp-title">${esc(p.title)}</strong>
+                  <span class="lp-sum">${esc(p.summary || "")}</span>
+                  <span class="lp-meta"><span>${esc(p.level || "")}</span><span>${esc(p.duration || "")}</span><span>${p.modules.length} modules</span></span>
+                  <span class="lp-go">Open roadmap <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg></span>
+                </a>
+              </li>`;
+  const itCount = PATHS.filter((p) => p.field === "it").length;
+  const nonCount = PATHS.length - itCount;
+  const careerGroup = (field, title, note) => `
+            <div class="lp-group" data-lp-group="${field}">
+              <div class="lp-group-head"><h3>${title}</h3><span>${PATHS.filter((p) => p.field === field).length} paths</span><p>${note}</p></div>
+              <ul class="lp-grid">${PATHS.filter((p) => p.field === field).map(pathCard).join("")}</ul>
             </div>`;
+  const careerPaths = `
+          <div class="lp-tabs" role="group" aria-label="Show career paths">
+            <button type="button" data-lp-tab="all" aria-pressed="true">All <span>${PATHS.length}</span></button>
+            <button type="button" data-lp-tab="it" aria-pressed="false"><b class="lp-long">Technical / </b>IT <span>${itCount}</span></button>
+            <button type="button" data-lp-tab="nonit" aria-pressed="false">Non-IT<b class="lp-long">&nbsp;careers</b> <span>${nonCount}</span></button>
+          </div>
+          <div class="lp-wrap" data-lp-wrap>${careerGroup("it", "Technical / IT", "Software, data, cloud, testing and design roles.")}${careerGroup("nonit", "Non-IT careers", "Business, marketing, office, engineering, healthcare and more.")}
+          </div>`;
 
   const main = `
       <section class="lh-hero ln-hero" aria-labelledby="ln-title">
@@ -211,8 +233,7 @@ ${trackBar("")}
       <section class="ez-section" aria-labelledby="ln-paths">
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Career paths</p><h2 id="ln-paths">Step-by-step roadmaps for ${PATHS.length} careers</h2><p>Each path has modules, free resources, certifications and projects.</p></div>
-          <div class="ln-paths-grid">${careerCol("it", `<svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H4zM2 19h20"/></svg> Technical / IT`)}${careerCol("nonit", `<svg class="cs-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg> Non-IT careers`)}
-          </div>
+          ${careerPaths}
         </div>
       </section>
       <section class="ez-section ez-section--soft" aria-labelledby="ln-next">

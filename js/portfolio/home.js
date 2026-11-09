@@ -142,3 +142,32 @@
     items.forEach((el) => io.observe(el));
   }
 })();
+
+/* Daily Web Studio promo: switch between the example stores (tabs with arrow-key support). */
+(function () {
+  const tabs = [...document.querySelectorAll("[data-studio-tab]")];
+  if (!tabs.length) return;
+  const slides = [...document.querySelectorAll("[data-studio-slide]")];
+  function show(key, focus) {
+    tabs.forEach((t) => {
+      const on = t.dataset.studioTab === key;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    slides.forEach((s) => {
+      const on = s.dataset.studioSlide === key;
+      s.hidden = !on;
+      s.classList.toggle("is-on", on);
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => show(t.dataset.studioTab, false));
+    t.addEventListener("keydown", (e) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1, Home: -i, End: tabs.length - 1 - i }[e.key];
+      if (step === undefined) return;
+      e.preventDefault();
+      show(tabs[(i + step + tabs.length) % tabs.length].dataset.studioTab, true);
+    });
+  });
+})();

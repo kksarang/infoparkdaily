@@ -7,8 +7,8 @@ const HUB_JS = `/js/interview-hub.js?v=20261108ui`;
 const PG_JS = `/js/code-playground.js?v=${ASSET_V}`;
 const base = [["InfoparkDaily", "/"], ["Interview hub", "/interview/"], ["Learning", "/interview/learning/"]];
 
-/* Icon paths (24×24, filled). */
-const ICON = {
+/* Icon paths (24×24, filled). Also used by the /learning/ career-path cards. */
+export const ICON = {
   code: '<path d="M8.6 16.6 4 12l4.6-4.6L10 8.8 6.8 12l3.2 3.2-1.4 1.4Zm6.8 0L14 15.2l3.2-3.2L14 8.8l1.4-1.4L20 12l-4.6 4.6Z"/>',
   server: '<path d="M4 3h16v6H4V3Zm2 2v2h2V5H6Zm-2 6h16v6H4v-6Zm2 2v2h2v-2H6Zm-2 6h16v2H4v-2Z"/>',
   phone: '<path d="M7 1h10a2 2 0 0 1 2 2v18a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2Zm0 4v14h10V5H7Zm4 15h2v1h-2v-1Z"/>',
