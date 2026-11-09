@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import { previewHtml } from "../js/studio/preview.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const V = "20261109d3";
+const V = "20261109au";
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const NEW = (t) => `/studio/app/#/new${t ? `?type=${t}` : ""}`;
 const ICO = (n) => `<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -360,7 +360,7 @@ const PAGES = [
     related: ["online-store", "restaurant-website", "business-website"],
   },
   {
-    slug: "fast-websites", group: "Grow", title: "Fast and search-friendly", status: "now",
+    slug: "fast-websites", group: "Grow", title: "Fast and search-friendly", status: "soon", soonNote: "Publishing arrives with code export. Until then, our team can publish a fast site for you.",
     h1: "Fast pages. Found on Google.",
     lead: "Studio sites are plain HTML pages without heavy app code. They load quickly on mobile data, score well on speed tests, and give search engines exactly what they need to understand your business.",
     cta: ["Start building", NEW()], visual: VIS.code,
@@ -382,7 +382,7 @@ const PAGES = [
     related: ["free-hosting", "export", "domains"],
   },
   {
-    slug: "free-hosting", group: "Grow", title: "Free hosting", status: "now",
+    slug: "free-hosting", group: "Grow", title: "Free hosting", status: "soon", soonNote: "One-click publishing arrives with code export. The hosting guide below works today for any static site.",
     h1: "Host your website for free.",
     lead: "Because Studio sites are plain web files, you can publish them on trusted free hosts instead of paying a monthly hosting bill. Here’s how each option compares and which one to choose.",
     cta: ["Start building", NEW()], visual: VIS.hosts,

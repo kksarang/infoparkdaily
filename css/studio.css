@@ -1064,3 +1064,6 @@ dialog::backdrop { background: rgba(20, 21, 26, 0.45); backdrop-filter: blur(2px
   .dp-host div { flex: 1 1 calc(100% - 60px); }
   .dp-host em { margin-left: 56px; }
 }
+/* "Coming soon" tag used next to features that aren't live yet. */
+.lx-soon-tag { display: inline-flex; align-items: center; margin-left: 8px; padding: 3px 9px; border-radius: 999px; background: var(--sunk); color: var(--muted); font: 700 0.68rem/1.2 var(--body); font-style: normal; letter-spacing: 0.02em; text-transform: none; vertical-align: middle; white-space: nowrap; }
+.lx-soon-tag--dark { margin: 0 6px 0 0; background: rgba(255, 216, 77, 0.16); color: #ffd84d; }
