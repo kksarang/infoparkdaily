@@ -1118,3 +1118,17 @@ body.em-page {
     flex-basis: 100%;
   }
 }
+
+/* Picker: keep search, count and list packed at the top (the column can be taller than its
+   content when a long email is open), and let the list scroll on its own on desktop. */
+.em-picker { align-content: start; }
+@media (min-width: 900px) {
+  .em-workspace.is-ready .em-picker {
+    align-self: start;
+    min-height: 0;
+    max-height: calc(100vh - 110px);
+    top: 96px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
