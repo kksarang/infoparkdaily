@@ -43,7 +43,33 @@ export function header(route) {
 }
 
 export function footer() {
-  return `<footer class="market-footer"><div class="container"><div class="footer-grid"><div class="footer-brand">${brand()}<p>Kerala’s community hiring platform. Post jobs, walk-in drives and job alerts — verified and seen by 80K+ people.</p><a href="/" class="text-link" >Back to InfoparkDaily ${icon("arrow")}</a></div><div><h3>For hiring teams</h3><div class="footer-links">${link("Post a job (no sign-in)", "post", "")}${link("Track a post", "track", "")}${link("Employer dashboard", "dashboard", "")}${link("How it works", "about", "", "#how-it-works")}${link("Contact us", "contact", "")}</div></div><div><h3>Looking for a job?</h3><div class="footer-links"><a href="/jobs/">Browse jobs on InfoparkDaily</a>${link("Create a job alert", "alerts", "")}<a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/portfolio/templates/">Portfolio websites</a></div></div><div><h3>Let’s stay connected</h3><div class="footer-links"><a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a><a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">WhatsApp · +91 99952 54290</a><a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">Instagram ${icon("arrow")}</a></div></div></div><div class="footer-custom"><div><strong>Have something bigger in mind?</strong><p>For custom software, websites and AI solutions, meet Enitexa.ai.</p></div><a href="/software-solutions/">Explore Enitexa.ai ${icon("arrow")}</a></div><div class="footer-base"><span>© ${new Date().getFullYear()} InfoparkDaily. All rights reserved.</span><span><a href="/privacy/">Privacy policy</a> &nbsp; · &nbsp; <a href="/terms/">Terms of use</a> &nbsp; · &nbsp; ${link("Hiring guidelines", "about", "", "#guidelines")}</span></div></div></footer>`;
+  const col = (title, links) => `<div class="rf-col"><h3>${title}</h3><ul>${links.map((l) => `<li>${l}</li>`).join("")}</ul></div>`;
+  return `<footer class="market-footer rf"><div class="container">
+  <div class="rf-top">
+    <div class="rf-brand">
+      <a class="rf-logo" href="/" aria-label="InfoparkDaily home"><img src="/assets/logo-infoparkdaily.png" width="44" height="44" alt=""><span><strong>InfoparkDaily</strong><small>Recruit · Hiring for Kerala teams</small></span></a>
+      <p>Kerala’s community hiring platform. Post jobs, walk-in drives and job alerts — verified by our team and seen by 80K+ people.</p>
+      <ul class="rf-trust"><li>${icon("check")}Free for employers</li><li>${icon("shield")}Every post verified</li><li>${icon("users")}Candidates never pay</li></ul>
+      <div class="rf-contact">
+        <a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">${icon("chat")}WhatsApp</a>
+        <a href="mailto:infoparkstorieskochi@gmail.com">${icon("mail")}Email us</a>
+        <a href="https://www.instagram.com/infoparkdaily/" target="_blank" rel="noopener noreferrer">${icon("star")}Instagram</a>
+      </div>
+    </div>
+    ${col("For hiring teams", [link("Post a job (no sign-in)", "post", ""), link("Track a post", "track", ""), link("Employer dashboard", "dashboard", ""), link("How it works", "about", "", "#how-it-works"), link("Contact us", "contact", "")])}
+    ${col("Looking for a job?", ['<a href="/jobs/">Browse jobs on InfoparkDaily</a>', link("Create a job alert", "alerts", ""), '<a href="/resume-builder/">Resume builder</a>', '<a href="/ats-checker/">ATS checker</a>', '<a href="/portfolio/templates/">Portfolio websites</a>'])}
+    ${col("Talk to us", ['<a href="mailto:infoparkstorieskochi@gmail.com">infoparkstorieskochi@gmail.com</a>', '<a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">+91 99952 54290</a>', '<span class="rf-note">Usually replies within one working day.</span>'])}
+  </div>
+  <div class="rf-custom">
+    <span class="rf-custom-icon" aria-hidden="true">${icon("star")}</span>
+    <div><strong>Have something bigger in mind?</strong><p>For custom software, websites and AI solutions, meet Enitexa.ai.</p></div>
+    <a class="rf-custom-link" href="/software-solutions/">Explore Enitexa.ai ${icon("arrow")}</a>
+  </div>
+  <div class="rf-base">
+    <span>© ${new Date().getFullYear()} InfoparkDaily. All rights reserved.</span>
+    <nav aria-label="Legal"><a href="/privacy/">Privacy policy</a><a href="/terms/">Terms of use</a>${link("Hiring guidelines", "about", "", "#guidelines")}<a class="rf-back" href="/">Back to InfoparkDaily ${icon("arrow")}</a></nav>
+  </div>
+</div></footer>`;
 }
 export const statusLabel = (s) =>
   ({
