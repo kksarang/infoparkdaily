@@ -418,6 +418,11 @@ TYPES = {
     "creator-kit": render_creator,
 }
 
+# Restaurant, event, startup, real estate, corporate and landing-page layouts.
+from portfolio_types_more import TYPES_MORE  # noqa: E402  (needs the helpers above)
+
+TYPES.update(TYPES_MORE)
+
 V2_CSS = '<link rel="stylesheet" href="/css/portfolio-demo-v2.css?v=1">'
 
 

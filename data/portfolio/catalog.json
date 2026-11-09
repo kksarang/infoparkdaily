@@ -2182,17 +2182,32 @@
     "visual": "dashboard"
   },
   {
-    "category": "Bloggers",
-    "description": "Ink & Margin is a magazine-style blog with a featured cover story, topic browsing and an author band.",
-    "featured": false,
-    "headline": "Small rituals. Slow stories.",
     "id": "PF-043",
-    "layout": "blog-mag",
-    "mobileThumbnail": "/assets/portfolio/previews/ink-margin-mobile.webp",
+    "slug": "ink-margin",
     "name": "Ink & Margin",
+    "category": "Bloggers",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "blog-mag",
     "person": "Meera Pillai",
-    "previewPath": "/portfolio/preview/ink-margin/",
     "profession": "Writer & blogger",
+    "headline": "Small rituals. Slow stories.",
+    "description": "Ink & Margin is a magazine-style blog with a featured cover story, topic browsing and an author band.",
+    "thumbnail": "/assets/portfolio/previews/ink-margin.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/ink-margin-mobile.webp",
+    "previewPath": "/portfolio/preview/ink-margin/",
+    "supportedSections": [
+      "Featured story",
+      "Latest posts",
+      "Topics",
+      "About the writer",
+      "Newsletter",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A food essay with a featured cover photo.",
@@ -2213,35 +2228,35 @@
       "Travel",
       "Newsletters"
     ],
-    "slug": "ink-margin",
-    "styleTags": [
-      "Light",
-      "Editorial"
-    ],
-    "supportedSections": [
-      "Featured story",
-      "Latest posts",
-      "Topics",
-      "About the writer",
-      "Newsletter",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/ink-margin.webp",
-    "version": "1.0",
     "visual": "article"
   },
   {
-    "category": "Bloggers",
-    "description": "Night Notes is a dark, minimal tech blog with a dated post list, tags and a /now panel.",
-    "featured": false,
-    "headline": "Notes on building for the web.",
     "id": "PF-044",
-    "layout": "blog-night",
-    "mobileThumbnail": "/assets/portfolio/previews/night-notes-mobile.webp",
+    "slug": "night-notes",
     "name": "Night Notes",
+    "category": "Bloggers",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "layout": "blog-night",
     "person": "Rahul Varma",
-    "previewPath": "/portfolio/preview/night-notes/",
     "profession": "Tech blogger",
+    "headline": "Notes on building for the web.",
+    "description": "Night Notes is a dark, minimal tech blog with a dated post list, tags and a /now panel.",
+    "thumbnail": "/assets/portfolio/previews/night-notes.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/night-notes-mobile.webp",
+    "previewPath": "/portfolio/preview/night-notes/",
+    "supportedSections": [
+      "Post list",
+      "Tags",
+      "Now panel",
+      "About",
+      "Subscribe",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A long-form explainer in the post list.",
@@ -2262,35 +2277,34 @@
       "Tools",
       "Writing"
     ],
-    "slug": "night-notes",
-    "styleTags": [
-      "Dark",
-      "Minimal"
-    ],
-    "supportedSections": [
-      "Post list",
-      "Tags",
-      "Now panel",
-      "About",
-      "Subscribe",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/night-notes.webp",
-    "version": "1.0",
     "visual": "article"
   },
   {
-    "category": "Storytellers",
-    "description": "Chapter One tells a life story in numbered chapters with pull quotes, photos and milestones.",
-    "featured": false,
-    "headline": "Every chapter counts.",
     "id": "PF-045",
-    "layout": "story-chapters",
-    "mobileThumbnail": "/assets/portfolio/previews/chapter-one-mobile.webp",
+    "slug": "chapter-one",
     "name": "Chapter One",
+    "category": "Storytellers",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "story-chapters",
     "person": "Ananya Krishnan",
-    "previewPath": "/portfolio/preview/chapter-one/",
     "profession": "Writer & speaker",
+    "headline": "Every chapter counts.",
+    "description": "Chapter One tells a life story in numbered chapters with pull quotes, photos and milestones.",
+    "thumbnail": "/assets/portfolio/previews/chapter-one.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/chapter-one-mobile.webp",
+    "previewPath": "/portfolio/preview/chapter-one/",
+    "supportedSections": [
+      "Story chapters",
+      "Pull quote",
+      "Milestones",
+      "Speaking invite",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "Chapter one of a personal story.",
@@ -2311,34 +2325,34 @@
       "Workshops",
       "Writing"
     ],
-    "slug": "chapter-one",
-    "styleTags": [
-      "Light",
-      "Editorial"
-    ],
-    "supportedSections": [
-      "Story chapters",
-      "Pull quote",
-      "Milestones",
-      "Speaking invite",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/chapter-one.webp",
-    "version": "1.0",
     "visual": "article"
   },
   {
-    "category": "Storytellers",
-    "description": "Long Way Home is a cinematic travel story with a full-bleed photo hero, trip figures and a route of stops.",
-    "featured": false,
-    "headline": "The long way is the good way.",
     "id": "PF-046",
-    "layout": "story-journey",
-    "mobileThumbnail": "/assets/portfolio/previews/long-way-home-mobile.webp",
+    "slug": "long-way-home",
     "name": "Long Way Home",
+    "category": "Storytellers",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "story-journey",
     "person": "Joseph Mathew",
-    "previewPath": "/portfolio/preview/long-way-home/",
     "profession": "Travel storyteller",
+    "headline": "The long way is the good way.",
+    "description": "Long Way Home is a cinematic travel story with a full-bleed photo hero, trip figures and a route of stops.",
+    "thumbnail": "/assets/portfolio/previews/long-way-home.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/long-way-home-mobile.webp",
+    "previewPath": "/portfolio/preview/long-way-home/",
+    "supportedSections": [
+      "Cinematic hero",
+      "Trip figures",
+      "Route stops",
+      "About",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "The first stop on the route.",
@@ -2359,34 +2373,34 @@
       "Route maps",
       "Field notes"
     ],
-    "slug": "long-way-home",
-    "styleTags": [
-      "Dark",
-      "Bold"
-    ],
-    "supportedSections": [
-      "Cinematic hero",
-      "Trip figures",
-      "Route stops",
-      "About",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/long-way-home.webp",
-    "version": "1.0",
     "visual": "photo"
   },
   {
-    "category": "Profiles",
-    "description": "Link Card is a link-in-bio profile: avatar, short bio, big link buttons and highlights on one screen.",
-    "featured": false,
-    "headline": "Helping good products find their people.",
     "id": "PF-047",
-    "layout": "profile-links",
-    "mobileThumbnail": "/assets/portfolio/previews/link-card-mobile.webp",
+    "slug": "link-card",
     "name": "Link Card",
+    "category": "Profiles",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "profile-links",
     "person": "Sneha Rao",
-    "previewPath": "/portfolio/preview/link-card/",
     "profession": "Product marketer",
+    "headline": "Helping good products find their people.",
+    "description": "Link Card is a link-in-bio profile: avatar, short bio, big link buttons and highlights on one screen.",
+    "thumbnail": "/assets/portfolio/previews/link-card.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/link-card-mobile.webp",
+    "previewPath": "/portfolio/preview/link-card/",
+    "supportedSections": [
+      "Profile card",
+      "Link buttons",
+      "Social links",
+      "Highlights",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A highlight tile.",
@@ -2407,34 +2421,34 @@
       "Content",
       "Analytics"
     ],
-    "slug": "link-card",
-    "styleTags": [
-      "Light",
-      "Minimal"
-    ],
-    "supportedSections": [
-      "Profile card",
-      "Link buttons",
-      "Social links",
-      "Highlights",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/link-card.webp",
-    "version": "1.0",
     "visual": "browser"
   },
   {
-    "category": "Profiles",
-    "description": "Calling Card is a digital business card with a card hero, contact grid, availability and services.",
-    "featured": false,
-    "headline": "Clear advice. Practical results.",
     "id": "PF-048",
-    "layout": "profile-card",
-    "mobileThumbnail": "/assets/portfolio/previews/calling-card-mobile.webp",
+    "slug": "calling-card",
     "name": "Calling Card",
+    "category": "Profiles",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "layout": "profile-card",
     "person": "Adithya Menon",
-    "previewPath": "/portfolio/preview/calling-card/",
     "profession": "Business consultant",
+    "headline": "Clear advice. Practical results.",
+    "description": "Calling Card is a digital business card with a card hero, contact grid, availability and services.",
+    "thumbnail": "/assets/portfolio/previews/calling-card.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/calling-card-mobile.webp",
+    "previewPath": "/portfolio/preview/calling-card/",
+    "supportedSections": [
+      "Business card",
+      "At a glance",
+      "Contact grid",
+      "Services",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A service listing.",
@@ -2455,34 +2469,34 @@
       "Process design",
       "Workshops"
     ],
-    "slug": "calling-card",
-    "styleTags": [
-      "Dark",
-      "Minimal"
-    ],
-    "supportedSections": [
-      "Business card",
-      "At a glance",
-      "Contact grid",
-      "Services",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/calling-card.webp",
-    "version": "1.0",
     "visual": "browser"
   },
   {
-    "category": "Business",
-    "description": "Kayal Interiors is a studio business site with services, a four-step process, project work and packages.",
-    "featured": false,
-    "headline": "Spaces that feel like you.",
     "id": "PF-049",
-    "layout": "biz-studio",
-    "mobileThumbnail": "/assets/portfolio/previews/kayal-interiors-mobile.webp",
+    "slug": "kayal-interiors",
     "name": "Kayal Interiors",
+    "category": "Business",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "biz-studio",
     "person": "Divya Suresh",
-    "previewPath": "/portfolio/preview/kayal-interiors/",
     "profession": "Interior design studio",
+    "headline": "Spaces that feel like you.",
+    "description": "Kayal Interiors is a studio business site with services, a four-step process, project work and packages.",
+    "thumbnail": "/assets/portfolio/previews/kayal-interiors.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/kayal-interiors-mobile.webp",
+    "previewPath": "/portfolio/preview/kayal-interiors/",
+    "supportedSections": [
+      "Services",
+      "Process",
+      "Selected work",
+      "Packages",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A calm family home with natural light.",
@@ -2503,34 +2517,35 @@
       "Workspaces",
       "Consultations"
     ],
-    "slug": "kayal-interiors",
-    "styleTags": [
-      "Light",
-      "Editorial"
-    ],
-    "supportedSections": [
-      "Services",
-      "Process",
-      "Selected work",
-      "Packages",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/kayal-interiors.webp",
-    "version": "1.0",
     "visual": "design"
   },
   {
-    "category": "Business",
-    "description": "Brightpath Tutors is a bold local-business site with subjects, a timetable, areas served and FAQs.",
-    "featured": false,
-    "headline": "Learning that clicks.",
     "id": "PF-050",
-    "layout": "biz-local",
-    "mobileThumbnail": "/assets/portfolio/previews/brightpath-tutors-mobile.webp",
+    "slug": "brightpath-tutors",
     "name": "Brightpath Tutors",
+    "category": "Business",
+    "styleTags": [
+      "Bold",
+      "Light"
+    ],
+    "layout": "biz-local",
     "person": "Faisal Ahmed",
-    "previewPath": "/portfolio/preview/brightpath-tutors/",
     "profession": "Home tuition centre",
+    "headline": "Learning that clicks.",
+    "description": "Brightpath Tutors is a bold local-business site with subjects, a timetable, areas served and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/brightpath-tutors.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/brightpath-tutors-mobile.webp",
+    "previewPath": "/portfolio/preview/brightpath-tutors/",
+    "supportedSections": [
+      "Subjects",
+      "Why us",
+      "Timetable",
+      "Areas served",
+      "FAQ",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "Classes 8–10.",
@@ -2551,35 +2566,34 @@
       "English",
       "Coding for kids"
     ],
-    "slug": "brightpath-tutors",
-    "styleTags": [
-      "Bold",
-      "Light"
-    ],
-    "supportedSections": [
-      "Subjects",
-      "Why us",
-      "Timetable",
-      "Areas served",
-      "FAQ",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/brightpath-tutors.webp",
-    "version": "1.0",
     "visual": "checklist"
   },
   {
-    "category": "Online stores",
-    "description": "Chai & Clay is a craft shop with an illustrated product grid, prices and WhatsApp enquiry buttons.",
-    "featured": false,
-    "headline": "Handmade for slow mornings.",
     "id": "PF-051",
-    "layout": "store-craft",
-    "mobileThumbnail": "/assets/portfolio/previews/chai-clay-mobile.webp",
+    "slug": "chai-clay",
     "name": "Chai & Clay",
+    "category": "Online stores",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "store-craft",
     "person": "Lakshmi Nair",
-    "previewPath": "/portfolio/preview/chai-clay/",
     "profession": "Handmade ceramics",
+    "headline": "Handmade for slow mornings.",
+    "description": "Chai & Clay is a craft shop with an illustrated product grid, prices and WhatsApp enquiry buttons.",
+    "thumbnail": "/assets/portfolio/previews/chai-clay.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/chai-clay-mobile.webp",
+    "previewPath": "/portfolio/preview/chai-clay/",
+    "supportedSections": [
+      "Shop bar",
+      "Product grid",
+      "Categories",
+      "Maker story",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A product card with price.",
@@ -2600,34 +2614,35 @@
       "Small batches",
       "WhatsApp orders"
     ],
-    "slug": "chai-clay",
-    "styleTags": [
-      "Light",
-      "Bold"
-    ],
-    "supportedSections": [
-      "Shop bar",
-      "Product grid",
-      "Categories",
-      "Maker story",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/chai-clay.webp",
-    "version": "1.0",
     "visual": "brand"
   },
   {
-    "category": "Online stores",
-    "description": "Kasavu Lane is a lookbook-style clothing store with collections, products, a size guide and ordering steps.",
-    "featured": false,
-    "headline": "Woven slowly. Worn often.",
     "id": "PF-052",
-    "layout": "store-loom",
-    "mobileThumbnail": "/assets/portfolio/previews/kasavu-lane-mobile.webp",
+    "slug": "kasavu-lane",
     "name": "Kasavu Lane",
+    "category": "Online stores",
+    "styleTags": [
+      "Dark",
+      "Editorial"
+    ],
+    "layout": "store-loom",
     "person": "Reshma Thomas",
-    "previewPath": "/portfolio/preview/kasavu-lane/",
     "profession": "Handloom clothing label",
+    "headline": "Woven slowly. Worn often.",
+    "description": "Kasavu Lane is a lookbook-style clothing store with collections, products, a size guide and ordering steps.",
+    "thumbnail": "/assets/portfolio/previews/kasavu-lane.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/kasavu-lane-mobile.webp",
+    "previewPath": "/portfolio/preview/kasavu-lane/",
+    "supportedSections": [
+      "Lookbook hero",
+      "Collections",
+      "Products",
+      "How to order",
+      "Size guide",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A collection tile.",
@@ -2648,35 +2663,35 @@
       "Kurtas",
       "Custom sizing"
     ],
-    "slug": "kasavu-lane",
-    "styleTags": [
-      "Dark",
-      "Editorial"
-    ],
-    "supportedSections": [
-      "Lookbook hero",
-      "Collections",
-      "Products",
-      "How to order",
-      "Size guide",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/kasavu-lane.webp",
-    "version": "1.0",
     "visual": "brand"
   },
   {
-    "category": "Influencers",
-    "description": "Spotlight is a creator page with audience figures, a video content grid, collaborations and packages.",
-    "featured": false,
-    "headline": "Slow travel. Big flavours.",
     "id": "PF-053",
-    "layout": "creator-media",
-    "mobileThumbnail": "/assets/portfolio/previews/spotlight-mobile.webp",
+    "slug": "spotlight",
     "name": "Spotlight",
+    "category": "Influencers",
+    "styleTags": [
+      "Bold",
+      "Dark"
+    ],
+    "layout": "creator-media",
     "person": "Nikhil Das",
-    "previewPath": "/portfolio/preview/spotlight/",
     "profession": "Travel & food creator",
+    "headline": "Slow travel. Big flavours.",
+    "description": "Spotlight is a creator page with audience figures, a video content grid, collaborations and packages.",
+    "thumbnail": "/assets/portfolio/previews/spotlight.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/spotlight-mobile.webp",
+    "previewPath": "/portfolio/preview/spotlight/",
+    "supportedSections": [
+      "Creator hero",
+      "Audience figures",
+      "Content grid",
+      "Collaborations",
+      "Packages",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A video tile.",
@@ -2697,35 +2712,34 @@
       "Travel",
       "Brand stories"
     ],
-    "slug": "spotlight",
-    "styleTags": [
-      "Bold",
-      "Dark"
-    ],
-    "supportedSections": [
-      "Creator hero",
-      "Audience figures",
-      "Content grid",
-      "Collaborations",
-      "Packages",
-      "Contact"
-    ],
-    "thumbnail": "/assets/portfolio/previews/spotlight.webp",
-    "version": "1.0",
     "visual": "social"
   },
   {
-    "category": "Influencers",
-    "description": "Glow Diaries is a media-kit style site with audience charts, content pillars and recent collaborations.",
-    "featured": false,
-    "headline": "Calm routines. Honest finds.",
     "id": "PF-054",
-    "layout": "creator-kit",
-    "mobileThumbnail": "/assets/portfolio/previews/glow-diaries-mobile.webp",
+    "slug": "glow-diaries",
     "name": "Glow Diaries",
+    "category": "Influencers",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "creator-kit",
     "person": "Aisha Rahman",
-    "previewPath": "/portfolio/preview/glow-diaries/",
     "profession": "Lifestyle creator",
+    "headline": "Calm routines. Honest finds.",
+    "description": "Glow Diaries is a media-kit style site with audience charts, content pillars and recent collaborations.",
+    "thumbnail": "/assets/portfolio/previews/glow-diaries.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/glow-diaries-mobile.webp",
+    "previewPath": "/portfolio/preview/glow-diaries/",
+    "supportedSections": [
+      "Media kit hero",
+      "Audience charts",
+      "Content pillars",
+      "Collaborations",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
     "projects": [
       {
         "description": "A content pillar.",
@@ -2746,20 +2760,583 @@
       "Reviews",
       "Brand partnerships"
     ],
-    "slug": "glow-diaries",
+    "visual": "social"
+  },
+  {
+    "id": "PF-055",
+    "slug": "malabar-table",
+    "name": "Malabar Table",
+    "category": "Restaurants",
+    "styleTags": [
+      "Dark",
+      "Editorial"
+    ],
+    "layout": "food-fine",
+    "person": "Fathima Rasheed",
+    "profession": "Kerala seafood restaurant",
+    "headline": "Coastal flavours, slow-cooked.",
+    "description": "Malabar Table is a restaurant site with a priced menu, signature highlights, WhatsApp table booking and a visit-us section with hours.",
+    "thumbnail": "/assets/portfolio/previews/malabar-table.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/malabar-table-mobile.webp",
+    "previewPath": "/portfolio/preview/malabar-table/",
+    "supportedSections": [
+      "Menu",
+      "Highlights",
+      "Reservations",
+      "Visit us",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Menu",
+        "description": "Malabar Table is a restaurant site with a priced menu, signature highlights, WhatsApp table booking and a visit-us section with hours."
+      },
+      {
+        "title": "Highlights",
+        "description": "Malabar Table is a restaurant site with a priced menu, signature highlights, WhatsApp table booking and a visit-us section with hours."
+      },
+      {
+        "title": "Reservations",
+        "description": "Malabar Table is a restaurant site with a priced menu, signature highlights, WhatsApp table booking and a visit-us section with hours."
+      }
+    ],
+    "skills": [
+      "Menu",
+      "Highlights",
+      "Reservations",
+      "Visit us"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-056",
+    "slug": "filter-house",
+    "name": "Filter House",
+    "category": "Restaurants",
     "styleTags": [
       "Light",
       "Minimal"
     ],
+    "layout": "food-cafe",
+    "person": "Joseph Mathew",
+    "profession": "Café and bakery",
+    "headline": "Fresh filter coffee and warm bakes.",
+    "description": "Filter House is a café site with an all-day menu, order-ahead, a guest review and opening hours.",
+    "thumbnail": "/assets/portfolio/previews/filter-house.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/filter-house-mobile.webp",
+    "previewPath": "/portfolio/preview/filter-house/",
     "supportedSections": [
-      "Media kit hero",
-      "Audience charts",
-      "Content pillars",
-      "Collaborations",
+      "Menu",
+      "Why us",
+      "Review",
+      "Visit",
       "Contact"
     ],
-    "thumbnail": "/assets/portfolio/previews/glow-diaries.webp",
+    "featured": false,
     "version": "1.0",
-    "visual": "social"
+    "projects": [
+      {
+        "title": "Menu",
+        "description": "Filter House is a café site with an all-day menu, order-ahead, a guest review and opening hours."
+      },
+      {
+        "title": "Why us",
+        "description": "Filter House is a café site with an all-day menu, order-ahead, a guest review and opening hours."
+      },
+      {
+        "title": "Review",
+        "description": "Filter House is a café site with an all-day menu, order-ahead, a guest review and opening hours."
+      }
+    ],
+    "skills": [
+      "Menu",
+      "Why us",
+      "Review",
+      "Visit"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-057",
+    "slug": "kochi-dev-summit",
+    "name": "Kochi Dev Summit",
+    "category": "Events",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "event-conf",
+    "person": "Arun Prakash",
+    "profession": "Tech conference",
+    "headline": "One day. Forty talks. Kerala’s builders.",
+    "description": "Kochi Dev Summit is a conference site with key numbers, a timed schedule, speakers, ticket tiers, venue and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/kochi-dev-summit.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/kochi-dev-summit-mobile.webp",
+    "previewPath": "/portfolio/preview/kochi-dev-summit/",
+    "supportedSections": [
+      "Schedule",
+      "Speakers",
+      "Tickets",
+      "Venue",
+      "FAQ",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Schedule",
+        "description": "Kochi Dev Summit is a conference site with key numbers, a timed schedule, speakers, ticket tiers, venue and FAQs."
+      },
+      {
+        "title": "Speakers",
+        "description": "Kochi Dev Summit is a conference site with key numbers, a timed schedule, speakers, ticket tiers, venue and FAQs."
+      },
+      {
+        "title": "Tickets",
+        "description": "Kochi Dev Summit is a conference site with key numbers, a timed schedule, speakers, ticket tiers, venue and FAQs."
+      }
+    ],
+    "skills": [
+      "Schedule",
+      "Speakers",
+      "Tickets",
+      "Venue"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-058",
+    "slug": "onam-utsav",
+    "name": "Onam Utsav",
+    "category": "Events",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "event-fest",
+    "person": "Meera Pillai",
+    "profession": "Community festival",
+    "headline": "Three days of Onam, together.",
+    "description": "Onam Utsav is a festival site with a day-by-day programme, highlights, team registration and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/onam-utsav.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/onam-utsav-mobile.webp",
+    "previewPath": "/portfolio/preview/onam-utsav/",
+    "supportedSections": [
+      "Programme",
+      "Highlights",
+      "Registration",
+      "FAQ",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Programme",
+        "description": "Onam Utsav is a festival site with a day-by-day programme, highlights, team registration and FAQs."
+      },
+      {
+        "title": "Highlights",
+        "description": "Onam Utsav is a festival site with a day-by-day programme, highlights, team registration and FAQs."
+      },
+      {
+        "title": "Registration",
+        "description": "Onam Utsav is a festival site with a day-by-day programme, highlights, team registration and FAQs."
+      }
+    ],
+    "skills": [
+      "Programme",
+      "Highlights",
+      "Registration",
+      "FAQ"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-059",
+    "slug": "ledgerly",
+    "name": "Ledgerly",
+    "category": "Startups",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "startup-saas",
+    "person": "Nikhil Varma",
+    "profession": "GST billing app for small shops",
+    "headline": "Billing that takes seconds, not evenings.",
+    "description": "Ledgerly is a SaaS startup site with a dashboard mock-up, features, how it works, a review, pricing plans and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/ledgerly.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/ledgerly-mobile.webp",
+    "previewPath": "/portfolio/preview/ledgerly/",
+    "supportedSections": [
+      "Features",
+      "How it works",
+      "Review",
+      "Pricing",
+      "FAQ",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Features",
+        "description": "Ledgerly is a SaaS startup site with a dashboard mock-up, features, how it works, a review, pricing plans and FAQs."
+      },
+      {
+        "title": "How it works",
+        "description": "Ledgerly is a SaaS startup site with a dashboard mock-up, features, how it works, a review, pricing plans and FAQs."
+      },
+      {
+        "title": "Review",
+        "description": "Ledgerly is a SaaS startup site with a dashboard mock-up, features, how it works, a review, pricing plans and FAQs."
+      }
+    ],
+    "skills": [
+      "Features",
+      "How it works",
+      "Review",
+      "Pricing"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-060",
+    "slug": "kadal-connect",
+    "name": "Kadal Connect",
+    "category": "Startups",
+    "styleTags": [
+      "Dark",
+      "Bold"
+    ],
+    "layout": "startup-app",
+    "person": "Rahul Thomas",
+    "profession": "Fresh fish delivery app",
+    "headline": "Today’s catch, at your door by noon.",
+    "description": "Kadal Connect is a mobile-app startup site with a phone mock-up, key numbers, how it works, benefits and app download buttons.",
+    "thumbnail": "/assets/portfolio/previews/kadal-connect.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/kadal-connect-mobile.webp",
+    "previewPath": "/portfolio/preview/kadal-connect/",
+    "supportedSections": [
+      "How it works",
+      "Why us",
+      "Download",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "How it works",
+        "description": "Kadal Connect is a mobile-app startup site with a phone mock-up, key numbers, how it works, benefits and app download buttons."
+      },
+      {
+        "title": "Why us",
+        "description": "Kadal Connect is a mobile-app startup site with a phone mock-up, key numbers, how it works, benefits and app download buttons."
+      },
+      {
+        "title": "Download",
+        "description": "Kadal Connect is a mobile-app startup site with a phone mock-up, key numbers, how it works, benefits and app download buttons."
+      }
+    ],
+    "skills": [
+      "How it works",
+      "Why us",
+      "Download",
+      "Contact"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-061",
+    "slug": "backwater-homes",
+    "name": "Backwater Homes",
+    "category": "Real estate",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "estate-agency",
+    "person": "Anil Kumar",
+    "profession": "Real estate agency",
+    "headline": "Find your home in Kochi.",
+    "description": "Backwater Homes is a real estate agency site with filterable listings, prices in lakh and crore, why-us points and site-visit booking.",
+    "thumbnail": "/assets/portfolio/previews/backwater-homes.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/backwater-homes-mobile.webp",
+    "previewPath": "/portfolio/preview/backwater-homes/",
+    "supportedSections": [
+      "Listings",
+      "Why us",
+      "Numbers",
+      "Site visit",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Listings",
+        "description": "Backwater Homes is a real estate agency site with filterable listings, prices in lakh and crore, why-us points and site-visit booking."
+      },
+      {
+        "title": "Why us",
+        "description": "Backwater Homes is a real estate agency site with filterable listings, prices in lakh and crore, why-us points and site-visit booking."
+      },
+      {
+        "title": "Numbers",
+        "description": "Backwater Homes is a real estate agency site with filterable listings, prices in lakh and crore, why-us points and site-visit booking."
+      }
+    ],
+    "skills": [
+      "Listings",
+      "Why us",
+      "Numbers",
+      "Site visit"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-062",
+    "slug": "palm-grove-residences",
+    "name": "Palm Grove Residences",
+    "category": "Real estate",
+    "styleTags": [
+      "Light",
+      "Minimal"
+    ],
+    "layout": "estate-project",
+    "person": "Sreeja Menon",
+    "profession": "Apartment project",
+    "headline": "Homes that breathe, near the city.",
+    "description": "Palm Grove Residences is a single-project site with key numbers, floor plans and prices, amenities and location advantages.",
+    "thumbnail": "/assets/portfolio/previews/palm-grove-residences.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/palm-grove-residences-mobile.webp",
+    "previewPath": "/portfolio/preview/palm-grove-residences/",
+    "supportedSections": [
+      "Numbers",
+      "Floor plans",
+      "Amenities",
+      "Location",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Numbers",
+        "description": "Palm Grove Residences is a single-project site with key numbers, floor plans and prices, amenities and location advantages."
+      },
+      {
+        "title": "Floor plans",
+        "description": "Palm Grove Residences is a single-project site with key numbers, floor plans and prices, amenities and location advantages."
+      },
+      {
+        "title": "Amenities",
+        "description": "Palm Grove Residences is a single-project site with key numbers, floor plans and prices, amenities and location advantages."
+      }
+    ],
+    "skills": [
+      "Numbers",
+      "Floor plans",
+      "Amenities",
+      "Location"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-063",
+    "slug": "meridian-logistics",
+    "name": "Meridian Logistics",
+    "category": "Corporate",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "corp-ops",
+    "person": "Thomas Kurian",
+    "profession": "Logistics company",
+    "headline": "Moving Kerala’s goods, on time.",
+    "description": "Meridian Logistics is a corporate site with company figures, solutions, leadership and current openings.",
+    "thumbnail": "/assets/portfolio/previews/meridian-logistics.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/meridian-logistics-mobile.webp",
+    "previewPath": "/portfolio/preview/meridian-logistics/",
+    "supportedSections": [
+      "Numbers",
+      "Solutions",
+      "Leadership",
+      "Careers",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Numbers",
+        "description": "Meridian Logistics is a corporate site with company figures, solutions, leadership and current openings."
+      },
+      {
+        "title": "Solutions",
+        "description": "Meridian Logistics is a corporate site with company figures, solutions, leadership and current openings."
+      },
+      {
+        "title": "Leadership",
+        "description": "Meridian Logistics is a corporate site with company figures, solutions, leadership and current openings."
+      }
+    ],
+    "skills": [
+      "Numbers",
+      "Solutions",
+      "Leadership",
+      "Careers"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-064",
+    "slug": "techvale-systems",
+    "name": "Techvale Systems",
+    "category": "Corporate",
+    "styleTags": [
+      "Dark",
+      "Minimal"
+    ],
+    "layout": "corp-tech",
+    "person": "Lakshmi Rajan",
+    "profession": "IT services company",
+    "headline": "Software that runs businesses.",
+    "description": "Techvale Systems is an IT services corporate site with services, case studies with results, company figures and careers.",
+    "thumbnail": "/assets/portfolio/previews/techvale-systems.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/techvale-systems-mobile.webp",
+    "previewPath": "/portfolio/preview/techvale-systems/",
+    "supportedSections": [
+      "Services",
+      "Case studies",
+      "Numbers",
+      "Careers",
+      "Contact"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Services",
+        "description": "Techvale Systems is an IT services corporate site with services, case studies with results, company figures and careers."
+      },
+      {
+        "title": "Case studies",
+        "description": "Techvale Systems is an IT services corporate site with services, case studies with results, company figures and careers."
+      },
+      {
+        "title": "Numbers",
+        "description": "Techvale Systems is an IT services corporate site with services, case studies with results, company figures and careers."
+      }
+    ],
+    "skills": [
+      "Services",
+      "Case studies",
+      "Numbers",
+      "Careers"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-065",
+    "slug": "focusflow",
+    "name": "FocusFlow",
+    "category": "Landing pages",
+    "styleTags": [
+      "Light",
+      "Bold"
+    ],
+    "layout": "landing-product",
+    "person": "Varun Nair",
+    "profession": "App launch landing page",
+    "headline": "Plan less. Do more.",
+    "description": "FocusFlow is a one-page product launch site with the problem, how it works, a tester quote, an early-access sign-up and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/focusflow.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/focusflow-mobile.webp",
+    "previewPath": "/portfolio/preview/focusflow/",
+    "supportedSections": [
+      "Problem",
+      "How it works",
+      "Review",
+      "Early access",
+      "FAQ"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "Problem",
+        "description": "FocusFlow is a one-page product launch site with the problem, how it works, a tester quote, an early-access sign-up and FAQs."
+      },
+      {
+        "title": "How it works",
+        "description": "FocusFlow is a one-page product launch site with the problem, how it works, a tester quote, an early-access sign-up and FAQs."
+      },
+      {
+        "title": "Review",
+        "description": "FocusFlow is a one-page product launch site with the problem, how it works, a tester quote, an early-access sign-up and FAQs."
+      }
+    ],
+    "skills": [
+      "Problem",
+      "How it works",
+      "Review",
+      "Early access"
+    ],
+    "visual": "design"
+  },
+  {
+    "id": "PF-066",
+    "slug": "weekend-ui-workshop",
+    "name": "Weekend UI Workshop",
+    "category": "Landing pages",
+    "styleTags": [
+      "Light",
+      "Editorial"
+    ],
+    "layout": "landing-course",
+    "person": "Anjali Das",
+    "profession": "Workshop sign-up page",
+    "headline": "Design your first app in two days.",
+    "description": "Weekend UI Workshop is a one-page course site with learning outcomes, a two-day schedule, the trainer, seat prices and FAQs.",
+    "thumbnail": "/assets/portfolio/previews/weekend-ui-workshop.webp",
+    "mobileThumbnail": "/assets/portfolio/previews/weekend-ui-workshop-mobile.webp",
+    "previewPath": "/portfolio/preview/weekend-ui-workshop/",
+    "supportedSections": [
+      "What you’ll learn",
+      "Schedule",
+      "Trainer",
+      "Register",
+      "FAQ"
+    ],
+    "featured": false,
+    "version": "1.0",
+    "projects": [
+      {
+        "title": "What you’ll learn",
+        "description": "Weekend UI Workshop is a one-page course site with learning outcomes, a two-day schedule, the trainer, seat prices and FAQs."
+      },
+      {
+        "title": "Schedule",
+        "description": "Weekend UI Workshop is a one-page course site with learning outcomes, a two-day schedule, the trainer, seat prices and FAQs."
+      },
+      {
+        "title": "Trainer",
+        "description": "Weekend UI Workshop is a one-page course site with learning outcomes, a two-day schedule, the trainer, seat prices and FAQs."
+      }
+    ],
+    "skills": [
+      "What you’ll learn",
+      "Schedule",
+      "Trainer",
+      "Register"
+    ],
+    "visual": "design"
   }
 ]
