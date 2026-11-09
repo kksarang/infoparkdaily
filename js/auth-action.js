@@ -1,7 +1,7 @@
 import {
   completeAuthEmailAction,
   safeAuthContinuePath,
-} from "./resume-builder/cloud.bundle.js?v=20260916mail";
+} from "./resume-builder/cloud.bundle.js?v=20261109ss";
 
 const root = document.getElementById("auth-action");
 const params = new URLSearchParams(location.search);

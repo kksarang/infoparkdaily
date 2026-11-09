@@ -359,7 +359,17 @@ async function exportAccount() {
   } catch {
     /* The export still includes everything else. */
   }
-  return { member: me, resumes, saved_jobs };
+  let studio_sites = [];
+  try {
+    const sites = await getDocs(collection(db, "users", requireUser().uid, "studioProjects"));
+    studio_sites = sites.docs.map((d) => {
+      const x = d.data();
+      return { id: d.id, ...x, createdAt: x.createdAt?.toDate?.().toISOString?.() || null, updatedAt: x.updatedAt?.toDate?.().toISOString?.() || null };
+    });
+  } catch {
+    /* The export still includes everything else. */
+  }
+  return { member: me, resumes, saved_jobs, studio_sites };
 }
 
 function clearCareerLocalData() {
@@ -400,6 +410,13 @@ async function deleteCloudDocuments() {
     await deleteDoc(doc(db, "users", user.uid, "savedJobs", "list"));
   } catch {
     /* Unverified accounts usually have no cloud drafts. */
+  }
+  try {
+    /* Daily Web Studio sites (users/{uid}/studioProjects): owners may always delete them. */
+    const sites = await getDocs(collection(db, "users", user.uid, "studioProjects"));
+    await Promise.all(sites.docs.map((d) => deleteDoc(d.ref)));
+  } catch {
+    /* No Studio sites. */
   }
   await deleteDoc(userRef(user.uid)).catch(() => {});
 }

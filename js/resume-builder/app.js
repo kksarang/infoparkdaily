@@ -7,7 +7,7 @@ import {
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
 import { publicTemplates } from "./catalog.js?v=20261102tools";
-import { request as cloudRequest } from "./cloud.bundle.js?v=20261102chk6";
+import { request as cloudRequest } from "./cloud.bundle.js?v=20261109ss";
 import { resumePdfBlob, saveBlob, sharePdf, canSharePdf, pdfFilename } from "./pdf-export.js?v=20261109safe";
 const base = "/resume-builder/";
 const main = document.getElementById("main");

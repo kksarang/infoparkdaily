@@ -120,7 +120,7 @@
   const accountPage = location.pathname.startsWith("/ats-checker") || location.pathname.startsWith("/interview");
   if (accountNav && accountPage) {
     const here = location.pathname.startsWith("/ats-checker") ? "/ats-checker/" : location.pathname;
-    import("/js/resume-builder/cloud.bundle.js?v=20260916del")
+    import("/js/resume-builder/cloud.bundle.js?v=20261109ss")
       .then((mod) => mod.request("/me"))
       .then((me) => {
         accountNav.innerHTML = me
@@ -128,7 +128,7 @@
           : '<a class="store-signin" href="/resume-builder/sign-in/?next=' + encodeURIComponent(here) + '">Sign in</a>';
         document.getElementById("ats-logout")?.addEventListener("click", async () => {
           try {
-            const mod = await import("/js/resume-builder/cloud.bundle.js?v=20260916del");
+            const mod = await import("/js/resume-builder/cloud.bundle.js?v=20261109ss");
             await mod.request("/auth/logout", { method: "POST" });
             window.IPDAnalytics?.track?.("logout", { feature: here.startsWith("/interview") ? "interview_hub" : "ats_checker" });
             window.IPDAnalytics?.clearUserId?.();

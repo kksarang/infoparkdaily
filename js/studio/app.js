@@ -1,4 +1,4 @@
-/* Daily Web Studio — the app at /studio/app/ (Phase 1: foundation).
+/* Daily Web Studio — the app at /studio/app/.
  *
  * Hash routes (work on static hosting with no server rewrites):
  *   #/              Home (dashboard)
@@ -8,16 +8,17 @@
  *   #/templates, #/publish, #/domains, #/billing   Honest "coming next" pages
  *   #/settings      Account, storage and data
  *
- * Sites are saved on this device in Phase 1 (see store.js). The InfoparkDaily account is
- * optional for now and uses the same shared sign-in page as the rest of InfoparkDaily.
+ * Sites save to the InfoparkDaily account when signed in with a verified email, otherwise on this
+ * device (see store.js and cloud.js). Sign-in uses the Studio page at /studio/sign-in/ with the same
+ * InfoparkDaily account as the rest of the site. An account is optional.
  */
 import { icon, SITE_TYPES, typeById, LOOKS, lookById, ACCENTS } from "./data.js";
-import * as store from "./store.js";
+import * as store from "./store.js?v=20261109ss";
 import { previewHtml, esc } from "./preview.js";
 
 const $ = (s, r = document) => r.querySelector(s);
 const view = $("#view");
-const SIGN_IN = "/resume-builder/sign-in/?next=%2Fstudio%2Fapp%2F";
+const SIGN_IN = "/studio/sign-in/?next=%2Fstudio%2Fapp%2F";
 
 export const LOGO =
   '<svg class="dws-mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#ffc107"/><rect x="7" y="8" width="18" height="16" rx="3" fill="#fff" stroke="#14151a" stroke-width="2"/><path d="M7.5 13h17" stroke="#14151a" stroke-width="2"/><rect x="10" y="16" width="5.5" height="5" rx="1.2" fill="#ff5b3a"/><rect x="17.5" y="16" width="4.5" height="1.8" rx=".9" fill="#14151a"/><rect x="17.5" y="19.2" width="3.2" height="1.8" rx=".9" fill="#14151a" opacity=".55"/></svg>';
@@ -49,28 +50,76 @@ function setTitle(t) {
   document.title = t ? `${t} · Daily Web Studio` : "Daily Web Studio";
 }
 
-/* ---------- account (optional in Phase 1) ---------- */
+/* ---------- account ----------
+   Signed in with a verified email → sites live in the account (Firestore).
+   Signed out, or email not verified yet → sites stay on this device. */
 let me = null;
 let cloud = null;
+let accountState = "checking"; // checking | out | unverified | in | unavailable
+const SYNC_TEXT = { loading: "Loading your sites…", saving: "Saving…", saved: "Saved to your account", error: "Not saved", offline: "Offline · will save later", idle: "" };
+
 async function loadAccount() {
   try {
-    const mod = await import("/js/resume-builder/cloud.bundle.js?v=20260916del");
-    cloud = mod.request;
-    me = await cloud("/me");
+    cloud = await import("/js/studio/cloud.bundle.js?v=20261109ss");
+    await cloud.authReady;
   } catch {
-    me = null;
+    accountState = "unavailable";
+    paintAccount();
+    return;
   }
-  paintAccount();
+  cloud.onUser(async (user) => {
+    me = user;
+    if (user && (user.verified || !user.password)) {
+      accountState = "in";
+      paintAccount();
+      await store.useAccount(cloud, user.uid);
+    } else {
+      accountState = user ? "unverified" : "out";
+      store.useDevice();
+    }
+    paintAccount();
+    rerender();
+  });
 }
+
 function paintAccount() {
   const box = $("#account");
   if (!box) return;
   if (me) {
     const name = esc(me.name || me.email || "Your account");
-    box.innerHTML = `<a class="acct" href="#/settings"><span class="acct-avatar" aria-hidden="true">${esc((me.name || me.email || "?").trim()[0] || "?").toUpperCase()}</span><span class="acct-text"><strong>${name}</strong><small>InfoparkDaily account</small></span></a>`;
+    const sync = store.getSync();
+    const pill =
+      accountState === "in"
+        ? `<span class="sync-pill" data-state="${sync.state}" role="status">${SYNC_TEXT[sync.state] || ""}</span>`
+        : `<span class="sync-pill" data-state="offline">Email not verified · saving on this device</span>`;
+    box.innerHTML = `<a class="acct" href="#/settings"><span class="acct-avatar" aria-hidden="true">${esc((me.name || me.email || "?").trim()[0] || "?").toUpperCase()}</span><span class="acct-text"><strong>${name}</strong><small>${esc(me.email)}</small></span></a>${pill}`;
   } else {
-    box.innerHTML = `<a class="acct acct--out" href="${SIGN_IN}">${icon("user", 18)}<span class="acct-text"><strong>Sign in</strong><small>Optional for now</small></span></a>`;
+    const sub = accountState === "checking" ? "Checking…" : accountState === "unavailable" ? "Unavailable offline" : "Save sites to your account";
+    box.innerHTML = `<a class="acct acct--out" href="${SIGN_IN}">${icon("user", 18)}<span class="acct-text"><strong>Sign in</strong><small>${sub}</small></span></a>`;
   }
+}
+
+/** Account notices shown at the top of Home, My sites and Settings. */
+function accountBanners() {
+  let html = "";
+  if (accountState === "unverified")
+    html += `<div class="banner banner--warn" role="status">${icon("lock", 20)}<p><strong>Verify your email to save sites to your account.</strong> We sent a link to ${esc(me?.email)}. Until then, sites save on this device.</p><div class="row"><button type="button" class="btn btn--ghost" data-act="resend">Resend email</button><button type="button" class="btn" data-act="verified">I’ve verified</button></div></div>`;
+  const local = accountState === "in" ? store.deviceProjects().length : 0;
+  if (local)
+    html += `<div class="banner" role="status">${icon("device", 20)}<p><strong>${local} site${local === 1 ? " is" : "s are"} saved only on this device.</strong> Move ${local === 1 ? "it" : "them"} to your account to open ${local === 1 ? "it" : "them"} anywhere.</p><div class="row"><button type="button" class="btn" data-act="move">Move to my account</button></div></div>`;
+  const sync = store.getSync();
+  if (accountState === "in" && sync.state === "error")
+    html += `<div class="banner banner--error" role="alert">${icon("lock", 20)}<p><strong>Your last change wasn’t saved.</strong> ${esc(sync.message)}</p><div class="row"><button type="button" class="btn btn--ghost" data-act="retry">Reload</button></div></div>`;
+  return html;
+}
+
+/** Re-render the current page after data changes, without stealing focus from a field. */
+function rerender() {
+  if (location.hash.startsWith("#/new")) return;
+  const a = document.activeElement;
+  if (a && view.contains(a) && /INPUT|TEXTAREA|SELECT/.test(a.tagName)) return;
+  if ($("#dlg")?.open) return;
+  route(false);
 }
 
 /* ---------- shell ---------- */
@@ -128,9 +177,10 @@ function siteCard(p) {
 }
 
 function storageWarning() {
-  return store.storageAvailable()
+  if (store.getMode() === "account") return accountBanners();
+  return accountBanners() + (store.storageAvailable()
     ? ""
-    : `<div class="notice notice--warn" role="alert">${icon("lock", 18)}<p><strong>Saving is blocked in this browser.</strong> Private browsing or blocked site data stops Studio from keeping your sites. Allow site storage to continue.</p></div>`;
+    : `<div class="notice notice--warn" role="alert">${icon("lock", 18)}<p><strong>Saving is blocked in this browser.</strong> Private browsing or blocked site data stops Studio from keeping your sites. Allow site storage to continue.</p></div>`);
 }
 
 function pageHome() {
@@ -168,25 +218,34 @@ function pageHome() {
     </section>
     <section class="block">
       <div class="block-head"><h2>Recent sites</h2>${hasSite ? '<a class="link" href="#/sites">See all</a>' : ""}</div>
-      ${hasSite ? `<div class="site-grid">${sites.slice(0, 3).map(siteCard).join("")}</div>` : `<div class="empty">${icon("sites", 28)}<p><strong>No sites yet.</strong> Your sites will appear here.</p><a class="btn" href="#/new">Create a site</a></div>`}
+      ${hasSite ? `<div class="site-grid">${sites.slice(0, 3).map(siteCard).join("")}</div>` : loadingSites() ? `<div class="empty">${icon("sites", 28)}<p><strong>Loading your sites…</strong></p></div>` : `<div class="empty">${icon("sites", 28)}<p><strong>No sites yet.</strong> Your sites will appear here.</p><a class="btn" href="#/new">Create a site</a></div>`}
     </section>
     <section class="block">
       <div class="block-head"><h2>Start from a type</h2></div>
       <div class="type-strip">${SITE_TYPES.slice(0, 6).map((t) => `<a href="#/new?type=${t.id}" class="type-chip">${icon(t.id, 18)}<span>${t.label}</span></a>`).join("")}<a href="#/new" class="type-chip type-chip--more"><span>All 12 types</span>${icon("arrow", 16)}</a></div>
     </section>
-    <aside class="notice">${icon("device", 18)}<p>In early access, sites are saved <strong>in this browser on this device</strong>. Account sync arrives with the editor. You can download a backup any time from <a href="#/settings">Settings</a>.</p></aside>`;
+    ${
+      store.getMode() === "account"
+        ? `<aside class="notice">${icon("check", 18)}<p>Your sites are saved <strong>to your InfoparkDaily account</strong> and open on any device where you sign in.</p></aside>`
+        : `<aside class="notice">${icon("device", 18)}<p>Sites are saved <strong>in this browser on this device</strong>. <a href="${SIGN_IN}">Sign in</a> to save them to your account and open them anywhere.</p></aside>`
+    }`;
 }
+
+/** True while the account's sites are still on their way (avoid flashing "No sites yet"). */
+const loadingSites = () => accountState === "checking" || store.getSync().state === "loading";
 
 function pageSites() {
   setTitle("My sites");
   const sites = store.listProjects();
   view.innerHTML = `
     ${storageWarning()}
-    <header class="page-head page-head--row"><div><h1>My sites</h1><p class="lead">${sites.length ? `${sites.length} site${sites.length === 1 ? "" : "s"} on this device` : "Sites you create appear here."}</p></div><a class="btn" href="#/new">${icon("plus", 18)}Create a site</a></header>
+    <header class="page-head page-head--row"><div><h1>My sites</h1><p class="lead">${sites.length ? `${sites.length} site${sites.length === 1 ? "" : "s"} ${store.getMode() === "account" ? "in your account" : "on this device"}` : "Sites you create appear here."}</p></div><a class="btn" href="#/new">${icon("plus", 18)}Create a site</a></header>
     ${
       sites.length
         ? `<label class="search">${icon("templates", 18)}<span class="sr">Search your sites</span><input id="site-q" type="search" placeholder="Search by name or type" autocomplete="off"></label>
            <div class="site-grid" id="site-list">${sites.map(siteCard).join("")}</div><p class="empty-inline" id="no-match" hidden>No sites match that search.</p>`
+        : loadingSites()
+        ? `<div class="empty">${icon("sites", 28)}<p><strong>Loading your sites…</strong></p></div>`
         : `<div class="empty">${icon("sites", 28)}<p><strong>No sites yet.</strong> Answer a few questions and your first site is ready to shape.</p><a class="btn" href="#/new">Create a site</a></div>`
     }`;
   const q = $("#site-q");
@@ -204,7 +263,15 @@ function pageSites() {
 
 function pageSite(id) {
   const p = store.getProject(id);
-  if (!p) return pageMissing("That site isn’t on this device", "It may have been deleted, or it was created in another browser.");
+  if (!p && (accountState === "checking" || store.getSync().state === "loading")) {
+    setTitle("Loading");
+    view.innerHTML = `<div class="empty empty--big">${icon("sites", 30)}<h1>Opening your site…</h1><p>Loading your sites.</p></div>`;
+    return;
+  }
+  if (!p)
+    return store.getMode() === "account"
+      ? pageMissing("That site isn’t in your account", "It may have been deleted, or it belongs to a different account.")
+      : pageMissing("That site isn’t on this device", "It may have been deleted, or it was saved to an account. Sign in to see account sites.");
   setTitle(p.name);
   const t = typeById(p.type);
   const look = lookById(p.look);
@@ -291,19 +358,23 @@ function pageSoon(key) {
 function pageSettings() {
   setTitle("Settings");
   const n = store.listProjects().length;
+  const inAccount = store.getMode() === "account";
+  const account = me
+    ? `<p>Signed in as <strong>${esc(me.email || me.name)}</strong>${me.verified ? "" : " (email not verified yet)"}. This is the same account you use across InfoparkDaily.</p><div class="row"><a class="btn btn--ghost" href="/resume-builder/account/">Manage account</a><button type="button" class="btn btn--ghost" data-act="logout">Log out</button></div>`
+    : `<p>Sign in to save your sites to your account and open them on any device. It’s the same account you use across InfoparkDaily.</p><div class="row"><a class="btn" href="${SIGN_IN}">Sign in</a><a class="btn btn--ghost" href="${SIGN_IN.replace("?", "?mode=signup&")}">Create an account</a></div>`;
+  const where = inAccount
+    ? `${n} site${n === 1 ? "" : "s"} saved to your account. Only you can see them, and deleting your InfoparkDaily account deletes them too.`
+    : `${n} site${n === 1 ? "" : "s"} saved in this browser. Nothing is uploaded. Clearing your browser data removes them, so sign in or keep a backup.`;
   view.innerHTML = `
+    ${accountBanners()}
     <header class="page-head"><div><h1>Settings</h1><p class="lead">Your account and the data Studio keeps.</p></div></header>
     <section class="panel settings">
       <h2>Account</h2>
-      ${
-        me
-          ? `<p>Signed in as <strong>${esc(me.email || me.name)}</strong>. This is the same account you use across InfoparkDaily.</p><div class="row"><a class="btn btn--ghost" href="/resume-builder/account/">Manage account</a><button type="button" class="btn btn--ghost" data-act="logout">Log out</button></div>`
-          : `<p>An account is optional during early access. Signing in now means your sites will sync automatically once account sync launches.</p><div class="row"><a class="btn" href="${SIGN_IN}">Sign in</a><a class="btn btn--ghost" href="${SIGN_IN.replace("?", "?mode=signup&")}">Create an account</a></div>`
-      }
+      ${accountState === "checking" ? "<p>Checking your account…</p>" : account}
     </section>
     <section class="panel settings">
       <h2>Your data</h2>
-      <p>${n} site${n === 1 ? "" : "s"} saved in this browser. Nothing is uploaded. Clearing your browser data removes them, so keep a backup.</p>
+      <p>${where}</p>
       <div class="row"><button type="button" class="btn btn--ghost" data-act="backup" ${n ? "" : "disabled"}>${icon("download", 17)}Download backup (JSON)</button><button type="button" class="btn btn--danger" data-act="wipe" ${n ? "" : "disabled"}>${icon("trash", 17)}Delete all sites</button></div>
     </section>
     <section class="panel settings">
@@ -572,7 +643,7 @@ document.addEventListener("click", async (e) => {
   }
   if (act === "delete") {
     const p = store.getProject(id);
-    if (!p || !(await confirmBox(`Delete “${p.name}”?`, "This removes the site from this device. It can’t be undone.", "Delete site"))) return;
+    if (!p || !(await confirmBox(`Delete “${p.name}”?`, store.getMode() === "account" ? "This removes the site from your account on every device. It can’t be undone." : "This removes the site from this device. It can’t be undone.", "Delete site"))) return;
     const res = store.deleteProject(id);
     toast(res.ok ? "Site deleted." : res.error);
     if (location.hash.startsWith("#/site/")) location.hash = "#/sites";
@@ -588,31 +659,61 @@ document.addEventListener("click", async (e) => {
     toast("Backup downloaded.");
   }
   if (act === "wipe") {
-    if (!(await confirmBox("Delete all sites?", "Every site saved in this browser will be removed. Download a backup first if you might need them.", "Delete all"))) return;
-    toast(store.deleteAll() ? "All sites deleted." : "Couldn’t delete. Check site storage settings.");
+    const where = store.getMode() === "account" ? "from your account" : "from this browser";
+    if (!(await confirmBox("Delete all sites?", `Every site will be removed ${where}. Download a backup first if you might need them.`, "Delete all"))) return;
+    toast((await store.deleteAll()) ? "All sites deleted." : "Couldn’t delete all sites. Try again.");
     route();
   }
   if (act === "logout") {
     try {
-      await cloud?.("/auth/logout", { method: "POST" });
-    } catch {}
-    me = null;
-    paintAccount();
-    toast("Logged out.");
-    route();
+      await cloud?.signOutUser();
+      toast("Logged out. Sites you create now save on this device.");
+    } catch {
+      toast("Couldn’t log out. Check your connection.");
+    }
   }
+  if (act === "move") {
+    el.disabled = true;
+    const r = await store.moveDeviceSitesToAccount();
+    const parts = [];
+    if (r.moved) parts.push(`Moved ${r.moved} site${r.moved === 1 ? "" : "s"} to your account.`);
+    if (r.failed) parts.push(`${r.failed} couldn’t be moved. Try again.`);
+    if (r.skipped) parts.push(`${r.skipped} didn’t fit (limit ${store.MAX_PROJECTS}).`);
+    toast(parts.join(" ") || "Nothing to move.");
+    rerender();
+  }
+  if (act === "resend") {
+    try {
+      await cloud.resendVerification();
+      toast("Verification email sent. Check your inbox and spam.");
+    } catch (err) {
+      toast(cloud.authMessage(err));
+    }
+  }
+  if (act === "verified") {
+    const user = await cloud?.refreshUser().catch(() => null);
+    if (user?.verified) {
+      me = user;
+      accountState = "in";
+      await store.useAccount(cloud, user.uid);
+      paintAccount();
+      toast("Email verified. Your sites now save to your account.");
+      rerender();
+    } else toast("Not verified yet. Open the link in the email, then try again.");
+  }
+  if (act === "retry") location.reload();
 });
 
 /* ---------- router ---------- */
-function route() {
+function route(moveFocus = true) {
   const raw = location.hash.replace(/^#\/?/, "");
   const [path, query = ""] = raw.split("?");
   const [head, arg] = path.split("/");
-  closeSide();
+  if (moveFocus) closeSide();
   markNav(head);
   document.body.dataset.route = head || "home";
   if (head !== "new") wiz = null;
-  view.focus({ preventScroll: true });
+  if (moveFocus) view.focus({ preventScroll: true });
   if (!head) pageHome();
   else if (head === "new") pageWizard(query);
   else if (head === "sites") pageSites();
@@ -627,8 +728,13 @@ window.addEventListener("hashchange", () => {
   route();
   if (!location.hash.startsWith("#/new")) window.scrollTo({ top: 0 });
 });
-store.onProjectsChange(() => {
-  if (!location.hash.startsWith("#/new")) route();
+store.onProjectsChange(rerender);
+let lastSync = "";
+store.onSyncChange((s) => {
+  paintAccount();
+  /* Show or clear the "not saved" banner when the save state changes to or from an error. */
+  if ((s.state === "error") !== (lastSync === "error")) rerender();
+  lastSync = s.state;
 });
 $("#menu-btn").addEventListener("click", () => {
   const open = !document.body.classList.contains("side-open");
@@ -638,6 +744,4 @@ $("#menu-btn").addEventListener("click", () => {
 $("#scrim").addEventListener("click", closeSide);
 document.addEventListener("keydown", (e) => e.key === "Escape" && closeSide());
 route();
-loadAccount().then(() => {
-  if (!location.hash.startsWith("#/new")) route();
-});
+loadAccount();

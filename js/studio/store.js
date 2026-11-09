@@ -1,14 +1,21 @@
-/* Daily Web Studio — projects saved on this device (Phase 1).
+/* Daily Web Studio — where sites are kept.
  *
- * Cloud sync (Firestore users/{uid}/studioProjects) arrives with the editor in Phase 4; until
- * then everything lives in localStorage. Reads are validated, so a damaged or hand-edited value
- * never breaks the app, and every write is wrapped because storage can be blocked or full.
+ * Two modes, same API for the app:
+ *   • device  — signed out (or email not verified yet): sites live in localStorage.
+ *   • account — signed in with a verified email: sites live in Firestore
+ *               (users/{uid}/studioProjects) and appear on every device.
+ *
+ * Reads are synchronous from an in-memory list. In account mode every change is applied to
+ * that list at once (so the UI never waits) and then written to Firestore; the live Firestore
+ * listener then confirms it. If a write fails, the listener's next snapshot restores the truth
+ * and the app is told through onSyncChange().
  */
 import { SITE_TYPES, LOOKS, ACCENTS } from "./data.js";
 
 const KEY = "dws:projects:v1";
-const MAX_PROJECTS = 50;
+export const MAX_PROJECTS = 50;
 const listeners = new Set();
+const syncListeners = new Set();
 
 const clip = (v, n) => String(v ?? "").replace(/[\u0000-\u001f]/g, " ").trim().slice(0, n);
 
@@ -40,7 +47,89 @@ export function clean(p) {
   };
 }
 
-function read() {
+/* ---------------- mode ---------------- */
+
+let mode = "device"; // "device" | "account"
+let cloud = null; // js/studio/cloud.bundle.js module, in account mode
+let uid = null;
+let stopWatch = null;
+let cache = []; // account mode: the live list from Firestore (+ optimistic changes)
+const revs = new Map(); // account mode: id -> stored revision
+let sync = { state: "idle", message: "" }; // idle | loading | saving | saved | error | offline
+let pendingWrites = 0;
+
+export const getMode = () => mode;
+export const getSync = () => sync;
+const emit = () => listeners.forEach((fn) => fn());
+function setSync(state, message = "") {
+  sync = { state, message };
+  syncListeners.forEach((fn) => fn(sync));
+}
+
+/** Switch to the person's account. Resolves once the first list has arrived (or failed). */
+export function useAccount(cloudModule, userId) {
+  if (mode === "account" && uid === userId) return Promise.resolve();
+  stopWatch?.();
+  mode = "account";
+  cloud = cloudModule;
+  uid = userId;
+  cache = [];
+  revs.clear();
+  setSync("loading");
+  emit();
+  return new Promise((resolve) => {
+    let first = true;
+    stopWatch = cloud.watchProjects(
+      uid,
+      (list, meta) => {
+        cache = list.map((p) => {
+          revs.set(p.id, p.revision);
+          return clean(p);
+        }).filter(Boolean);
+        if (pendingWrites === 0) setSync(meta.fromCache && !navigator.onLine ? "offline" : "saved");
+        emit();
+        if (first) (first = false), resolve();
+      },
+      (err) => {
+        setSync("error", cloud.authMessage(err));
+        emit();
+        if (first) (first = false), resolve();
+      },
+    );
+  });
+}
+
+/** Back to this device (signed out, or email not verified). */
+export function useDevice() {
+  stopWatch?.();
+  stopWatch = null;
+  mode = "device";
+  cloud = null;
+  uid = null;
+  cache = [];
+  revs.clear();
+  setSync("idle");
+  emit();
+}
+
+async function write(job) {
+  pendingWrites += 1;
+  setSync("saving");
+  try {
+    await job();
+    pendingWrites -= 1;
+    if (pendingWrites === 0) setSync("saved");
+    return true;
+  } catch (e) {
+    pendingWrites -= 1;
+    setSync("error", cloud ? cloud.authMessage(e) : "Saving failed.");
+    return false;
+  }
+}
+
+/* ---------------- device storage ---------------- */
+
+function readLocal() {
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) || "[]");
     return Array.isArray(raw) ? raw.map(clean).filter(Boolean) : [];
@@ -49,10 +138,10 @@ function read() {
   }
 }
 
-function write(list) {
+function writeLocal(list) {
   try {
     localStorage.setItem(KEY, JSON.stringify(list));
-    listeners.forEach((fn) => fn());
+    if (mode === "device") emit();
     return true;
   } catch {
     return false;
@@ -69,33 +158,55 @@ export const storageAvailable = () => {
   }
 };
 
-export const listProjects = () => read().sort((a, b) => b.updatedAt - a.updatedAt);
-export const getProject = (id) => read().find((p) => p.id === id) || null;
+/** Sites still saved on this device (shown as "move to your account" when signed in). */
+export const deviceProjects = () => readLocal().sort((a, b) => b.updatedAt - a.updatedAt);
+
+/* ---------------- shared API ---------------- */
+
+const current = () => (mode === "account" ? cache : readLocal());
+export const listProjects = () => [...current()].sort((a, b) => b.updatedAt - a.updatedAt);
+export const getProject = (id) => current().find((p) => p.id === id) || null;
 
 const newId = () => {
   const rand = crypto?.randomUUID ? crypto.randomUUID().replace(/-/g, "").slice(0, 10) : Math.random().toString(36).slice(2, 12);
   return `s-${Date.now().toString(36)}-${rand}`.toLowerCase();
 };
 
-/** Creates a project. Returns { ok, project?, error? }. */
+/** Creates a site. Returns { ok, project?, error? }. */
 export function createProject(input) {
-  const list = read();
-  if (list.length >= MAX_PROJECTS) return { ok: false, error: `You can keep up to ${MAX_PROJECTS} sites on this device. Delete one to make room.` };
+  const list = current();
+  if (list.length >= MAX_PROJECTS) return { ok: false, error: `You can keep up to ${MAX_PROJECTS} sites. Delete one to make room.` };
   const now = Date.now();
   const project = clean({ ...input, id: newId(), createdAt: now, updatedAt: now });
   if (!project) return { ok: false, error: "Please give your site a name." };
-  if (!write([project, ...list])) return { ok: false, error: "Your browser blocked saving. Turn off private browsing or allow site storage, then try again." };
+  if (mode === "account") {
+    cache = [project, ...cache];
+    revs.set(project.id, 1);
+    emit();
+    write(() => cloud.createProjectDoc(uid, project));
+    return { ok: true, project };
+  }
+  if (!writeLocal([project, ...list])) return { ok: false, error: "Your browser blocked saving. Turn off private browsing or allow site storage, then try again." };
   return { ok: true, project };
 }
 
 export function updateProject(id, changes) {
-  const list = read();
+  const list = current();
   const i = list.findIndex((p) => p.id === id);
   if (i < 0) return { ok: false, error: "That site no longer exists." };
   const project = clean({ ...list[i], ...changes, id, createdAt: list[i].createdAt, updatedAt: Date.now() });
   if (!project) return { ok: false, error: "Please give your site a name." };
-  list[i] = project;
-  return write(list) ? { ok: true, project } : { ok: false, error: "Saving failed. Check that site storage is allowed." };
+  if (mode === "account") {
+    const rev = revs.get(id) || 1;
+    revs.set(id, rev + 1); // the next change builds on this one
+    cache = cache.map((p) => (p.id === id ? project : p));
+    emit();
+    write(() => cloud.updateProjectDoc(uid, id, project, rev));
+    return { ok: true, project };
+  }
+  const next = [...list];
+  next[i] = project;
+  return writeLocal(next) ? { ok: true, project } : { ok: false, error: "Saving failed. Check that site storage is allowed." };
 }
 
 export function duplicateProject(id) {
@@ -105,30 +216,65 @@ export function duplicateProject(id) {
 }
 
 export function deleteProject(id) {
-  const list = read();
-  const next = list.filter((p) => p.id !== id);
-  if (next.length === list.length) return { ok: false, error: "That site no longer exists." };
-  return write(next) ? { ok: true } : { ok: false, error: "Deleting failed. Check that site storage is allowed." };
+  const list = current();
+  if (!list.some((p) => p.id === id)) return { ok: false, error: "That site no longer exists." };
+  if (mode === "account") {
+    cache = cache.filter((p) => p.id !== id);
+    revs.delete(id);
+    emit();
+    write(() => cloud.deleteProjectDoc(uid, id));
+    return { ok: true };
+  }
+  return writeLocal(list.filter((p) => p.id !== id)) ? { ok: true } : { ok: false, error: "Deleting failed. Check that site storage is allowed." };
 }
 
 /** Everything we keep, as a downloadable JSON backup. */
-export const exportAll = () => JSON.stringify({ app: "Daily Web Studio", version: 1, exportedAt: new Date().toISOString(), projects: listProjects() }, null, 2);
+export const exportAll = () =>
+  JSON.stringify({ app: "Daily Web Studio", version: 1, savedIn: mode, exportedAt: new Date().toISOString(), projects: listProjects() }, null, 2);
 
-export function deleteAll() {
+export async function deleteAll() {
+  if (mode === "account") {
+    const ok = await write(() => cloud.deleteAllProjectDocs(uid));
+    return ok;
+  }
   try {
     localStorage.removeItem(KEY);
-    listeners.forEach((fn) => fn());
+    emit();
     return true;
   } catch {
     return false;
   }
 }
 
-/** Re-render when another tab changes the projects. */
+/** Moves the sites saved on this device into the account. Returns { moved, failed, skipped }. */
+export async function moveDeviceSitesToAccount() {
+  if (mode !== "account") return { moved: 0, failed: 0, skipped: 0 };
+  const local = readLocal();
+  const room = Math.max(0, MAX_PROJECTS - cache.length);
+  const taking = local.slice(0, room);
+  let moved = 0;
+  const kept = [];
+  for (const p of taking) {
+    const exists = cache.some((c) => c.id === p.id);
+    const ok = exists || (await write(() => cloud.createProjectDoc(uid, p, true)));
+    if (ok) moved += 1;
+    else kept.push(p);
+  }
+  kept.push(...local.slice(room));
+  try {
+    if (kept.length) localStorage.setItem(KEY, JSON.stringify(kept));
+    else localStorage.removeItem(KEY);
+  } catch {}
+  emit();
+  return { moved, failed: kept.length - (local.length - taking.length), skipped: local.length - taking.length };
+}
+
+/** Re-render when sites change (this tab, another tab, or another device). */
 export function onProjectsChange(fn) {
   listeners.add(fn);
-  window.addEventListener("storage", (e) => e.key === KEY && fn());
+  window.addEventListener("storage", (e) => e.key === KEY && mode === "device" && fn());
 }
+export const onSyncChange = (fn) => syncListeners.add(fn);
 
 /* Wizard draft survives a refresh within the tab. */
 const DRAFT = "dws:draft:v1";

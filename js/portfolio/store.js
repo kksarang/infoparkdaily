@@ -283,7 +283,7 @@ let authMode='login';
 let cloudRequest=null;
 async function loadCloud(){
   if(cloudRequest)return cloudRequest;
-  const mod=await import('/js/resume-builder/cloud.bundle.js?v=20260916del');
+  const mod=await import('/js/resume-builder/cloud.bundle.js?v=20261109ss');
   cloudRequest=mod.request;
   return cloudRequest;
 }

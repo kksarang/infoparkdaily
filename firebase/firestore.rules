@@ -47,6 +47,36 @@ service cloud.firestore {
         && request.resource.data.displayName.size() <= 100;
       allow delete: if isOwner(uid);
 
+      /* Daily Web Studio sites (js/studio/cloud.js). Owner-only; writes need a verified email. */
+      match /studioProjects/{projectId} {
+        function validStudioProject(data) {
+          return data.keys().hasOnly(['name', 'tagline', 'location', 'type', 'look', 'accent', 'pages',
+              'schema', 'revision', 'createdAt', 'updatedAt'])
+            && data.keys().hasAll(['name', 'type', 'look', 'accent', 'pages', 'schema', 'revision', 'createdAt', 'updatedAt'])
+            && data.name is string && data.name.size() > 0 && data.name.size() <= 60
+            && (!('tagline' in data) || (data.tagline is string && data.tagline.size() <= 140))
+            && (!('location' in data) || (data.location is string && data.location.size() <= 60))
+            && data.type in ['portfolio', 'business', 'agency', 'restaurant', 'corporate', 'startup',
+              'landing', 'blog', 'ecommerce', 'event', 'realestate', 'education']
+            && data.look in ['clean', 'bold', 'warm', 'editorial']
+            && data.accent in ['coral', 'indigo', 'teal', 'amber', 'rose', 'forest']
+            && data.pages is list && data.pages.size() >= 1 && data.pages.size() <= 12
+            && data.schema == 1
+            && data.revision is int && data.revision > 0
+            && data.createdAt is timestamp && data.createdAt <= request.time
+            && data.updatedAt == request.time;
+        }
+        allow read, delete: if isOwner(uid);
+        allow create: if verified(uid)
+          && projectId.matches('^[a-z0-9-]{6,40}$')
+          && validStudioProject(request.resource.data)
+          && request.resource.data.revision == 1;
+        allow update: if verified(uid)
+          && validStudioProject(request.resource.data)
+          && request.resource.data.revision == resource.data.revision + 1
+          && request.resource.data.createdAt == resource.data.createdAt;
+      }
+
       match /savedJobs/{docId} {
         allow read, delete: if isOwner(uid);
         allow create, update: if verified(uid) && docId == 'list'
