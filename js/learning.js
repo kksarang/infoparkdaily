@@ -483,3 +483,20 @@
   tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.lpTab)));
   show("all");
 })();
+/* Lesson reading progress bar (top of the page). */
+(() => {
+  const bar = document.querySelector("[data-lx-read]");
+  const article = document.querySelector(".ln-article");
+  if (!bar || !article) return;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const rect = article.getBoundingClientRect();
+    const total = rect.height - window.innerHeight;
+    const pct = total > 0 ? Math.min(100, Math.max(0, (-rect.top / total) * 100)) : 100;
+    bar.style.width = pct.toFixed(1) + "%";
+  };
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();

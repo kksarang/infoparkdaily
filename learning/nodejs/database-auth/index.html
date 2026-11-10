@@ -54,7 +54,7 @@
     <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
     <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
     <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
-    <link rel="stylesheet" href="/css/learning.css?v=20261110lg" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261110ly" />
     <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
     <script defer src="/js/career-nav.js?v=20261109nb"></script>
   </head>
@@ -93,6 +93,7 @@
           <a href="/interview/learning/">Career paths</a>
         </div>
       </nav>
+      <div class="lx-readbar" style="--ln-c:#3c873a" aria-hidden="true"><span data-lx-read></span></div>
       <div class="ij-wrap ln-layout" style="--ln-c:#3c873a">
         <aside class="ln-side">
           <details class="ln-side-box" open>
@@ -110,13 +111,13 @@
         </aside>
         <article class="ln-article" data-ln-current="nodejs/database-auth">
           <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/nodejs/">Node.js</a> / <span aria-current="page">Databases, errors & JWT auth</span></nav>
-          <p class="ax-eyebrow">Node.js · Lesson 7 of 7</p>
+          <div class="lx-lesson-meta"><p class="ax-eyebrow">Node.js · Lesson 7 of 7</p><span class="lx-lesson-steps" aria-hidden="true"><i class="is-past"></i><i class="is-past"></i><i class="is-past"></i><i class="is-past"></i><i class="is-past"></i><i class="is-past"></i><i class="is-now"></i></span></div>
           <h1>Databases, errors & JWT auth</h1>
           <p class="ln-summary">Connecting to a database, central error handling, environment secrets and protecting routes with JWT.</p>
 
             <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
-              <a href="/learning/nodejs/rest-api/" rel="prev">← Build a REST API (CRUD)</a>
-              <a href="/learning/">All learning →</a>
+              <a href="/learning/nodejs/rest-api/" rel="prev"><small>← Previous</small>Build a REST API (CRUD)</a>
+              <a href="/learning/" rel="next"><small>You finished Node.js →</small>Explore all learning</a>
             </nav>
           <div class="ln-body">
 <p>Production APIs store data in a database. Popular choices with Node are <strong>PostgreSQL/MySQL</strong> (with Prisma, Knex or the pg driver) and <strong>MongoDB</strong> (with Mongoose). Whatever you use, always pass user input as <strong>query parameters</strong>, never by joining strings — that prevents SQL injection.</p>
@@ -207,8 +208,8 @@ $ curl localhost:3000/api/me/applications -H &quot;Authorization: Bearer eyJhbGc
           </section>
 
             <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
-              <a href="/learning/nodejs/rest-api/" rel="prev">← Build a REST API (CRUD)</a>
-              <a href="/learning/">All learning →</a>
+              <a href="/learning/nodejs/rest-api/" rel="prev"><small>← Previous</small>Build a REST API (CRUD)</a>
+              <a href="/learning/" rel="next"><small>You finished Node.js →</small>Explore all learning</a>
             </nav>
           <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
         </article>
@@ -233,7 +234,7 @@ $ curl localhost:3000/api/me/applications -H &quot;Authorization: Bearer eyJhbGc
     </footer>
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
-    <script src="/js/learning.js?v=20261110lg" defer></script>
+    <script src="/js/learning.js?v=20261110ly" defer></script>
     <script src="/js/site.js?v=20261109si" defer></script>
   </body>
 </html>

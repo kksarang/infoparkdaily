@@ -31,7 +31,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261110lg";
+const V = "20261110ly";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -84,35 +84,6 @@ function hubPage() {
     ["Data analyst", "Turn spreadsheets and databases into answers.", ["excel", "sql", "power-bi", "python"], "#00758f"],
     ["Placement & coding rounds", "Clear aptitude tests, coding and HR interviews.", ["aptitude", "dsa", "java", "communication"], "#7c3aed"]
   ];
-  const goalCards = GOALS.map(([title, desc, keys, color]) => {
-    const steps = keys.filter((k) => byKey[k]);
-    const count = steps.reduce((n, k) => n + byKey[k].lessons.length, 0);
-    const first = byKey[steps[0]];
-    return `
-            <article class="ln-goal" style="--ln-c:${color}">
-              <p class="ln-goal-kicker">${count} lessons · ${steps.length} tutorials</p>
-              <h3>${title}</h3>
-              <p>${desc}</p>
-              <ol class="ln-goal-steps">${steps.map((k) => `<li><a href="${trackUrl(byKey[k])}" style="--ln-c:${byKey[k].color}"><span class="ln-mono ln-mono--xs" aria-hidden="true">${MONO[k]}</span>${byKey[k].name}</a></li>`).join("")}</ol>
-              <a class="ln-goal-cta" href="${lessonUrl(first, first.lessons[0])}">Start with ${first.name} →</a>
-            </article>`;
-  }).join("");
-
-  const trackCards = TRACKS.map(
-    (t) => `
-            <article class="ln-card" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-groups="${groupsOf(t.key)}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
-              <span class="ln-mono" aria-hidden="true">${MONO[t.key] || t.name}</span>
-              <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
-              <p>${t.tagline}</p>
-              <p class="ln-card-meta">${t.lessons.length} lessons · ${runner(t)}</p>
-              <div class="ln-progress" aria-hidden="true"><span data-ln-bar="${t.key}"></span></div>
-              <div class="ln-card-foot">
-                <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
-                <a class="ln-card-go" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start →</a>
-              </div>
-            </article>`
-  ).join("");
-
   const POPULAR = [
     ["CSS Flexbox", "/learning/css/flexbox/"],
     ["React state", "/learning/react/state/"],
@@ -171,100 +142,172 @@ function hubPage() {
           <div class="lp-wrap" data-lp-wrap>${careerGroup("it", "Technical / IT", "Software, data, cloud, testing and design roles.")}${careerGroup("nonit", "Non-IT careers", "Business, marketing, office, engineering, healthcare and more.")}
           </div>`;
 
+  const quizTotal = TRACKS.reduce((n, t) => n + t.lessons.filter((l) => l.quiz).length, 0);
+  const ivTotal = TRACKS.reduce((n, t) => n + t.lessons.reduce((m, l) => m + (l.interview || []).length, 0), 0);
+  const guideTotal = GUIDES.reduce((n, g) => n + g.meta.count, 0);
+  const liveTracks = TRACKS.filter((t) => ["web", "python", "sql", undefined].includes(t.lang)).length;
+
+  const goalTimeline = GOALS.map(([title, desc, keys, color], gi) => {
+    const steps = keys.filter((k) => byKey[k]);
+    const count = steps.reduce((n, k) => n + byKey[k].lessons.length, 0);
+    const first = byKey[steps[0]];
+    return `
+            <article class="lx-goal" style="--ln-c:${color}">
+              <header><span class="lx-goal-num">${String(gi + 1).padStart(2, "0")}</span><div><h3>${title}</h3><p>${desc}</p></div></header>
+              <ol class="lx-goal-steps">${steps
+                .map(
+                  (k, si) =>
+                    `<li><a href="${trackUrl(byKey[k])}" style="--ln-c:${byKey[k].color}"><span class="lx-step-dot">${si + 1}</span><span class="ln-mono ln-mono--xs" aria-hidden="true">${MONO[k]}</span><span class="lx-step-name">${byKey[k].name}</span><small>${byKey[k].lessons.length} lessons</small></a></li>`
+                )
+                .join("")}</ol>
+              <footer><span>${count} lessons · ${steps.length} tutorials</span><a class="lx-link" href="${lessonUrl(first, first.lessons[0])}">Start with ${first.name} <span aria-hidden="true">→</span></a></footer>
+            </article>`;
+  }).join("");
+
+  const lxCards = TRACKS.map(
+    (t) => `
+            <article class="ln-card lx-card" style="--ln-c:${t.color}" data-ln-track="${t.key}" data-groups="${groupsOf(t.key)}" data-search="${esc([t.name, t.long, t.tagline, ...t.lessons.map((l) => l.title)].join(" ").toLowerCase())}">
+              <div class="lx-card-top"><span class="ln-mono" aria-hidden="true">${MONO[t.key] || t.name}</span><span class="lx-level">${t.level}</span></div>
+              <h3><a href="${trackUrl(t)}">${t.name}</a></h3>
+              <p>${t.tagline}</p>
+              <ul class="lx-card-meta"><li>${t.lessons.length} lessons</li><li>${runner(t)}</li></ul>
+              <div class="ln-progress" aria-hidden="true"><span data-ln-bar="${t.key}"></span></div>
+              <div class="ln-card-foot">
+                <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
+                <a class="ln-card-go" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start →</a>
+              </div>
+            </article>`
+  ).join("");
+
+  const FAQ = [
+    ["Is InfoparkDaily Learning really free?", "Yes. Every tutorial, quiz, practice task and interview answer is free to read and use. There is no paid course, trial or subscription."],
+    ["Do I need to sign up?", "No. Open any lesson and start. Your progress is saved in this browser on this device, so use the same browser to continue."],
+    ["Where should I start?", "Pick a goal above. Most beginners start with HTML for web development, Excel for office and analyst roles, or Aptitude for campus placements."],
+    ["Who writes the lessons?", "The InfoparkDaily team writes every lesson, example and quiz originally for job seekers in Kerala's IT parks and beyond. Official documentation is linked only as further reading."]
+  ];
+
   const main = `
-      <section class="lh-hero ln-hero" aria-labelledby="ln-title">
-        <div class="ax-glow" aria-hidden="true"></div>
-        <div class="ij-wrap">
-          ${crumbs(base)}
-          <div class="lh-hero-copy">
-            <p class="ax-pill"><span>Free</span> ${TRACKS.length} tutorials · ${lessonsTotal} lessons · ${PATHS.length} career paths</p>
-            <h1 id="ln-title">Learn to code. <span>Build job-ready skills.</span></h1>
-            <p class="ax-lede">Short lessons with live code editors, quizzes and interview questions — web development, TypeScript, Node.js, Python, Java, Spring Boot, SQL, Linux &amp; Docker, Excel, Power BI, DSA, aptitude and interview communication. Written by the InfoparkDaily team and free forever.</p>
-            <label class="lh-search">
+      <section class="lx-hero" aria-labelledby="ln-title">
+        <div class="lx-hero-bg" aria-hidden="true"></div>
+        <div class="ij-wrap lx-hero-grid">
+          <div class="lx-hero-copy">
+            ${crumbs(base)}
+            <p class="lx-pill"><b>Free</b> No sign-up · progress saved on your device</p>
+            <h1 id="ln-title">Learn the skills <span>Kerala's IT parks hire for.</span></h1>
+            <p class="lx-lede">${TRACKS.length} hands-on tutorials — web, backend, data, DevOps, aptitude and interview communication. Short lessons, live code you can run, a quick check after every lesson and real interview questions.</p>
+            <label class="lh-search lx-search">
               <span class="ij-sr">Search learning</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
-              <input type="search" placeholder="Search ${lessonsTotal} lessons: flexbox, joins, XLOOKUP, recursion…" data-ln-search autocomplete="off" />
+              <input type="search" placeholder="Search ${lessonsTotal} lessons — flexbox, joins, Docker, DAX…" data-ln-search autocomplete="off" />
+              <kbd aria-hidden="true">Enter</kbd>
             </label>
-            <nav class="ln-popular" aria-label="Popular topics"><span>Popular:</span>${POPULAR.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</nav>
-            <a class="ln-resume" href="#" data-ln-resume hidden><span class="ln-resume-label">Continue where you left off</span><strong data-ln-resume-title></strong><span aria-hidden="true">→</span></a>
+            <nav class="ln-popular lx-popular" aria-label="Popular topics"><span>Trending:</span>${POPULAR.map(([label, href]) => `<a href="${href}">${label}</a>`).join("")}</nav>
+            <a class="ln-resume lx-resume" href="#" data-ln-resume hidden><span class="ln-resume-label">Continue where you left off</span><strong data-ln-resume-title></strong><span aria-hidden="true">→</span></a>
           </div>
+          <div class="lx-preview" aria-hidden="true">
+            <div class="lx-window">
+              <div class="lx-window-bar"><i></i><i></i><i></i><span>Lesson 5 · Express: routes &amp; middleware</span></div>
+              <pre class="lx-code"><span class="k">app</span>.<span class="f">get</span>(<span class="s">"/jobs"</span>, (req, res) =&gt; {
+  <span class="k">const</span> { city } = req.query;
+  res.<span class="f">json</span>(jobs.<span class="f">filter</span>(j =&gt; j.city === city));
+});</pre>
+              <div class="lx-run"><span class="lx-run-btn">▶ Run</span><code>[{"title":"Node.js Developer","city":"Kochi"}]</code></div>
+            </div>
+            <div class="lx-float lx-float--quiz"><b>✓</b><span><strong>Quick check</strong>Correct — req.query reads ?city=</span></div>
+            <div class="lx-float lx-float--ring"><span class="lx-ring" style="--p:71"><em>5/7</em></span><span><strong>Node.js</strong>71% complete</span></div>
+            <div class="lx-float lx-float--iv"><span class="lx-iv-ico">?</span><span><strong>Interview corner</strong>What is middleware in Express?</span></div>
+          </div>
+        </div>
+        <div class="ij-wrap">
+          <ul class="lx-stats">
+            <li><strong>${TRACKS.length}</strong><span>tutorials</span></li>
+            <li><strong>${lessonsTotal}</strong><span>lessons</span></li>
+            <li><strong>${quizTotal}</strong><span>quick checks</span></li>
+            <li><strong>${ivTotal + guideTotal}</strong><span>interview Q&amp;As</span></li>
+            <li><strong>${PATHS.length}</strong><span>career roadmaps</span></li>
+          </ul>
         </div>
       </section>
 ${trackBar("")}
-      <section class="ez-section ln-search-hide" aria-labelledby="ln-goals">
+      <section class="ez-section ln-search-hide lx-section" aria-labelledby="ln-goals">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Where to start</p><h2 id="ln-goals">Pick a goal, follow the order</h2><p>Not sure what to learn first? Each goal lists the tutorials in the order we recommend.</p></div>
-          <div class="ln-goals">${goalCards}
+          <div class="lx-head"><p class="lx-eyebrow">Where to start</p><h2 id="ln-goals">Pick a goal. Follow the steps.</h2><p>Each path lists the tutorials in the order we recommend, from your first lesson to interview-ready.</p></div>
+          <div class="lx-goals">${goalTimeline}
           </div>
         </div>
       </section>
-      <section class="ez-section ez-section--soft" aria-labelledby="ln-tutorials">
+      <section class="ez-section ez-section--soft lx-section" aria-labelledby="ln-tutorials">
         <div class="ij-wrap">
           <div class="ln-head-row">
-            <div class="ez-head"><p class="ax-eyebrow">All tutorials</p><h2 id="ln-tutorials">${TRACKS.length} tutorials, ${lessonsTotal} lessons</h2></div>
-            <div class="ln-filters" role="group" aria-label="Filter tutorials">
+            <div class="lx-head"><p class="lx-eyebrow">All tutorials</p><h2 id="ln-tutorials">${TRACKS.length} tutorials, ${lessonsTotal} lessons</h2></div>
+            <div class="ln-filters lx-filters" role="group" aria-label="Filter tutorials">
               <button type="button" aria-pressed="true" data-ln-filter="all">All</button>${GROUPS.map(([g, label]) => `<button type="button" aria-pressed="false" data-ln-filter="${g}">${label}</button>`).join("")}
             </div>
           </div>
-          <div class="ln-cards">${trackCards}
+          <div class="ln-cards lx-cards">${lxCards}
           </div>
-          <p class="ln-empty" data-ln-empty hidden>No matches. Try another word, or browse the career paths below.</p>
+          <p class="ln-empty" data-ln-empty hidden>No matches. Try another word, or browse the career roadmaps below.</p>
         </div>
       </section>
-      <section class="ez-section" aria-labelledby="ln-all">
+      <section class="ez-section ln-search-hide lx-section" aria-labelledby="ln-practice">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Curriculum</p><h2 id="ln-all">Browse every lesson</h2></div>
-          <div class="ln-curriculum" data-ln-curriculum>
+          <div class="lx-head"><p class="lx-eyebrow">How every lesson works</p><h2 id="ln-practice">Read it. Run it. Check it. Say it in the interview.</h2></div>
+          <div class="lx-bento">
+            <article class="lx-tile lx-tile--wide lx-tile--ink"><span class="lx-tile-ico">▶</span><h3>Live code, right in the lesson</h3><p>HTML, CSS, JavaScript and React run in a safe sandbox; Python runs in your browser; SQL runs on a real sample database. Edit, press Run, see the result. ${liveTracks} tutorials have a live editor.</p><a class="lx-link" href="/learning/javascript/">Try a live lesson →</a></article>
+            <article class="lx-tile"><span class="lx-tile-ico">✓</span><h3>${quizTotal} quick checks</h3><p>One question after every lesson, with the reason the answer is right.</p></article>
+            <article class="lx-tile"><span class="lx-tile-ico">?</span><h3>${ivTotal} interview answers</h3><p>Real questions with model answers inside the lessons — plus ${guideTotal} more in the Q&amp;A guides.</p></article>
+            <article class="lx-tile"><span class="lx-tile-ico">✎</span><h3>Practice tasks</h3><p>A small task after each lesson to build the habit of writing your own code and answers.</p></article>
+            <article class="lx-tile"><span class="lx-tile-ico">◔</span><h3>Progress that remembers</h3><p>Mark lessons complete and pick up where you left off — saved on your device, no account needed.</p></article>
+            <article class="lx-tile lx-tile--wide lx-tile--yellow"><span class="lx-tile-ico">★</span><h3>Show what you built</h3><p>Turn your practice projects into a portfolio site, then check your resume against job descriptions with the free ATS checker.</p><div class="lx-tile-links"><a class="lx-link" href="/portfolio/templates/">Portfolio templates →</a><a class="lx-link" href="/ats-checker/">ATS checker →</a><a class="lx-link" href="/interview/learning/live-code/">Coding playground →</a></div></article>
+          </div>
+        </div>
+      </section>
+      <section class="ez-section ez-section--soft lx-section" aria-labelledby="ln-all">
+        <div class="ij-wrap">
+          <div class="lx-head"><p class="lx-eyebrow">Curriculum</p><h2 id="ln-all">Browse every lesson</h2><p>Pick a tutorial to see its lessons in order. Lessons you finish get a tick.</p></div>
+          <div class="ln-curriculum lx-curriculum" data-ln-curriculum>
             <div class="ln-tabs" role="tablist" aria-label="Tutorials">${tabs}</div>
             <div class="ln-panels">${panels}
             </div>
           </div>
         </div>
       </section>
-      <section class="ez-section ez-section--soft ln-search-hide" aria-labelledby="ln-practice">
+      <section class="ez-section ln-search-hide lx-section" aria-labelledby="ln-guides">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">How it works</p><h2 id="ln-practice">Read. Try. Check. Get interview-ready.</h2></div>
-          <ol class="ln-how">
-            <li><span>1</span><strong>Read a short lesson</strong><p>One idea per page, with plain examples.</p></li>
-            <li><span>2</span><strong>Try it yourself</strong><p>Edit the code and press Run — results appear instantly.</p></li>
-            <li><span>3</span><strong>Check with a quiz</strong><p>A quick question plus a practice task.</p></li>
-            <li><span>4</span><strong>Prepare for interviews</strong><p>Real questions with model answers in every lesson.</p></li>
-          </ol>
-          <div class="ln-practice">
-            <a href="/interview/learning/live-code/"><span class="ln-pr-icon" aria-hidden="true">▶</span><strong>Live code playground</strong><span>Coding challenges that check your answer automatically.</span></a>
-            <a href="/interview/questions/?field=it"><span class="ln-pr-icon" aria-hidden="true">?</span><strong>Interview questions</strong><span>Technical and HR questions with model answers.</span></a>
-            <a href="/portfolio/templates/"><span class="ln-pr-icon" aria-hidden="true">★</span><strong>Show your work</strong><span>Turn your projects into a portfolio website.</span></a>
+          <div class="ln-head-row">
+            <div class="lx-head"><p class="lx-eyebrow">Interview preparation</p><h2 id="ln-guides">Interview Q&amp;A guides by field</h2><p>${guideTotal} important questions with detailed answers. Finish a tutorial, then practise the questions for the same field.</p></div>
+            <a class="lx-btn lx-btn--ghost" href="/interview/questions/">Full question bank →</a>
           </div>
+          <ul class="lx-guides">${GUIDES.map((g) => `
+            <li><a href="/interview/questions/${g.meta.slug}/"><span class="lx-guide-count">${g.meta.count}<small>Q&amp;As</small></span><span class="lx-guide-text"><strong>${esc(g.meta.name)}</strong><small>${esc(g.meta.topics.charAt(0).toUpperCase() + g.meta.topics.slice(1))}</small></span><span class="lx-guide-go" aria-hidden="true">→</span></a></li>`).join("")}
+          </ul>
         </div>
       </section>
-      <section class="ez-section ln-search-hide" aria-labelledby="ln-guides">
+      <section class="ez-section ez-section--soft lx-section" aria-labelledby="ln-paths">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Interview preparation</p><h2 id="ln-guides">Interview Q&amp;A guides by field</h2><p>${GUIDES.reduce((n, g) => n + g.meta.count, 0)} important questions with detailed answers, grouped by topic. Read the tutorial, then practise the interview questions for the same field.</p></div>
-          <div class="ln-cards ln-guides">${GUIDES.map((g) => `
-            <article class="ln-card" style="--ln-c:#12151b">
-              <span class="ln-mono" aria-hidden="true">Q&amp;A</span>
-              <h3><a href="/interview/questions/${g.meta.slug}/">${esc(g.meta.name)}</a></h3>
-              <p>${esc(g.meta.topics.charAt(0).toUpperCase() + g.meta.topics.slice(1))}.</p>
-              <p class="ln-card-meta">${g.meta.count} questions · ${esc(g.meta.level)}</p>
-              <div class="ln-card-foot"><span></span><a class="ln-card-go" href="/interview/questions/${g.meta.slug}/">Practise →</a></div>
-            </article>`).join("")}
-          </div>
-          <p class="ln-more-link"><a href="/interview/questions/">Browse the full interview question bank (HR, technical and non-IT) →</a></p>
-        </div>
-      </section>
-      <section class="ez-section" aria-labelledby="ln-paths">
-        <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Career paths</p><h2 id="ln-paths">Step-by-step roadmaps for ${PATHS.length} careers</h2><p>Each path has modules, free resources, certifications and projects.</p></div>
+          <div class="lx-head"><p class="lx-eyebrow">Career roadmaps</p><h2 id="ln-paths">Step-by-step roadmaps for ${PATHS.length} careers</h2><p>IT and non-IT. Each roadmap has modules, free resources, certifications and projects.</p></div>
           ${careerPaths}
         </div>
       </section>
-${PLANNED.length ? `      <section class="ez-section ez-section--soft" aria-labelledby="ln-next">
+${PLANNED.length ? `      <section class="ez-section lx-section" aria-labelledby="ln-next">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">On the roadmap</p><h2 id="ln-next">More tutorials are on the way</h2></div>
+          <div class="lx-head"><p class="lx-eyebrow">On the roadmap</p><h2 id="ln-next">More tutorials are on the way</h2></div>
           <div class="ln-planned-grid">${planned}
           </div>
         </div>
       </section>` : ""}
+      <section class="ez-section ln-search-hide lx-section" aria-labelledby="ln-faq">
+        <div class="ij-wrap lx-faq-grid">
+          <div class="lx-head"><p class="lx-eyebrow">Questions</p><h2 id="ln-faq">Good to know</h2><p>Everything here is built for job seekers — free, original and made to be used on a phone.</p></div>
+          <div class="lx-faq">${FAQ.map(([q, a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join("")}</div>
+        </div>
+      </section>
+      <section class="lx-cta ln-search-hide" aria-labelledby="ln-cta">
+        <div class="ij-wrap lx-cta-inner">
+          <div><h2 id="ln-cta">Your first lesson takes 10 minutes.</h2><p>Start now — no account, no fee. Come back tomorrow and pick up where you left off.</p></div>
+          <div class="lx-cta-actions"><a class="lx-btn lx-btn--yellow" href="${lessonUrl(byKey.html, byKey.html.lessons[0])}">Start with HTML</a><a class="lx-btn lx-btn--light" href="${lessonUrl(byKey.aptitude, byKey.aptitude.lessons[0])}">Placement prep</a></div>
+        </div>
+      </section>
       <p class="ij-wrap ln-hub-owner">All lessons, examples, quizzes and interview answers on this page are original InfoparkDaily content, free to learn — no paid courses or subscriptions.</p>`;
 
   return pageShell({
@@ -294,20 +337,26 @@ function trackPage(t) {
         <div class="ij-wrap">
           ${crumbs(items)}
           <div class="lh-hero-copy">
-            <p class="ax-pill"><span>${t.level}</span> ${t.lessons.length} lessons · free</p>
+            <p class="ax-pill"><span>${t.level}</span> ${t.lessons.length} lessons · free · no sign-up</p>
             <h1 id="ln-title">${t.name} tutorial <span>${t.tagline}</span></h1>
             <p class="ax-lede">${t.long}. ${t.heroLine || (t.lang === "shell" ? "Every lesson has a terminal walkthrough" : "Every lesson has a runnable example you can edit")}, key points, a practice task, a quiz and interview questions.</p>
             <div class="ln-hero-actions">
               <a class="ln-btn" href="${lessonUrl(t, t.lessons[0])}" data-ln-continue="${t.key}">Start learning ${t.name}</a>
               <span class="ln-progress-label" data-ln-label="${t.key}" data-total="${t.lessons.length}">Not started</span>
             </div>
+            <ul class="lx-track-stats">
+              <li><strong>${t.lessons.length}</strong><span>lessons</span></li>
+              <li><strong>${t.lessons.filter((l) => l.quiz).length}</strong><span>quick checks</span></li>
+              <li><strong>${t.lessons.reduce((n, l) => n + (l.interview || []).length, 0)}</strong><span>interview Q&amp;As</span></li>
+              <li><strong>${t.lessons.filter((l) => l.practice).length}</strong><span>practice tasks</span></li>
+            </ul>
           </div>
         </div>
       </section>
 ${trackBar(t.key)}
       <section class="ez-section" aria-labelledby="ln-lessons">
         <div class="ij-wrap">
-          <div class="ez-head"><p class="ax-eyebrow">Lessons</p><h2 id="ln-lessons">What you'll learn</h2></div>
+          <div class="lx-head"><p class="lx-eyebrow">Syllabus</p><h2 id="ln-lessons">What you'll learn</h2><p>Every lesson has ${t.lang === "shell" ? "a terminal walkthrough" : ["web", "python", "sql", undefined].includes(t.lang) ? "a live example you can edit and run" : "a worked example"}, key points, a quick check, a practice task and interview questions.</p></div>
           <ol class="ln-syllabus" style="--ln-c:${t.color}">
             ${t.lessons
               .map(
@@ -342,6 +391,23 @@ ${trackBar(t.key)}
   });
 }
 
+/* For prose examples (wrapExample tracks): join lines that were hard-wrapped mid-sentence,
+   keeping bullets, "Label:" lines, blank lines and short lines (greetings, signatures). */
+const unwrapProse = (s) =>
+  String(s || "")
+    .split("\n")
+    .reduce((acc, line) => {
+      if (!acc.length) return [line];
+      const prev = acc[acc.length - 1];
+      const trimmed = line.trim();
+      const keep = !acc.length || !trimmed || !prev.trim() || /^(•|-|\*|[A-Z][A-Za-z ]{0,24}:)/.test(trimmed);
+      const continuation = /^\s{2,}\S/.test(line) || prev.trim().length >= 50;
+      if (!keep && continuation) acc[acc.length - 1] = prev.replace(/\s+$/, "") + " " + trimmed;
+      else acc.push(line);
+      return acc;
+    }, [])
+    .join("\n");
+
 /* ---------------- try-it block per language ---------------- */
 function tryBlock(t, l) {
   const lang = t.lang || "web";
@@ -349,9 +415,9 @@ function tryBlock(t, l) {
   if (lang === "static") {
     return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
             <div class="ln-try-head"><h2 id="try-${l.slug}">${t.exampleTitle || "Example"}</h2><span class="ln-try-badge">${t.exampleBadge || ""}</span></div>
-            <pre class="ln-terminal${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(l.example)}</code></pre>
+            <pre class="ln-terminal${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(t.wrapExample ? unwrapProse(l.example) : l.example)}</code></pre>
             ${l.output ? `<p class="ln-output-label">${t.outputTitle || "Output"}</p>
-            <pre class="ln-terminal ln-terminal--out${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(l.output)}</code></pre>` : ""}
+            <pre class="ln-terminal ln-terminal--out${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(t.wrapExample ? unwrapProse(l.output) : l.output)}</code></pre>` : ""}
             ${t.exampleNote ? `<p class="ln-try-note">${t.exampleNote}</p>` : ""}
           </section>`;
   }
@@ -399,12 +465,13 @@ function lessonPage(t, l, i) {
   const items = [...base, [t.name, trackUrl(t)], [l.title, lessonUrl(t, l)]];
   const pager = (where) => `
             <nav class="ln-pager ln-pager--${where}" aria-label="Lesson navigation">
-              ${prev ? `<a href="${lessonUrl(t, prev)}" rel="prev">← ${prev.title}</a>` : `<a href="${trackUrl(t)}">← ${t.name} home</a>`}
-              ${next ? `<a href="${lessonUrl(t, next)}" rel="next">${next.title} →</a>` : `<a href="/learning/">All learning →</a>`}
+              ${prev ? `<a href="${lessonUrl(t, prev)}" rel="prev"><small>← Previous</small>${prev.title}</a>` : `<a href="${trackUrl(t)}"><small>← Back to</small>${t.name} home</a>`}
+              ${next ? `<a href="${lessonUrl(t, next)}" rel="next"><small>Next lesson →</small>${next.title}</a>` : `<a href="/learning/" rel="next"><small>You finished ${t.name} →</small>Explore all learning</a>`}
             </nav>`;
   const quizId = `q-${t.key}-${l.slug}`;
   const main = `
 ${trackBar(t.key)}
+      <div class="lx-readbar" style="--ln-c:${t.color}" aria-hidden="true"><span data-lx-read></span></div>
       <div class="ij-wrap ln-layout" style="--ln-c:${t.color}">
         <aside class="ln-side">
           <details class="ln-side-box" open>
@@ -416,7 +483,7 @@ ${trackBar(t.key)}
         </aside>
         <article class="ln-article" data-ln-current="${t.key}/${l.slug}">
           ${crumbs(items)}
-          <p class="ax-eyebrow">${t.name} · Lesson ${i + 1} of ${t.lessons.length}</p>
+          <div class="lx-lesson-meta"><p class="ax-eyebrow">${t.name} · Lesson ${i + 1} of ${t.lessons.length}</p><span class="lx-lesson-steps" aria-hidden="true">${t.lessons.map((x, k) => `<i class="${k < i ? "is-past" : k === i ? "is-now" : ""}"></i>`).join("")}</span></div>
           <h1>${l.title}</h1>
           <p class="ln-summary">${esc(l.summary)}</p>
 ${pager("top")}
