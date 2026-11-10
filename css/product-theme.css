@@ -246,7 +246,7 @@ body.services-body .svcx-engine p {
 }
 
 body.services-body .media-channel.glass,
-body.services-body .glass {
+body.services-body .glass:not(.site-header) {
   background: var(--pt-card);
   border: 1px solid var(--pt-line);
   box-shadow: var(--pt-shadow);

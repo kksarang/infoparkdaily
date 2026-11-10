@@ -193,8 +193,8 @@ function hubPage() {
           <div class="lx-hero-copy">
             ${crumbs(base)}
             <p class="lx-pill"><b>Free</b> No sign-up · progress saved on your device</p>
-            <h1 id="ln-title">Learn the skills <span>Kerala's IT parks hire for.</span></h1>
-            <p class="lx-lede">${TRACKS.length} hands-on tutorials — web, backend, data, DevOps, aptitude and interview communication. Short lessons, live code you can run, a quick check after every lesson and real interview questions.</p>
+            <h1 id="ln-title">Learn by doing. <span>One lesson at a time.</span></h1>
+            <p class="lx-lede">${TRACKS.length} free, hands-on tutorials for anyone who wants to learn — coding, data, spreadsheets, aptitude and communication. Bite-sized lessons, examples you can try right away, and a quick check after every lesson.</p>
             <label class="lh-search lx-search">
               <span class="ij-sr">Search learning</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
