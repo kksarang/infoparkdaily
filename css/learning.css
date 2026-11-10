@@ -1147,3 +1147,6 @@ kbd { padding: 1px 6px; border: 1px solid var(--ln-line, #ddd); border-bottom-wi
 .lx-cta .lx-cta-actions a.lx-btn--light { color: #fff !important; }
 .lx-hero .lx-popular { justify-content: flex-start; text-align: left; }
 
+
+/* Same dark as the band behind the Career Tools header, so the hero and header backdrop meet with no seam. */
+.lx-hero { background: #0d1015; }

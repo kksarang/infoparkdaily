@@ -285,13 +285,13 @@ body.career-tools .site-header .brand-name { color: var(--text); }
 
 /* Pages that open with a dark hero: the band behind the header takes the hero colour, so the
    white header floats on the dark hero instead of sitting on a light strip above it. */
-body:has(main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero)) {
+body:has(main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero, .lx-hero, .lp-hero)) {
   background-image: linear-gradient(#0d1015, #0d1015);
   background-size: 100% 360px;
   background-position: top left;
   background-repeat: no-repeat;
 }
-html:has(body main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero)) {
+html:has(body main > :first-child:is(.ez-hero, .lh-hero, .rx-hero, .rp-hero, .lx-hero, .lp-hero)) {
   background-color: #fafaf7;
   background-image: linear-gradient(#0d1015, #0d1015);
   background-size: 100% 360px;
