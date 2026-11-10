@@ -10,6 +10,7 @@ import { header, footer, hubNav, hubRelated, ASSET_V } from "./shell.mjs";
 import { GENERAL } from "./questions-general.mjs";
 import { TECH } from "./questions-tech.mjs";
 import { NONIT } from "./questions-nonit.mjs";
+import { GUIDES } from "./guides/index.mjs";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "../..");
@@ -186,6 +187,7 @@ ${header()}
             <li><strong>${subjects.filter((s) => fieldOf(s.group) === "it").length}</strong><span>IT subjects</span></li>
             <li><strong>${subjects.filter((s) => fieldOf(s.group) === "nonit").length}</strong><span>non-IT fields</span></li>
           </ul>
+          <div class="iq-guides" style="margin:16px 0 0"><p class="ij-small" style="margin:0 0 8px"><strong>Full interview guides by field</strong> — every question with a detailed answer:</p><ul style="display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none">${GUIDES.map((g) => `<li><a style="display:inline-block;padding:7px 12px;border-radius:999px;background:#fff;border:1px solid rgba(18,21,27,.14);font-weight:600;font-size:.88rem;text-decoration:none;color:inherit" href="/interview/questions/${g.meta.slug}/">${esc(g.meta.name)} <span style="opacity:.6">${g.meta.count}</span></a></li>`).join("")}</ul></div>
           <div class="ij-hero-progress iq-progress" aria-live="polite">
             <div class="ij-ring ij-ring--sm" data-ring style="--p: 0"><span data-iq-pct>0%</span></div>
             <div><strong data-iq-count>0 of ${total}</strong><span>practised on this device</span></div>

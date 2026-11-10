@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>DevOps &amp; cloud Interview Questions &amp; Answers (30) | InfoparkDaily</title>
+    <meta
+      name="description"
+      content="30 important devops &amp; cloud interview questions with simple answers: DevOps practices, Linux, Git, CI/CD, Docker, Kubernetes, AWS and cloud basics, Terraform and monitoring. Free, for freshers and experienced candidates."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="DevOps &amp; cloud – 30 Important Interview Questions &amp; Answers" />
+    <meta property="og:description" content="DevOps practices, Linux, Git, CI/CD, Docker, Kubernetes, AWS and cloud basics, Terraform and monitoring — fresher to experienced." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://infoparkdaily.online/interview/questions/devops-cloud/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/interview/questions/devops-cloud/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","name":"DevOps & cloud – 30 Important Interview Questions & Answers","url":"https://infoparkdaily.online/interview/questions/devops-cloud/","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"InfoparkDaily","url":"https://infoparkdaily.online"},"mainEntity":[{"@type":"Question","name":"What is DevOps?","acceptedAnswer":{"@type":"Answer","text":"DevOps is a culture and set of practices that bring development and operations teams together to deliver software faster and more reliably. It relies on automation (CI/CD, infrastructure as code), shared responsibility, small frequent releases, and monitoring and feedback from production."}},{"@type":"Question","name":"What is the difference between continuous integration, continuous delivery and continuous deployment?","acceptedAnswer":{"@type":"Answer","text":"- Continuous integration: developers merge code often, and each change is automatically built and tested. - Continuous delivery: every change that passes the pipeline is ready to release; going to production is a manual approval. - Continuous deployment: every passing change goes to production automatically, with no manual step."}},{"@type":"Question","name":"Which Linux commands do you use most for troubleshooting?","acceptedAnswer":{"@type":"Answer","text":"- top / htop : CPU and memory usage by process - df -h / du -sh : disk space - free -m : memory - ps aux grep name : find a process - tail -f and journalctl -u service : follow logs - ss -tulpn / netstat : open ports - curl , ping , dig : network checks - systemctl status restart name : manage services"}},{"@type":"Question","name":"How do Linux file permissions work?","acceptedAnswer":{"@type":"Answer","text":"Each file has read (r=4), write (w=2) and execute (x=1) permissions for the owner, the group and others. chmod 754 deploy.sh gives the owner rwx (7), the group r-x (5) and others r-- (4). chown user:group file changes ownership. Give only the permissions that are needed."}},{"@type":"Question","name":"A server is running slowly. How do you investigate?","acceptedAnswer":{"@type":"Answer","text":"1. Check load and CPU with top ; find the busiest process. 2. Check memory and swap with free -m . 3. Check disk space ( df -h ) and disk I/O ( iostat ). 4. Read application and system logs for errors. 5. Check network connections and latency to dependencies such as the database. 6. Compare with monitoring graphs to see when it started and what changed (a deployment, a traffic spike)."}},{"@type":"Question","name":"What is the difference between git merge and git rebase?","acceptedAnswer":{"@type":"Answer","text":"- Merge combines two branches and creates a merge commit, keeping the full history as it happened. - Rebase replays your commits on top of another branch, giving a straight, linear history. Don't rebase commits that others have already pulled, because it rewrites history."}},{"@type":"Question","name":"What is a branching strategy?","acceptedAnswer":{"@type":"Answer","text":"A team agreement on how branches are used. Common ones: - Trunk-based: short-lived feature branches merged into main often, with feature flags. Suits CI/CD. - GitFlow: separate develop, feature, release and hotfix branches. Suits scheduled releases. Pull requests with code review and automated checks protect the main branch."}},{"@type":"Question","name":"What does a typical CI/CD pipeline contain?","acceptedAnswer":{"@type":"Answer","text":"1. Checkout code 2. Install dependencies and build 3. Run unit tests and code-quality / security scans 4. Build an artefact or Docker image and push it to a registry 5. Deploy to staging and run integration tests 6. Approve and deploy to production 7. Monitor, and roll back if needed"}},{"@type":"Question","name":"What is the difference between Jenkins, GitHub Actions and GitLab CI?","acceptedAnswer":{"@type":"Answer","text":"All three run automated pipelines. Jenkins is self-hosted and very flexible through plugins, but needs maintenance. GitHub Actions and GitLab CI are built into their code platforms and defined in YAML files in the repository, with hosted runners available. The concepts — stages, jobs, runners, secrets, artefacts — are the same."}},{"@type":"Question","name":"What are blue-green and canary deployments?","acceptedAnswer":{"@type":"Answer","text":"- Blue-green: run two identical environments. Deploy the new version to the idle one (green), test it, then switch traffic over. Rolling back means switching back. - Canary: send a small percentage of traffic to the new version first, watch error rates and metrics, then increase gradually. Both reduce the risk of a bad release."}},{"@type":"Question","name":"What is the difference between a container and a virtual machine?","acceptedAnswer":{"@type":"Answer","text":"A virtual machine includes a full guest operating system on top of a hypervisor, so it's heavy and slow to start. A container shares the host's OS kernel and packages only the app and its dependencies, so it's lightweight, starts in seconds and runs the same everywhere."}},{"@type":"Question","name":"What is the difference between a Docker image and a container?","acceptedAnswer":{"@type":"Answer","text":"An image is a read-only template built from a Dockerfile — the app, runtime and dependencies. A container is a running instance of an image. You can run many containers from one image."}},{"@type":"Question","name":"What does a simple Dockerfile look like?","acceptedAnswer":{"@type":"Answer","text":"FROM node:20-alpine WORKDIR /app COPY package .json ./ RUN npm ci --omit=dev COPY . . EXPOSE 3000 CMD [\"node\", \"server.js\"] Copying the package files before the rest of the code lets Docker reuse the cached dependency layer when only code changes."}},{"@type":"Question","name":"How do you make Docker images smaller and safer?","acceptedAnswer":{"@type":"Answer","text":"Use small base images (alpine or distroless), multi-stage builds so build tools don't end up in the final image, a .dockerignore file, fewer layers, and run as a non-root user. Scan images for vulnerabilities and pin versions."}},{"@type":"Question","name":"What is Docker Compose?","acceptedAnswer":{"@type":"Answer","text":"A tool for running multi-container apps from one YAML file — for example the app, a database and a cache together, with their networks, volumes and environment variables. docker compose up starts everything. It's mainly used for local development and testing."}},{"@type":"Question","name":"How do containers keep data, since they are temporary?","acceptedAnswer":{"@type":"Answer","text":"Data written inside a container is lost when it's removed. Use volumes (managed by Docker) or bind mounts (a host folder) for data that must persist, such as database files. In Kubernetes the equivalent is persistent volumes."}},{"@type":"Question","name":"What is Kubernetes and why is it used?","acceptedAnswer":{"@type":"Answer","text":"Kubernetes orchestrates containers across a cluster of machines. It schedules containers, restarts failed ones, scales them up and down, balances traffic, and rolls out updates with no downtime. You describe the desired state in YAML and Kubernetes keeps the cluster matching it."}},{"@type":"Question","name":"What are pods, deployments and services?","acceptedAnswer":{"@type":"Answer","text":"- Pod: the smallest unit — one or more containers sharing a network and storage. - Deployment: manages a set of identical pods, keeps the right number running and handles rolling updates and rollbacks. - Service: a stable network address and load balancer in front of pods, whose IPs change. Types include ClusterIP, NodePort and LoadBalancer."}},{"@type":"Question","name":"What are ConfigMaps and Secrets?","acceptedAnswer":{"@type":"Answer","text":"They keep configuration out of container images. A ConfigMap holds non-sensitive settings; a Secret holds sensitive values such as passwords and API keys. Both can be injected as environment variables or mounted files. Secrets are only base64-encoded by default, so enable encryption at rest and restrict access."}},{"@type":"Question","name":"What are liveness and readiness probes?","acceptedAnswer":{"@type":"Answer","text":"- Liveness probe: is the container still healthy? If it fails, Kubernetes restarts the container. - Readiness probe: is it ready to receive traffic? If it fails, the pod is removed from the service until it's ready. They prevent traffic from reaching pods that are starting up or stuck."}},{"@type":"Question","name":"How does Kubernetes scale applications?","acceptedAnswer":{"@type":"Answer","text":"The Horizontal Pod Autoscaler adds or removes pods based on CPU, memory or custom metrics. The Cluster Autoscaler adds or removes nodes when pods can't be scheduled or nodes sit idle. Set resource requests and limits so scheduling and autoscaling work correctly."}},{"@type":"Question","name":"How do you troubleshoot a pod that is not running?","acceptedAnswer":{"@type":"Answer","text":"1. kubectl get pods to see the status (Pending, CrashLoopBackOff, ImagePullBackOff). 2. kubectl describe pod name for events: scheduling problems, image pull errors, failed probes. 3. kubectl logs name (add --previous after a crash) for application errors. 4. Check resource limits, ConfigMaps and Secrets, and the image name and tag."}},{"@type":"Question","name":"What is the difference between IaaS, PaaS and SaaS?","acceptedAnswer":{"@type":"Answer","text":"- IaaS: you rent servers, storage and networks and manage the OS and above (AWS EC2). - PaaS: the platform runs your code and you manage only the app (Elastic Beanstalk, Google App Engine). - SaaS: ready-to-use software over the internet (Gmail, Salesforce)."}},{"@type":"Question","name":"What is the difference between vertical and horizontal scaling?","acceptedAnswer":{"@type":"Answer","text":"- Vertical scaling (scale up): give one server more CPU or memory. Simple, but there's an upper limit and often downtime. - Horizontal scaling (scale out): add more servers behind a load balancer. It has no hard limit and survives single-server failures, but the app should be stateless."}},{"@type":"Question","name":"What is a reverse proxy, and how is it different from a load balancer?","acceptedAnswer":{"@type":"Answer","text":"A reverse proxy (such as Nginx) sits in front of servers and receives client requests on their behalf. It can terminate HTTPS, cache content, compress responses and route paths to different services. A load balancer spreads traffic across several servers and removes unhealthy ones. Many tools, including Nginx and cloud load balancers, do both."}},{"@type":"Question","name":"Which core AWS services should you know?","acceptedAnswer":{"@type":"Answer","text":"- EC2: virtual servers - S3: object storage - RDS: managed relational databases - VPC: private networking — subnets, route tables, security groups - IAM: users, roles and permissions - ELB and Auto Scaling: load balancing and scaling - Lambda: serverless functions - CloudWatch: logs, metrics and alarms Azure and Google Cloud offer equivalent services under different names."}},{"@type":"Question","name":"What is the difference between a security group and a network ACL in AWS?","acceptedAnswer":{"@type":"Answer","text":"- A security group is a stateful firewall attached to instances: if inbound traffic is allowed, the reply is allowed automatically. It has only allow rules. - A network ACL is a stateless firewall at the subnet level: inbound and outbound rules are checked separately, and it can have both allow and deny rules."}},{"@type":"Question","name":"What is infrastructure as code? Why use Terraform?","acceptedAnswer":{"@type":"Answer","text":"Infrastructure as code defines servers, networks and databases in code files instead of clicking in a console. The code is version-controlled, reviewed and repeatable, so environments are consistent. Terraform works across many cloud providers: you write the desired state, terraform plan shows the changes and terraform apply makes them. Its state file must be stored securely and shared, for example in remote storage with locking."}},{"@type":"Question","name":"What is the difference between monitoring and observability?","acceptedAnswer":{"@type":"Answer","text":"Monitoring tracks known metrics and alerts when they cross thresholds (CPU above 90%, error rate up). Observability is being able to understand why a system behaves the way it does from its outputs — metrics, logs and traces. Common tools are Prometheus and Grafana, the ELK stack, CloudWatch and Datadog."}},{"@type":"Question","name":"How do you manage secrets safely in DevOps?","acceptedAnswer":{"@type":"Answer","text":"Never commit secrets to Git. Store them in a secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault) or the CI tool's encrypted secrets, inject them at runtime, give each service only the access it needs, rotate them regularly and scan repositories for leaked keys."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Interview hub","item":"https://infoparkdaily.online/interview/"},{"@type":"ListItem","position":3,"name":"Interview questions","item":"https://infoparkdaily.online/interview/questions/"},{"@type":"ListItem","position":4,"name":"DevOps & cloud","item":"https://infoparkdaily.online/interview/questions/devops-cloud/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <style>
+      .wd-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin-right: 6px; border-radius: 8px; background: var(--ij-ink, #12151b); color: #fff; font-size: 0.8rem; font-weight: 800; }
+      .wd-qa .ij-qa-body ul, .wd-qa .ij-qa-body ol { margin: 6px 0 8px; padding-left: 1.3em; }
+      .wd-qa .ij-qa-body li { margin: 3px 0; }
+      .wd-qa .ij-qa-body code { font-size: 0.88em; }
+      .wd-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .wd-toc a { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid rgba(18, 21, 27, 0.14); font-weight: 600; font-size: 0.88rem; text-decoration: none; color: inherit; }
+      .wd-toc a:hover { border-color: #12151b; }
+      .wd-tools { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    </style>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page iq-page light">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="ij-hero iq-hero" aria-labelledby="wd-title">
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <a href="/interview/questions/">Interview questions</a> / <span aria-current="page">DevOps &amp; cloud</span></nav>
+          <p class="ij-badge-hero"><b>FREE</b> InfoparkDaily Learning · Fresher to experienced</p>
+          <h1 id="wd-title">DevOps &amp; cloud<br /><span>30 important interview questions.</span></h1>
+          <p class="ij-lede">
+            Prepare for devops &amp; cloud interviews with 30 important questions and answers on <strong>DevOps practices, Linux, Git, CI/CD, Docker, Kubernetes, AWS and cloud basics, Terraform and monitoring</strong>.
+            The answers are short and interview-friendly, so freshers and experienced candidates can understand them and explain them in their own words.
+          </p>
+          <ul class="ij-hero-stats">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>5</strong><span>topics</span></li>
+            <li><strong>10</strong><span>practical tasks</span></li>
+          </ul>
+          <ul class="wd-toc" aria-label="Topics">
+            <li><a href="#wd-1">DevOps basics and Linux</a></li><li><a href="#wd-2">Git and CI/CD</a></li><li><a href="#wd-3">Docker and containers</a></li><li><a href="#wd-4">Kubernetes</a></li><li><a href="#wd-5">Cloud, infrastructure as code and monitoring</a></li>
+            <li><a href="#wd-practice">Practical tasks</a></li>
+          </ul>
+          <div class="wd-tools">
+            <button type="button" class="ij-btn ij-btn--yellow" data-wd-expand="open">Expand all answers</button>
+            <button type="button" class="ij-btn" data-wd-expand="close">Collapse all</button>
+          </div>
+        </div>
+      </section>
+
+
+      <nav class="hub-tabs" aria-label="Interview & career hub">
+        <div class="ij-wrap"><div class="hub-tabs-track">
+          <a href="/interview/">Overview</a>
+          <a href="/interview/preparation/">Preparation</a><a href="/interview/questions/" aria-current="page">Questions</a><a href="/interview/learning/">Learning</a><a href="/interview/email-guide/">Email guide</a><a href="/interview/resume-ats/">Resume & ATS</a>
+          <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
+        </div></div>
+      </nav>
+
+      <section class="ij-section wd-section" id="wd-1" aria-labelledby="wd-1-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 1 · Questions 1–5</p>
+            <h2 id="wd-1-title">DevOps basics and Linux</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q1"><summary><span class="wd-num">1</span> What is DevOps?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>DevOps is a culture and set of practices that bring development and operations teams together to deliver software faster and more reliably. It relies on automation (CI/CD, infrastructure as code), shared responsibility, small frequent releases, and monitoring and feedback from production.</p></div></details>
+            <details class="ij-qa-item" id="wd-q2"><summary><span class="wd-num">2</span> What is the difference between continuous integration, continuous delivery and continuous deployment?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Continuous integration:</strong> developers merge code often, and each change is automatically built and tested.</li><li><strong>Continuous delivery:</strong> every change that passes the pipeline is ready to release; going to production is a manual approval.</li><li><strong>Continuous deployment:</strong> every passing change goes to production automatically, with no manual step.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q3"><summary><span class="wd-num">3</span> Which Linux commands do you use most for troubleshooting?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><code>top</code> / <code>htop</code>: CPU and memory usage by process</li><li><code>df -h</code> / <code>du -sh</code>: disk space</li><li><code>free -m</code>: memory</li><li><code>ps aux | grep name</code>: find a process</li><li><code>tail -f</code> and <code>journalctl -u service</code>: follow logs</li><li><code>ss -tulpn</code> / <code>netstat</code>: open ports</li><li><code>curl</code>, <code>ping</code>, <code>dig</code>: network checks</li><li><code>systemctl status|restart name</code>: manage services</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q4"><summary><span class="wd-num">4</span> How do Linux file permissions work?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Each file has read (r=4), write (w=2) and execute (x=1) permissions for the owner, the group and others. <code>chmod 754 deploy.sh</code> gives the owner rwx (7), the group r-x (5) and others r-- (4). <code>chown user:group file</code> changes ownership. Give only the permissions that are needed.</p></div></details>
+            <details class="ij-qa-item" id="wd-q5"><summary><span class="wd-num">5</span> A server is running slowly. How do you investigate?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Check load and CPU with <code>top</code>; find the busiest process.</li><li>Check memory and swap with <code>free -m</code>.</li><li>Check disk space (<code>df -h</code>) and disk I/O (<code>iostat</code>).</li><li>Read application and system logs for errors.</li><li>Check network connections and latency to dependencies such as the database.</li><li>Compare with monitoring graphs to see when it started and what changed (a deployment, a traffic spike).</li></ol></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-2" aria-labelledby="wd-2-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 2 · Questions 6–10</p>
+            <h2 id="wd-2-title">Git and CI/CD</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q6"><summary><span class="wd-num">6</span> What is the difference between git merge and git rebase?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Merge</strong> combines two branches and creates a merge commit, keeping the full history as it happened.</li><li><strong>Rebase</strong> replays your commits on top of another branch, giving a straight, linear history.</li></ul><p>Don't rebase commits that others have already pulled, because it rewrites history.</p></div></details>
+            <details class="ij-qa-item" id="wd-q7"><summary><span class="wd-num">7</span> What is a branching strategy?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A team agreement on how branches are used. Common ones:</p><ul><li><strong>Trunk-based:</strong> short-lived feature branches merged into main often, with feature flags. Suits CI/CD.</li><li><strong>GitFlow:</strong> separate develop, feature, release and hotfix branches. Suits scheduled releases.</li></ul><p>Pull requests with code review and automated checks protect the main branch.</p></div></details>
+            <details class="ij-qa-item" id="wd-q8"><summary><span class="wd-num">8</span> What does a typical CI/CD pipeline contain?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Checkout code</li><li>Install dependencies and build</li><li>Run unit tests and code-quality / security scans</li><li>Build an artefact or Docker image and push it to a registry</li><li>Deploy to staging and run integration tests</li><li>Approve and deploy to production</li><li>Monitor, and roll back if needed</li></ol></div></details>
+            <details class="ij-qa-item" id="wd-q9"><summary><span class="wd-num">9</span> What is the difference between Jenkins, GitHub Actions and GitLab CI?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>All three run automated pipelines. Jenkins is self-hosted and very flexible through plugins, but needs maintenance. GitHub Actions and GitLab CI are built into their code platforms and defined in YAML files in the repository, with hosted runners available. The concepts — stages, jobs, runners, secrets, artefacts — are the same.</p></div></details>
+            <details class="ij-qa-item" id="wd-q10"><summary><span class="wd-num">10</span> What are blue-green and canary deployments?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Blue-green:</strong> run two identical environments. Deploy the new version to the idle one (green), test it, then switch traffic over. Rolling back means switching back.</li><li><strong>Canary:</strong> send a small percentage of traffic to the new version first, watch error rates and metrics, then increase gradually.</li></ul><p>Both reduce the risk of a bad release.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-3" aria-labelledby="wd-3-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 3 · Questions 11–16</p>
+            <h2 id="wd-3-title">Docker and containers</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q11"><summary><span class="wd-num">11</span> What is the difference between a container and a virtual machine?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A virtual machine includes a full guest operating system on top of a hypervisor, so it's heavy and slow to start. A container shares the host's OS kernel and packages only the app and its dependencies, so it's lightweight, starts in seconds and runs the same everywhere.</p></div></details>
+            <details class="ij-qa-item" id="wd-q12"><summary><span class="wd-num">12</span> What is the difference between a Docker image and a container?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>An image is a read-only template built from a Dockerfile — the app, runtime and dependencies. A container is a running instance of an image. You can run many containers from one image.</p></div></details>
+            <details class="ij-qa-item" id="wd-q13"><summary><span class="wd-num">13</span> What does a simple Dockerfile look like?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><pre><code>FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --omit=dev
+COPY . .
+EXPOSE 3000
+CMD [&quot;node&quot;, &quot;server.js&quot;]</code></pre><p>Copying the package files before the rest of the code lets Docker reuse the cached dependency layer when only code changes.</p></div></details>
+            <details class="ij-qa-item" id="wd-q14"><summary><span class="wd-num">14</span> How do you make Docker images smaller and safer?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use small base images (alpine or distroless), multi-stage builds so build tools don't end up in the final image, a <code>.dockerignore</code> file, fewer layers, and run as a non-root user. Scan images for vulnerabilities and pin versions.</p></div></details>
+            <details class="ij-qa-item" id="wd-q15"><summary><span class="wd-num">15</span> What is Docker Compose?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A tool for running multi-container apps from one YAML file — for example the app, a database and a cache together, with their networks, volumes and environment variables. <code>docker compose up</code> starts everything. It's mainly used for local development and testing.</p></div></details>
+            <details class="ij-qa-item" id="wd-q16"><summary><span class="wd-num">16</span> How do containers keep data, since they are temporary?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Data written inside a container is lost when it's removed. Use <strong>volumes</strong> (managed by Docker) or <strong>bind mounts</strong> (a host folder) for data that must persist, such as database files. In Kubernetes the equivalent is persistent volumes.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-4" aria-labelledby="wd-4-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 4 · Questions 17–22</p>
+            <h2 id="wd-4-title">Kubernetes</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q17"><summary><span class="wd-num">17</span> What is Kubernetes and why is it used?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Kubernetes orchestrates containers across a cluster of machines. It schedules containers, restarts failed ones, scales them up and down, balances traffic, and rolls out updates with no downtime. You describe the desired state in YAML and Kubernetes keeps the cluster matching it.</p></div></details>
+            <details class="ij-qa-item" id="wd-q18"><summary><span class="wd-num">18</span> What are pods, deployments and services?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Pod:</strong> the smallest unit — one or more containers sharing a network and storage.</li><li><strong>Deployment:</strong> manages a set of identical pods, keeps the right number running and handles rolling updates and rollbacks.</li><li><strong>Service:</strong> a stable network address and load balancer in front of pods, whose IPs change. Types include ClusterIP, NodePort and LoadBalancer.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q19"><summary><span class="wd-num">19</span> What are ConfigMaps and Secrets?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>They keep configuration out of container images. A ConfigMap holds non-sensitive settings; a Secret holds sensitive values such as passwords and API keys. Both can be injected as environment variables or mounted files. Secrets are only base64-encoded by default, so enable encryption at rest and restrict access.</p></div></details>
+            <details class="ij-qa-item" id="wd-q20"><summary><span class="wd-num">20</span> What are liveness and readiness probes?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Liveness probe:</strong> is the container still healthy? If it fails, Kubernetes restarts the container.</li><li><strong>Readiness probe:</strong> is it ready to receive traffic? If it fails, the pod is removed from the service until it's ready.</li></ul><p>They prevent traffic from reaching pods that are starting up or stuck.</p></div></details>
+            <details class="ij-qa-item" id="wd-q21"><summary><span class="wd-num">21</span> How does Kubernetes scale applications?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>The Horizontal Pod Autoscaler adds or removes pods based on CPU, memory or custom metrics. The Cluster Autoscaler adds or removes nodes when pods can't be scheduled or nodes sit idle. Set resource requests and limits so scheduling and autoscaling work correctly.</p></div></details>
+            <details class="ij-qa-item" id="wd-q22"><summary><span class="wd-num">22</span> How do you troubleshoot a pod that is not running?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li><code>kubectl get pods</code> to see the status (Pending, CrashLoopBackOff, ImagePullBackOff).</li><li><code>kubectl describe pod name</code> for events: scheduling problems, image pull errors, failed probes.</li><li><code>kubectl logs name</code> (add <code>--previous</code> after a crash) for application errors.</li><li>Check resource limits, ConfigMaps and Secrets, and the image name and tag.</li></ol></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-5" aria-labelledby="wd-5-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 5 · Questions 23–30</p>
+            <h2 id="wd-5-title">Cloud, infrastructure as code and monitoring</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q23"><summary><span class="wd-num">23</span> What is the difference between IaaS, PaaS and SaaS?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>IaaS:</strong> you rent servers, storage and networks and manage the OS and above (AWS EC2).</li><li><strong>PaaS:</strong> the platform runs your code and you manage only the app (Elastic Beanstalk, Google App Engine).</li><li><strong>SaaS:</strong> ready-to-use software over the internet (Gmail, Salesforce).</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q24"><summary><span class="wd-num">24</span> What is the difference between vertical and horizontal scaling?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Vertical scaling (scale up):</strong> give one server more CPU or memory. Simple, but there's an upper limit and often downtime.</li><li><strong>Horizontal scaling (scale out):</strong> add more servers behind a load balancer. It has no hard limit and survives single-server failures, but the app should be stateless.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q25"><summary><span class="wd-num">25</span> What is a reverse proxy, and how is it different from a load balancer?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A reverse proxy (such as Nginx) sits in front of servers and receives client requests on their behalf. It can terminate HTTPS, cache content, compress responses and route paths to different services. A load balancer spreads traffic across several servers and removes unhealthy ones. Many tools, including Nginx and cloud load balancers, do both.</p></div></details>
+            <details class="ij-qa-item" id="wd-q26"><summary><span class="wd-num">26</span> Which core AWS services should you know?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>EC2:</strong> virtual servers</li><li><strong>S3:</strong> object storage</li><li><strong>RDS:</strong> managed relational databases</li><li><strong>VPC:</strong> private networking — subnets, route tables, security groups</li><li><strong>IAM:</strong> users, roles and permissions</li><li><strong>ELB and Auto Scaling:</strong> load balancing and scaling</li><li><strong>Lambda:</strong> serverless functions</li><li><strong>CloudWatch:</strong> logs, metrics and alarms</li></ul><p>Azure and Google Cloud offer equivalent services under different names.</p></div></details>
+            <details class="ij-qa-item" id="wd-q27"><summary><span class="wd-num">27</span> What is the difference between a security group and a network ACL in AWS?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li>A <strong>security group</strong> is a stateful firewall attached to instances: if inbound traffic is allowed, the reply is allowed automatically. It has only allow rules.</li><li>A <strong>network ACL</strong> is a stateless firewall at the subnet level: inbound and outbound rules are checked separately, and it can have both allow and deny rules.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q28"><summary><span class="wd-num">28</span> What is infrastructure as code? Why use Terraform?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Infrastructure as code defines servers, networks and databases in code files instead of clicking in a console. The code is version-controlled, reviewed and repeatable, so environments are consistent. Terraform works across many cloud providers: you write the desired state, <code>terraform plan</code> shows the changes and <code>terraform apply</code> makes them. Its state file must be stored securely and shared, for example in remote storage with locking.</p></div></details>
+            <details class="ij-qa-item" id="wd-q29"><summary><span class="wd-num">29</span> What is the difference between monitoring and observability?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Monitoring tracks known metrics and alerts when they cross thresholds (CPU above 90%, error rate up). Observability is being able to understand why a system behaves the way it does from its outputs — metrics, logs and traces. Common tools are Prometheus and Grafana, the ELK stack, CloudWatch and Datadog.</p></div></details>
+            <details class="ij-qa-item" id="wd-q30"><summary><span class="wd-num">30</span> How do you manage secrets safely in DevOps?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Never commit secrets to Git. Store them in a secrets manager (AWS Secrets Manager, HashiCorp Vault, Azure Key Vault) or the CI tool's encrypted secrets, inject them at runtime, give each service only the access it needs, rotate them regularly and scan repositories for leaked keys.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft" id="wd-practice" aria-labelledby="wd-practice-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Beyond the 30 questions</p>
+            <h2 id="wd-practice-title">Practical interview tasks</h2>
+            <p>Interviewers also ask you to write code and talk through your work. Practise these too.</p>
+          </div>
+          <div class="ij-table-wrap" tabindex="0" role="region" aria-label="Practical tasks to prepare"><table class="ij-table"><caption>Practical tasks to prepare</caption><thead><tr><th scope="col">Area</th><th scope="col">Practise this</th></tr></thead><tbody><tr><th scope="row">Linux</th><td data-label="Practise this">Write a shell script that checks disk usage and alerts above 80%</td></tr><tr><th scope="row">Git</th><td data-label="Practise this">Resolve a merge conflict and explain rebase vs merge</td></tr><tr><th scope="row">Docker</th><td data-label="Practise this">Containerise a small web app with a multi-stage Dockerfile</td></tr><tr><th scope="row">Compose</th><td data-label="Practise this">Run an app with a database using Docker Compose</td></tr><tr><th scope="row">CI/CD</th><td data-label="Practise this">Build a pipeline that tests, builds an image and deploys</td></tr><tr><th scope="row">Kubernetes</th><td data-label="Practise this">Deploy an app with a Deployment, Service and readiness probe</td></tr><tr><th scope="row">AWS</th><td data-label="Practise this">Launch an EC2 instance in a VPC and host a static site on S3</td></tr><tr><th scope="row">Terraform</th><td data-label="Practise this">Create an S3 bucket and an EC2 instance with Terraform</td></tr><tr><th scope="row">Monitoring</th><td data-label="Practise this">Set up a dashboard and an alert for high error rate</td></tr><tr><th scope="row">Projects</th><td data-label="Practise this">Explain your project's pipeline and deployment end to end</td></tr></tbody></table></div>
+          <p class="ij-small" style="margin-top:16px">
+            Want hands-on practice? Follow the <a href="/interview/learning/devops-cloud/">devops &amp; cloud learning path</a>, try the
+            <a href="/learning/">InfoparkDaily Learning</a> tutorials and quizzes, or browse the full <a href="/interview/questions/">interview question bank</a>.
+            Ready to apply? See the latest <a href="/jobs/">IT jobs</a>.
+          </p>
+          <h3 class="hub-h3" style="margin-top:22px">More interview guides</h3>
+          <ul class="wd-toc"><li><a href="/interview/questions/web-development/">Web development (70)</a></li><li><a href="/interview/questions/java-backend/">Java backend (30)</a></li><li><a href="/interview/questions/python-development/">Python development (30)</a></li><li><a href="/interview/questions/sql-databases/">SQL &amp; databases (30)</a></li><li><a href="/interview/questions/software-testing/">Software testing (QA) (30)</a></li><li><a href="/interview/questions/data-analyst/">Data analyst (30)</a></li></ul>
+          <p class="ij-small">Original content by InfoparkDaily Learning. Answers are guidance — explain them in your own words and add examples from your projects.</p>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft hub-related" id="more" aria-labelledby="hub-related-title">
+        <div class="ij-wrap">
+          <div class="rel-head">
+            <div>
+              <p class="ij-eyebrow">Keep learning</p>
+              <h2 id="hub-related-title">Continue your preparation</h2>
+              <p>Pick your next course. Everything is free and saves progress on this device.</p>
+            </div>
+            <a class="rel-back" href="/interview/">← Back to academy overview</a>
+          </div>
+          <div class="rel-grid">
+            <a class="rel-card rel-card--ink" href="/interview/preparation/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+                <span class="rel-num">Course 01</span>
+                
+              </span>
+              <strong class="rel-title">Interview Preparation</strong>
+              <span class="rel-text">Prepare for interviews step by step — understand each round, improve communication and walk in confident.</span>
+              <span class="rel-foot"><span class="rel-meta">17 chapters · 3.5 hrs</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Explore preparation</span>
+            </a><a class="rel-card rel-card--soft is-next" href="/interview/learning/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+                <span class="rel-num">Course 03</span>
+                <span class="rel-next">Up next</span>
+              </span>
+              <strong class="rel-title">Learning & Skill Development</strong>
+              <span class="rel-text">Build the technical and professional skills employers test — with free courses, certifications and roadmaps.</span>
+              <span class="rel-foot"><span class="rel-meta">31 learning paths · live code</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Start learning</span>
+            </a><a class="rel-card rel-card--ink" href="/interview/email-guide/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+                <span class="rel-num">Course 04</span>
+                
+              </span>
+              <strong class="rel-title">Professional Email Guide</strong>
+              <span class="rel-text">Write professional emails for applying, sending your resume, following up and replying to recruiters.</span>
+              <span class="rel-foot"><span class="rel-meta">11 templates · 20 min</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Open email guide</span>
+            </a><a class="rel-card rel-card--cream" href="/interview/resume-ats/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+                <span class="rel-num">Course 05</span>
+                
+              </span>
+              <strong class="rel-title">Resume & ATS Preparation</strong>
+              <span class="rel-text">Build a professional resume and understand how applicant tracking systems screen it.</span>
+              <span class="rel-foot"><span class="rel-meta">5 modules · 2 free tools</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Resume & ATS guide</span>
+            </a>
+          </div>
+          <div class="rel-strip">
+            <span>Ready to apply?</span>
+            <a href="/jobs/">Find jobs on InfoparkDaily →</a>
+            <a href="/resume-builder/templates/">Build resume</a>
+            <a href="/ats-checker/">Check ATS score</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-wd-expand]");
+        if (!b) return;
+        var open = b.getAttribute("data-wd-expand") === "open";
+        document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
+      });
+    </script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

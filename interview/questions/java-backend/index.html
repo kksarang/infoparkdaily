@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Java backend Interview Questions &amp; Answers (30) | InfoparkDaily</title>
+    <meta
+      name="description"
+      content="30 important java backend interview questions with simple answers: core Java, OOP, collections, exceptions, multithreading, Spring Boot, REST APIs, JPA and SQL. Free, for freshers and experienced candidates."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Java backend – 30 Important Interview Questions &amp; Answers" />
+    <meta property="og:description" content="core Java, OOP, collections, exceptions, multithreading, Spring Boot, REST APIs, JPA and SQL — fresher to experienced." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://infoparkdaily.online/interview/questions/java-backend/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/interview/questions/java-backend/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","name":"Java backend – 30 Important Interview Questions & Answers","url":"https://infoparkdaily.online/interview/questions/java-backend/","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"InfoparkDaily","url":"https://infoparkdaily.online"},"mainEntity":[{"@type":"Question","name":"What are the four pillars of object-oriented programming?","acceptedAnswer":{"@type":"Answer","text":"- Encapsulation: keep data private inside a class and expose it through methods. - Inheritance: a class reuses and extends another class with extends . - Polymorphism: one method call behaves differently depending on the object (overriding) or the arguments (overloading). - Abstraction: show what an object does and hide how, using abstract classes and interfaces."}},{"@type":"Question","name":"What is the difference between JDK, JRE and JVM?","acceptedAnswer":{"@type":"Answer","text":"- JVM: runs Java bytecode and makes Java platform-independent. - JRE: the JVM plus the core libraries needed to run Java programs. - JDK: the JRE plus development tools such as the compiler ( javac ) and debugger. You install the JDK to write Java and the JRE (or a JDK) to run it."}},{"@type":"Question","name":"What is the difference between an abstract class and an interface?","acceptedAnswer":{"@type":"Answer","text":"- An abstract class can have state (fields), constructors and both abstract and concrete methods. A class can extend only one. - An interface defines a contract. Since Java 8 it can have default and static methods, but no instance state. A class can implement many. Use an interface for a capability (\"can be saved\", \"can be compared\") and an abstract class to share common code between closely related classes."}},{"@type":"Question","name":"What is the difference between method overloading and overriding?","acceptedAnswer":{"@type":"Answer","text":"- Overloading: same method name, different parameter lists, in the same class. Decided at compile time. - Overriding: a subclass provides its own version of a parent method with the same signature. Decided at runtime. class Shape { double area() { return 0; } } class Circle extends Shape { double r; @Override double area() { return Math.PI r r; } }"}},{"@type":"Question","name":"Why are Strings immutable in Java, and when do you use StringBuilder?","acceptedAnswer":{"@type":"Answer","text":"A String can't change after it's created. That makes strings safe to share between threads, lets Java reuse them from the string pool, and keeps hash codes stable for use as map keys. Each change to a String creates a new object, so when you build text in a loop, use StringBuilder , which changes one buffer in place."}},{"@type":"Question","name":"What is the difference between == and equals()?","acceptedAnswer":{"@type":"Answer","text":"- == compares references: are both variables pointing to the same object? - equals() compares content, if the class overrides it (String, Integer and most library classes do). String a = new String(\"java\"); String b = new String(\"java\"); a == b; // false – different objects a.equals(b); // true – same content If you override equals() , also override hashCode() so equal objects have equal hash codes."}},{"@type":"Question","name":"What is the difference between ArrayList and LinkedList?","acceptedAnswer":{"@type":"Answer","text":"- ArrayList uses a resizable array: fast random access by index, slower inserts and removes in the middle. - LinkedList uses linked nodes: fast inserts and removes at the ends, slow access by index. In practice ArrayList is the default choice for most lists."}},{"@type":"Question","name":"How does a HashMap work internally?","acceptedAnswer":{"@type":"Answer","text":"A HashMap stores entries in an array of buckets. For each key it calculates hashCode() , maps that to a bucket, and stores the key-value pair there. If two keys land in the same bucket (a collision), they are chained together; since Java 8 a long chain becomes a balanced tree. On get() , it finds the bucket from the hash and uses equals() to find the exact key. When the map gets too full (load factor 0.75 by default) it resizes and redistributes entries."}},{"@type":"Question","name":"What is the difference between HashMap, LinkedHashMap and TreeMap?","acceptedAnswer":{"@type":"Answer","text":"- HashMap: no ordering; fastest for general use. - LinkedHashMap: keeps insertion order (or access order, useful for LRU caches). - TreeMap: keeps keys sorted; operations take O(log n)."}},{"@type":"Question","name":"What is the difference between checked and unchecked exceptions?","acceptedAnswer":{"@type":"Answer","text":"- Checked exceptions (such as IOException ) must be handled with try-catch or declared with throws . The compiler enforces this. - Unchecked exceptions (subclasses of RuntimeException , such as NullPointerException ) usually signal programming errors and don't have to be declared."}},{"@type":"Question","name":"What is try-with-resources?","acceptedAnswer":{"@type":"Answer","text":"It automatically closes resources such as files, streams and database connections when the block ends, even if an exception is thrown. The resource must implement AutoCloseable . try (BufferedReader br = new BufferedReader(new FileReader(\"data.txt\"))) { System.out.println(br.readLine()); }"}},{"@type":"Question","name":"What are Java 8 streams and lambdas?","acceptedAnswer":{"@type":"Answer","text":"A lambda is a short way to write a function, such as x -> x 2 . Streams let you process collections in a pipeline of steps like filter, map and collect. List\u003cString> names = employees.stream() .filter(e -> e.getSalary() > 50000) .map(Employee::getName) .sorted() .toList(); Streams make data processing shorter and easier to read; they don't change the original collection."}},{"@type":"Question","name":"What is the difference between a process and a thread?","acceptedAnswer":{"@type":"Answer","text":"A process is a running program with its own memory. A thread is a unit of execution inside a process; threads of the same process share its memory. Threads are lighter to create, but shared memory means you must handle synchronisation."}},{"@type":"Question","name":"What does the synchronized keyword do?","acceptedAnswer":{"@type":"Answer","text":"It lets only one thread at a time run a block or method on the same lock (object). This prevents race conditions when threads update shared data. Overusing it can slow the program or cause deadlocks, so keep synchronised sections small."}},{"@type":"Question","name":"What is the volatile keyword?","acceptedAnswer":{"@type":"Answer","text":"volatile makes every read of a variable come from main memory, so all threads see the latest value. It guarantees visibility but not atomicity — count++ on a volatile is still unsafe. For atomic counters use AtomicInteger ."}},{"@type":"Question","name":"What is an ExecutorService and why use it instead of creating threads?","acceptedAnswer":{"@type":"Answer","text":"ExecutorService manages a pool of reusable threads. You submit tasks and it runs them, which avoids the cost of creating a new thread for every task and limits how many run at once. ExecutorService pool = Executors.newFixedThreadPool(4); Future\u003cInteger> result = pool.submit(() -> computeTotal()); pool.shutdown();"}},{"@type":"Question","name":"How does garbage collection work in Java?","acceptedAnswer":{"@type":"Answer","text":"The JVM automatically frees memory used by objects that are no longer reachable from any live reference. The heap is split into generations: new objects start in the young generation, and long-lived objects move to the old generation. Most objects die young, so collecting the young generation often is efficient. You can't force GC; System.gc() is only a request."}},{"@type":"Question","name":"What is Spring Boot and how is it different from Spring?","acceptedAnswer":{"@type":"Answer","text":"Spring is a framework for building Java applications with dependency injection. Spring Boot sits on top of it and removes setup work: auto-configuration, starter dependencies, an embedded server (Tomcat) and sensible defaults. You can run a production-ready app with java -jar ."}},{"@type":"Question","name":"What is dependency injection?","acceptedAnswer":{"@type":"Answer","text":"Instead of a class creating the objects it needs, the framework creates them and passes them in. This makes code loosely coupled and easy to test with mock objects. Constructor injection is the recommended style: @Service public class OrderService { private final OrderRepository repo; public OrderService(OrderRepository repo) { this.repo = repo; } }"}},{"@type":"Question","name":"What is the difference between @Component, @Service, @Repository and @Controller?","acceptedAnswer":{"@type":"Answer","text":"All four mark a class as a Spring bean. The specialised ones show the class's layer: - @Controller / @RestController: handles web requests. - @Service: business logic. - @Repository: data access; it also translates database exceptions into Spring's exceptions. - @Component: any other general bean."}},{"@type":"Question","name":"How do you build a REST endpoint in Spring Boot?","acceptedAnswer":{"@type":"Answer","text":"@RestController @RequestMapping(\"/api/users\") public class UserController { private final UserService service; public UserController(UserService service) { this.service = service; } @GetMapping(\"/{id}\") public UserDto get(@PathVariable Long id) { return service.find(id); } @PostMapping public ResponseEntity\u003cUserDto> create(@Valid @RequestBody UserDto dto) { return ResponseEntity.status(HttpStatus.CREATED).body(service.create(dto)); } } @RestController returns JSON by default, and @Valid triggers bean validation on the request body."}},{"@type":"Question","name":"How do you handle exceptions globally in Spring Boot?","acceptedAnswer":{"@type":"Answer","text":"Use a class annotated with @RestControllerAdvice and methods with @ExceptionHandler . It catches exceptions from all controllers and returns a consistent error response with the right HTTP status, instead of repeating try-catch in every controller."}},{"@type":"Question","name":"What are Spring profiles?","acceptedAnswer":{"@type":"Answer","text":"Profiles let you keep different settings for different environments, such as application-dev.yml and application-prod.yml . You activate one with spring.profiles.active=prod , so the same build can run with dev or production database URLs and credentials."}},{"@type":"Question","name":"What is JPA and how does Hibernate relate to it?","acceptedAnswer":{"@type":"Answer","text":"JPA is the Java standard for mapping objects to database tables (ORM). Hibernate is the most common implementation of JPA. Spring Data JPA adds repositories so you can write findByEmail(String email) and get the query generated for you."}},{"@type":"Question","name":"What is the N+1 query problem and how do you fix it?","acceptedAnswer":{"@type":"Answer","text":"It happens when you load a list of N parent records with one query, then each parent's children are loaded lazily with one more query each — N+1 queries in total. Fix it with a fetch join ( JOIN FETCH ), an entity graph, or batch fetching, so related data comes in one or a few queries."}},{"@type":"Question","name":"What is the difference between lazy and eager loading?","acceptedAnswer":{"@type":"Answer","text":"- Lazy: related data loads only when you access it. It's the default for collections and saves memory, but can cause N+1 queries or a LazyInitializationException outside a transaction. - Eager: related data loads immediately with the parent. Simple, but can pull in much more data than needed."}},{"@type":"Question","name":"What does @Transactional do?","acceptedAnswer":{"@type":"Answer","text":"It runs a method inside a database transaction: if the method finishes, changes are committed; if a runtime exception is thrown, they are rolled back. It works through Spring proxies, so calling a @Transactional method from inside the same class bypasses it."}},{"@type":"Question","name":"What are microservices, and what are their pros and cons?","acceptedAnswer":{"@type":"Answer","text":"Microservices split an application into small, independently deployable services, each owning one business area and its own data. - Pros: independent deployment and scaling, smaller codebases, teams can work separately. - Cons: network calls between services, harder debugging, distributed data and more infrastructure (service discovery, monitoring, API gateway). A well-structured monolith is often the better start for a small team."}},{"@type":"Question","name":"How do you secure a Spring Boot REST API?","acceptedAnswer":{"@type":"Answer","text":"Use Spring Security. Common setup: users log in and receive a JWT (or OAuth2 token), every request sends it in the Authorization header, and a filter validates it. Add role-based access with @PreAuthorize or URL rules, hash passwords with BCrypt, use HTTPS and validate all input."}},{"@type":"Question","name":"How do you improve the performance of a slow Spring Boot API?","acceptedAnswer":{"@type":"Answer","text":"1. Measure first: logs, APM tools or the database's slow query log. 2. Fix database issues: add indexes, remove N+1 queries, fetch only needed columns, paginate results. 3. Cache repeated reads ( @Cacheable , Redis). 4. Move slow work to background jobs or message queues. 5. Tune connection pool and thread pool sizes."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Interview hub","item":"https://infoparkdaily.online/interview/"},{"@type":"ListItem","position":3,"name":"Interview questions","item":"https://infoparkdaily.online/interview/questions/"},{"@type":"ListItem","position":4,"name":"Java backend","item":"https://infoparkdaily.online/interview/questions/java-backend/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <style>
+      .wd-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin-right: 6px; border-radius: 8px; background: var(--ij-ink, #12151b); color: #fff; font-size: 0.8rem; font-weight: 800; }
+      .wd-qa .ij-qa-body ul, .wd-qa .ij-qa-body ol { margin: 6px 0 8px; padding-left: 1.3em; }
+      .wd-qa .ij-qa-body li { margin: 3px 0; }
+      .wd-qa .ij-qa-body code { font-size: 0.88em; }
+      .wd-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .wd-toc a { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid rgba(18, 21, 27, 0.14); font-weight: 600; font-size: 0.88rem; text-decoration: none; color: inherit; }
+      .wd-toc a:hover { border-color: #12151b; }
+      .wd-tools { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    </style>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page iq-page light">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="ij-hero iq-hero" aria-labelledby="wd-title">
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <a href="/interview/questions/">Interview questions</a> / <span aria-current="page">Java backend</span></nav>
+          <p class="ij-badge-hero"><b>FREE</b> InfoparkDaily Learning · Fresher to experienced</p>
+          <h1 id="wd-title">Java backend<br /><span>30 important interview questions.</span></h1>
+          <p class="ij-lede">
+            Prepare for java backend interviews with 30 important questions and answers on <strong>core Java, OOP, collections, exceptions, multithreading, Spring Boot, REST APIs, JPA and SQL</strong>.
+            The answers are short and interview-friendly, so freshers and experienced candidates can understand them and explain them in their own words.
+          </p>
+          <ul class="ij-hero-stats">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>5</strong><span>topics</span></li>
+            <li><strong>10</strong><span>practical tasks</span></li>
+          </ul>
+          <ul class="wd-toc" aria-label="Topics">
+            <li><a href="#wd-1">Core Java and OOP</a></li><li><a href="#wd-2">Collections and exceptions</a></li><li><a href="#wd-3">Multithreading and memory</a></li><li><a href="#wd-4">Spring Boot and REST APIs</a></li><li><a href="#wd-5">JPA, databases and microservices</a></li>
+            <li><a href="#wd-practice">Practical tasks</a></li>
+          </ul>
+          <div class="wd-tools">
+            <button type="button" class="ij-btn ij-btn--yellow" data-wd-expand="open">Expand all answers</button>
+            <button type="button" class="ij-btn" data-wd-expand="close">Collapse all</button>
+          </div>
+        </div>
+      </section>
+
+
+      <nav class="hub-tabs" aria-label="Interview & career hub">
+        <div class="ij-wrap"><div class="hub-tabs-track">
+          <a href="/interview/">Overview</a>
+          <a href="/interview/preparation/">Preparation</a><a href="/interview/questions/" aria-current="page">Questions</a><a href="/interview/learning/">Learning</a><a href="/interview/email-guide/">Email guide</a><a href="/interview/resume-ats/">Resume & ATS</a>
+          <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
+        </div></div>
+      </nav>
+
+      <section class="ij-section wd-section" id="wd-1" aria-labelledby="wd-1-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 1 · Questions 1–6</p>
+            <h2 id="wd-1-title">Core Java and OOP</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q1"><summary><span class="wd-num">1</span> What are the four pillars of object-oriented programming?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Encapsulation:</strong> keep data private inside a class and expose it through methods.</li><li><strong>Inheritance:</strong> a class reuses and extends another class with <code>extends</code>.</li><li><strong>Polymorphism:</strong> one method call behaves differently depending on the object (overriding) or the arguments (overloading).</li><li><strong>Abstraction:</strong> show what an object does and hide how, using abstract classes and interfaces.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q2"><summary><span class="wd-num">2</span> What is the difference between JDK, JRE and JVM?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>JVM:</strong> runs Java bytecode and makes Java platform-independent.</li><li><strong>JRE:</strong> the JVM plus the core libraries needed to run Java programs.</li><li><strong>JDK:</strong> the JRE plus development tools such as the compiler (<code>javac</code>) and debugger.</li></ul><p>You install the JDK to write Java and the JRE (or a JDK) to run it.</p></div></details>
+            <details class="ij-qa-item" id="wd-q3"><summary><span class="wd-num">3</span> What is the difference between an abstract class and an interface?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li>An <strong>abstract class</strong> can have state (fields), constructors and both abstract and concrete methods. A class can extend only one.</li><li>An <strong>interface</strong> defines a contract. Since Java 8 it can have <code>default</code> and <code>static</code> methods, but no instance state. A class can implement many.</li></ul><p>Use an interface for a capability (&quot;can be saved&quot;, &quot;can be compared&quot;) and an abstract class to share common code between closely related classes.</p></div></details>
+            <details class="ij-qa-item" id="wd-q4"><summary><span class="wd-num">4</span> What is the difference between method overloading and overriding?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Overloading:</strong> same method name, different parameter lists, in the same class. Decided at compile time.</li><li><strong>Overriding:</strong> a subclass provides its own version of a parent method with the same signature. Decided at runtime.</li></ul><pre><code>class Shape { double area() { return 0; } }
+class Circle extends Shape {
+  double r;
+  @Override double area() { return Math.PI * r * r; }
+}</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q5"><summary><span class="wd-num">5</span> Why are Strings immutable in Java, and when do you use StringBuilder?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A <code>String</code> can't change after it's created. That makes strings safe to share between threads, lets Java reuse them from the string pool, and keeps hash codes stable for use as map keys.</p><p>Each change to a String creates a new object, so when you build text in a loop, use <code>StringBuilder</code>, which changes one buffer in place.</p></div></details>
+            <details class="ij-qa-item" id="wd-q6"><summary><span class="wd-num">6</span> What is the difference between == and equals()?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><code>==</code> compares references: are both variables pointing to the same object?</li><li><code>equals()</code> compares content, if the class overrides it (String, Integer and most library classes do).</li></ul><pre><code>String a = new String(&quot;java&quot;);
+String b = new String(&quot;java&quot;);
+a == b;      // false – different objects
+a.equals(b); // true  – same content</code></pre><p>If you override <code>equals()</code>, also override <code>hashCode()</code> so equal objects have equal hash codes.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-2" aria-labelledby="wd-2-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 2 · Questions 7–12</p>
+            <h2 id="wd-2-title">Collections and exceptions</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q7"><summary><span class="wd-num">7</span> What is the difference between ArrayList and LinkedList?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>ArrayList</strong> uses a resizable array: fast random access by index, slower inserts and removes in the middle.</li><li><strong>LinkedList</strong> uses linked nodes: fast inserts and removes at the ends, slow access by index.</li></ul><p>In practice ArrayList is the default choice for most lists.</p></div></details>
+            <details class="ij-qa-item" id="wd-q8"><summary><span class="wd-num">8</span> How does a HashMap work internally?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A HashMap stores entries in an array of buckets. For each key it calculates <code>hashCode()</code>, maps that to a bucket, and stores the key-value pair there. If two keys land in the same bucket (a collision), they are chained together; since Java 8 a long chain becomes a balanced tree.</p><p>On <code>get()</code>, it finds the bucket from the hash and uses <code>equals()</code> to find the exact key. When the map gets too full (load factor 0.75 by default) it resizes and redistributes entries.</p></div></details>
+            <details class="ij-qa-item" id="wd-q9"><summary><span class="wd-num">9</span> What is the difference between HashMap, LinkedHashMap and TreeMap?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>HashMap:</strong> no ordering; fastest for general use.</li><li><strong>LinkedHashMap:</strong> keeps insertion order (or access order, useful for LRU caches).</li><li><strong>TreeMap:</strong> keeps keys sorted; operations take O(log n).</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q10"><summary><span class="wd-num">10</span> What is the difference between checked and unchecked exceptions?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Checked exceptions</strong> (such as <code>IOException</code>) must be handled with try-catch or declared with <code>throws</code>. The compiler enforces this.</li><li><strong>Unchecked exceptions</strong> (subclasses of <code>RuntimeException</code>, such as <code>NullPointerException</code>) usually signal programming errors and don't have to be declared.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q11"><summary><span class="wd-num">11</span> What is try-with-resources?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It automatically closes resources such as files, streams and database connections when the block ends, even if an exception is thrown. The resource must implement <code>AutoCloseable</code>.</p><pre><code>try (BufferedReader br = new BufferedReader(new FileReader(&quot;data.txt&quot;))) {
+  System.out.println(br.readLine());
+}</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q12"><summary><span class="wd-num">12</span> What are Java 8 streams and lambdas?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A lambda is a short way to write a function, such as <code>x -&gt; x * 2</code>. Streams let you process collections in a pipeline of steps like filter, map and collect.</p><pre><code>List&lt;String&gt; names = employees.stream()
+    .filter(e -&gt; e.getSalary() &gt; 50000)
+    .map(Employee::getName)
+    .sorted()
+    .toList();</code></pre><p>Streams make data processing shorter and easier to read; they don't change the original collection.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-3" aria-labelledby="wd-3-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 3 · Questions 13–17</p>
+            <h2 id="wd-3-title">Multithreading and memory</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q13"><summary><span class="wd-num">13</span> What is the difference between a process and a thread?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A process is a running program with its own memory. A thread is a unit of execution inside a process; threads of the same process share its memory. Threads are lighter to create, but shared memory means you must handle synchronisation.</p></div></details>
+            <details class="ij-qa-item" id="wd-q14"><summary><span class="wd-num">14</span> What does the synchronized keyword do?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It lets only one thread at a time run a block or method on the same lock (object). This prevents race conditions when threads update shared data. Overusing it can slow the program or cause deadlocks, so keep synchronised sections small.</p></div></details>
+            <details class="ij-qa-item" id="wd-q15"><summary><span class="wd-num">15</span> What is the volatile keyword?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p><code>volatile</code> makes every read of a variable come from main memory, so all threads see the latest value. It guarantees visibility but not atomicity — <code>count++</code> on a volatile is still unsafe. For atomic counters use <code>AtomicInteger</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q16"><summary><span class="wd-num">16</span> What is an ExecutorService and why use it instead of creating threads?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>ExecutorService manages a pool of reusable threads. You submit tasks and it runs them, which avoids the cost of creating a new thread for every task and limits how many run at once.</p><pre><code>ExecutorService pool = Executors.newFixedThreadPool(4);
+Future&lt;Integer&gt; result = pool.submit(() -&gt; computeTotal());
+pool.shutdown();</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q17"><summary><span class="wd-num">17</span> How does garbage collection work in Java?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>The JVM automatically frees memory used by objects that are no longer reachable from any live reference. The heap is split into generations: new objects start in the young generation, and long-lived objects move to the old generation. Most objects die young, so collecting the young generation often is efficient. You can't force GC; <code>System.gc()</code> is only a request.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-4" aria-labelledby="wd-4-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 4 · Questions 18–23</p>
+            <h2 id="wd-4-title">Spring Boot and REST APIs</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q18"><summary><span class="wd-num">18</span> What is Spring Boot and how is it different from Spring?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Spring is a framework for building Java applications with dependency injection. Spring Boot sits on top of it and removes setup work: auto-configuration, starter dependencies, an embedded server (Tomcat) and sensible defaults. You can run a production-ready app with <code>java -jar</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q19"><summary><span class="wd-num">19</span> What is dependency injection?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Instead of a class creating the objects it needs, the framework creates them and passes them in. This makes code loosely coupled and easy to test with mock objects. Constructor injection is the recommended style:</p><pre><code>@Service
+public class OrderService {
+  private final OrderRepository repo;
+  public OrderService(OrderRepository repo) { this.repo = repo; }
+}</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q20"><summary><span class="wd-num">20</span> What is the difference between @Component, @Service, @Repository and @Controller?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>All four mark a class as a Spring bean. The specialised ones show the class's layer:</p><ul><li><strong>@Controller / @RestController:</strong> handles web requests.</li><li><strong>@Service:</strong> business logic.</li><li><strong>@Repository:</strong> data access; it also translates database exceptions into Spring's exceptions.</li><li><strong>@Component:</strong> any other general bean.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q21"><summary><span class="wd-num">21</span> How do you build a REST endpoint in Spring Boot?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><pre><code>@RestController
+@RequestMapping(&quot;/api/users&quot;)
+public class UserController {
+  private final UserService service;
+  public UserController(UserService service) { this.service = service; }
+
+  @GetMapping(&quot;/{id}&quot;)
+  public UserDto get(@PathVariable Long id) { return service.find(id); }
+
+  @PostMapping
+  public ResponseEntity&lt;UserDto&gt; create(@Valid @RequestBody UserDto dto) {
+    return ResponseEntity.status(HttpStatus.CREATED).body(service.create(dto));
+  }
+}</code></pre><p><code>@RestController</code> returns JSON by default, and <code>@Valid</code> triggers bean validation on the request body.</p></div></details>
+            <details class="ij-qa-item" id="wd-q22"><summary><span class="wd-num">22</span> How do you handle exceptions globally in Spring Boot?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use a class annotated with <code>@RestControllerAdvice</code> and methods with <code>@ExceptionHandler</code>. It catches exceptions from all controllers and returns a consistent error response with the right HTTP status, instead of repeating try-catch in every controller.</p></div></details>
+            <details class="ij-qa-item" id="wd-q23"><summary><span class="wd-num">23</span> What are Spring profiles?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Profiles let you keep different settings for different environments, such as <code>application-dev.yml</code> and <code>application-prod.yml</code>. You activate one with <code>spring.profiles.active=prod</code>, so the same build can run with dev or production database URLs and credentials.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-5" aria-labelledby="wd-5-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 5 · Questions 24–30</p>
+            <h2 id="wd-5-title">JPA, databases and microservices</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q24"><summary><span class="wd-num">24</span> What is JPA and how does Hibernate relate to it?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>JPA is the Java standard for mapping objects to database tables (ORM). Hibernate is the most common implementation of JPA. Spring Data JPA adds repositories so you can write <code>findByEmail(String email)</code> and get the query generated for you.</p></div></details>
+            <details class="ij-qa-item" id="wd-q25"><summary><span class="wd-num">25</span> What is the N+1 query problem and how do you fix it?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It happens when you load a list of N parent records with one query, then each parent's children are loaded lazily with one more query each — N+1 queries in total. Fix it with a fetch join (<code>JOIN FETCH</code>), an entity graph, or batch fetching, so related data comes in one or a few queries.</p></div></details>
+            <details class="ij-qa-item" id="wd-q26"><summary><span class="wd-num">26</span> What is the difference between lazy and eager loading?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Lazy:</strong> related data loads only when you access it. It's the default for collections and saves memory, but can cause N+1 queries or a <code>LazyInitializationException</code> outside a transaction.</li><li><strong>Eager:</strong> related data loads immediately with the parent. Simple, but can pull in much more data than needed.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q27"><summary><span class="wd-num">27</span> What does @Transactional do?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It runs a method inside a database transaction: if the method finishes, changes are committed; if a runtime exception is thrown, they are rolled back. It works through Spring proxies, so calling a <code>@Transactional</code> method from inside the same class bypasses it.</p></div></details>
+            <details class="ij-qa-item" id="wd-q28"><summary><span class="wd-num">28</span> What are microservices, and what are their pros and cons?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Microservices split an application into small, independently deployable services, each owning one business area and its own data.</p><ul><li><strong>Pros:</strong> independent deployment and scaling, smaller codebases, teams can work separately.</li><li><strong>Cons:</strong> network calls between services, harder debugging, distributed data and more infrastructure (service discovery, monitoring, API gateway).</li></ul><p>A well-structured monolith is often the better start for a small team.</p></div></details>
+            <details class="ij-qa-item" id="wd-q29"><summary><span class="wd-num">29</span> How do you secure a Spring Boot REST API?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use Spring Security. Common setup: users log in and receive a JWT (or OAuth2 token), every request sends it in the <code>Authorization</code> header, and a filter validates it. Add role-based access with <code>@PreAuthorize</code> or URL rules, hash passwords with BCrypt, use HTTPS and validate all input.</p></div></details>
+            <details class="ij-qa-item" id="wd-q30"><summary><span class="wd-num">30</span> How do you improve the performance of a slow Spring Boot API?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Measure first: logs, APM tools or the database's slow query log.</li><li>Fix database issues: add indexes, remove N+1 queries, fetch only needed columns, paginate results.</li><li>Cache repeated reads (<code>@Cacheable</code>, Redis).</li><li>Move slow work to background jobs or message queues.</li><li>Tune connection pool and thread pool sizes.</li></ol></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft" id="wd-practice" aria-labelledby="wd-practice-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Beyond the 30 questions</p>
+            <h2 id="wd-practice-title">Practical interview tasks</h2>
+            <p>Interviewers also ask you to write code and talk through your work. Practise these too.</p>
+          </div>
+          <div class="ij-table-wrap" tabindex="0" role="region" aria-label="Practical tasks to prepare"><table class="ij-table"><caption>Practical tasks to prepare</caption><thead><tr><th scope="col">Area</th><th scope="col">Practise this</th></tr></thead><tbody><tr><th scope="row">Core Java</th><td data-label="Practise this">Reverse a string and check for a palindrome</td></tr><tr><th scope="row">Core Java</th><td data-label="Practise this">Find duplicate elements in an array using a HashMap</td></tr><tr><th scope="row">Collections</th><td data-label="Practise this">Sort a list of employees by salary using a Comparator</td></tr><tr><th scope="row">Streams</th><td data-label="Practise this">Group employees by department and count them</td></tr><tr><th scope="row">Multithreading</th><td data-label="Practise this">Print odd and even numbers with two threads</td></tr><tr><th scope="row">Spring Boot</th><td data-label="Practise this">Build a CRUD REST API for products with validation</td></tr><tr><th scope="row">Spring Boot</th><td data-label="Practise this">Add global exception handling with proper status codes</td></tr><tr><th scope="row">JPA</th><td data-label="Practise this">Write a repository query with pagination and sorting</td></tr><tr><th scope="row">SQL</th><td data-label="Practise this">Find the second-highest salary</td></tr><tr><th scope="row">Projects</th><td data-label="Practise this">Explain your project's layers: controller, service, repository</td></tr></tbody></table></div>
+          <p class="ij-small" style="margin-top:16px">
+            Want hands-on practice? Follow the <a href="/interview/learning/java-backend/">java backend learning path</a>, try the
+            <a href="/learning/">InfoparkDaily Learning</a> tutorials and quizzes, or browse the full <a href="/interview/questions/">interview question bank</a>.
+            Ready to apply? See the latest <a href="/jobs/">IT jobs</a>.
+          </p>
+          <h3 class="hub-h3" style="margin-top:22px">More interview guides</h3>
+          <ul class="wd-toc"><li><a href="/interview/questions/web-development/">Web development (70)</a></li><li><a href="/interview/questions/python-development/">Python development (30)</a></li><li><a href="/interview/questions/sql-databases/">SQL &amp; databases (30)</a></li><li><a href="/interview/questions/software-testing/">Software testing (QA) (30)</a></li><li><a href="/interview/questions/data-analyst/">Data analyst (30)</a></li><li><a href="/interview/questions/devops-cloud/">DevOps &amp; cloud (30)</a></li></ul>
+          <p class="ij-small">Original content by InfoparkDaily Learning. Answers are guidance — explain them in your own words and add examples from your projects.</p>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft hub-related" id="more" aria-labelledby="hub-related-title">
+        <div class="ij-wrap">
+          <div class="rel-head">
+            <div>
+              <p class="ij-eyebrow">Keep learning</p>
+              <h2 id="hub-related-title">Continue your preparation</h2>
+              <p>Pick your next course. Everything is free and saves progress on this device.</p>
+            </div>
+            <a class="rel-back" href="/interview/">← Back to academy overview</a>
+          </div>
+          <div class="rel-grid">
+            <a class="rel-card rel-card--ink" href="/interview/preparation/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+                <span class="rel-num">Course 01</span>
+                
+              </span>
+              <strong class="rel-title">Interview Preparation</strong>
+              <span class="rel-text">Prepare for interviews step by step — understand each round, improve communication and walk in confident.</span>
+              <span class="rel-foot"><span class="rel-meta">17 chapters · 3.5 hrs</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Explore preparation</span>
+            </a><a class="rel-card rel-card--soft is-next" href="/interview/learning/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+                <span class="rel-num">Course 03</span>
+                <span class="rel-next">Up next</span>
+              </span>
+              <strong class="rel-title">Learning & Skill Development</strong>
+              <span class="rel-text">Build the technical and professional skills employers test — with free courses, certifications and roadmaps.</span>
+              <span class="rel-foot"><span class="rel-meta">31 learning paths · live code</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Start learning</span>
+            </a><a class="rel-card rel-card--ink" href="/interview/email-guide/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+                <span class="rel-num">Course 04</span>
+                
+              </span>
+              <strong class="rel-title">Professional Email Guide</strong>
+              <span class="rel-text">Write professional emails for applying, sending your resume, following up and replying to recruiters.</span>
+              <span class="rel-foot"><span class="rel-meta">11 templates · 20 min</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Open email guide</span>
+            </a><a class="rel-card rel-card--cream" href="/interview/resume-ats/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+                <span class="rel-num">Course 05</span>
+                
+              </span>
+              <strong class="rel-title">Resume & ATS Preparation</strong>
+              <span class="rel-text">Build a professional resume and understand how applicant tracking systems screen it.</span>
+              <span class="rel-foot"><span class="rel-meta">5 modules · 2 free tools</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Resume & ATS guide</span>
+            </a>
+          </div>
+          <div class="rel-strip">
+            <span>Ready to apply?</span>
+            <a href="/jobs/">Find jobs on InfoparkDaily →</a>
+            <a href="/resume-builder/templates/">Build resume</a>
+            <a href="/ats-checker/">Check ATS score</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-wd-expand]");
+        if (!b) return;
+        var open = b.getAttribute("data-wd-expand") === "open";
+        document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
+      });
+    </script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

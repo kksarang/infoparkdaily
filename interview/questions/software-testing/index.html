@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Software testing (QA) Interview Questions &amp; Answers (30) | InfoparkDaily</title>
+    <meta
+      name="description"
+      content="30 important software testing (qa) interview questions with simple answers: testing fundamentals, test design, defects, test types, Agile, Selenium automation, API testing and test strategy. Free, for freshers and experienced candidates."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Software testing (QA) – 30 Important Interview Questions &amp; Answers" />
+    <meta property="og:description" content="testing fundamentals, test design, defects, test types, Agile, Selenium automation, API testing and test strategy — fresher to experienced." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://infoparkdaily.online/interview/questions/software-testing/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/interview/questions/software-testing/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","name":"Software testing (QA) – 30 Important Interview Questions & Answers","url":"https://infoparkdaily.online/interview/questions/software-testing/","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"InfoparkDaily","url":"https://infoparkdaily.online"},"mainEntity":[{"@type":"Question","name":"What is software testing and why is it important?","acceptedAnswer":{"@type":"Answer","text":"Software testing checks whether an application works as expected and finds defects before users do. It reduces the risk of failures, protects the company's reputation and saves money — bugs found late, in production, cost far more to fix than bugs found early."}},{"@type":"Question","name":"What is the difference between verification and validation?","acceptedAnswer":{"@type":"Answer","text":"- Verification: \"Are we building the product right?\" Reviews of requirements, designs and code against specifications, often without running the software. - Validation: \"Are we building the right product?\" Running the software to confirm it meets the user's actual needs."}},{"@type":"Question","name":"What is the difference between SDLC and STLC?","acceptedAnswer":{"@type":"Answer","text":"SDLC (Software Development Life Cycle) covers the whole process of building software: requirements, design, development, testing, deployment and maintenance. STLC (Software Testing Life Cycle) is the testing part: requirement analysis, test planning, test case design, environment setup, test execution and test closure."}},{"@type":"Question","name":"What is the difference between an error, a defect and a failure?","acceptedAnswer":{"@type":"Answer","text":"- Error (mistake): a human mistake, such as a developer misreading a requirement. - Defect (bug): the flaw that mistake creates in the code. - Failure: what the user sees when the defective code runs and the system behaves wrongly."}},{"@type":"Question","name":"What is the difference between black-box, white-box and grey-box testing?","acceptedAnswer":{"@type":"Answer","text":"- Black-box: test inputs and outputs without looking at the code. - White-box: test with knowledge of the internal code — paths, branches, conditions. - Grey-box: partial knowledge, such as knowing the database structure while testing through the UI."}},{"@type":"Question","name":"Explain the seven principles of testing.","acceptedAnswer":{"@type":"Answer","text":"1. Testing shows that defects are present, not that there are none. 2. Exhaustive testing is impossible — prioritise by risk. 3. Test early; defects are cheaper to fix early. 4. Defects cluster in a few modules. 5. Repeating the same tests stops finding new bugs (the pesticide paradox), so update tests. 6. Testing depends on context — a banking app isn't tested like a game. 7. A bug-free system that doesn't meet user needs is still a failure."}},{"@type":"Question","name":"What is a test case, and what does a good one contain?","acceptedAnswer":{"@type":"Answer","text":"A test case is a set of steps to check one behaviour. A good one has an ID, title, preconditions, test data, clear steps, the expected result, the actual result and a status. Anyone should be able to run it and get the same outcome."}},{"@type":"Question","name":"What is the difference between a test plan and a test strategy?","acceptedAnswer":{"@type":"Answer","text":"- Test strategy: high-level and often organisation-wide — the overall approach, test levels, tools and standards. - Test plan: project-specific — scope, schedule, resources, environments, entry and exit criteria, risks and deliverables."}},{"@type":"Question","name":"What are equivalence partitioning and boundary value analysis?","acceptedAnswer":{"@type":"Answer","text":"Both reduce the number of test cases while keeping good coverage. For an age field that accepts 18 to 60: - Equivalence partitioning: pick one value from each group — below 18 (invalid), 18–60 (valid), above 60 (invalid). - Boundary value analysis: test at and around the edges, where bugs are most common — 17, 18, 19 and 59, 60, 61."}},{"@type":"Question","name":"What is a traceability matrix (RTM)?","acceptedAnswer":{"@type":"Answer","text":"A table that maps each requirement to the test cases that cover it, and then to their results and defects. It shows that every requirement is tested and helps judge the impact when a requirement changes."}},{"@type":"Question","name":"What are positive and negative testing?","acceptedAnswer":{"@type":"Answer","text":"- Positive testing: valid inputs, checking the system does what it should — a correct login works. - Negative testing: invalid or unexpected inputs, checking the system handles them safely — a wrong password shows an error and doesn't crash."}},{"@type":"Question","name":"Explain the defect life cycle.","acceptedAnswer":{"@type":"Answer","text":"New → Assigned → Open → Fixed → Retest → Closed. Along the way a defect can also be Rejected (not a bug), Deferred (fix later), marked Duplicate, or Reopened if the retest fails."}},{"@type":"Question","name":"What is the difference between severity and priority?","acceptedAnswer":{"@type":"Answer","text":"- Severity: how badly the defect affects the system (technical impact). - Priority: how soon it should be fixed (business urgency). Example: a spelling mistake in the company name on the home page is low severity but high priority. A crash in a rarely used report is high severity but may be lower priority."}},{"@type":"Question","name":"What makes a good bug report?","acceptedAnswer":{"@type":"Answer","text":"A clear title, environment (build, browser, device), steps to reproduce, expected result, actual result, severity, and evidence such as screenshots, videos or logs. The developer should be able to reproduce it without asking you questions."}},{"@type":"Question","name":"What is the difference between smoke and sanity testing?","acceptedAnswer":{"@type":"Answer","text":"- Smoke testing: a quick, broad check of a new build's critical features to decide if it's stable enough for detailed testing. - Sanity testing: a quick, narrow check that a specific fix or change works, before deeper regression testing."}},{"@type":"Question","name":"What is the difference between regression testing and retesting?","acceptedAnswer":{"@type":"Answer","text":"- Retesting: run the failed test again to confirm a specific defect is fixed. - Regression testing: run a wider set of tests to make sure the change didn't break anything that used to work. Regression suites are the first candidates for automation."}},{"@type":"Question","name":"What is the difference between functional and non-functional testing?","acceptedAnswer":{"@type":"Answer","text":"- Functional: does the feature do what it should? Login, search, payment flow. - Non-functional: how well does it work? Performance, load, security, usability, compatibility."}},{"@type":"Question","name":"What is UAT?","acceptedAnswer":{"@type":"Answer","text":"User Acceptance Testing is done by end users or the client, usually in the final stage, to confirm the software meets business needs in real-world scenarios. Alpha testing happens at the developer's site; beta testing is done by real users in their own environment."}},{"@type":"Question","name":"What is the role of a tester in an Agile team?","acceptedAnswer":{"@type":"Answer","text":"Testers join from the start of each sprint: they clarify user stories and acceptance criteria, design tests while development happens, test stories as soon as they're ready, automate regression, and take part in stand-ups, sprint planning and retrospectives. Quality is the whole team's responsibility."}},{"@type":"Question","name":"What is exploratory testing?","acceptedAnswer":{"@type":"Answer","text":"Testing without pre-written scripts, where the tester learns the application, designs tests and runs them at the same time, guided by experience. It's good at finding unexpected bugs. Time-boxed sessions with a goal (a \"charter\") keep it focused."}},{"@type":"Question","name":"What are entry and exit criteria?","acceptedAnswer":{"@type":"Answer","text":"- Entry criteria: conditions to start testing — requirements signed off, build deployed, test environment and data ready. - Exit criteria: conditions to stop — planned tests executed, no open critical defects, coverage targets met."}},{"@type":"Question","name":"When should you automate a test, and when shouldn't you?","acceptedAnswer":{"@type":"Answer","text":"Automate tests that are repeated often (regression, smoke), stable, data-driven or tedious to do by hand. Don't automate one-time tests, features that change constantly, or checks that need human judgement such as usability and visual design."}},{"@type":"Question","name":"What is Selenium WebDriver?","acceptedAnswer":{"@type":"Answer","text":"Selenium WebDriver is an open-source tool that controls real browsers (Chrome, Firefox, Edge) through code, so you can automate web UI tests. It supports Java, Python, C#, JavaScript and more, and is usually combined with a test framework such as TestNG, JUnit or pytest."}},{"@type":"Question","name":"What locators does Selenium support, and which is best?","acceptedAnswer":{"@type":"Answer","text":"ID, name, class name, tag name, link text, partial link text, CSS selector and XPath. Prefer a unique, stable ID, then CSS selectors. Use XPath when you need to find elements by text or move up the DOM. Avoid long absolute XPaths, which break when the page changes."}},{"@type":"Question","name":"What is the difference between implicit, explicit and fluent waits?","acceptedAnswer":{"@type":"Answer","text":"- Implicit wait: a global timeout for finding any element. - Explicit wait: waits for a specific condition on a specific element, such as \"clickable\" — the most reliable choice. - Fluent wait: an explicit wait with a custom polling interval and exceptions to ignore. Avoid fixed Thread.sleep() calls; they make tests slow and flaky."}},{"@type":"Question","name":"What is the Page Object Model?","acceptedAnswer":{"@type":"Answer","text":"A design pattern where each page of the app has a class holding its locators and actions (such as login(user, pass) ). Tests call those methods instead of using locators directly. When the UI changes, you update one page class instead of every test."}},{"@type":"Question","name":"How do you test a REST API?","acceptedAnswer":{"@type":"Answer","text":"Send requests with Postman or code (REST Assured, pytest with requests) and check: - Status codes (200, 201, 400, 401, 404, 500) - Response body and its schema - Headers and response time - Authentication and authorisation - Error handling for invalid and missing input // REST Assured (Java) given().header(\"Authorization\", \"Bearer \" + token) .when().get(\"/api/users/1\") .then().statusCode(200).body(\"name\", equalTo(\"Anu\"));"}},{"@type":"Question","name":"How do you handle flaky automated tests?","acceptedAnswer":{"@type":"Answer","text":"Find the cause instead of just re-running: usually timing (use explicit waits), shared or changing test data (make each test create its own data), test order dependency, or an unstable environment. Quarantine a flaky test until it's fixed so it doesn't hide real failures."}},{"@type":"Question","name":"How does test automation fit into CI/CD?","acceptedAnswer":{"@type":"Answer","text":"Automated tests run on every commit or pull request in a pipeline (Jenkins, GitHub Actions, GitLab CI). Fast unit and API tests run first; slower UI tests run later or nightly. A failing test stops the pipeline, so broken code doesn't reach production."}},{"@type":"Question","name":"What is the test pyramid?","acceptedAnswer":{"@type":"Answer","text":"Many fast unit tests at the bottom, fewer API and integration tests in the middle, and a small number of slow UI end-to-end tests at the top. This gives fast feedback and stable suites. An \"ice-cream cone\" — mostly UI tests — is slow and fragile."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Interview hub","item":"https://infoparkdaily.online/interview/"},{"@type":"ListItem","position":3,"name":"Interview questions","item":"https://infoparkdaily.online/interview/questions/"},{"@type":"ListItem","position":4,"name":"Software testing (QA)","item":"https://infoparkdaily.online/interview/questions/software-testing/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <style>
+      .wd-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin-right: 6px; border-radius: 8px; background: var(--ij-ink, #12151b); color: #fff; font-size: 0.8rem; font-weight: 800; }
+      .wd-qa .ij-qa-body ul, .wd-qa .ij-qa-body ol { margin: 6px 0 8px; padding-left: 1.3em; }
+      .wd-qa .ij-qa-body li { margin: 3px 0; }
+      .wd-qa .ij-qa-body code { font-size: 0.88em; }
+      .wd-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .wd-toc a { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid rgba(18, 21, 27, 0.14); font-weight: 600; font-size: 0.88rem; text-decoration: none; color: inherit; }
+      .wd-toc a:hover { border-color: #12151b; }
+      .wd-tools { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    </style>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page iq-page light">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="ij-hero iq-hero" aria-labelledby="wd-title">
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <a href="/interview/questions/">Interview questions</a> / <span aria-current="page">Software testing (QA)</span></nav>
+          <p class="ij-badge-hero"><b>FREE</b> InfoparkDaily Learning · Fresher to experienced</p>
+          <h1 id="wd-title">Software testing (QA)<br /><span>30 important interview questions.</span></h1>
+          <p class="ij-lede">
+            Prepare for software testing (qa) interviews with 30 important questions and answers on <strong>testing fundamentals, test design, defects, test types, Agile, Selenium automation, API testing and test strategy</strong>.
+            The answers are short and interview-friendly, so freshers and experienced candidates can understand them and explain them in their own words.
+          </p>
+          <ul class="ij-hero-stats">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>5</strong><span>topics</span></li>
+            <li><strong>9</strong><span>practical tasks</span></li>
+          </ul>
+          <ul class="wd-toc" aria-label="Topics">
+            <li><a href="#wd-1">Testing fundamentals</a></li><li><a href="#wd-2">Test design and documentation</a></li><li><a href="#wd-3">Defects and test types</a></li><li><a href="#wd-4">Agile and QA process</a></li><li><a href="#wd-5">Automation and API testing</a></li>
+            <li><a href="#wd-practice">Practical tasks</a></li>
+          </ul>
+          <div class="wd-tools">
+            <button type="button" class="ij-btn ij-btn--yellow" data-wd-expand="open">Expand all answers</button>
+            <button type="button" class="ij-btn" data-wd-expand="close">Collapse all</button>
+          </div>
+        </div>
+      </section>
+
+
+      <nav class="hub-tabs" aria-label="Interview & career hub">
+        <div class="ij-wrap"><div class="hub-tabs-track">
+          <a href="/interview/">Overview</a>
+          <a href="/interview/preparation/">Preparation</a><a href="/interview/questions/" aria-current="page">Questions</a><a href="/interview/learning/">Learning</a><a href="/interview/email-guide/">Email guide</a><a href="/interview/resume-ats/">Resume & ATS</a>
+          <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
+        </div></div>
+      </nav>
+
+      <section class="ij-section wd-section" id="wd-1" aria-labelledby="wd-1-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 1 · Questions 1–6</p>
+            <h2 id="wd-1-title">Testing fundamentals</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q1"><summary><span class="wd-num">1</span> What is software testing and why is it important?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Software testing checks whether an application works as expected and finds defects before users do. It reduces the risk of failures, protects the company's reputation and saves money — bugs found late, in production, cost far more to fix than bugs found early.</p></div></details>
+            <details class="ij-qa-item" id="wd-q2"><summary><span class="wd-num">2</span> What is the difference between verification and validation?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Verification:</strong> &quot;Are we building the product right?&quot; Reviews of requirements, designs and code against specifications, often without running the software.</li><li><strong>Validation:</strong> &quot;Are we building the right product?&quot; Running the software to confirm it meets the user's actual needs.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q3"><summary><span class="wd-num">3</span> What is the difference between SDLC and STLC?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>SDLC (Software Development Life Cycle) covers the whole process of building software: requirements, design, development, testing, deployment and maintenance. STLC (Software Testing Life Cycle) is the testing part: requirement analysis, test planning, test case design, environment setup, test execution and test closure.</p></div></details>
+            <details class="ij-qa-item" id="wd-q4"><summary><span class="wd-num">4</span> What is the difference between an error, a defect and a failure?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Error (mistake):</strong> a human mistake, such as a developer misreading a requirement.</li><li><strong>Defect (bug):</strong> the flaw that mistake creates in the code.</li><li><strong>Failure:</strong> what the user sees when the defective code runs and the system behaves wrongly.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q5"><summary><span class="wd-num">5</span> What is the difference between black-box, white-box and grey-box testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Black-box:</strong> test inputs and outputs without looking at the code.</li><li><strong>White-box:</strong> test with knowledge of the internal code — paths, branches, conditions.</li><li><strong>Grey-box:</strong> partial knowledge, such as knowing the database structure while testing through the UI.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q6"><summary><span class="wd-num">6</span> Explain the seven principles of testing.</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Testing shows that defects are present, not that there are none.</li><li>Exhaustive testing is impossible — prioritise by risk.</li><li>Test early; defects are cheaper to fix early.</li><li>Defects cluster in a few modules.</li><li>Repeating the same tests stops finding new bugs (the pesticide paradox), so update tests.</li><li>Testing depends on context — a banking app isn't tested like a game.</li><li>A bug-free system that doesn't meet user needs is still a failure.</li></ol></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-2" aria-labelledby="wd-2-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 2 · Questions 7–11</p>
+            <h2 id="wd-2-title">Test design and documentation</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q7"><summary><span class="wd-num">7</span> What is a test case, and what does a good one contain?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A test case is a set of steps to check one behaviour. A good one has an ID, title, preconditions, test data, clear steps, the expected result, the actual result and a status. Anyone should be able to run it and get the same outcome.</p></div></details>
+            <details class="ij-qa-item" id="wd-q8"><summary><span class="wd-num">8</span> What is the difference between a test plan and a test strategy?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Test strategy:</strong> high-level and often organisation-wide — the overall approach, test levels, tools and standards.</li><li><strong>Test plan:</strong> project-specific — scope, schedule, resources, environments, entry and exit criteria, risks and deliverables.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q9"><summary><span class="wd-num">9</span> What are equivalence partitioning and boundary value analysis?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Both reduce the number of test cases while keeping good coverage. For an age field that accepts 18 to 60:</p><ul><li><strong>Equivalence partitioning:</strong> pick one value from each group — below 18 (invalid), 18–60 (valid), above 60 (invalid).</li><li><strong>Boundary value analysis:</strong> test at and around the edges, where bugs are most common — 17, 18, 19 and 59, 60, 61.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q10"><summary><span class="wd-num">10</span> What is a traceability matrix (RTM)?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A table that maps each requirement to the test cases that cover it, and then to their results and defects. It shows that every requirement is tested and helps judge the impact when a requirement changes.</p></div></details>
+            <details class="ij-qa-item" id="wd-q11"><summary><span class="wd-num">11</span> What are positive and negative testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Positive testing:</strong> valid inputs, checking the system does what it should — a correct login works.</li><li><strong>Negative testing:</strong> invalid or unexpected inputs, checking the system handles them safely — a wrong password shows an error and doesn't crash.</li></ul></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-3" aria-labelledby="wd-3-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 3 · Questions 12–18</p>
+            <h2 id="wd-3-title">Defects and test types</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q12"><summary><span class="wd-num">12</span> Explain the defect life cycle.</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>New → Assigned → Open → Fixed → Retest → Closed. Along the way a defect can also be Rejected (not a bug), Deferred (fix later), marked Duplicate, or Reopened if the retest fails.</p></div></details>
+            <details class="ij-qa-item" id="wd-q13"><summary><span class="wd-num">13</span> What is the difference between severity and priority?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Severity:</strong> how badly the defect affects the system (technical impact).</li><li><strong>Priority:</strong> how soon it should be fixed (business urgency).</li></ul><p>Example: a spelling mistake in the company name on the home page is low severity but high priority. A crash in a rarely used report is high severity but may be lower priority.</p></div></details>
+            <details class="ij-qa-item" id="wd-q14"><summary><span class="wd-num">14</span> What makes a good bug report?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A clear title, environment (build, browser, device), steps to reproduce, expected result, actual result, severity, and evidence such as screenshots, videos or logs. The developer should be able to reproduce it without asking you questions.</p></div></details>
+            <details class="ij-qa-item" id="wd-q15"><summary><span class="wd-num">15</span> What is the difference between smoke and sanity testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Smoke testing:</strong> a quick, broad check of a new build's critical features to decide if it's stable enough for detailed testing.</li><li><strong>Sanity testing:</strong> a quick, narrow check that a specific fix or change works, before deeper regression testing.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q16"><summary><span class="wd-num">16</span> What is the difference between regression testing and retesting?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Retesting:</strong> run the failed test again to confirm a specific defect is fixed.</li><li><strong>Regression testing:</strong> run a wider set of tests to make sure the change didn't break anything that used to work.</li></ul><p>Regression suites are the first candidates for automation.</p></div></details>
+            <details class="ij-qa-item" id="wd-q17"><summary><span class="wd-num">17</span> What is the difference between functional and non-functional testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Functional:</strong> does the feature do what it should? Login, search, payment flow.</li><li><strong>Non-functional:</strong> how well does it work? Performance, load, security, usability, compatibility.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q18"><summary><span class="wd-num">18</span> What is UAT?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>User Acceptance Testing is done by end users or the client, usually in the final stage, to confirm the software meets business needs in real-world scenarios. Alpha testing happens at the developer's site; beta testing is done by real users in their own environment.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-4" aria-labelledby="wd-4-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 4 · Questions 19–21</p>
+            <h2 id="wd-4-title">Agile and QA process</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q19"><summary><span class="wd-num">19</span> What is the role of a tester in an Agile team?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Testers join from the start of each sprint: they clarify user stories and acceptance criteria, design tests while development happens, test stories as soon as they're ready, automate regression, and take part in stand-ups, sprint planning and retrospectives. Quality is the whole team's responsibility.</p></div></details>
+            <details class="ij-qa-item" id="wd-q20"><summary><span class="wd-num">20</span> What is exploratory testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Testing without pre-written scripts, where the tester learns the application, designs tests and runs them at the same time, guided by experience. It's good at finding unexpected bugs. Time-boxed sessions with a goal (a &quot;charter&quot;) keep it focused.</p></div></details>
+            <details class="ij-qa-item" id="wd-q21"><summary><span class="wd-num">21</span> What are entry and exit criteria?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Entry criteria:</strong> conditions to start testing — requirements signed off, build deployed, test environment and data ready.</li><li><strong>Exit criteria:</strong> conditions to stop — planned tests executed, no open critical defects, coverage targets met.</li></ul></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-5" aria-labelledby="wd-5-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 5 · Questions 22–30</p>
+            <h2 id="wd-5-title">Automation and API testing</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q22"><summary><span class="wd-num">22</span> When should you automate a test, and when shouldn't you?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Automate tests that are repeated often (regression, smoke), stable, data-driven or tedious to do by hand. Don't automate one-time tests, features that change constantly, or checks that need human judgement such as usability and visual design.</p></div></details>
+            <details class="ij-qa-item" id="wd-q23"><summary><span class="wd-num">23</span> What is Selenium WebDriver?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Selenium WebDriver is an open-source tool that controls real browsers (Chrome, Firefox, Edge) through code, so you can automate web UI tests. It supports Java, Python, C#, JavaScript and more, and is usually combined with a test framework such as TestNG, JUnit or pytest.</p></div></details>
+            <details class="ij-qa-item" id="wd-q24"><summary><span class="wd-num">24</span> What locators does Selenium support, and which is best?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>ID, name, class name, tag name, link text, partial link text, CSS selector and XPath. Prefer a unique, stable ID, then CSS selectors. Use XPath when you need to find elements by text or move up the DOM. Avoid long absolute XPaths, which break when the page changes.</p></div></details>
+            <details class="ij-qa-item" id="wd-q25"><summary><span class="wd-num">25</span> What is the difference between implicit, explicit and fluent waits?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Implicit wait:</strong> a global timeout for finding any element.</li><li><strong>Explicit wait:</strong> waits for a specific condition on a specific element, such as &quot;clickable&quot; — the most reliable choice.</li><li><strong>Fluent wait:</strong> an explicit wait with a custom polling interval and exceptions to ignore.</li></ul><p>Avoid fixed <code>Thread.sleep()</code> calls; they make tests slow and flaky.</p></div></details>
+            <details class="ij-qa-item" id="wd-q26"><summary><span class="wd-num">26</span> What is the Page Object Model?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A design pattern where each page of the app has a class holding its locators and actions (such as <code>login(user, pass)</code>). Tests call those methods instead of using locators directly. When the UI changes, you update one page class instead of every test.</p></div></details>
+            <details class="ij-qa-item" id="wd-q27"><summary><span class="wd-num">27</span> How do you test a REST API?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Send requests with Postman or code (REST Assured, pytest with requests) and check:</p><ul><li>Status codes (200, 201, 400, 401, 404, 500)</li><li>Response body and its schema</li><li>Headers and response time</li><li>Authentication and authorisation</li><li>Error handling for invalid and missing input</li></ul><pre><code>// REST Assured (Java)
+given().header(&quot;Authorization&quot;, &quot;Bearer &quot; + token)
+.when().get(&quot;/api/users/1&quot;)
+.then().statusCode(200).body(&quot;name&quot;, equalTo(&quot;Anu&quot;));</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q28"><summary><span class="wd-num">28</span> How do you handle flaky automated tests?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Find the cause instead of just re-running: usually timing (use explicit waits), shared or changing test data (make each test create its own data), test order dependency, or an unstable environment. Quarantine a flaky test until it's fixed so it doesn't hide real failures.</p></div></details>
+            <details class="ij-qa-item" id="wd-q29"><summary><span class="wd-num">29</span> How does test automation fit into CI/CD?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Automated tests run on every commit or pull request in a pipeline (Jenkins, GitHub Actions, GitLab CI). Fast unit and API tests run first; slower UI tests run later or nightly. A failing test stops the pipeline, so broken code doesn't reach production.</p></div></details>
+            <details class="ij-qa-item" id="wd-q30"><summary><span class="wd-num">30</span> What is the test pyramid?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Many fast unit tests at the bottom, fewer API and integration tests in the middle, and a small number of slow UI end-to-end tests at the top. This gives fast feedback and stable suites. An &quot;ice-cream cone&quot; — mostly UI tests — is slow and fragile.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft" id="wd-practice" aria-labelledby="wd-practice-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Beyond the 30 questions</p>
+            <h2 id="wd-practice-title">Practical interview tasks</h2>
+            <p>Interviewers also ask you to write code and talk through your work. Practise these too.</p>
+          </div>
+          <div class="ij-table-wrap" tabindex="0" role="region" aria-label="Practical tasks to prepare"><table class="ij-table"><caption>Practical tasks to prepare</caption><thead><tr><th scope="col">Area</th><th scope="col">Practise this</th></tr></thead><tbody><tr><th scope="row">Test design</th><td data-label="Practise this">Write test cases for a login page (positive and negative)</td></tr><tr><th scope="row">Test design</th><td data-label="Practise this">Apply boundary values to a field that accepts 1–100</td></tr><tr><th scope="row">Bug report</th><td data-label="Practise this">Write a bug report for a broken checkout button</td></tr><tr><th scope="row">Scenarios</th><td data-label="Practise this">List test scenarios for an ATM withdrawal or a lift</td></tr><tr><th scope="row">Selenium</th><td data-label="Practise this">Automate login and verify the dashboard title</td></tr><tr><th scope="row">Selenium</th><td data-label="Practise this">Handle a dropdown, an alert and a new tab</td></tr><tr><th scope="row">API</th><td data-label="Practise this">Test a GET and a POST endpoint in Postman with assertions</td></tr><tr><th scope="row">SQL</th><td data-label="Practise this">Verify data saved by the UI using a SELECT query</td></tr><tr><th scope="row">Framework</th><td data-label="Practise this">Explain your framework: POM, test data, reports, CI</td></tr></tbody></table></div>
+          <p class="ij-small" style="margin-top:16px">
+            Want hands-on practice? Follow the <a href="/interview/learning/software-testing/">software testing (qa) learning path</a>, try the
+            <a href="/learning/">InfoparkDaily Learning</a> tutorials and quizzes, or browse the full <a href="/interview/questions/">interview question bank</a>.
+            Ready to apply? See the latest <a href="/jobs/">IT jobs</a>.
+          </p>
+          <h3 class="hub-h3" style="margin-top:22px">More interview guides</h3>
+          <ul class="wd-toc"><li><a href="/interview/questions/web-development/">Web development (70)</a></li><li><a href="/interview/questions/java-backend/">Java backend (30)</a></li><li><a href="/interview/questions/python-development/">Python development (30)</a></li><li><a href="/interview/questions/sql-databases/">SQL &amp; databases (30)</a></li><li><a href="/interview/questions/data-analyst/">Data analyst (30)</a></li><li><a href="/interview/questions/devops-cloud/">DevOps &amp; cloud (30)</a></li></ul>
+          <p class="ij-small">Original content by InfoparkDaily Learning. Answers are guidance — explain them in your own words and add examples from your projects.</p>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft hub-related" id="more" aria-labelledby="hub-related-title">
+        <div class="ij-wrap">
+          <div class="rel-head">
+            <div>
+              <p class="ij-eyebrow">Keep learning</p>
+              <h2 id="hub-related-title">Continue your preparation</h2>
+              <p>Pick your next course. Everything is free and saves progress on this device.</p>
+            </div>
+            <a class="rel-back" href="/interview/">← Back to academy overview</a>
+          </div>
+          <div class="rel-grid">
+            <a class="rel-card rel-card--ink" href="/interview/preparation/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+                <span class="rel-num">Course 01</span>
+                
+              </span>
+              <strong class="rel-title">Interview Preparation</strong>
+              <span class="rel-text">Prepare for interviews step by step — understand each round, improve communication and walk in confident.</span>
+              <span class="rel-foot"><span class="rel-meta">17 chapters · 3.5 hrs</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Explore preparation</span>
+            </a><a class="rel-card rel-card--soft is-next" href="/interview/learning/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+                <span class="rel-num">Course 03</span>
+                <span class="rel-next">Up next</span>
+              </span>
+              <strong class="rel-title">Learning & Skill Development</strong>
+              <span class="rel-text">Build the technical and professional skills employers test — with free courses, certifications and roadmaps.</span>
+              <span class="rel-foot"><span class="rel-meta">31 learning paths · live code</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Start learning</span>
+            </a><a class="rel-card rel-card--ink" href="/interview/email-guide/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+                <span class="rel-num">Course 04</span>
+                
+              </span>
+              <strong class="rel-title">Professional Email Guide</strong>
+              <span class="rel-text">Write professional emails for applying, sending your resume, following up and replying to recruiters.</span>
+              <span class="rel-foot"><span class="rel-meta">11 templates · 20 min</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Open email guide</span>
+            </a><a class="rel-card rel-card--cream" href="/interview/resume-ats/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+                <span class="rel-num">Course 05</span>
+                
+              </span>
+              <strong class="rel-title">Resume & ATS Preparation</strong>
+              <span class="rel-text">Build a professional resume and understand how applicant tracking systems screen it.</span>
+              <span class="rel-foot"><span class="rel-meta">5 modules · 2 free tools</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Resume & ATS guide</span>
+            </a>
+          </div>
+          <div class="rel-strip">
+            <span>Ready to apply?</span>
+            <a href="/jobs/">Find jobs on InfoparkDaily →</a>
+            <a href="/resume-builder/templates/">Build resume</a>
+            <a href="/ats-checker/">Check ATS score</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-wd-expand]");
+        if (!b) return;
+        var open = b.getAttribute("data-wd-expand") === "open";
+        document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
+      });
+    </script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Python development Interview Questions &amp; Answers (30) | InfoparkDaily</title>
+    <meta
+      name="description"
+      content="30 important python development interview questions with simple answers: Python basics, data types, functions, OOP, error handling, Django, FastAPI, testing and performance. Free, for freshers and experienced candidates."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Python development – 30 Important Interview Questions &amp; Answers" />
+    <meta property="og:description" content="Python basics, data types, functions, OOP, error handling, Django, FastAPI, testing and performance — fresher to experienced." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://infoparkdaily.online/interview/questions/python-development/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/interview/questions/python-development/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","name":"Python development – 30 Important Interview Questions & Answers","url":"https://infoparkdaily.online/interview/questions/python-development/","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"InfoparkDaily","url":"https://infoparkdaily.online"},"mainEntity":[{"@type":"Question","name":"What are the key features of Python?","acceptedAnswer":{"@type":"Answer","text":"- Simple, readable syntax that uses indentation for blocks. - Interpreted and dynamically typed: you don't declare variable types. - A large standard library and a huge ecosystem of packages (pip). - Supports procedural, object-oriented and functional styles. - Used for web backends, automation, data analysis, machine learning and scripting."}},{"@type":"Question","name":"What is the difference between a list, a tuple, a set and a dictionary?","acceptedAnswer":{"@type":"Answer","text":"Type Ordered Changeable Duplicates Example list Yes Yes Allowed [1, 2, 2] tuple Yes No Allowed (1, 2) set No Yes Not allowed {1, 2} dict Yes (insertion order) Yes Keys unique {\"a\": 1}"}},{"@type":"Question","name":"What is the difference between mutable and immutable types?","acceptedAnswer":{"@type":"Answer","text":"Mutable objects can be changed after creation: lists, dicts, sets. Immutable objects can't: ints, floats, strings, tuples. When you \"change\" an immutable value, Python creates a new object. Only immutable (hashable) objects can be dictionary keys or set members."}},{"@type":"Question","name":"What is the difference between is and ==?","acceptedAnswer":{"@type":"Answer","text":"- == checks whether two values are equal. - is checks whether two names point to the same object in memory. Use is only for singletons such as None : if value is None: ."}},{"@type":"Question","name":"What is the difference between a shallow copy and a deep copy?","acceptedAnswer":{"@type":"Answer","text":"A shallow copy ( list.copy() , copy.copy() ) creates a new outer object but shares the nested objects inside it. A deep copy ( copy.deepcopy() ) copies everything recursively. import copy team = {\"name\": \"QA\", \"members\": [\"Anu\", \"Ravi\"]} shallow = copy.copy(team) deep = copy.deepcopy(team) team[\"members\"].append(\"Meera\") # shallow[\"members\"] now has Meera too; deep[\"members\"] does not"}},{"@type":"Question","name":"What are list comprehensions?","acceptedAnswer":{"@type":"Answer","text":"A short way to build a list from another iterable, optionally with a condition: squares = [n n for n in range(10) if n % 2 == 0] # [0, 4, 16, 36, 64] There are also dict comprehensions ( {k: v for ...} ) and set comprehensions. Keep them simple; use a loop when the logic gets long."}},{"@type":"Question","name":"How does Python manage memory?","acceptedAnswer":{"@type":"Answer","text":"Python uses reference counting: each object tracks how many references point to it and is freed when the count reaches zero. A cyclic garbage collector also cleans up groups of objects that refer to each other. Memory is managed by the interpreter, so you rarely free memory yourself."}},{"@type":"Question","name":"What are *args and **kwargs?","acceptedAnswer":{"@type":"Answer","text":"- args collects extra positional arguments into a tuple. - kwargs collects extra keyword arguments into a dictionary. def log(message, args, kwargs): print(message, args, kwargs) log(\"Saved\", 1, 2, user=\"anu\") # Saved (1, 2) {'user': 'anu'}"}},{"@type":"Question","name":"What is a lambda function?","acceptedAnswer":{"@type":"Answer","text":"A small anonymous function written in one expression, often used as a short argument to functions like sorted() : people.sort(key=lambda p: p[\"age\"]) For anything longer than one expression, write a normal def function."}},{"@type":"Question","name":"What is a decorator?","acceptedAnswer":{"@type":"Answer","text":"A decorator is a function that wraps another function to add behaviour — logging, timing, authentication checks — without changing its code. import time def timed(func): def wrapper( args, kwargs): start = time.perf_counter() result = func( args, kwargs) print(func.__name__, \"took\", time.perf_counter() - start) return result return wrapper @timed def load_report(): ..."}},{"@type":"Question","name":"What are generators and why use them?","acceptedAnswer":{"@type":"Answer","text":"A generator produces values one at a time with yield instead of building a full list in memory. It's ideal for large files or endless streams. def read_lines(path): with open(path) as f: for line in f: yield line.strip()"}},{"@type":"Question","name":"What is the mutable default argument problem?","acceptedAnswer":{"@type":"Answer","text":"Default values are created once, when the function is defined. A mutable default such as a list is shared between calls: def add(item, items=[]): # bug: same list every call items.append(item) return items Use None and create the list inside: def add(item, items=None): items = items or [] ."}},{"@type":"Question","name":"What is the GIL?","acceptedAnswer":{"@type":"Answer","text":"The Global Interpreter Lock in CPython lets only one thread execute Python bytecode at a time. Threads still help for I/O-bound work (network, files), because the lock is released while waiting. For CPU-heavy work, use multiprocessing or libraries written in C, such as NumPy."}},{"@type":"Question","name":"How do classes and objects work in Python?","acceptedAnswer":{"@type":"Answer","text":"A class is a blueprint; an object is an instance of it. __init__ sets up a new object, and self refers to the current instance. class Account: def __init__(self, owner, balance=0): self.owner = owner self.balance = balance def deposit(self, amount): self.balance += amount"}},{"@type":"Question","name":"What is the difference between @staticmethod and @classmethod?","acceptedAnswer":{"@type":"Answer","text":"- @classmethod receives the class ( cls ) as its first argument. Often used for alternative constructors such as Account.from_csv(row) . - @staticmethod receives neither the class nor the instance. It's a plain function grouped inside the class."}},{"@type":"Question","name":"What are dunder (magic) methods?","acceptedAnswer":{"@type":"Answer","text":"Special methods with double underscores that let your objects work with Python's built-in behaviour: __init__ (create), __str__ and __repr__ (display), __len__ (len), __eq__ (==), __iter__ (loops). For example, defining __len__ lets you call len(obj) ."}},{"@type":"Question","name":"How does exception handling work in Python?","acceptedAnswer":{"@type":"Answer","text":"try: value = int(user_input) except ValueError: print(\"Please enter a number\") else: print(\"Valid number\") # runs if no exception finally: print(\"Always runs\") # cleanup Catch specific exceptions rather than a bare except: , and raise your own with raise ."}},{"@type":"Question","name":"What is a context manager?","acceptedAnswer":{"@type":"Answer","text":"An object used with with that sets something up and always cleans up, even on errors — closing files, releasing locks, committing transactions. with open(\"report.csv\") as f: data = f.read() # the file is closed here You can write your own with __enter__ / __exit__ or the contextlib.contextmanager decorator."}},{"@type":"Question","name":"What is a virtual environment and why use it?","acceptedAnswer":{"@type":"Answer","text":"A virtual environment ( python -m venv .venv ) is an isolated folder with its own Python packages. Each project gets its own dependency versions, so projects don't conflict. Save dependencies with pip freeze > requirements.txt and reinstall them with pip install -r requirements.txt ."}},{"@type":"Question","name":"What is Django's MVT architecture?","acceptedAnswer":{"@type":"Answer","text":"- Model: defines data and maps it to database tables through the ORM. - View: handles the request, runs the logic and returns a response. - Template: the HTML presentation layer. Django's URL configuration maps each URL to a view."}},{"@type":"Question","name":"What are Django migrations?","acceptedAnswer":{"@type":"Answer","text":"Migrations are version-controlled changes to the database schema generated from your models. python manage.py makemigrations creates them, and python manage.py migrate applies them. They keep every environment's database structure in sync with the code."}},{"@type":"Question","name":"How does the Django ORM avoid extra queries?","acceptedAnswer":{"@type":"Answer","text":"Use select_related for foreign-key and one-to-one relations (one SQL join) and prefetch_related for many-to-many and reverse relations (one extra query for all items). This avoids the N+1 problem when looping over related objects."}},{"@type":"Question","name":"What is Django middleware?","acceptedAnswer":{"@type":"Answer","text":"Middleware is a chain of hooks that process every request and response — for example authentication, sessions, CSRF protection and security headers. Each middleware can change the request before the view runs or the response after it."}},{"@type":"Question","name":"Why is FastAPI popular for APIs?","acceptedAnswer":{"@type":"Answer","text":"FastAPI is fast, uses Python type hints for automatic request validation (through Pydantic), generates interactive API docs (Swagger UI) automatically and supports async endpoints. from fastapi import FastAPI from pydantic import BaseModel app = FastAPI() class Item(BaseModel): name: str price: float @app.post(\"/items\") def create_item(item: Item): return {\"saved\": item.name}"}},{"@type":"Question","name":"What is the difference between Flask, Django and FastAPI?","acceptedAnswer":{"@type":"Answer","text":"- Django: \"batteries included\" — ORM, admin, auth and forms built in. Good for full web apps. - Flask: minimal and flexible; you add the pieces you need. - FastAPI: modern, async-friendly and focused on fast, typed APIs."}},{"@type":"Question","name":"How do you write tests in Python?","acceptedAnswer":{"@type":"Answer","text":"pytest is the most common tool. Test functions start with test_ and use plain assert : def add(a, b): return a + b def test_add(): assert add(2, 3) == 5 Use fixtures for setup and unittest.mock to replace external services such as APIs or databases."}},{"@type":"Question","name":"What is async/await in Python?","acceptedAnswer":{"@type":"Answer","text":"async def defines a coroutine, and await pauses it while waiting for I/O so the event loop can run other tasks. It lets one thread handle many network requests at once. It helps I/O-bound work, not CPU-heavy work."}},{"@type":"Question","name":"What is the difference between threading and multiprocessing?","acceptedAnswer":{"@type":"Answer","text":"- threading: threads share memory; good for I/O-bound tasks. The GIL limits CPU-bound speed-ups. - multiprocessing: separate processes with their own memory and interpreter; good for CPU-bound tasks, but with more overhead."}},{"@type":"Question","name":"What is PEP 8?","acceptedAnswer":{"@type":"Answer","text":"PEP 8 is Python's style guide: 4-space indentation, snake_case for functions and variables, PascalCase for classes, readable line lengths and clear spacing. Tools such as Black, Ruff or Flake8 format and check code automatically."}},{"@type":"Question","name":"How do you find and fix slow Python code?","acceptedAnswer":{"@type":"Answer","text":"1. Measure with cProfile or time.perf_counter() before changing anything. 2. Use the right data structure — a set or dict lookup is much faster than searching a list. 3. Avoid repeated work inside loops; use built-ins and comprehensions. 4. Use NumPy or pandas for heavy numeric work. 5. Cache results ( functools.lru_cache ) and use async or multiprocessing where they fit."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Interview hub","item":"https://infoparkdaily.online/interview/"},{"@type":"ListItem","position":3,"name":"Interview questions","item":"https://infoparkdaily.online/interview/questions/"},{"@type":"ListItem","position":4,"name":"Python development","item":"https://infoparkdaily.online/interview/questions/python-development/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <style>
+      .wd-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin-right: 6px; border-radius: 8px; background: var(--ij-ink, #12151b); color: #fff; font-size: 0.8rem; font-weight: 800; }
+      .wd-qa .ij-qa-body ul, .wd-qa .ij-qa-body ol { margin: 6px 0 8px; padding-left: 1.3em; }
+      .wd-qa .ij-qa-body li { margin: 3px 0; }
+      .wd-qa .ij-qa-body code { font-size: 0.88em; }
+      .wd-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .wd-toc a { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid rgba(18, 21, 27, 0.14); font-weight: 600; font-size: 0.88rem; text-decoration: none; color: inherit; }
+      .wd-toc a:hover { border-color: #12151b; }
+      .wd-tools { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    </style>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page iq-page light">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="ij-hero iq-hero" aria-labelledby="wd-title">
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <a href="/interview/questions/">Interview questions</a> / <span aria-current="page">Python development</span></nav>
+          <p class="ij-badge-hero"><b>FREE</b> InfoparkDaily Learning · Fresher to experienced</p>
+          <h1 id="wd-title">Python development<br /><span>30 important interview questions.</span></h1>
+          <p class="ij-lede">
+            Prepare for python development interviews with 30 important questions and answers on <strong>Python basics, data types, functions, OOP, error handling, Django, FastAPI, testing and performance</strong>.
+            The answers are short and interview-friendly, so freshers and experienced candidates can understand them and explain them in their own words.
+          </p>
+          <ul class="ij-hero-stats">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>5</strong><span>topics</span></li>
+            <li><strong>10</strong><span>practical tasks</span></li>
+          </ul>
+          <ul class="wd-toc" aria-label="Topics">
+            <li><a href="#wd-1">Python basics</a></li><li><a href="#wd-2">Functions and advanced features</a></li><li><a href="#wd-3">OOP and error handling</a></li><li><a href="#wd-4">Web frameworks: Django and FastAPI</a></li><li><a href="#wd-5">Testing, async and performance</a></li>
+            <li><a href="#wd-practice">Practical tasks</a></li>
+          </ul>
+          <div class="wd-tools">
+            <button type="button" class="ij-btn ij-btn--yellow" data-wd-expand="open">Expand all answers</button>
+            <button type="button" class="ij-btn" data-wd-expand="close">Collapse all</button>
+          </div>
+        </div>
+      </section>
+
+
+      <nav class="hub-tabs" aria-label="Interview & career hub">
+        <div class="ij-wrap"><div class="hub-tabs-track">
+          <a href="/interview/">Overview</a>
+          <a href="/interview/preparation/">Preparation</a><a href="/interview/questions/" aria-current="page">Questions</a><a href="/interview/learning/">Learning</a><a href="/interview/email-guide/">Email guide</a><a href="/interview/resume-ats/">Resume & ATS</a>
+          <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
+        </div></div>
+      </nav>
+
+      <section class="ij-section wd-section" id="wd-1" aria-labelledby="wd-1-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 1 · Questions 1–7</p>
+            <h2 id="wd-1-title">Python basics</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q1"><summary><span class="wd-num">1</span> What are the key features of Python?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li>Simple, readable syntax that uses indentation for blocks.</li><li>Interpreted and dynamically typed: you don't declare variable types.</li><li>A large standard library and a huge ecosystem of packages (pip).</li><li>Supports procedural, object-oriented and functional styles.</li><li>Used for web backends, automation, data analysis, machine learning and scripting.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q2"><summary><span class="wd-num">2</span> What is the difference between a list, a tuple, a set and a dictionary?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><div class="ij-table-wrap" tabindex="0" role="region" aria-label="Type, Ordered, Changeable, Duplicates, Example"><table class="ij-table"><thead><tr><th scope="col">Type</th><th scope="col">Ordered</th><th scope="col">Changeable</th><th scope="col">Duplicates</th><th scope="col">Example</th></tr></thead><tbody><tr><th scope="row">list</th><td data-label="Ordered">Yes</td><td data-label="Changeable">Yes</td><td data-label="Duplicates">Allowed</td><td data-label="Example"><code>[1, 2, 2]</code></td></tr><tr><th scope="row">tuple</th><td data-label="Ordered">Yes</td><td data-label="Changeable">No</td><td data-label="Duplicates">Allowed</td><td data-label="Example"><code>(1, 2)</code></td></tr><tr><th scope="row">set</th><td data-label="Ordered">No</td><td data-label="Changeable">Yes</td><td data-label="Duplicates">Not allowed</td><td data-label="Example"><code>{1, 2}</code></td></tr><tr><th scope="row">dict</th><td data-label="Ordered">Yes (insertion order)</td><td data-label="Changeable">Yes</td><td data-label="Duplicates">Keys unique</td><td data-label="Example"><code>{&quot;a&quot;: 1}</code></td></tr></tbody></table></div></div></details>
+            <details class="ij-qa-item" id="wd-q3"><summary><span class="wd-num">3</span> What is the difference between mutable and immutable types?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Mutable objects can be changed after creation: lists, dicts, sets. Immutable objects can't: ints, floats, strings, tuples. When you &quot;change&quot; an immutable value, Python creates a new object. Only immutable (hashable) objects can be dictionary keys or set members.</p></div></details>
+            <details class="ij-qa-item" id="wd-q4"><summary><span class="wd-num">4</span> What is the difference between is and ==?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><code>==</code> checks whether two values are equal.</li><li><code>is</code> checks whether two names point to the same object in memory.</li></ul><p>Use <code>is</code> only for singletons such as <code>None</code>: <code>if value is None:</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q5"><summary><span class="wd-num">5</span> What is the difference between a shallow copy and a deep copy?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A shallow copy (<code>list.copy()</code>, <code>copy.copy()</code>) creates a new outer object but shares the nested objects inside it. A deep copy (<code>copy.deepcopy()</code>) copies everything recursively.</p><pre><code>import copy
+
+team = {&quot;name&quot;: &quot;QA&quot;, &quot;members&quot;: [&quot;Anu&quot;, &quot;Ravi&quot;]}
+shallow = copy.copy(team)
+deep = copy.deepcopy(team)
+team[&quot;members&quot;].append(&quot;Meera&quot;)
+# shallow[&quot;members&quot;] now has Meera too; deep[&quot;members&quot;] does not</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q6"><summary><span class="wd-num">6</span> What are list comprehensions?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A short way to build a list from another iterable, optionally with a condition:</p><pre><code>squares = [n * n for n in range(10) if n % 2 == 0]
+# [0, 4, 16, 36, 64]</code></pre><p>There are also dict comprehensions (<code>{k: v for ...}</code>) and set comprehensions. Keep them simple; use a loop when the logic gets long.</p></div></details>
+            <details class="ij-qa-item" id="wd-q7"><summary><span class="wd-num">7</span> How does Python manage memory?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Python uses reference counting: each object tracks how many references point to it and is freed when the count reaches zero. A cyclic garbage collector also cleans up groups of objects that refer to each other. Memory is managed by the interpreter, so you rarely free memory yourself.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-2" aria-labelledby="wd-2-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 2 · Questions 8–13</p>
+            <h2 id="wd-2-title">Functions and advanced features</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q8"><summary><span class="wd-num">8</span> What are *args and **kwargs?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><code>*args</code> collects extra positional arguments into a tuple.</li><li><code>**kwargs</code> collects extra keyword arguments into a dictionary.</li></ul><pre><code>def log(message, *args, **kwargs):
+    print(message, args, kwargs)
+
+log(&quot;Saved&quot;, 1, 2, user=&quot;anu&quot;)  # Saved (1, 2) {'user': 'anu'}</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q9"><summary><span class="wd-num">9</span> What is a lambda function?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A small anonymous function written in one expression, often used as a short argument to functions like <code>sorted()</code>:</p><pre><code>people.sort(key=lambda p: p[&quot;age&quot;])</code></pre><p>For anything longer than one expression, write a normal <code>def</code> function.</p></div></details>
+            <details class="ij-qa-item" id="wd-q10"><summary><span class="wd-num">10</span> What is a decorator?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A decorator is a function that wraps another function to add behaviour — logging, timing, authentication checks — without changing its code.</p><pre><code>import time
+
+def timed(func):
+    def wrapper(*args, **kwargs):
+        start = time.perf_counter()
+        result = func(*args, **kwargs)
+        print(func.__name__, &quot;took&quot;, time.perf_counter() - start)
+        return result
+    return wrapper
+
+@timed
+def load_report():
+    ...</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q11"><summary><span class="wd-num">11</span> What are generators and why use them?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A generator produces values one at a time with <code>yield</code> instead of building a full list in memory. It's ideal for large files or endless streams.</p><pre><code>def read_lines(path):
+    with open(path) as f:
+        for line in f:
+            yield line.strip()</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q12"><summary><span class="wd-num">12</span> What is the mutable default argument problem?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Default values are created once, when the function is defined. A mutable default such as a list is shared between calls:</p><pre><code>def add(item, items=[]):   # bug: same list every call
+    items.append(item)
+    return items</code></pre><p>Use <code>None</code> and create the list inside: <code>def add(item, items=None): items = items or []</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q13"><summary><span class="wd-num">13</span> What is the GIL?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>The Global Interpreter Lock in CPython lets only one thread execute Python bytecode at a time. Threads still help for I/O-bound work (network, files), because the lock is released while waiting. For CPU-heavy work, use <code>multiprocessing</code> or libraries written in C, such as NumPy.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-3" aria-labelledby="wd-3-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 3 · Questions 14–19</p>
+            <h2 id="wd-3-title">OOP and error handling</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q14"><summary><span class="wd-num">14</span> How do classes and objects work in Python?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A class is a blueprint; an object is an instance of it. <code>__init__</code> sets up a new object, and <code>self</code> refers to the current instance.</p><pre><code>class Account:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q15"><summary><span class="wd-num">15</span> What is the difference between @staticmethod and @classmethod?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>@classmethod</strong> receives the class (<code>cls</code>) as its first argument. Often used for alternative constructors such as <code>Account.from_csv(row)</code>.</li><li><strong>@staticmethod</strong> receives neither the class nor the instance. It's a plain function grouped inside the class.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q16"><summary><span class="wd-num">16</span> What are dunder (magic) methods?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Special methods with double underscores that let your objects work with Python's built-in behaviour: <code>__init__</code> (create), <code>__str__</code> and <code>__repr__</code> (display), <code>__len__</code> (len), <code>__eq__</code> (==), <code>__iter__</code> (loops). For example, defining <code>__len__</code> lets you call <code>len(obj)</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q17"><summary><span class="wd-num">17</span> How does exception handling work in Python?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><pre><code>try:
+    value = int(user_input)
+except ValueError:
+    print(&quot;Please enter a number&quot;)
+else:
+    print(&quot;Valid number&quot;)      # runs if no exception
+finally:
+    print(&quot;Always runs&quot;)        # cleanup</code></pre><p>Catch specific exceptions rather than a bare <code>except:</code>, and raise your own with <code>raise</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q18"><summary><span class="wd-num">18</span> What is a context manager?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>An object used with <code>with</code> that sets something up and always cleans up, even on errors — closing files, releasing locks, committing transactions.</p><pre><code>with open(&quot;report.csv&quot;) as f:
+    data = f.read()
+# the file is closed here</code></pre><p>You can write your own with <code>__enter__</code>/<code>__exit__</code> or the <code>contextlib.contextmanager</code> decorator.</p></div></details>
+            <details class="ij-qa-item" id="wd-q19"><summary><span class="wd-num">19</span> What is a virtual environment and why use it?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A virtual environment (<code>python -m venv .venv</code>) is an isolated folder with its own Python packages. Each project gets its own dependency versions, so projects don't conflict. Save dependencies with <code>pip freeze &gt; requirements.txt</code> and reinstall them with <code>pip install -r requirements.txt</code>.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-4" aria-labelledby="wd-4-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 4 · Questions 20–25</p>
+            <h2 id="wd-4-title">Web frameworks: Django and FastAPI</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q20"><summary><span class="wd-num">20</span> What is Django's MVT architecture?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Model:</strong> defines data and maps it to database tables through the ORM.</li><li><strong>View:</strong> handles the request, runs the logic and returns a response.</li><li><strong>Template:</strong> the HTML presentation layer.</li></ul><p>Django's URL configuration maps each URL to a view.</p></div></details>
+            <details class="ij-qa-item" id="wd-q21"><summary><span class="wd-num">21</span> What are Django migrations?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Migrations are version-controlled changes to the database schema generated from your models. <code>python manage.py makemigrations</code> creates them, and <code>python manage.py migrate</code> applies them. They keep every environment's database structure in sync with the code.</p></div></details>
+            <details class="ij-qa-item" id="wd-q22"><summary><span class="wd-num">22</span> How does the Django ORM avoid extra queries?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use <code>select_related</code> for foreign-key and one-to-one relations (one SQL join) and <code>prefetch_related</code> for many-to-many and reverse relations (one extra query for all items). This avoids the N+1 problem when looping over related objects.</p></div></details>
+            <details class="ij-qa-item" id="wd-q23"><summary><span class="wd-num">23</span> What is Django middleware?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Middleware is a chain of hooks that process every request and response — for example authentication, sessions, CSRF protection and security headers. Each middleware can change the request before the view runs or the response after it.</p></div></details>
+            <details class="ij-qa-item" id="wd-q24"><summary><span class="wd-num">24</span> Why is FastAPI popular for APIs?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>FastAPI is fast, uses Python type hints for automatic request validation (through Pydantic), generates interactive API docs (Swagger UI) automatically and supports <code>async</code> endpoints.</p><pre><code>from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+@app.post(&quot;/items&quot;)
+def create_item(item: Item):
+    return {&quot;saved&quot;: item.name}</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q25"><summary><span class="wd-num">25</span> What is the difference between Flask, Django and FastAPI?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Django:</strong> &quot;batteries included&quot; — ORM, admin, auth and forms built in. Good for full web apps.</li><li><strong>Flask:</strong> minimal and flexible; you add the pieces you need.</li><li><strong>FastAPI:</strong> modern, async-friendly and focused on fast, typed APIs.</li></ul></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-5" aria-labelledby="wd-5-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 5 · Questions 26–30</p>
+            <h2 id="wd-5-title">Testing, async and performance</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q26"><summary><span class="wd-num">26</span> How do you write tests in Python?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>pytest is the most common tool. Test functions start with <code>test_</code> and use plain <code>assert</code>:</p><pre><code>def add(a, b):
+    return a + b
+
+def test_add():
+    assert add(2, 3) == 5</code></pre><p>Use fixtures for setup and <code>unittest.mock</code> to replace external services such as APIs or databases.</p></div></details>
+            <details class="ij-qa-item" id="wd-q27"><summary><span class="wd-num">27</span> What is async/await in Python?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p><code>async def</code> defines a coroutine, and <code>await</code> pauses it while waiting for I/O so the event loop can run other tasks. It lets one thread handle many network requests at once. It helps I/O-bound work, not CPU-heavy work.</p></div></details>
+            <details class="ij-qa-item" id="wd-q28"><summary><span class="wd-num">28</span> What is the difference between threading and multiprocessing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>threading:</strong> threads share memory; good for I/O-bound tasks. The GIL limits CPU-bound speed-ups.</li><li><strong>multiprocessing:</strong> separate processes with their own memory and interpreter; good for CPU-bound tasks, but with more overhead.</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q29"><summary><span class="wd-num">29</span> What is PEP 8?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>PEP 8 is Python's style guide: 4-space indentation, <code>snake_case</code> for functions and variables, <code>PascalCase</code> for classes, readable line lengths and clear spacing. Tools such as Black, Ruff or Flake8 format and check code automatically.</p></div></details>
+            <details class="ij-qa-item" id="wd-q30"><summary><span class="wd-num">30</span> How do you find and fix slow Python code?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Measure with <code>cProfile</code> or <code>time.perf_counter()</code> before changing anything.</li><li>Use the right data structure — a set or dict lookup is much faster than searching a list.</li><li>Avoid repeated work inside loops; use built-ins and comprehensions.</li><li>Use NumPy or pandas for heavy numeric work.</li><li>Cache results (<code>functools.lru_cache</code>) and use async or multiprocessing where they fit.</li></ol></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft" id="wd-practice" aria-labelledby="wd-practice-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Beyond the 30 questions</p>
+            <h2 id="wd-practice-title">Practical interview tasks</h2>
+            <p>Interviewers also ask you to write code and talk through your work. Practise these too.</p>
+          </div>
+          <div class="ij-table-wrap" tabindex="0" role="region" aria-label="Practical tasks to prepare"><table class="ij-table"><caption>Practical tasks to prepare</caption><thead><tr><th scope="col">Area</th><th scope="col">Practise this</th></tr></thead><tbody><tr><th scope="row">Basics</th><td data-label="Practise this">Count word frequency in a sentence using a dictionary</td></tr><tr><th scope="row">Basics</th><td data-label="Practise this">Remove duplicates from a list while keeping order</td></tr><tr><th scope="row">Functions</th><td data-label="Practise this">Write a decorator that retries a function three times</td></tr><tr><th scope="row">Files</th><td data-label="Practise this">Read a CSV file and print the total of one column</td></tr><tr><th scope="row">OOP</th><td data-label="Practise this">Model a bank account with deposit, withdraw and balance checks</td></tr><tr><th scope="row">Django</th><td data-label="Practise this">Build a blog with models, admin and a list page</td></tr><tr><th scope="row">FastAPI</th><td data-label="Practise this">Create a CRUD API with Pydantic validation</td></tr><tr><th scope="row">Testing</th><td data-label="Practise this">Write pytest tests with a fixture and a mock</td></tr><tr><th scope="row">Automation</th><td data-label="Practise this">Rename all files in a folder using a pattern</td></tr><tr><th scope="row">Projects</th><td data-label="Practise this">Explain how your project is structured and deployed</td></tr></tbody></table></div>
+          <p class="ij-small" style="margin-top:16px">
+            Want hands-on practice? Follow the <a href="/interview/learning/python-development/">python development learning path</a>, try the
+            <a href="/learning/">InfoparkDaily Learning</a> tutorials and quizzes, or browse the full <a href="/interview/questions/">interview question bank</a>.
+            Ready to apply? See the latest <a href="/jobs/">IT jobs</a>.
+          </p>
+          <h3 class="hub-h3" style="margin-top:22px">More interview guides</h3>
+          <ul class="wd-toc"><li><a href="/interview/questions/web-development/">Web development (70)</a></li><li><a href="/interview/questions/java-backend/">Java backend (30)</a></li><li><a href="/interview/questions/sql-databases/">SQL &amp; databases (30)</a></li><li><a href="/interview/questions/software-testing/">Software testing (QA) (30)</a></li><li><a href="/interview/questions/data-analyst/">Data analyst (30)</a></li><li><a href="/interview/questions/devops-cloud/">DevOps &amp; cloud (30)</a></li></ul>
+          <p class="ij-small">Original content by InfoparkDaily Learning. Answers are guidance — explain them in your own words and add examples from your projects.</p>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft hub-related" id="more" aria-labelledby="hub-related-title">
+        <div class="ij-wrap">
+          <div class="rel-head">
+            <div>
+              <p class="ij-eyebrow">Keep learning</p>
+              <h2 id="hub-related-title">Continue your preparation</h2>
+              <p>Pick your next course. Everything is free and saves progress on this device.</p>
+            </div>
+            <a class="rel-back" href="/interview/">← Back to academy overview</a>
+          </div>
+          <div class="rel-grid">
+            <a class="rel-card rel-card--ink" href="/interview/preparation/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+                <span class="rel-num">Course 01</span>
+                
+              </span>
+              <strong class="rel-title">Interview Preparation</strong>
+              <span class="rel-text">Prepare for interviews step by step — understand each round, improve communication and walk in confident.</span>
+              <span class="rel-foot"><span class="rel-meta">17 chapters · 3.5 hrs</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Explore preparation</span>
+            </a><a class="rel-card rel-card--soft is-next" href="/interview/learning/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+                <span class="rel-num">Course 03</span>
+                <span class="rel-next">Up next</span>
+              </span>
+              <strong class="rel-title">Learning & Skill Development</strong>
+              <span class="rel-text">Build the technical and professional skills employers test — with free courses, certifications and roadmaps.</span>
+              <span class="rel-foot"><span class="rel-meta">31 learning paths · live code</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Start learning</span>
+            </a><a class="rel-card rel-card--ink" href="/interview/email-guide/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+                <span class="rel-num">Course 04</span>
+                
+              </span>
+              <strong class="rel-title">Professional Email Guide</strong>
+              <span class="rel-text">Write professional emails for applying, sending your resume, following up and replying to recruiters.</span>
+              <span class="rel-foot"><span class="rel-meta">11 templates · 20 min</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Open email guide</span>
+            </a><a class="rel-card rel-card--cream" href="/interview/resume-ats/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+                <span class="rel-num">Course 05</span>
+                
+              </span>
+              <strong class="rel-title">Resume & ATS Preparation</strong>
+              <span class="rel-text">Build a professional resume and understand how applicant tracking systems screen it.</span>
+              <span class="rel-foot"><span class="rel-meta">5 modules · 2 free tools</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Resume & ATS guide</span>
+            </a>
+          </div>
+          <div class="rel-strip">
+            <span>Ready to apply?</span>
+            <a href="/jobs/">Find jobs on InfoparkDaily →</a>
+            <a href="/resume-builder/templates/">Build resume</a>
+            <a href="/ats-checker/">Check ATS score</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-wd-expand]");
+        if (!b) return;
+        var open = b.getAttribute("data-wd-expand") === "open";
+        document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
+      });
+    </script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

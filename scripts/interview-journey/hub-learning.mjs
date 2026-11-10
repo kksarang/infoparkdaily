@@ -1,4 +1,5 @@
 /* /interview/learning/ — learning hub, per-path detail pages and the live-code page. */
+import { GUIDE_FOR_PATH } from "./build-guides.mjs";
 import { esc } from "./helpers.mjs";
 import { pageShell, hubNav, hubRelated, crumbs, crumbsLd, ASSET_V, channelsRow, SITE } from "./shell.mjs";
 import { PATHS, CATEGORIES, pathBySlug } from "./learning-paths.mjs";
@@ -331,7 +332,11 @@ ${playgroundHtml(p.live)}
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Next steps</p><h2 id="next-t">Interview &amp; jobs</h2></div>
           <div class="lp-next">
-            <a class="lp-next-card lp-next-card--q" href="/interview/questions/#q-${p.qs}"><strong>Practise interview questions</strong><span>Sample answers for ${p.title.toLowerCase()} and HR rounds.</span><em>Open questions →</em></a>
+            ${
+              GUIDE_FOR_PATH[p.slug]
+                ? `<a class="lp-next-card lp-next-card--q" href="${GUIDE_FOR_PATH[p.slug].href}"><strong>${GUIDE_FOR_PATH[p.slug].title}</strong><span>${GUIDE_FOR_PATH[p.slug].text}</span><em>Open guide →</em></a>`
+                : `<a class="lp-next-card lp-next-card--q" href="/interview/questions/#q-${p.qs}"><strong>Practise interview questions</strong><span>Sample answers for ${p.title.toLowerCase()} and HR rounds.</span><em>Open questions →</em></a>`
+            }
             <a class="lp-next-card lp-next-card--j" href="${p.jobs}"><strong>Find matching jobs</strong><span>Openings on InfoparkDaily for this field.</span><em>Browse jobs →</em></a>
             <a class="lp-next-card" href="/resume-builder/templates/"><strong>Build your resume</strong><span>Add your new skills and projects.</span><em>Open builder →</em></a>
           </div>

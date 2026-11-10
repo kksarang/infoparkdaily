@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Data analyst Interview Questions &amp; Answers (30) | InfoparkDaily</title>
+    <meta
+      name="description"
+      content="30 important data analyst interview questions with simple answers: the analysis process, Excel, SQL for analysis, statistics, Power BI and Tableau, Python (pandas) and business case questions. Free, for freshers and experienced candidates."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Data analyst – 30 Important Interview Questions &amp; Answers" />
+    <meta property="og:description" content="the analysis process, Excel, SQL for analysis, statistics, Power BI and Tableau, Python (pandas) and business case questions — fresher to experienced." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://infoparkdaily.online/interview/questions/data-analyst/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <link rel="canonical" href="https://infoparkdaily.online/interview/questions/data-analyst/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","name":"Data analyst – 30 Important Interview Questions & Answers","url":"https://infoparkdaily.online/interview/questions/data-analyst/","inLanguage":"en-IN","isPartOf":{"@type":"WebSite","name":"InfoparkDaily","url":"https://infoparkdaily.online"},"mainEntity":[{"@type":"Question","name":"What does a data analyst do?","acceptedAnswer":{"@type":"Answer","text":"A data analyst collects, cleans and analyses data to answer business questions, then presents the findings in reports and dashboards so managers can make decisions. Typical questions: why did sales drop last month, which customers are likely to leave, which product sells best in which region."}},{"@type":"Question","name":"What are the main steps in a data analysis project?","acceptedAnswer":{"@type":"Answer","text":"1. Understand the business question and how success will be measured. 2. Collect the data from databases, files or APIs. 3. Clean and prepare it. 4. Explore and analyse it. 5. Visualise the results. 6. Present the insights with clear recommendations."}},{"@type":"Question","name":"What is data cleaning, and why does it take so much time?","acceptedAnswer":{"@type":"Answer","text":"Data cleaning fixes problems that would make the analysis wrong: duplicates, missing values, wrong formats (dates stored as text), inconsistent labels (\"Kochi\", \"kochi\", \"Cochin\"), typos and outliers. Real-world data is rarely clean, and bad data leads to bad decisions, so cleaning is often the largest part of the work."}},{"@type":"Question","name":"How do you handle missing data?","acceptedAnswer":{"@type":"Answer","text":"First find out why it's missing. Then choose based on how much is missing and how important the column is: - Remove the rows, if only a few are affected. - Fill with the mean, median or mode, or a value from related data. - Fill forward or backward for time series. - Flag it as \"Unknown\" for categories. Always note what you did, because it affects the results."}},{"@type":"Question","name":"What is the difference between data analysis and data analytics?","acceptedAnswer":{"@type":"Answer","text":"Data analysis usually means examining a specific dataset to answer a question. Data analytics is the broader field — the tools, processes and methods (including analysis) used to turn data into decisions. In job titles the two are often used interchangeably."}},{"@type":"Question","name":"What is the difference between structured and unstructured data?","acceptedAnswer":{"@type":"Answer","text":"Structured data fits neatly into rows and columns with a fixed format — sales tables, customer records — and is easy to query with SQL. Unstructured data has no fixed format — emails, reviews, images, call recordings — and needs extra processing (text analysis, tagging) before it can be analysed. Semi-structured data such as JSON sits in between."}},{"@type":"Question","name":"What are KPIs, and how do you choose them?","acceptedAnswer":{"@type":"Answer","text":"Key Performance Indicators are the few numbers that show whether a business goal is being met — monthly revenue, conversion rate, customer churn, average delivery time. A good KPI is tied to a goal, measurable, clearly defined and something the team can act on."}},{"@type":"Question","name":"What is the difference between VLOOKUP and XLOOKUP?","acceptedAnswer":{"@type":"Answer","text":"- VLOOKUP searches the first column of a range and returns a value from a column to its right. It breaks if columns are inserted and can't look left. - XLOOKUP searches any column and returns from any column, left or right, defaults to exact match and has a built-in \"if not found\" value. =XLOOKUP(A2, Products[ID], Products[Price], \"Not found\") INDEX with MATCH is the classic alternative in older Excel versions."}},{"@type":"Question","name":"What is a pivot table?","acceptedAnswer":{"@type":"Answer","text":"A pivot table summarises large data quickly — totals, counts and averages grouped by category — by dragging fields into rows, columns, values and filters. For example: total sales by region and month, built in seconds without formulas."}},{"@type":"Question","name":"What are some Excel functions every analyst should know?","acceptedAnswer":{"@type":"Answer","text":"- Lookup: XLOOKUP, VLOOKUP, INDEX/MATCH - Conditional maths: SUMIFS, COUNTIFS, AVERAGEIFS - Logic: IF, IFS, IFERROR, AND, OR - Text: TRIM, LEFT, RIGHT, MID, TEXTJOIN, PROPER - Dates: TODAY, EOMONTH, DATEDIF, NETWORKDAYS - Dynamic arrays: UNIQUE, FILTER, SORT"}},{"@type":"Question","name":"What is Power Query?","acceptedAnswer":{"@type":"Answer","text":"Power Query is the data-preparation tool built into Excel and Power BI. It connects to sources, then cleans and reshapes data — removing duplicates, splitting columns, merging tables, unpivoting — and records every step, so the same cleaning can be repeated with one click when new data arrives."}},{"@type":"Question","name":"Which SQL skills does a data analyst need?","acceptedAnswer":{"@type":"Answer","text":"Filtering ( WHERE ), sorting, aggregation ( GROUP BY , HAVING ), joins, CASE WHEN for categories, date functions, subqueries and CTEs, and window functions for rankings, running totals and period-over-period changes."}},{"@type":"Question","name":"How do you calculate month-over-month growth in SQL?","acceptedAnswer":{"@type":"Answer","text":"WITH monthly AS ( SELECT DATE_TRUNC('month', order_date) AS month, SUM(amount) AS revenue FROM orders GROUP BY 1 ) SELECT month, revenue, LAG(revenue) OVER (ORDER BY month) AS prev_revenue, ROUND(100.0 (revenue - LAG(revenue) OVER (ORDER BY month)) / LAG(revenue) OVER (ORDER BY month), 1) AS growth_pct FROM monthly; LAG reads the previous row's value. Date function names vary slightly between databases."}},{"@type":"Question","name":"How do you group values into categories in SQL?","acceptedAnswer":{"@type":"Answer","text":"Use CASE WHEN : SELECT customer_id, CASE WHEN total_spend >= 50000 THEN 'High' WHEN total_spend >= 10000 THEN 'Medium' ELSE 'Low' END AS segment FROM customer_totals;"}},{"@type":"Question","name":"How do you check data quality with SQL?","acceptedAnswer":{"@type":"Answer","text":"Count rows and compare with the source, look for NULLs in key columns, find duplicates with GROUP BY ... HAVING COUNT( ) > 1 , check values fall in a valid range (no negative quantities, no future dates), and confirm joins don't multiply rows unexpectedly."}},{"@type":"Question","name":"What is the difference between mean, median and mode?","acceptedAnswer":{"@type":"Answer","text":"- Mean: the average. - Median: the middle value when sorted. - Mode: the most frequent value. When data is skewed — salaries or house prices, where a few very large values pull the average up — the median represents the \"typical\" value better than the mean."}},{"@type":"Question","name":"What is standard deviation?","acceptedAnswer":{"@type":"Answer","text":"It measures how spread out values are around the mean. A low standard deviation means values are close to the average; a high one means they vary widely. Two branches can have the same average sales, but the one with a higher standard deviation is less predictable."}},{"@type":"Question","name":"What is the difference between correlation and causation?","acceptedAnswer":{"@type":"Answer","text":"Correlation means two things move together; causation means one causes the other. Ice-cream sales and drowning cases both rise in summer — they're correlated because of hot weather, but one doesn't cause the other. To show causation you need controlled experiments, such as A/B tests."}},{"@type":"Question","name":"What is an outlier, and how do you handle it?","acceptedAnswer":{"@type":"Answer","text":"An outlier is a value far from the rest. Find outliers with box plots, or the IQR rule (below Q1 − 1.5×IQR or above Q3 + 1.5×IQR). Then investigate: if it's a data error, fix or remove it; if it's real (a genuinely huge order), keep it but consider using the median or analysing it separately."}},{"@type":"Question","name":"What is A/B testing?","acceptedAnswer":{"@type":"Answer","text":"Users are split randomly into two groups: A sees the current version and B a changed version (for example a new checkout button). You compare a metric such as conversion rate and use a statistical test to check the difference is significant rather than chance. Decide the sample size and run time before starting."}},{"@type":"Question","name":"What is a p-value?","acceptedAnswer":{"@type":"Answer","text":"Assuming there is really no difference (the null hypothesis), the p-value is the probability of seeing a result at least as extreme as yours. A small p-value (commonly below 0.05) suggests the result is unlikely to be chance alone. It does not tell you how big or important the effect is."}},{"@type":"Question","name":"How do you choose the right chart?","acceptedAnswer":{"@type":"Answer","text":"- Comparison between categories: bar chart. - Trend over time: line chart. - Part of a whole: stacked bar, or a pie with very few slices. - Relationship between two numbers: scatter plot. - Distribution: histogram or box plot. - One key number: a KPI card. Keep charts simple, label axes and highlight what matters."}},{"@type":"Question","name":"What is the difference between Power BI and Tableau?","acceptedAnswer":{"@type":"Answer","text":"Both build interactive dashboards. Power BI is strongly integrated with Excel and Microsoft 365, uses DAX for calculations and is cheaper for many organisations. Tableau is known for flexible, polished visual exploration. The concepts — data models, measures, filters, dashboards — transfer between them."}},{"@type":"Question","name":"What is DAX? Explain a measure versus a calculated column.","acceptedAnswer":{"@type":"Answer","text":"DAX (Data Analysis Expressions) is Power BI's formula language. - A calculated column is computed row by row and stored in the table. - A measure is calculated on the fly for the current filter context — the slicers and visuals in use. Total Sales = SUM(Sales[Amount]) Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date])) Use measures for totals and ratios; they're more efficient and react to filters."}},{"@type":"Question","name":"What is a star schema?","acceptedAnswer":{"@type":"Answer","text":"A data model with one central fact table (transactions: sales, orders, with numbers to add up) linked to dimension tables (describing the facts: date, product, customer, region). It's simple to understand and fast for BI tools to filter and aggregate."}},{"@type":"Question","name":"What makes a good dashboard?","acceptedAnswer":{"@type":"Answer","text":"It answers the audience's key questions in seconds. Put the most important KPIs at the top, keep a few clear visuals, use consistent colours and labels, provide filters people actually need, show comparisons (target, last year) and make sure the numbers can be trusted."}},{"@type":"Question","name":"How is pandas used in data analysis?","acceptedAnswer":{"@type":"Answer","text":"pandas loads data (CSV, Excel, SQL) into DataFrames and makes cleaning and analysis fast: import pandas as pd df = pd.read_csv(\"sales.csv\", parse_dates=[\"order_date\"]) df = df.drop_duplicates().dropna(subset=[\"amount\"]) summary = df.groupby(\"region\")[\"amount\"].agg([\"sum\", \"mean\", \"count\"]) Other common methods: merge (joins), pivot_table , fillna , value_counts and apply ."}},{"@type":"Question","name":"Sales dropped 20% last month. How would you investigate?","acceptedAnswer":{"@type":"Answer","text":"1. Confirm the data is right — no missing loads or tracking problems. 2. Compare with the same month last year to check for seasonality. 3. Break the drop down by region, product, channel and customer type to find where it happened. 4. Check external events: price changes, stock-outs, competitor offers, holidays. 5. Split revenue into number of orders × average order value to see which fell. 6. Present the main causes and suggest actions."}},{"@type":"Question","name":"How do you explain technical findings to non-technical stakeholders?","acceptedAnswer":{"@type":"Answer","text":"Start with the answer and its business impact, not the method. Use one or two simple charts, plain language and concrete numbers (\"repeat customers fell by 1,200 this quarter\"), and end with clear recommendations. Keep technical details in an appendix for anyone who asks."}},{"@type":"Question","name":"Tell me about a project you're proud of. How should you structure the answer?","acceptedAnswer":{"@type":"Answer","text":"Use a short story: the business problem, the data you used, what you did (cleaning, analysis, tools), the key insight, and the result — ideally a number, such as \"reduced report preparation from two days to two hours\". Be honest about your exact role in team projects."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Interview hub","item":"https://infoparkdaily.online/interview/"},{"@type":"ListItem","position":3,"name":"Interview questions","item":"https://infoparkdaily.online/interview/questions/"},{"@type":"ListItem","position":4,"name":"Data analyst","item":"https://infoparkdaily.online/interview/questions/data-analyst/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <style>
+      .wd-num { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.9em; margin-right: 6px; border-radius: 8px; background: var(--ij-ink, #12151b); color: #fff; font-size: 0.8rem; font-weight: 800; }
+      .wd-qa .ij-qa-body ul, .wd-qa .ij-qa-body ol { margin: 6px 0 8px; padding-left: 1.3em; }
+      .wd-qa .ij-qa-body li { margin: 3px 0; }
+      .wd-qa .ij-qa-body code { font-size: 0.88em; }
+      .wd-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+      .wd-toc a { display: inline-block; padding: 7px 12px; border-radius: 999px; background: #fff; border: 1px solid rgba(18, 21, 27, 0.14); font-weight: 600; font-size: 0.88rem; text-decoration: none; color: inherit; }
+      .wd-toc a:hover { border-color: #12151b; }
+      .wd-tools { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+    </style>
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page iq-page light">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <section class="ij-hero iq-hero" aria-labelledby="wd-title">
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/interview/">Interview hub</a> / <a href="/interview/questions/">Interview questions</a> / <span aria-current="page">Data analyst</span></nav>
+          <p class="ij-badge-hero"><b>FREE</b> InfoparkDaily Learning · Fresher to experienced</p>
+          <h1 id="wd-title">Data analyst<br /><span>30 important interview questions.</span></h1>
+          <p class="ij-lede">
+            Prepare for data analyst interviews with 30 important questions and answers on <strong>the analysis process, Excel, SQL for analysis, statistics, Power BI and Tableau, Python (pandas) and business case questions</strong>.
+            The answers are short and interview-friendly, so freshers and experienced candidates can understand them and explain them in their own words.
+          </p>
+          <ul class="ij-hero-stats">
+            <li><strong>30</strong><span>questions</span></li>
+            <li><strong>6</strong><span>topics</span></li>
+            <li><strong>9</strong><span>practical tasks</span></li>
+          </ul>
+          <ul class="wd-toc" aria-label="Topics">
+            <li><a href="#wd-1">Role and process</a></li><li><a href="#wd-2">Excel</a></li><li><a href="#wd-3">SQL for analysis</a></li><li><a href="#wd-4">Statistics</a></li><li><a href="#wd-5">Visualisation and BI tools</a></li><li><a href="#wd-6">Python and business cases</a></li>
+            <li><a href="#wd-practice">Practical tasks</a></li>
+          </ul>
+          <div class="wd-tools">
+            <button type="button" class="ij-btn ij-btn--yellow" data-wd-expand="open">Expand all answers</button>
+            <button type="button" class="ij-btn" data-wd-expand="close">Collapse all</button>
+          </div>
+        </div>
+      </section>
+
+
+      <nav class="hub-tabs" aria-label="Interview & career hub">
+        <div class="ij-wrap"><div class="hub-tabs-track">
+          <a href="/interview/">Overview</a>
+          <a href="/interview/preparation/">Preparation</a><a href="/interview/questions/" aria-current="page">Questions</a><a href="/interview/learning/">Learning</a><a href="/interview/email-guide/">Email guide</a><a href="/interview/resume-ats/">Resume & ATS</a>
+          <a href="/jobs/" class="hub-tabs-jobs">Find jobs</a>
+        </div></div>
+      </nav>
+
+      <section class="ij-section wd-section" id="wd-1" aria-labelledby="wd-1-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 1 · Questions 1–7</p>
+            <h2 id="wd-1-title">Role and process</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q1"><summary><span class="wd-num">1</span> What does a data analyst do?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A data analyst collects, cleans and analyses data to answer business questions, then presents the findings in reports and dashboards so managers can make decisions. Typical questions: why did sales drop last month, which customers are likely to leave, which product sells best in which region.</p></div></details>
+            <details class="ij-qa-item" id="wd-q2"><summary><span class="wd-num">2</span> What are the main steps in a data analysis project?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Understand the business question and how success will be measured.</li><li>Collect the data from databases, files or APIs.</li><li>Clean and prepare it.</li><li>Explore and analyse it.</li><li>Visualise the results.</li><li>Present the insights with clear recommendations.</li></ol></div></details>
+            <details class="ij-qa-item" id="wd-q3"><summary><span class="wd-num">3</span> What is data cleaning, and why does it take so much time?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Data cleaning fixes problems that would make the analysis wrong: duplicates, missing values, wrong formats (dates stored as text), inconsistent labels (&quot;Kochi&quot;, &quot;kochi&quot;, &quot;Cochin&quot;), typos and outliers. Real-world data is rarely clean, and bad data leads to bad decisions, so cleaning is often the largest part of the work.</p></div></details>
+            <details class="ij-qa-item" id="wd-q4"><summary><span class="wd-num">4</span> How do you handle missing data?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>First find out why it's missing. Then choose based on how much is missing and how important the column is:</p><ul><li>Remove the rows, if only a few are affected.</li><li>Fill with the mean, median or mode, or a value from related data.</li><li>Fill forward or backward for time series.</li><li>Flag it as &quot;Unknown&quot; for categories.</li></ul><p>Always note what you did, because it affects the results.</p></div></details>
+            <details class="ij-qa-item" id="wd-q5"><summary><span class="wd-num">5</span> What is the difference between data analysis and data analytics?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Data analysis usually means examining a specific dataset to answer a question. Data analytics is the broader field — the tools, processes and methods (including analysis) used to turn data into decisions. In job titles the two are often used interchangeably.</p></div></details>
+            <details class="ij-qa-item" id="wd-q6"><summary><span class="wd-num">6</span> What is the difference between structured and unstructured data?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Structured data fits neatly into rows and columns with a fixed format — sales tables, customer records — and is easy to query with SQL. Unstructured data has no fixed format — emails, reviews, images, call recordings — and needs extra processing (text analysis, tagging) before it can be analysed. Semi-structured data such as JSON sits in between.</p></div></details>
+            <details class="ij-qa-item" id="wd-q7"><summary><span class="wd-num">7</span> What are KPIs, and how do you choose them?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Key Performance Indicators are the few numbers that show whether a business goal is being met — monthly revenue, conversion rate, customer churn, average delivery time. A good KPI is tied to a goal, measurable, clearly defined and something the team can act on.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-2" aria-labelledby="wd-2-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 2 · Questions 8–11</p>
+            <h2 id="wd-2-title">Excel</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q8"><summary><span class="wd-num">8</span> What is the difference between VLOOKUP and XLOOKUP?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>VLOOKUP</strong> searches the first column of a range and returns a value from a column to its right. It breaks if columns are inserted and can't look left.</li><li><strong>XLOOKUP</strong> searches any column and returns from any column, left or right, defaults to exact match and has a built-in &quot;if not found&quot; value.</li></ul><pre><code>=XLOOKUP(A2, Products[ID], Products[Price], &quot;Not found&quot;)</code></pre><p>INDEX with MATCH is the classic alternative in older Excel versions.</p></div></details>
+            <details class="ij-qa-item" id="wd-q9"><summary><span class="wd-num">9</span> What is a pivot table?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A pivot table summarises large data quickly — totals, counts and averages grouped by category — by dragging fields into rows, columns, values and filters. For example: total sales by region and month, built in seconds without formulas.</p></div></details>
+            <details class="ij-qa-item" id="wd-q10"><summary><span class="wd-num">10</span> What are some Excel functions every analyst should know?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Lookup:</strong> XLOOKUP, VLOOKUP, INDEX/MATCH</li><li><strong>Conditional maths:</strong> SUMIFS, COUNTIFS, AVERAGEIFS</li><li><strong>Logic:</strong> IF, IFS, IFERROR, AND, OR</li><li><strong>Text:</strong> TRIM, LEFT, RIGHT, MID, TEXTJOIN, PROPER</li><li><strong>Dates:</strong> TODAY, EOMONTH, DATEDIF, NETWORKDAYS</li><li><strong>Dynamic arrays:</strong> UNIQUE, FILTER, SORT</li></ul></div></details>
+            <details class="ij-qa-item" id="wd-q11"><summary><span class="wd-num">11</span> What is Power Query?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Power Query is the data-preparation tool built into Excel and Power BI. It connects to sources, then cleans and reshapes data — removing duplicates, splitting columns, merging tables, unpivoting — and records every step, so the same cleaning can be repeated with one click when new data arrives.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-3" aria-labelledby="wd-3-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 3 · Questions 12–15</p>
+            <h2 id="wd-3-title">SQL for analysis</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q12"><summary><span class="wd-num">12</span> Which SQL skills does a data analyst need?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Filtering (<code>WHERE</code>), sorting, aggregation (<code>GROUP BY</code>, <code>HAVING</code>), joins, <code>CASE WHEN</code> for categories, date functions, subqueries and CTEs, and window functions for rankings, running totals and period-over-period changes.</p></div></details>
+            <details class="ij-qa-item" id="wd-q13"><summary><span class="wd-num">13</span> How do you calculate month-over-month growth in SQL?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><pre><code>WITH monthly AS (
+  SELECT DATE_TRUNC('month', order_date) AS month, SUM(amount) AS revenue
+  FROM orders
+  GROUP BY 1
+)
+SELECT month, revenue,
+       LAG(revenue) OVER (ORDER BY month) AS prev_revenue,
+       ROUND(100.0 * (revenue - LAG(revenue) OVER (ORDER BY month))
+             / LAG(revenue) OVER (ORDER BY month), 1) AS growth_pct
+FROM monthly;</code></pre><p><code>LAG</code> reads the previous row's value. Date function names vary slightly between databases.</p></div></details>
+            <details class="ij-qa-item" id="wd-q14"><summary><span class="wd-num">14</span> How do you group values into categories in SQL?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use <code>CASE WHEN</code>:</p><pre><code>SELECT customer_id,
+       CASE WHEN total_spend &gt;= 50000 THEN 'High'
+            WHEN total_spend &gt;= 10000 THEN 'Medium'
+            ELSE 'Low' END AS segment
+FROM customer_totals;</code></pre></div></details>
+            <details class="ij-qa-item" id="wd-q15"><summary><span class="wd-num">15</span> How do you check data quality with SQL?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Count rows and compare with the source, look for NULLs in key columns, find duplicates with <code>GROUP BY ... HAVING COUNT(*) &gt; 1</code>, check values fall in a valid range (no negative quantities, no future dates), and confirm joins don't multiply rows unexpectedly.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-4" aria-labelledby="wd-4-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 4 · Questions 16–21</p>
+            <h2 id="wd-4-title">Statistics</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q16"><summary><span class="wd-num">16</span> What is the difference between mean, median and mode?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Mean:</strong> the average.</li><li><strong>Median:</strong> the middle value when sorted.</li><li><strong>Mode:</strong> the most frequent value.</li></ul><p>When data is skewed — salaries or house prices, where a few very large values pull the average up — the median represents the &quot;typical&quot; value better than the mean.</p></div></details>
+            <details class="ij-qa-item" id="wd-q17"><summary><span class="wd-num">17</span> What is standard deviation?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It measures how spread out values are around the mean. A low standard deviation means values are close to the average; a high one means they vary widely. Two branches can have the same average sales, but the one with a higher standard deviation is less predictable.</p></div></details>
+            <details class="ij-qa-item" id="wd-q18"><summary><span class="wd-num">18</span> What is the difference between correlation and causation?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Correlation means two things move together; causation means one causes the other. Ice-cream sales and drowning cases both rise in summer — they're correlated because of hot weather, but one doesn't cause the other. To show causation you need controlled experiments, such as A/B tests.</p></div></details>
+            <details class="ij-qa-item" id="wd-q19"><summary><span class="wd-num">19</span> What is an outlier, and how do you handle it?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>An outlier is a value far from the rest. Find outliers with box plots, or the IQR rule (below Q1 − 1.5×IQR or above Q3 + 1.5×IQR). Then investigate: if it's a data error, fix or remove it; if it's real (a genuinely huge order), keep it but consider using the median or analysing it separately.</p></div></details>
+            <details class="ij-qa-item" id="wd-q20"><summary><span class="wd-num">20</span> What is A/B testing?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Users are split randomly into two groups: A sees the current version and B a changed version (for example a new checkout button). You compare a metric such as conversion rate and use a statistical test to check the difference is significant rather than chance. Decide the sample size and run time before starting.</p></div></details>
+            <details class="ij-qa-item" id="wd-q21"><summary><span class="wd-num">21</span> What is a p-value?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Assuming there is really no difference (the null hypothesis), the p-value is the probability of seeing a result at least as extreme as yours. A small p-value (commonly below 0.05) suggests the result is unlikely to be chance alone. It does not tell you how big or important the effect is.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section wd-section" id="wd-5" aria-labelledby="wd-5-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 5 · Questions 22–26</p>
+            <h2 id="wd-5-title">Visualisation and BI tools</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q22"><summary><span class="wd-num">22</span> How do you choose the right chart?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ul><li><strong>Comparison between categories:</strong> bar chart.</li><li><strong>Trend over time:</strong> line chart.</li><li><strong>Part of a whole:</strong> stacked bar, or a pie with very few slices.</li><li><strong>Relationship between two numbers:</strong> scatter plot.</li><li><strong>Distribution:</strong> histogram or box plot.</li><li><strong>One key number:</strong> a KPI card.</li></ul><p>Keep charts simple, label axes and highlight what matters.</p></div></details>
+            <details class="ij-qa-item" id="wd-q23"><summary><span class="wd-num">23</span> What is the difference between Power BI and Tableau?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Both build interactive dashboards. Power BI is strongly integrated with Excel and Microsoft 365, uses DAX for calculations and is cheaper for many organisations. Tableau is known for flexible, polished visual exploration. The concepts — data models, measures, filters, dashboards — transfer between them.</p></div></details>
+            <details class="ij-qa-item" id="wd-q24"><summary><span class="wd-num">24</span> What is DAX? Explain a measure versus a calculated column.</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>DAX (Data Analysis Expressions) is Power BI's formula language.</p><ul><li>A <strong>calculated column</strong> is computed row by row and stored in the table.</li><li>A <strong>measure</strong> is calculated on the fly for the current filter context — the slicers and visuals in use.</li></ul><pre><code>Total Sales = SUM(Sales[Amount])
+Sales LY = CALCULATE([Total Sales], SAMEPERIODLASTYEAR('Date'[Date]))</code></pre><p>Use measures for totals and ratios; they're more efficient and react to filters.</p></div></details>
+            <details class="ij-qa-item" id="wd-q25"><summary><span class="wd-num">25</span> What is a star schema?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>A data model with one central fact table (transactions: sales, orders, with numbers to add up) linked to dimension tables (describing the facts: date, product, customer, region). It's simple to understand and fast for BI tools to filter and aggregate.</p></div></details>
+            <details class="ij-qa-item" id="wd-q26"><summary><span class="wd-num">26</span> What makes a good dashboard?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>It answers the audience's key questions in seconds. Put the most important KPIs at the top, keep a few clear visuals, use consistent colours and labels, provide filters people actually need, show comparisons (target, last year) and make sure the numbers can be trusted.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft wd-section" id="wd-6" aria-labelledby="wd-6-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Part 6 · Questions 27–30</p>
+            <h2 id="wd-6-title">Python and business cases</h2>
+          </div>
+          <div class="ij-qa wd-qa">
+            <details class="ij-qa-item" id="wd-q27"><summary><span class="wd-num">27</span> How is pandas used in data analysis?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>pandas loads data (CSV, Excel, SQL) into DataFrames and makes cleaning and analysis fast:</p><pre><code>import pandas as pd
+
+df = pd.read_csv(&quot;sales.csv&quot;, parse_dates=[&quot;order_date&quot;])
+df = df.drop_duplicates().dropna(subset=[&quot;amount&quot;])
+summary = df.groupby(&quot;region&quot;)[&quot;amount&quot;].agg([&quot;sum&quot;, &quot;mean&quot;, &quot;count&quot;])</code></pre><p>Other common methods: <code>merge</code> (joins), <code>pivot_table</code>, <code>fillna</code>, <code>value_counts</code> and <code>apply</code>.</p></div></details>
+            <details class="ij-qa-item" id="wd-q28"><summary><span class="wd-num">28</span> Sales dropped 20% last month. How would you investigate?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><ol><li>Confirm the data is right — no missing loads or tracking problems.</li><li>Compare with the same month last year to check for seasonality.</li><li>Break the drop down by region, product, channel and customer type to find where it happened.</li><li>Check external events: price changes, stock-outs, competitor offers, holidays.</li><li>Split revenue into number of orders × average order value to see which fell.</li><li>Present the main causes and suggest actions.</li></ol></div></details>
+            <details class="ij-qa-item" id="wd-q29"><summary><span class="wd-num">29</span> How do you explain technical findings to non-technical stakeholders?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Start with the answer and its business impact, not the method. Use one or two simple charts, plain language and concrete numbers (&quot;repeat customers fell by 1,200 this quarter&quot;), and end with clear recommendations. Keep technical details in an appendix for anyone who asks.</p></div></details>
+            <details class="ij-qa-item" id="wd-q30"><summary><span class="wd-num">30</span> Tell me about a project you're proud of. How should you structure the answer?</summary><div class="ij-qa-body"><p class="ij-qa-label">Answer</p><p>Use a short story: the business problem, the data you used, what you did (cleaning, analysis, tools), the key insight, and the result — ideally a number, such as &quot;reduced report preparation from two days to two hours&quot;. Be honest about your exact role in team projects.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft" id="wd-practice" aria-labelledby="wd-practice-title">
+        <div class="ij-wrap">
+          <div class="ij-head">
+            <p class="ij-eyebrow">Beyond the 30 questions</p>
+            <h2 id="wd-practice-title">Practical interview tasks</h2>
+            <p>Interviewers also ask you to write code and talk through your work. Practise these too.</p>
+          </div>
+          <div class="ij-table-wrap" tabindex="0" role="region" aria-label="Practical tasks to prepare"><table class="ij-table"><caption>Practical tasks to prepare</caption><thead><tr><th scope="col">Area</th><th scope="col">Practise this</th></tr></thead><tbody><tr><th scope="row">Excel</th><td data-label="Practise this">Build a pivot table of sales by region and month</td></tr><tr><th scope="row">Excel</th><td data-label="Practise this">Use XLOOKUP and SUMIFS to build a summary sheet</td></tr><tr><th scope="row">SQL</th><td data-label="Practise this">Find the top 5 products by revenue in each category</td></tr><tr><th scope="row">SQL</th><td data-label="Practise this">Calculate monthly active customers and month-over-month growth</td></tr><tr><th scope="row">Statistics</th><td data-label="Practise this">Compare mean and median salary for a skewed dataset</td></tr><tr><th scope="row">Power BI</th><td data-label="Practise this">Build a sales dashboard with KPI cards and a date slicer</td></tr><tr><th scope="row">Python</th><td data-label="Practise this">Clean a messy CSV with pandas and export a summary</td></tr><tr><th scope="row">Case</th><td data-label="Practise this">Investigate a drop in website conversions</td></tr><tr><th scope="row">Portfolio</th><td data-label="Practise this">Publish 2–3 end-to-end projects with clear write-ups</td></tr></tbody></table></div>
+          <p class="ij-small" style="margin-top:16px">
+            Want hands-on practice? Follow the <a href="/interview/learning/data-analyst/">data analyst learning path</a>, try the
+            <a href="/learning/">InfoparkDaily Learning</a> tutorials and quizzes, or browse the full <a href="/interview/questions/">interview question bank</a>.
+            Ready to apply? See the latest <a href="/jobs/">IT jobs</a>.
+          </p>
+          <h3 class="hub-h3" style="margin-top:22px">More interview guides</h3>
+          <ul class="wd-toc"><li><a href="/interview/questions/web-development/">Web development (70)</a></li><li><a href="/interview/questions/java-backend/">Java backend (30)</a></li><li><a href="/interview/questions/python-development/">Python development (30)</a></li><li><a href="/interview/questions/sql-databases/">SQL &amp; databases (30)</a></li><li><a href="/interview/questions/software-testing/">Software testing (QA) (30)</a></li><li><a href="/interview/questions/devops-cloud/">DevOps &amp; cloud (30)</a></li></ul>
+          <p class="ij-small">Original content by InfoparkDaily Learning. Answers are guidance — explain them in your own words and add examples from your projects.</p>
+        </div>
+      </section>
+
+      <section class="ij-section ij-section--soft hub-related" id="more" aria-labelledby="hub-related-title">
+        <div class="ij-wrap">
+          <div class="rel-head">
+            <div>
+              <p class="ij-eyebrow">Keep learning</p>
+              <h2 id="hub-related-title">Continue your preparation</h2>
+              <p>Pick your next course. Everything is free and saves progress on this device.</p>
+            </div>
+            <a class="rel-back" href="/interview/">← Back to academy overview</a>
+          </div>
+          <div class="rel-grid">
+            <a class="rel-card rel-card--ink" href="/interview/preparation/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3Zm-6 9.2V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-3.8l-6 3.3-6-3.3Z"/></svg></span>
+                <span class="rel-num">Course 01</span>
+                
+              </span>
+              <strong class="rel-title">Interview Preparation</strong>
+              <span class="rel-text">Prepare for interviews step by step — understand each round, improve communication and walk in confident.</span>
+              <span class="rel-foot"><span class="rel-meta">17 chapters · 3.5 hrs</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Explore preparation</span>
+            </a><a class="rel-card rel-card--soft is-next" href="/interview/learning/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4V4Zm16 0h-4a3 3 0 0 0-1 .2V20a2 2 0 0 1 2-2h3V4Z"/></svg></span>
+                <span class="rel-num">Course 03</span>
+                <span class="rel-next">Up next</span>
+              </span>
+              <strong class="rel-title">Learning & Skill Development</strong>
+              <span class="rel-text">Build the technical and professional skills employers test — with free courses, certifications and roadmaps.</span>
+              <span class="rel-foot"><span class="rel-meta">31 learning paths · live code</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Start learning</span>
+            </a><a class="rel-card rel-card--ink" href="/interview/email-guide/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3V5Zm2 2v.5l7 4.6 7-4.6V7H5Zm14 2.9-7 4.6-7-4.6V17h14V9.9Z"/></svg></span>
+                <span class="rel-num">Course 04</span>
+                
+              </span>
+              <strong class="rel-title">Professional Email Guide</strong>
+              <span class="rel-text">Write professional emails for applying, sending your resume, following up and replying to recruiters.</span>
+              <span class="rel-foot"><span class="rel-meta">11 templates · 20 min</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Open email guide</span>
+            </a><a class="rel-card rel-card--cream" href="/interview/resume-ats/">
+              <span class="rel-top">
+                <span class="rel-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM9 12v1.5h8V12H9Zm0 3v1.5h8V15H9Zm0 3v1.5h5V18H9Z"/></svg></span>
+                <span class="rel-num">Course 05</span>
+                
+              </span>
+              <strong class="rel-title">Resume & ATS Preparation</strong>
+              <span class="rel-text">Build a professional resume and understand how applicant tracking systems screen it.</span>
+              <span class="rel-foot"><span class="rel-meta">5 modules · 2 free tools</span><span class="rel-go" aria-hidden="true">→</span></span>
+              <span class="ij-sr"> — Resume & ATS guide</span>
+            </a>
+          </div>
+          <div class="rel-strip">
+            <span>Ready to apply?</span>
+            <a href="/jobs/">Find jobs on InfoparkDaily →</a>
+            <a href="/resume-builder/templates/">Build resume</a>
+            <a href="/ats-checker/">Check ATS score</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("click", function (e) {
+        var b = e.target.closest("[data-wd-expand]");
+        if (!b) return;
+        var open = b.getAttribute("data-wd-expand") === "open";
+        document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
+      });
+    </script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

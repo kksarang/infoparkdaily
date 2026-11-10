@@ -14,6 +14,7 @@ import { chaptersC } from "./chapters-c.mjs";
 import { EXTRA, GLOSSARY, FAQ } from "./chapters-extra.mjs";
 import { header, footer, featureDuo, hubNav } from "./shell.mjs";
 import { buildQuestions } from "./build-questions.mjs";
+import { buildGuides } from "./build-guides.mjs";
 import { emailPage, resumePage, PLATFORMS, KERALA } from "./hub-pages.mjs";
 import { learningHubPage, learningPathPage, liveCodePage, PATHS } from "./hub-learning.mjs";
 import { overviewPage } from "./hub-overview.mjs";
@@ -753,6 +754,7 @@ fs.writeFileSync(
 );
 
 buildQuestions();
+buildGuides();
 
 const HUB_OUT = {
   "interview/index.html": overviewPage,
