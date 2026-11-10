@@ -24,6 +24,7 @@ import { LINUX_DOCKER_TRACK } from "./track-linux-docker.mjs";
 import { POWERBI_TRACK } from "./track-power-bi.mjs";
 import { COMM_TRACK } from "./track-communication.mjs";
 import { GUIDES } from "../interview-journey/guides/index.mjs";
+import { siteHeaderHtml } from "../../js/site-header.js";
 
 /* Web lessons get their practice / interview / further-reading extras merged in. */
 for (const t of WEB_TRACKS) for (const l of t.lessons) Object.assign(l, WEB_EXTRAS[`${t.key}/${l.slug}`] || {});
@@ -31,7 +32,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261110ly";
+const V = "20261110m1";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
@@ -39,7 +40,12 @@ const JS = [`/js/learning.js?v=${V}`];
 /* Tracks that are planned but not written yet — shown honestly as "coming soon" (section hidden when empty). */
 const PLANNED = [];
 
+/* Learning pages use the home page's header and menu (dark glass), not the Career Tools menu. */
+const HOME_HEADER = siteHeaderHtml("home");
+const withHomeHeader = (html) => html.replace(/<header class="site-header glass" data-section="tools">[\s\S]*?<\/header>/, HOME_HEADER);
+
 const write = (rel, html) => {
+  html = withHomeHeader(html);
   const file = join(ROOT, rel);
   mkdirSync(dirname(file), { recursive: true });
   writeFileSync(file, html);
