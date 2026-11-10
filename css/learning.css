@@ -1147,25 +1147,3 @@ kbd { padding: 1px 6px; border: 1px solid var(--ln-line, #ddd); border-bottom-wi
 .lx-cta .lx-cta-actions a.lx-btn--light { color: #fff !important; }
 .lx-hero .lx-popular { justify-content: flex-start; text-align: left; }
 
-/* Home-page header on learning pages: same dark glass look and colours as the home page,
-   even though learning pages use the light theme. */
-body.ln-page .site-header[data-section="home"] {
-  --text: #f5f6fa; --muted: #a4a8ba; --line: rgba(255,255,255,.09); --line-strong: rgba(255,255,255,.16);
-  --surface: rgba(255,255,255,.045); --surface-2: rgba(255,255,255,.08);
-  background: rgba(15, 15, 21, 0.86);
-  border: 1px solid rgba(255,255,255,.09);
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
-  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-  color: var(--text);
-}
-body.ln-page .site-header[data-section="home"] .brand-name { color: #f5f6fa; }
-body.ln-page .site-header[data-section="home"] .brand-tagline { color: #a4a8ba; }
-body.ln-page .site-header[data-section="home"] .site-nav a { color: #a4a8ba; }
-body.ln-page .site-header[data-section="home"] .site-nav a:hover { color: #f5f6fa; background: rgba(255,255,255,.08); }
-body.ln-page .site-header[data-section="home"] .site-nav a[aria-current="page"] { color: #93c5fd; background: rgba(37,99,235,.2); border-color: rgba(147,197,253,.4); }
-body.ln-page .site-header[data-section="home"] .site-nav a.nav-enitexa { color: #c4b5fd; background: rgba(139,92,246,.12); border-color: rgba(139,92,246,.45); }
-body.ln-page .site-header[data-section="home"] .header-account,
-body.ln-page .site-header[data-section="home"] .nav-toggle { color: #f5f6fa; border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.04); }
-body.ln-page .site-header[data-section="home"] .nav-toggle-bars span { background: #f5f6fa; }
-body.ln-page .site-header[data-section="home"] { background: rgba(13, 13, 18, 0.97); }
-body.ln-page .site-header[data-section="home"].nav-open { background: #0f0f15; }

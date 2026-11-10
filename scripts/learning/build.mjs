@@ -32,7 +32,7 @@ const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261110m1";
+const V = "20261110m2";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
