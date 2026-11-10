@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Power BI Publishing, refresh & security – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Publishing to the Power BI Service, workspaces, scheduled refresh, gateways and row-level security. Free Power BI lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Power BI Publishing, refresh &amp; security – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Publishing to the Power BI Service, workspaces, scheduled refresh, gateways and row-level security. Free Power BI lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/power-bi/publish-share/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/power-bi/publish-share/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Power BI: Publishing, refresh & security","description":"Publishing to the Power BI Service, workspaces, scheduled refresh, gateways and row-level security.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/power-bi/publish-share/","isPartOf":{"@type":"Course","name":"Power BI tutorial","url":"https://infoparkdaily.online/learning/power-bi/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Power BI","item":"https://infoparkdaily.online/learning/power-bi/"},{"@type":"ListItem","position":4,"name":"Publishing, refresh & security","item":"https://infoparkdaily.online/learning/power-bi/publish-share/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261110lg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/typescript/" style="--ln-c:#3178c6">TypeScript</a><a href="/learning/nodejs/" style="--ln-c:#3c873a">Node.js</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/spring-boot/" style="--ln-c:#6db33f">Spring Boot</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/linux-docker/" style="--ln-c:#2496ed">Linux & Docker</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/power-bi/" style="--ln-c:#c79a00" aria-current="page">Power BI</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a><a href="/learning/communication/" style="--ln-c:#be185d">Communication</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#c79a00">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Power BI tutorial <small data-ln-label="power-bi" data-total="7"></small></summary>
+            <ol>
+              <li><a href="/learning/power-bi/introduction/" data-ln-lesson="power-bi/introduction">Power BI introduction</a></li>
+              <li><a href="/learning/power-bi/power-query/" data-ln-lesson="power-bi/power-query">Cleaning data with Power Query</a></li>
+              <li><a href="/learning/power-bi/data-modeling/" data-ln-lesson="power-bi/data-modeling">Data modelling & relationships</a></li>
+              <li><a href="/learning/power-bi/dax-basics/" data-ln-lesson="power-bi/dax-basics">DAX basics: measures & columns</a></li>
+              <li><a href="/learning/power-bi/calculate-time-intelligence/" data-ln-lesson="power-bi/calculate-time-intelligence">CALCULATE & time intelligence</a></li>
+              <li><a href="/learning/power-bi/reports-dashboards/" data-ln-lesson="power-bi/reports-dashboards">Building reports & dashboards</a></li>
+              <li><a href="/learning/power-bi/publish-share/" data-ln-lesson="power-bi/publish-share" aria-current="page">Publishing, refresh & security</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="power-bi/publish-share">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/power-bi/">Power BI</a> / <span aria-current="page">Publishing, refresh & security</span></nav>
+          <p class="ax-eyebrow">Power BI · Lesson 7 of 7</p>
+          <h1>Publishing, refresh & security</h1>
+          <p class="ln-summary">Publishing to the Power BI Service, workspaces, scheduled refresh, gateways and row-level security.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/power-bi/reports-dashboards/" rel="prev">← Building reports & dashboards</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+          <div class="ln-body">
+<p>Once the report is ready, you <strong>publish</strong> it from Desktop to a <strong>workspace</strong> in the Power BI Service. From there:</p>
+<ul>
+<li><strong>Share</strong> it or bundle reports into an <strong>App</strong> for a department.</li>
+<li>Set a <strong>scheduled refresh</strong> so data stays current. On-premises sources (a local SQL Server or files on a company network) need an <strong>on-premises data gateway</strong>.</li>
+<li>Pin visuals to a <strong>dashboard</strong> for a one-screen summary.</li>
+<li>Apply <strong>row-level security (RLS)</strong> so each user sees only their data — for example each regional manager sees only their region.</li>
+</ul>
+<p>Sharing in the Service generally requires Power BI Pro or Premium licences.</p>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-publish-share">
+            <div class="ln-try-head"><h2 id="try-publish-share">Sample data & steps</h2><span class="ln-try-badge">Power BI Desktop (free, Windows)</span></div>
+            <pre class="ln-terminal"><code>Row-level security (Modeling → Manage roles → New role &quot;RegionManager&quot;):
+
+Table: Managers
+Email                 | Region
+anu@company.example   | Kochi
+ravi@company.example  | Trivandrum
+
+Rule on the Managers table:
+[Email] = USERPRINCIPALNAME ()
+
+(Managers is related to Sales on Region, so the filter flows to Sales.)
+
+Test: Modeling → View as → Role &quot;RegionManager&quot;,
+      Other user = anu@company.example
+
+Then: Home → Publish → workspace &quot;Sales Reports&quot;
+      Service → Semantic model settings → Scheduled refresh: daily 7:00 AM</code></pre>
+            <p class="ln-output-label">Result</p>
+            <pre class="ln-terminal ln-terminal--out"><code>Viewing as anu@company.example:
+Total Sales = 129,000   (Kochi only)
+Region bar chart shows one bar: Kochi
+
+Refresh history: Completed · 10 Nov 2026, 07:00 · 42 s</code></pre>
+            <p class="ln-try-note">Download Power BI Desktop free from Microsoft (Windows). Re-create the small sample tables in Excel, load them, and follow the steps. Data is fictional.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-publish-share">
+            <h2 id="pts-publish-share">Key points</h2>
+            <ul><li>Publish from Desktop to a workspace in the Service.</li><li>Schedule refresh; on-premises sources need a gateway.</li><li>Row-level security limits which rows each user sees.</li><li>Package reports as an App for wider audiences.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-power-bi-publish-share" data-quiz data-answer="1">
+            <h2 id="q-power-bi-publish-share">Quick check</h2>
+            <p>Each regional manager should see only their own region's sales in the same report. What do you use?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-power-bi-publish-share" value="0"> <span>Separate reports for each region</span></label>
+              <label><input type="radio" name="q-power-bi-publish-share" value="1"> <span>Row-level security</span></label>
+              <label><input type="radio" name="q-power-bi-publish-share" value="2"> <span>A slicer</span></label>
+              <label><input type="radio" name="q-power-bi-publish-share" value="3"> <span>Bookmarks</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>RLS filters data per user at the model level, and users can't remove it the way they can clear a slicer.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-publish-share">
+            <h2 id="prac-publish-share">Practice task</h2>
+            <p>Add a role that limits data to one region, test it with View as, and write down the steps you would follow to publish and schedule a daily refresh.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-publish-share">
+            <h2 id="iv-publish-share">Interview corner</h2>
+            <details><summary>What is row-level security in Power BI?</summary><p>A way to restrict which rows each user can see by defining roles with DAX filter rules (often using USERPRINCIPALNAME()) and assigning users to them in the Service. The same report then shows each user only their permitted data.</p></details>
+            <details><summary>What is a data gateway and when is it needed?</summary><p>Software installed inside the company network that securely connects the Power BI Service to on-premises data sources, so cloud refreshes can reach local databases and file shares. Cloud sources don't need it.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-publish-share">
+            <h2 id="fr-publish-share">Further reading</h2>
+            <ul><li><a href="https://learn.microsoft.com/en-us/power-bi/enterprise/service-admin-rls" target="_blank" rel="noopener">Row-level security ↗</a></li><li><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data" target="_blank" rel="noopener">Data refresh ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/power-bi/reports-dashboards/" rel="prev">← Building reports & dashboards</a>
+              <a href="/learning/">All learning →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261110lg" defer></script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

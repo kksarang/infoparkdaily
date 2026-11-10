@@ -871,3 +871,8 @@ kbd { padding: 1px 6px; border: 1px solid var(--ln-line, #ddd); border-bottom-wi
   .lp-meta span + span::before { content: "·"; margin: 0 6px; color: #b4b8bf; }
   .lp-go { border: 0 !important; }
 }
+
+/* Interview Q&A guides on the learning hub */
+.ln-more-link { margin: 18px 0 0; font-weight: 600; }
+.ln-more-link a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ln-terminal--wrap { white-space: pre-wrap; overflow-wrap: anywhere; font-family: inherit; font-size: 0.95rem; line-height: 1.6; }

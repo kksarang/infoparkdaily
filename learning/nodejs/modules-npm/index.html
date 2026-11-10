@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Node.js Modules & npm – Tutorial with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Splitting code into modules with import/export, package.json and installing packages. Free Node.js lesson with a live example you can edit and a quick quiz." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Node.js Modules &amp; npm – Tutorial with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Splitting code into modules with import/export, package.json and installing packages. Free Node.js lesson with a live example you can edit and a quick quiz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/nodejs/modules-npm/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/nodejs/modules-npm/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LearningResource","name":"Node.js: Modules & npm","description":"Splitting code into modules with import/export, package.json and installing packages.","learningResourceType":"Tutorial","isAccessibleForFree":true,"inLanguage":"en","url":"https://infoparkdaily.online/learning/nodejs/modules-npm/","isPartOf":{"@type":"Course","name":"Node.js tutorial","url":"https://infoparkdaily.online/learning/nodejs/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Node.js","item":"https://infoparkdaily.online/learning/nodejs/"},{"@type":"ListItem","position":4,"name":"Modules & npm","item":"https://infoparkdaily.online/learning/nodejs/modules-npm/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261110lg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page ln-lesson light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/typescript/" style="--ln-c:#3178c6">TypeScript</a><a href="/learning/nodejs/" style="--ln-c:#3c873a" aria-current="page">Node.js</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/spring-boot/" style="--ln-c:#6db33f">Spring Boot</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/linux-docker/" style="--ln-c:#2496ed">Linux & Docker</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/power-bi/" style="--ln-c:#c79a00">Power BI</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a><a href="/learning/communication/" style="--ln-c:#be185d">Communication</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <div class="ij-wrap ln-layout" style="--ln-c:#3c873a">
+        <aside class="ln-side">
+          <details class="ln-side-box" open>
+            <summary>Node.js tutorial <small data-ln-label="nodejs" data-total="7"></small></summary>
+            <ol>
+              <li><a href="/learning/nodejs/introduction/" data-ln-lesson="nodejs/introduction">Node.js introduction</a></li>
+              <li><a href="/learning/nodejs/modules-npm/" data-ln-lesson="nodejs/modules-npm" aria-current="page">Modules & npm</a></li>
+              <li><a href="/learning/nodejs/async/" data-ln-lesson="nodejs/async">Async code: callbacks, promises & async/await</a></li>
+              <li><a href="/learning/nodejs/files-http/" data-ln-lesson="nodejs/files-http">Files, paths & the HTTP module</a></li>
+              <li><a href="/learning/nodejs/express-basics/" data-ln-lesson="nodejs/express-basics">Express: routes & middleware</a></li>
+              <li><a href="/learning/nodejs/rest-api/" data-ln-lesson="nodejs/rest-api">Build a REST API (CRUD)</a></li>
+              <li><a href="/learning/nodejs/database-auth/" data-ln-lesson="nodejs/database-auth">Databases, errors & JWT auth</a></li>
+            </ol>
+          </details>
+        </aside>
+        <article class="ln-article" data-ln-current="nodejs/modules-npm">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <a href="/learning/nodejs/">Node.js</a> / <span aria-current="page">Modules & npm</span></nav>
+          <p class="ax-eyebrow">Node.js · Lesson 2 of 7</p>
+          <h1>Modules & npm</h1>
+          <p class="ln-summary">Splitting code into modules with import/export, package.json and installing packages.</p>
+
+            <nav class="ln-pager ln-pager--top" aria-label="Lesson navigation">
+              <a href="/learning/nodejs/introduction/" rel="prev">← Node.js introduction</a>
+              <a href="/learning/nodejs/async/" rel="next">Async code: callbacks, promises & async/await →</a>
+            </nav>
+          <div class="ln-body">
+<p>Real projects split code into <strong>modules</strong> — one file per responsibility. Modern Node uses ES modules (<code>import</code>/<code>export</code>). Add <code>"type": "module"</code> to <code>package.json</code> to use them. Older code uses CommonJS (<code>require</code>/<code>module.exports</code>); you'll see both at work.</p>
+<h3>package.json and npm</h3>
+<ul>
+<li><code>npm init -y</code> creates <code>package.json</code>, which lists your project's name, scripts and dependencies.</li>
+<li><code>npm install express</code> adds a package to <code>dependencies</code> and downloads it into <code>node_modules</code>.</li>
+<li><code>npm install -D nodemon</code> adds a <em>dev</em> dependency, used only during development.</li>
+<li><code>package-lock.json</code> records exact versions so every install matches. Commit it; never commit <code>node_modules</code>.</li>
+</ul>
+          </div>
+          <section class="ln-try ln-try--shell" aria-labelledby="try-modules-npm">
+            <div class="ln-try-head"><h2 id="try-modules-npm">Example code</h2><span class="ln-try-badge">Run with Node.js 20+</span></div>
+            <pre class="ln-terminal"><code>// salary.js
+export function monthly(lpa) {
+  return Math.round((lpa * 100000) / 12);
+}
+
+// app.js   (package.json has &quot;type&quot;: &quot;module&quot;)
+import { monthly } from &quot;./salary.js&quot;;
+
+const offers = [4.5, 6, 8.2];
+for (const lpa of offers) {
+  console.log(lpa + &quot; LPA = Rs &quot; + monthly(lpa) + &quot; per month&quot;);
+}</code></pre>
+            <p class="ln-output-label">Output</p>
+            <pre class="ln-terminal ln-terminal--out"><code>4.5 LPA = Rs 37500 per month
+6 LPA = Rs 50000 per month
+8.2 LPA = Rs 68333 per month</code></pre>
+            <p class="ln-try-note">Save the code in a file such as <code>app.js</code> and run <code>node app.js</code>. For Express lessons, run <code>npm install express</code> first. Names and data are fictional.</p>
+          </section>
+          <section class="ln-points" aria-labelledby="pts-modules-npm">
+            <h2 id="pts-modules-npm">Key points</h2>
+            <ul><li>Use import/export (ES modules) for new code.</li><li>package.json lists dependencies and scripts.</li><li>Commit package-lock.json, not node_modules.</li><li>Use npm scripts such as npm run dev to run common commands.</li></ul>
+          </section>
+          <section class="ln-quiz" aria-labelledby="q-nodejs-modules-npm" data-quiz data-answer="2">
+            <h2 id="q-nodejs-modules-npm">Quick check</h2>
+            <p>Which file should you NOT commit to Git?</p>
+            <div class="ln-quiz-options">
+              <label><input type="radio" name="q-nodejs-modules-npm" value="0"> <span>package.json</span></label>
+              <label><input type="radio" name="q-nodejs-modules-npm" value="1"> <span>package-lock.json</span></label>
+              <label><input type="radio" name="q-nodejs-modules-npm" value="2"> <span>node_modules</span></label>
+              <label><input type="radio" name="q-nodejs-modules-npm" value="3"> <span>app.js</span></label>
+            </div>
+            <button type="button" class="ln-btn" data-check>Check answer</button>
+            <p class="ln-quiz-result" data-result role="status" hidden></p>
+            <p class="ln-quiz-why" data-why hidden>node_modules is recreated by npm install from package.json and the lock file. Add it to .gitignore.</p>
+          </section>
+          <section class="ln-practice-task" aria-labelledby="prac-modules-npm">
+            <h2 id="prac-modules-npm">Practice task</h2>
+            <p>Create a module with two functions (add GST to a price, and format a number as rupees), import both in app.js and print the results.</p>
+            
+          </section>
+          <section class="ln-interview" aria-labelledby="iv-modules-npm">
+            <h2 id="iv-modules-npm">Interview corner</h2>
+            <details><summary>What is the difference between dependencies and devDependencies?</summary><p>dependencies are needed to run the app in production (express, a database driver). devDependencies are only needed while developing or testing (nodemon, jest, eslint).</p></details>
+            <details><summary>CommonJS vs ES modules?</summary><p>CommonJS uses require and module.exports and loads synchronously; it's the older Node default. ES modules use import/export, are the JavaScript standard, and work in browsers and modern Node.</p></details>
+          </section>
+          <div class="ln-complete">
+            <button type="button" class="ln-btn ln-btn--ghost" data-ln-complete aria-pressed="false">Mark lesson complete</button>
+          </div>
+          <section class="ln-further" aria-labelledby="fr-modules-npm">
+            <h2 id="fr-modules-npm">Further reading</h2>
+            <ul><li><a href="https://docs.npmjs.com/cli/configuring-npm/package-json" target="_blank" rel="noopener">npm docs: package.json ↗</a></li></ul>
+            <p class="ln-note">Official documentation, linked for deeper study. These are outside sites; this lesson's text is our own.</p>
+          </section>
+
+            <nav class="ln-pager ln-pager--bottom" aria-label="Lesson navigation">
+              <a href="/learning/nodejs/introduction/" rel="prev">← Node.js introduction</a>
+              <a href="/learning/nodejs/async/" rel="next">Async code: callbacks, promises & async/await →</a>
+            </nav>
+          <p class="ln-owner">Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.</p>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261110lg" defer></script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>

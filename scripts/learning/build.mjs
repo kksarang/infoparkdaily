@@ -17,26 +17,27 @@ import { JAVA_TRACK } from "./track-java.mjs";
 import { EXCEL_TRACK } from "./track-excel.mjs";
 import { DSA_TRACK } from "./track-dsa.mjs";
 import { APT_TRACK } from "./track-aptitude.mjs";
+import { NODE_TRACK } from "./track-nodejs.mjs";
+import { TS_TRACK } from "./track-typescript.mjs";
+import { SPRING_TRACK } from "./track-spring-boot.mjs";
+import { LINUX_DOCKER_TRACK } from "./track-linux-docker.mjs";
+import { POWERBI_TRACK } from "./track-power-bi.mjs";
+import { COMM_TRACK } from "./track-communication.mjs";
+import { GUIDES } from "../interview-journey/guides/index.mjs";
 
 /* Web lessons get their practice / interview / further-reading extras merged in. */
 for (const t of WEB_TRACKS) for (const l of t.lessons) Object.assign(l, WEB_EXTRAS[`${t.key}/${l.slug}`] || {});
-const TRACKS = [...WEB_TRACKS, REACT_TRACK, PY_TRACK, SQL_TRACK, GIT_TRACK, JAVA_TRACK, DSA_TRACK, EXCEL_TRACK, APT_TRACK];
+const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA_TRACK, SPRING_TRACK, SQL_TRACK, GIT_TRACK, LINUX_DOCKER_TRACK, DSA_TRACK, EXCEL_TRACK, POWERBI_TRACK, APT_TRACK, COMM_TRACK];
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
-const V = "20261109lq";
+const V = "20261110lg";
 const CSS = [`/css/learning.css?v=${V}`];
 const JS = [`/js/learning.js?v=${V}`];
 
 /* Tracks that are planned but not written yet — shown honestly as "coming soon". */
-const PLANNED = [
-  ["Node.js & Express", "Build REST APIs and backend services with JavaScript.", "#3c873a"],
-  ["TypeScript", "Types for safer, larger JavaScript and React apps.", "#3178c6"],
-  ["Spring Boot", "Java web services, REST APIs and JPA.", "#6db33f"],
-  ["Docker & Linux basics", "Containers, shell commands and deployment basics.", "#2496ed"],
-  ["Power BI", "Dashboards and reports for analyst roles.", "#c79a00"],
-  ["Communication for interviews", "Introductions, HR answers and workplace email.", "#be185d"]
-];
+/* Tracks that are planned but not written yet — shown honestly as "coming soon" (section hidden when empty). */
+const PLANNED = [];
 
 const write = (rel, html) => {
   const file = join(ROOT, rel);
@@ -45,7 +46,7 @@ const write = (rel, html) => {
 };
 
 const base = [["InfoparkDaily", "/"], ["Learning", "/learning/"]];
-const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git", react: "Re", java: "Jv", excel: "XL", dsa: "DSA", aptitude: "Apt" };
+const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git", react: "Re", java: "Jv", excel: "XL", dsa: "DSA", aptitude: "Apt", nodejs: "Nd", typescript: "TS", "spring-boot": "Sb", "linux-docker": "$_", "power-bi": "BI", communication: "Aa" };
 const trackUrl = (t) => `/learning/${t.key}/`;
 const lessonUrl = (t, l) => `/learning/${t.key}/${l.slug}/`;
 
@@ -67,18 +68,21 @@ function hubPage() {
 
   /* Category of each track — drives the filter chips on the hub. */
   const GROUPS = [
-    ["web", "Web development", ["html", "css", "javascript", "react"]],
-    ["code", "Programming", ["python", "java", "dsa", "git"]],
-    ["data", "Data & office", ["sql", "excel"]],
-    ["prep", "Placement prep", ["aptitude", "dsa"]]
+    ["web", "Web development", ["html", "css", "javascript", "react", "typescript"]],
+    ["backend", "Backend & DevOps", ["nodejs", "java", "spring-boot", "linux-docker", "git"]],
+    ["code", "Programming", ["python", "java", "dsa", "typescript"]],
+    ["data", "Data & office", ["sql", "excel", "power-bi"]],
+    ["prep", "Placement prep", ["aptitude", "dsa", "communication"]]
   ];
   const groupsOf = (key) => GROUPS.filter(([, , keys]) => keys.includes(key)).map(([g]) => g).join(" ");
 
   /* Goal-based starting points. Each step links to a real track. */
   const GOALS = [
-    ["Frontend developer", "Build websites and web apps.", ["html", "css", "javascript", "react", "git"], "#e44d26"],
-    ["Data analyst", "Turn spreadsheets and databases into answers.", ["excel", "sql", "python"], "#00758f"],
-    ["Placement & coding rounds", "Clear aptitude tests and technical interviews.", ["aptitude", "dsa", "java"], "#7c3aed"]
+    ["Frontend developer", "Build websites and web apps.", ["html", "css", "javascript", "react", "typescript", "git"], "#e44d26"],
+    ["Full-stack JavaScript", "Frontend and backend with one language.", ["javascript", "typescript", "react", "nodejs", "git", "linux-docker"], "#3c873a"],
+    ["Java backend developer", "The most-hired backend stack in Kerala IT parks.", ["java", "spring-boot", "sql", "git", "linux-docker"], "#6db33f"],
+    ["Data analyst", "Turn spreadsheets and databases into answers.", ["excel", "sql", "power-bi", "python"], "#00758f"],
+    ["Placement & coding rounds", "Clear aptitude tests, coding and HR interviews.", ["aptitude", "dsa", "java", "communication"], "#7c3aed"]
   ];
   const goalCards = GOALS.map(([title, desc, keys, color]) => {
     const steps = keys.filter((k) => byKey[k]);
@@ -115,7 +119,10 @@ function hubPage() {
     ["SQL JOINs", "/learning/sql/joins/"],
     ["Excel XLOOKUP", "/learning/excel/lookups/"],
     ["Binary search", "/learning/dsa/binary-search/"],
-    ["Percentages", "/learning/aptitude/percentages/"]
+    ["Percentages", "/learning/aptitude/percentages/"],
+    ["Dockerfile", "/learning/linux-docker/dockerfile/"],
+    ["DAX CALCULATE", "/learning/power-bi/calculate-time-intelligence/"],
+    ["Tell me about yourself", "/learning/communication/self-introduction/"]
   ];
 
   /* Curriculum: one tab per track; without JavaScript every panel is shown. */
@@ -172,7 +179,7 @@ function hubPage() {
           <div class="lh-hero-copy">
             <p class="ax-pill"><span>Free</span> ${TRACKS.length} tutorials · ${lessonsTotal} lessons · ${PATHS.length} career paths</p>
             <h1 id="ln-title">Learn to code. <span>Build job-ready skills.</span></h1>
-            <p class="ax-lede">Short lessons with live code editors, quizzes and interview questions — web development, Python, Java, SQL, Excel, DSA and aptitude. Written by the InfoparkDaily team and free forever.</p>
+            <p class="ax-lede">Short lessons with live code editors, quizzes and interview questions — web development, TypeScript, Node.js, Python, Java, Spring Boot, SQL, Linux &amp; Docker, Excel, Power BI, DSA, aptitude and interview communication. Written by the InfoparkDaily team and free forever.</p>
             <label class="lh-search">
               <span class="ij-sr">Search learning</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3Zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"/></svg>
@@ -230,24 +237,39 @@ ${trackBar("")}
           </div>
         </div>
       </section>
+      <section class="ez-section ln-search-hide" aria-labelledby="ln-guides">
+        <div class="ij-wrap">
+          <div class="ez-head"><p class="ax-eyebrow">Interview preparation</p><h2 id="ln-guides">Interview Q&amp;A guides by field</h2><p>${GUIDES.reduce((n, g) => n + g.meta.count, 0)} important questions with detailed answers, grouped by topic. Read the tutorial, then practise the interview questions for the same field.</p></div>
+          <div class="ln-cards ln-guides">${GUIDES.map((g) => `
+            <article class="ln-card" style="--ln-c:#12151b">
+              <span class="ln-mono" aria-hidden="true">Q&amp;A</span>
+              <h3><a href="/interview/questions/${g.meta.slug}/">${esc(g.meta.name)}</a></h3>
+              <p>${esc(g.meta.topics.charAt(0).toUpperCase() + g.meta.topics.slice(1))}.</p>
+              <p class="ln-card-meta">${g.meta.count} questions · ${esc(g.meta.level)}</p>
+              <div class="ln-card-foot"><span></span><a class="ln-card-go" href="/interview/questions/${g.meta.slug}/">Practise →</a></div>
+            </article>`).join("")}
+          </div>
+          <p class="ln-more-link"><a href="/interview/questions/">Browse the full interview question bank (HR, technical and non-IT) →</a></p>
+        </div>
+      </section>
       <section class="ez-section" aria-labelledby="ln-paths">
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">Career paths</p><h2 id="ln-paths">Step-by-step roadmaps for ${PATHS.length} careers</h2><p>Each path has modules, free resources, certifications and projects.</p></div>
           ${careerPaths}
         </div>
       </section>
-      <section class="ez-section ez-section--soft" aria-labelledby="ln-next">
+${PLANNED.length ? `      <section class="ez-section ez-section--soft" aria-labelledby="ln-next">
         <div class="ij-wrap">
           <div class="ez-head"><p class="ax-eyebrow">On the roadmap</p><h2 id="ln-next">More tutorials are on the way</h2></div>
           <div class="ln-planned-grid">${planned}
           </div>
         </div>
-      </section>
+      </section>` : ""}
       <p class="ij-wrap ln-hub-owner">All lessons, examples, quizzes and interview answers on this page are original InfoparkDaily content, free to learn — no paid courses or subscriptions.</p>`;
 
   return pageShell({
-    title: "Learning – Free Tutorials: HTML, CSS, JavaScript, React, Python, Java, SQL, Excel, DSA | InfoparkDaily",
-    description: `Free, original tutorials with live code editors, quizzes and interview questions: ${lessonsTotal} lessons across ${TRACKS.length} tracks — web development, Python, Java, SQL, Excel, DSA and aptitude — plus ${PATHS.length} career learning paths.`,
+    title: "Learning – Free Tutorials: HTML, CSS, JavaScript, React, Node.js, Python, Java, Spring Boot, SQL, Docker, Power BI | InfoparkDaily",
+    description: `Free, original tutorials with live code editors, quizzes and interview questions: ${lessonsTotal} lessons across ${TRACKS.length} tracks — web development, TypeScript, Node.js, Python, Java, Spring Boot, SQL, Linux & Docker, Excel, Power BI, DSA, aptitude and interview communication — plus ${PATHS.length} career learning paths and interview Q&A guides.`,
     path: "/learning/",
     jsonLd: {
       "@context": "https://schema.org",
@@ -327,9 +349,9 @@ function tryBlock(t, l) {
   if (lang === "static") {
     return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
             <div class="ln-try-head"><h2 id="try-${l.slug}">${t.exampleTitle || "Example"}</h2><span class="ln-try-badge">${t.exampleBadge || ""}</span></div>
-            <pre class="ln-terminal"><code>${esc(l.example)}</code></pre>
+            <pre class="ln-terminal${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(l.example)}</code></pre>
             ${l.output ? `<p class="ln-output-label">${t.outputTitle || "Output"}</p>
-            <pre class="ln-terminal ln-terminal--out"><code>${esc(l.output)}</code></pre>` : ""}
+            <pre class="ln-terminal ln-terminal--out${t.wrapExample ? " ln-terminal--wrap" : ""}"><code>${esc(l.output)}</code></pre>` : ""}
             ${t.exampleNote ? `<p class="ln-try-note">${t.exampleNote}</p>` : ""}
           </section>`;
   }
@@ -337,7 +359,7 @@ function tryBlock(t, l) {
     return `          <section class="ln-try ln-try--shell" aria-labelledby="try-${l.slug}">
             <div class="ln-try-head"><h2 id="try-${l.slug}">Example in the terminal</h2><span class="ln-try-badge">Run these on your own computer</span></div>
             <pre class="ln-terminal"><code>${esc(l.example)}</code></pre>
-            <p class="ln-try-note">Lines starting with <code>$</code> are commands you type; the rest is what Git prints. Names and URLs are examples.</p>
+            <p class="ln-try-note">${t.shellNote || "Lines starting with <code>$</code> are commands you type; the rest is what Git prints. Names and URLs are examples."}</p>
           </section>`;
   }
   const label = { web: "Result of the example code", python: "Python output", sql: "Query results" }[lang];

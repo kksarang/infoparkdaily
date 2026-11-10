@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Node.js Tutorial – Free Lessons with Examples | InfoparkDaily Learning</title>
+    <meta name="description" content="Learn Node.js free: 7 short lessons with live examples you can edit, key points and quizzes. Backend JavaScript and REST APIs." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#fafaf7" />
+    <meta property="og:site_name" content="InfoparkDaily" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="Node.js Tutorial – Free Lessons with Examples | InfoparkDaily Learning" />
+    <meta property="og:description" content="Learn Node.js free: 7 short lessons with live examples you can edit, key points and quizzes. Backend JavaScript and REST APIs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://infoparkdaily.online/learning/nodejs/" />
+    <meta property="og:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://infoparkdaily.online/preview.jpg" />
+    <meta name="twitter:image:alt" content="InfoparkDaily — Kerala tech jobs and free career tools" />
+    <link rel="canonical" href="https://infoparkdaily.online/learning/nodejs/" />
+    <link rel="icon" href="/favicon.ico" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Course","name":"Node.js tutorial","description":"Backend JavaScript and REST APIs.","provider":{"@type":"Organization","name":"InfoparkDaily","sameAs":"https://infoparkdaily.online"},"url":"https://infoparkdaily.online/learning/nodejs/","isAccessibleForFree":true},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"InfoparkDaily","item":"https://infoparkdaily.online/"},{"@type":"ListItem","position":2,"name":"Learning","item":"https://infoparkdaily.online/learning/"},{"@type":"ListItem","position":3,"name":"Node.js","item":"https://infoparkdaily.online/learning/nodejs/"}]}]}</script>
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.remove("theme-light", "theme-dark");
+        root.classList.add("theme-light");
+        root.style.colorScheme = "light";
+        root.style.backgroundColor = "#fafaf7";
+        function syncBody() {
+          if (!document.body) return false;
+          document.body.classList.add("light");
+          document.body.classList.remove("dark");
+          try {
+            var t = localStorage.getItem("ipd-ij-track-v1");
+            if (t === "fresher" || t === "experienced") document.body.setAttribute("data-track", t);
+          } catch (_e) {}
+          return true;
+        }
+        if (!syncBody()) {
+          new MutationObserver(function (_m, obs) {
+            if (syncBody()) obs.disconnect();
+          }).observe(root, { childList: true, subtree: true });
+        }
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/resume-builder.css?v=20260920r" />
+    <link rel="stylesheet" href="/css/career-nav.css?v=20261109old" />
+    <link rel="stylesheet" href="/css/career-premium.css?v=20261102login" />
+    <link rel="stylesheet" href="/css/interview-journey.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/interview-hub.css?v=20261109tg" />
+    <link rel="stylesheet" href="/css/learning.css?v=20261110lg" />
+    <link rel="stylesheet" href="/css/career-system.css?v=20261108ui" />
+    <script defer src="/js/career-nav.js?v=20261109nb"></script>
+  </head>
+  <body class="career-tools ij-page hub-page ln-page light" data-track="all">
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header glass" data-section="tools">
+      <a class="brand" href="/" aria-label="Infopark Daily home">
+        <img class="brand-logo" src="/assets/logo-infoparkdaily.png" alt="Infoparkdaily Kochi logo" />
+        <div>
+          <p class="brand-name">INFOPARKDAILY</p>
+          <p class="brand-tagline">Career Tools · Free for job seekers</p>
+        </div>
+      </a>
+    <nav id="site-nav" class="site-nav" aria-label="Career tools">
+        <a href="/resume-builder/">Resume builder</a><a href="/ats-checker/">ATS checker</a><a href="/interview/">Interview prep</a><a href="/learning/">Learning</a><a href="/resume-builder/email-examples/">Email examples</a><a href="/portfolio/templates/">Portfolio templates</a>
+        
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Toggle theme">Theme</button>
+        <a class="header-account header-account--text" href="/resume-builder/sign-in/?next=%2Fresume-builder%2F" aria-label="Sign in"><span class="ha-out">Sign in</span><span class="ha-in">My account</span></a>
+        <button id="nav-toggle" type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+          <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </header>
+    <div class="ij-readbar" aria-hidden="true"><span data-readbar></span></div>
+    <main id="main">
+
+      <section class="lh-hero lh-hero--short ln-hero" aria-labelledby="ln-title" style="--ln-c:#3c873a">
+        <div class="ax-glow" aria-hidden="true"></div>
+        <div class="ij-wrap">
+          <nav class="ij-crumbs" aria-label="Breadcrumb"><a href="/">InfoparkDaily</a> / <a href="/learning/">Learning</a> / <span aria-current="page">Node.js</span></nav>
+          <div class="lh-hero-copy">
+            <p class="ax-pill"><span>Beginner → Intermediate</span> 7 lessons · free</p>
+            <h1 id="ln-title">Node.js tutorial <span>Backend JavaScript and REST APIs.</span></h1>
+            <p class="ax-lede">Node.js & Express — build REST APIs and backend services with JavaScript. Every lesson has complete code with the output you'll see when you run it, key points, a practice task, a quiz and interview questions.</p>
+            <div class="ln-hero-actions">
+              <a class="ln-btn" href="/learning/nodejs/introduction/" data-ln-continue="nodejs">Start learning Node.js</a>
+              <span class="ln-progress-label" data-ln-label="nodejs" data-total="7">Not started</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="ln-trackbar" aria-label="Tutorials">
+        <div class="ij-wrap ln-trackbar-track">
+          <a href="/learning/">All learning</a>
+          <a href="/learning/html/" style="--ln-c:#e44d26">HTML</a><a href="/learning/css/" style="--ln-c:#2965f1">CSS</a><a href="/learning/javascript/" style="--ln-c:#d4a900">JavaScript</a><a href="/learning/react/" style="--ln-c:#149eca">React</a><a href="/learning/typescript/" style="--ln-c:#3178c6">TypeScript</a><a href="/learning/nodejs/" style="--ln-c:#3c873a" aria-current="page">Node.js</a><a href="/learning/python/" style="--ln-c:#3776ab">Python</a><a href="/learning/java/" style="--ln-c:#b07219">Java</a><a href="/learning/spring-boot/" style="--ln-c:#6db33f">Spring Boot</a><a href="/learning/sql/" style="--ln-c:#00758f">SQL</a><a href="/learning/git/" style="--ln-c:#f05032">Git</a><a href="/learning/linux-docker/" style="--ln-c:#2496ed">Linux & Docker</a><a href="/learning/dsa/" style="--ln-c:#7c3aed">DSA</a><a href="/learning/excel/" style="--ln-c:#1d6f42">Excel</a><a href="/learning/power-bi/" style="--ln-c:#c79a00">Power BI</a><a href="/learning/aptitude/" style="--ln-c:#b45309">Aptitude</a><a href="/learning/communication/" style="--ln-c:#be185d">Communication</a>
+          <a href="/interview/learning/live-code/">Live code</a>
+          <a href="/interview/learning/">Career paths</a>
+        </div>
+      </nav>
+      <section class="ez-section" aria-labelledby="ln-lessons">
+        <div class="ij-wrap">
+          <div class="ez-head"><p class="ax-eyebrow">Lessons</p><h2 id="ln-lessons">What you'll learn</h2></div>
+          <ol class="ln-syllabus" style="--ln-c:#3c873a">
+            <li><a href="/learning/nodejs/introduction/" data-ln-lesson="nodejs/introduction"><span class="ln-num">01</span><span><strong>Node.js introduction</strong><small>What Node.js is, why companies use it, installing it and running your first script.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/modules-npm/" data-ln-lesson="nodejs/modules-npm"><span class="ln-num">02</span><span><strong>Modules & npm</strong><small>Splitting code into modules with import/export, package.json and installing packages.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/async/" data-ln-lesson="nodejs/async"><span class="ln-num">03</span><span><strong>Async code: callbacks, promises & async/await</strong><small>How Node handles slow work, the event loop, and writing clean async code with async/await.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/files-http/" data-ln-lesson="nodejs/files-http"><span class="ln-num">04</span><span><strong>Files, paths & the HTTP module</strong><small>Reading and writing files with fs/promises, building paths safely and a basic HTTP server.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/express-basics/" data-ln-lesson="nodejs/express-basics"><span class="ln-num">05</span><span><strong>Express: routes & middleware</strong><small>Creating an Express app, route parameters, query strings, JSON bodies and middleware.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/rest-api/" data-ln-lesson="nodejs/rest-api"><span class="ln-num">06</span><span><strong>Build a REST API (CRUD)</strong><small>Create, read, update and delete with Express routers, validation and correct status codes.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+            <li><a href="/learning/nodejs/database-auth/" data-ln-lesson="nodejs/database-auth"><span class="ln-num">07</span><span><strong>Databases, errors & JWT auth</strong><small>Connecting to a database, central error handling, environment secrets and protecting routes with JWT.</small></span><span class="ln-tick" aria-hidden="true">✓</span></a></li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer rb-width">
+      <span>© InfoparkDaily · Career tools for job seekers. Examples are for learning; company names in samples are fictional.</span>
+      <div>
+        <a href="/jobs/">Jobs</a>
+        <a href="/interview/">Interview hub</a>
+        <a href="/interview/preparation/">Preparation</a>
+        <a href="/interview/questions/">Questions</a>
+        <a href="/interview/learning/">Learning</a>
+        <a href="/interview/email-guide/">Email guide</a>
+        <a href="/resume-builder/">Resume builder</a>
+        <a href="/ats-checker/">ATS checker</a>
+        <a href="/terms/#career-tools">Terms</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/contact/">Contact</a>
+      </div>
+    </footer>
+    <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
+    <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
+    <script src="/js/learning.js?v=20261110lg" defer></script>
+    <script src="/js/site.js?v=20261109si" defer></script>
+  </body>
+</html>
