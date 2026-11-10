@@ -194,6 +194,10 @@ function renderFeaturedJobs() {
   const featured = [...JOBS]
     .filter(isUpcomingJob)
     .sort((a, b) => {
+      // Infopark jobs always lead the featured strip.
+      const isIp = (job) => job.infoparkVerified === true || job.source === "Infopark";
+      const ip = (isIp(b) ? 1 : 0) - (isIp(a) ? 1 : 0);
+      if (ip !== 0) return ip;
       const aPin = Number(a.pinOrder) > 0 ? Number(a.pinOrder) : 0;
       const bPin = Number(b.pinOrder) > 0 ? Number(b.pinOrder) : 0;
       if (aPin && bPin && aPin !== bPin) return aPin - bPin;

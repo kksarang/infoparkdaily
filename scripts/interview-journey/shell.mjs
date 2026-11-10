@@ -295,7 +295,7 @@ ${footer()}
     <button type="button" class="ij-top" data-top aria-label="Back to top" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4l-6 6 1.4 1.4L9 7.8V16h2V7.8l3.6 3.6L16 10l-6-6Z"/></svg></button>
     <div class="ij-toast" id="ij-toast" role="status" aria-live="polite"></div>
     ${scripts.map((s) => `<script src="${s}" defer></script>`).join("\n    ")}
-    <script src="/js/site.js?v=20261109si" defer></script>
+    <script src="/js/site.js?v=20261110ip" defer></script>
   </body>
 </html>
 `;

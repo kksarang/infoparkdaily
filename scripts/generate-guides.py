@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CSS_VER = "20260830m"
-SITE_JS = "20261109si"
+SITE_JS = "20261110ip"
 ANALYTICS = "20260730e"
 DISCLAIMER = "20260825b"
 

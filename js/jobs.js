@@ -759,10 +759,11 @@
     return jobRegion(job).toLowerCase().includes("infopark") || job.infoparkVerified === true || job.source === "Infopark";
   }
 
-  // Listing order: the priority-one pin, then Infopark jobs, then everything else.
+  // Listing order: Infopark jobs always lead (latest first), then everything else.
+  // A priority-one pin can only jump the queue when it is itself an Infopark job.
   function groupRank(job) {
-    if (pinRank(job) === 1) return 0;
-    return isInfoparkJob(job) ? 1 : 2;
+    if (!isInfoparkJob(job)) return 2;
+    return pinRank(job) === 1 ? 0 : 1;
   }
 
   function comparePin(a, b) {

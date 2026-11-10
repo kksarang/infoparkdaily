@@ -274,7 +274,7 @@ ${footer()}
         document.querySelectorAll(".wd-qa details").forEach(function (d) { d.open = open; });
       });
     </script>
-    <script src="/js/site.js?v=20261109si" defer></script>
+    <script src="/js/site.js?v=20261110ip" defer></script>
   </body>
 </html>
 `;
