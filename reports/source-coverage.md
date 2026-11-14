@@ -5,31 +5,31 @@ mean every vacancy at that source is on InfoparkDaily. Blocked sources are never
 
 | Source | Category | Type | Integration | Last probe | Last success |
 |---|---|---|---|---|---|
-| [Infopark Kochi jobs portal](https://infopark.in/companies-job) | it-park | official | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [Technopark job search](https://technopark.in/job-search) | it-park | official | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [Cyberpark Kozhikode careers](https://cyberparks.in/careers/) | it-park | official | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [UL CyberPark jobs](https://www.ulcyberpark.com/jobs) | it-park | official | automated | reachable 200 | 2026-11-13T08:29:35Z |
+| [Infopark Kochi jobs portal](https://infopark.in/companies-job) | it-park | official | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [Technopark job search](https://technopark.in/job-search) | it-park | official | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [Cyberpark Kozhikode careers](https://cyberparks.in/careers/) | it-park | official | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [UL CyberPark jobs](https://www.ulcyberpark.com/jobs) | it-park | official | automated | reachable 200 | 2026-11-14T07:50:32Z |
 | [Kochi Metro Rail Limited careers](https://kochimetro.org/careers/) | psu | official | manual | unreachable | 2026-11-01T07:51:31Z |
-| [Accenture India careers (Kerala)](https://www.accenture.com/in-en/careers/jobsearch?ct=Kochi) | private-it | employer | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [Wipro careers (Kochi)](https://careers.wipro.com/search/?q=&locationsearch=kochi) | private-it | employer | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [Conduent careers (Kochi)](https://careers.conduent.com/us/en/search-results?qcity=Kochi) | private-bpm | employer | manual | reachable 200 | 2026-11-13T08:29:35Z |
-| [EXL careers (Kochi, Oracle Recruiting)](https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs) | private-bpm | employer | manual | reachable 200 | 2026-11-13T08:29:35Z |
-| [EY careers (Kochi / Trivandrum)](https://careers.ey.com/ey/search/?optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi) | private-consulting | employer | manual | reachable 200 | 2026-11-13T08:29:35Z |
-| [HPE careers (India)](https://careers.hpe.com/us/en) | private-it | employer | automated | reachable 200 | 2026-11-13T08:29:35Z |
-| [Advenxa careers (Zoho Recruit)](https://advenxa.zohorecruit.in/jobs/Careers) | recruiter | employer | automated | reachable 200 | 2026-11-13T08:29:35Z |
+| [Accenture India careers (Kerala)](https://www.accenture.com/in-en/careers/jobsearch?ct=Kochi) | private-it | employer | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [Wipro careers (Kochi)](https://careers.wipro.com/search/?q=&locationsearch=kochi) | private-it | employer | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [Conduent careers (Kochi)](https://careers.conduent.com/us/en/search-results?qcity=Kochi) | private-bpm | employer | manual | reachable 200 | 2026-11-14T07:50:32Z |
+| [EXL careers (Kochi, Oracle Recruiting)](https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs) | private-bpm | employer | manual | reachable 200 | 2026-11-14T07:50:32Z |
+| [EY careers (Kochi / Trivandrum)](https://careers.ey.com/ey/search/?optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi) | private-consulting | employer | manual | reachable 200 | 2026-11-14T07:50:32Z |
+| [HPE careers (India)](https://careers.hpe.com/us/en) | private-it | employer | automated | reachable 200 | 2026-11-14T07:50:32Z |
+| [Advenxa careers (Zoho Recruit)](https://advenxa.zohorecruit.in/jobs/Careers) | recruiter | employer | automated | reachable 200 | 2026-11-14T07:50:32Z |
 | [TCS careers (India)](https://www.tcs.com/careers/india) | private-it | employer | blocked | blocked 403 | — |
-| [Cognizant careers (Kerala)](https://careers.cognizant.com/india-en/jobs/?location=Kerala%2C+India) | private-it | employer | blocked | reachable 200 | 2026-11-13T08:29:35Z |
+| [Cognizant careers (Kerala)](https://careers.cognizant.com/india-en/jobs/?location=Kerala%2C+India) | private-it | employer | blocked | reachable 200 | 2026-11-14T07:50:32Z |
 | Employer posters / LinkedIn posts shared with InfoparkDaily | mixed | secondary | manual | not-probed | — |
 | [Kerala PSC](https://www.keralapsc.gov.in/) | kerala-government | official | planned | unreachable | — |
 | [Kerala Employment Department](https://employment.kerala.gov.in/) | kerala-government | official | planned | blocked 403 | — |
-| [Cochin Shipyard careers](https://cochinshipyard.in/) | psu | official | planned | reachable 200 | 2026-11-13T08:29:35Z |
+| [Cochin Shipyard careers](https://cochinshipyard.in/) | psu | official | planned | reachable 200 | 2026-11-14T07:50:32Z |
 | [NATS (graduate / diploma apprenticeships)](https://nats.education.gov.in/) | apprenticeship | official | planned | unreachable | 2026-10-29T18:59:14Z |
 | [Apprenticeship India / NAPS](https://www.apprenticeshipindia.gov.in/) | apprenticeship | official | planned | blocked 403 | 2026-10-29T18:59:14Z |
 | [UPSC](https://upsc.gov.in/) | central-government | official | planned | unreachable | — |
-| [SSC](https://ssc.gov.in/) | central-government | official | planned | reachable 200 | 2026-11-13T08:29:35Z |
-| [India Post](https://indiapost.gov.in/) | central-government | official | planned | unreachable | 2026-11-10T08:40:40Z |
-| [SBI Careers](https://sbi.co.in/web/careers) | banking | official | planned | reachable 200 | 2026-11-13T08:29:35Z |
-| [IBPS](https://www.ibps.in/) | banking | official | planned | reachable 200 | 2026-11-13T08:29:35Z |
+| [SSC](https://ssc.gov.in/) | central-government | official | planned | reachable 200 | 2026-11-14T07:50:32Z |
+| [India Post](https://indiapost.gov.in/) | central-government | official | planned | reachable 200 | 2026-11-14T07:50:32Z |
+| [SBI Careers](https://sbi.co.in/web/careers) | banking | official | planned | reachable 200 | 2026-11-14T07:50:32Z |
+| [IBPS](https://www.ibps.in/) | banking | official | planned | unreachable | 2026-11-13T08:29:35Z |
 
 Integration summary: automated 8, blocked 2, manual 5, planned 10.
 
