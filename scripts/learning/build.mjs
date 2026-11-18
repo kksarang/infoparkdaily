@@ -23,11 +23,13 @@ import { SPRING_TRACK } from "./track-spring-boot.mjs";
 import { LINUX_DOCKER_TRACK } from "./track-linux-docker.mjs";
 import { POWERBI_TRACK } from "./track-power-bi.mjs";
 import { COMM_TRACK } from "./track-communication.mjs";
+import { PLACEMENT_TRACK } from "./track-placement.mjs";
+import { TESTING_TRACK } from "./track-testing.mjs";
 import { GUIDES } from "../interview-journey/guides/index.mjs";
 
 /* Web lessons get their practice / interview / further-reading extras merged in. */
 for (const t of WEB_TRACKS) for (const l of t.lessons) Object.assign(l, WEB_EXTRAS[`${t.key}/${l.slug}`] || {});
-const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA_TRACK, SPRING_TRACK, SQL_TRACK, GIT_TRACK, LINUX_DOCKER_TRACK, DSA_TRACK, EXCEL_TRACK, POWERBI_TRACK, APT_TRACK, COMM_TRACK];
+const TRACKS = [...WEB_TRACKS, REACT_TRACK, TS_TRACK, NODE_TRACK, PY_TRACK, JAVA_TRACK, SPRING_TRACK, SQL_TRACK, GIT_TRACK, LINUX_DOCKER_TRACK, TESTING_TRACK, DSA_TRACK, EXCEL_TRACK, POWERBI_TRACK, APT_TRACK, COMM_TRACK, PLACEMENT_TRACK];
 const OWNER = "Original lesson written by the InfoparkDaily team · © 2026 InfoparkDaily · Free to learn — no paid course or subscription.";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -46,7 +48,7 @@ const write = (rel, html) => {
 };
 
 const base = [["InfoparkDaily", "/"], ["Learning", "/learning/"]];
-const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git", react: "Re", java: "Jv", excel: "XL", dsa: "DSA", aptitude: "Apt", nodejs: "Nd", typescript: "TS", "spring-boot": "Sb", "linux-docker": "$_", "power-bi": "BI", communication: "Aa" };
+const MONO = { html: "&lt;/&gt;", css: "{ }", javascript: "JS", python: "Py", sql: "SQL", git: "Git", react: "Re", java: "Jv", excel: "XL", dsa: "DSA", aptitude: "Apt", nodejs: "Nd", typescript: "TS", "spring-boot": "Sb", "linux-docker": "$_", "power-bi": "BI", communication: "Aa", testing: "QA", placement: "Job" };
 const trackUrl = (t) => `/learning/${t.key}/`;
 const lessonUrl = (t, l) => `/learning/${t.key}/${l.slug}/`;
 
@@ -69,10 +71,10 @@ function hubPage() {
   /* Category of each track — drives the filter chips on the hub. */
   const GROUPS = [
     ["web", "Web development", ["html", "css", "javascript", "react", "typescript"]],
-    ["backend", "Backend & DevOps", ["nodejs", "java", "spring-boot", "linux-docker", "git"]],
+    ["backend", "Backend & DevOps", ["nodejs", "java", "spring-boot", "linux-docker", "git", "testing"]],
     ["code", "Programming", ["python", "java", "dsa", "typescript"]],
     ["data", "Data & office", ["sql", "excel", "power-bi"]],
-    ["prep", "Placement prep", ["aptitude", "dsa", "communication"]]
+    ["prep", "Placement prep", ["placement", "aptitude", "dsa", "communication"]]
   ];
   const groupsOf = (key) => GROUPS.filter(([, , keys]) => keys.includes(key)).map(([g]) => g).join(" ");
 
@@ -82,7 +84,8 @@ function hubPage() {
     ["Full-stack JavaScript", "Frontend and backend with one language.", ["javascript", "typescript", "react", "nodejs", "git", "linux-docker"], "#3c873a"],
     ["Java backend developer", "The most-hired backend stack in Kerala IT parks.", ["java", "spring-boot", "sql", "git", "linux-docker"], "#6db33f"],
     ["Data analyst", "Turn spreadsheets and databases into answers.", ["excel", "sql", "power-bi", "python"], "#00758f"],
-    ["Placement & coding rounds", "Clear aptitude tests, coding and HR interviews.", ["aptitude", "dsa", "java", "communication"], "#7c3aed"]
+    ["Software tester (QA)", "A common first job in IT parks: manual + automation testing.", ["testing", "sql", "python", "git"], "#15803d"],
+    ["Placement & coding rounds", "Clear aptitude tests, coding and HR interviews.", ["placement", "aptitude", "dsa", "java", "communication"], "#7c3aed"]
   ];
   const POPULAR = [
     ["CSS Flexbox", "/learning/css/flexbox/"],
@@ -93,7 +96,9 @@ function hubPage() {
     ["Percentages", "/learning/aptitude/percentages/"],
     ["Dockerfile", "/learning/linux-docker/dockerfile/"],
     ["DAX CALCULATE", "/learning/power-bi/calculate-time-intelligence/"],
-    ["Tell me about yourself", "/learning/communication/self-introduction/"]
+    ["Tell me about yourself", "/learning/communication/self-introduction/"],
+    ["CTC vs in-hand salary", "/learning/placement/offer-ctc-in-hand/"],
+    ["Writing test cases", "/learning/testing/test-cases/"]
   ];
 
   /* Curriculum: one tab per track; without JavaScript every panel is shown. */
