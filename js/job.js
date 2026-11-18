@@ -2466,6 +2466,90 @@
   if (ogUrl) ogUrl.setAttribute("content", `https://infoparkdaily.online${cleanPath}`);
 
   renderJob(job);
+  setupChannelPrompt();
+
+  /* Slide-up "join our alert channels" prompt, shown once the reader scrolls into the job details.
+     Dismissing it hides it for 7 days on this browser; it never blocks the page. */
+  function setupChannelPrompt() {
+    const KEY = "ipd-channel-prompt-dismissed";
+    const HIDE_MS = 7 * 24 * 60 * 60 * 1000;
+    try {
+      const at = Number(localStorage.getItem(KEY) || 0);
+      if (at && Date.now() - at < HIDE_MS) return;
+    } catch (_e) {
+      /* storage blocked: still show the prompt, just without remembering dismissal */
+    }
+
+    const el = document.createElement("aside");
+    el.className = "jd-alert-prompt";
+    el.setAttribute("role", "dialog");
+    el.setAttribute("aria-label", "Join InfoparkDaily job alerts");
+    el.hidden = true;
+    el.innerHTML = `
+      <button type="button" class="jd-alert-close" aria-label="Close">&times;</button>
+      <p class="jd-alert-title">Never miss a job alert</p>
+      <p class="jd-alert-text">New openings from Infopark, Technopark, Cyberpark and across India, posted daily. Free to join.</p>
+      <div class="jd-alert-actions">
+        <a class="jd-alert-btn jd-alert-btn--wa" href="https://whatsapp.com/channel/0029VbDJFfA4Y9lm5L4kpm22" target="_blank" rel="noopener noreferrer" data-channel="whatsapp">Join WhatsApp Channel</a>
+        <a class="jd-alert-btn jd-alert-btn--ig" href="https://www.instagram.com/channel/Abb7q7JYGH8FFrJw/" target="_blank" rel="noopener noreferrer" data-channel="instagram">Join Instagram Channel</a>
+      </div>`;
+    document.body.appendChild(el);
+
+    const remember = () => {
+      try {
+        localStorage.setItem(KEY, String(Date.now()));
+      } catch (_e) {
+        /* ignore */
+      }
+    };
+    const hide = () => {
+      el.classList.remove("is-visible");
+      document.body.classList.remove("jd-alert-open");
+      window.setTimeout(() => (el.hidden = true), 250);
+    };
+    el.querySelector(".jd-alert-close").addEventListener("click", () => {
+      remember();
+      hide();
+    });
+    el.querySelectorAll("[data-channel]").forEach((a) =>
+      a.addEventListener("click", () => {
+        remember();
+        try {
+          window.IPDAnalytics?.track?.("channel_prompt_click", { channel: a.dataset.channel });
+        } catch (_e) {
+          /* ignore */
+        }
+        hide();
+      })
+    );
+
+    let shown = false;
+    const show = () => {
+      el.hidden = false;
+      document.body.classList.add("jd-alert-open");
+      window.requestAnimationFrame(() => el.classList.add("is-visible"));
+    };
+    const consentBannerOpen = () => {
+      const banner = document.getElementById("ipd-consent-banner");
+      return Boolean(banner && !banner.hidden && banner.getClientRects().length > 0);
+    };
+    const onScroll = () => {
+      if (shown) return;
+      const doc = document.documentElement;
+      const scrollable = Math.max(1, doc.scrollHeight - window.innerHeight);
+      if (window.scrollY > 500 || window.scrollY / scrollable > 0.35) {
+        shown = true;
+        window.removeEventListener("scroll", onScroll);
+        // Don't cover the cookie banner: wait until the visitor has made a choice.
+        if (consentBannerOpen()) {
+          window.addEventListener("ipd:consent", () => window.setTimeout(show, 600), { once: true });
+        } else {
+          show();
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 
   try {
     if (window.IPDAnalytics && typeof window.IPDAnalytics.trackJobView === "function") {

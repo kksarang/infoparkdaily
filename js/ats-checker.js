@@ -335,6 +335,8 @@
 
   let resumeText = "";
   let readingFile = false;
+  /** What the last uploaded file looked like ({ kind, pages, chars }); null for pasted text. */
+  let lastExtract = null;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -535,6 +537,145 @@
     if (support) return "Customer support profile — add KPIs and process keywords from the JD.";
     if (finance) return "Finance background — map accounting tools to the job’s required skills.";
     return "Tailor this resume to the job’s required tools and outcomes.";
+  }
+
+  /* ---------- accuracy helpers ---------- */
+
+  /* A heading is a short line that starts with one of these words, like an ATS parser reads it.
+     "3 years of experience" in a sentence is not an Experience section. */
+  const SECTION_HEADINGS = {
+    summary: /^(?:professional |career |profile |executive )?(?:summary|profile|objective|about me|career objective|overview)\b/,
+    skills: /^(?:technical |key |core |professional |it |soft )?(?:skills?|competenc(?:y|ies)|expertise|technologies|tools(?: and technologies| & technologies)?|tech stack|skill set)\b/,
+    experience: /^(?:work |professional |relevant |industry |employment |career )?(?:experience|employment(?: history)?|work history|internships?|career history)\b/,
+    education: /^(?:education(?:al)?(?: qualifications?| background| details)?|academic(?:s| qualifications?| details| background)?|qualifications?)\b/,
+    project: /^(?:academic |personal |key |major |mini |final year )?projects?\b/,
+    contact: /^(?:contact(?: details| information| info)?)\b/
+  };
+
+  function headingKey(line) {
+    const clean = String(line || "")
+      .replace(/^[\s•\-–—*·#|:]+/, "")
+      .replace(/[:\s|–—-]+$/, "")
+      .toLowerCase();
+    if (!clean || clean.length > 40 || clean.split(/\s+/).length > 5) return "";
+    for (const [key, re] of Object.entries(SECTION_HEADINGS)) if (re.test(clean)) return key;
+    return "";
+  }
+
+  /** Which sections exist, plus the lines under each heading. */
+  function analyseSections(resume, hasContact) {
+    const lines = String(resume || "").split(/\n/);
+    const found = new Set();
+    const body = {};
+    let current = "";
+    lines.forEach((raw) => {
+      const key = headingKey(raw);
+      if (key) {
+        found.add(key);
+        current = key;
+        /* "Skills: React, Java" — the rest of the heading line belongs to the section. */
+        const rest = raw.replace(/^[^:]*:/, "");
+        if (rest !== raw && rest.trim()) (body[key] = body[key] || []).push(rest.trim());
+        return;
+      }
+      if (current && raw.trim()) (body[current] = body[current] || []).push(raw.trim());
+    });
+    /* Pasted text with no line breaks: fall back to headings written inline ("Skills: ..."). */
+    if (lines.length <= 3) {
+      const lower = String(resume || "").toLowerCase();
+      if (/\b(?:professional summary|career objective|summary|objective|profile)\b/.test(lower)) found.add("summary");
+      if (/\b(?:technical skills|key skills|skills)\b/.test(lower)) found.add("skills");
+      if (/\b(?:work experience|professional experience|employment history|internship)\b/.test(lower)) found.add("experience");
+      if (/\b(?:education|academic qualifications?)\b/.test(lower)) found.add("education");
+      if (/\bprojects?\b/.test(lower)) found.add("project");
+    }
+    if (hasContact) found.add("contact");
+    const order = ["experience", "education", "skills", "project", "summary", "contact"];
+    return { found: order.filter((k) => found.has(k)), body };
+  }
+
+  /** Plain word stem so "testing", "tests" and "tested" meet; only for longer words. */
+  function stem(word) {
+    const w = String(word || "");
+    if (w.length < 5 || /[+#\d]/.test(w)) return w;
+    return w.replace(/(?:ations?|ments?|ings?|ers?|ed|es|s)$/, "") || w;
+  }
+
+  /** Must-have keywords weigh more than "good to have" ones; known tools more than plain words. */
+  function keywordWeights(jd, keywords) {
+    const lines = String(jd || "").toLowerCase().split(/\n|(?<=[.;])\s+/);
+    let mode = "";
+    const tagged = lines.map((line) => {
+      if (/good to have|nice to have|preferred|is a plus|added advantage|bonus|optional|desirable/.test(line)) mode = "nice";
+      else if (/must have|mandatory|required|requirements?|essential|should have|you have|qualification/.test(line)) mode = "must";
+      return { line: normalize(line), mode };
+    });
+    const weights = {};
+    keywords.forEach((k) => {
+      let w = knownSkills([k]).length ? 3 : PHRASES.includes(k) ? 2 : 1;
+      const hits = tagged.filter((t) => new RegExp(`(?:^|\\s)${k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?:\\s|$)`).test(t.line));
+      if (hits.length) {
+        if (hits.every((t) => t.mode === "nice")) w *= 0.5;
+        else if (hits.some((t) => t.mode === "must")) w *= 1.3;
+        if (hits.length > 1) w += Math.min(hits.length - 1, 2) * 0.5;
+      }
+      weights[k] = w;
+    });
+    return weights;
+  }
+
+  /** Minimum years the job asks for ("3+ years", "2-4 yrs", "minimum 5 years"); null if none. */
+  function jdMinYears(jd) {
+    const m = String(jd || "")
+      .toLowerCase()
+      .match(/(?:minimum|min\.?|at least|atleast)?\s*(\d{1,2})(?:\.\d)?\s*(?:\+|plus)?\s*(?:-|–|to)?\s*(?:\d{1,2})?\s*(?:\+\s*)?(?:years?|yrs?)\b(?![^.\n]{0,25}\b(?:old|age)\b)/);
+    if (!m) return null;
+    const n = Number(m[1]);
+    return n >= 1 && n <= 25 ? n : null;
+  }
+
+  const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+
+  /** Years of work shown in the resume: date ranges in the experience section, else "X years". */
+  function resumeYears(resume, experienceLines) {
+    const now = new Date();
+    const block = (experienceLines && experienceLines.length ? experienceLines.join("\n") : "").toLowerCase();
+    const range =
+      /(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*)?((?:19|20)\d{2})\s*(?:-|–|—|to)\s*(?:(present|current|now|till date|ongoing|today)|(?:(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s*)?((?:19|20)\d{2}))/g;
+    let months = 0;
+    let m;
+    while ((m = range.exec(block))) {
+      const start = new Date(Number(m[2]), m[1] ? MONTHS[m[1]] : 0, 1);
+      const end = m[3] ? now : new Date(Number(m[5]), m[4] ? MONTHS[m[4]] : m[1] ? 11 : 0, 1);
+      const diff = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+      if (diff > 0 && diff < 480) months += diff;
+    }
+    if (months) return Math.round((months / 12) * 10) / 10;
+    const stated = String(resume || "").match(/(\d{1,2}(?:\.\d)?)\s*\+?\s*(?:years?|yrs?)\s+(?:of\s+)?(?:work\s+|professional\s+|industry\s+)?experience/i);
+    if (stated) return Number(stated[1]);
+    if (/\bfresher\b|\bfresh graduate\b/i.test(resume)) return 0;
+    return null;
+  }
+
+  const DEGREE_FAMILIES = [
+    ["engineering", /\bb\.?\s?tech\b|\bb\.?\s?e\b(?!\w)|\bm\.?\s?tech\b|\bm\.?\s?e\b(?!\w)|\bbachelor of (?:technology|engineering)\b/i],
+    ["computer apps", /\bmca\b|\bbca\b|\bm\.?\s?sc (?:in )?(?:computer|it)\b|\bb\.?\s?sc (?:in )?(?:computer|it)\b/i],
+    ["mba", /\bmba\b|\bpgdm\b/i],
+    ["commerce", /\bb\.?\s?com\b|\bm\.?\s?com\b|\bca\b(?: inter| final)?|\bcma\b|\bacca\b/i],
+    ["science", /\bb\.?\s?sc\b|\bm\.?\s?sc\b/i],
+    ["diploma", /\bdiploma\b|\biti\b/i],
+    ["arts", /\bb\.?\s?a\b(?!\w)|\bm\.?\s?a\b(?!\w)/i],
+    ["nursing", /\bgnm\b|\bb\.?\s?sc nursing\b|\bpharm/i]
+  ];
+
+  /** Degree check: which degree families the job names, and whether the resume has one. */
+  function degreeCheck(jd, resume) {
+    const jdText = String(jd || "");
+    if (/any (?:degree|graduate|graduation)|any discipline|all streams/i.test(jdText)) return null;
+    const wanted = DEGREE_FAMILIES.filter(([, re]) => re.test(jdText)).map(([name]) => name);
+    if (!wanted.length) return null;
+    const have = DEGREE_FAMILIES.filter(([, re]) => re.test(resume)).map(([name]) => name);
+    return { wanted, have, ok: wanted.some((w) => have.includes(w)) };
   }
 
   function rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount) {
@@ -770,11 +911,22 @@
     );
   }
 
-  function resumeHasKeyword(resumeNorm, resumeTokSet, keyword, resumeCanon) {
+  function resumeHasKeyword(resumeNorm, resumeTokSet, keyword, resumeCanon, resumeStems) {
     if (resumeCanon && resumeCanon.has(keyword)) return true;
-    if (keyword.includes(" ")) return resumeNorm.includes(keyword);
+    if (keyword.includes(" ")) {
+      if (resumeNorm.includes(keyword)) return true;
+      /* "unit testing" also matches "unit tests" / "unit tested": compare word by word on stems. */
+      if (!resumeStems) return false;
+      const parts = keyword.split(" ").map(stem);
+      const toks = resumeNorm.split(" ").map(stem);
+      for (let i = 0; i + parts.length <= toks.length; i += 1) {
+        if (parts.every((p, j) => toks[i + j] === p)) return true;
+      }
+      return false;
+    }
     if (resumeTokSet.has(keyword)) return true;
     if (keyword.endsWith("s") && resumeTokSet.has(keyword.slice(0, -1))) return true;
+    if (resumeStems && keyword.length >= 5 && resumeStems.has(stem(keyword))) return true;
     return false;
   }
 
@@ -914,8 +1066,31 @@
     for (let i = 1; i <= pdf.numPages; i += 1) {
       const page = await pdf.getPage(i);
       const content = await page.getTextContent();
-      text += content.items.map((item) => item.str).join(" ") + "\n";
+      /* Rebuild real lines: a new line starts when the text baseline moves or the PDF marks an
+         end of line. Without this every page became one long line and headings/bullets vanished. */
+      let lastY = null;
+      let line = "";
+      const lines = [];
+      content.items.forEach((item) => {
+        const y = item.transform ? Math.round(item.transform[5]) : null;
+        if (lastY !== null && y !== null && Math.abs(y - lastY) > 2 && line.trim()) {
+          lines.push(line.trim());
+          line = "";
+        }
+        line += line && !/\s$/.test(line) && item.str && !/^\s/.test(item.str) ? ` ${item.str}` : item.str;
+        if (item.hasEOL) {
+          lines.push(line.trim());
+          line = "";
+          lastY = null;
+        } else if (y !== null) {
+          lastY = y;
+        }
+      });
+      if (line.trim()) lines.push(line.trim());
+      text += lines.filter(Boolean).join("\n") + "\n\n";
     }
+    /* Almost no text per page means a scanned / image-only PDF that ATS software cannot read. */
+    lastExtract = { kind: "pdf", pages: pdf.numPages, chars: text.replace(/\s/g, "").length };
     return text;
   }
 
@@ -945,6 +1120,7 @@
     const jdMode = hasJobDescription(jd);
     const resumeNorm = normalize(resume);
     const resumeTokSet = new Set(rawTokens(resume));
+    const resumeStems = new Set([...resumeTokSet].map(stem));
     const resumeKeywords = extractKeywords(resume);
     const resumeCanon = new Set(resumeKeywords);
     const resumeSkills = knownSkills(resumeKeywords);
@@ -961,19 +1137,27 @@
             (!k.includes(" ") && k.length >= 5 && !BIGRAM_NOISE.has(k) && repeats(k) >= 2)
         )
       : [];
-    const matched = jdMode
-      ? jdKeywords.filter((k) => resumeHasKeyword(resumeNorm, resumeTokSet, k, resumeCanon))
-      : resumeSkills;
-    const missing = jdMode
-      ? jdKeywords.filter((k) => !resumeHasKeyword(resumeNorm, resumeTokSet, k, resumeCanon))
-      : [];
-    const coverage = jdKeywords.length ? matched.length / jdKeywords.length : 0;
+    const weights = jdMode ? keywordWeights(jd, jdKeywords) : {};
+    const byWeight = (a, b) => (weights[b] || 0) - (weights[a] || 0);
+    const has = (k) => resumeHasKeyword(resumeNorm, resumeTokSet, k, resumeCanon, resumeStems);
+    const matched = jdMode ? jdKeywords.filter(has).sort(byWeight) : resumeSkills;
+    /* Most important gaps first, so "Missing" leads with the must-have tools. */
+    const missing = jdMode ? jdKeywords.filter((k) => !has(k)).sort(byWeight) : [];
+    const totalWeight = jdKeywords.reduce((sum, k) => sum + (weights[k] || 1), 0);
+    const coverage = totalWeight ? matched.reduce((sum, k) => sum + (weights[k] || 1), 0) / totalWeight : 0;
+    const missingMust = missing.filter((k) => (weights[k] || 0) >= 3.9);
 
     const lower = resume.toLowerCase();
-    const sections = ["experience", "education", "skills", "project", "summary", "contact"];
-    const foundSections = sections.filter((s) => lower.includes(s));
     const hasEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i.test(resume);
-    const hasPhone = /(\+91[\s-]?)?[6-9]\d{9}/.test(resume.replace(/\s/g, ""));
+    /* Any phone written as text: Indian mobiles, landlines and international numbers (+971 ...). */
+    const hasPhone = (resume.match(/\+?\d[\d\s().-]{8,17}\d/g) || []).some((cand) => {
+      const digits = cand.replace(/\D/g, "");
+      if (digits.length < 10 || digits.length > 13) return false;
+      if (/^(?:19|20)\d{2}(?:19|20)\d{2}$/.test(digits)) return false; /* "2019 - 2023" */
+      return /^(?:91)?[6-9]\d{9}$/.test(digits) || cand.trim().startsWith("+") || /^0\d{9,11}$/.test(digits);
+    });
+    const sectionInfo = analyseSections(resume, hasEmail || hasPhone);
+    const foundSections = sectionInfo.found;
     const wordCount = resume.trim().split(/\s+/).filter(Boolean).length;
     const hasTablesHint = lower.includes("<table") || (resume.match(/\t/g) || []).length > 12;
     const hasPersonal = /father'?s?\s*name|date of birth|\bdob\b|personal details|marital status|religion|caste/i.test(
@@ -1433,6 +1617,7 @@
   /* "Check another resume": clear the resume, keep any job description, back to the start. */
   function resetChecker() {
     resumeText = "";
+    lastExtract = null;
     if (pasteResume) pasteResume.value = "";
     fileInput.value = "";
     drop.classList.remove("is-ready");
@@ -1471,6 +1656,7 @@
   async function handleFile(file) {
     try {
       readingFile = true;
+      lastExtract = null;
       fileHint.textContent = "Reading resume…";
       checkBtn.disabled = true;
       resumeText = await readFile(file);
@@ -1531,6 +1717,7 @@
   if (pasteResume) {
     pasteResume.addEventListener("input", () => {
       resumeText = pasteResume.value;
+      lastExtract = null;
       if (currentResume().length >= MIN_RESUME) {
         drop.classList.add("is-ready");
         setFieldError(resumeError, resumeBlock, "");
@@ -1593,4 +1780,7 @@
   }
 
   syncEnabled();
+
+  /* Read-only hook so the scoring rules can be checked against sample resumes in tests. */
+  window.IPDAtsChecker = { scoreResume };
 })();
