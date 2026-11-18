@@ -6,8 +6,8 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
-import { publicTemplates } from "./catalog.js?v=20261118ats2";
-import { EXAMPLES, exampleById, exampleResume } from "./examples.js?v=20261118ats";
+import { publicTemplates } from "./catalog.js?v=20261118snr";
+import { EXAMPLES, exampleById, exampleResume } from "./examples.js?v=20261118snr";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20261109ss";
 import { resumePdfBlob, saveBlob, sharePdf, canSharePdf, pdfFilename } from "./pdf-export.js?v=20261109safe";
 const base = "/resume-builder/";
@@ -53,6 +53,7 @@ const categories = [
   "All",
   "ATS-Friendly",
   "Professional",
+  "Senior Professional",
   "Freshers",
   "Technology",
   "Creative",

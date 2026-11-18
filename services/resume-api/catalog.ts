@@ -487,3 +487,44 @@ catalog.unshift(
     },
   })),
 );
+
+/* Senior Professional collection: calm, single-column layouts for leads, managers and heads of
+   function (8–20 years). Paired with the senior examples in js/resume-builder/examples.js and
+   checked to score 90+ in the InfoparkDaily ATS checker. New IDs only. */
+const senior: [string, string, string, string, string][] = [
+  ["Senior Classic", "classic", "#1e293b", "serif", "rule"],
+  ["Tech Lead", "compact", "#1e3a8a", "sans", "label"],
+  ["Engineering Manager", "executive", "#0f172a", "serif", "plain"],
+  ["Delivery Head", "ledger", "#14532d", "sans", "rule"],
+  ["Senior Consultant", "docs", "#111111", "serif", "smallcaps"],
+  ["Program Director", "executive", "#3b0764", "serif", "rule"],
+  ["Finance Controller", "classic", "#7f1d1d", "serif", "plain"],
+  ["HR Leader", "compact", "#4c1d95", "sans", "rule"],
+  ["Sales Leader", "masthead", "#9a3412", "sans", "plain"],
+  ["Principal Engineer", "classic", "#0c4a6e", "sans", "label"],
+  ["Operations Head", "ledger", "#334155", "serif", "plain"],
+  ["Senior Analyst", "docs", "#1f2937", "serif", "rule"],
+];
+catalog.unshift(
+  ...senior.map(([name, family, accent, font, style], i) => ({
+    id: name.toLowerCase().replaceAll(" ", "-"),
+    name,
+    category: "Senior Professional",
+    access: "free",
+    tags: ["Senior Professional", "Experienced", "ATS 90+", family, ...name.split(" ")],
+    version: 1,
+    status: "published",
+    config: {
+      family,
+      accent,
+      font,
+      style,
+      spacing: family === "docs" ? 15 : 17,
+      nameSize: family === "masthead" ? 36 : 31,
+      tracking: font === "serif" ? 0.2 : 0.6,
+      heading: i % 2 ? "title" : "caps",
+      rule: "line",
+      sideWidth: 28,
+    },
+  })),
+);

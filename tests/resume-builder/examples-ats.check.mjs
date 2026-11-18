@@ -7,7 +7,7 @@
  * For each example in js/resume-builder/examples.js it renders the resume in its recommended
  * template, builds the PDF exactly like the Download PDF button, reads the text back the way the
  * ATS checker reads an uploaded PDF, and scores it with js/ats-checker.js (no job description).
- * Fails if any example scores below 90, needs more than one page, or has a recommended template
+ * Fails if any example scores below 90, needs more pages than allowed (1, or 2 for senior examples), or has a recommended template
  * that doesn't exist.
  */
 import { readFileSync } from "node:fs";
@@ -71,7 +71,7 @@ const rows = await page.evaluate(async () => {
       if (line.trim()) lines.push(line.trim());
       text += lines.filter(Boolean).join("\n") + "\n\n";
     }
-    out.push({ id: ex.id, template: ex.template, pages: pdf.numPages, text });
+    out.push({ id: ex.id, template: ex.template, pages: pdf.numPages, maxPages: ex.maxPages || 1, text });
   }
   return out;
 });
@@ -96,9 +96,9 @@ for (const r of rows) {
     continue;
   }
   const s = score(r.text, "");
-  const ok = s.score >= MIN && r.pages === 1;
+  const ok = s.score >= MIN && r.pages <= r.maxPages;
   if (!ok) failed += 1;
   console.log(`${ok ? "✔" : "✖"} ${r.id.padEnd(22)} ${String(s.score).padStart(3)}  ${r.pages} page  (${r.template})${s.ranking.length ? "  fixes: " + s.ranking.map((i) => i.title).join("; ") : ""}`);
 }
-console.log(failed ? `\n${failed} example(s) failed.` : `\nAll ${rows.length} examples score ${MIN}+ on one page.`);
+console.log(failed ? `\n${failed} example(s) failed.` : `\nAll ${rows.length} examples score ${MIN}+ within their page limit.`);
 process.exit(failed ? 1 : 0);

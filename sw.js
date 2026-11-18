@@ -63,7 +63,7 @@ const PRELOAD_ASSETS = [
   "./js/infopark-jobs.js?v=20260805p",
   "./js/technopark-jobs.js?v=20260805p",
   "./js/jobs.js?v=20261118wfh",
-  "./js/ats-checker.js?v=20261118plan",
+  "./js/ats-checker.js?v=20261118snr2",
   "./vendor/pdfjs/pdf.min.js",
   "./vendor/pdfjs/pdf.worker.min.js",
   "./vendor/mammoth/mammoth.browser.min.js",

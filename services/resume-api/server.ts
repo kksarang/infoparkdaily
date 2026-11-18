@@ -778,6 +778,7 @@ export function createApp(
               ![
                 "ATS-Friendly",
                 "Professional",
+                "Senior Professional",
                 "Freshers",
                 "Technology",
                 "Creative",

@@ -1,6 +1,342 @@
 /** Generated from services/resume-api/catalog.ts. All published templates are free; configs are public. */
 export const catalog = [
   {
+    "id": "senior-classic",
+    "name": "Senior Classic",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "classic",
+      "Senior",
+      "Classic"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#1e293b",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "tech-lead",
+    "name": "Tech Lead",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "compact",
+      "Tech",
+      "Lead"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#1e3a8a",
+      "font": "sans",
+      "style": "label",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.6,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "engineering-manager",
+    "name": "Engineering Manager",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "executive",
+      "Engineering",
+      "Manager"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "executive",
+      "accent": "#0f172a",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "delivery-head",
+    "name": "Delivery Head",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "ledger",
+      "Delivery",
+      "Head"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#14532d",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.6,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "senior-consultant",
+    "name": "Senior Consultant",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "docs",
+      "Senior",
+      "Consultant"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "smallcaps",
+      "spacing": 15,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "program-director",
+    "name": "Program Director",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "executive",
+      "Program",
+      "Director"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "executive",
+      "accent": "#3b0764",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "finance-controller",
+    "name": "Finance Controller",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "classic",
+      "Finance",
+      "Controller"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#7f1d1d",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "hr-leader",
+    "name": "HR Leader",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "compact",
+      "HR",
+      "Leader"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#4c1d95",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.6,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "sales-leader",
+    "name": "Sales Leader",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "masthead",
+      "Sales",
+      "Leader"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "masthead",
+      "accent": "#9a3412",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 17,
+      "nameSize": 36,
+      "tracking": 0.6,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "principal-engineer",
+    "name": "Principal Engineer",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "classic",
+      "Principal",
+      "Engineer"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#0c4a6e",
+      "font": "sans",
+      "style": "label",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.6,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "operations-head",
+    "name": "Operations Head",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "ledger",
+      "Operations",
+      "Head"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#334155",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 17,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "senior-analyst",
+    "name": "Senior Analyst",
+    "category": "Senior Professional",
+    "access": "free",
+    "tags": [
+      "Senior Professional",
+      "Experienced",
+      "ATS 90+",
+      "docs",
+      "Senior",
+      "Analyst"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#1f2937",
+      "font": "serif",
+      "style": "rule",
+      "spacing": 15,
+      "nameSize": 31,
+      "tracking": 0.2,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
     "id": "fresher-launch",
     "name": "Fresher Launch",
     "category": "ATS-Friendly",

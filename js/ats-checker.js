@@ -1549,6 +1549,7 @@
       plan,
       checks,
       roleKind: role.kind,
+      years: haveYears,
       missing: jdMode ? missing.slice(0, 12).map(displayName) : resumeGaps,
       matched: matched.slice(0, 12).map(displayName),
       suggested,
@@ -1664,20 +1665,27 @@
     const box = result.querySelector("[data-ats-examples]");
     if (!box || report.score >= 92) return;
     try {
-      const { EXAMPLES } = await import("/js/resume-builder/examples.js?v=20261118ats");
+      const { EXAMPLES } = await import("/js/resume-builder/examples.js?v=20261118snr");
       const near = SAME_FIELD[report.roleKind] || [];
+      /* 6+ years shown on the resume → senior examples first; otherwise early-career ones. */
+      const wantSenior = Number(report.years) >= 6;
+      const levelRank = (e) => ((e.level === "senior") === wantSenior ? 0 : 1);
+      /* Freshers' examples don't help someone with 6+ years. */
+      const ordered = [...EXAMPLES].filter((e) => !(wantSenior && /^fresher/.test(e.id))).sort((a, b) => levelRank(a) - levelRank(b));
       const picks = [
-        ...EXAMPLES.filter((e) => e.kind === report.roleKind),
-        ...EXAMPLES.filter((e) => e.kind !== report.roleKind && near.includes(e.kind)),
-        ...EXAMPLES.filter((e) => !near.includes(e.kind) && e.kind !== report.roleKind)
-      ].slice(0, 3);
+        ...ordered.filter((e) => e.kind === report.roleKind && levelRank(e) === 0),
+        ...ordered.filter((e) => e.kind !== report.roleKind && near.includes(e.kind) && levelRank(e) === 0),
+        ...ordered.filter((e) => e.kind === report.roleKind),
+        ...ordered.filter((e) => near.includes(e.kind)),
+        ...ordered
+      ].filter((e, i, list) => list.indexOf(e) === i).slice(0, 3);
       if (!picks.length || !result.contains(box)) return;
       box.innerHTML = `
         <h3>Start from a resume that scores 90+</h3>
         <p class="ats-sub">Fictional examples written for your kind of role, on single-column ATS templates. Open one in the resume builder and replace every detail with your own.</p>
         <ul class="ats-examples">${picks
           .map(
-            (e) => `<li><div><strong>${escapeHtml(e.title)}</strong><small>${escapeHtml(e.templateName || e.template)} template · scores 90+ in this checker</small></div>
+            (e) => `<li><div><strong>${escapeHtml(e.title)}</strong><small>${e.level === "senior" ? "Senior · " : ""}${escapeHtml(e.templateName || e.template)} template · scores 90+ in this checker</small></div>
               <a class="ats-btn ats-btn--secondary" href="/resume-builder/templates/?select=${encodeURIComponent(e.template)}&example=${encodeURIComponent(e.id)}">Use this example</a></li>`
           )
           .join("")}</ul>

@@ -431,6 +431,231 @@ export const EXAMPLES = [
         ],
       }),
   },
+  /* ---------- senior professionals (8–15 years; up to two pages is normal) ---------- */
+  {
+    id: "senior-tech-lead",
+    title: "Senior software engineer / tech lead",
+    kind: "dev",
+    level: "senior",
+    maxPages: 2,
+    template: "tech-lead",
+    templateName: "Tech Lead",
+    data: () =>
+      build({
+        name: "HARIKRISHNAN MENON",
+        headline: "Technical Lead | Java, Spring Boot, Microservices, AWS | 10 Years",
+        email: "hari.menon@example.com",
+        phone: "+91 90000 20202",
+        location: "Kochi, Kerala",
+        linkedin: "linkedin.com/in/example-hari",
+        github: "github.com/example-hari",
+        summary:
+          "Technical lead with 10 years of experience designing and running Java and Spring Boot microservices on AWS for banking and logistics clients. Leads a team of 8 engineers, owns architecture and code-review standards, and has delivered platforms handling 2 million transactions a day at 99.95% uptime. Known for turning unclear requirements into reliable releases and growing junior engineers into owners.",
+        experience: [
+          job("Technical Lead", "Example Financial Technologies", "Infopark, Kochi", "2021-04", "", [
+            "Lead a team of 8 engineers building payment microservices in Java 17, Spring Boot and Kafka for 3 banking clients.",
+            "Designed an event-driven settlement platform that processes 2 million transactions a day at 99.95% uptime.",
+            "Cut cloud costs by 32% (₹48 lakh a year) by right-sizing AWS EKS clusters and moving batch jobs to spot instances.",
+            "Introduced code-review guidelines, contract tests and SonarQube gates, reducing production incidents by 45%.",
+            "Mentored 5 engineers to senior roles and ran 40+ technical interviews a year.",
+          ]),
+          job("Senior Software Engineer", "Example Logistics Systems", "Technopark, Trivandrum", "2018-01", "2021-03", [
+            "Split a monolithic shipment-tracking system into 12 Spring Boot services, cutting release time from 3 weeks to 2 days.",
+            "Built a real-time tracking API serving 15,000 requests a minute with Redis caching and PostgreSQL read replicas.",
+            "Set up CI/CD with Jenkins and Docker for 20 services, with automated rollback on failed health checks.",
+          ]),
+          job("Software Engineer", "Example Software Services", "Kochi", "2015-07", "2017-12", [
+            "Developed Java and Oracle modules for an insurance claims system used by 1,200 agents.",
+            "Improved slow report queries by 70% through indexing and query rewrites.",
+          ]),
+        ],
+        education: [edu("B.Tech in Computer Science and Engineering", "Example Government Engineering College, Kerala", "2011-08", "2015-05", "First class with distinction")],
+        skills: skills({
+          "Languages & frameworks": ["Java", "Spring Boot", "Kafka", "Microservices", "REST API", "Hibernate"],
+          "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform"],
+          Data: ["PostgreSQL", "Oracle", "Redis"],
+          Leadership: ["Architecture", "Code review", "Mentoring", "Agile", "Hiring"],
+        }),
+        projects: [],
+        certifications: [cert("AWS Certified Solutions Architect – Associate", "Amazon Web Services", "2022-06"), cert("Oracle Certified Professional, Java SE", "Oracle", "2017-03")],
+      }),
+  },
+  {
+    id: "senior-project-manager",
+    title: "Project / delivery manager",
+    kind: "general",
+    level: "senior",
+    maxPages: 2,
+    template: "delivery-head",
+    templateName: "Delivery Head",
+    data: () =>
+      build({
+        name: "DEEPA SURESH",
+        headline: "Senior Project Manager | Agile Delivery, PMP, Client Management | 12 Years",
+        email: "deepa.suresh@example.com",
+        phone: "+91 90000 30303",
+        location: "Kochi, Kerala",
+        linkedin: "linkedin.com/in/example-deepa",
+        summary:
+          "PMP-certified project manager with 12 years in IT services, the last 6 leading delivery for US and European clients. Runs portfolios of 4–6 concurrent Agile projects worth ₹18 crore a year with teams of up to 45 people. Consistently delivers on time and within budget, and has grown two key accounts by 60% through steady client trust and clear reporting.",
+        experience: [
+          job("Senior Project Manager", "Example IT Solutions", "Infopark, Kochi", "2020-02", "", [
+            "Manage a delivery portfolio of 5 Agile projects worth ₹18 crore a year with 45 engineers, testers and analysts.",
+            "Delivered 94% of milestones on time across 3 years while keeping budgets within 3% of plan.",
+            "Grew the two largest client accounts by 60% through quarterly business reviews and roadmap planning.",
+            "Introduced Jira dashboards and a weekly risk register, cutting escalations to senior management by 50%.",
+            "Hired and onboarded 18 team members and set up a project-manager mentoring circle.",
+          ]),
+          job("Project Manager", "Example Global Services", "Technopark, Trivandrum", "2016-06", "2020-01", [
+            "Led 9 web and mobile projects for retail and healthcare clients, each 6–18 months long.",
+            "Moved 3 teams from waterfall to Scrum, shortening release cycles from quarterly to monthly.",
+            "Managed vendor contracts and change requests worth ₹2.4 crore with full audit traceability.",
+          ]),
+          job("Senior Business Analyst", "Example Technologies", "Kochi", "2013-07", "2016-05", [
+            "Gathered requirements and wrote 200+ user stories for an ERP rollout across 14 branches.",
+            "Ran user acceptance testing with 60 end users and cut post-launch defects by 35%.",
+          ]),
+        ],
+        education: [edu("MBA in Operations Management", "Example School of Business, Kerala", "2011-07", "2013-05", "First class"), edu("B.Tech in Electronics and Communication", "Example College of Engineering, Kerala", "2007-08", "2011-05")],
+        skills: skills({
+          Delivery: ["Agile", "Scrum", "Kanban", "Risk management", "Budgeting", "Stakeholder management"],
+          Tools: ["Jira", "Confluence", "MS Project", "Power BI", "Excel"],
+          Leadership: ["Team building", "Client management", "Vendor management", "Hiring"],
+        }),
+        projects: [],
+        certifications: [cert("Project Management Professional (PMP)", "Project Management Institute", "2018-09"), cert("Certified ScrumMaster (CSM)", "Scrum Alliance", "2017-04")],
+      }),
+  },
+  {
+    id: "senior-finance-manager",
+    title: "Finance manager",
+    kind: "finance",
+    level: "senior",
+    maxPages: 2,
+    template: "finance-controller",
+    templateName: "Finance Controller",
+    data: () =>
+      build({
+        name: "THOMAS ABRAHAM",
+        headline: "Finance Manager | Chartered Accountant | Reporting, Tax, Audit | 13 Years",
+        email: "thomas.abraham@example.com",
+        phone: "+91 90000 40404",
+        location: "Kochi, Kerala",
+        linkedin: "linkedin.com/in/example-thomas",
+        summary:
+          "Chartered accountant and finance manager with 13 years across manufacturing and IT services. Leads a 9-member finance team covering monthly reporting, GST and income tax, statutory audit and treasury for a ₹320 crore business. Closed the books in 5 working days, saved ₹1.1 crore through tax planning, and delivered three clean audits in a row.",
+        experience: [
+          job("Finance Manager", "Example Industries Ltd", "Kochi", "2019-05", "", [
+            "Lead a 9-member team handling accounts, GST, TDS, income tax and treasury for a ₹320 crore company.",
+            "Cut monthly closing from 12 to 5 working days by standardising reconciliations in SAP and Excel.",
+            "Saved ₹1.1 crore in two years through tax planning and better working-capital management.",
+            "Managed statutory, internal and tax audits with three consecutive clean audit reports.",
+            "Built a cash-flow forecast that helped negotiate a ₹25 crore credit line at 1.2% lower interest.",
+          ]),
+          job("Assistant Finance Manager", "Example IT Services", "Infopark, Kochi", "2015-01", "2019-04", [
+            "Prepared Ind AS financial statements and MIS reports for the board every month.",
+            "Handled transfer-pricing documentation and GST transition for 4 entities.",
+          ]),
+          job("Audit Senior", "Example & Co, Chartered Accountants", "Kochi", "2012-08", "2014-12", [
+            "Led statutory audits for 25+ clients in manufacturing, retail and services.",
+          ]),
+        ],
+        education: [edu("Chartered Accountant (CA)", "Institute of Chartered Accountants of India", "2009-01", "2012-07"), edu("B.Com", "Example College, Mahatma Gandhi University", "2006-06", "2009-04")],
+        skills: skills({
+          Finance: ["Financial reporting", "Ind AS", "GST", "Income tax", "TDS", "Statutory audit", "Treasury", "Budgeting"],
+          Tools: ["SAP", "Tally", "Excel", "Power BI"],
+          Leadership: ["Team management", "Board reporting", "Banking relationships"],
+        }),
+        projects: [],
+      }),
+  },
+  {
+    id: "senior-hr-manager",
+    title: "HR manager",
+    kind: "hr",
+    level: "senior",
+    maxPages: 2,
+    template: "hr-leader",
+    templateName: "HR Leader",
+    data: () =>
+      build({
+        name: "LAKSHMI PILLAI",
+        headline: "HR Manager | Talent Acquisition, HR Operations, Employee Engagement | 11 Years",
+        email: "lakshmi.pillai@example.com",
+        phone: "+91 90000 50505",
+        location: "Trivandrum, Kerala",
+        linkedin: "linkedin.com/in/example-lakshmi",
+        summary:
+          "HR manager with 11 years in IT and product companies, leading end-to-end HR for teams of up to 900 people. Built hiring engines that close 250+ roles a year, reduced attrition from 24% to 14%, and rolled out an HRMS across 3 locations. Partners closely with business heads on workforce planning, performance and culture.",
+        experience: [
+          job("HR Manager", "Example Product Labs", "Technopark, Trivandrum", "2019-09", "", [
+            "Lead a 7-member HR team supporting 900 employees across Trivandrum, Kochi and Bengaluru.",
+            "Reduced annual attrition from 24% to 14% through stay interviews, career paths and manager training.",
+            "Scaled hiring to 250+ roles a year while cutting average time-to-hire from 45 to 28 days.",
+            "Rolled out an HRMS for payroll, leave and performance across 3 locations, saving 120 HR hours a month.",
+            "Redesigned the appraisal process and trained 60 managers on goal setting and feedback.",
+          ]),
+          job("Senior HR Business Partner", "Example IT Services", "Infopark, Kochi", "2015-04", "2019-08", [
+            "Partnered with 4 delivery heads on workforce plans, promotions and compensation reviews for 400 employees.",
+            "Ran engagement surveys and action plans that raised engagement scores by 18 points.",
+          ]),
+          job("HR Executive", "Example Software", "Kochi", "2013-06", "2015-03", [
+            "Handled recruitment, onboarding and statutory compliance (PF, ESI) for 150 employees.",
+          ]),
+        ],
+        education: [edu("MBA in Human Resource Management", "Example Institute of Management, Kerala", "2011-07", "2013-05", "First class"), edu("B.A. in Psychology", "Example College, University of Kerala", "2008-06", "2011-04")],
+        skills: skills({
+          HR: ["Talent acquisition", "HR operations", "Performance management", "Employee engagement", "Compensation", "Labour law compliance"],
+          Tools: ["HRMS", "LinkedIn Recruiter", "Excel", "Power BI"],
+          Leadership: ["Workforce planning", "Manager coaching", "Change management"],
+        }),
+        projects: [],
+        certifications: [cert("SHRM Certified Professional (SHRM-CP)", "SHRM", "2020-11")],
+      }),
+  },
+  {
+    id: "senior-sales-manager",
+    title: "Sales / business head",
+    kind: "sales",
+    level: "senior",
+    maxPages: 2,
+    template: "sales-leader",
+    templateName: "Sales Leader",
+    data: () =>
+      build({
+        name: "SURESH NAMBIAR",
+        headline: "Regional Sales Manager | B2B Sales, Team Leadership, Key Accounts | 12 Years",
+        email: "suresh.nambiar@example.com",
+        phone: "+91 90000 60606",
+        location: "Kochi, Kerala",
+        linkedin: "linkedin.com/in/example-suresh",
+        summary:
+          "Regional sales manager with 12 years in B2B technology and services sales across Kerala and the Middle East. Leads a team of 14 sales executives with an annual target of ₹42 crore, achieving 112% of target over the last three years. Builds steady pipelines, opens new territories and grows key accounts through long-term relationships.",
+        experience: [
+          job("Regional Sales Manager", "Example Business Solutions", "Kochi", "2019-04", "", [
+            "Lead 14 sales executives across Kerala with a ₹42 crore annual target, averaging 112% achievement for 3 years.",
+            "Opened the Gulf market, signing 22 enterprise clients worth ₹9 crore in the first 18 months.",
+            "Grew the top 10 key accounts by 40% through quarterly reviews and bundled service plans.",
+            "Set up a CRM-based weekly pipeline review that raised forecast accuracy from 70% to 92%.",
+            "Hired and coached 11 executives, 4 of whom now lead their own territories.",
+          ]),
+          job("Key Account Manager", "Example Technologies", "Kochi", "2015-01", "2019-03", [
+            "Managed 35 enterprise accounts worth ₹14 crore a year with a 95% renewal rate.",
+            "Won 3 multi-year contracts worth over ₹1 crore each through competitive tenders.",
+          ]),
+          job("Sales Executive", "Example Systems", "Kozhikode", "2012-06", "2014-12", [
+            "Exceeded quarterly targets in 9 of 10 quarters selling networking and security products.",
+          ]),
+        ],
+        education: [edu("MBA in Marketing", "Example Business School, Kerala", "2010-07", "2012-05", "First class"), edu("B.Sc in Physics", "Example College, University of Calicut", "2007-06", "2010-04")],
+        skills: skills({
+          Sales: ["B2B sales", "Key account management", "Business development", "Negotiation", "Sales forecasting", "Tendering"],
+          Tools: ["Salesforce", "CRM", "Excel", "Power BI"],
+          Leadership: ["Team leadership", "Sales coaching", "Territory planning"],
+        }),
+        projects: [],
+      }),
+  },
 ];
 
 export const exampleById = (exampleId) => EXAMPLES.find((e) => e.id === exampleId) || null;
