@@ -91,3 +91,39 @@ test("updates must bump the revision by one and keep createdAt", async () => {
   await assertFails(updateDoc(ref(db), { revision: 2, createdAt: Timestamp.fromMillis(0), updatedAt: serverTimestamp() }));
   await assertFails(updateDoc(ref(db), { name: "Stale time", revision: 2, updatedAt: Timestamp.fromMillis(0) }));
 });
+
+test("a site can record its template and edited flag, with valid values only", async () => {
+  const db = as(OWNER);
+  await assertSucceeds(setDoc(ref(db), site({ template: "developer-pro", edited: false })));
+  await assertSucceeds(updateDoc(ref(db), { edited: true, revision: 2, updatedAt: serverTimestamp() }));
+  await assertSucceeds(setDoc(ref(db, OWNER, "s-test-0004"), site({ template: "" })));
+  await assertFails(setDoc(ref(db, OWNER, "s-test-0005"), site({ template: "../../evil" })));
+  await assertFails(setDoc(ref(db, OWNER, "s-test-0006"), site({ edited: "yes" })));
+});
+
+const content = (db, uid = OWNER, id = ID, page = "home") => doc(db, "users", uid, "studioProjects", id, "content", page);
+const page = (over = {}) => ({ html: "<h1>Hello</h1>", css: "h1{color:red}", schema: 1, updatedAt: serverTimestamp(), ...over });
+
+test("owner can save, read and delete the edited page", async () => {
+  const db = as(OWNER);
+  await assertSucceeds(setDoc(ref(db), site()));
+  await assertSucceeds(setDoc(content(db), page()));
+  await assertSucceeds(getDoc(content(db)));
+  await assertSucceeds(setDoc(content(db), page({ html: "<h1>Changed</h1>" })));
+  await assertSucceeds(deleteDoc(content(db)));
+});
+
+test("edited page: only 'home', owner, verified, known fields and size limits", async () => {
+  const db = as(OWNER);
+  await assertFails(setDoc(content(db, OWNER, ID, "about"), page()));
+  await assertFails(setDoc(content(db), page({ script: "x" })));
+  await assertFails(setDoc(content(db), page({ html: "x".repeat(400001) })));
+  await assertFails(setDoc(content(db), page({ css: "x".repeat(300001) })));
+  await assertFails(setDoc(content(db), page({ updatedAt: Timestamp.fromMillis(0) })));
+  await assertFails(setDoc(content(as(OWNER, false)), page()));
+  await assertSucceeds(setDoc(content(db), page()));
+  const other = as(OTHER);
+  await assertFails(getDoc(content(other)));
+  await assertFails(setDoc(content(other), page()));
+  await assertFails(deleteDoc(content(other)));
+});

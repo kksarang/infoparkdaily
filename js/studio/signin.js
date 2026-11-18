@@ -2,7 +2,7 @@
  * Same InfoparkDaily account as the rest of the site; Studio's own look.
  * Views: signin · signup · forgot · sent (reset email) · verify (new account) · signedin.
  */
-const CLOUD = "/js/studio/cloud.bundle.js?v=20261109ss";
+const CLOUD = "/js/studio/cloud.bundle.js?v=20261118t";
 const $ = (s, r = document) => r.querySelector(s);
 const root = $("#si-app");
 const params = new URLSearchParams(location.search);

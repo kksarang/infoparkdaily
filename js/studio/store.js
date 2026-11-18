@@ -10,7 +10,7 @@
  * listener then confirms it. If a write fails, the listener's next snapshot restores the truth
  * and the app is told through onSyncChange().
  */
-import { SITE_TYPES, LOOKS, ACCENTS } from "./data.js";
+import { SITE_TYPES, LOOKS, ACCENTS } from "./data.js?v=20261118t";
 
 const KEY = "dws:projects:v1";
 export const MAX_PROJECTS = 50;
@@ -41,6 +41,10 @@ export function clean(p) {
     look,
     accent,
     pages: pages.length ? pages : ["Home"],
+    /* The design the site started from (a catalogue slug), or "" for a wizard-built site. */
+    template: /^[a-z0-9-]{2,60}$/.test(String(p.template || "")) ? String(p.template) : "",
+    /* True once the person has saved changes in the visual editor. */
+    edited: p.edited === true,
     createdAt: time(p.createdAt),
     updatedAt: time(p.updatedAt),
     version: 1,
@@ -209,10 +213,84 @@ export function updateProject(id, changes) {
   return writeLocal(next) ? { ok: true, project } : { ok: false, error: "Saving failed. Check that site storage is allowed." };
 }
 
+/* ---------------- page content (visual editor) ----------------
+   Edited HTML/CSS is kept apart from the site list so the list stays small and fast:
+   device mode → localStorage "dws:content:<id>", account mode → users/{uid}/studioProjects/{id}/content/home. */
+const CONTENT_KEY = (id) => `dws:content:${id}`;
+export const CONTENT_LIMIT = { html: 400000, css: 300000 };
+
+function cleanContent(c) {
+  if (!c || typeof c.html !== "string" || typeof c.css !== "string") return null;
+  return { html: c.html, css: c.css, updatedAt: Number(c.updatedAt) || Date.now() };
+}
+
+function readLocalContent(id) {
+  try {
+    return cleanContent(JSON.parse(localStorage.getItem(CONTENT_KEY(id)) || "null"));
+  } catch {
+    return null;
+  }
+}
+
+/** Saved editor content for a site, or null if it hasn't been edited yet. */
+export async function getContent(id) {
+  if (mode === "account") {
+    try {
+      return cleanContent(await cloud.getContentDoc(uid, id));
+    } catch (e) {
+      setSync("error", cloud.authMessage(e));
+      throw e;
+    }
+  }
+  return readLocalContent(id);
+}
+
+/** Saves editor content. Returns { ok, error? }. Marks the site as edited. */
+export async function saveContent(id, { html, css }) {
+  const p = getProject(id);
+  if (!p) return { ok: false, error: "That site no longer exists." };
+  if (html.length > CONTENT_LIMIT.html || css.length > CONTENT_LIMIT.css)
+    return { ok: false, error: "This page is too large to save. Remove some sections or large embedded images." };
+  if (mode === "account") {
+    const ok = await write(() => cloud.setContentDoc(uid, id, { html, css }));
+    if (!ok) return { ok: false, error: sync.message || "Saving failed. Check your connection." };
+  } else {
+    try {
+      localStorage.setItem(CONTENT_KEY(id), JSON.stringify({ html, css, updatedAt: Date.now() }));
+    } catch {
+      return { ok: false, error: "This browser is out of space for Studio. Sign in to save to your account, or delete an old site." };
+    }
+  }
+  /* Bump the site's "edited" time (and flag) so lists and sync show the change. */
+  const res = updateProject(id, { edited: true });
+  return res.ok ? { ok: true } : res;
+}
+
+/** Throws away the edited page (used when a site switches to a different template). */
+export async function resetContent(id) {
+  if (mode === "account") {
+    const ok = await write(() => cloud.deleteContentDoc(uid, id));
+    if (!ok) return { ok: false, error: sync.message || "Couldn't reset the page. Check your connection." };
+  } else removeLocalContent(id);
+  return { ok: true };
+}
+
+function removeLocalContent(id) {
+  try {
+    localStorage.removeItem(CONTENT_KEY(id));
+  } catch {}
+}
+
 export function duplicateProject(id) {
   const p = getProject(id);
   if (!p) return { ok: false, error: "That site no longer exists." };
-  return createProject({ ...p, name: clip(`${p.name} (copy)`, 60) });
+  const res = createProject({ ...p, name: clip(`${p.name} (copy)`, 60) });
+  /* Copy the edited page too, so the copy looks the same as the original. */
+  if (res.ok && p.edited)
+    getContent(id)
+      .then((c) => c && saveContent(res.project.id, c))
+      .catch(() => {});
+  return res;
 }
 
 export function deleteProject(id) {
@@ -225,12 +303,22 @@ export function deleteProject(id) {
     write(() => cloud.deleteProjectDoc(uid, id));
     return { ok: true };
   }
-  return writeLocal(list.filter((p) => p.id !== id)) ? { ok: true } : { ok: false, error: "Deleting failed. Check that site storage is allowed." };
+  if (!writeLocal(list.filter((p) => p.id !== id))) return { ok: false, error: "Deleting failed. Check that site storage is allowed." };
+  removeLocalContent(id);
+  return { ok: true };
 }
 
 /** Everything we keep, as a downloadable JSON backup. */
-export const exportAll = () =>
-  JSON.stringify({ app: "Daily Web Studio", version: 1, savedIn: mode, exportedAt: new Date().toISOString(), projects: listProjects() }, null, 2);
+export async function exportAll() {
+  const projects = listProjects();
+  const withContent = [];
+  for (const p of projects) {
+    let content = null;
+    if (p.edited) content = await getContent(p.id).catch(() => null);
+    withContent.push(content ? { ...p, content: { html: content.html, css: content.css } } : p);
+  }
+  return JSON.stringify({ app: "Daily Web Studio", version: 2, savedIn: mode, exportedAt: new Date().toISOString(), projects: withContent }, null, 2);
+}
 
 export async function deleteAll() {
   if (mode === "account") {
@@ -238,6 +326,7 @@ export async function deleteAll() {
     return ok;
   }
   try {
+    readLocal().forEach((p) => removeLocalContent(p.id));
     localStorage.removeItem(KEY);
     emit();
     return true;
@@ -256,9 +345,14 @@ export async function moveDeviceSitesToAccount() {
   const kept = [];
   for (const p of taking) {
     const exists = cache.some((c) => c.id === p.id);
-    const ok = exists || (await write(() => cloud.createProjectDoc(uid, p, true)));
-    if (ok) moved += 1;
-    else kept.push(p);
+    let ok = exists || (await write(() => cloud.createProjectDoc(uid, p, true)));
+    /* Bring the edited page along; the device copy is only removed once both are in the account. */
+    const content = ok && p.edited ? readLocalContent(p.id) : null;
+    if (content) ok = await write(() => cloud.setContentDoc(uid, p.id, content));
+    if (ok) {
+      moved += 1;
+      removeLocalContent(p.id);
+    } else kept.push(p);
   }
   kept.push(...local.slice(room));
   try {

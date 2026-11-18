@@ -31,6 +31,7 @@ import {
   connectFirestoreEmulator,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   getFirestore,
   limit,
@@ -150,7 +151,7 @@ export function authMessage(e) {
 /* ---------------- projects ---------------- */
 
 const col = (uid) => collection(db, "users", uid, "studioProjects");
-const FIELDS = ["name", "tagline", "location", "type", "look", "accent", "pages"];
+const FIELDS = ["name", "tagline", "location", "type", "look", "accent", "pages", "template", "edited"];
 const pick = (p) => Object.fromEntries(FIELDS.map((k) => [k, p[k]]));
 const ms = (t) => (t && typeof t.toMillis === "function" ? t.toMillis() : Date.now());
 
@@ -189,13 +190,34 @@ export function updateProjectDoc(uid, id, changes, revision) {
   return updateDoc(doc(col(uid), id), { ...data, revision: revision + 1, updatedAt: serverTimestamp() });
 }
 
-export const deleteProjectDoc = (uid, id) => deleteDoc(doc(col(uid), id));
+/* The edited page lives in a sub-document so the site list stays small:
+   users/{uid}/studioProjects/{id}/content/home  →  { html, css, schema, updatedAt } */
+const contentRef = (uid, id) => doc(db, "users", uid, "studioProjects", id, "content", "home");
+
+export async function getContentDoc(uid, id) {
+  const snap = await getDoc(contentRef(uid, id));
+  if (!snap.exists()) return null;
+  const x = snap.data();
+  return { html: x.html, css: x.css, updatedAt: ms(x.updatedAt) };
+}
+
+export const setContentDoc = (uid, id, { html, css }) =>
+  setDoc(contentRef(uid, id), { html, css, schema: 1, updatedAt: serverTimestamp() });
+
+export const deleteContentDoc = (uid, id) => deleteDoc(contentRef(uid, id));
+
+/* Sub-documents are not removed with their parent in Firestore, so delete the content first. */
+export async function deleteProjectDoc(uid, id) {
+  await deleteDoc(contentRef(uid, id));
+  await deleteDoc(doc(col(uid), id));
+}
 
 export async function deleteAllProjectDocs(uid) {
   const snap = await getDocs(col(uid));
-  for (let i = 0; i < snap.docs.length; i += 400) {
+  const refs = snap.docs.flatMap((d) => [contentRef(uid, d.id), d.ref]);
+  for (let i = 0; i < refs.length; i += 400) {
     const batch = writeBatch(db);
-    snap.docs.slice(i, i + 400).forEach((d) => batch.delete(d.ref));
+    refs.slice(i, i + 400).forEach((r) => batch.delete(r));
     await batch.commit();
   }
 }

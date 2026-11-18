@@ -4,16 +4,17 @@
  *   #/              Home (dashboard)
  *   #/new           Create-a-site wizard   (#/new?type=restaurant starts on a type)
  *   #/sites         My sites
- *   #/site/<id>     One site: first-look preview and next steps
- *   #/templates, #/publish, #/domains, #/billing   Honest "coming next" pages
+ *   #/site/<id>     One site: preview and next steps
+ *   #/templates     Template gallery (#/templates?type=restaurant, #/templates?for=<siteId>)
+ *   #/publish, #/domains, #/billing   Honest "coming next" pages
  *   #/settings      Account, storage and data
  *
  * Sites save to the InfoparkDaily account when signed in with a verified email, otherwise on this
  * device (see store.js and cloud.js). Sign-in uses the Studio page at /studio/sign-in/ with the same
  * InfoparkDaily account as the rest of the site. An account is optional.
  */
-import { icon, SITE_TYPES, typeById, LOOKS, lookById, ACCENTS } from "./data.js";
-import * as store from "./store.js?v=20261109ss";
+import { icon, SITE_TYPES, typeById, LOOKS, lookById, ACCENTS, loadTemplates, templateDemoUrl } from "./data.js?v=20261118t";
+import * as store from "./store.js?v=20261118t";
 import { previewHtml, esc } from "./preview.js";
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -60,7 +61,7 @@ const SYNC_TEXT = { loading: "Loading your sites…", saving: "Saving…", saved
 
 async function loadAccount() {
   try {
-    cloud = await import("/js/studio/cloud.bundle.js?v=20261109ss");
+    cloud = await import("/js/studio/cloud.bundle.js?v=20261118t");
     await cloud.authReady;
   } catch {
     accountState = "unavailable";
@@ -126,7 +127,7 @@ function rerender() {
 const NAV = [
   ["#/", "Home", "home"],
   ["#/sites", "My sites", "sites"],
-  ["#/templates", "Templates", "templates", "Soon"],
+  ["#/templates", "Templates", "templates"],
   ["#/publish", "Export & publish", "publish", "Soon"],
   ["#/domains", "Domains", "globe", "Soon"],
   ["#/billing", "Plans & billing", "card", "Soon"],
@@ -162,11 +163,14 @@ function closeSide() {
 function siteCard(p) {
   const t = typeById(p.type);
   return `<article class="site-card">
-    <a class="site-thumb" href="#/site/${p.id}" style="--a:${accentOf(p)}" aria-label="Open ${esc(p.name)}" data-look="${p.look}">
-      <span class="st-bar"><i></i><i></i><i></i></span><span class="st-h"></span><span class="st-l"></span><span class="st-row"><b></b><b></b><b></b></span>
+    <a class="site-thumb${p.template ? " site-thumb--tpl" : ""}" href="#/site/${p.id}" style="--a:${accentOf(p)}" aria-label="Open ${esc(p.name)}" data-look="${p.look}">
+      ${p.template
+        ? `<img src="/assets/portfolio/previews/${p.template}.webp" alt="" loading="lazy" width="600" height="450">`
+        : `<span class="st-bar"><i></i><i></i><i></i></span><span class="st-h"></span><span class="st-l"></span><span class="st-row"><b></b><b></b><b></b></span>`}
+      ${p.edited ? '<em class="site-badge">Edited</em>' : ""}
     </a>
     <div class="site-meta">
-      <div><h3><a href="#/site/${p.id}">${esc(p.name)}</a></h3><p>${esc(t?.label || "Website")} · edited ${ago(p.updatedAt)}</p></div>
+      <div><h3><a href="#/site/${p.id}">${esc(p.name)}</a></h3><p>${esc(t?.label || "Website")} · updated ${ago(p.updatedAt)}</p></div>
       <div class="site-actions">
         <button type="button" class="icon-btn" data-act="rename" data-id="${p.id}" aria-label="Rename ${esc(p.name)}" title="Rename">${icon("edit", 17)}</button>
         <button type="button" class="icon-btn" data-act="duplicate" data-id="${p.id}" aria-label="Duplicate ${esc(p.name)}" title="Duplicate">${icon("copy", 17)}</button>
@@ -190,21 +194,28 @@ function pageHome() {
   const hasSite = sites.length > 0;
   const steps = [
     ["Create your first site", "Answer a few questions to set it up.", hasSite, "#/new"],
-    ["Pick a template", "Choose a full design for your site type.", false, "#/templates"],
+    ["Pick a template", "Choose a full design for your site type.", sites.some((s) => s.template), "#/templates"],
     ["Edit in the visual editor", "Change text, images, colours and sections.", false, null],
     ["Export your code", "Download clean HTML and host it free.", false, null],
   ];
   view.innerHTML = `
     ${storageWarning()}
     <header class="page-head">
-      <div><p class="eyebrow">Daily Web Studio · Early access</p><h1>${first ? `Welcome back, ${first}.` : "Let’s build your website."}</h1><p class="lead">Set up a site in a couple of minutes. The template marketplace and visual editor are on the way, and every site you start now carries over.</p></div>
+      <div><p class="eyebrow">Daily Web Studio · Early access</p><h1>${first ? `Welcome back, ${first}.` : "Let’s build your website."}</h1><p class="lead">Start from one of 66 finished designs or answer a few questions. The visual editor is on the way, and every site you start now carries over.</p></div>
     </header>
     <section class="home-grid">
-      <a class="start-card" href="#/new">
-        <span class="start-icon">${icon("plus", 26)}</span>
-        <span><strong>Create a new site</strong><small>Portfolio, business, restaurant, store and 8 more types</small></span>
-        <span class="start-go">${icon("arrow", 20)}</span>
-      </a>
+      <div class="start-stack">
+        <a class="start-card" href="#/templates">
+          <span class="start-icon">${icon("templates", 26)}</span>
+          <span><strong>Start from a template</strong><small>66 finished designs for all 12 site types</small></span>
+          <span class="start-go">${icon("arrow", 20)}</span>
+        </a>
+        <a class="start-card start-card--quiet" href="#/new">
+          <span class="start-icon">${icon("plus", 26)}</span>
+          <span><strong>Answer a few questions</strong><small>Pick a type, look and pages; we set it up</small></span>
+          <span class="start-go">${icon("arrow", 20)}</span>
+        </a>
+      </div>
       <section class="panel checklist" aria-labelledby="gs">
         <h2 id="gs">Getting started</h2>
         <ol>${steps
@@ -281,6 +292,7 @@ function pageSite(id) {
       <div><p class="eyebrow">${esc(t.label)}</p><h1>${esc(p.name)}</h1><p class="lead">${esc(p.tagline || t.short)}</p></div>
       <div class="head-actions">
         <button type="button" class="btn btn--ghost" data-act="rename" data-id="${p.id}">${icon("edit", 17)}Rename</button>
+        <a class="btn btn--ghost" href="#/templates?for=${p.id}">${icon("templates", 17)}${p.template ? "Change template" : "Choose a template"}</a>
         <button type="button" class="btn" disabled title="The visual editor arrives in Phase 3">${icon("edit", 17)}Open editor<em class="tag tag--on">Soon</em></button>
       </div>
     </header>
@@ -294,16 +306,24 @@ function pageSite(id) {
             <button type="button" data-size="mobile" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></svg><span class="sr">Mobile</span></button>
           </div>
         </div>
-        <div class="preview-stage"><iframe id="pv" title="First look at ${esc(p.name)}" sandbox="" referrerpolicy="no-referrer" loading="lazy"></iframe></div>
-        <p class="preview-note">This is a first look built from your answers. You’ll choose a full template next.</p>
+        <div class="preview-stage"><iframe id="pv" title="Preview of ${esc(p.name)}" ${p.template && !p.edited ? 'sandbox="allow-scripts allow-same-origin"' : 'sandbox=""'} referrerpolicy="no-referrer" loading="lazy"></iframe></div>
+        <p class="preview-note">${
+          p.edited
+            ? "Your edited page, exactly as it will export."
+            : p.template
+            ? `The <strong>${esc(tplName(p.template))}</strong> design with its sample content. You’ll replace the text and images in the editor.`
+            : "A first look built from your answers. Choose a full template to get a finished design."
+        }</p>
       </div>
       <aside class="site-side">
         <section class="panel">
           <h2>Your choices</h2>
           <dl class="facts">
             <div><dt>Type</dt><dd>${esc(t.label)}</dd></div>
-            <div><dt>Look</dt><dd>${esc(look.label)}</dd></div>
-            <div><dt>Accent</dt><dd><span class="sw" style="--a:${accentOf(p)}"></span>${esc((ACCENTS.find((a) => a.id === p.accent) || ACCENTS[0]).label)}</dd></div>
+            ${p.template
+              ? `<div><dt>Template</dt><dd><a href="/portfolio/preview/${p.template}/" target="_blank" rel="noopener">${esc(tplName(p.template))} ↗</a></dd></div>`
+              : `<div><dt>Look</dt><dd>${esc(look.label)}</dd></div>
+            <div><dt>Accent</dt><dd><span class="sw" style="--a:${accentOf(p)}"></span>${esc((ACCENTS.find((a) => a.id === p.accent) || ACCENTS[0]).label)}</dd></div>`}
             ${p.location ? `<div><dt>Location</dt><dd>${esc(p.location)}</dd></div>` : ""}
             <div><dt>Pages</dt><dd>${p.pages.map(esc).join(", ")}</dd></div>
             <div><dt>Created</dt><dd>${ago(p.createdAt)}</dd></div>
@@ -313,7 +333,9 @@ function pageSite(id) {
           <h2>What happens next</h2>
           <ol class="next">
             <li class="is-done"><span class="ck is-done">${icon("check", 14)}</span><span><strong>Site set up</strong><small>Your answers are saved.</small></span></li>
-            <li><span class="ck">2</span><span><strong>Choose a template</strong><small>Full designs made for ${esc(t.label.toLowerCase())}s.</small></span><em class="tag">Soon</em></li>
+            ${p.template
+              ? `<li class="is-done"><span class="ck is-done">${icon("check", 14)}</span><span><strong>Template chosen</strong><small>${esc(tplName(p.template))}</small></span></li>`
+              : `<li><a href="#/templates?for=${p.id}"><span class="ck">2</span><span><strong>Choose a template</strong><small>Full designs made for ${esc(t.label.toLowerCase())}s.</small></span>${icon("arrow", 16)}</a></li>`}
             <li><span class="ck">3</span><span><strong>Edit visually</strong><small>Drag sections, change text and images.</small></span><em class="tag">Soon</em></li>
             <li><span class="ck">4</span><span><strong>Export &amp; publish</strong><small>Download the code or publish free.</small></span><em class="tag">Soon</em></li>
           </ol>
@@ -327,7 +349,19 @@ function pageSite(id) {
       </aside>
     </section>`;
   const frame = $("#pv");
-  frame.srcdoc = previewHtml(p);
+  if (p.edited) {
+    frame.srcdoc = previewHtml(p); // shown until the saved page arrives
+    store
+      .getContent(p.id)
+      .then((c) => {
+        if (c && $("#pv") === frame) frame.srcdoc = pageDocument(p, c);
+      })
+      .catch(() => toast("Couldn’t load your edited page. Check your connection."));
+  } else if (p.template) frame.src = `${templateDemoUrl(p.template)}?embed=1`;
+  else frame.srcdoc = previewHtml(p);
+  /* First visit before the catalogue arrived: repaint once so the design's real name shows. */
+  if (p.template && !tplNames.has(p.template))
+    loadTemplates().then(() => tplNames.has(p.template) && $("#pv") === frame && rerender());
   view.querySelectorAll("[data-size]").forEach((b) =>
     b.addEventListener("click", () => {
       view.querySelectorAll("[data-size]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
@@ -336,8 +370,168 @@ function pageSite(id) {
   );
 }
 
+/* ---------- templates ---------- */
+const tplNames = new Map(); // slug → design name, filled once the catalogue loads
+const tplName = (slug) => tplNames.get(slug) || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+loadTemplates().then((list) => list.forEach((x) => tplNames.set(x.slug, x.name)));
+
+/** A full HTML document for an edited page (preview and export use the same output). */
+function pageDocument(p, c) {
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(p.name)}</title><style>${c.css}</style></head><body>${c.html}</body></html>`;
+}
+
+const tplFilter = { type: "all", q: "" };
+
+async function pageTemplates(query) {
+  setTitle("Templates");
+  const params = new URLSearchParams(query);
+  const target = params.get("for") ? store.getProject(params.get("for")) : null;
+  if (params.get("for") && !target && !loadingSites()) return pageMissing("That site no longer exists", "Pick a template to start a new site instead.");
+  const wanted = params.get("type");
+  if (wanted && typeById(wanted)) tplFilter.type = wanted;
+  else if (target) tplFilter.type = target.type;
+  view.innerHTML = `${storageWarning()}${tplHead(target)}<div class="empty">${icon("templates", 28)}<p><strong>Loading designs…</strong></p></div>`;
+  const all = await loadTemplates();
+  if (!location.hash.startsWith("#/templates")) return; // the person moved on while loading
+  if (!all.length) {
+    view.innerHTML = `${tplHead(target)}<div class="empty">${icon("templates", 28)}<p><strong>Couldn’t load the designs.</strong> Check your connection and try again.</p><button type="button" class="btn" onclick="location.reload()">Try again</button></div>`;
+    return;
+  }
+  const counts = all.reduce((m, x) => ((m[x.type] = (m[x.type] || 0) + 1), m), {});
+  view.innerHTML = `
+    ${storageWarning()}
+    ${tplHead(target)}
+    <div class="tpl-tools">
+      <div class="chip-row" role="group" aria-label="Filter by site type">
+        <button type="button" class="chip" data-tpl-type="all" aria-pressed="${tplFilter.type === "all"}">All <span>${all.length}</span></button>
+        ${SITE_TYPES.filter((x) => counts[x.id]).map((x) => `<button type="button" class="chip" data-tpl-type="${x.id}" aria-pressed="${tplFilter.type === x.id}">${x.label} <span>${counts[x.id]}</span></button>`).join("")}
+      </div>
+      <label class="search">${icon("templates", 18)}<span class="sr">Search designs</span><input id="tpl-q" type="search" placeholder="Search designs, e.g. dark, chef, developer" autocomplete="off" value="${esc(tplFilter.q)}"></label>
+    </div>
+    <p class="tpl-count" id="tpl-count" role="status"></p>
+    <div class="tpl-grid" id="tpl-grid">${all.map((x) => tplCard(x, target)).join("")}</div>
+    <p class="empty-inline" id="tpl-none" hidden>No designs match. Try another type or word.</p>`;
+  const apply = () => {
+    const q = tplFilter.q.trim().toLowerCase();
+    let shown = 0;
+    view.querySelectorAll(".tpl-card").forEach((card) => {
+      const hit = (tplFilter.type === "all" || card.dataset.type === tplFilter.type) && (!q || card.dataset.search.includes(q));
+      card.hidden = !hit;
+      shown += hit;
+    });
+    $("#tpl-count").textContent = `${shown} design${shown === 1 ? "" : "s"}`;
+    $("#tpl-none").hidden = shown > 0;
+  };
+  view.querySelectorAll("[data-tpl-type]").forEach((b) =>
+    b.addEventListener("click", () => {
+      tplFilter.type = b.dataset.tplType;
+      view.querySelectorAll("[data-tpl-type]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      apply();
+    }),
+  );
+  $("#tpl-q").addEventListener("input", (e) => ((tplFilter.q = e.target.value), apply()));
+  apply();
+}
+
+function tplHead(target) {
+  return target
+    ? `<a class="crumb" href="#/site/${target.id}">${icon("back", 16)}${esc(target.name)}</a>
+       <header class="page-head"><div><p class="eyebrow">Choose a template</p><h1>A design for ${esc(target.name)}</h1><p class="lead">Pick a finished design. Your site keeps its name and settings${target.edited ? "; your edited page will be replaced" : ""}.</p></div></header>`
+    : `<header class="page-head"><div><p class="eyebrow">66 designs · all 12 site types</p><h1>Templates</h1><p class="lead">Start from a finished, phone-ready design. Preview any of them, then make it yours in the editor.</p></div></header>`;
+}
+
+function tplCard(x, target) {
+  const label = typeById(x.type)?.label || "Website";
+  const tags = (x.styleTags || []).slice(0, 2).join(" · ");
+  const search = esc([x.name, x.category, label, x.profession, x.description, ...(x.styleTags || [])].join(" ").toLowerCase());
+  return `<article class="tpl-card" data-type="${x.type}" data-search="${search}">
+    <button type="button" class="tpl-shot" data-tpl-preview="${x.slug}" aria-label="Preview ${esc(x.name)}">
+      <img src="${esc(x.thumbnail)}" alt="" loading="lazy" width="600" height="450">
+    </button>
+    <div class="tpl-meta"><h3>${esc(x.name)}</h3><p>${esc(label)}${tags ? ` · ${esc(tags)}` : ""}</p></div>
+    <div class="tpl-actions">
+      <button type="button" class="btn btn--ghost" data-tpl-preview="${x.slug}">Preview</button>
+      <button type="button" class="btn" data-tpl-use="${x.slug}"${target ? ` data-for="${target.id}"` : ""}>${target ? "Use for this site" : "Use template"}</button>
+    </div>
+  </article>`;
+}
+
+/** Full-size preview of a design, with desktop/phone sizes and a "Use" button.
+    Designs are InfoparkDaily's own static demo pages, so their small menu script may run
+    same-origin. Edited user pages are always shown in a fully sandboxed frame instead. */
+async function previewTemplate(slug, forId) {
+  const x = (await loadTemplates()).find((t) => t.slug === slug);
+  if (!x) return toast("That design isn’t available.");
+  const dlg = $("#dlg");
+  dlg.className = "dlg-preview";
+  dlg.innerHTML = `<div class="tplpv">
+    <div class="tplpv-bar">
+      <div><strong>${esc(x.name)}</strong><small>${esc(typeById(x.type)?.label || "")} · ${esc(x.description || "")}</small></div>
+      <div class="seg" role="group" aria-label="Preview size">
+        <button type="button" data-pv="desktop" aria-pressed="true">${icon("device", 16)}<span class="sr">Desktop</span></button>
+        <button type="button" data-pv="mobile" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></svg><span class="sr">Phone</span></button>
+      </div>
+      <div class="row">
+        <a class="btn btn--ghost" href="/portfolio/preview/${x.slug}/" target="_blank" rel="noopener">Open full page ↗</a>
+        <button type="button" class="btn" data-tpl-use="${x.slug}"${forId ? ` data-for="${forId}"` : ""}>${forId ? "Use for this site" : "Use template"}</button>
+        <button type="button" class="icon-btn" data-pv-close aria-label="Close preview">${icon("close", 18)}</button>
+      </div>
+    </div>
+    <div class="tplpv-stage"><iframe title="Preview of the ${esc(x.name)} design" src="${templateDemoUrl(x.slug)}?embed=1" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe></div>
+  </div>`;
+  dlg.showModal();
+  dlg.querySelectorAll("[data-pv]").forEach((b) =>
+    b.addEventListener("click", () => {
+      dlg.querySelectorAll("[data-pv]").forEach((y) => y.setAttribute("aria-pressed", String(y === b)));
+      dlg.querySelector(".tplpv-stage").classList.toggle("is-mobile", b.dataset.pv === "mobile");
+    }),
+  );
+  dlg.querySelector("[data-pv-close]").addEventListener("click", () => dlg.close());
+}
+
+/** "Use template": new site from a design, or switch an existing site to it. */
+async function useTemplate(slug, forId) {
+  const x = (await loadTemplates()).find((t) => t.slug === slug);
+  if (!x) return toast("That design isn’t available.");
+  /* Coming from the preview: let it finish closing first, or its late "close" event would
+     cancel the name dialog that opens next. */
+  if ($("#dlg").open) {
+    const closed = new Promise((r) => $("#dlg").addEventListener("close", r, { once: true }));
+    $("#dlg").close();
+    await closed;
+  }
+  if (forId) {
+    const p = store.getProject(forId);
+    if (!p) return toast("That site no longer exists.");
+    if (p.template === slug && !p.edited) return (location.hash = `#/site/${p.id}`);
+    if (p.edited && !(await confirmBox(`Switch to ${x.name}?`, "Your edited page will be replaced by this design’s sample content. Download a backup in Settings first if you might need it.", "Switch design"))) return;
+    if (p.edited) {
+      const r = await store.resetContent(p.id);
+      if (!r.ok) return toast(r.error);
+    }
+    const res = store.updateProject(p.id, { template: slug, edited: false, type: x.type });
+    if (!res.ok) return toast(res.error);
+    toast(`${p.name} now uses ${x.name}.`);
+    location.hash = `#/site/${p.id}`;
+    return;
+  }
+  const name = await askName("", `Start with ${x.name}`, "Create site", "What should your site be called? You can change it later.");
+  if (!name) return;
+  const type = typeById(x.type);
+  const res = store.createProject({ name, type: x.type, template: slug, look: "clean", accent: "coral", pages: [...type.pages] });
+  if (!res.ok) return toast(res.error);
+  toast("Site created from the template.");
+  location.hash = `#/site/${res.project.id}`;
+}
+
+document.addEventListener("click", (e) => {
+  const pv = e.target.closest("[data-tpl-preview]");
+  if (pv) return previewTemplate(pv.dataset.tplPreview, new URLSearchParams(location.hash.split("?")[1] || "").get("for"));
+  const use = e.target.closest("[data-tpl-use]");
+  if (use) useTemplate(use.dataset.tplUse, use.dataset.for);
+});
+
 const SOON = {
-  templates: ["Template marketplace", "templates", "Full, professionally designed templates for all 12 site types, with live desktop, tablet and phone previews, search and filters.", "Phase 2"],
   publish: ["Export & publish", "publish", "Download your site as clean HTML and CSS in a ZIP, push it to GitHub, or publish free on Cloudflare Pages or Netlify. You own every line of code.", "Phase 4"],
   domains: ["Domains", "globe", "Connect a domain you already own with step-by-step DNS help, or buy a new one with the registration and renewal price shown up front.", "Later"],
   billing: ["Plans & billing", "card", "Studio is free during early access. Paid plans with premium templates and advanced blocks come later. Prefer we build it for you? Done-for-you packages are available today.", "Later"],
@@ -351,7 +545,7 @@ function pageSoon(key) {
     <div class="soon">
       <span class="soon-icon">${icon(ic, 30)}</span>
       <p>Your sites are ready for it: everything you set up now carries over.</p>
-      <div class="soon-actions"><a class="btn" href="#/new">Create a site</a>${key === "templates" ? '<a class="btn btn--ghost" href="/studio/templates/" target="_blank" rel="noopener">Browse all 66 designs ↗</a>' : key === "billing" || key === "domains" ? '<a class="btn btn--ghost" href="/studio/pricing/#done-for-you" target="_blank" rel="noopener">Done-for-you packages ↗</a>' : '<a class="btn btn--ghost" href="#/sites">My sites</a>'}</div>
+      <div class="soon-actions"><a class="btn" href="#/new">Create a site</a>${key === "billing" || key === "domains" ? '<a class="btn btn--ghost" href="/studio/pricing/#done-for-you" target="_blank" rel="noopener">Done-for-you packages ↗</a>' : '<a class="btn btn--ghost" href="#/sites">My sites</a>'}</div>
     </div>`;
 }
 
@@ -603,10 +797,11 @@ function bindWizard() {
 }
 
 /* ---------- dialogs and shared actions ---------- */
-function askName(current) {
+function askName(current, title = "Rename site", okLabel = "Save", note = "") {
   return new Promise((resolve) => {
     const dlg = $("#dlg");
-    dlg.innerHTML = `<form method="dialog" class="dlg-body"><h2>Rename site</h2><label class="field"><span>Site name</span><input name="n" maxlength="60" required value="${esc(current)}"></label><div class="row row--end"><button class="btn btn--ghost" value="cancel" formnovalidate>Cancel</button><button class="btn" value="ok">Save</button></div></form>`;
+    dlg.className = "";
+    dlg.innerHTML = `<form method="dialog" class="dlg-body"><h2>${esc(title)}</h2>${note ? `<p>${esc(note)}</p>` : ""}<label class="field"><span>Site name</span><input name="n" maxlength="60" required value="${esc(current)}"></label><div class="row row--end"><button class="btn btn--ghost" value="cancel" formnovalidate>Cancel</button><button class="btn" value="ok">${esc(okLabel)}</button></div></form>`;
     dlg.showModal();
     const input = dlg.querySelector("input");
     input.select();
@@ -614,10 +809,11 @@ function askName(current) {
   });
 }
 
-function confirmBox(title, text, okLabel) {
+function confirmBox(title, text, okLabel, danger = true) {
   return new Promise((resolve) => {
     const dlg = $("#dlg");
-    dlg.innerHTML = `<form method="dialog" class="dlg-body"><h2>${esc(title)}</h2><p>${esc(text)}</p><div class="row row--end"><button class="btn btn--ghost" value="cancel" autofocus>Cancel</button><button class="btn btn--danger" value="ok">${esc(okLabel)}</button></div></form>`;
+    dlg.className = "";
+    dlg.innerHTML = `<form method="dialog" class="dlg-body"><h2>${esc(title)}</h2><p>${esc(text)}</p><div class="row row--end"><button class="btn btn--ghost" value="cancel" autofocus>Cancel</button><button class="btn ${danger ? "btn--danger" : ""}" value="ok">${esc(okLabel)}</button></div></form>`;
     dlg.showModal();
     dlg.addEventListener("close", () => resolve(dlg.returnValue === "ok"), { once: true });
   });
@@ -650,7 +846,9 @@ document.addEventListener("click", async (e) => {
     else route();
   }
   if (act === "backup") {
-    const blob = new Blob([store.exportAll()], { type: "application/json" });
+    el.disabled = true;
+    const blob = new Blob([await store.exportAll()], { type: "application/json" });
+    el.disabled = false;
     const a = Object.assign(document.createElement("a"), { href: URL.createObjectURL(blob), download: `daily-web-studio-backup-${new Date().toISOString().slice(0, 10)}.json` });
     document.body.append(a);
     a.click();
@@ -718,6 +916,7 @@ function route(moveFocus = true) {
   else if (head === "new") pageWizard(query);
   else if (head === "sites") pageSites();
   else if (head === "site" && arg) pageSite(arg);
+  else if (head === "templates") pageTemplates(query);
   else if (SOON[head]) pageSoon(head);
   else if (head === "settings") pageSettings();
   else pageMissing();

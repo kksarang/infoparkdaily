@@ -51,7 +51,7 @@ service cloud.firestore {
       match /studioProjects/{projectId} {
         function validStudioProject(data) {
           return data.keys().hasOnly(['name', 'tagline', 'location', 'type', 'look', 'accent', 'pages',
-              'schema', 'revision', 'createdAt', 'updatedAt'])
+              'template', 'edited', 'schema', 'revision', 'createdAt', 'updatedAt'])
             && data.keys().hasAll(['name', 'type', 'look', 'accent', 'pages', 'schema', 'revision', 'createdAt', 'updatedAt'])
             && data.name is string && data.name.size() > 0 && data.name.size() <= 60
             && (!('tagline' in data) || (data.tagline is string && data.tagline.size() <= 140))
@@ -61,6 +61,9 @@ service cloud.firestore {
             && data.look in ['clean', 'bold', 'warm', 'editorial']
             && data.accent in ['coral', 'indigo', 'teal', 'amber', 'rose', 'forest']
             && data.pages is list && data.pages.size() >= 1 && data.pages.size() <= 12
+            && (!('template' in data) || (data.template is string
+                && (data.template.size() == 0 || data.template.matches('^[a-z0-9-]{2,60}$'))))
+            && (!('edited' in data) || data.edited is bool)
             && data.schema == 1
             && data.revision is int && data.revision > 0
             && data.createdAt is timestamp && data.createdAt <= request.time
@@ -75,6 +78,19 @@ service cloud.firestore {
           && validStudioProject(request.resource.data)
           && request.resource.data.revision == resource.data.revision + 1
           && request.resource.data.createdAt == resource.data.createdAt;
+
+        /* The page saved by the visual editor. One document per site ("home"), kept well under
+           Firestore's 1 MB document limit. */
+        match /content/{pageId} {
+          allow read, delete: if isOwner(uid);
+          allow create, update: if verified(uid)
+            && pageId == 'home'
+            && request.resource.data.keys().hasOnly(['html', 'css', 'schema', 'updatedAt'])
+            && request.resource.data.html is string && request.resource.data.html.size() <= 400000
+            && request.resource.data.css is string && request.resource.data.css.size() <= 300000
+            && request.resource.data.schema == 1
+            && request.resource.data.updatedAt == request.time;
+        }
       }
 
       match /savedJobs/{docId} {

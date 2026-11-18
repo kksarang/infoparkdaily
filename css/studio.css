@@ -1408,3 +1408,60 @@ mark.todo { padding: 2px 6px; border-radius: 6px; background: #fdeceb; color: #a
 .pv-who { min-height: 0; }
 .pv-steps li { align-content: start; }
 .side-foot > a .side-ext { margin-left: auto; font-style: normal; color: var(--faint); font-size: 0.85rem; }
+
+/* ---------- templates (in-app gallery) ---------- */
+.start-stack { display: grid; gap: 12px; }
+.start-stack .start-card { min-height: 0; gap: 18px; }
+.start-card--quiet { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.start-card--quiet::after { display: none; }
+.start-card--quiet small { color: var(--muted); }
+.start-card--quiet .start-go { border-color: var(--line-2); }
+.start-card--quiet:hover .start-go { background: var(--sunk); }
+
+.site-thumb--tpl { position: relative; display: block; padding: 0; overflow: hidden; background: var(--sunk); }
+.site-thumb--tpl img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.site-badge { position: absolute; top: 10px; right: 10px; padding: 3px 8px; border-radius: 999px; background: var(--ok); color: #fff; font: 600 0.7rem/1.2 var(--body); font-style: normal; }
+.site-thumb:not(.site-thumb--tpl) { position: relative; }
+
+.tpl-tools { display: grid; gap: 14px; margin-bottom: 8px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 550 0.86rem/1 var(--body); cursor: pointer; }
+.chip span { color: var(--faint); font-weight: 500; }
+.chip:hover { border-color: var(--ink); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.chip[aria-pressed="true"] span { color: rgba(255, 255, 255, 0.7); }
+.chip:focus-visible, .tpl-shot:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.tpl-count { color: var(--muted); font-size: 0.88rem; margin: 4px 0 12px; }
+.tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.tpl-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+.tpl-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.tpl-card[hidden] { display: none; }
+.tpl-shot { display: block; padding: 0; border: 0; border-bottom: 1px solid var(--line); background: var(--sunk); aspect-ratio: 4 / 3; overflow: hidden; cursor: zoom-in; }
+.tpl-shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.4s; }
+.tpl-card:hover .tpl-shot img { transform: scale(1.03); }
+.tpl-meta { padding: 14px 16px 6px; }
+.tpl-meta h3 { font-size: 1rem; }
+.tpl-meta p { color: var(--muted); font-size: 0.84rem; margin-top: 2px; }
+.tpl-actions { display: flex; gap: 8px; padding: 10px 16px 16px; margin-top: auto; }
+.tpl-actions .btn { flex: 1; min-height: 40px; padding: 0 12px; font-size: 0.86rem; }
+
+dialog.dlg-preview { width: min(1180px, calc(100% - 24px)); height: min(860px, calc(100% - 24px)); max-height: none; }
+.tplpv { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+.tplpv-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.tplpv-bar strong { display: block; }
+.tplpv-bar small { display: block; color: var(--muted); font-size: 0.8rem; max-width: 52ch; }
+.tplpv-bar .row { display: flex; align-items: center; gap: 8px; }
+.tplpv-stage { display: grid; justify-items: center; min-height: 0; background: var(--sunk); }
+.tplpv-stage iframe { width: 100%; height: 100%; border: 0; background: #fff; transition: width 0.25s; }
+.tplpv-stage.is-mobile { padding: 16px 0; }
+.tplpv-stage.is-mobile iframe { width: 390px; max-width: 100%; border-radius: 18px; box-shadow: var(--shadow-lg); }
+
+@media (max-width: 560px) {
+  .chip-row { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px; padding: 0 16px 4px; scrollbar-width: none; }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip { flex: none; }
+  .tpl-grid { grid-template-columns: 1fr; }
+  dialog.dlg-preview { width: 100%; height: 100%; border-radius: 0; }
+  .tplpv-bar small { display: none; }
+  .tplpv-bar .row .btn--ghost { display: none; }
+}

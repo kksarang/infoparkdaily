@@ -81,3 +81,35 @@ export const ACCENTS = [
   { id: "rose", label: "Rose", value: "#e11d48" },
   { id: "forest", label: "Forest", value: "#15803d" },
 ];
+
+/* ---------- templates ----------
+   The 66 designs live in /data/portfolio/catalog.json (shared with the portfolio store).
+   Each catalog category maps to one Studio site type; a few designs are mapped by slug. */
+const CATEGORY_TYPE = {
+  Developers: "portfolio", Professionals: "portfolio", Designers: "portfolio", Creators: "portfolio",
+  Freelancers: "portfolio", Freshers: "portfolio", Profiles: "portfolio", Influencers: "portfolio",
+  Bloggers: "blog", Storytellers: "blog", Business: "business", "Online stores": "ecommerce",
+  Restaurants: "restaurant", Events: "event", Startups: "startup", "Real estate": "realestate",
+  Corporate: "corporate", "Landing pages": "landing",
+};
+const SLUG_TYPE = { "agency-landing": "agency", "brightpath-tutors": "education" };
+
+export const templateType = (t) => SLUG_TYPE[t.slug] || CATEGORY_TYPE[t.category] || "portfolio";
+
+let catalogPromise = null;
+/** Loads the design catalogue once. Resolves to [] if it can't be fetched (offline). */
+export function loadTemplates() {
+  if (!catalogPromise) {
+    catalogPromise = fetch("/data/portfolio/catalog.json", { cache: "force-cache" })
+      .then((r) => (r.ok ? r.json() : []))
+      .then((list) => (Array.isArray(list) ? list : []).filter((t) => t && /^[a-z0-9-]{2,60}$/.test(t.slug)).map((t) => ({ ...t, type: templateType(t) })))
+      .catch(() => {
+        catalogPromise = null; // try again next time
+        return [];
+      });
+  }
+  return catalogPromise;
+}
+
+/** Where the full, plain-HTML version of a design lives (also the editor's starting point). */
+export const templateDemoUrl = (slug) => `/portfolio/demo/${slug}/`;
