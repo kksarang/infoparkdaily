@@ -7,6 +7,7 @@
   const q = document.getElementById("courses-q");
   const levelSel = document.getElementById("courses-level");
   const sortSel = document.getElementById("courses-sort");
+  const provSel = document.getElementById("courses-provider");
   const count = document.getElementById("courses-count");
   const empty = document.getElementById("courses-empty");
   const reset = document.getElementById("courses-reset");
@@ -30,6 +31,7 @@
     topic: params.get("topic") || "all",
     level: params.get("level") || "all",
     sort: params.get("sort") || "new",
+    provider: params.get("provider") || "all",
   };
   q.value = params.get("q") || "";
   levelSel.value = state.level;
@@ -57,9 +59,22 @@
     topics.map((t) => `<button type="button" data-topic="${esc(t)}">${esc(t)} <span>${topicCount(t)}</span></button>`).join("");
 
   /* Provider badge: initials on a colour picked from the provider name, so each provider looks the same everywhere. */
-  const providerName = (c) => c.provider.split(" ·")[0].split(" (")[0].replace(/^Deloitte Australia on /, "Forage");
+  const providerName = (c) => c.provider.split(" ·")[0].split(" (")[0].replace(/^Deloitte Australia on /, "");
   const initials = (name) => name.replace(/[^A-Za-z ]/g, " ").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
   const hue = (name) => [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 360, 7);
+
+  /* Provider filter, most programmes first. */
+  const provCount = (n) => COURSES.filter((c) => providerName(c) === n).length;
+  const providers = [...new Set(COURSES.map(providerName))].sort((a, b) => provCount(b) - provCount(a) || a.localeCompare(b));
+  if (provSel) {
+    provSel.insertAdjacentHTML("beforeend", providers.map((n) => `<option value="${esc(n)}">${esc(n)} (${provCount(n)})</option>`).join(""));
+    provSel.value = state.provider;
+    if (provSel.value !== state.provider) state.provider = provSel.value = "all";
+  }
+
+  /* Hero shortcuts: the four most used topics. */
+  const popular = document.getElementById("courses-popular");
+  if (popular) popular.innerHTML = `<span>Popular:</span>` + topics.slice(0, 4).map((t) => `<button type="button" data-topic="${esc(t)}">${esc(t)}</button>`).join("");
 
   const totalEl = document.getElementById("courses-stat-total");
   const provEl = document.getElementById("courses-stat-providers");
@@ -70,7 +85,8 @@
     const pn = providerName(c);
     const kindKey = c.kind.toLowerCase().replace(/\s+/g, "-");
     const el = document.createElement("article");
-    el.className = "course-card";
+    el.className = `course-card course-card--${c.kind.toLowerCase().replace(/\s+/g, "-")}`;
+    el.id = "course-" + c.id;
     el.innerHTML = `
       <header class="course-head">
         <span class="course-badge" style="--h:${hue(pn)}" aria-hidden="true">${esc(initials(pn))}</span>
@@ -96,6 +112,23 @@
     return { c, i, el, search: [c.title, c.provider, c.kind, c.summary, c.level, ...(c.topics || [])].join(" ").toLowerCase() };
   });
 
+  /* Learning paths (COURSE_PATHS in courses-data.js). */
+  const byId = new Map(COURSES.map((c) => [c.id, c]));
+  const pathsBox = document.getElementById("courses-paths");
+  const paths = (typeof COURSE_PATHS !== "undefined" ? COURSE_PATHS : []).filter((p) => p.steps.every((id) => byId.has(id)));
+  const pathsHtml = paths
+    .map((p) => `<article class="course-path">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.blurb)}</p>
+        <ol>${p.steps.map((id, i) => {
+          const c = byId.get(id);
+          return `<li><button type="button" data-goto="${esc(id)}"><span class="path-n">${i + 1}</span><span class="path-t"><strong>${esc(c.title)}</strong><small>${esc(providerName(c))} · ${esc(c.level || c.kind)}</small></span></button></li>`;
+        }).join("")}</ol>
+      </article>`)
+    .join("");
+  const pathsGrid = document.getElementById("courses-paths-grid");
+  if (pathsGrid) pathsGrid.innerHTML = pathsHtml;
+
   const sorters = {
     /* Newest `added` first; same date → the entry added later to the list comes first. */
     new: (a, b) => String(b.c.added || "").localeCompare(String(a.c.added || "")) || b.i - a.i,
@@ -114,6 +147,7 @@
     if (state.topic !== "all") p.set("topic", state.topic);
     if (state.level !== "all") p.set("level", state.level);
     if (state.sort !== "new") p.set("sort", state.sort);
+    if (state.provider !== "all") p.set("provider", state.provider);
     if (q.value.trim()) p.set("q", q.value.trim());
     const s = p.toString();
     history.replaceState(null, "", location.pathname + (s ? "?" + s : ""));
@@ -126,11 +160,14 @@
         (state.kind === "all" || c.kind === state.kind) &&
         (state.topic === "all" || (c.topics || []).includes(state.topic)) &&
         (state.level === "all" || c.level === state.level) &&
+        (state.provider === "all" || providerName(c) === state.provider) &&
         (!term || term.split(/\s+/).every((w) => search.includes(w))))
       .sort(sorters[state.sort] || sorters.new);
     grid.replaceChildren(...shown.map((x) => x.el));
     count.innerHTML = `<strong>${shown.length}</strong> free ${shown.length === 1 ? "programme" : "programmes"}`;
     empty.hidden = shown.length > 0;
+    /* Paths are a starting guide: show them only on the unfiltered view. */
+    if (pathsBox) pathsBox.hidden = !pathsHtml || state.kind !== "all" || state.topic !== "all" || state.level !== "all" || state.provider !== "all" || !!term;
     sync();
     writeUrl();
   }
@@ -160,9 +197,29 @@
   q.addEventListener("input", apply);
   levelSel.addEventListener("change", () => { state.level = levelSel.value; apply(); });
   sortSel.addEventListener("change", () => { state.sort = sortSel.value; apply(); });
+  provSel?.addEventListener("change", () => { state.provider = provSel.value; apply(); });
+  popular?.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-topic]");
+    if (!b) return;
+    pickTopic(b.dataset.topic);
+    document.querySelector(".courses-tools")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  /* Path step → scroll to that card and flash it. */
+  pathsBox?.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-goto]");
+    if (!b) return;
+    const card = document.getElementById("course-" + b.dataset.goto);
+    if (!card) return;
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.remove("is-flash");
+    void card.offsetWidth;
+    card.classList.add("is-flash");
+    card.querySelector("h2 a")?.focus({ preventScroll: true });
+  });
   reset?.addEventListener("click", () => {
-    Object.assign(state, { kind: "all", topic: "all", level: "all" });
+    Object.assign(state, { kind: "all", topic: "all", level: "all", provider: "all" });
     levelSel.value = "all";
+    if (provSel) provSel.value = "all";
     q.value = "";
     apply();
   });

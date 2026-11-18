@@ -14,7 +14,8 @@ import * as javaBackend from "./java-backend.mjs";
 import * as pythonDevelopment from "./python-development.mjs";
 import * as sqlDatabases from "./sql-databases.mjs";
 import * as softwareTesting from "./software-testing.mjs";
+import * as qaAutomationSdet from "./qa-automation-sdet.mjs";
 import * as dataAnalyst from "./data-analyst.mjs";
 import * as devopsCloud from "./devops-cloud.mjs";
 
-export const GUIDES = [webDevelopment, javaBackend, pythonDevelopment, sqlDatabases, softwareTesting, dataAnalyst, devopsCloud];
+export const GUIDES = [webDevelopment, javaBackend, pythonDevelopment, sqlDatabases, softwareTesting, qaAutomationSdet, dataAnalyst, devopsCloud];

@@ -66,7 +66,7 @@ export function home(state) {
     <div class="rx-hero-copy">
       <p class="rx-pill"><span>Recruit</span> Kerala’s community hiring platform</p>
       <h1>Hire faster across<br><em>Kerala’s tech parks.</em></h1>
-      <p class="rx-lede">Post a job or a walk-in drive, get it verified by the InfoparkDaily team, and reach 80K+ job seekers across Infopark, Technopark and Cyberpark.</p>
+      <p class="rx-lede">Post a job or a walk-in drive, get it verified by the InfoparkDaily team, and reach 83K+ job seekers across Infopark, Technopark and Cyberpark.</p>
       <div class="rx-paths">
         <a class="rx-path rx-path--quick" href="${href("post")}">
           <span class="rx-path-icon">${icon("plus")}</span>
@@ -107,7 +107,7 @@ export function home(state) {
     </div>
   </div>
   <div class="container"><div class="rx-strip">
-    <div><strong>80K+</strong><span>community reach</span></div>
+    <div><strong>83K+</strong><span>community reach</span></div>
     <div><strong data-job-count>${state.jobs.length}</strong><span>open roles on the board</span></div>
     <div><strong data-company-count>${companies}</strong><span>companies hiring</span></div>
     <div><strong>3</strong><span>IT parks · Kochi, TVM, Kozhikode</span></div>
@@ -161,7 +161,7 @@ ${
         ["plus", "Post", "Share a regular job or a walk-in drive with company details."],
         ["shield", "Verified", "The InfoparkDaily team checks the company, contacts and details."],
         ["briefcase", "Live", "It appears on the jobs board and park pages."],
-        ["bell", "Reach", "Shared to 80K+ followers on WhatsApp & Instagram alerts."],
+        ["bell", "Reach", "Shared to 83K+ followers on WhatsApp & Instagram alerts."],
         ["users", "Hire", "Candidates apply by email, your link or walk in."]
       ].map(([i, t, d], n) => `<li><span class="rx-step-icon">${icon(i)}</span><span class="rx-step-n">0${n + 1}</span><strong>${t}</strong><p>${d}</p></li>`).join("")}
     </ol>
@@ -181,7 +181,7 @@ ${
         <a href="/jobs/?type=walkin">${icon("pin")}<span><strong>Walk-in listings</strong><small>Date, venue &amp; documents</small></span></a>
       </div>
     </div>
-    <div class="rx-reach-num"><strong>80K+</strong><span>people in the InfoparkDaily community</span><a class="btn" href="${href("post")}">Post your opening ${icon("right")}</a></div>
+    <div class="rx-reach-num"><strong>83K+</strong><span>people in the InfoparkDaily community</span><a class="btn" href="${href("post")}">Post your opening ${icon("right")}</a></div>
   </div>
 </section>
 
@@ -229,7 +229,7 @@ ${
 
 <section class="rx-section">
   <div class="container"><div class="rx-cta">
-    <div><p class="rx-eyebrow rx-eyebrow--dark">Start hiring today</p><h2>Your next hire is in the community.</h2><p>Post a job or walk-in drive in minutes — free, verified and seen by 80K+ people.</p></div>
+    <div><p class="rx-eyebrow rx-eyebrow--dark">Start hiring today</p><h2>Your next hire is in the community.</h2><p>Post a job or walk-in drive in minutes — free, verified and seen by 83K+ people.</p></div>
     <div class="rx-cta-btns"><a class="btn" href="${href("post")}">Post without sign-in ${icon("right")}</a>${link("Create employer account", "register", "btn secondary")}</div>
   </div></div>
 </section>`;
@@ -514,7 +514,7 @@ export function about() {
     `<div class="hw-hero-actions">${link("Post a job — no sign-in " + icon("right"), "post")}${link("Create employer account", "register", "btn secondary")}</div><nav class="hw-jumps" aria-label="On this page"><a href="#steps">The steps</a><a href="#compare">Two ways to post</a><a href="#checks">What we check</a><a href="#faq">FAQ</a></nav>`,
   )}
 <section class="hw-proof" aria-label="Community reach"><div class="container hw-proof-grid">${[
-    ["80K+", "people in the InfoparkDaily community"],
+    ["83K+", "people in the InfoparkDaily community"],
     ["3", "IT parks — Infopark, Technopark, Cyberpark"],
     ["Free", "to post, and free for candidates"],
     ["1 day", "usual review time"],
@@ -533,7 +533,7 @@ export function about() {
 <section class="section" id="checks"><div class="container hw-checks">
   <div class="hw-check-card"><span class="hw-check-icon">${icon("shield")}</span><h2>What we check</h2><ul>${checks.map((c) => `<li>${icon("check")}${c}</li>`).join("")}</ul></div>
   <div class="hw-check-card hw-check-card--warn"><span class="hw-check-icon">${icon("close")}</span><h2>What gets sent back</h2><ul>${rejects.map((c) => `<li>${icon("close")}${c}</li>`).join("")}</ul><p class="muted small">We add a note so you can fix it and resubmit.</p></div>
-  <figure class="hw-photo"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Built where Kerala’s tech community already gathers — 80K+ people across the IT parks.</figcaption></figure>
+  <figure class="hw-photo"><img src="/assets/infoparkdaily/office.webp" alt="Team collaborating in a modern office" width="1200" height="800" loading="lazy"><figcaption>Built where Kerala’s tech community already gathers — 83K+ people across the IT parks.</figcaption></figure>
 </div></section>
 <section class="section soft"><div class="container"><div class="hw-seeker">
   <span class="hw-check-icon">${icon("bell")}</span>

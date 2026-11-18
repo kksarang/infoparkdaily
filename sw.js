@@ -1,4 +1,4 @@
-const CACHE_NAME = "infoparkdaily-v473-latest-20261118";
+const CACHE_NAME = "infoparkdaily-v474-contact-20261118";
 const PRELOAD_ASSETS = [
   "./",
   "./jobs/",

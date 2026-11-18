@@ -60,7 +60,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
-    <link rel="stylesheet" href="/css/courses.css?v=20261118ui5" />
+    <link rel="stylesheet" href="/css/courses.css?v=20261118ui7" />
     
   </head>
   <body class="jobs-body courses-body dark">
@@ -119,14 +119,33 @@
       <section class="courses-hero">
         <div class="courses-hero-copy">
           <p class="courses-eyebrow">Free · from official providers</p>
-          <h1>Free certifications, courses &amp; virtual internships</h1>
-          <p class="courses-lead">Build skills and add proof to your resume. Every link goes straight to the provider&rsquo;s own page &mdash; InfoparkDaily never charges for these.</p>
+          <h1>Learn a skill. <span>Earn the certificate.</span> Get hired.</h1>
+          <p class="courses-lead">Hand-picked free courses, certifications and virtual internships from IBM, Google&rsquo;s Kaggle, Infosys, Deloitte and more. Every link goes straight to the provider &mdash; InfoparkDaily never charges.</p>
+          <div class="courses-popular" id="courses-popular" aria-label="Popular topics"></div>
+          <ul class="courses-stats" aria-label="At a glance">
+            <li><strong id="courses-stat-total">0</strong><span>free programmes</span></li>
+            <li><strong id="courses-stat-providers">0</strong><span>official providers</span></li>
+            <li><strong>₹0</strong><span>to start</span></li>
+          </ul>
         </div>
-        <ul class="courses-stats" aria-label="At a glance">
-          <li><strong id="courses-stat-total">0</strong><span>free programmes</span></li>
-          <li><strong id="courses-stat-providers">0</strong><span>official providers</span></li>
-          <li><strong>₹0</strong><span>to start</span></li>
-        </ul>
+        <div class="courses-hero-art" aria-hidden="true">
+          <div class="cert-card cert-card--back"></div>
+          <div class="cert-card">
+            <div class="cert-top"><span class="cert-seal">✓</span><span>Certificate of completion</span></div>
+            <div class="cert-name"></div>
+            <div class="cert-line"></div>
+            <div class="cert-line cert-line--short"></div>
+            <div class="cert-foot"><span>Free</span><span>Verified link</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="courses-paths" id="courses-paths" aria-labelledby="courses-paths-title" hidden>
+        <div class="courses-section-head">
+          <h2 id="courses-paths-title">Not sure where to start? Follow a path</h2>
+          <p>Three free programmes in order. Tap a step to jump to it.</p>
+        </div>
+        <div class="courses-paths-grid" id="courses-paths-grid"></div>
       </section>
 
       <section class="courses-tools" aria-label="Filter courses">
@@ -151,6 +170,9 @@
       <div class="courses-resultbar">
         <p class="courses-count" id="courses-count" role="status"></p>
         <div class="courses-selects">
+          <label><span class="sr-only">Provider</span>
+            <select id="courses-provider"><option value="all">All providers</option></select>
+          </label>
           <label><span class="sr-only">Level</span>
             <select id="courses-level">
               <option value="all">All levels</option>
@@ -174,12 +196,17 @@
         <button type="button" class="btn btn-ghost" id="courses-reset">Clear filters</button>
       </div>
 
-      <section class="courses-band">
-        <div>
-          <h2>Looking for a real internship?</h2>
-          <p>Paid and stipend internships from verified employers are on the jobs board, updated daily.</p>
+      <section class="courses-journey" aria-labelledby="courses-journey-title">
+        <div class="courses-section-head">
+          <h2 id="courses-journey-title">Turn a certificate into a job</h2>
+          <p>A certificate alone rarely gets the interview. This does.</p>
         </div>
-        <a class="btn btn-primary" href="/jobs/?emp=internship">See internship openings</a>
+        <ol class="courses-steps">
+          <li><span class="step-n">1</span><h3>Learn</h3><p>Finish one programme above and keep the certificate link.</p></li>
+          <li><span class="step-n">2</span><h3>Build something small</h3><p>Reuse what you learned in a mini project and put it on GitHub.</p><a href="/learning/">Practice on Learning tracks →</a></li>
+          <li><span class="step-n">3</span><h3>Add it to your resume</h3><p>List the certificate and the project, then check how it reads.</p><a href="/resume-builder/">Resume builder →</a><a href="/ats-checker/">ATS checker →</a></li>
+          <li><span class="step-n">4</span><h3>Apply</h3><p>Use it for fresher jobs and paid internships from verified employers.</p><a href="/jobs/?emp=internship">Internships →</a><a href="/jobs/">Fresher jobs →</a></li>
+        </ol>
       </section>
 
       <aside class="courses-note">
@@ -217,10 +244,6 @@
               <span class="footer-phone-line">
                 <a href="tel:+918891454290">+91 88914 54290</a>
                 <small>Job enquiries</small>
-              </span>
-              <span class="footer-phone-line">
-                <a href="tel:+919995254290">+91 99952 54290</a>
-                <small>Collaboration</small>
               </span>
             </span>
           </p>
@@ -275,7 +298,7 @@
 
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261110ip" defer></script>
-    <script src="/data/courses-data.js?v=20261118new" defer></script>
-    <script src="/js/courses.js?v=20261118ui2" defer></script>
+    <script src="/data/courses-data.js?v=20261118ui6" defer></script>
+    <script src="/js/courses.js?v=20261118ui7" defer></script>
   </body>
 </html>

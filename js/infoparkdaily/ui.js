@@ -48,7 +48,7 @@ export function footer() {
   <div class="rf-top">
     <div class="rf-brand">
       <a class="rf-logo" href="/" aria-label="InfoparkDaily home"><img src="/assets/logo-infoparkdaily.png" width="44" height="44" alt=""><span><strong>InfoparkDaily</strong><small>Recruit · Hiring for Kerala teams</small></span></a>
-      <p>Kerala’s community hiring platform. Post jobs, walk-in drives and job alerts — verified by our team and seen by 80K+ people.</p>
+      <p>Kerala’s community hiring platform. Post jobs, walk-in drives and job alerts — verified by our team and seen by 83K+ people.</p>
       <ul class="rf-trust"><li>${icon("check")}Free for employers</li><li>${icon("shield")}Every post verified</li><li>${icon("users")}Candidates never pay</li></ul>
       <div class="rf-contact">
         <a href="https://wa.me/919995254290" target="_blank" rel="noopener noreferrer">${icon("chat")}WhatsApp</a>

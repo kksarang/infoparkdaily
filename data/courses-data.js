@@ -177,3 +177,26 @@ var COURSES = [
     note: "Batches run on Kawach.AI's schedule — check the next intake date on their page.",
   },
 ];
+
+/* Learning paths on /courses/: an ordered route through programmes above (by id).
+ * Titles and blurbs are our own words. A path is hidden if any of its ids is missing. */
+var COURSE_PATHS = [
+  {
+    id: "python-start",
+    title: "Start coding with Python",
+    blurb: "From your first line of code to working with real data.",
+    steps: ["kaggle-intro-programming", "kaggle-python", "cognitiveclass-python-data-science"],
+  },
+  {
+    id: "data-analyst",
+    title: "Data analyst starter",
+    blurb: "SQL and Python basics, then a work-style analytics task to show in interviews.",
+    steps: ["cognitiveclass-sql-relational-databases", "cognitiveclass-python-data-science", "forage-deloitte-data-analytics"],
+  },
+  {
+    id: "machine-learning",
+    title: "Into machine learning",
+    blurb: "Build your first models, then learn the methods and the next-level techniques.",
+    steps: ["kaggle-intro-machine-learning", "cognitiveclass-machine-learning-python", "kaggle-intermediate-machine-learning"],
+  },
+];
