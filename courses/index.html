@@ -60,7 +60,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
-    <link rel="stylesheet" href="/css/courses.css?v=20261118d" />
+    <link rel="stylesheet" href="/css/courses.css?v=20261118ui5" />
     
   </head>
   <body class="jobs-body courses-body dark">
@@ -131,20 +131,48 @@
 
       <section class="courses-tools" aria-label="Filter courses">
         <div class="courses-toolbar">
+          <label class="courses-search">
+            <span class="sr-only">Search courses</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
+            <input id="courses-q" type="search" placeholder="Search Python, SQL, data, cybersecurity…" autocomplete="off" />
+          </label>
           <div class="courses-seg" id="courses-kind" role="group" aria-label="Type">
             <button type="button" data-kind="all" aria-pressed="true">All</button>
             <button type="button" data-kind="Course" aria-pressed="false">Courses</button>
             <button type="button" data-kind="Certification" aria-pressed="false">Certifications</button>
             <button type="button" data-kind="Virtual internship" aria-pressed="false">Virtual internships</button>
           </div>
-          <label class="courses-search"><span class="sr-only">Search courses</span><input id="courses-q" type="search" placeholder="Search Python, SQL, data, cybersecurity…" autocomplete="off" /></label>
         </div>
-        <div class="courses-topics" id="courses-topic" role="group" aria-label="Topic"></div>
+        <div class="courses-topics-wrap">
+          <div class="courses-topics" id="courses-topic" role="group" aria-label="Topic"></div>
+        </div>
       </section>
 
-      <p class="courses-count" id="courses-count" role="status"></p>
+      <div class="courses-resultbar">
+        <p class="courses-count" id="courses-count" role="status"></p>
+        <div class="courses-selects">
+          <label><span class="sr-only">Level</span>
+            <select id="courses-level">
+              <option value="all">All levels</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </label>
+          <label><span class="sr-only">Sort</span>
+            <select id="courses-sort">
+              <option value="new">Newest first</option>
+              <option value="az">A–Z</option>
+              <option value="level">Beginner first</option>
+            </select>
+          </label>
+        </div>
+      </div>
       <div class="courses-grid" id="courses-grid"></div>
-      <p class="courses-empty" id="courses-empty" hidden>Nothing matches. Try another topic or word.</p>
+      <div class="courses-empty" id="courses-empty" hidden>
+        <p>Nothing matches these filters.</p>
+        <button type="button" class="btn btn-ghost" id="courses-reset">Clear filters</button>
+      </div>
 
       <section class="courses-band">
         <div>
@@ -248,6 +276,6 @@
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261110ip" defer></script>
     <script src="/data/courses-data.js?v=20261118new" defer></script>
-    <script src="/js/courses.js?v=20261118new" defer></script>
+    <script src="/js/courses.js?v=20261118ui2" defer></script>
   </body>
 </html>
