@@ -1156,7 +1156,7 @@
       if (/^(?:19|20)\d{2}(?:19|20)\d{2}$/.test(digits)) return false; /* "2019 - 2023" */
       return /^(?:91)?[6-9]\d{9}$/.test(digits) || cand.trim().startsWith("+") || /^0\d{9,11}$/.test(digits);
     });
-    const sectionInfo = analyseSections(resume, hasEmail || hasPhone);
+    const sectionInfo = analyseSections(resume, false);
     const foundSections = sectionInfo.found;
     const wordCount = resume.trim().split(/\s+/).filter(Boolean).length;
     const hasTablesHint = lower.includes("<table") || (resume.match(/\t/g) || []).length > 12;
@@ -1219,6 +1219,71 @@
     /* The score must agree with "Fix these first": a High issue keeps it out of the good
        range and a Medium issue keeps it out of the top band. */
     const ranking = rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount);
+
+    /* Image-only PDF: the file opened but held almost no text. */
+    const scanned = Boolean(lastExtract && lastExtract.kind === "pdf" && lastExtract.chars < 250 * Math.max(1, lastExtract.pages));
+    if (scanned) {
+      ranking.unshift({
+        title: "PDF looks scanned or image-based",
+        severity: "High",
+        why: "ATS software reads text, not pictures. Most of this PDF had no selectable text.",
+        evidence: `Only about ${lastExtract.chars} characters of text across ${lastExtract.pages} page(s).`
+      });
+    }
+
+    /* Measurable results: share of experience/project bullets that carry a number. */
+    const impactLines = [...(sectionInfo.body.experience || []), ...(sectionInfo.body.project || [])].filter(
+      (l) => l.length >= 25 && !/^(?:(?:19|20)\d{2}|[a-z]{3,9}\.? (?:19|20)\d{2})/i.test(l)
+    );
+    const quantified = impactLines.filter((l) => /\d+\s*%|\d[\d,]*\+?\s*(?:users?|clients?|customers?|tickets?|calls?|leads?|projects?|hours?|days?|reports?|accounts?|crore|lakh|k\b)|₹|\$|\b\d{2,}\b/i.test(l));
+    if (impactLines.length >= 3 && quantified.length / impactLines.length < 0.25) {
+      ranking.push({
+        title: "Few measurable results",
+        severity: "Low",
+        why: "Recruiters and ranking tools favour bullets with numbers: users, %, time saved, volume handled.",
+        evidence: `${quantified.length} of ${impactLines.length} experience/project bullets include a number.`
+      });
+    }
+
+    /* Job requirements the keyword list can't see: years of experience and degree. */
+    const needYears = jdMode ? jdMinYears(jd) : null;
+    const haveYears = resumeYears(resume, sectionInfo.body.experience);
+    const yearsGap = needYears !== null && haveYears !== null && haveYears + 0.5 < needYears;
+    if (yearsGap) {
+      ranking.push({
+        title: "Experience below the job's requirement",
+        severity: needYears - haveYears >= 2 ? "High" : "Medium",
+        why: "Many ATS filters screen out profiles below the minimum years. Apply only if you can justify it, and make relevant work easy to spot.",
+        evidence: `Job asks for ${needYears}+ years; the resume shows about ${haveYears} year${haveYears === 1 ? "" : "s"}.`
+      });
+    }
+    const degree = jdMode ? degreeCheck(jd, resume) : null;
+    const degreeGap = Boolean(degree && !degree.ok);
+    if (degreeGap) {
+      ranking.push({
+        title: "Degree doesn't match the job",
+        severity: "Medium",
+        why: "The job names specific degrees. ATS knockout questions often filter on qualification.",
+        evidence: `Job asks for: ${degree.wanted.join(" / ")}. Resume shows: ${degree.have.join(" / ") || "no recognised degree"}.`
+      });
+    }
+    if (jdMode && missingMust.length >= 2) {
+      ranking.push({
+        title: "Must-have skills missing",
+        severity: missingMust.length >= 4 ? "High" : "Medium",
+        why: "These tools are in the job's required list. Add them only if you have really used them.",
+        evidence: `Missing: ${missingMust.slice(0, 5).map(displayName).join(", ")}.`
+      });
+    }
+    if (jdMode) {
+      if (yearsGap) score -= Math.min(15, Math.round((needYears - haveYears) * 4));
+      if (degreeGap) score -= 6;
+      if (missingMust.length) score -= Math.min(12, missingMust.length * 3);
+      score = Math.max(12, score);
+    }
+    if (scanned) score = Math.min(score, 30);
+    const sevRank = { High: 0, Medium: 1, Low: 2 };
+    ranking.sort((a, b) => sevRank[a.severity] - sevRank[b.severity]);
     const highCount = ranking.filter((i) => i.severity === "High").length;
     const mediumCount = ranking.filter((i) => i.severity === "Medium").length;
     if (highCount) score = Math.min(score, 59);
@@ -1256,6 +1321,14 @@
 
     const phrasing = weakPhrasingItems(resumeLines(resume), role);
     const fit = jobFitItems(resume, matched, missing, jdMode);
+    if (fit) {
+      if (yearsGap) fit.gaps.unshift(`Experience: job asks ${needYears}+ years, resume shows about ${haveYears}`);
+      else if (needYears !== null && haveYears !== null) fit.strengths.unshift(`Meets the ${needYears}+ years experience ask`);
+      if (degreeGap) fit.gaps.unshift(`Qualification: job asks ${degree.wanted.join(" / ")}`);
+      else if (degree && degree.ok) fit.strengths.push("Degree matches the job's qualification");
+      fit.strengths = fit.strengths.slice(0, 4);
+      fit.gaps = fit.gaps.slice(0, 4);
+    }
     const summaries = summaryVariants(resume, jdMode ? matched.filter((k) => resumeSkills.includes(k)).concat(resumeSkills) : resumeSkills, role);
     const resumeGaps = [];
     if (!hasEmail) resumeGaps.push("Plain-text email");
