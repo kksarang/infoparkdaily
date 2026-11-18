@@ -1768,3 +1768,14 @@ html.theme-dark .ats-checks .is-fix .ats-check-mark { color: #fbbf24; }
   .ats-plan-steps em { grid-column: 2; }
   .ats-examples li { flex-direction: column; align-items: stretch; }
 }
+
+/* Report actions sit under the score as a normal full-width row. (A sticky bar inside the
+   report grid floated over the score and cards while scrolling.) */
+.ats-report .ats-report-actions {
+  position: static;
+  grid-column: 1 / -1;
+  box-shadow: none;
+  backdrop-filter: none;
+  background: var(--ats-card);
+}
+html.theme-dark .ats-report .ats-report-actions { background: var(--ats-card); }

@@ -1804,6 +1804,11 @@
             }</p>
           </div>
         </header>
+        <div class="ats-report-actions" role="group" aria-label="Report actions">
+          <button type="button" class="ats-btn ats-btn--primary" data-ats-reset>Check another resume</button>
+          <button type="button" class="ats-btn ats-btn--secondary" data-ats-copy-report>Copy report</button>
+          <a class="ats-btn ats-btn--tertiary" href="/resume-builder/templates/">Open Resume Builder →</a>
+        </div>
         ${planHtml}
         ${
           topFixes.length
@@ -1883,11 +1888,6 @@
               </section>`
             : ""
         }
-        <div class="ats-report-actions" role="group" aria-label="Report actions">
-          <button type="button" class="ats-btn ats-btn--primary" data-ats-reset>Check another resume</button>
-          <button type="button" class="ats-btn ats-btn--secondary" data-ats-copy-report>Copy report</button>
-          <a class="ats-btn ats-btn--tertiary" href="/resume-builder/templates/">Open Resume Builder →</a>
-        </div>
       </article>
     `;
     showExamples(report);
