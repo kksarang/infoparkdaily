@@ -1928,7 +1928,7 @@
       sector: () => { activeSector = "all"; syncSidebar(sectorBar, "sector", "all"); },
       education: () => { activeEducation = "all"; syncSidebar(educationBar, "education", "all"); },
       mode: () => { activeMode = "all"; syncSidebar(workModeBar, "mode", "all"); syncViewTabs(); },
-      emptype: () => { activeEmpType = "all"; syncSidebar(empTypeBar, "emptype", "all"); },
+      emptype: () => { activeEmpType = "all"; syncSidebar(empTypeBar, "emptype", "all"); syncViewTabs(); },
       ctype: () => { activeCompanyType = "all"; syncSidebar(companyTypeBar, "ctype", "all"); },
       exp: () => { activeExp = "all"; syncQuickBar(); },
       role: () => { roleQuery = ""; syncQuickBar(); },
@@ -2003,13 +2003,15 @@
   bindChipGroup(sectorBar, "sector", (value) => (activeSector = value));
   bindChipGroup(educationBar, "education", (value) => (activeEducation = value));
   bindChipGroup(workModeBar, "mode", (value) => { activeMode = value; syncViewTabs(); });
-  bindChipGroup(empTypeBar, "emptype", (value) => (activeEmpType = value));
+  bindChipGroup(empTypeBar, "emptype", (value) => { activeEmpType = value; syncViewTabs(); });
   bindChipGroup(companyTypeBar, "ctype", (value) => (activeCompanyType = value));
 
   /* "All jobs" / "Work from home" tabs: a shortcut for the Remote / WFH work-mode filter. */
+  /* Tabs: All jobs · Work from home (work mode = remote) · Internships (employment type = internship).
+     "Certifications & Courses" is a plain link to /courses/. */
   function syncViewTabs() {
     if (!viewTabs) return;
-    const view = activeMode === "remote" ? "remote" : "all";
+    const view = activeEmpType === "internship" && activeMode === "all" ? "internship" : activeMode === "remote" && activeEmpType === "all" ? "remote" : activeMode === "all" && activeEmpType === "all" ? "all" : "";
     viewTabs.querySelectorAll("[data-view]").forEach((tab) => {
       const on = tab.dataset.view === view;
       tab.classList.toggle("is-active", on);
@@ -2022,6 +2024,14 @@
       const tab = event.target.closest("[data-view]");
       if (!tab) return;
       activeMode = tab.dataset.view === "remote" ? "remote" : "all";
+      activeEmpType = tab.dataset.view === "internship" ? "internship" : "all";
+      if (empTypeBar) {
+        empTypeBar.querySelectorAll("[data-emptype]").forEach((btn) => {
+          const on = btn.dataset.emptype === activeEmpType;
+          btn.classList.toggle("is-active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
       if (workModeBar) {
         workModeBar.querySelectorAll("[data-mode]").forEach((btn) => {
           const on = btn.dataset.mode === activeMode;
@@ -2032,6 +2042,11 @@
       syncViewTabs();
       resetVisibleAndRender();
     });
+    const internCount = document.getElementById("jobs-intern-count");
+    if (internCount) {
+      const n = JOBS.filter((job) => jobEmpType(job) === "internship" && deadlineStatus(job) !== "expired").length;
+      internCount.textContent = n ? `(${n})` : "";
+    }
     const wfhCount = document.getElementById("jobs-wfh-count");
     if (wfhCount) {
       const n = JOBS.filter((job) => isRemoteJob(job) && deadlineStatus(job) !== "expired").length;

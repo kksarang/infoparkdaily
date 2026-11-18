@@ -1,0 +1,54 @@
+/* /courses/ — free certifications, courses and virtual internships. Uses the site tokens from styles.css. */
+.courses-page { width: var(--container); max-width: 1180px; margin: 0 auto; padding: 28px 0 64px; }
+.courses-hero { margin-bottom: 22px; }
+.courses-tabs { display: flex; gap: 4px; margin-bottom: 22px; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+.courses-tabs::-webkit-scrollbar { display: none; }
+.courses-tabs a { padding: 10px 14px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: var(--muted); text-decoration: none; font-weight: 650; font-size: 0.92rem; white-space: nowrap; }
+.courses-tabs a:hover { color: var(--text); }
+.courses-tabs a[aria-current="page"] { color: var(--text); border-bottom-color: var(--accent); }
+.courses-eyebrow { color: var(--accent); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px; }
+.courses-hero h1 { font-family: var(--display); font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.1; margin: 0 0 10px; color: var(--text); }
+.courses-lead { color: var(--muted); max-width: 64ch; margin: 0; }
+
+.courses-tools { display: grid; gap: 12px; margin-bottom: 12px; }
+.courses-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.courses-chips button { min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); font: 600 0.85rem/1 var(--body-font); cursor: pointer; }
+.courses-chips button:hover { border-color: var(--accent); }
+.courses-chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.courses-chips button:focus-visible, .course-actions a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.courses-topics button { min-height: 32px; font-size: 0.8rem; }
+.courses-search input { width: 100%; max-width: 460px; min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--text); font: inherit; }
+.courses-count { color: var(--muted); font-size: 0.88rem; margin: 6px 0 14px; }
+
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.course-card { display: flex; flex-direction: column; gap: 8px; padding: 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-elev); }
+.course-card[hidden] { display: none; }
+.course-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.course-kind { padding: 3px 9px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; background: var(--violet-soft); color: var(--violet); }
+.course-kind--certification { background: var(--accent-soft); color: var(--accent); }
+.course-kind--virtual-internship { background: rgba(74, 222, 128, 0.14); color: var(--green); }
+.course-cost { font-size: 0.78rem; font-weight: 700; color: var(--green); }
+.course-card h2 { font-family: var(--display); font-size: 1.12rem; margin: 2px 0 0; color: var(--text); }
+.course-provider { margin: 0; color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+.course-summary { margin: 0; color: var(--text); font-size: 0.92rem; line-height: 1.5; }
+.course-facts { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.84rem; }
+.course-note { margin: 0; padding: 8px 10px; border-radius: 10px; background: var(--accent-soft); color: var(--text); font-size: 0.8rem; }
+.course-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: auto; padding-top: 6px; }
+.course-checked { color: var(--muted); font-size: 0.75rem; }
+.courses-empty { color: var(--muted); padding: 20px 0; }
+
+.courses-note { margin-top: 32px; padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--surface); }
+.courses-note h2 { font-family: var(--display); font-size: 1.1rem; margin: 0 0 8px; color: var(--text); }
+.courses-note ul { margin: 0; padding-left: 18px; color: var(--muted); display: grid; gap: 6px; }
+.courses-note a { color: var(--accent); }
+html.theme-light .courses-note a { color: #8a5a00; }
+html.theme-light .course-kind--certification, html.theme-light .courses-eyebrow { color: #8a5a00; }
+html.theme-light .course-cost, html.theme-light .course-kind--virtual-internship { color: #15803d; }
+html.theme-light .course-kind { color: #6d28d9; }
+
+@media (max-width: 560px) {
+  .courses-grid { grid-template-columns: 1fr; }
+  .courses-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .courses-chips button { flex: none; }
+}
+.courses-page .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }

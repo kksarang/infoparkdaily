@@ -3161,3 +3161,4 @@ body.jobs-marketplace .ej-view-tab-count {
   font-weight: 500;
   color: var(--ej-muted);
 }
+body.jobs-marketplace a.ej-view-tab--link { text-decoration: none; display: inline-flex; align-items: center; }
