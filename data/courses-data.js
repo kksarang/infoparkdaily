@@ -5,6 +5,7 @@
  *   • Descriptions are written by InfoparkDaily in our own words; nothing is copied.
  *   • Only add programmes that are free to start. Say plainly if a certificate or a part costs money.
  *   • Dated events (bootcamps, intensives, limited-time offers) need an end date; remove them once it passes.
+ *   • `added` is the date the programme was added here; the page lists newest first.
  *   • `checked` is the date someone last opened the official page and saw it live.
  *   • `note` is for anything a learner should verify (e.g. a page that only loads in a browser).
  */
@@ -21,6 +22,7 @@ var COURSES = [
     summary:
       "A short, self-paced simulation of tasks a Deloitte data analyst might get: working with a dataset, building a simple dashboard and presenting findings. Useful as a project to talk about in interviews.",
     url: "https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy",
+    added: "2026-11-18",
     checked: "2026-11-18",
   },
   {
@@ -35,6 +37,7 @@ var COURSES = [
     summary:
       "Learn Python basics for data work — types, lists, loops, functions and working with data using pandas and NumPy — through short videos and hands-on labs.",
     url: "https://cognitiveclass.ai/courses/python-for-data-science",
+    added: "2026-11-18",
     checked: "2026-11-18",
   },
   {
@@ -49,6 +52,7 @@ var COURSES = [
     summary:
       "An introduction to relational databases and SQL: creating tables and writing SELECT, INSERT, UPDATE and DELETE queries. A good companion to our SQL track.",
     url: "https://cognitiveclass.ai/courses/learn-sql-relational-databases",
+    added: "2026-11-18",
     checked: "2026-11-18",
   },
   {
@@ -63,6 +67,7 @@ var COURSES = [
     summary:
       "Covers the core machine-learning methods — regression, classification and clustering — with Python labs. Best after you are comfortable with basic Python.",
     url: "https://cognitiveclass.ai/courses/machine-learning-with-python",
+    added: "2026-11-18",
     checked: "2026-11-18",
   },
   {
@@ -76,6 +81,7 @@ var COURSES = [
     certificate: "Free Kaggle certificate on completion",
     summary: "A gentle first step into coding with Python: variables, functions and conditions, done in short notebook exercises in the browser.",
     url: "https://www.kaggle.com/learn/intro-to-programming",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "Kaggle's pages ask for a quick browser check. Sign in with a free Kaggle account to save progress.",
   },
@@ -90,6 +96,7 @@ var COURSES = [
     certificate: "Free Kaggle certificate on completion",
     summary: "Practical Python for data work — lists, loops, strings, dictionaries and libraries — in bite-sized notebook lessons.",
     url: "https://www.kaggle.com/learn/python",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "Kaggle's pages ask for a quick browser check. Sign in with a free Kaggle account to save progress.",
   },
@@ -104,6 +111,7 @@ var COURSES = [
     certificate: "Free Kaggle certificate on completion",
     summary: "Build and check your first prediction models (decision trees and random forests) on a real dataset, step by step.",
     url: "https://www.kaggle.com/learn/intro-to-machine-learning",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "Kaggle's pages ask for a quick browser check. Sign in with a free Kaggle account to save progress.",
   },
@@ -118,6 +126,7 @@ var COURSES = [
     certificate: "Free Kaggle certificate on completion",
     summary: "Handle missing values and categorical data, build pipelines and use XGBoost — the next step after Intro to Machine Learning.",
     url: "https://www.kaggle.com/learn/intermediate-machine-learning",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "Kaggle's pages ask for a quick browser check. Sign in with a free Kaggle account to save progress.",
   },
@@ -132,6 +141,7 @@ var COURSES = [
     certificate: "Free Infosys Springboard certificate on completion",
     summary: "Infosys's free learning platform includes a Java course covering core syntax and object-oriented programming, with a certificate when you finish.",
     url: "https://infyspringboard.onwingspan.com/web/en/app/toc/lex_auth_012880464547618816347_shared/overview",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "The course page loads only in a browser and needs a free Springboard sign-in. If the link changes, search 'Java' on Infosys Springboard.",
   },
@@ -146,6 +156,7 @@ var COURSES = [
     certificate: "Certificate on completion via Skill India Digital Hub",
     summary: "A beginner Python course listed on the Government of India's Skill India Digital Hub, delivered with an industry partner. Sign in with a free SIDH account to enrol.",
     url: "https://www.skillindiadigital.gov.in/courses/detail/9645a75e-1ef6-419f-b93e-d239f930bc8b",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "The course details load only in a browser. Check the partner, duration and certificate on the course page before enrolling.",
   },
@@ -161,6 +172,7 @@ var COURSES = [
     summary:
       "A free academic programme on security and privacy compliance (topics such as ISO 27001, SOC 2, GDPR and India's DPDP Act) with live training and an assessment. Top performers may get referrals to partner companies.",
     url: "https://www.kawach.ai/privacy-security-compliance-training",
+    added: "2026-11-18",
     checked: "2026-11-18",
     note: "Batches run on Kawach.AI's schedule — check the next intake date on their page.",
   },

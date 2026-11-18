@@ -885,9 +885,18 @@
           ? 1
           : 0;
 
+    /* Work-from-home and internship views are "what's new" feeds: plain latest-first,
+       without the Infopark-first grouping or urgent pins used on the main list. */
+    const latestFeed = activeMode === "remote" || activeEmpType === "internship";
+
     list.sort((a, b) => {
       const sink = expiredWeight(a) - expiredWeight(b);
       if (sink !== 0) return sink;
+
+      if (latestFeed && sortMode === "newest") {
+        /* Same day → most recently added first (new jobs are inserted at the top of JOBS). */
+        return String(b.postedDate || "").localeCompare(String(a.postedDate || "")) || (jobIndex.get(a) ?? 0) - (jobIndex.get(b) ?? 0);
+      }
 
       const pin = comparePin(a, b);
       if (pin !== 0) return pin;

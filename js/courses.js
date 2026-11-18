@@ -37,7 +37,12 @@
   if (totalEl) totalEl.textContent = String(COURSES.length);
   if (provEl) provEl.textContent = String(new Set(COURSES.map(providerName)).size);
 
-  grid.innerHTML = COURSES.map((c) => {
+  /* Latest first: newest `added` date on top; same date → the entry added later to the list comes first. */
+  const ordered = COURSES.map((c, i) => [c, i])
+    .sort((x, y) => String(y[0].added || "").localeCompare(String(x[0].added || "")) || y[1] - x[1])
+    .map(([c]) => c);
+
+  grid.innerHTML = ordered.map((c) => {
     const pn = providerName(c);
     const kindKey = c.kind.toLowerCase().replace(/\s+/g, "-");
     return `<article class="course-card" data-kind="${esc(c.kind)}" data-topics="${esc((c.topics || []).join("|"))}" data-search="${esc([c.title, c.provider, c.kind, c.summary, ...(c.topics || [])].join(" ").toLowerCase())}">
@@ -56,7 +61,7 @@
           <span class="course-cost">${esc(c.cost)}</span>
           <a class="course-open" href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener">Open course <span aria-hidden="true">↗</span><span class="sr-only"> — ${esc(c.title)} (opens in a new tab)</span></a>
         </div>
-        <p class="course-checked">Link checked ${esc(fmt(c.checked))}</p>
+        <p class="course-checked">${c.added ? `Added ${esc(fmt(c.added))} · ` : ""}Link checked ${esc(fmt(c.checked))}</p>
       </footer>
     </article>`;
   }).join("");
