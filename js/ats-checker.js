@@ -527,10 +527,12 @@
 
   function profileBadge(resume, matched) {
     const blob = `${resume} ${matched.join(" ")}`.toLowerCase();
-    const finance = /finance|accounting|tally|\bgst\b|\bb\.?\s*com\b|\bbcom\b/.test(blob);
-    const support = /customer|crm|support|inbound|outbound|service/.test(blob);
-    const qa = /selenium|playwright|cypress|testing|qa\b/.test(blob);
-    const dev = /java|python|javascript|react|node|angular|\.net|full stack/.test(blob);
+    const kind = detectRole(resume).kind;
+    const finance = kind === "finance" || (kind === "general" && /finance|accounting|tally|\bgst\b|\bb\.?\s*com\b|\bbcom\b/.test(blob));
+    const support = kind === "support" || (kind === "general" && /customer|crm|support|inbound|outbound|service/.test(blob));
+    /* "Unit testing" on a developer's resume does not make it a QA profile: use the detected role. */
+    const qa = kind === "qa";
+    const dev = kind === "dev";
     if (support && finance) return "Entry-level candidate with potential for finance-integrated support roles.";
     if (qa) return "QA-focused profile — emphasise tools, coverage, and defect metrics.";
     if (dev) return "Engineering profile — match exact stack names from the job description.";
