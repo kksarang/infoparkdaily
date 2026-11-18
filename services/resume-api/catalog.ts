@@ -448,3 +448,42 @@ export function validateConfig(c: TemplateConfig) {
     throw Error("Choose valid template settings.");
   return c;
 }
+
+/* ATS 90+ collection: single-column layouts paired with the role examples in
+   js/resume-builder/examples.js. Each pairing is checked to score 90+ in the InfoparkDaily
+   ATS checker as a real PDF (tests/resume-builder/examples-ats.check.mjs). New IDs only. */
+const ats90: [string, string, string, string][] = [
+  ["Fresher Launch", "classic", "#1d4ed8", "plain"],
+  ["Stack Pro", "compact", "#0f172a", "rule"],
+  ["QA Precision", "ledger", "#166534", "label"],
+  ["Data Clear", "classic", "#0e7490", "rule"],
+  ["Ledger Pro", "docs", "#111111", "plain"],
+  ["Service Star", "compact", "#9a3412", "plain"],
+  ["People First", "classic", "#6d28d9", "label"],
+  ["Growth Grid", "compact", "#be185d", "rule"],
+  ["Deal Flow", "ledger", "#1e3a5f", "plain"],
+  ["Design Lens", "folio", "#334155", "smallcaps"],
+];
+catalog.unshift(
+  ...ats90.map(([name, family, accent, style], i) => ({
+    id: name.toLowerCase().replaceAll(" ", "-"),
+    name,
+    category: "ATS-Friendly",
+    access: "free",
+    tags: ["ATS-Friendly", "ATS 90+", family, ...name.split(" ")],
+    version: 1,
+    status: "published",
+    config: {
+      family,
+      accent,
+      font: family === "docs" ? "serif" : "sans",
+      style,
+      spacing: family === "docs" ? 16 : 18,
+      nameSize: family === "folio" ? 38 : 32,
+      tracking: 0.5,
+      heading: i % 2 ? "title" : "caps",
+      rule: "line",
+      sideWidth: 28,
+    },
+  })),
+);

@@ -1,6 +1,276 @@
 /** Generated from services/resume-api/catalog.ts. All published templates are free; configs are public. */
 export const catalog = [
   {
+    "id": "fresher-launch",
+    "name": "Fresher Launch",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "classic",
+      "Fresher",
+      "Launch"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#1d4ed8",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "stack-pro",
+    "name": "Stack Pro",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "compact",
+      "Stack",
+      "Pro"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#0f172a",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "qa-precision",
+    "name": "QA Precision",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "ledger",
+      "QA",
+      "Precision"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#166534",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "data-clear",
+    "name": "Data Clear",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "classic",
+      "Data",
+      "Clear"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#0e7490",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "ledger-pro",
+    "name": "Ledger Pro",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "docs",
+      "Ledger",
+      "Pro"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "docs",
+      "accent": "#111111",
+      "font": "serif",
+      "style": "plain",
+      "spacing": 16,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "service-star",
+    "name": "Service Star",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "compact",
+      "Service",
+      "Star"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#9a3412",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "people-first",
+    "name": "People First",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "classic",
+      "People",
+      "First"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "classic",
+      "accent": "#6d28d9",
+      "font": "sans",
+      "style": "label",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "growth-grid",
+    "name": "Growth Grid",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "compact",
+      "Growth",
+      "Grid"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "compact",
+      "accent": "#be185d",
+      "font": "sans",
+      "style": "rule",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "deal-flow",
+    "name": "Deal Flow",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "ledger",
+      "Deal",
+      "Flow"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "ledger",
+      "accent": "#1e3a5f",
+      "font": "sans",
+      "style": "plain",
+      "spacing": 18,
+      "nameSize": 32,
+      "tracking": 0.5,
+      "heading": "caps",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
+    "id": "design-lens",
+    "name": "Design Lens",
+    "category": "ATS-Friendly",
+    "access": "free",
+    "tags": [
+      "ATS-Friendly",
+      "ATS 90+",
+      "folio",
+      "Design",
+      "Lens"
+    ],
+    "version": 1,
+    "status": "published",
+    "config": {
+      "family": "folio",
+      "accent": "#334155",
+      "font": "sans",
+      "style": "smallcaps",
+      "spacing": 18,
+      "nameSize": 38,
+      "tracking": 0.5,
+      "heading": "title",
+      "rule": "line",
+      "sideWidth": 28
+    }
+  },
+  {
     "id": "simple-ats",
     "name": "Simple ATS",
     "category": "ATS-Friendly",
@@ -4462,7 +4732,6 @@ function thumbBlocks(x, y, accent, family, blocks) {
   });
   return out;
 }
-
 export function thumbnail(t) {
   const accent = (t.config && t.config.accent) || "#17334d";
   const family = (t.config && t.config.family) || "classic";

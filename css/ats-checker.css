@@ -1723,3 +1723,48 @@ body.career-tools-ats .section-heading p a.text-link {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* ---------- improvement plan, detailed review, 90+ examples ---------- */
+.ats-plan { border-left: 4px solid var(--ats-blue); }
+.ats-plan--weak { border-left-color: #dc2626; }
+.ats-plan--fair { border-left-color: #d97706; }
+.ats-plan--good { border-left-color: var(--ats-blue); }
+.ats-plan--strong, .ats-plan--top { border-left-color: #16a34a; }
+.ats-plan-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.ats-plan-head h3 { margin: 2px 0 4px; }
+.ats-plan-head p { margin: 0; color: var(--ats-muted); max-width: 52ch; }
+.ats-plan-meter { display: grid; grid-template-columns: auto auto auto; align-items: baseline; gap: 6px; padding: 10px 14px; border-radius: 12px; background: var(--ats-soft); color: var(--ats-ink); }
+.ats-plan-meter span { font-size: 1.1rem; font-weight: 700; color: var(--ats-muted); }
+.ats-plan-meter i { font-style: normal; color: var(--ats-muted); }
+.ats-plan-meter strong { font-size: 1.6rem; font-weight: 800; color: #16a34a; }
+.ats-plan-meter small { grid-column: 1 / -1; color: var(--ats-muted); font-size: 0.74rem; }
+.ats-plan-steps { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 8px; }
+.ats-plan-steps li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 12px; border: 1px solid var(--ats-line); border-radius: 12px; background: var(--ats-card); }
+.ats-plan-n { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--ats-ink); color: var(--ats-card); font-weight: 700; font-size: 0.85rem; }
+.ats-plan-steps strong { display: block; color: var(--ats-ink); }
+.ats-plan-steps p { margin: 2px 0 0; color: var(--ats-muted); font-size: 0.88rem; }
+.ats-plan-steps em { font-style: normal; font-weight: 700; color: #16a34a; white-space: nowrap; font-size: 0.85rem; }
+.ats-plan-note { margin-top: 10px; font-size: 0.8rem; }
+
+.ats-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ats-checks li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--ats-line); }
+.ats-checks li:last-child { border-bottom: 0; }
+.ats-checks strong { display: block; font-size: 0.85rem; color: var(--ats-ink); }
+.ats-checks p { margin: 2px 0 0; color: var(--ats-muted); font-size: 0.88rem; }
+.ats-check-mark { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font-size: 0.75rem; font-weight: 800; }
+.ats-checks .is-ok .ats-check-mark { background: rgba(22, 163, 74, 0.14); color: #16a34a; }
+.ats-checks .is-fix .ats-check-mark { background: rgba(217, 119, 6, 0.16); color: #b45309; }
+
+.ats-examples { list-style: none; margin: 12px 0; padding: 0; display: grid; gap: 8px; }
+.ats-examples li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border: 1px solid var(--ats-line); border-radius: 12px; background: var(--ats-card); }
+.ats-examples strong { display: block; color: var(--ats-ink); }
+.ats-examples small { color: var(--ats-muted); }
+
+html.theme-dark .ats-plan-meter strong, html.theme-dark .ats-plan-steps em { color: #4ade80; }
+html.theme-dark .ats-checks .is-fix .ats-check-mark { color: #fbbf24; }
+
+@media (max-width: 560px) {
+  .ats-plan-steps li { grid-template-columns: 28px minmax(0, 1fr); }
+  .ats-plan-steps em { grid-column: 2; }
+  .ats-examples li { flex-direction: column; align-items: stretch; }
+}

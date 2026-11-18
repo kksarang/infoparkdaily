@@ -3830,3 +3830,7 @@ body.career-tools-ats p {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* "Start from an example resume" chooser (editor dialog) */
+.example-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin: 14px 0 18px; }
+.example-list .button { justify-content: flex-start; text-align: left; white-space: normal; min-height: 44px; }

@@ -11,7 +11,8 @@ const { catalog } = await import(
 );
 
 const existing = readFileSync(jsPath, "utf8");
-const helpersMatch = existing.match(/\nexport function thumbnail[\s\S]*$/);
+/* Keep everything after the catalog array (thumbnail constants and helpers included). */
+const helpersMatch = existing.match(/\n\];\n([\s\S]*)$/);
 if (!helpersMatch) {
   throw new Error("Could not find thumbnail helpers in catalog.js");
 }
@@ -22,8 +23,8 @@ const body =
   header +
   "export const catalog = " +
   JSON.stringify(catalog, null, 2) +
-  ";" +
-  helpersMatch[0];
+  ";\n" +
+  helpersMatch[1];
 
 writeFileSync(jsPath, body);
 console.log(`Synced ${catalog.length} templates → js/resume-builder/catalog.js`);

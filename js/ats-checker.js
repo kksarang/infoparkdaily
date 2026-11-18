@@ -571,7 +571,19 @@
     const body = {};
     let current = "";
     lines.forEach((raw) => {
-      const key = headingKey(raw);
+      let key = headingKey(raw);
+      /* Side-heading layouts put "SKILLS" in a left column, so the PDF line reads
+         "SKILLS Java, Spring Boot, ...". An ALL-CAPS heading at the start of a line counts. */
+      if (!key) {
+        const side = raw.match(/^\s*([A-Z][A-Z&/ ]{3,38}[A-Z])(?:\s*[:|–—-]\s*|\s+)(\S.*)$/);
+        if (side && headingKey(side[1])) {
+          key = headingKey(side[1]);
+          found.add(key);
+          current = key;
+          (body[key] = body[key] || []).push(side[2].trim());
+          return;
+        }
+      }
       if (key) {
         found.add(key);
         current = key;
@@ -678,6 +690,140 @@
     if (!wanted.length) return null;
     const have = DEGREE_FAMILIES.filter(([, re]) => re.test(resume)).map(([name]) => name);
     return { wanted, have, ok: wanted.some((w) => have.includes(w)) };
+  }
+
+  /* ---------- improvement plan ----------
+     calc() repeats the scoring formula on a set of facts, so the plan can say what the score
+     would be after each fix. It mirrors scoreResume(): base points, job penalties, caps. */
+  function calc(f) {
+    let s;
+    if (f.jdMode) {
+      s = Math.round(f.coverage * 55 + f.sections * 4);
+      if (f.hasEmail) s += 8;
+      if (f.hasPhone) s += 7;
+      if (f.lengthOk) s += 8;
+      if (f.matched >= 6) s += 5;
+      if (!f.tables) s += 4;
+    } else {
+      s = f.sections * 9;
+      if (f.hasEmail) s += 12;
+      if (f.hasPhone) s += 10;
+      if (f.lengthOk) s += 10;
+      if (!f.tables) s += 8;
+      if (!f.personal) s += 8;
+      if (f.bullets >= 4) s += 6;
+      if (f.skills >= 6) s += 6;
+    }
+    s = Math.max(12, Math.min(96, s));
+    if (f.jdMode) {
+      if (f.yearsGap) s -= f.yearsPenalty;
+      if (f.degreeGap) s -= 6;
+      if (f.missingMust) s -= Math.min(12, f.missingMust * 3);
+      s = Math.max(12, s);
+    }
+    if (f.scanned) s = Math.min(s, 30);
+    const high = !f.hasEmail || f.scanned || (f.yearsGap && f.yearsHigh) || f.missingMust >= 4;
+    const medium = !f.hasPhone || f.sections < 4 || f.tables || f.short || (f.yearsGap && !f.yearsHigh) || f.degreeGap || f.missingMust >= 2;
+    if (high) s = Math.min(s, 59);
+    else if (medium) s = Math.min(s, 79);
+    return s;
+  }
+
+  const SECTION_LABEL = { summary: "Summary", skills: "Skills", experience: "Experience", education: "Education", project: "Projects" };
+
+  /** Ordered fixes with the points each is worth, applied one after another. */
+  function improvementPlan(facts, score, ctx) {
+    const steps = [];
+    let f = { ...facts };
+    let last = calc(f);
+    const add = (title, detail, change) => {
+      const next = { ...f, ...change };
+      const s = calc(next);
+      steps.push({ title, detail, gain: Math.max(0, s - last) });
+      f = next;
+      last = s;
+    };
+    if (facts.scanned) add("Export a text PDF", "Re-save from Word, Google Docs or our resume builder so the text can be selected. Scanned images score near zero in most trackers.", { scanned: false });
+    if (!facts.hasEmail) add("Add your email as plain text", "Put it on the contact line at the top, not inside an image or header graphic.", { hasEmail: true });
+    if (!facts.hasPhone) add("Add your mobile number", "Write it as text with the country code, e.g. +91 98xxx xxxxx.", { hasPhone: true });
+    if (ctx.missingSections.length) add(`Add ${ctx.missingSections.map((k) => SECTION_LABEL[k]).join(", ")} section${ctx.missingSections.length > 1 ? "s" : ""}`, "Use these exact headings on their own line so trackers can find each part.", { sections: Math.max(facts.sections, Math.min(5, facts.sections + ctx.missingSections.length)) });
+    if (!facts.lengthOk) add(facts.long ? "Trim to one or two pages" : "Add detail: 220–900 words", facts.long ? "Cut older or unrelated roles to one line each and keep the last 5–7 years in detail." : "Add 2–3 bullets per role or project with what you did, the tools you used and a result.", { lengthOk: true, short: false, long: false });
+    if (facts.tables) add("Use a single-column layout", "Move content out of tables, text boxes and side columns. Our ATS 90+ templates are single-column.", { tables: false });
+    if (facts.jdMode && ctx.missingMust.length) add(`Add must-have skills you really have: ${ctx.missingMust.slice(0, 4).map(displayName).join(", ")}`, "Mention each in Skills and in a bullet that shows where you used it. Skip any you haven't used.", { missingMust: 0, coverage: Math.min(1, facts.coverage + ctx.mustWeightShare), matched: facts.matched + ctx.missingMust.length });
+    if (facts.jdMode && ctx.missingOther.length) add(`Mirror other job keywords: ${ctx.missingOther.slice(0, 4).map(displayName).join(", ")}`, "Use the job's exact wording where it is true for you.", { coverage: 1, matched: Math.max(f.matched, 6) });
+    if (!facts.jdMode && facts.personal) add("Remove personal details", "Date of birth, father's name, religion and marital status aren't needed and can trigger bias.", { personal: false });
+    if (!facts.jdMode && facts.bullets < 4) add("Write at least 4 bullet points", "One idea per bullet, each starting with an action verb.", { bullets: 4 });
+    if (!facts.jdMode && facts.skills < 6) add("List 6–15 specific skills", "Name real tools and methods (Excel, Tally, SQL, Selenium) instead of soft skills only.", { skills: 6 });
+    const projected = Math.max(score, last);
+    return { steps: steps.filter((s) => s.gain > 0 || /must-have|keywords|text PDF/.test(s.title)), projected };
+  }
+
+  function band(score) {
+    if (score >= 90) return { key: "top", title: "Ready to send", text: "Your resume is easy for trackers to read. Tailor the summary and skills for each job you apply to." };
+    if (score >= 80) return { key: "strong", title: "Fine-tune for 90+", text: "A few small changes will move you into the top band. Work through the steps below." };
+    if (score >= 60) return { key: "good", title: "Close the gaps to reach 80+", text: "The basics are there. The steps below are the ones that move your score the most." };
+    if (score >= 40) return { key: "fair", title: "Fix the high-priority issues first", text: "Trackers may skip this resume today. Start with step 1 — each step is worth the points shown." };
+    return { key: "weak", title: "Rebuild on an ATS-friendly template", text: "It's faster to start from an example that already scores 90+ and replace it with your details." };
+  }
+
+  const BUZZWORDS = /\b(hard[- ]?working|team player|self[- ]?motivated|go[- ]?getter|quick learner|result[- ]?oriented|dynamic|passionate|detail[- ]?oriented|out[- ]of[- ]the[- ]box|synergy|dedicated)\b/gi;
+
+  /** Specific, line-level checks: what's fine and what to change, area by area. */
+  function deepChecks(resume, sectionInfo, role, skillCount, hasEmail) {
+    const out = [];
+    const body = sectionInfo.body;
+    /* Text pasted without line breaks: section contents can't be told apart, so only run
+       the checks that don't depend on lines. */
+    const oneLine = String(resume || "").split(/\n/).filter((l) => l.trim()).length <= 3;
+    if (oneLine) out.push({ area: "Review", ok: false, text: "The text has no line breaks, so section-by-section checks were skipped. Upload the PDF or DOCX, or paste with line breaks, for a full review." });
+    if (oneLine) return out.concat(wordingChecks(resume, role, hasEmail));
+    const summary = (body.summary || []).join(" ");
+    const sumWords = summary.split(/\s+/).filter(Boolean).length;
+    if (!summary) out.push({ area: "Summary", ok: false, text: "No summary found. Add 2–3 lines at the top: your target role, years of experience (or degree), and 4–6 key tools." });
+    else if (sumWords > 90) out.push({ area: "Summary", ok: false, text: `Your summary is ${sumWords} words. Keep it under 70 so recruiters read it in a few seconds.` });
+    else if (/seeking a (?:challenging|suitable|good)|to work in a (?:challenging|reputed)|growth of the organi[sz]ation/i.test(summary)) out.push({ area: "Summary", ok: false, text: "It reads like an old-style objective (\"seeking a challenging position…\"). Say what you offer: role, skills and one result." });
+    else out.push({ area: "Summary", ok: true, text: `Summary present (${sumWords} words).` });
+
+    const skillLines = body.skills || [];
+    if (!skillLines.length && !skillCount) out.push({ area: "Skills", ok: false, text: "No Skills section found. List tools as plain comma-separated text under a 'Skills' heading." });
+    else if (skillCount < 6) out.push({ area: "Skills", ok: false, text: `Only ${skillCount} specific tools were recognised. Name the exact software, languages and methods you use.` });
+    else if (skillCount > 35) out.push({ area: "Skills", ok: false, text: `${skillCount} skills listed — long lists look like keyword stuffing. Keep the 15–25 most relevant and group them.` });
+    else out.push({ area: "Skills", ok: true, text: `${skillCount} specific skills recognised.` });
+
+    const bullets = [...(body.experience || []), ...(body.project || [])].filter((l) => l.length >= 25 && !/^(?:(?:19|20)\d{2}|[a-z]{3,9}\.? (?:19|20)\d{2})/i.test(l));
+    const longOnes = bullets.filter((l) => l.length > 220);
+    const withNum = bullets.filter((l) => /\d/.test(l));
+    if (bullets.length) {
+      if (withNum.length / bullets.length < 0.4) out.push({ area: "Results", ok: false, text: `${withNum.length} of ${bullets.length} bullets include a number. Aim for at least half: users served, % improved, time saved, volume handled.` });
+      else out.push({ area: "Results", ok: true, text: `${withNum.length} of ${bullets.length} bullets show a measurable result.` });
+      if (longOnes.length) out.push({ area: "Bullets", ok: false, text: `${longOnes.length} bullet${longOnes.length > 1 ? "s are" : " is"} longer than two lines. Split into one idea per bullet.` });
+    }
+
+    return out.concat(wordingChecks(resume, role, hasEmail, body));
+  }
+
+  function wordingChecks(resume, role, hasEmail, body = {}) {
+    const out = [];
+    const buzz = [...new Set((resume.match(BUZZWORDS) || []).map((w) => w.toLowerCase()))];
+    if (buzz.length) out.push({ area: "Wording", ok: false, text: `Replace claims like "${buzz.slice(0, 3).join('", "')}" with proof — a project, number or example that shows it.` });
+
+    const firstPerson = (resume.match(/\b(?:I|my|me)\b/g) || []).length;
+    if (firstPerson > 4) out.push({ area: "Wording", ok: false, text: `"I/my/me" appears ${firstPerson} times. Resume bullets usually start with the verb: "Built…", not "I built…".` });
+
+    const fmtMonthName = /\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+(?:19|20)\d{2}/i.test(resume);
+    const fmtNumeric = /\b(?:0?[1-9]|1[0-2])\s*[/-]\s*(?:19|20)\d{2}\b/.test(resume);
+    if (fmtMonthName && fmtNumeric) out.push({ area: "Dates", ok: false, text: "Dates use two formats (e.g. 'Jan 2024' and '01/2024'). Pick one and use it everywhere." });
+    if ((body.experience || []).length && !/(?:19|20)\d{2}/.test((body.experience || []).join(" "))) out.push({ area: "Dates", ok: false, text: "Experience has no dates. Add start and end month and year for each role." });
+
+    const tech = ["dev", "qa", "data", "design"].includes(role.kind);
+    const hasLinkedIn = /linkedin\.com\//i.test(resume);
+    const hasPortfolio = /github\.com\/|behance\.net|dribbble\.com|\.pages\.dev|\.vercel\.app|\.netlify\.app|portfolio/i.test(resume);
+    if (!hasLinkedIn) out.push({ area: "Contact", ok: false, text: "Add your LinkedIn profile URL to the contact line — most recruiters check it." });
+    if (tech && !hasPortfolio) out.push({ area: "Contact", ok: false, text: role.kind === "design" ? "Add a portfolio link (Behance, Dribbble or your own site)." : "Add a GitHub or portfolio link so recruiters can see your code." });
+    const email = (resume.match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i) || [""])[0];
+    if (hasEmail && /\d{4,}|(?:cool|cute|baby|king|queen|rock|star|angel)/i.test(email.split("@")[0])) out.push({ area: "Contact", ok: false, text: `Use a simple, professional email (firstname.lastname@…) instead of "${email}".` });
+    if (hasLinkedIn && (!tech || hasPortfolio)) out.push({ area: "Contact", ok: true, text: "Contact links look complete." });
+    return out;
   }
 
   function rankingIssues(resume, hasEmail, hasPhone, foundSections, hasTablesHint, wordCount) {
@@ -1160,6 +1306,12 @@
     });
     const sectionInfo = analyseSections(resume, false);
     const foundSections = sectionInfo.found;
+    /* Skills listed under the Skills heading count too (Tally, GST, Figma...), not only known tech tools. */
+    const listedSkills = (sectionInfo.body.skills || [])
+      .flatMap((l) => l.replace(/^[^:]{2,30}:\s*/, "").split(/[,|•;·]/))
+      .map((s) => s.trim())
+      .filter((s) => s.length > 1 && s.length < 40 && s.split(/\s+/).length <= 4);
+    const skillCount = Math.max(resumeSkills.length, new Set(listedSkills.map((s) => s.toLowerCase())).size);
     const wordCount = resume.trim().split(/\s+/).filter(Boolean).length;
     const hasTablesHint = lower.includes("<table") || (resume.match(/\t/g) || []).length > 12;
     const hasPersonal = /father'?s?\s*name|date of birth|\bdob\b|personal details|marital status|religion|caste/i.test(
@@ -1214,7 +1366,7 @@
       if (!hasTablesHint) score += 8;
       if (!hasPersonal) score += 8;
       if (bulletCount >= 4) score += 6;
-      if (resumeSkills.length >= 6) score += 6;
+      if (skillCount >= 6) score += 6;
     }
     score = Math.max(12, Math.min(96, score));
 
@@ -1292,6 +1444,39 @@
     else if (mediumCount) score = Math.min(score, 79);
     const fixCount = highCount + mediumCount;
 
+    const facts = {
+      jdMode,
+      coverage,
+      sections: foundSections.filter((s) => s !== "contact").length,
+      hasEmail,
+      hasPhone,
+      lengthOk: wordCount >= 220 && wordCount <= 900,
+      short: wordCount < 180,
+      long: wordCount > 900,
+      tables: hasTablesHint,
+      personal: hasPersonal,
+      bullets: bulletCount,
+      skills: skillCount,
+      matched: matched.length,
+      yearsGap,
+      yearsHigh: yearsGap && needYears - haveYears >= 2,
+      yearsPenalty: yearsGap ? Math.min(15, Math.round((needYears - haveYears) * 4)) : 0,
+      degreeGap,
+      missingMust: missingMust.length >= 2 ? missingMust.length : 0,
+      scanned
+    };
+    const mustWeight = missingMust.reduce((sum, k) => sum + (weights[k] || 1), 0);
+    const plan = improvementPlan(facts, score, {
+      missingSections: ["summary", "skills", "experience", "education", "project"].filter((k) => !foundSections.includes(k)).slice(0, Math.max(0, 5 - foundSections.length)),
+      missingMust,
+      missingOther: missing.filter((k) => !missingMust.includes(k)),
+      mustWeightShare: totalWeight ? mustWeight / totalWeight : 0
+    });
+    plan.band = band(score);
+    if (yearsGap || degreeGap)
+      plan.note = "Some gaps can't be fixed by editing (years of experience or degree). The estimate leaves them in.";
+    const checks = deepChecks(resume, sectionInfo, role, skillCount, hasEmail);
+
     let label = "Needs work";
     let tone = "weak";
     if (score >= 80) {
@@ -1361,6 +1546,9 @@
       label,
       tone,
       jdMode,
+      plan,
+      checks,
+      roleKind: role.kind,
       missing: jdMode ? missing.slice(0, 12).map(displayName) : resumeGaps,
       matched: matched.slice(0, 12).map(displayName),
       suggested,
@@ -1469,6 +1657,37 @@
     return list.map((k) => `<span class="ats-chip${cls}">${escapeHtml(k)}</span>`).join("");
   }
 
+  /* Example resumes that score 90+ (from the resume builder) for the detected role, each with
+     its ATS 90+ template. Loaded on demand so the checker stays light; hidden if it fails. */
+  const SAME_FIELD = { dev: ["dev", "qa", "data"], qa: ["qa", "dev"], data: ["data", "dev"], design: ["design"], finance: ["finance"], support: ["support", "sales"], sales: ["sales", "support"], hr: ["hr"], general: [] };
+  async function showExamples(report) {
+    const box = result.querySelector("[data-ats-examples]");
+    if (!box || report.score >= 92) return;
+    try {
+      const { EXAMPLES } = await import("/js/resume-builder/examples.js?v=20261118ats");
+      const near = SAME_FIELD[report.roleKind] || [];
+      const picks = [
+        ...EXAMPLES.filter((e) => e.kind === report.roleKind),
+        ...EXAMPLES.filter((e) => e.kind !== report.roleKind && near.includes(e.kind)),
+        ...EXAMPLES.filter((e) => !near.includes(e.kind) && e.kind !== report.roleKind)
+      ].slice(0, 3);
+      if (!picks.length || !result.contains(box)) return;
+      box.innerHTML = `
+        <h3>Start from a resume that scores 90+</h3>
+        <p class="ats-sub">Fictional examples written for your kind of role, on single-column ATS templates. Open one in the resume builder and replace every detail with your own.</p>
+        <ul class="ats-examples">${picks
+          .map(
+            (e) => `<li><div><strong>${escapeHtml(e.title)}</strong><small>${escapeHtml(e.templateName || e.template)} template · scores 90+ in this checker</small></div>
+              <a class="ats-btn ats-btn--secondary" href="/resume-builder/templates/?select=${encodeURIComponent(e.template)}&example=${encodeURIComponent(e.id)}">Use this example</a></li>`
+          )
+          .join("")}</ul>
+        <p class="ats-sub"><a href="/resume-builder/templates/">Browse all ATS-friendly templates</a></p>`;
+      box.hidden = false;
+    } catch (_e) {
+      /* recommendations are optional */
+    }
+  }
+
   function renderReport(report) {
     if (empty) {
       empty.hidden = true;
@@ -1507,6 +1726,39 @@
       )
       .join("");
 
+    const plan = report.plan;
+    const planHtml = plan
+      ? `<section class="ats-report-block ats-plan ats-plan--${escapeHtml(plan.band.key)}">
+          <div class="ats-plan-head">
+            <div>
+              <p class="ats-sub">Your path to a higher score</p>
+              <h3>${escapeHtml(plan.band.title)}</h3>
+              <p>${escapeHtml(plan.band.text)}</p>
+            </div>
+            ${plan.projected > report.score
+              ? `<div class="ats-plan-meter" aria-label="Score now ${report.score}, about ${plan.projected} after these fixes"><span>${report.score}</span><i aria-hidden="true">→</i><strong>${plan.projected}</strong><small>after fixes</small></div>`
+              : ""}
+          </div>
+          ${plan.steps.length
+            ? `<ol class="ats-plan-steps">${plan.steps
+                .map((s, i) => `<li><span class="ats-plan-n">${i + 1}</span><div><strong>${escapeHtml(s.title)}</strong><p>${escapeHtml(s.detail)}</p></div><em>${s.gain > 0 ? `+${s.gain}` : "job fit"}</em></li>`)
+                .join("")}</ol>`
+            : `<p class="ats-sub">No score-changing fixes left. Use the review below to polish wording and results.</p>`}
+          ${plan.note ? `<p class="ats-sub ats-plan-note">${escapeHtml(plan.note)}</p>` : ""}
+          <p class="ats-sub ats-plan-note">Estimates use this checker's own scoring. Employers' systems differ, so treat them as a guide.</p>
+        </section>`
+      : "";
+    const checks = report.checks || [];
+    const checksHtml = checks.length
+      ? `<section class="ats-report-block">
+          <h3>Detailed review <span class="ats-count">${checks.filter((c) => !c.ok).length} to improve</span></h3>
+          <ul class="ats-checks">${checks
+            .map((c) => `<li class="${c.ok ? "is-ok" : "is-fix"}"><span class="ats-check-mark" aria-hidden="true">${c.ok ? "✓" : "!"}</span><div><strong>${escapeHtml(c.area)}</strong><p>${escapeHtml(c.text)}</p></div></li>`)
+            .join("")}</ul>
+        </section>`
+      : "";
+    const examplesHtml = `<section class="ats-report-block" data-ats-examples hidden></section>`;
+
     const fitHtml = report.fit
       ? `<section class="ats-report-block">
           <h3>Job fit</h3>
@@ -1544,6 +1796,7 @@
             }</p>
           </div>
         </header>
+        ${planHtml}
         ${
           topFixes.length
             ? `<section class="ats-report-block">
@@ -1580,7 +1833,9 @@
               </section>`
             : ""
         }
+        ${checksHtml}
         ${fitHtml}
+        ${examplesHtml}
         ${
           phrasingHtml
             ? `<section class="ats-report-block">
@@ -1627,6 +1882,7 @@
         </div>
       </article>
     `;
+    showExamples(report);
 
     const flash = (btn, text, reset) => {
       btn.textContent = text;

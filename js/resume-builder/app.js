@@ -6,7 +6,8 @@ import {
   validateResume,
 } from "./schema.js";
 import { renderResume, esc } from "./render.js?v=20260920tpl";
-import { publicTemplates } from "./catalog.js?v=20261102tools";
+import { publicTemplates } from "./catalog.js?v=20261118ats2";
+import { EXAMPLES, exampleById, exampleResume } from "./examples.js?v=20261118ats";
 import { request as cloudRequest } from "./cloud.bundle.js?v=20261109ss";
 import { resumePdfBlob, saveBlob, sharePdf, canSharePdf, pdfFilename } from "./pdf-export.js?v=20261109safe";
 const base = "/resume-builder/";
@@ -318,6 +319,7 @@ async function selectTemplate(id) {
           base +
             "templates/?select=" +
             id +
+            (exampleById(params.get("example") || "") ? "&example=" + params.get("example") : "") +
             (params.get("job")
               ? "&job=" + encodeURIComponent(params.get("job"))
               : ""),
@@ -346,11 +348,13 @@ async function selectTemplate(id) {
     toast("Template changed. Your content stays the same.");
     return;
   }
-  const data = blankResume();
-  if (me.name !== "Local preview") data.personal.name = me.name;
+  /* ?example=<id> (from the ATS checker) starts from a role example that scores 90+. */
+  const example = exampleById(params.get("example") || "");
+  const data = example ? exampleResume(example.id) : blankResume();
+  if (!example && me.name !== "Local preview") data.personal.name = me.name;
   const r = await post("/resumes", {
     template_id: id,
-    title: "My professional resume",
+    title: example ? `${example.title} resume (example)` : "My professional resume",
     data,
     job_id: params.get("job") || undefined,
   });
@@ -1570,10 +1574,20 @@ async function act(el) {
     }
     case "sample":
       showDialog(
-        "Try the sample content?",
-        `<p>This replaces the content in this draft with a fictional example. You can create another draft to keep your current work.</p><div class="actions">${button("Use fictional sample", "confirm-sample", "", "")}${button("Keep my content", "close")}</div>`,
+        "Start from an example resume",
+        `<p>Each example is fictional, written for one role, and scores 90+ in our <a href="/ats-checker/">ATS checker</a>. It replaces the content in this draft — create another draft to keep your current work.</p><div class="example-list">${EXAMPLES.map((e) => button(esc(e.title), "confirm-example", `data-example="${esc(e.id)}"`)).join("")}</div><div class="actions">${button("Use the basic sample", "confirm-sample", "", "")}${button("Keep my content", "close")}</div>`,
       );
       break;
+    case "confirm-example": {
+      const ex = exampleById(el?.dataset?.example || "");
+      if (!ex) break;
+      resume.data = exampleResume(ex.id);
+      markDirty();
+      sectionForm();
+      closeDialog();
+      toast(`${ex.title} example added. Replace every detail with your own true information before applying.`);
+      break;
+    }
     case "confirm-sample":
       resume.data = sampleResume();
       markDirty();
