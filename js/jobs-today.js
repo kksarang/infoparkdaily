@@ -448,131 +448,122 @@
     calendarEl.innerHTML = cells.join("");
   }
 
-  function kindBadgesHtml(kinds, expired) {
-    if (expired) {
-      return `<span class="today-interview-badge today-interview-badge--expired">Expired</span>`;
-    }
-    const order = ["walk-in", "deadline", "posted"];
-    const labels = {
-      "walk-in": { text: "Walk-in", className: "" },
-      deadline: { text: "Apply by", className: "today-interview-badge--deadline" },
-      posted: { text: "Published", className: "today-interview-badge--posted" }
-    };
-    return order
-      .filter((k) => kinds.includes(k))
-      .map((k) => {
-        const meta = labels[k];
-        return `<span class="today-interview-badge${meta.className ? ` ${meta.className}` : ""}">${meta.text}</span>`;
-      })
-      .join("");
+  /* Agenda for the selected day: compact rows grouped by what happens that day
+     (walk-in drives, last day to apply, newly published), 10 per group with "Show more". */
+  const AGENDA_GROUPS = [
+    ["walk-in", "Walk-in drives", "Turn up at the venue on this day"],
+    ["deadline", "Last day to apply", "Applications close on this day"],
+    ["posted", "New on this day", "Published on this day"]
+  ];
+  const AGENDA_PAGE = 10;
+  let agendaFilter = "all";
+  let agendaQuery = "";
+  const agendaOpen = new Set();
+
+  function agendaWhen(item) {
+    const { job, expired } = item;
+    const kind = primaryKind(item.kinds);
+    if (expired) return "Closed";
+    if (kind === "walk-in") return shortTime(job.walkinTime) || "Walk-in";
+    const deadline = String(job.applyDeadline || "").trim();
+    if (kind === "deadline") return selectedKey === todayKey() ? "Closes today" : "Last day";
+    if (deadline && deadline !== "Rolling" && isIsoDate(deadline)) return `Apply by ${formatIsoShort(deadline)}`;
+    return "New";
   }
 
-  function railForItem(item) {
-    const kind = primaryKind(item.kinds);
-    if (kind === "walk-in") {
-      return shortTime(item.job.walkinTime) || "Walk-in";
-    }
-    if (kind === "deadline") return "Apply by";
-    return "Published";
-  }
-
-  function railSubForItem(item) {
-    if (item.expired) return "Closed";
-    const kind = primaryKind(item.kinds);
-    if (kind === "walk-in") return "Drive";
-    if (kind === "deadline") return "Deadline";
-    return "Posted";
+  function agendaRow(item) {
+    const { job, expired, kinds } = item;
+    const role = (job.roles && job.roles[0]) || "Hiring";
+    const more = job.roles && job.roles.length > 1 ? ` +${job.roles.length - 1} more` : "";
+    const place = job.walkinLocation && kinds.includes("walk-in") ? job.walkinLocation : job.location || job.address || "";
+    const exp = job.experienceRange || job.experienceYears || "";
+    const kind = primaryKind(kinds);
+    return `<li><a class="today-row today-row--${kind}${expired ? " is-expired" : ""}" href="${escapeAttr(jobHref(job))}">
+        <span class="today-row-main">
+          <strong class="today-row-role">${escapeHtml(role)}<em>${escapeHtml(more)}</em></strong>
+          <span class="today-row-company">${escapeHtml(job.company || "")}</span>
+          <span class="today-row-meta">${[place, exp].filter(Boolean).map((x) => `<span>${escapeHtml(x)}</span>`).join("")}</span>
+        </span>
+        <span class="today-row-when">${escapeHtml(agendaWhen(item))}</span>
+        <span class="today-row-go" aria-hidden="true">›</span>
+      </a></li>`;
   }
 
   function renderDayList() {
     const items = byDate.get(selectedKey) || [];
     const openItems = items.filter((item) => !item.expired);
-    const show = openItems.length ? openItems : items;
+    const all = openItems.length ? openItems : items;
+
+    const byKind = { "walk-in": [], deadline: [], posted: [] };
+    all.forEach((item) => byKind[primaryKind(item.kinds)]?.push(item));
+    document.querySelectorAll("[data-agenda-count]").forEach((el) => {
+      const k = el.dataset.agendaCount;
+      const n = k === "all" ? all.length : byKind[k].length;
+      el.textContent = n ? String(n) : "";
+      el.parentElement.hidden = k !== "all" && n === 0;
+    });
+    if (agendaFilter !== "all" && !byKind[agendaFilter].length) agendaFilter = "all";
+    document.querySelectorAll("[data-agenda]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.agenda === agendaFilter)));
+    const tools = document.getElementById("today-agenda-tools");
+    if (tools) tools.hidden = all.length < 4;
+
+    const q = agendaQuery.trim().toLowerCase();
+    const match = (item) =>
+      !q || [item.job.company, ...(item.job.roles || []), item.job.location, item.job.walkinLocation].filter(Boolean).join(" ").toLowerCase().includes(q);
 
     if (dayTitleEl) dayTitleEl.textContent = formatLong(selectedKey);
-    if (dayCountEl) {
-      dayCountEl.textContent =
-        show.length === 0
-          ? "No openings"
-          : `${show.length} opening${show.length === 1 ? "" : "s"}`;
-    }
+    if (dayCountEl) dayCountEl.textContent = all.length === 0 ? "No openings" : `${all.length} opening${all.length === 1 ? "" : "s"}`;
 
-    if (!show.length) {
+    if (!all.length) {
       dayListEl.innerHTML = "";
       if (emptyEl) emptyEl.hidden = false;
       return;
     }
-
     if (emptyEl) emptyEl.hidden = true;
 
-    dayListEl.innerHTML = show
-      .map((item, index) => {
-        const { job, expired, kinds } = item;
-        const role = (job.roles && job.roles[0]) || "Hiring";
-        const time = job.walkinTime || "";
-        const venue = job.walkinLocation || job.address || job.location || "";
-        const when = walkInText(job);
-        const posted = String(job.postedDate || "").trim();
-        const deadline = String(job.applyDeadline || "").trim();
-        const showWalkMeta = kinds.includes("walk-in");
-        return `
-          <article class="today-interview-card${expired ? " is-expired" : ""}" style="animation-delay: ${Math.min(index, 6) * 45}ms">
-            <div class="today-interview-time">
-              <strong>${escapeHtml(railForItem(item))}</strong>
-              <span>${escapeHtml(railSubForItem(item))}</span>
-            </div>
-            <div class="today-interview-body">
-              <header class="today-interview-head">
-                <div>
-                  <p class="today-interview-company">
-                    ${
-                      job.company
-                        ? `<a class="job-company-link" href="${escapeAttr(companyPath(job.company))}">${escapeHtml(
-                            job.company
-                          )}</a>`
-                        : ""
-                    }
-                  </p>
-                  <h3 class="today-interview-role">${escapeHtml(role)}</h3>
-                </div>
-                <div class="today-interview-badges">${kindBadgesHtml(kinds, expired)}</div>
-              </header>
-              <ul class="today-interview-meta">
-                ${
-                  posted
-                    ? `<li><span>Published</span><strong>${escapeHtml(formatIsoShort(posted))}</strong></li>`
-                    : ""
-                }
-                ${
-                  deadline
-                    ? `<li><span>Apply by</span><strong>${escapeHtml(
-                        deadline === "Rolling" ? "Rolling" : formatIsoShort(deadline)
-                      )}</strong></li>`
-                    : ""
-                }
-                ${showWalkMeta && when ? `<li><span>Walk-in</span><strong>${escapeHtml(when)}</strong></li>` : ""}
-                ${showWalkMeta && time ? `<li><span>Time</span><strong>${escapeHtml(time)}</strong></li>` : ""}
-                ${venue ? `<li><span>Venue</span><strong>${escapeHtml(venue)}</strong></li>` : ""}
-                ${
-                  job.experienceRange || job.experienceYears
-                    ? `<li><span>Exp</span><strong>${escapeHtml(
-                        job.experienceRange || job.experienceYears
-                      )}</strong></li>`
-                    : ""
-                }
-              </ul>
-              <footer class="today-interview-actions">
-                <a class="btn btn-primary" href="${escapeAttr(jobHref(job))}">View Details</a>
-              </footer>
-            </div>
-          </article>
-        `;
+    const sections = AGENDA_GROUPS.filter(([k]) => agendaFilter === "all" || agendaFilter === k)
+      .map(([k, title, note]) => {
+        const list = byKind[k].filter(match);
+        if (!list.length) return "";
+        const open = agendaOpen.has(k) || q;
+        const shown = open ? list : list.slice(0, AGENDA_PAGE);
+        const rest = list.length - shown.length;
+        return `<section class="today-group today-group--${k}">
+            <header class="today-group-head"><h3>${title}</h3><span>${list.length}</span><p>${note}</p></header>
+            <ul class="today-rows">${shown.map(agendaRow).join("")}</ul>
+            ${rest > 0 ? `<button type="button" class="today-more" data-agenda-more="${k}">Show ${rest} more</button>` : ""}
+          </section>`;
       })
       .join("");
+    dayListEl.innerHTML = sections || `<p class="today-agenda-none">No openings match “${escapeHtml(agendaQuery)}” on this day.</p>`;
   }
+
+  document.getElementById("today-agenda-tools")?.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-agenda]");
+    if (!b) return;
+    agendaFilter = b.dataset.agenda;
+    renderDayList();
+  });
+  document.getElementById("today-agenda-q")?.addEventListener("input", (e) => {
+    agendaQuery = e.target.value;
+    renderDayList();
+  });
+  dayListEl?.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-agenda-more]");
+    if (!b) return;
+    agendaOpen.add(b.dataset.agendaMore);
+    renderDayList();
+  });
 
   function selectDate(key, opts = {}) {
     if (!key || !/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
+    if (key !== selectedKey) {
+      agendaFilter = "all";
+      agendaQuery = "";
+      agendaOpen.clear();
+      const qEl = document.getElementById("today-agenda-q");
+      if (qEl) qEl.value = "";
+    }
     selectedKey = key;
     const parts = parseKey(key);
     if (parts) {

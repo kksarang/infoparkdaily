@@ -60,6 +60,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/jobs-today.css?v=20261118c" />
     
   </head>
   <body class="jobs-body today-body dark">
@@ -111,11 +112,6 @@
       <section class="today-stage" aria-labelledby="today-hero-title">
         <div class="today-stage-glow" aria-hidden="true"></div>
         <div class="today-stage-grid" aria-hidden="true"></div>
-
-        <p class="today-brand-mark">
-          <img src="/assets/logo-infoparkdaily.png" alt="" width="36" height="36" />
-          <span>INFOPARKDAILY</span>
-        </p>
 
         <div class="today-stage-copy">
           <p class="today-kicker">Hiring desk · Kerala IT parks</p>
@@ -300,6 +296,15 @@
               </div>
               <p id="today-day-count" class="today-day-count">—</p>
             </header>
+            <div class="today-agenda-tools" id="today-agenda-tools">
+              <div class="today-agenda-chips" role="group" aria-label="Show">
+                <button type="button" data-agenda="all" aria-pressed="true">All <span data-agenda-count="all"></span></button>
+                <button type="button" data-agenda="walk-in" aria-pressed="false">Walk-ins <span data-agenda-count="walk-in"></span></button>
+                <button type="button" data-agenda="deadline" aria-pressed="false">Last day to apply <span data-agenda-count="deadline"></span></button>
+                <button type="button" data-agenda="posted" aria-pressed="false">New <span data-agenda-count="posted"></span></button>
+              </div>
+              <label class="today-agenda-search"><span class="sr-only">Search this day</span><input id="today-agenda-q" type="search" placeholder="Search company, role or place" autocomplete="off" /></label>
+            </div>
             <div id="today-day-list" class="today-day-list" aria-live="polite"></div>
             <div id="today-day-empty" class="today-empty" hidden>
               <p class="today-empty-title">Quiet day on campus</p>
@@ -396,6 +401,6 @@
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261110ip" defer></script>
     <script src="/data/jobs-data.js?v=20261104amber" defer></script>
-    <script src="/js/jobs-today.js?v=20260830c" defer></script>
+    <script src="/js/jobs-today.js?v=20261118a" defer></script>
   </body>
 </html>
