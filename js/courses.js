@@ -22,27 +22,44 @@
   if (params.get("topic")) topic = params.get("topic");
 
   const topics = [...new Set(COURSES.flatMap((c) => c.topics || []))].sort();
+  const topicCount = (t) => COURSES.filter((c) => (c.topics || []).includes(t)).length;
   topicBar.innerHTML =
-    `<button type="button" data-topic="all" aria-pressed="${topic === "all"}">All topics</button>` +
-    topics.map((t) => `<button type="button" data-topic="${esc(t)}" aria-pressed="${t === topic}">${esc(t)}</button>`).join("");
+    `<span class="courses-topics-label">Topic</span><button type="button" data-topic="all" aria-pressed="${topic === "all"}">All</button>` +
+    topics.map((t) => `<button type="button" data-topic="${esc(t)}" aria-pressed="${t === topic}">${esc(t)} <span>${topicCount(t)}</span></button>`).join("");
 
-  grid.innerHTML = COURSES.map(
-    (c) => `<article class="course-card" data-kind="${esc(c.kind)}" data-topics="${esc((c.topics || []).join("|"))}" data-search="${esc([c.title, c.provider, c.kind, c.summary, ...(c.topics || [])].join(" ").toLowerCase())}">
-      <div class="course-top"><span class="course-kind course-kind--${esc(c.kind.toLowerCase().replace(/\s+/g, "-"))}">${esc(c.kind)}</span><span class="course-cost">${esc(c.cost)}</span></div>
+  /* Provider badge: initials on a colour picked from the provider name, so each provider looks the same everywhere. */
+  const providerName = (c) => c.provider.split(" ·")[0].split(" (")[0].replace(/^Deloitte Australia on /, "Forage");
+  const initials = (name) => name.replace(/[^A-Za-z ]/g, " ").split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+  const hue = (name) => [...name].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 360, 7);
+
+  const totalEl = document.getElementById("courses-stat-total");
+  const provEl = document.getElementById("courses-stat-providers");
+  if (totalEl) totalEl.textContent = String(COURSES.length);
+  if (provEl) provEl.textContent = String(new Set(COURSES.map(providerName)).size);
+
+  grid.innerHTML = COURSES.map((c) => {
+    const pn = providerName(c);
+    const kindKey = c.kind.toLowerCase().replace(/\s+/g, "-");
+    return `<article class="course-card" data-kind="${esc(c.kind)}" data-topics="${esc((c.topics || []).join("|"))}" data-search="${esc([c.title, c.provider, c.kind, c.summary, ...(c.topics || [])].join(" ").toLowerCase())}">
+      <header class="course-head">
+        <span class="course-badge" style="--h:${hue(pn)}" aria-hidden="true">${esc(initials(pn))}</span>
+        <span class="course-by"><strong>${esc(c.provider)}</strong><small>${esc(c.level || "")}</small></span>
+        <span class="course-kind course-kind--${esc(kindKey)}">${esc(c.kind)}</span>
+      </header>
       <h2>${esc(c.title)}</h2>
-      <p class="course-provider">${esc(c.provider)}${c.level ? ` · ${esc(c.level)}` : ""}</p>
       <p class="course-summary">${esc(c.summary)}</p>
-      <ul class="course-facts">
-        ${c.certificate ? `<li>${esc(c.certificate)}</li>` : ""}
-        <li>Topics: ${esc((c.topics || []).join(", "))}</li>
-      </ul>
-      ${c.note ? `<p class="course-note">${esc(c.note)}</p>` : ""}
-      <div class="course-actions">
-        <a class="btn btn-primary" href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener">Open official page ↗<span class="sr-only"> for ${esc(c.title)} (opens in a new tab)</span></a>
-        <span class="course-checked">Link checked ${esc(fmt(c.checked))}</span>
-      </div>
-    </article>`
-  ).join("");
+      <ul class="course-tags" aria-label="Topics">${(c.topics || []).map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+      <footer class="course-foot">
+        ${c.certificate ? `<p class="course-cert"><span aria-hidden="true">✓</span>${esc(c.certificate)}</p>` : ""}
+        ${c.note ? `<p class="course-note"><span aria-hidden="true">ⓘ</span>${esc(c.note)}</p>` : ""}
+        <div class="course-actions">
+          <span class="course-cost">${esc(c.cost)}</span>
+          <a class="course-open" href="${esc(safeUrl(c.url))}" target="_blank" rel="noopener">Open course <span aria-hidden="true">↗</span><span class="sr-only"> — ${esc(c.title)} (opens in a new tab)</span></a>
+        </div>
+        <p class="course-checked">Link checked ${esc(fmt(c.checked))}</p>
+      </footer>
+    </article>`;
+  }).join("");
 
   const sync = (bar, attr, value) =>
     bar.querySelectorAll(`[data-${attr}]`).forEach((b) => b.setAttribute("aria-pressed", String(b.dataset[attr] === value)));
