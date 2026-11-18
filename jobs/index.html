@@ -89,7 +89,7 @@
     <link rel="manifest" href="/manifest.webmanifest" />
 
     <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
-    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20261030filters" />
+    <link rel="stylesheet" href="/css/jobs-marketplace.css?v=20261118wfh" />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4593359890362954"
@@ -327,6 +327,40 @@
           </div>
 
           <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Work mode</p>
+            <div id="jobs-workmode" class="jobs-filters" role="group" aria-label="Filter by work mode">
+              <button type="button" class="jobs-filter-btn is-active" data-mode="all" aria-pressed="true">Any</button>
+              <button type="button" class="jobs-filter-btn" data-mode="remote" aria-pressed="false">Remote / WFH</button>
+              <button type="button" class="jobs-filter-btn" data-mode="hybrid" aria-pressed="false">Hybrid</button>
+              <button type="button" class="jobs-filter-btn" data-mode="onsite" aria-pressed="false">On-site</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Employment type</p>
+            <div id="jobs-emptype" class="jobs-filters" role="group" aria-label="Filter by employment type">
+              <button type="button" class="jobs-filter-btn is-active" data-emptype="all" aria-pressed="true">Any</button>
+              <button type="button" class="jobs-filter-btn" data-emptype="fulltime" aria-pressed="false">Full-time</button>
+              <button type="button" class="jobs-filter-btn" data-emptype="parttime" aria-pressed="false">Part-time</button>
+              <button type="button" class="jobs-filter-btn" data-emptype="contract" aria-pressed="false">Contract</button>
+              <button type="button" class="jobs-filter-btn" data-emptype="internship" aria-pressed="false">Internship</button>
+              <button type="button" class="jobs-filter-btn" data-emptype="apprenticeship" aria-pressed="false">Apprenticeship</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
+            <p class="jobs-filter-caption">Company type</p>
+            <div id="jobs-companytype" class="jobs-filters" role="group" aria-label="Filter by company type">
+              <button type="button" class="jobs-filter-btn is-active" data-ctype="all" aria-pressed="true">Any</button>
+              <button type="button" class="jobs-filter-btn" data-ctype="mnc" aria-pressed="false">MNC / large employer</button>
+              <button type="button" class="jobs-filter-btn" data-ctype="healthcare" aria-pressed="false">Hospital / healthcare</button>
+              <button type="button" class="jobs-filter-btn" data-ctype="education" aria-pressed="false">Education / training</button>
+              <button type="button" class="jobs-filter-btn" data-ctype="government" aria-pressed="false">Government / PSU</button>
+              <button type="button" class="jobs-filter-btn" data-ctype="other" aria-pressed="false">Other companies</button>
+            </div>
+          </div>
+
+          <div class="ej-filter-block jobs-filter-group">
             <p class="jobs-filter-caption">City</p>
             <div
               id="jobs-city"
@@ -445,6 +479,10 @@
             Filters
             <span id="jobs-filter-fab-count" class="ej-fab-count" hidden>0</span>
           </button>
+        </div>
+        <div id="jobs-view-tabs" class="ej-view-tabs" role="tablist" aria-label="Job view">
+          <button type="button" class="ej-view-tab is-active" role="tab" data-view="all" aria-selected="true">All jobs</button>
+          <button type="button" class="ej-view-tab" role="tab" data-view="remote" aria-selected="false">Work from home <span id="jobs-wfh-count" class="ej-view-tab-count"></span></button>
         </div>
         <form id="jobs-quickbar" class="ej-quickbar" role="search" aria-label="Quick job filters">
           <label class="ej-quick-field">
@@ -703,7 +741,7 @@
     <script src="/js/ipd-firestore-rest.js?v=20261110ip" defer></script>
     <script src="/js/community-jobs.js?v=20261104tags" defer></script>
     <script src="/js/job-actions.js?v=20261102share" defer></script>
-    <script src="/js/jobs.js?v=20261110ip" defer></script>
+    <script src="/js/jobs.js?v=20261118wfh" defer></script>
     <script src="/js/ads.js?v=20260805a" defer></script>
   </body>
 </html>

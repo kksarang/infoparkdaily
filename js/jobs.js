@@ -32,6 +32,10 @@
   const cityBar = document.getElementById("jobs-city");
   const sectorBar = document.getElementById("jobs-sector");
   const educationBar = document.getElementById("jobs-education");
+  const workModeBar = document.getElementById("jobs-workmode");
+  const empTypeBar = document.getElementById("jobs-emptype");
+  const companyTypeBar = document.getElementById("jobs-companytype");
+  const viewTabs = document.getElementById("jobs-view-tabs");
   const quickBar = document.getElementById("jobs-quickbar");
   const quickRole = document.getElementById("jobs-quick-role");
   const quickLocation = document.getElementById("jobs-quick-location");
@@ -96,6 +100,9 @@
   let activeCity = "all";
   let activeSector = "all";
   let activeEducation = "all";
+  let activeMode = "all";
+  let activeEmpType = "all";
+  let activeCompanyType = "all";
   let activeExp = "all";
   let roleQuery = "";
   let visibleCount = PAGE_SIZE;
@@ -256,10 +263,59 @@
     return job.walkinDates || job.walkInDate || "";
   }
 
+  const REMOTE_RE = /\bremote\b|work[\s-]*from[\s-]*home|\bwfh\b|work[\s-]*from[\s-]*anywhere|work[\s-]*at[\s-]*home/i;
+  const HYBRID_RE = /\bhybrid\b/i;
+
+  function workModeText(job) {
+    return [job.workMode, job.employmentType, job.workStatus, job.location, ...(job.tags || []), ...(job.roles || [])]
+      .filter(Boolean)
+      .join(" ");
+  }
+
   function isRemoteJob(job) {
-    const mode = String(job.workMode || job.employmentType || "").toLowerCase();
-    const tags = (job.tags || []).map((t) => String(t).toLowerCase());
-    return mode.includes("remote") || tags.includes("remote");
+    return REMOTE_RE.test(workModeText(job));
+  }
+
+  /** Remote / hybrid only when the listing says so; everything else counts as on-site. */
+  function jobWorkMode(job) {
+    const text = workModeText(job);
+    if (REMOTE_RE.test(text)) return "remote";
+    if (HYBRID_RE.test(text)) return "hybrid";
+    return "onsite";
+  }
+
+  function jobEmpType(job) {
+    const text = `${job.employmentType || ""} ${job.workStatus || ""} ${(job.roles || []).join(" ")}`;
+    if (/apprentic/i.test(text)) return "apprenticeship";
+    if (/\bintern(?:ship)?s?\b|\btrainee intern/i.test(text)) return "internship";
+    if (/part[\s-]?time/i.test(text)) return "parttime";
+    if (/contract|temporary|fixed[\s-]?term|\bftc\b|daily wage/i.test(text)) return "contract";
+    return "fulltime";
+  }
+
+  const MNC_RE =
+    /\b(amazon|google|microsoft|apple|meta|accenture|deloitte|kpmg|pwc|\bey\b|ernst|ibm|oracle|\bsap\b|capgemini|cognizant|infosys|tcs|tata consultancy|wipro|hcl|tech mahindra|\bust\b|ust global|quest global|nissan|hpe|hewlett|\bdell\b|\bhp\b|cisco|intel|nvidia|qualcomm|shell|bnp paribas|jp ?morgan|american express|nike|ntt data|conduent|\bexl\b|genpact|sutherland|concentrix|teleperformance|zoho|flipkart|stripe|visa inc|mastercard|siemens|bosch|honeywell|philips|abb|schneider|allianz|envestnet|ey gds|experian|h&r block|ibs software|hexaware|mphasis|ltimindtree|l&t|larsen|virtusa|cgi|nokia|ericsson|samsung|adobe|salesforce|servicenow|paypal|walmart|uber|hdfc|icici|axis bank|sbi card|tata|reliance|airtel|byju|swiggy|zomato|razorpay|freshworks)\b/i;
+
+  function jobCompanyType(job) {
+    const sectors = jobSectors(job);
+    if (sectors.has("government")) return "government";
+    if (sectors.has("healthcare")) return "healthcare";
+    const who = `${job.company || ""} ${job.industry || ""}`;
+    if (/academy|institute|college|university|school|edtech|education|learning|training|tuition|coaching/i.test(who)) return "education";
+    if (MNC_RE.test(job.company || "")) return "mnc";
+    return "other";
+  }
+
+  function matchesWorkMode(job) {
+    return activeMode === "all" || jobWorkMode(job) === activeMode;
+  }
+
+  function matchesEmpType(job) {
+    return activeEmpType === "all" || jobEmpType(job) === activeEmpType;
+  }
+
+  function matchesCompanyType(job) {
+    return activeCompanyType === "all" || jobCompanyType(job) === activeCompanyType;
   }
 
   function isHospitalJob(job) {
@@ -594,6 +650,9 @@
     if (activeCity !== "all") params.set("city", activeCity);
     if (activeSector !== "all") params.set("sector", activeSector);
     if (activeEducation !== "all") params.set("edu", activeEducation);
+    if (activeMode !== "all") params.set("mode", activeMode);
+    if (activeEmpType !== "all") params.set("emp", activeEmpType);
+    if (activeCompanyType !== "all") params.set("ctype", activeCompanyType);
     if (activeExp !== "all") params.set("exp", activeExp);
     if (roleQuery) params.set("role", roleQuery);
 
@@ -674,6 +733,13 @@
       const expParam = (params.get("exp") || "").trim().toLowerCase();
       if (["government", "psu", "apprenticeship", "it", "healthcare"].includes(sectorParam)) activeSector = sectorParam;
       if (EDUCATION_PATTERNS[eduParam]) activeEducation = eduParam;
+      const modeParam = (params.get("mode") || params.get("view") || "").trim().toLowerCase();
+      const empParam = (params.get("emp") || "").trim().toLowerCase();
+      const ctypeParam = (params.get("ctype") || "").trim().toLowerCase();
+      if (["remote", "hybrid", "onsite"].includes(modeParam)) activeMode = modeParam;
+      if (modeParam === "wfh") activeMode = "remote";
+      if (["fulltime", "parttime", "contract", "internship", "apprenticeship"].includes(empParam)) activeEmpType = empParam;
+      if (["mnc", "healthcare", "education", "government", "other"].includes(ctypeParam)) activeCompanyType = ctypeParam;
       if (["fresher", "experienced"].includes(expParam)) activeExp = expParam;
       roleQuery = (params.get("role") || "").trim().toLowerCase();
       if (sortParam) {
@@ -701,6 +767,10 @@
       syncGroup(cityBar, "city", activeCity);
       syncGroup(sectorBar, "sector", activeSector);
       syncGroup(educationBar, "education", activeEducation);
+      syncGroup(workModeBar, "mode", activeMode);
+      syncGroup(empTypeBar, "emptype", activeEmpType);
+      syncGroup(companyTypeBar, "ctype", activeCompanyType);
+      syncViewTabs();
       syncQuickBar();
       widenScopeForCompanyIfNeeded();
     } catch (_e) {
@@ -801,6 +871,9 @@
         matchesPosted(job) &&
         matchesSector(job) &&
         matchesEducation(job) &&
+        matchesWorkMode(job) &&
+        matchesEmpType(job) &&
+        matchesCompanyType(job) &&
         matchesExp(job) &&
         matchesRole(job)
     );
@@ -1452,6 +1525,9 @@
         activeCity !== "all",
         activeSector !== "all",
         activeEducation !== "all",
+        activeMode !== "all",
+        activeEmpType !== "all",
+        activeCompanyType !== "all",
         activeExp !== "all",
         Boolean(roleQuery)
       ].filter(Boolean).length;
@@ -1766,6 +1842,9 @@
     activeCity = "all";
     activeSector = "all";
     activeEducation = "all";
+    activeMode = "all";
+    activeEmpType = "all";
+    activeCompanyType = "all";
     activeExp = "all";
     roleQuery = "";
     clearCompanyFilter();
@@ -1790,6 +1869,10 @@
     syncGroup(cityBar, "city", "all");
     syncGroup(sectorBar, "sector", "all");
     syncGroup(educationBar, "education", "all");
+    syncGroup(workModeBar, "mode", "all");
+    syncGroup(empTypeBar, "emptype", "all");
+    syncGroup(companyTypeBar, "ctype", "all");
+    syncViewTabs();
     syncHeroParkButtons();
     syncQuickBar();
 
@@ -1809,6 +1892,12 @@
     const educationLabels = { plustwo: "Plus Two", iti: "ITI", diploma: "Diploma", degree: "Degree", pg: "Postgraduate" };
     if (activeSector !== "all") chips.push({ key: "sector", label: `Sector: ${sectorLabels[activeSector]}` });
     if (activeEducation !== "all") chips.push({ key: "education", label: `Education: ${educationLabels[activeEducation]}` });
+    const modeLabels = { remote: "Remote / WFH", hybrid: "Hybrid", onsite: "On-site" };
+    const empLabels = { fulltime: "Full-time", parttime: "Part-time", contract: "Contract", internship: "Internship", apprenticeship: "Apprenticeship" };
+    const ctypeLabels = { mnc: "MNC / large employer", healthcare: "Hospital / healthcare", education: "Education / training", government: "Government / PSU", other: "Other companies" };
+    if (activeMode !== "all") chips.push({ key: "mode", label: `Work mode: ${modeLabels[activeMode]}` });
+    if (activeEmpType !== "all") chips.push({ key: "emptype", label: `Type: ${empLabels[activeEmpType]}` });
+    if (activeCompanyType !== "all") chips.push({ key: "ctype", label: `Company: ${ctypeLabels[activeCompanyType]}` });
     if (activeExp !== "all") chips.push({ key: "exp", label: activeExp === "fresher" ? "Open to freshers" : "Experienced" });
     if (roleQuery) chips.push({ key: "role", label: `Role: ${roleQuery}` });
     if (activeFilter !== "all") chips.push({ key: "filter", label: filterLabels[activeFilter] || activeFilter });
@@ -1838,6 +1927,9 @@
       city: () => { activeCity = "all"; syncSidebar(cityBar, "city", "all"); },
       sector: () => { activeSector = "all"; syncSidebar(sectorBar, "sector", "all"); },
       education: () => { activeEducation = "all"; syncSidebar(educationBar, "education", "all"); },
+      mode: () => { activeMode = "all"; syncSidebar(workModeBar, "mode", "all"); syncViewTabs(); },
+      emptype: () => { activeEmpType = "all"; syncSidebar(empTypeBar, "emptype", "all"); },
+      ctype: () => { activeCompanyType = "all"; syncSidebar(companyTypeBar, "ctype", "all"); },
       exp: () => { activeExp = "all"; syncQuickBar(); },
       role: () => { roleQuery = ""; syncQuickBar(); },
       filter: () => { activeFilter = "all"; syncFilterChip("all"); },
@@ -1910,6 +2002,42 @@
   bindChipGroup(cityBar, "city", (value) => (activeCity = value));
   bindChipGroup(sectorBar, "sector", (value) => (activeSector = value));
   bindChipGroup(educationBar, "education", (value) => (activeEducation = value));
+  bindChipGroup(workModeBar, "mode", (value) => { activeMode = value; syncViewTabs(); });
+  bindChipGroup(empTypeBar, "emptype", (value) => (activeEmpType = value));
+  bindChipGroup(companyTypeBar, "ctype", (value) => (activeCompanyType = value));
+
+  /* "All jobs" / "Work from home" tabs: a shortcut for the Remote / WFH work-mode filter. */
+  function syncViewTabs() {
+    if (!viewTabs) return;
+    const view = activeMode === "remote" ? "remote" : "all";
+    viewTabs.querySelectorAll("[data-view]").forEach((tab) => {
+      const on = tab.dataset.view === view;
+      tab.classList.toggle("is-active", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+    });
+  }
+
+  if (viewTabs) {
+    viewTabs.addEventListener("click", (event) => {
+      const tab = event.target.closest("[data-view]");
+      if (!tab) return;
+      activeMode = tab.dataset.view === "remote" ? "remote" : "all";
+      if (workModeBar) {
+        workModeBar.querySelectorAll("[data-mode]").forEach((btn) => {
+          const on = btn.dataset.mode === activeMode;
+          btn.classList.toggle("is-active", on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+      }
+      syncViewTabs();
+      resetVisibleAndRender();
+    });
+    const wfhCount = document.getElementById("jobs-wfh-count");
+    if (wfhCount) {
+      const n = JOBS.filter((job) => isRemoteJob(job) && deadlineStatus(job) !== "expired").length;
+      wfhCount.textContent = n ? `(${n})` : "";
+    }
+  }
 
   /* Quick bar above the list: same state as the sidebar, so either control updates the other. */
   function copyOptions(from, to) {

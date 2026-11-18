@@ -3117,3 +3117,47 @@ body.jobs-marketplace .ej-quick-field select:focus-visible {
     grid-column: 1 / -1;
   }
 }
+
+/* "All jobs" / "Work from home" view tabs above the job list */
+body.jobs-marketplace .ej-view-tabs {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid var(--ej-line);
+  overflow-x: auto;
+}
+
+body.jobs-marketplace .ej-view-tab {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.55rem 0.9rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--ej-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+body.jobs-marketplace .ej-view-tab:hover {
+  color: var(--ej-ink);
+}
+
+body.jobs-marketplace .ej-view-tab.is-active {
+  color: var(--ej-blue-mid);
+  border-bottom-color: var(--ej-blue-mid);
+}
+
+body.jobs-marketplace .ej-view-tab:focus-visible {
+  outline: 2px solid var(--ej-blue-mid);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+body.jobs-marketplace .ej-view-tab-count {
+  font-weight: 500;
+  color: var(--ej-muted);
+}
