@@ -3162,3 +3162,19 @@ body.jobs-marketplace .ej-view-tab-count {
   color: var(--ej-muted);
 }
 body.jobs-marketplace a.ej-view-tab--link { text-decoration: none; display: inline-flex; align-items: center; }
+
+/* Selected park button keeps its park colour in dark mode too (the dark-theme rule above is more specific). */
+html.theme-dark body.jobs-marketplace .ej-hero-park-btn.is-active,
+body.jobs-marketplace.dark .ej-hero-park-btn.is-active,
+body.jobs-discovery .ej-hero-park-btn.is-active {
+  color: #fff;
+}
+html.theme-dark body.jobs-marketplace .ej-hero-park-btn[data-hero-park="infopark"].is-active,
+body.jobs-marketplace.dark .ej-hero-park-btn[data-hero-park="infopark"].is-active,
+body.jobs-discovery .ej-hero-park-btn[data-hero-park="infopark"].is-active { background: #16a34a; border-color: #16a34a; }
+html.theme-dark body.jobs-marketplace .ej-hero-park-btn[data-hero-park="technopark"].is-active,
+body.jobs-marketplace.dark .ej-hero-park-btn[data-hero-park="technopark"].is-active,
+body.jobs-discovery .ej-hero-park-btn[data-hero-park="technopark"].is-active { background: #7c3aed; border-color: #7c3aed; }
+html.theme-dark body.jobs-marketplace .ej-hero-park-btn[data-hero-park="cyberpark"].is-active,
+body.jobs-marketplace.dark .ej-hero-park-btn[data-hero-park="cyberpark"].is-active,
+body.jobs-discovery .ej-hero-park-btn[data-hero-park="cyberpark"].is-active { background: #0891b2; border-color: #0891b2; }

@@ -1595,8 +1595,46 @@
     }
   }
 
-  function render() {
+  /* Every chip group, tab, select and hero button mirrors the filter state on each render, so a filter
+     cleared from one place (active chip ×, Clear all, hero button, quick bar, URL) never leaves another
+     control highlighted. */
+  function syncChipGroup(bar, attr, value) {
+    if (!bar) return;
+    bar.querySelectorAll(`[data-${attr}]`).forEach((btn) => {
+      const on = btn.dataset[attr] === value;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  function syncAllControls() {
+    syncChipGroup(filterBar, "filter", activeFilter);
+    syncChipGroup(statusBar, "status", activeStatus);
+    syncChipGroup(tagBar, "tag", activeTag);
+    syncChipGroup(parkBar, "park", activePark);
+    syncChipGroup(postedBar, "posted", activePosted);
+    syncChipGroup(cityBar, "city", activeCity);
+    syncChipGroup(sectorBar, "sector", activeSector);
+    syncChipGroup(educationBar, "education", activeEducation);
+    syncChipGroup(workModeBar, "mode", activeMode);
+    syncChipGroup(empTypeBar, "emptype", activeEmpType);
+    syncChipGroup(companyTypeBar, "ctype", activeCompanyType);
+    syncChipGroup(yearsBar, "years", activeYears);
+    syncHeroParkButtons();
+    syncViewTabs();
     syncQuickBar();
+    if (sortSelect && sortSelect.value !== sortMode) sortSelect.value = sortMode;
+    if (locationSelect && locationSelect.value !== activeLocation) {
+      locationSelect.value = activeLocation;
+      if (locationSelect.value !== activeLocation) locationSelect.value = "all";
+    }
+    if (searchInput && document.activeElement !== searchInput && searchInput.value.trim().toLowerCase() !== searchQuery) {
+      searchInput.value = searchQuery;
+    }
+  }
+
+  function render() {
+    syncAllControls();
     if ((activeStatus === "expired" || activeStatus === "all" || savedOnly) && !expiredLoaded()) {
       grid.setAttribute("aria-busy", "true");
       if (countEl) countEl.textContent = "Loading expired listings…";
