@@ -930,6 +930,8 @@
     const countEl = document.getElementById("today-walkins-count");
     const searchEl = document.getElementById("today-walkins-q");
     const tabsEl = document.getElementById("today-walkins-cities");
+    const datesEl = document.getElementById("today-walkins-dates");
+    const datePickEl = document.getElementById("today-walkins-date-pick");
     if (!panel || !btn || !groupsEl) return;
 
     const catalog = jobs
@@ -942,6 +944,40 @@
 
     let park = "all";
     let query = "";
+    let walkDate = "all";
+    const dayKeysCache = new WeakMap();
+    const walkDays = (job) => {
+      if (!dayKeysCache.has(job)) dayKeysCache.set(job, parseWalkInDateKeys(walkInText(job)).filter(Boolean));
+      return dayKeysCache.get(job);
+    };
+    const onDate = (job) => walkDate === "all" || walkDays(job).includes(walkDate);
+
+    /* Date chips: "Any date", then every upcoming day that has a drive (soonest first), each with its count. */
+    function dateChipsHtml(list) {
+      const today = todayKey();
+      const counts = new Map();
+      list.forEach((job) => walkDays(job).forEach((k) => k >= today && counts.set(k, (counts.get(k) || 0) + 1)));
+      if (walkDate !== "all" && !counts.has(walkDate)) counts.set(walkDate, 0);
+      const keys = [...counts.keys()].sort();
+      const tomorrow = addDays(today, 1);
+      const chip = (key) => {
+        const p = parseKey(key);
+        const d = new Date(p.y, p.m, p.d);
+        const top = key === today ? "Today" : key === tomorrow ? "Tomorrow" : d.toLocaleDateString("en-IN", { weekday: "short" });
+        const active = key === walkDate;
+        return `<button type="button" class="today-wdate${active ? " is-active" : ""}${key === today ? " is-today" : ""}" data-walkins-date="${key}" aria-pressed="${active}">
+            <span class="today-wdate-top">${escapeHtml(top)}</span>
+            <strong>${p.d}</strong>
+            <span class="today-wdate-mon">${escapeHtml(d.toLocaleDateString("en-IN", { month: "short" }))}</span>
+            <span class="today-wdate-n">${counts.get(key)}</span>
+          </button>`;
+      };
+      const anyActive = walkDate === "all";
+      return `<button type="button" class="today-wdate today-wdate--any${anyActive ? " is-active" : ""}" data-walkins-date="all" aria-pressed="${anyActive}">
+            <span class="today-wdate-top">All</span><strong>Any</strong><span class="today-wdate-mon">date</span>
+            <span class="today-wdate-n">${list.length}</span>
+          </button>${keys.map(chip).join("")}`;
+    }
 
     function setUrlView(open) {
       try {
@@ -951,6 +987,8 @@
         url.searchParams.delete("park");
         if (open && park !== "all") url.searchParams.set("city", park);
         else url.searchParams.delete("city");
+        if (open && walkDate !== "all") url.searchParams.set("walkin", walkDate);
+        else url.searchParams.delete("walkin");
         url.searchParams.delete("kind");
         globalThis.history.replaceState({}, "", url);
       } catch {
@@ -998,8 +1036,12 @@
     }
 
     function renderWalkins() {
-      const matching = catalog.filter((job) => matchesWalkinsQuery(job, query));
-      if (park !== "all" && !matching.some((job) => jobCity(job) === park)) park = "all";
+      const searched = catalog.filter((job) => matchesWalkinsQuery(job, query));
+      const inCity = searched.filter((job) => park === "all" || jobCity(job) === park);
+      if (datesEl) datesEl.innerHTML = dateChipsHtml(inCity);
+      if (datePickEl) datePickEl.value = walkDate === "all" ? "" : walkDate;
+      const matching = searched.filter(onDate);
+      if (park !== "all" && !matching.some((job) => jobCity(job) === park) && walkDate === "all") park = "all";
       if (tabsEl) tabsEl.innerHTML = cityChipsHtml(matching, park, "walkins-city");
 
       /* One section per city, in the CITIES order (Kerala first), soonest walk-in first inside each. */
@@ -1011,6 +1053,10 @@
       const visible = sections.reduce((sum, section) => sum + section.rows.length, 0);
       if (countEl) {
         countEl.textContent = visible === 0 ? "No walk-ins" : `${visible} walk-in${visible === 1 ? "" : "s"}`;
+        if (walkDate !== "all") {
+          const p = parseKey(walkDate);
+          countEl.textContent += ` · ${new Date(p.y, p.m, p.d).toLocaleDateString("en-IN", { day: "numeric", month: "short" })}`;
+        }
       }
 
       if (!visible) {
@@ -1076,6 +1122,18 @@
       renderWalkins();
     });
 
+    const setWalkDate = (key) => {
+      walkDate = isIsoDate(key) ? key : "all";
+      setUrlView(true);
+      renderWalkins();
+      datesEl?.querySelector(".is-active")?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+    };
+    datesEl?.addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-walkins-date]");
+      if (chip) setWalkDate(chip.dataset.walkinsDate);
+    });
+    datePickEl?.addEventListener("change", () => setWalkDate(datePickEl.value));
+
     btn.addEventListener("click", () => {
       setOpen(panel.hidden);
     });
@@ -1086,6 +1144,8 @@
     else if (startCity === "infopark") park = "kochi";
     else if (startCity === "technopark") park = "trivandrum";
     else if (startCity === "cyberpark") park = "kozhikode";
+    const startDate = params.get("walkin") || "";
+    if (isIsoDate(startDate)) walkDate = startDate;
     if (params.get("view") === "walkins") setOpen(true);
   }
 

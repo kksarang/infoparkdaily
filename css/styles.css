@@ -16648,3 +16648,165 @@ html.theme-dark .nav-about-links,body.dark .nav-about-links{background:#111722}h
     display: block;
   }
 }
+
+/* Walk-in date picker row (jobs/today, walk-ins view) */
+.today-wdates-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.today-wdates {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  flex: 1;
+  min-width: 0;
+  padding: 2px 2px 6px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.today-wdate {
+  flex: none;
+  position: relative;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  min-height: 96px;
+  padding: 0.5rem 0.35rem 0.55rem;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.1;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+
+.today-wdate:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.today-wdate-top {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.today-wdate strong {
+  margin: 0.2rem 0 0.1rem;
+  font-family: var(--display);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.today-wdate--any strong {
+  font-size: 1.05rem;
+  margin: 0.35rem 0 0.2rem;
+}
+
+.today-wdate-mon {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.today-wdate-n {
+  margin-top: 0.35rem;
+  min-width: 22px;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  font-size: 0.66rem;
+  font-weight: 800;
+}
+
+.today-wdate.is-today .today-wdate-top {
+  color: #e5484d;
+}
+
+.today-wdate.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: var(--glow-accent);
+}
+
+.today-wdate.is-active .today-wdate-top,
+.today-wdate.is-active .today-wdate-mon {
+  color: var(--accent-ink);
+  opacity: 0.8;
+}
+
+.today-wdate.is-active .today-wdate-n {
+  background: rgba(0, 0, 0, 0.14);
+  color: var(--accent-ink);
+}
+
+.today-wdate-pick {
+  flex: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 78px;
+  min-height: 96px;
+  margin-bottom: 6px;
+  border-radius: 16px;
+  border: 1px dashed var(--line-strong);
+  color: var(--text);
+  font-size: 0.72rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.today-wdate-pick:hover,
+.today-wdate-pick:focus-within {
+  border-color: var(--accent);
+  border-style: solid;
+}
+
+.today-wdate-pick svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.today-wdate-pick input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.today-wdate-pick input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .today-wdate { width: 68px; min-height: 90px; }
+  .today-wdate-pick { width: 56px; min-height: 90px; }
+  .today-wdate-pick span { display: none; }
+}

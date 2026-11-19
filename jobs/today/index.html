@@ -59,7 +59,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <link rel="stylesheet" href="/css/styles.css?v=20261102chk" />
+    <link rel="stylesheet" href="/css/styles.css?v=20261119wd" />
     <link rel="stylesheet" href="/css/jobs-today.css?v=20261119city" />
     
   </head>
@@ -161,7 +161,7 @@
             <p class="today-day-kicker">Walk-in · Campus drive</p>
             <h2 id="today-walkins-title">Walk-in drives</h2>
             <p class="today-freshers-lede">
-              Open walk-in drives across Kerala and beyond — pick a city to narrow the list. Confirm date, time, and venue on the
+              Open walk-in drives across Kerala and beyond — pick a date or city to narrow the list. Confirm date, time, and venue on the
               company page before you travel.
             </p>
           </div>
@@ -169,6 +169,14 @@
         </header>
 
         <div class="today-freshers-tools">
+          <div class="today-wdates-wrap">
+            <div class="today-wdates" id="today-walkins-dates" role="group" aria-label="Walk-in date"></div>
+            <label class="today-wdate-pick" title="Pick a date">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+              <span>Pick date</span>
+              <input id="today-walkins-date-pick" type="date" aria-label="Pick a walk-in date" />
+            </label>
+          </div>
           <div class="today-freshers-tabs" id="today-walkins-cities" role="group" aria-label="Walk-in location">
             <button type="button" class="is-active" data-walkins-city="all" aria-pressed="true">All</button>
           </div>
@@ -387,6 +395,6 @@
     <script type="module" src="/analytics/main.js?v=20260916act"></script>
     <script src="/js/site.js?v=20261110ip" defer></script>
     <script src="/data/jobs-index.js?v=cbbf1f1cdb" defer></script>
-    <script src="/js/jobs-today.js?v=20261119city" defer></script>
+    <script src="/js/jobs-today.js?v=20261119date" defer></script>
   </body>
 </html>
