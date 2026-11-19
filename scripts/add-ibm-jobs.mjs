@@ -136,6 +136,7 @@ for (const r of JSON.parse(readFileSync(listPath, "utf8"))) {
   const all = (Array.isArray(r.field_keyword_21) && r.field_keyword_21.length ? r.field_keyword_21 : [String(r.field_keyword_19 || "").split(",")[0]]).map((c) => String(c).trim()).filter(Boolean);
   const cities = [...new Set(all.map((c) => c.toLowerCase()))].map((lc) => all.find((c) => c.toLowerCase() === lc));
   if (!cities.some((c) => KEEP.has(c.toLowerCase()))) continue;
+  if (/referrals? only/i.test(r.title || "")) continue; // not open to public applicants
   const jobId = String(r.field_text_01 || "");
   if (jobId && have.has(jobId)) continue;
   const j = toJob(r, cities);
