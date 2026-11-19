@@ -77,3 +77,5 @@ html.theme-light .today-row-when { color: #8a5a00; }
 @media (min-width: 861px) {
   .today-layout .today-cal-panel { position: sticky; top: calc(5.5rem + env(safe-area-inset-top, 0px)); }
 }
+.today-agenda-cities[hidden] { display: none; }
+.today-agenda-cities button { min-height: 32px; font-size: 0.78rem; }

@@ -178,6 +178,13 @@
 
     const keys = new Set();
 
+    /* ISO dates ("2026-11-21", or several separated by commas) are the usual format in the data. */
+    const isoDates = raw.match(/\d{4}-\d{2}-\d{2}/g);
+    if (isoDates) {
+      isoDates.forEach((k) => keys.add(k));
+      return [...keys];
+    }
+
     const rangeMatch = normalized.match(
       /^(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+(?:\s+\d{4})?)\s*-\s*(\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]+(?:\s+\d{4})?)$/i
     );
@@ -201,6 +208,64 @@
     });
 
     return [...keys];
+  }
+
+  /* ---------- city (location filter) ----------
+     Read from the listing's location (and the walk-in venue / address when the location names no city). */
+  const CITIES = [
+    ["kochi", "Kochi", /kochi|cochin|ernakulam|kakkanad|edappally|edapally|vyttila|aluva|kalamassery|smart ?city|thrikkakara|angamaly|perumbavoor|palarivattom|kadavanthra|vaduthala|tripunithura|thripunithura|infopark(?![^,]*(thrissur|koratty))|bharata mata/],
+    ["trivandrum", "Trivandrum", /trivandrum|thiruvananthapuram|technopark|kazhakoottam|kazhakkoottam|technocity|\btvm\b/],
+    ["kozhikode", "Kozhikode", /kozhikode|calicut|cyberpark|mukkam|vadakara|koyilandi|quilandy/],
+    ["thrissur", "Thrissur", /thrissur|koratty|chalakudy|kunnamkulam|guruvayur|irinjalakuda/],
+    ["malappuram", "Malappuram", /malappuram|manjeri|perinthalmanna|tirur|kottakkal|nilambur|ponnani/],
+    ["kannur", "Kannur", /kannur|thalassery/],
+    ["kottayam", "Kottayam", /kottayam|pala\b|changanassery/],
+    ["palakkad", "Palakkad", /palakkad/],
+    ["alappuzha", "Alappuzha", /alappuzha|alleppey|cherthala/],
+    ["kollam", "Kollam", /kollam|karunagappally|kottarakkara/],
+    ["kasaragod", "Kasaragod", /kasaragod|kanhangad/],
+    ["wayanad", "Wayanad", /wayanad|kalpetta|sulthan bathery/],
+    ["pathanamthitta", "Pathanamthitta", /pathanamthitta|thiruvalla|kozhencherry/],
+    ["idukki", "Idukki", /idukki|thodupuzha/],
+    ["bangalore", "Bangalore", /bangalore|bengaluru/],
+    ["chennai", "Chennai", /chennai/],
+    ["hyderabad", "Hyderabad", /hyderabad/],
+    ["pune", "Pune", /\bpune\b/],
+    ["mumbai", "Mumbai", /mumbai|navi mumbai/],
+    ["remote", "Remote", /remote|work from home|\bwfh\b/]
+  ];
+  const CITY_LABEL = Object.fromEntries(CITIES.map(([k, label]) => [k, label]));
+  CITY_LABEL.other = "Other";
+  const cityCache = new WeakMap();
+
+  function jobCity(job) {
+    if (cityCache.has(job)) return cityCache.get(job);
+    const sources = [job.location, job.walkinLocation, job.address];
+    let found = "other";
+    for (const text of sources) {
+      const t = String(text || "").toLowerCase();
+      if (!t) continue;
+      const hit = CITIES.find(([, , re]) => re.test(t));
+      if (hit) {
+        found = hit[0];
+        break;
+      }
+    }
+    cityCache.set(job, found);
+    return found;
+  }
+
+  /* Chips for the cities present in a list: "All n" + one per city (in CITIES order), "Other" last. */
+  function cityChipsHtml(list, active, attr) {
+    const counts = new Map();
+    list.forEach((job) => {
+      const c = jobCity(job);
+      counts.set(c, (counts.get(c) || 0) + 1);
+    });
+    const keys = [...CITIES.map(([k]) => k), "other"].filter((k) => counts.has(k));
+    const chip = (key, label, n) =>
+      `<button type="button" class="${key === active ? "is-active" : ""}" data-${attr}="${key}" aria-pressed="${key === active}">${escapeHtml(label)} <span>${n}</span></button>`;
+    return [chip("all", "All", list.length), ...keys.map((k) => chip(k, CITY_LABEL[k], counts.get(k)))].join("");
   }
 
   function isWalkInJob(job) {
@@ -457,6 +522,7 @@
   ];
   const AGENDA_PAGE = 10;
   let agendaFilter = "all";
+  let agendaCity = "all";
   let agendaQuery = "";
   const agendaOpen = new Set();
 
@@ -507,9 +573,18 @@
     const tools = document.getElementById("today-agenda-tools");
     if (tools) tools.hidden = all.length < 4;
 
+    const cityEl = document.getElementById("today-agenda-cities");
+    const kindItems = agendaFilter === "all" ? all : byKind[agendaFilter];
+    if (agendaCity !== "all" && !kindItems.some((item) => jobCity(item.job) === agendaCity)) agendaCity = "all";
+    if (cityEl) {
+      cityEl.innerHTML = cityChipsHtml(kindItems.map((item) => item.job), agendaCity, "agenda-city");
+      cityEl.hidden = kindItems.length < 2;
+    }
+
     const q = agendaQuery.trim().toLowerCase();
     const match = (item) =>
-      !q || [item.job.company, ...(item.job.roles || []), item.job.location, item.job.walkinLocation].filter(Boolean).join(" ").toLowerCase().includes(q);
+      (agendaCity === "all" || jobCity(item.job) === agendaCity) &&
+      (!q || [item.job.company, ...(item.job.roles || []), item.job.location, item.job.walkinLocation].filter(Boolean).join(" ").toLowerCase().includes(q));
 
     if (dayTitleEl) dayTitleEl.textContent = formatLong(selectedKey);
     if (dayCountEl) dayCountEl.textContent = all.length === 0 ? "No openings" : `${all.length} opening${all.length === 1 ? "" : "s"}`;
@@ -535,10 +610,20 @@
           </section>`;
       })
       .join("");
-    dayListEl.innerHTML = sections || `<p class="today-agenda-none">No openings match “${escapeHtml(agendaQuery)}” on this day.</p>`;
+    dayListEl.innerHTML =
+      sections ||
+      `<p class="today-agenda-none">No openings match${agendaQuery ? ` “${escapeHtml(agendaQuery)}”` : ""}${
+        agendaCity !== "all" ? ` in ${escapeHtml(CITY_LABEL[agendaCity])}` : ""
+      } on this day.</p>`;
   }
 
   document.getElementById("today-agenda-tools")?.addEventListener("click", (e) => {
+    const city = e.target.closest("[data-agenda-city]");
+    if (city) {
+      agendaCity = city.dataset.agendaCity;
+      renderDayList();
+      return;
+    }
     const b = e.target.closest("[data-agenda]");
     if (!b) return;
     agendaFilter = b.dataset.agenda;
@@ -559,6 +644,7 @@
     if (!key || !/^\d{4}-\d{2}-\d{2}$/.test(key)) return;
     if (key !== selectedKey) {
       agendaFilter = "all";
+      agendaCity = "all";
       agendaQuery = "";
       agendaOpen.clear();
       const qEl = document.getElementById("today-agenda-q");
@@ -757,7 +843,7 @@
                 <article class="today-fresher-card">
                   <div class="today-fresher-card-top">
                     <span class="today-fresher-kind today-fresher-kind--${row.kind}">${kindLabel}</span>
-                    <span class="today-fresher-park">${escapeHtml(parkLabel(job))}</span>
+                    <span class="today-fresher-park">${escapeHtml(CITY_LABEL[jobCity(job)] || parkLabel(job))}</span>
                   </div>
                   <h4>${escapeHtml(role)}</h4>
                   <p class="today-fresher-company">${
@@ -843,10 +929,7 @@
     const emptyEl = document.getElementById("today-walkins-empty");
     const countEl = document.getElementById("today-walkins-count");
     const searchEl = document.getElementById("today-walkins-q");
-    const nAll = document.getElementById("today-walkins-n-all");
-    const nInfopark = document.getElementById("today-walkins-n-infopark");
-    const nTechnopark = document.getElementById("today-walkins-n-technopark");
-    const nOther = document.getElementById("today-walkins-n-other");
+    const tabsEl = document.getElementById("today-walkins-cities");
     if (!panel || !btn || !groupsEl) return;
 
     const catalog = jobs
@@ -865,8 +948,9 @@
         const url = new URL(globalThis.location.href);
         if (open) url.searchParams.set("view", "walkins");
         else if (url.searchParams.get("view") === "walkins") url.searchParams.delete("view");
-        if (open && park !== "all") url.searchParams.set("park", park.toLowerCase());
-        else url.searchParams.delete("park");
+        url.searchParams.delete("park");
+        if (open && park !== "all") url.searchParams.set("city", park);
+        else url.searchParams.delete("city");
         url.searchParams.delete("kind");
         globalThis.history.replaceState({}, "", url);
       } catch {
@@ -915,24 +999,14 @@
 
     function renderWalkins() {
       const matching = catalog.filter((job) => matchesWalkinsQuery(job, query));
-      const infoparkRows = matching.filter((job) => walkinParkGroup(job) === "Infopark");
-      const technoparkRows = matching.filter((job) => walkinParkGroup(job) === "Technopark");
-      const otherRows = matching.filter((job) => walkinParkGroup(job) === "Other");
-      if (nAll) nAll.textContent = String(matching.length);
-      if (nInfopark) nInfopark.textContent = String(infoparkRows.length);
-      if (nTechnopark) nTechnopark.textContent = String(technoparkRows.length);
-      if (nOther) nOther.textContent = String(otherRows.length);
+      if (park !== "all" && !matching.some((job) => jobCity(job) === park)) park = "all";
+      if (tabsEl) tabsEl.innerHTML = cityChipsHtml(matching, park, "walkins-city");
 
-      const sections = [];
-      if (park === "all" || park === "Infopark") {
-        sections.push({ title: "Infopark walk-ins", rows: infoparkRows });
-      }
-      if (park === "all" || park === "Technopark") {
-        sections.push({ title: "Technopark walk-ins", rows: technoparkRows });
-      }
-      if (park === "all" || park === "Other") {
-        sections.push({ title: "Other walk-ins", rows: otherRows });
-      }
+      /* One section per city, in the CITIES order (Kerala first), soonest walk-in first inside each. */
+      const order = [...CITIES.map(([k]) => k), "other"];
+      const sections = order
+        .filter((city) => park === "all" || park === city)
+        .map((city) => ({ title: `${CITY_LABEL[city]} walk-ins`, rows: matching.filter((job) => jobCity(job) === city) }));
 
       const visible = sections.reduce((sum, section) => sum + section.rows.length, 0);
       if (countEl) {
@@ -989,17 +1063,12 @@
         .join("");
     }
 
-    panel.querySelectorAll("[data-walkins-park]").forEach((tab) => {
-      tab.addEventListener("click", () => {
-        park = tab.getAttribute("data-walkins-park") || "all";
-        panel.querySelectorAll("[data-walkins-park]").forEach((other) => {
-          const on = other === tab;
-          other.classList.toggle("is-active", on);
-          other.setAttribute("aria-pressed", on ? "true" : "false");
-        });
-        setUrlView(true);
-        renderWalkins();
-      });
+    tabsEl?.addEventListener("click", (e) => {
+      const tab = e.target.closest("[data-walkins-city]");
+      if (!tab) return;
+      park = tab.dataset.walkinsCity || "all";
+      setUrlView(true);
+      renderWalkins();
     });
 
     searchEl?.addEventListener("input", () => {
@@ -1012,18 +1081,11 @@
     });
 
     const params = new URLSearchParams(globalThis.location.search);
-    const startPark = (params.get("park") || "").toLowerCase();
-    if (startPark === "infopark" || startPark === "technopark" || startPark === "other") {
-      park = startPark === "infopark" ? "Infopark" : startPark === "technopark" ? "Technopark" : "Other";
-      const tab = panel.querySelector(`[data-walkins-park="${park}"]`);
-      if (tab) {
-        panel.querySelectorAll("[data-walkins-park]").forEach((other) => {
-          const on = other === tab;
-          other.classList.toggle("is-active", on);
-          other.setAttribute("aria-pressed", on ? "true" : "false");
-        });
-      }
-    }
+    const startCity = (params.get("city") || params.get("park") || "").toLowerCase();
+    if (CITY_LABEL[startCity]) park = startCity;
+    else if (startCity === "infopark") park = "kochi";
+    else if (startCity === "technopark") park = "trivandrum";
+    else if (startCity === "cyberpark") park = "kozhikode";
     if (params.get("view") === "walkins") setOpen(true);
   }
 

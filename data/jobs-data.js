@@ -323343,7 +323343,7 @@ var JOBS = [
     verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
     tags: ["IT"],
     isWalkIn: true,
-    walkInDate: "",
+    walkInDate: "2026-11-21",
     email: "hiring@experionglobal.com",
     phone: "",
     website: "",
