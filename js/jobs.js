@@ -42,6 +42,7 @@
   const quickExp = document.getElementById("jobs-quick-exp");
   const quickSort = document.getElementById("jobs-quick-sort");
   const activeChipsEl = document.getElementById("jobs-active-chips");
+  const yearsBar = document.getElementById("jobs-years");
 
   if (!grid || typeof JOBS === "undefined") return;
   if (!window.IPDJobDeadline) {
@@ -60,7 +61,53 @@
   const PAGE_SIZE = 12;
   const NEW_DAYS = 5;
   const MAX_ROLES_ON_CARD = 2;
-  const { daysLeft, deadlineStatus, parseIso, DAY_MS, todayStart } = window.IPDJobDeadline;
+  const { daysLeft, deadlineStatus: rawDeadlineStatus, parseIso, DAY_MS, todayStart } = window.IPDJobDeadline;
+
+  /* ---------- per-job caches ----------
+     The board holds 10k+ jobs. Anything derived from a job (status, region, sectors, search text…)
+     is computed once per job and reused, so typing in search or clicking a filter stays instant. */
+  function memo(fn) {
+    const cache = new WeakMap();
+    return (job) => {
+      let value = cache.get(job);
+      if (value === undefined) {
+        value = fn(job);
+        cache.set(job, value);
+      }
+      return value;
+    };
+  }
+  const deadlineStatus = memo(rawDeadlineStatus);
+
+  /* Expired listings live in /data/jobs-expired.js (built by scripts/build-jobs-index.mjs) and are only
+     downloaded when someone opens an "Expired" view, which keeps the normal board light. */
+  let expiredPromise = null;
+  function expiredLoaded() {
+    return !window.IPD_JOBS_EXPIRED_COUNT || window.__IPD_EXPIRED_MERGED__ === true;
+  }
+  function mergeExpiredJobs() {
+    if (window.__IPD_EXPIRED_MERGED__ || !Array.isArray(window.IPD_JOBS_EXPIRED)) return;
+    const known = new Set(JOBS.map((job) => String(job.id)));
+    window.IPD_JOBS_EXPIRED.forEach((job) => {
+      if (known.has(String(job.id))) return;
+      if (typeof jobIndex !== "undefined") jobIndex.set(job, JOBS.length);
+      JOBS.push(job);
+    });
+    window.__IPD_EXPIRED_MERGED__ = true;
+  }
+  function loadExpiredJobs() {
+    if (expiredLoaded()) return Promise.resolve();
+    if (!expiredPromise) {
+      expiredPromise = new Promise((resolve) => {
+        if (Array.isArray(window.IPD_JOBS_EXPIRED)) return resolve();
+        const tag = document.createElement("script");
+        tag.src = `/data/jobs-expired.js?v=${encodeURIComponent(window.IPD_JOBS_VERSION || "")}`;
+        tag.onload = tag.onerror = () => resolve();
+        document.head.appendChild(tag);
+      }).then(mergeExpiredJobs);
+    }
+    return expiredPromise;
+  }
 
   function parkPageLocation() {
     const path = (window.location.pathname || "/").replace(/\/+$/, "") || "/";
@@ -104,6 +151,7 @@
   let activeEmpType = "all";
   let activeCompanyType = "all";
   let activeExp = "all";
+  let activeYears = "all";
   let roleQuery = "";
   let visibleCount = PAGE_SIZE;
   /** @type {{ key: string, label: string, count: number }[]} */
@@ -140,12 +188,89 @@
       .trim();
   }
 
+  /* ---------- search ----------
+     Words match at the start of a word ("java" finds "Java", not "JavaScript"-only listings by accident of
+     a longer word; "acc" finds "accountant"), short words (hr, qa, ai) must match a whole word, every query
+     word must match, and common place / role spellings are treated as the same word. */
+  const SYNONYMS = {
+    bangalore: ["bengaluru"], bengaluru: ["bangalore"], blr: ["bangalore", "bengaluru"],
+    trivandrum: ["thiruvananthapuram", "technopark", "tvm"], thiruvananthapuram: ["trivandrum"], tvm: ["trivandrum", "thiruvananthapuram"],
+    kochi: ["cochin", "ernakulam", "kakkanad", "infopark"], cochin: ["kochi", "ernakulam"], ernakulam: ["kochi", "cochin"],
+    calicut: ["kozhikode", "cyberpark"], kozhikode: ["calicut"], gurgaon: ["gurugram"], gurugram: ["gurgaon"],
+    mysore: ["mysuru"], mysuru: ["mysore"], madras: ["chennai"], bombay: ["mumbai"],
+    wfh: ["remote"], remote: ["wfh"], fresher: ["freshers", "entry", "trainee", "graduate"], freshers: ["fresher", "entry", "trainee"],
+    intern: ["internship", "interns"], internship: ["intern", "interns"], interns: ["intern", "internship"],
+    dev: ["developer", "development"], developer: ["dev", "engineer"], engineer: ["engineering"],
+    accountant: ["accounts", "accounting"], accounts: ["accountant", "accounting"], accounting: ["accountant", "accounts"],
+    js: ["javascript"], javascript: ["js"], react: ["reactjs"], reactjs: ["react"], node: ["nodejs"], nodejs: ["node"],
+    qa: ["testing", "tester"], tester: ["qa", "testing"], testing: ["qa", "tester"],
+    nurse: ["nursing"], nursing: ["nurse"], telecaller: ["telecalling", "telesales"], bpo: ["voice", "process"],
+    hr: ["recruiter", "recruitment"], recruiter: ["hr", "recruitment", "talent"], ml: ["machine"], ai: ["artificial"],
+    sales: ["business development", "bde"], bde: ["business", "sales"], dotnet: ["net"], net: ["dotnet"]
+  };
+
+  function queryWords(query) {
+    return normalizeText(query).split(" ").filter(Boolean);
+  }
+
+  function wordVariants(word) {
+    const out = new Set([word, ...(SYNONYMS[word] || []).flatMap((v) => normalizeText(v).split(" "))]);
+    if (word.length > 3 && word.endsWith("s")) out.add(word.slice(0, -1));
+    return [...out];
+  }
+
+  /* A token string " a b c " matches a variant when a word starts with it (whole word for 1–2 letters). */
+  function tokensHave(tokens, variant) {
+    return variant.length <= 2 ? tokens.includes(` ${variant} `) : tokens.includes(` ${variant}`);
+  }
+
+  function tokensOf(parts) {
+    return ` ${normalizeText(parts.filter(Boolean).join(" "))} `;
+  }
+
   function textMatches(parts, query) {
-    const words = normalizeText(query).split(" ").filter(Boolean);
+    const words = queryWords(query);
     if (!words.length) return true;
-    const haystack = ` ${normalizeText(parts.join(" "))} `;
-    const compact = haystack.replace(/ /g, "");
-    return words.every((word) => haystack.includes(word) || (word.length >= 6 && compact.includes(word)));
+    const tokens = tokensOf(parts);
+    return words.every((word) => wordVariants(word).some((v) => tokensHave(tokens, v)));
+  }
+
+  /* Searchable text per job, split by how much a hit there should count. */
+  const searchFields = memo((job) => {
+    const title = tokensOf(job.roles || []);
+    const company = tokensOf([job.company]);
+    const tags = tokensOf([...(job.tags || []), ...(job.skills || []), job.industry]);
+    const rest = tokensOf([
+      job.companyBlurb, job.location, job.address, job.employmentType, job.workMode, job.experienceRange,
+      job.qualification, job.description, job.workDetails, job.email, job._q,
+      ...(job._q ? [] : [job.companyDetails, ...(job.requirements || []), ...(job.responsibilities || [])])
+    ]);
+    return { title, company, tags, all: `${title}${company}${tags}${rest}` };
+  });
+
+  let searchWordsCache = { query: null, words: [] };
+  function currentSearchWords() {
+    if (searchWordsCache.query !== searchQuery) {
+      searchWordsCache = { query: searchQuery, words: queryWords(searchQuery).map((w) => ({ w, vs: wordVariants(w) })) };
+    }
+    return searchWordsCache.words;
+  }
+
+  function searchScore(job) {
+    const words = currentSearchWords();
+    if (!words.length) return 0;
+    const f = searchFields(job);
+    let score = 0;
+    for (const { w, vs } of words) {
+      if (f.title.includes(` ${w} `)) score += 10;
+      else if (vs.some((v) => tokensHave(f.title, v))) score += 7;
+      else if (vs.some((v) => tokensHave(f.company, v))) score += 6;
+      else if (vs.some((v) => tokensHave(f.tags, v))) score += 4;
+      else score += 1;
+    }
+    const phrase = normalizeText(searchQuery);
+    if (words.length > 1 && f.title.includes(` ${phrase}`)) score += 8;
+    return score;
   }
 
   function initials(name) {
@@ -277,14 +402,16 @@
   }
 
   /** Remote / hybrid only when the listing says so; everything else counts as on-site. */
-  function jobWorkMode(job) {
+  const jobWorkMode = memo(jobWorkModeRaw);
+  function jobWorkModeRaw(job) {
     const text = workModeText(job);
     if (REMOTE_RE.test(text)) return "remote";
     if (HYBRID_RE.test(text)) return "hybrid";
     return "onsite";
   }
 
-  function jobEmpType(job) {
+  const jobEmpType = memo(jobEmpTypeRaw);
+  function jobEmpTypeRaw(job) {
     const text = `${job.employmentType || ""} ${job.workStatus || ""} ${(job.roles || []).join(" ")}`;
     if (/apprentic/i.test(text)) return "apprenticeship";
     if (/\bintern(?:ship)?s?\b|\btrainee intern/i.test(text)) return "internship";
@@ -296,7 +423,8 @@
   const MNC_RE =
     /\b(amazon|google|microsoft|apple|meta|accenture|deloitte|kpmg|pwc|\bey\b|ernst|ibm|oracle|\bsap\b|capgemini|cognizant|infosys|tcs|tata consultancy|wipro|hcl|tech mahindra|\bust\b|ust global|quest global|nissan|hpe|hewlett|\bdell\b|\bhp\b|cisco|intel|nvidia|qualcomm|shell|bnp paribas|jp ?morgan|american express|nike|ntt data|conduent|\bexl\b|genpact|sutherland|concentrix|teleperformance|zoho|flipkart|stripe|visa inc|mastercard|siemens|bosch|honeywell|philips|abb|schneider|allianz|envestnet|ey gds|experian|h&r block|ibs software|hexaware|mphasis|ltimindtree|l&t|larsen|virtusa|cgi|nokia|ericsson|samsung|adobe|salesforce|servicenow|paypal|walmart|uber|hdfc|icici|axis bank|sbi card|tata|reliance|airtel|byju|swiggy|zomato|razorpay|freshworks)\b/i;
 
-  function jobCompanyType(job) {
+  const jobCompanyType = memo(jobCompanyTypeRaw);
+  function jobCompanyTypeRaw(job) {
     const sectors = jobSectors(job);
     if (sectors.has("government")) return "government";
     if (sectors.has("healthcare")) return "healthcare";
@@ -325,7 +453,8 @@
     return tags.includes("hospital") || tags.includes("healthcare");
   }
 
-  function isNonITJob(job) {
+  const isNonITJob = memo(isNonITJobRaw);
+  function isNonITJobRaw(job) {
     const tags = (job.tags || []).map((t) => String(t).toLowerCase());
     const hay = [
       ...(job.roles || []),
@@ -362,7 +491,8 @@
     );
   }
 
-  function jobRegion(job) {
+  const jobRegion = memo(jobRegionRaw);
+  function jobRegionRaw(job) {
     const loc = String(job.location || "").toLowerCase();
     if (loc.includes("pan india") || loc.includes("pan-india") || job.alertSheet) return "Pan India";
     if (loc.includes("bangalore") || loc.includes("bengaluru")) return "Bangalore";
@@ -410,7 +540,8 @@
   const PSU_RE =
     /kochi metro|\bkmrl\b|cochin shipyard|\bbpcl\b|\bfact\b|\bkseb\b|\bksidc\b|keltron|c-?dit\b|\bksrtc\b|hll lifecare|indian oil|\bongc\b|\bbsnl\b|cochin port|airports authority|\bcial\b|\bkinfra\b|india post|\bsbi\b|state bank of india|indian railways|\brrb\b/i;
 
-  function jobSectors(job) {
+  const jobSectors = memo(jobSectorsRaw);
+  function jobSectorsRaw(job) {
     const tags = (job.tags || []).map((t) => String(t).toLowerCase());
     const who = `${job.company || ""} ${(job.tags || []).join(" ")}`;
     const kind = `${job.employmentType || ""} ${(job.roles || []).join(" ")} ${tags.join(" ")}`;
@@ -438,8 +569,9 @@
     pg: /\bmaster|\bpost\s?graduat|\bpg\b|\bmba\b|\bmha\b|\bmhrm\b|\bm\.?\s?(?:com|tech|sc|ca|pharm)\b|\bm\.e\b|\bmca\b/i
   };
 
-  function educationText(job) {
-    return [job.qualification, job.experienceRange, ...(job.requirements || []), ...(job.roles || []), ...(job.tags || [])]
+  const educationText = memo(educationTextRaw);
+  function educationTextRaw(job) {
+    return [job._edu, job.qualification, job.experienceRange, ...(job.requirements || []), ...(job.roles || []), ...(job.tags || [])]
       .filter(Boolean)
       .join(" ");
   }
@@ -463,6 +595,57 @@
   function openToExperienced(job) {
     const code = String(job.experience || "").toLowerCase();
     return code === "experienced" || code === "both";
+  }
+
+  /* ---------- experience in years ----------
+     Read from the listing's stated range ("2–5 years", "3+ years", "0-1 year", "Fresher").
+     A job matches a band when its range overlaps the band; jobs that state no years only match "Any". */
+  const YEAR_BANDS = {
+    "0-1": [0, 1], "1-2": [1, 2], "2-3": [2, 3], "3-5": [3, 5], "5-8": [5, 8], "8-12": [8, 12], "12+": [12, 99]
+  };
+  const YEAR_LABELS = {
+    "0-1": "Fresher / 0–1 yr", "1-2": "1–2 yrs", "2-3": "2–3 yrs", "3-5": "3–5 yrs", "5-8": "5–8 yrs", "8-12": "8–12 yrs", "12+": "12+ yrs"
+  };
+  const jobYears = memo((job) => {
+    const text = String(job.experienceRange || job.experienceYears || "").toLowerCase().replace(/[–—]/g, "-");
+    const code = String(job.experience || "").toLowerCase();
+    if (!/\d/.test(text) && /fresher|no experience|entry[\s-]?level|trainee|\bintern/.test(text)) return [0, 1];
+    const months = /month/.test(text) && !/year|yr/.test(text);
+    const nums = (text.match(/\d+(?:\.\d+)?/g) || []).map(Number).filter((n) => n <= 50);
+    const scale = (n) => (months ? n / 12 : n);
+    if (nums.length >= 2) return [scale(Math.min(nums[0], nums[1])), scale(Math.max(nums[0], nums[1]))];
+    if (nums.length === 1) {
+      const n = scale(nums[0]);
+      if (/\+|above|more than|minimum|min\.?\s|at least|over|onwards/.test(text)) return [n, 60];
+      if (/up ?to|under|below|less than|max/.test(text)) return [0, n];
+      return [n, n];
+    }
+    if (code === "fresher") return [0, 1];
+    if (code === "both") return [0, 60];
+    return null;
+  });
+
+  function jobInYearBand(job, band) {
+    const range = YEAR_BANDS[band];
+    if (!range) return true;
+    const years = jobYears(job);
+    if (!years) return false;
+    return years[0] <= range[1] && years[1] >= range[0];
+  }
+
+  function matchesYears(job) {
+    return activeYears === "all" || jobInYearBand(job, activeYears);
+  }
+
+  function buildYearCounts() {
+    if (!yearsBar) return;
+    const open = parkJobs(JOBS).filter((job) => deadlineStatus(job) !== "expired");
+    yearsBar.querySelectorAll("[data-years]").forEach((btn) => {
+      const band = btn.dataset.years;
+      if (!YEAR_BANDS[band]) return;
+      const n = open.filter((job) => jobInYearBand(job, band)).length;
+      btn.textContent = `${YEAR_LABELS[band]} (${n})`;
+    });
   }
 
   function matchesExp(job) {
@@ -528,7 +711,18 @@
     return city === "kochi" && text.includes("infopark") && !/thrissur|koratty/.test(text);
   }
 
+  const cityCache = new WeakMap();
   function jobInCity(job, city) {
+    let byCity = cityCache.get(job);
+    if (!byCity) {
+      byCity = {};
+      cityCache.set(job, byCity);
+    }
+    if (!(city in byCity)) byCity[city] = jobInCityRaw(job, city);
+    return byCity[city];
+  }
+
+  function jobInCityRaw(job, city) {
     const loc = String(job.location || "").toLowerCase();
     if (Object.keys(CITY_PATTERNS).some((c) => cityTextMatches(loc, c))) return cityTextMatches(loc, city);
     // Address often lists every company office, so only use it when the location names no city
@@ -654,6 +848,7 @@
     if (activeEmpType !== "all") params.set("emp", activeEmpType);
     if (activeCompanyType !== "all") params.set("ctype", activeCompanyType);
     if (activeExp !== "all") params.set("exp", activeExp);
+    if (activeYears !== "all") params.set("years", activeYears);
     if (roleQuery) params.set("role", roleQuery);
 
     const qs = params.toString();
@@ -741,6 +936,8 @@
       if (["fulltime", "parttime", "contract", "internship", "apprenticeship"].includes(empParam)) activeEmpType = empParam;
       if (["mnc", "healthcare", "education", "government", "other"].includes(ctypeParam)) activeCompanyType = ctypeParam;
       if (["fresher", "experienced"].includes(expParam)) activeExp = expParam;
+      const yearsParam = (params.get("years") || "").trim();
+      if (YEAR_BANDS[yearsParam]) activeYears = yearsParam;
       roleQuery = (params.get("role") || "").trim().toLowerCase();
       if (sortParam) {
         sortMode = sortParam;
@@ -770,6 +967,7 @@
       syncGroup(workModeBar, "mode", activeMode);
       syncGroup(empTypeBar, "emptype", activeEmpType);
       syncGroup(companyTypeBar, "ctype", activeCompanyType);
+      syncGroup(yearsBar, "years", activeYears);
       syncViewTabs();
       syncQuickBar();
       widenScopeForCompanyIfNeeded();
@@ -780,27 +978,10 @@
 
   function matchesSearch(job) {
     if (!searchQuery) return true;
-    const haystack = [
-      job.company,
-      job.location,
-      job.email,
-      job.address,
-      job.workDetails,
-      job.companyDetails,
-      job.companyBlurb,
-      job.industry,
-      job.employmentType,
-      job.experienceRange,
-      job.workMode,
-      ...(job.roles || []),
-      ...(job.tags || []),
-      ...(job.requirements || []),
-      ...(job.responsibilities || []),
-      ...(job.skills || []),
-      job.qualification,
-      job.description || ""
-    ];
-    return textMatches(haystack, searchQuery);
+    const words = currentSearchWords();
+    if (!words.length) return true;
+    const all = searchFields(job).all;
+    return words.every(({ vs }) => vs.some((v) => tokensHave(all, v)));
   }
 
   function deadlineSortValue(job) {
@@ -808,7 +989,8 @@
     return ts === null ? Number.POSITIVE_INFINITY : ts;
   }
 
-  function portalListingId(job) {
+  const portalListingId = memo(portalListingIdRaw);
+  function portalListingIdRaw(job) {
     const fromId = String(job.id || "").match(/-(\d{4,})$/);
     if (fromId) return Number(fromId[1]);
     const blob = [
@@ -875,8 +1057,13 @@
         matchesEmpType(job) &&
         matchesCompanyType(job) &&
         matchesExp(job) &&
+        matchesYears(job) &&
         matchesRole(job)
     );
+
+    /* With a search, the best matches lead (title > company > skills/tags > description) on the default sort. */
+    const ranked = Boolean(searchQuery) && sortMode === "newest";
+    const scores = ranked ? new Map(list.map((job) => [job, searchScore(job)])) : null;
 
     const expiredWeight = (job) =>
       activeStatus === "expired"
@@ -892,6 +1079,11 @@
     list.sort((a, b) => {
       const sink = expiredWeight(a) - expiredWeight(b);
       if (sink !== 0) return sink;
+
+      if (scores) {
+        const diff = scores.get(b) - scores.get(a);
+        if (diff !== 0) return diff;
+      }
 
       if (latestFeed && sortMode === "newest") {
         /* Same day → most recently added first (new jobs are inserted at the top of JOBS). */
@@ -1356,7 +1548,8 @@
       sortMode !== "newest" ||
       activePark !== "all" ||
       activePosted !== "all" ||
-      activeCity !== "all"
+      activeCity !== "all" ||
+      activeYears !== "all"
     );
   }
 
@@ -1364,12 +1557,13 @@
     if (!statusBar) return;
     const openCount = JOBS.filter((job) => deadlineStatus(job) !== "expired").length;
     const closingCount = JOBS.filter((job) => deadlineStatus(job) === "closing").length;
-    const expiredCount = JOBS.filter((job) => deadlineStatus(job) === "expired").length;
+    const pending = expiredLoaded() ? 0 : Number(window.IPD_JOBS_EXPIRED_COUNT) || 0;
+    const expiredCount = JOBS.filter((job) => deadlineStatus(job) === "expired").length + pending;
     const labels = {
       open: `Open jobs (${openCount})`,
       closing: `Closing soon (${closingCount})`,
       expired: `Expired only (${expiredCount})`,
-      all: `Open + Expired (${JOBS.length})`
+      all: `Open + Expired (${JOBS.length + pending})`
     };
     statusBar.querySelectorAll("[data-status]").forEach((btn) => {
       const key = btn.dataset.status;
@@ -1403,6 +1597,16 @@
 
   function render() {
     syncQuickBar();
+    if ((activeStatus === "expired" || activeStatus === "all" || savedOnly) && !expiredLoaded()) {
+      grid.setAttribute("aria-busy", "true");
+      if (countEl) countEl.textContent = "Loading expired listings…";
+      loadExpiredJobs().then(() => {
+        grid.setAttribute("aria-busy", "false");
+        updateStatusFilterLabels();
+        render();
+      });
+      return;
+    }
     const jobs = filteredJobs();
     if (savedOnly) {
       renderSavedTools(jobs);
@@ -1538,6 +1742,7 @@
         activeEmpType !== "all",
         activeCompanyType !== "all",
         activeExp !== "all",
+        activeYears !== "all",
         Boolean(roleQuery)
       ].filter(Boolean).length;
       const filterCount = document.getElementById("jobs-filter-count");
@@ -1610,11 +1815,24 @@
     if (statClosing) statClosing.textContent = String(closingWeek);
   }
 
+  const TAG_CHIP_LIMIT = 40;
   function buildTagChips() {
     if (!tagBar) return;
-    const tags = new Set();
-    JOBS.forEach((job) => (job.tags || []).forEach((tag) => tags.add(String(tag))));
-    const sorted = [...tags].sort((a, b) => a.localeCompare(b));
+    /* Only the most-used categories (open jobs) get a chip; a chosen tag from the URL is always kept. */
+    const counts = new Map();
+    JOBS.forEach((job) => {
+      if (deadlineStatus(job) === "expired") return;
+      (job.tags || []).forEach((tag) => {
+        const key = String(tag).toLowerCase();
+        const entry = counts.get(key) || { label: String(tag), n: 0 };
+        entry.n += 1;
+        counts.set(key, entry);
+      });
+    });
+    const top = [...counts.entries()].sort((a, b) => b[1].n - a[1].n).slice(0, TAG_CHIP_LIMIT);
+    const urlTag = (new URLSearchParams(window.location.search).get("tag") || "").trim().toLowerCase();
+    if (urlTag && !top.some(([key]) => key === urlTag) && counts.has(urlTag)) top.push([urlTag, counts.get(urlTag)]);
+    const sorted = top.map(([, entry]) => entry.label).sort((a, b) => a.localeCompare(b));
 
     tagBar.innerHTML = [
       `<button type="button" class="jobs-tag-chip is-active" data-tag="all" aria-pressed="true">All categories</button>`,
@@ -1855,6 +2073,7 @@
     activeEmpType = "all";
     activeCompanyType = "all";
     activeExp = "all";
+    activeYears = "all";
     roleQuery = "";
     clearCompanyFilter();
 
@@ -1881,6 +2100,7 @@
     syncGroup(workModeBar, "mode", "all");
     syncGroup(empTypeBar, "emptype", "all");
     syncGroup(companyTypeBar, "ctype", "all");
+    syncGroup(yearsBar, "years", "all");
     syncViewTabs();
     syncHeroParkButtons();
     syncQuickBar();
@@ -1908,6 +2128,7 @@
     if (activeEmpType !== "all") chips.push({ key: "emptype", label: `Type: ${empLabels[activeEmpType]}` });
     if (activeCompanyType !== "all") chips.push({ key: "ctype", label: `Company: ${ctypeLabels[activeCompanyType]}` });
     if (activeExp !== "all") chips.push({ key: "exp", label: activeExp === "fresher" ? "Open to freshers" : "Experienced" });
+    if (activeYears !== "all") chips.push({ key: "years", label: `Experience: ${YEAR_LABELS[activeYears]}` });
     if (roleQuery) chips.push({ key: "role", label: `Role: ${roleQuery}` });
     if (activeFilter !== "all") chips.push({ key: "filter", label: filterLabels[activeFilter] || activeFilter });
     if (activeTag !== "all") chips.push({ key: "tag", label: `Category: ${activeTag}` });
@@ -1940,6 +2161,7 @@
       emptype: () => { activeEmpType = "all"; syncSidebar(empTypeBar, "emptype", "all"); syncViewTabs(); },
       ctype: () => { activeCompanyType = "all"; syncSidebar(companyTypeBar, "ctype", "all"); },
       exp: () => { activeExp = "all"; syncQuickBar(); },
+      years: () => { activeYears = "all"; syncSidebar(yearsBar, "years", "all"); },
       role: () => { roleQuery = ""; syncQuickBar(); },
       filter: () => { activeFilter = "all"; syncFilterChip("all"); },
       tag: () => { activeTag = "all"; syncSidebar(tagBar, "tag", "all"); },
@@ -2014,6 +2236,7 @@
   bindChipGroup(workModeBar, "mode", (value) => { activeMode = value; syncViewTabs(); });
   bindChipGroup(empTypeBar, "emptype", (value) => { activeEmpType = value; syncViewTabs(); });
   bindChipGroup(companyTypeBar, "ctype", (value) => (activeCompanyType = value));
+  bindChipGroup(yearsBar, "years", (value) => (activeYears = value));
 
   /* "All jobs" / "Work from home" tabs: a shortcut for the Remote / WFH work-mode filter. */
   /* Tabs: All jobs · Work from home (work mode = remote) · Internships (employment type = internship).
@@ -2086,9 +2309,11 @@
     copyOptions(sortSelect, quickSort);
     quickBar.addEventListener("submit", (event) => event.preventDefault());
     if (quickRole) {
+      let roleTimer = 0;
       quickRole.addEventListener("input", () => {
         roleQuery = quickRole.value.trim().toLowerCase();
-        resetVisibleAndRender();
+        clearTimeout(roleTimer);
+        roleTimer = setTimeout(resetVisibleAndRender, 120);
       });
     }
     if (quickLocation) {
@@ -2115,9 +2340,11 @@
 
   if (searchInput) {
     let searchTimer = 0;
+    let renderTimer = 0;
     searchInput.addEventListener("input", () => {
       searchQuery = searchInput.value.trim().toLowerCase();
-      resetVisibleAndRender();
+      clearTimeout(renderTimer);
+      renderTimer = setTimeout(resetVisibleAndRender, 120);
       clearTimeout(searchTimer);
       searchTimer = setTimeout(() => {
         if (searchQuery.length >= 2) {
@@ -2226,10 +2453,12 @@
     });
   }
 
+  mergeExpiredJobs(); // pages that include /data/jobs-expired.js up front (e.g. Saved jobs)
   updateHeroStats();
   buildTagChips();
   buildLocationOptions();
   buildCityCounts();
+  buildYearCounts();
   const urlParamsEarly = new URLSearchParams(window.location.search);
   const urlCompanyEarly = urlParamsEarly.get("company");
   if (locationSelect && defaultLocation !== "all" && !urlCompanyEarly) {

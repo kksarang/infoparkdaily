@@ -5,7 +5,10 @@ Status as of 30 Oct 2026. This describes what exists, what was decided, and what
 ## Current architecture (audited)
 
 - Static site on GitHub Pages (`CNAME` → infoparkdaily.online). No application server for jobs.
-- All jobs live in `data/jobs-data.js` (~4,900 records, ~15 MB), loaded in the browser by `/jobs/`, `/job/<id>` (via `404.html` + `js/job.js`) and `/company/<slug>/` (`js/company.js`).
+- All jobs live in `data/jobs-data.js` (the source of truth; ~13,900 records, ~47 MB as of 19 Nov 2026). Browsers no longer load it directly:
+  - `scripts/build-jobs-index.mjs` (`npm run build:jobs`) generates `data/jobs-index.js` (slim open-jobs list, ~1.1 MB gzipped, with a `_q` search-token string and `_edu` education text per job), `data/jobs-expired.js` (jobs the site already treats as expired; loaded only by the "Expired" views and the Saved page) and `data/job-details/<n>.json` (full records in 128 shards by FNV-1a hash of the id).
+  - `/job/<id>` (`404.html`) runs `js/job-detail-loader.js`, which fetches the one shard for that id, merges the full record into `JOBS`, then starts `js/job.js`.
+  - The build stamps the data version into every page's `?v=`. `.github/workflows/jobs-index.yml` reruns it on any push that changes `jobs-data.js`, so a commit that forgets the build is fixed automatically.
 - Park mirrors: `data/infopark-jobs-data.js`, `data/technopark-jobs-data.js`, `data/cyberpark-jobs-data.js`.
 - Ingestion: Python scripts in `scripts/` (one per source / batch), run by hand, sharing helpers from `scripts/import-park-jobs-latest.py` (`render_job`, `insert_jobs`, park builders).
 - Firebase (Auth + Firestore) is used for the community marketplace (`marketJobs`, `marketApplications`), resume builder and admin pages under `admin/` — not for the main jobs feed.

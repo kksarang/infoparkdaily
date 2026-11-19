@@ -19,7 +19,8 @@
     "build:journey": "node scripts/interview-journey/build.mjs",
     "build:learning": "node scripts/learning/build.mjs",
     "test:pdf": "node tests/resume-builder/pdf-export.check.mjs",
-    "test:examples": "node tests/resume-builder/examples-ats.check.mjs"
+    "test:examples": "node tests/resume-builder/examples-ats.check.mjs",
+    "build:jobs": "node scripts/build-jobs-index.mjs"
   },
   "dependencies": {
     "firebase": "^12.19.0",

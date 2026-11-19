@@ -1,0 +1,42 @@
+name: Build jobs index
+
+# data/jobs-data.js is the source of truth. The site pages load the generated
+# data/jobs-index.js (open jobs), data/jobs-expired.js and data/job-details/*.json,
+# so rebuild them whenever jobs-data.js changes and the commit forgot to.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/jobs-data.js"
+      - "scripts/build-jobs-index.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: jobs-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Build index and detail shards
+        run: node scripts/build-jobs-index.mjs
+      - name: Commit generated files
+        run: |
+          git add data/jobs-index.js data/jobs-expired.js data/job-details '*.html'
+          if git diff --cached --quiet; then
+            echo "Jobs index already up to date"
+            exit 0
+          fi
+          git config user.name "infoparkdaily-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild jobs index"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push
