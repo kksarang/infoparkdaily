@@ -99,6 +99,342 @@
 
 var JOBS = [
   {
+    id: "tpv-techversant-infotech-p-ltd-lead-ai-engineering-enablement-34301",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Lead – AI Engineering & Enablement · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Lead – AI Engineering & Enablement"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34301?job=Lead%20%E2%80%93%20AI%20Engineering%20%26%20Enablement",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Lead – AI Engineering & Enablement. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34301?job=Lead%20%E2%80%93%20AI%20Engineering%20%26%20Enablement",
+    hiringNotes: "Verified 34301 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Lead – AI Engineering & Enablement at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34301?job=Lead%20%E2%80%93%20AI%20Engineering%20%26%20Enablement"},
+    walkinTime: "",
+    pinOrder: 1,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-business-development-associate-trainee-34300",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Business Development Associate - Trainee · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Business Development Associate - Trainee"],
+    experience: "fresher",
+    experienceRange: "Fresher / Trainee / Intern",
+    employmentType: "Trainee",
+    applyLink: "https://technopark.in/job-details/34300?job=Business%20Development%20Associate%20-%20Trainee",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Sales"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Business Development Associate - Trainee. Confirm closing date on technopark.in before applying.",
+    workStatus: "Trainee",
+    workMode: "",
+    experienceYears: "Fresher / Trainee / Intern",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34300?job=Business%20Development%20Associate%20-%20Trainee",
+    hiringNotes: "Verified 34300 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Business Development Associate - Trainee at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34300?job=Business%20Development%20Associate%20-%20Trainee"},
+    walkinTime: "",
+    pinOrder: 2,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-senior-salesforce-developer-technical-consultant-34299",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Senior Salesforce Developer / Technical Consultant · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Senior Salesforce Developer / Technical Consultant"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34299?job=Senior%20Salesforce%20Developer%20/%20Technical%20Consultant",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT", "Sales"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Senior Salesforce Developer / Technical Consultant. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34299?job=Senior%20Salesforce%20Developer%20/%20Technical%20Consultant",
+    hiringNotes: "Verified 34299 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Senior Salesforce Developer / Technical Consultant at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34299?job=Senior%20Salesforce%20Developer%20/%20Technical%20Consultant"},
+    walkinTime: "",
+    pinOrder: 3,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-associate-architect-python-34298",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Associate Architect - Python · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Associate Architect - Python"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34298?job=Associate%20Architect%20-%20Python",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Associate Architect - Python. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34298?job=Associate%20Architect%20-%20Python",
+    hiringNotes: "Verified 34298 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Associate Architect - Python at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34298?job=Associate%20Architect%20-%20Python"},
+    walkinTime: "",
+    pinOrder: 4,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-technical-lead-python-34297",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Technical Lead - Python · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Technical Lead - Python"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34297?job=Technical%20Lead%20-%20Python",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Technical Lead - Python. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34297?job=Technical%20Lead%20-%20Python",
+    hiringNotes: "Verified 34297 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Technical Lead - Python at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34297?job=Technical%20Lead%20-%20Python"},
+    walkinTime: "",
+    pinOrder: 5,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-business-development-manager-34296",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Business Development Manager · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Business Development Manager"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34296?job=Business%20Development%20Manager",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Sales"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Business Development Manager. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34296?job=Business%20Development%20Manager",
+    hiringNotes: "Verified 34296 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Business Development Manager at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34296?job=Business%20Development%20Manager"},
+    walkinTime: "",
+    pinOrder: 6,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-senior-technical-lead-architect-34295",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Senior Technical Lead / Architect · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Senior Technical Lead / Architect"],
+    experience: "experienced",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34295?job=Senior%20Technical%20Lead%20/%20Architect",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["IT"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Senior Technical Lead / Architect. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34295?job=Senior%20Technical%20Lead%20/%20Architect",
+    hiringNotes: "Verified 34295 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Senior Technical Lead / Architect at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34295?job=Senior%20Technical%20Lead%20/%20Architect"},
+    walkinTime: "",
+    pinOrder: 7,
+  },
+  {
+    id: "tpv-techversant-infotech-p-ltd-business-development-executive-34294",
+    company: "Techversant Infotech (P) Ltd",
+    logo: "https://technopark.in/storage/images/2777.png",
+    companyBlurb: "Techversant Infotech (P) Ltd · Business Development Executive · Technopark · closes 2026-12-01",
+    location: "Technopark, Trivandrum",
+    roles: ["Business Development Executive"],
+    experience: "both",
+    experienceRange: "",
+    employmentType: "",
+    applyLink: "https://technopark.in/job-details/34294?job=Business%20Development%20Executive",
+    applyDeadline: "2026-12-01",
+    postedDate: "2026-11-18",
+    source: "Technopark",
+    verified: true,
+    technoparkVerified: true,
+    verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",
+    tags: ["Sales"],
+    isWalkIn: false,
+    walkInDate: "",
+    email: "",
+    phone: "",
+    website: "https://technopark.in/job-search",
+    address: "Technopark, Trivandrum, Kerala",
+    industry: "Technopark company",
+    companyDetails: "Techversant Infotech (P) Ltd — verified from official Technopark Jobs portal.",
+    workDetails: "Official Technopark listing for Business Development Executive. Confirm closing date on technopark.in before applying.",
+    workStatus: "",
+    workMode: "",
+    experienceYears: "",
+    skills: [],
+    requirements: [],
+    responsibilities: [],
+    benefits: [],
+    howToApply: "Apply via official Technopark listing: https://technopark.in/job-details/34294?job=Business%20Development%20Executive",
+    hiringNotes: "Verified 34294 · Imported 2026-11-19. Re-check with the employer before applying.",
+    description: "Business Development Executive at Techversant Infotech (P) Ltd — Technopark official portal.",
+    startingDate: "",
+    officialLinks: {"technoparkJob": "https://technopark.in/job-details/34294?job=Business%20Development%20Executive"},
+    walkinTime: "",
+    pinOrder: 8,
+  },
+  {
     id: "ipv-fingent-global-solutions-business-development-manager-26911",
     company: "Fingent Global Solutions",
     logo: "https://infopark.in/upload_images/company_logos/204fingent_logo_2014(300X100px).png",
@@ -138,7 +474,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26911"},
-    pinOrder: 1,
+    pinOrder: 9,
   },
   {
     id: "ipv-woxro-full-stack-developer-intern-26910",
@@ -180,7 +516,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/399/26910"},
-    pinOrder: 2,
+    pinOrder: 10,
   },
   {
     id: "ipv-nestsoft-technomaster-pvt-ltd-admission-counsellor-26909",
@@ -222,7 +558,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/439/26909"},
-    pinOrder: 3,
+    pinOrder: 11,
   },
   {
     id: "ipv-nestsoft-technomaster-pvt-ltd-business-development-executive-work-from-home-26908",
@@ -264,7 +600,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/439/26908"},
-    pinOrder: 4,
+    pinOrder: 12,
   },
   {
     id: "ipv-nestsoft-technomaster-pvt-ltd-primavera-expert-26907",
@@ -306,7 +642,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/439/26907"},
-    pinOrder: 5,
+    pinOrder: 13,
   },
   {
     id: "ipv-woxro-seo-intern-26906",
@@ -348,7 +684,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/399/26906"},
-    pinOrder: 6,
+    pinOrder: 14,
   },
   {
     id: "ipv-tranzmeo-seo-intern-26905",
@@ -390,7 +726,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/157/26905"},
-    pinOrder: 7,
+    pinOrder: 15,
   },
   {
     id: "ipv-nestsoft-technomaster-pvt-ltd-game-developer-online-part-time-freelance-26904",
@@ -432,7 +768,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/439/26904"},
-    pinOrder: 8,
+    pinOrder: 16,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-talent-acquisition-executive-26903",
@@ -474,7 +810,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26903"},
-    pinOrder: 9,
+    pinOrder: 17,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26902",
@@ -516,7 +852,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26902"},
-    pinOrder: 10,
+    pinOrder: 18,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26901",
@@ -558,7 +894,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26901"},
-    pinOrder: 11,
+    pinOrder: 19,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26900",
@@ -600,7 +936,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26900"},
-    pinOrder: 12,
+    pinOrder: 20,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26899",
@@ -642,7 +978,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26899"},
-    pinOrder: 13,
+    pinOrder: 21,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26898",
@@ -684,7 +1020,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26898"},
-    pinOrder: 14,
+    pinOrder: 22,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26897",
@@ -726,7 +1062,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26897"},
-    pinOrder: 15,
+    pinOrder: 23,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26896",
@@ -768,7 +1104,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26896"},
-    pinOrder: 16,
+    pinOrder: 24,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26895",
@@ -810,7 +1146,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26895"},
-    pinOrder: 17,
+    pinOrder: 25,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26894",
@@ -852,7 +1188,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26894"},
-    pinOrder: 18,
+    pinOrder: 26,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26893",
@@ -894,7 +1230,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26893"},
-    pinOrder: 19,
+    pinOrder: 27,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26892",
@@ -936,7 +1272,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26892"},
-    pinOrder: 20,
+    pinOrder: 28,
   },
   {
     logo: "",
@@ -979,7 +1315,7 @@ var JOBS = [
     applyLink: "",
     walkinTime: "11:30 AM",
     walkinLocation: "Bharata Mata College, Kochi",
-    pinOrder: 21,
+    pinOrder: 29,
   },
   {
     id: "wipro-developer-l2-coimbatore-220328",
@@ -3979,7 +4315,7 @@ var JOBS = [
     location: "Pune, Maharashtra (remote)",
     roles: ["Operations Analyst"],
     applyLink: "https://jobs.ashbyhq.com/certifyos/759dbd75-07dd-4e64-adf0-7ed47104c605",
-    pinOrder: 22,
+    pinOrder: 30,
   },
   {
     logo: "",
@@ -4019,7 +4355,7 @@ var JOBS = [
     location: "India (remote)",
     roles: ["Support Technician I"],
     applyLink: "https://rackspace.wd1.myworkdayjobs.com/en-US/External/job/IND-Work-from-Home-Remote/Support-Technician-I_R-24047",
-    pinOrder: 23,
+    pinOrder: 31,
   },
   {
     logo: "",
@@ -4059,7 +4395,7 @@ var JOBS = [
     location: "Remote (work from home)",
     roles: ["Data Entry Assistant (CRM)"],
     applyLink: "https://www.bruntworkcareers.co/jobs/66418368607",
-    pinOrder: 24,
+    pinOrder: 32,
   },
   {
     logo: "",
@@ -4099,7 +4435,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka (remote)",
     roles: ["Operations (Customer Success) Executive"],
     applyLink: "https://scalex.sensehq.com/careers/jobs/29",
-    pinOrder: 25,
+    pinOrder: 33,
   },
   {
     logo: "",
@@ -4139,7 +4475,7 @@ var JOBS = [
     location: "Telangana",
     roles: ["Investigation Representative, ROW IB"],
     applyLink: "https://www.amazon.jobs/en/jobs/10378715/investigation-representative-row-ib",
-    pinOrder: 26,
+    pinOrder: 34,
   },
   {
     logo: "",
@@ -4179,7 +4515,7 @@ var JOBS = [
     location: "Remote (APAC)",
     roles: ["Onboarding Documents Associate"],
     applyLink: "https://jobs.ashbyhq.com/clipboard/82df7116-0720-4434-a330-ca7e0389dc60",
-    pinOrder: 27,
+    pinOrder: 35,
   },
   {
     logo: "",
@@ -4220,7 +4556,7 @@ var JOBS = [
     roles: ["Data Analyst – Operations"],
     experience: "experienced",
     applyLink: "https://careers.kroll.com/en/job/bangalore/data-analyst-operations/21014254",
-    pinOrder: 28,
+    pinOrder: 36,
   },
   {
     logo: "",
@@ -4260,7 +4596,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Client Data Analyst"],
     applyLink: "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210788205",
-    pinOrder: 29,
+    pinOrder: 37,
   },
   {
     logo: "",
@@ -4300,7 +4636,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Associate 1 – BTS – AM PE – FTS"],
     applyLink: "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30051704",
-    pinOrder: 30,
+    pinOrder: 38,
   },
   {
     logo: "",
@@ -4341,7 +4677,7 @@ var JOBS = [
     roles: ["Benefits Analyst Jr – US Healthcare Operations"],
     experience: "fresher",
     applyLink: "https://elevancehealth.wd1.myworkdayjobs.com/en-US/carelonglobal_in/job/Benefits-Analyst-Junior_JR178504",
-    pinOrder: 31,
+    pinOrder: 39,
   },
   {
     logo: "",
@@ -4382,7 +4718,7 @@ var JOBS = [
     roles: ["Silicon Engineer, Platform and Devices, University Graduate, 2026"],
     experience: "fresher",
     applyLink: "https://www.google.com/about/careers/applications/jobs/results/73379279982731974-silicon-engineer-platform-and-devices-university-graduate-2026",
-    pinOrder: 32,
+    pinOrder: 40,
   },
   {
     logo: "",
@@ -4422,7 +4758,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Apprentices L0"],
     applyLink: "https://careers.wipro.com/job/Apprentices-L0/218174-en_US",
-    pinOrder: 33,
+    pinOrder: 41,
   },
   {
     id: "ibm-project-manager-sap-hana-bengaluru-138326",
@@ -130983,7 +131319,7 @@ var JOBS = [
     companyBlurb: "XTS India · Audit Manager · Malappuram · Hybrid · 7+ years",
     location: "Malappuram, Kerala",
     roles: ["Audit Manager"],
-    pinOrder: 34,
+    pinOrder: 42,
   },
   {
     logo: "",
@@ -131024,7 +131360,7 @@ var JOBS = [
     companyBlurb: "XTS India · Senior Accountant · Perinthalmanna · Full-time · 5+ years",
     location: "Perinthalmanna, Malappuram, Kerala",
     roles: ["Senior Accountant"],
-    pinOrder: 35,
+    pinOrder: 43,
   },
   {
     logo: "",
@@ -131065,7 +131401,7 @@ var JOBS = [
     companyBlurb: "XTS India · Senior Graphic Designer · Malappuram · Full-time · 2 years",
     location: "Malappuram, Kerala",
     roles: ["Senior Graphic Designer"],
-    pinOrder: 36,
+    pinOrder: 44,
   },
   {
     logo: "",
@@ -131106,7 +131442,7 @@ var JOBS = [
     companyBlurb: "XTS India · Tax Consultant · Calicut · Full-time · 3+ years",
     location: "Kozhikode (Calicut), Kerala",
     roles: ["Tax Consultant"],
-    pinOrder: 37,
+    pinOrder: 45,
   },
   {
     logo: "",
@@ -142827,7 +143163,7 @@ var JOBS = [
     roles: ["Manager – US Accounting Services"],
     experience: "experienced",
     applyLink: "https://idcrex.com/1/global/job_101006.php",
-    pinOrder: 38,
+    pinOrder: 46,
   },
   {
     logo: "",
@@ -142868,7 +143204,7 @@ var JOBS = [
     roles: ["Finance Manager"],
     experience: "experienced",
     applyLink: "https://talent.enfinor.com/emerinter/candidate/career_details.php?cid=FM",
-    pinOrder: 39,
+    pinOrder: 47,
   },
   {
     logo: "",
@@ -142909,7 +143245,7 @@ var JOBS = [
     roles: ["Program Manager"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Program%20Manager%20(Electronics)%20%E2%80%93%202%E2%80%935%20years",
-    pinOrder: 40,
+    pinOrder: 48,
   },
   {
     logo: "",
@@ -142950,7 +143286,7 @@ var JOBS = [
     roles: ["Program Manager"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Program%20Manager%20(Electronics)%20%E2%80%93%208%E2%80%9312%20years",
-    pinOrder: 41,
+    pinOrder: 49,
   },
   {
     logo: "",
@@ -142991,7 +143327,7 @@ var JOBS = [
     roles: ["Engineer – Sourcing"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Sourcing%20(Electronics)%20%E2%80%93%202%E2%80%934%20years",
-    pinOrder: 42,
+    pinOrder: 50,
   },
   {
     logo: "",
@@ -143032,7 +143368,7 @@ var JOBS = [
     roles: ["Engineer – Sourcing"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Sourcing%20(Cable%20%26%20Wire%20Harness)%20%E2%80%93%202%E2%80%934%20years",
-    pinOrder: 43,
+    pinOrder: 51,
   },
   {
     logo: "",
@@ -143073,7 +143409,7 @@ var JOBS = [
     roles: ["Assistant Manager – Sourcing"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Assistant%20Manager%20%E2%80%93%20Sourcing%20(Electro%20Mechanical)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 44,
+    pinOrder: 52,
   },
   {
     logo: "",
@@ -143114,7 +143450,7 @@ var JOBS = [
     roles: ["Engineer / Sr. Engineer – Purchase"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%2F%20Sr.%20Engineer%20%E2%80%93%20Purchase%20(Electronics)%20%E2%80%93%202%E2%80%938%20years",
-    pinOrder: 45,
+    pinOrder: 53,
   },
   {
     logo: "",
@@ -143155,7 +143491,7 @@ var JOBS = [
     roles: ["Manager – Finance"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Manager%20%E2%80%93%20Finance%20(Finance)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 46,
+    pinOrder: 54,
   },
   {
     logo: "",
@@ -143196,7 +143532,7 @@ var JOBS = [
     roles: ["Assistant Manager – Finance"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Assistant%20Manager%20%E2%80%93%20Finance%20(Finance)%20%E2%80%93%203%E2%80%935%20years",
-    pinOrder: 47,
+    pinOrder: 55,
   },
   {
     logo: "",
@@ -143237,7 +143573,7 @@ var JOBS = [
     roles: ["Component Engineer"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Component%20Engineer%20%E2%80%93%203%E2%80%936%20years",
-    pinOrder: 48,
+    pinOrder: 56,
   },
   {
     logo: "",
@@ -143278,7 +143614,7 @@ var JOBS = [
     roles: ["System Engineer – Optronics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20System%20Engineer%20%E2%80%93%20Optronics%20(Optoelectronics)%20%E2%80%93%203%E2%80%936%20years%20in%20same%20field",
-    pinOrder: 49,
+    pinOrder: 57,
   },
   {
     logo: "",
@@ -143319,7 +143655,7 @@ var JOBS = [
     roles: ["Hardware Design Engineer – Power Electronics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Hardware%20Design%20Engineer%20%E2%80%93%20Power%20Electronics%20(Industrial)%20%E2%80%93%201%E2%80%934%20years",
-    pinOrder: 50,
+    pinOrder: 58,
   },
   {
     logo: "",
@@ -143360,7 +143696,7 @@ var JOBS = [
     roles: ["Hardware Project Lead – Power Electronics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Hardware%20Project%20Lead%20%E2%80%93%20Power%20Electronics%20(Industrial)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 51,
+    pinOrder: 59,
   },
   {
     logo: "",
@@ -143401,7 +143737,7 @@ var JOBS = [
     roles: ["Project Lead – Mechanical"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Project%20Lead%20%E2%80%93%20Mechanical%20(Aerospace%20%26%20Defence)%20%E2%80%93%206%E2%80%938%20years",
-    pinOrder: 52,
+    pinOrder: 60,
   },
   {
     logo: "",
@@ -143442,7 +143778,7 @@ var JOBS = [
     roles: ["Senior Design Engineer – Mechanical"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Senior%20Design%20Engineer%20%E2%80%93%20Mechanical%20(Healthcare)%20%E2%80%93%204%E2%80%936%20years",
-    pinOrder: 53,
+    pinOrder: 61,
   },
   {
     logo: "",
@@ -143483,7 +143819,7 @@ var JOBS = [
     roles: ["Lead Engineer – Optoelectronics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Lead%20Engineer%20%E2%80%93%20Optoelectronics%20(Photonics%20R%26D)%20%E2%80%93%204%2B%20years",
-    pinOrder: 54,
+    pinOrder: 62,
   },
   {
     logo: "",
@@ -143524,7 +143860,7 @@ var JOBS = [
     roles: ["Senior Design Engineer – Optics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Senior%20Design%20Engineer%20%E2%80%93%20Optics%20(Photonics%20R%26D)%20%E2%80%93%202%2B%20years",
-    pinOrder: 55,
+    pinOrder: 63,
   },
   {
     logo: "",
@@ -143565,7 +143901,7 @@ var JOBS = [
     roles: ["Senior Design Engineer – Optoelectronics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Senior%20Design%20Engineer%20%E2%80%93%20Optoelectronics%20(Photonics%20R%26D)%20%E2%80%93%202%2B%20years",
-    pinOrder: 56,
+    pinOrder: 64,
   },
   {
     logo: "",
@@ -143606,7 +143942,7 @@ var JOBS = [
     roles: ["Engineer – Optics"],
     experience: "both",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Optics%20(Photonics%20R%26D)%20%E2%80%93%200%E2%80%931%20years",
-    pinOrder: 57,
+    pinOrder: 65,
   },
   {
     logo: "",
@@ -143647,7 +143983,7 @@ var JOBS = [
     roles: ["Engineer – Optoelectronics"],
     experience: "both",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Optoelectronics%20(Photonics%20R%26D)%20%E2%80%93%200%E2%80%931%20years",
-    pinOrder: 58,
+    pinOrder: 66,
   },
   {
     logo: "",
@@ -143688,7 +144024,7 @@ var JOBS = [
     roles: ["Engineer – Fibre Optic Systems"],
     experience: "both",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Fibre%20Optic%20Systems%20(Photonics%20R%26D)%20%E2%80%93%200%E2%80%931%20years",
-    pinOrder: 59,
+    pinOrder: 67,
   },
   {
     logo: "",
@@ -143729,7 +144065,7 @@ var JOBS = [
     roles: ["Research Assistant – Optics / Fibre Optics"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Research%20Assistant%20%E2%80%93%20Optics%20%2F%20Fibre%20Optics%20(Photonics%20R%26D)%20%E2%80%93%201%2B%20years",
-    pinOrder: 60,
+    pinOrder: 68,
   },
   {
     logo: "",
@@ -143770,7 +144106,7 @@ var JOBS = [
     roles: ["Engineer – Industrial Design"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Engineer%20%E2%80%93%20Industrial%20Design%20(Industrial)%20%E2%80%93%202%E2%80%934%20years",
-    pinOrder: 61,
+    pinOrder: 69,
   },
   {
     logo: "",
@@ -143811,7 +144147,7 @@ var JOBS = [
     roles: ["Hardware Lead – FPGA"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Hardware%20Lead%20%E2%80%93%20FPGA%20(Electronics)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 62,
+    pinOrder: 70,
   },
   {
     logo: "",
@@ -143852,7 +144188,7 @@ var JOBS = [
     roles: ["Design Engineer – FPGA"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Design%20Engineer%20%E2%80%93%20FPGA%20(Electronics)%20%E2%80%93%202%E2%80%935%20years",
-    pinOrder: 63,
+    pinOrder: 71,
   },
   {
     logo: "",
@@ -143893,7 +144229,7 @@ var JOBS = [
     roles: ["Hardware Lead – Embedded"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Hardware%20Lead%20%E2%80%93%20Embedded%20(Electronics)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 64,
+    pinOrder: 72,
   },
   {
     logo: "",
@@ -143934,7 +144270,7 @@ var JOBS = [
     roles: ["RF Design Lead"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20RF%20Design%20Lead%20(Electronics)%20%E2%80%93%205%E2%80%938%20years",
-    pinOrder: 65,
+    pinOrder: 73,
   },
   {
     logo: "",
@@ -143975,7 +144311,7 @@ var JOBS = [
     roles: ["RF Design Engineer"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20RF%20Design%20Engineer%20(Electronics)%20%E2%80%93%202%E2%80%935%20years",
-    pinOrder: 66,
+    pinOrder: 74,
   },
   {
     logo: "",
@@ -144016,7 +144352,7 @@ var JOBS = [
     roles: ["Product Analyst"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Product%20Analyst%20(Transportation)%20%E2%80%93%208%E2%80%9312%20years",
-    pinOrder: 67,
+    pinOrder: 75,
   },
   {
     logo: "",
@@ -144057,7 +144393,7 @@ var JOBS = [
     roles: ["Software Engineer – QT"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Software%20Engineer%20%E2%80%93%20QT%20(Aerospace)%20%E2%80%93%203%2B%20years",
-    pinOrder: 68,
+    pinOrder: 76,
   },
   {
     logo: "",
@@ -144098,7 +144434,7 @@ var JOBS = [
     roles: ["Dot Net Developer"],
     experience: "experienced",
     applyLink: "mailto:careers.sfo@nestgroup.net?subject=Application%20%E2%80%93%20Dot%20Net%20Developer%20(Aerospace)%20%E2%80%93%202%E2%80%939%20years",
-    pinOrder: 69,
+    pinOrder: 77,
   },
   {
     id: "accenture-business-function-implementation-lead-atci-5539645-s2020284-chennai",
@@ -314557,7 +314893,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22148",
     officialLinks: {"exlJob":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22148","exlSearch":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?keyword=Finance+%26+Accounting&location=India&locationId=300000000467203&locationLevel=country&mode=job-location"},
-    pinOrder: 70,
+    pinOrder: 78,
   },
   {
     logo: "",
@@ -314599,7 +314935,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22213",
     officialLinks: {"exlJob":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22213","exlSearch":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?keyword=Finance+%26+Accounting&location=India&locationId=300000000467203&locationLevel=country&mode=job-location"},
-    pinOrder: 71,
+    pinOrder: 79,
   },
   {
     logo: "",
@@ -314641,7 +314977,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22672",
     officialLinks: {"exlJob":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22672","exlSearch":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?keyword=Finance+%26+Accounting&location=India&locationId=300000000467203&locationLevel=country&mode=job-location"},
-    pinOrder: 72,
+    pinOrder: 80,
   },
   {
     logo: "",
@@ -314683,7 +315019,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22044",
     officialLinks: {"exlJob":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22044","exlSearch":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?keyword=Finance+%26+Accounting&location=India&locationId=300000000467203&locationLevel=country&mode=job-location"},
-    pinOrder: 73,
+    pinOrder: 81,
   },
   {
     logo: "",
@@ -314725,7 +315061,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22058",
     officialLinks: {"exlJob":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22058","exlSearch":"https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?keyword=Finance+%26+Accounting&location=India&locationId=300000000467203&locationLevel=country&mode=job-location"},
-    pinOrder: 74,
+    pinOrder: 82,
   },
   {
     logo: "",
@@ -314766,7 +315102,7 @@ var JOBS = [
     roles: ["Analyst – US Accounting"],
     experience: "both",
     applyLink: "https://idcrex.com/1/global/job_101008.php",
-    pinOrder: 75,
+    pinOrder: 83,
   },
   {
     logo: "",
@@ -314807,7 +315143,7 @@ var JOBS = [
     roles: ["Analyst – Australian Accounting"],
     experience: "both",
     applyLink: "https://idcrex.com/1/global/job_101007.php",
-    pinOrder: 76,
+    pinOrder: 84,
   },
   {
     logo: "",
@@ -314847,7 +315183,7 @@ var JOBS = [
     location: "Trivandrum, Kerala",
     roles: ["Associate, Accounts Receivable"],
     applyLink: "https://worldwide.wd1.myworkdayjobs.com/External/job/Trivandrum/Associate--Accounts-Receivable_JR102614",
-    pinOrder: 77,
+    pinOrder: 85,
   },
   {
     logo: "",
@@ -314888,7 +315224,7 @@ var JOBS = [
     roles: ["Sales Development Associate (AI Expertise)"],
     experience: "fresher",
     applyLink: "https://jobs.sap.com/en/jobs/744000161726670/sales-development-associate-ai-expertise/",
-    pinOrder: 78,
+    pinOrder: 86,
   },
   {
     logo: "",
@@ -314928,7 +315264,7 @@ var JOBS = [
     location: "India (remote)",
     roles: ["Associate Cloud Support Engineer (Weekend Shift)"],
     applyLink: "https://fa-extu-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/4139",
-    pinOrder: 79,
+    pinOrder: 87,
   },
   {
     logo: "",
@@ -314969,7 +315305,7 @@ var JOBS = [
     roles: ["Data QA Associate"],
     experience: "both",
     applyLink: "https://job-boards.greenhouse.io/yipitdatajobs/jobs/7026087",
-    pinOrder: 80,
+    pinOrder: 88,
   },
   {
     logo: "",
@@ -315009,7 +315345,7 @@ var JOBS = [
     location: "India (remote)",
     roles: ["Associate Theft Investigator"],
     applyLink: "https://jobs.ashbyhq.com/Panoptyc/3f296e0a-06c8-43fc-832d-e5e487af8354",
-    pinOrder: 81,
+    pinOrder: 89,
   },
   {
     logo: "",
@@ -315050,7 +315386,7 @@ var JOBS = [
     roles: ["Customer Service Representative"],
     experience: "experienced",
     applyLink: "https://jobs.lever.co/getwingapp/f6c44f7d-2606-4e18-a886-8e96e59ed2f2",
-    pinOrder: 82,
+    pinOrder: 90,
   },
   {
     logo: "",
@@ -315090,7 +315426,7 @@ var JOBS = [
     location: "Hyderabad (remote)",
     roles: ["Sales Recruiter"],
     applyLink: "https://job-boards.greenhouse.io/freshprints/jobs/6230724004",
-    pinOrder: 83,
+    pinOrder: 91,
   },
   {
     logo: "",
@@ -315130,7 +315466,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Utility Credit Analyst"],
     applyLink: "https://teoco.na.teamtailor.com/jobs/716532-utility-credit-analyst-us-business-hours",
-    pinOrder: 84,
+    pinOrder: 92,
   },
   {
     logo: "",
@@ -315170,7 +315506,7 @@ var JOBS = [
     location: "Karnataka",
     roles: ["Business Development Executive"],
     applyLink: "https://keyvalue.zohorecruit.in/jobs/Careers/144720000004915294/Business-Development-Executive-Karnataka",
-    pinOrder: 85,
+    pinOrder: 93,
   },
   {
     logo: "",
@@ -315211,7 +315547,7 @@ var JOBS = [
     roles: ["Purchasing Assistant – QC & Quality Inspection"],
     experience: "fresher",
     applyLink: "https://gustileder.recruitee.com/o/purchasing-assistant-qc-quality-inspection-kolkata-hybrid-1",
-    pinOrder: 86,
+    pinOrder: 94,
   },
   {
     logo: "",
@@ -315252,7 +315588,7 @@ var JOBS = [
     roles: ["Client Servicing Executive"],
     experience: "experienced",
     applyLink: "https://jobs.smartrecruiters.com/SWIGGY/6000000001576904-client-servicing-executive-",
-    pinOrder: 87,
+    pinOrder: 95,
   },
   {
     logo: "",
@@ -315293,7 +315629,7 @@ var JOBS = [
     roles: ["Full Stack Developer"],
     experience: "experienced",
     applyLink: "https://job-boards.greenhouse.io/capco/jobs/8336309",
-    pinOrder: 88,
+    pinOrder: 96,
   },
   {
     logo: "",
@@ -315333,7 +315669,7 @@ var JOBS = [
     location: "Hyderabad, Telangana",
     roles: ["Trainee TBM"],
     applyLink: "https://www.jobs.abbott/us/en/job/31119200/Trainee-TBM",
-    pinOrder: 89,
+    pinOrder: 97,
   },
   {
     logo: "",
@@ -315374,7 +315710,7 @@ var JOBS = [
     roles: ["Apprentice"],
     experience: "fresher",
     applyLink: "https://jobs.baxter.com/en/job/-/-/152/103378332112",
-    pinOrder: 90,
+    pinOrder: 98,
   },
   {
     logo: "",
@@ -315415,7 +315751,7 @@ var JOBS = [
     roles: ["Graduate Apprentice Trainee – CAD/Creo"],
     experience: "fresher",
     applyLink: "https://jobs.volvogroup.com/job/Bangalore-Graduate-Apprentice-Trainee-CADCreo-562122/1376142555/",
-    pinOrder: 91,
+    pinOrder: 99,
   },
   {
     logo: "",
@@ -315456,7 +315792,7 @@ var JOBS = [
     roles: ["Test Lead – US Health Insurance"],
     experience: "experienced",
     applyLink: "https://testingmavens.keka.com/careers/jobdetails/91164",
-    pinOrder: 92,
+    pinOrder: 100,
   },
   {
     logo: "",
@@ -315497,7 +315833,7 @@ var JOBS = [
     roles: ["QA Engineer Senior – Automation & Data"],
     experience: "experienced",
     applyLink: "https://www.customertimes.com/open-positions",
-    pinOrder: 93,
+    pinOrder: 101,
   },
   {
     logo: "",
@@ -315538,7 +315874,7 @@ var JOBS = [
     roles: ["QA Automation Engineer (Middle)"],
     experience: "experienced",
     applyLink: "https://www.customertimes.com/open-positions",
-    pinOrder: 94,
+    pinOrder: 102,
   },
   {
     id: "ipv-techversant-infotech-pvt-ltd-salesforce-associate-solution-architect-21619",
@@ -315580,7 +315916,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/85/21619"},
-    pinOrder: 95,
+    pinOrder: 103,
   },
   {
     id: "ipv-airpay-financial-technologies-pvt-ltd-project-coordinator-26891",
@@ -315622,7 +315958,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/267/26891"},
-    pinOrder: 96,
+    pinOrder: 104,
   },
   {
     id: "ipv-pearlsoft-technologies-llp-ai-ml-engineer-generative-ai-26890",
@@ -315664,7 +316000,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/401/26890"},
-    pinOrder: 97,
+    pinOrder: 105,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-senior-business-analyst-26889",
@@ -315706,7 +316042,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26889"},
-    pinOrder: 98,
+    pinOrder: 106,
   },
   {
     logo: "",
@@ -315747,7 +316083,7 @@ var JOBS = [
     roles: ["SDE I Intern (6 months, 2027)"],
     experience: "fresher",
     applyLink: "https://www.amazon.jobs/en/jobs/10508052/sde-i-intern-amazon-university-talent-acquisition",
-    pinOrder: 99,
+    pinOrder: 107,
   },
   {
     logo: "",
@@ -315788,7 +316124,7 @@ var JOBS = [
     roles: ["Support Engineer Intern – 2027"],
     experience: "fresher",
     applyLink: "https://www.amazon.jobs/en/jobs/10498163/support-engineer-intern-2027",
-    pinOrder: 100,
+    pinOrder: 108,
   },
   {
     logo: "",
@@ -315829,7 +316165,7 @@ var JOBS = [
     roles: ["Systems Development Engineer Intern – 2027"],
     experience: "fresher",
     applyLink: "https://www.amazon.jobs/en/jobs/10498161/systems-development-engineer-intern-2027",
-    pinOrder: 101,
+    pinOrder: 109,
   },
   {
     logo: "",
@@ -315870,7 +316206,7 @@ var JOBS = [
     roles: ["Intern Bachelors Software Eng"],
     experience: "fresher",
     applyLink: "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/job/160484",
-    pinOrder: 102,
+    pinOrder: 110,
   },
   {
     logo: "",
@@ -315911,7 +316247,7 @@ var JOBS = [
     roles: ["Intern Bachelors AI"],
     experience: "fresher",
     applyLink: "https://ibqbjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Honeywell/job/161319",
-    pinOrder: 103,
+    pinOrder: 111,
   },
   {
     logo: "",
@@ -315952,7 +316288,7 @@ var JOBS = [
     roles: ["Associate Quality Assurance Engineer – Intern"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Associate-Quality-Assurance-Engineer---Intern_R-100637",
-    pinOrder: 104,
+    pinOrder: 112,
   },
   {
     logo: "",
@@ -315993,7 +316329,7 @@ var JOBS = [
     roles: ["Engineering Intern – Transport Analytics"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Engineering-Intern---Transport-Analytics_R-100656",
-    pinOrder: 105,
+    pinOrder: 113,
   },
   {
     logo: "",
@@ -316034,7 +316370,7 @@ var JOBS = [
     roles: ["Associate Product Manager Intern – YMS"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Associate-Product-Manager-Intern---YMS_R-100661",
-    pinOrder: 106,
+    pinOrder: 114,
   },
   {
     logo: "",
@@ -316075,7 +316411,7 @@ var JOBS = [
     roles: ["Associate Consultant – Intern"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Associate-Consultant---Intern_R-100667",
-    pinOrder: 107,
+    pinOrder: 115,
   },
   {
     logo: "",
@@ -316116,7 +316452,7 @@ var JOBS = [
     roles: ["Technical Services Intern"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Technical-Services-Intern_R-100668",
-    pinOrder: 108,
+    pinOrder: 116,
   },
   {
     logo: "",
@@ -316157,7 +316493,7 @@ var JOBS = [
     roles: ["Technical Services Intern (IT operations)"],
     experience: "fresher",
     applyLink: "https://kaleris.wd501.myworkdayjobs.com/kaleris_careers/job/Chennai/Technical-Services-Intern_R-100669",
-    pinOrder: 109,
+    pinOrder: 117,
   },
   {
     logo: "",
@@ -316198,7 +316534,7 @@ var JOBS = [
     roles: ["Technology Early Career Entry Program"],
     experience: "fresher",
     applyLink: "https://statestreet.wd1.myworkdayjobs.com/Global/job/Bangalore-India/Technology-Early-Career-Entry-Program_R-800791",
-    pinOrder: 110,
+    pinOrder: 118,
   },
   {
     logo: "",
@@ -316239,7 +316575,7 @@ var JOBS = [
     roles: ["External Intern"],
     experience: "fresher",
     applyLink: "https://careers.hpe.com/us/en/job/1215487/External-Intern",
-    pinOrder: 111,
+    pinOrder: 119,
   },
   {
     logo: "",
@@ -316280,7 +316616,7 @@ var JOBS = [
     roles: ["Frontend Developer Intern"],
     experience: "fresher",
     applyLink: "https://careers.sixsense.ai/jobs/8698292-frontend-developer-intern",
-    pinOrder: 112,
+    pinOrder: 120,
   },
   {
     logo: "",
@@ -316321,7 +316657,7 @@ var JOBS = [
     roles: ["Systems Engineering Associate"],
     experience: "fresher",
     applyLink: "https://salesforce.wd12.myworkdayjobs.com/External_Career_Site/job/India---Hyderabad/Systems-Engineering-Associate_JR368441",
-    pinOrder: 113,
+    pinOrder: 121,
   },
   {
     logo: "",
@@ -316362,7 +316698,7 @@ var JOBS = [
     roles: ["IT Service Management New Associate"],
     experience: "fresher",
     applyLink: "https://www.accenture.com/in-en/careers/jobdetails?id=AIOC-S01674845_en",
-    pinOrder: 114,
+    pinOrder: 122,
   },
   {
     logo: "",
@@ -316403,7 +316739,7 @@ var JOBS = [
     roles: ["Associate Software Engineer – IT"],
     experience: "fresher",
     applyLink: "https://flextronics.wd1.myworkdayjobs.com/Careers/job/India-Chennai/Associate-Software-Engineer---IT_WD233500",
-    pinOrder: 115,
+    pinOrder: 123,
   },
   {
     logo: "",
@@ -316444,7 +316780,7 @@ var JOBS = [
     roles: ["IT Product Support"],
     experience: "fresher",
     applyLink: "https://jobs.smartrecruiters.com/Eurofins/744000161242645-it-product-support",
-    pinOrder: 116,
+    pinOrder: 124,
   },
   {
     logo: "",
@@ -316485,7 +316821,7 @@ var JOBS = [
     roles: ["Associate Engineer"],
     experience: "fresher",
     applyLink: "https://careers.qualcomm.com/careers/job/446721997186",
-    pinOrder: 117,
+    pinOrder: 125,
   },
   {
     logo: "",
@@ -316526,7 +316862,7 @@ var JOBS = [
     roles: ["Software Engineer"],
     experience: "both",
     applyLink: "https://qualys.wd5.myworkdayjobs.com/Careers/job/Pune/Software-Engineer_R0004973",
-    pinOrder: 118,
+    pinOrder: 126,
   },
   {
     logo: "",
@@ -316567,7 +316903,7 @@ var JOBS = [
     roles: ["Technical Support Engineer Associate"],
     experience: "both",
     applyLink: "https://careers.hpe.com/us/en/job/1217776/Technical-Support-Engineer-Associate",
-    pinOrder: 119,
+    pinOrder: 127,
   },
   {
     logo: "",
@@ -316608,7 +316944,7 @@ var JOBS = [
     roles: ["MS Service Engineer (L1)"],
     experience: "fresher",
     applyLink: "https://careers.nttdata.com/global/en/job/NTT1GLOBALR124042EXTERNALENGLOBAL/MS-Service-Engineer-L1",
-    pinOrder: 120,
+    pinOrder: 128,
   },
   {
     logo: "",
@@ -316649,7 +316985,7 @@ var JOBS = [
     roles: ["Associate Engineer – AI services"],
     experience: "fresher",
     applyLink: "https://careers.nttdata.com/global/en/job/NTT1GLOBALR151207EXTERNALENGLOBAL/Associate-Engineer-AI-services",
-    pinOrder: 121,
+    pinOrder: 129,
   },
   {
     logo: "",
@@ -316689,7 +317025,7 @@ var JOBS = [
     location: "Hyderabad, Telangana",
     roles: ["Developer L1"],
     applyLink: "https://careers.wipro.com/job/Hyderabad-DEVELOPER-L1-IND-500032/218041-en_US/",
-    pinOrder: 122,
+    pinOrder: 130,
   },
   {
     logo: "",
@@ -316729,7 +317065,7 @@ var JOBS = [
     location: "Chennai, Tamil Nadu",
     roles: ["Analyst L1"],
     applyLink: "https://careers.wipro.com/job/ANALYST-L1/218535-en_US",
-    pinOrder: 123,
+    pinOrder: 131,
   },
   {
     logo: "",
@@ -316770,7 +317106,7 @@ var JOBS = [
     roles: ["IT Engineer, Software, Entry"],
     experience: "fresher",
     applyLink: "https://jobs.keysight.com/external/jobs/56451",
-    pinOrder: 124,
+    pinOrder: 132,
   },
   {
     logo: "",
@@ -316810,7 +317146,7 @@ var JOBS = [
     location: "Uttar Pradesh",
     roles: ["Transportation Specialist"],
     applyLink: "https://www.amazon.jobs/en/jobs/10586186/transportation-specialist",
-    pinOrder: 125,
+    pinOrder: 133,
   },
   {
     logo: "",
@@ -316850,7 +317186,7 @@ var JOBS = [
     location: "India (work from home)",
     roles: ["Citrix Cloud Engineer I"],
     applyLink: "https://rackspace.wd1.myworkdayjobs.com/External/job/IND-Work-from-Home-Remote/Cloud-Engineer-I---Azure-----IN_R-24008",
-    pinOrder: 126,
+    pinOrder: 134,
   },
   {
     logo: "",
@@ -316890,7 +317226,7 @@ var JOBS = [
     location: "Pune, Maharashtra",
     roles: ["Applications and Systems Engineer 1"],
     applyLink: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26012022",
-    pinOrder: 127,
+    pinOrder: 135,
   },
   {
     logo: "",
@@ -316931,7 +317267,7 @@ var JOBS = [
     roles: ["Embedded Development Engineer"],
     experience: "experienced",
     applyLink: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26013554",
-    pinOrder: 128,
+    pinOrder: 136,
   },
   {
     logo: "",
@@ -316972,7 +317308,7 @@ var JOBS = [
     roles: ["FPGA Development Engineer"],
     experience: "experienced",
     applyLink: "https://hpe.wd5.myworkdayjobs.com/Jobsathpe/job/Bengaluru-Karntaka-India/ASIC-Front-end-verification-engineer_1207303-2",
-    pinOrder: 129,
+    pinOrder: 137,
   },
   {
     logo: "",
@@ -317012,7 +317348,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Software Engineer"],
     applyLink: "https://paypal.eightfold.ai/careers/job/274923287904",
-    pinOrder: 130,
+    pinOrder: 138,
   },
   {
     logo: "",
@@ -317052,7 +317388,7 @@ var JOBS = [
     location: "Chennai, Tamil Nadu",
     roles: ["Order Management Professional"],
     applyLink: "https://www.hitachienergy.com/careers/open-jobs/details/JID3-226709",
-    pinOrder: 131,
+    pinOrder: 139,
   },
   {
     logo: "",
@@ -317093,7 +317429,7 @@ var JOBS = [
     roles: ["Business Analyst"],
     experience: "experienced",
     applyLink: "https://careers.cognizant.com/india-en/jobs/00069676471/business-analyst/",
-    pinOrder: 132,
+    pinOrder: 140,
   },
   {
     logo: "",
@@ -317133,7 +317469,7 @@ var JOBS = [
     location: "Bengaluru, Karnataka",
     roles: ["Associate Analyst – Transfer Pricing"],
     applyLink: "https://careers.ey.com/ey/job/Bengaluru-Associate-Analyst-TAX-TMT-TAX-ITTS-Transfer-Pricing-Bangalore-KA-560001/1456876533/",
-    pinOrder: 133,
+    pinOrder: 141,
   },
   {
     logo: "",
@@ -317174,7 +317510,7 @@ var JOBS = [
     roles: ["SAP Jr Developer"],
     experience: "experienced",
     applyLink: "https://intellisoft.zohorecruit.in/jobs/Careers/218991000004526001/SAP-Jr-Developer",
-    pinOrder: 134,
+    pinOrder: 142,
   },
   {
     logo: "",
@@ -317214,7 +317550,7 @@ var JOBS = [
     location: "",
     roles: ["Software Engineer-IC1"],
     applyLink: "https://www.nescode.com/jobs/software-engineer-ic1-2",
-    pinOrder: 135,
+    pinOrder: 143,
   },
   {
     logo: "",
@@ -317255,7 +317591,7 @@ var JOBS = [
     roles: ["Cloud Platform Engineer (SDE 1)"],
     experience: "experienced",
     applyLink: "https://careers.aftershoot.com/o/cloud-platform-engineer-sde-1",
-    pinOrder: 136,
+    pinOrder: 144,
   },
   {
     logo: "",
@@ -317296,7 +317632,7 @@ var JOBS = [
     roles: ["Operations Associate, Apprenticeship"],
     experience: "fresher",
     applyLink: "https://stripe.com/careers/listing/operations-associate-apprenticeship/8131339",
-    pinOrder: 137,
+    pinOrder: 145,
   },
   {
     logo: "",
@@ -317337,7 +317673,7 @@ var JOBS = [
     roles: ["Software Engineering Intern (Backend, Onsite)"],
     experience: "fresher",
     applyLink: "https://job-boards.greenhouse.io/enterpret/jobs/7847134003",
-    pinOrder: 138,
+    pinOrder: 146,
   },
   {
     logo: "",
@@ -317378,7 +317714,7 @@ var JOBS = [
     roles: ["ENG Project / Program Intern"],
     experience: "fresher",
     applyLink: "https://www.rubrik.com/company/careers/departments/job.8166514?gh_jid=8166514",
-    pinOrder: 139,
+    pinOrder: 147,
   },
   {
     logo: "",
@@ -317419,7 +317755,7 @@ var JOBS = [
     roles: ["Intern – Systems Engineering"],
     experience: "fresher",
     applyLink: "https://nextracker.wd5.myworkdayjobs.com/nextpower_careers/job/Hyderabad-Telangana---IND/Intern--Systems-Engineering_NX-4026",
-    pinOrder: 140,
+    pinOrder: 148,
   },
   {
     logo: "",
@@ -317460,7 +317796,7 @@ var JOBS = [
     roles: ["IBM Research / Research Software – Intern"],
     experience: "fresher",
     applyLink: "https://careers.ibm.com/en_US/careers/JobDetail/IBM-Research-Research-Software-Intern/137471",
-    pinOrder: 141,
+    pinOrder: 149,
   },
   {
     logo: "",
@@ -317501,7 +317837,7 @@ var JOBS = [
     roles: ["QA Intern"],
     experience: "fresher",
     applyLink: "https://signzy.keka.com/careers/jobdetails/134560",
-    pinOrder: 142,
+    pinOrder: 150,
   },
   {
     logo: "",
@@ -317542,7 +317878,7 @@ var JOBS = [
     roles: ["Project RISE – Learning Deployment Specialist Intern"],
     experience: "fresher",
     applyLink: "https://eyglobal.yello.co/jobs/5hVK1BeChlbcjalJ1R_3iw?job_board_id=c1riT--B2O-KySgYWsZO1Q",
-    pinOrder: 143,
+    pinOrder: 151,
   },
   {
     logo: "",
@@ -317583,7 +317919,7 @@ var JOBS = [
     roles: ["Applications Engineer I"],
     experience: "",
     applyLink: "https://hdjq.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26011142",
-    pinOrder: 144,
+    pinOrder: 152,
   },
   {
     id: "advenxa-assistant-manager-direct-indirect-tax-us-643001",
@@ -317624,7 +317960,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
     salaryRange: "₹12–15 LPA",
-    pinOrder: 145,
+    pinOrder: 153,
   },
   {
     id: "advenxa-manager-direct-indirect-tax-us-633106",
@@ -317664,7 +318000,7 @@ var JOBS = [
     description: "Manager – Direct / Indirect Tax (US) Location : Infopark, Kochi, Keralam Salary : ₹17–18 LPA Experience : 10–15 Years in US Direct Tax or Indirect Tax Qualification : Bachelor's Degree (Mandatory) Shift : Night Shift, Monday-Friday Job Summary We are hiring an experienced Manager",
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
-    pinOrder: 146,
+    pinOrder: 154,
     salaryRange: "₹17–18 LPA",
   },
   {
@@ -317706,7 +318042,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Any Graduation",
     salaryRange: "₹17,000 to ₹18,000 (Salary will vary depending on experience, previous salary, and interview performance)",
-    pinOrder: 147,
+    pinOrder: 155,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-ai-ml-engineer-34293",
@@ -317748,7 +318084,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34293?job=Senior%20AI/ML%20Engineer"},
     walkinTime: "",
-    pinOrder: 148,
+    pinOrder: 156,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-team-lead-ai-ml-34292",
@@ -317790,7 +318126,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34292?job=Team%20Lead%20-%20AI/ML"},
     walkinTime: "",
-    pinOrder: 149,
+    pinOrder: 157,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-software-engineer-java-full-stack-34291",
@@ -317832,7 +318168,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34291?job=Senior%20Software%20Engineer%20-%20Java%28Full-Stack%29"},
     walkinTime: "",
-    pinOrder: 150,
+    pinOrder: 158,
   },
   {
     id: "tpv-immiworks-india-private-limited-digital-marketing-lead-34290",
@@ -317874,7 +318210,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34290?job=Digital%20Marketing%20Lead"},
     walkinTime: "",
-    pinOrder: 151,
+    pinOrder: 159,
   },
   {
     id: "tpv-reizend-p-ltd-strategic-implementation-associate-recent-passouts-34289",
@@ -317916,7 +318252,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34289?job=Strategic%20Implementation%20Associate%20%7C%7C%20Recent%20Passouts"},
     walkinTime: "",
-    pinOrder: 152,
+    pinOrder: 160,
   },
   {
     id: "tpv-reizend-p-ltd-senior-software-engineer-ai-augmented-software-developme-34288",
@@ -317958,7 +318294,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34288?job=Senior%20Software%20Engineer%20%E2%80%93%20AI-Augmented%20Software%20Development%20%7C%7C%20REMOTE%3A6%2B%20Yrs"},
     walkinTime: "",
-    pinOrder: 153,
+    pinOrder: 161,
   },
   {
     id: "tpv-reizend-p-ltd-behavioural-cognitive-science-research-associate-ai-adop-34287",
@@ -318000,7 +318336,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34287?job=Behavioural%20%26%20Cognitive%20Science%20Research%20Associate%20%7C%7C%20AI-Adoption"},
     walkinTime: "",
-    pinOrder: 154,
+    pinOrder: 162,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-sap-abap-developer-ricef-w-hana-brim-fscm-34285",
@@ -318042,7 +318378,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34285?job=SAP%20ABAP%20Developer%20%E2%80%93%20RICEF/W%20%2B%20HANA%20%2B%20BRIM/FSCM"},
     walkinTime: "",
-    pinOrder: 155,
+    pinOrder: 163,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-sap-test-automation-engineer-34284",
@@ -318084,7 +318420,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34284?job=SAP%20Test%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 156,
+    pinOrder: 164,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-data-engineer-34283",
@@ -318126,7 +318462,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34283?job=Data%20Engineer"},
     walkinTime: "",
-    pinOrder: 157,
+    pinOrder: 165,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-rpa-developer-34282",
@@ -318168,7 +318504,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34282?job=RPA%20Developer"},
     walkinTime: "",
-    pinOrder: 158,
+    pinOrder: 166,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-cims-platform-engineer-l2-java-jboss-specialist-34281",
@@ -318210,7 +318546,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34281?job=CIMS%20Platform%20Engineer%20%E2%80%93%20L2%20Java/JBoss%20Specialist"},
     walkinTime: "",
-    pinOrder: 159,
+    pinOrder: 167,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-cims-platform-engineer-l1-5-desk-engineer-34280",
@@ -318252,7 +318588,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34280?job=CIMS%20Platform%20Engineer%20%E2%80%93%20L1.5%20Desk%20Engineer"},
     walkinTime: "",
-    pinOrder: 160,
+    pinOrder: 168,
   },
   {
     id: "tpv-hybcloud-technologies-p-ltd-cloud-control-senior-solution-architect-34279",
@@ -318294,7 +318630,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34279?job=Senior%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 161,
+    pinOrder: 169,
   },
   {
     id: "tpv-alamy-images-india-p-ltd-senior-executive-taxation-34278",
@@ -318336,7 +318672,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34278?job=Senior%20Executive%20-%20Taxation"},
     walkinTime: "",
-    pinOrder: 162,
+    pinOrder: 170,
   },
   {
     id: "tpv-iqmatrix-infoways-solutions-p-ltd-ucc-provisioning-administrator-34277",
@@ -318378,7 +318714,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34277?job=UCC%20Provisioning%20Administrator"},
     walkinTime: "",
-    pinOrder: 163,
+    pinOrder: 171,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-graphic-designer-intern-34276",
@@ -318420,7 +318756,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34276?job=Graphic%20Designer%20Intern"},
     walkinTime: "",
-    pinOrder: 164,
+    pinOrder: 172,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-34275",
@@ -318462,7 +318798,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34275?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 165,
+    pinOrder: 173,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-34274",
@@ -318504,7 +318840,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34274?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 166,
+    pinOrder: 174,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-34273",
@@ -318546,7 +318882,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34273?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 167,
+    pinOrder: 175,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-sales-operations-support-executive-34271",
@@ -318588,7 +318924,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34271?job=Sales%20Operations%20%26%20Support%20Executive"},
     walkinTime: "",
-    pinOrder: 168,
+    pinOrder: 176,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-34270",
@@ -318630,7 +318966,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34270?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 169,
+    pinOrder: 177,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-automotive-engineer-34269",
@@ -318672,7 +319008,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34269?job=Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 170,
+    pinOrder: 178,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-android-automotive-engineer-34268",
@@ -318714,7 +319050,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34268?job=Senior%20Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 171,
+    pinOrder: 179,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-aosp-hardware-enablement-engineer-34267",
@@ -318756,7 +319092,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34267?job=Android%20AOSP%20Hardware%20Enablement%20Engineer"},
     walkinTime: "",
-    pinOrder: 172,
+    pinOrder: 180,
   },
   {
     id: "tpv-globcom-solutions-p-ltd-sales-tele-calling-executive-34266",
@@ -318798,7 +319134,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34266?job=Sales%20%26%20Tele%20calling%20Executive"},
     walkinTime: "",
-    pinOrder: 173,
+    pinOrder: 181,
   },
   {
     id: "tpv-globcom-solutions-p-ltd-business-development-executive-male-candidates-only-34265",
@@ -318840,7 +319176,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34265?job=Business%20Development%20Executive%20%28Male%20Candidates%20Only%29"},
     walkinTime: "",
-    pinOrder: 174,
+    pinOrder: 182,
   },
   {
     id: "tpv-mobatia-technology-p-ltd-jr-it-admin-office-admin-34264",
@@ -318882,7 +319218,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34264?job=Jr.%20IT%20Admin%20/%20Office%20Admin"},
     walkinTime: "",
-    pinOrder: 175,
+    pinOrder: 183,
   },
   {
     id: "tpv-stackmod-innovations-p-ltd-sales-intern-34263",
@@ -318924,7 +319260,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34263?job=Sales%20Intern"},
     walkinTime: "",
-    pinOrder: 176,
+    pinOrder: 184,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-digital-marketing-trainee-34262",
@@ -318966,7 +319302,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34262?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 177,
+    pinOrder: 185,
   },
   {
     id: "tpv-prompttech-global-p-ltd-logistics-coordinator-34261",
@@ -319008,7 +319344,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34261?job=Logistics%20Coordinator"},
     walkinTime: "",
-    pinOrder: 178,
+    pinOrder: 186,
   },
   {
     id: "tpv-genrobotic-innovations-p-ltd-r-d-project-manager-34260",
@@ -319050,7 +319386,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34260?job=R%26D%20-%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 179,
+    pinOrder: 187,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-accounts-intern-34259",
@@ -319092,7 +319428,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34259?job=Accounts%20Intern"},
     walkinTime: "",
-    pinOrder: 180,
+    pinOrder: 188,
   },
   {
     id: "tpv-prompttech-global-p-ltd-business-sales-executive-34258",
@@ -319134,7 +319470,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34258?job=Business%20Sales%20Executive"},
     walkinTime: "",
-    pinOrder: 181,
+    pinOrder: 189,
   },
   {
     id: "tpv-richinnovations-technologies-p-ltd-social-media-presenter-brand-strategist-freshers-part-ti-34257",
@@ -319176,7 +319512,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34257?job=Social%20Media%20Presenter%20%26%20Brand%20Strategist%20%28Freshers%20/%20Part-Time%29"},
     walkinTime: "",
-    pinOrder: 182,
+    pinOrder: 190,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-females-1-2-years-experie-34256",
@@ -319218,7 +319554,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34256?job=Business%20Development%20Executive%20%28Females%2C%201-2%20years%20experienced%29"},
     walkinTime: "10:30 – 14:00",
-    pinOrder: 183,
+    pinOrder: 191,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-sales-manager-retail-insurance-34255",
@@ -319260,7 +319596,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34255?job=Sales%20Manager%20%E2%80%93%20Retail%20Insurance"},
     walkinTime: "",
-    pinOrder: 184,
+    pinOrder: 192,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-business-development-associate-bda-34254",
@@ -319302,7 +319638,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34254?job=Business%20Development%20Associate%20%28BDA%29"},
     walkinTime: "",
-    pinOrder: 185,
+    pinOrder: 193,
   },
   {
     id: "tpv-ignosi-enterprises-senior-php-developer-34253",
@@ -319344,7 +319680,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34253?job=SENIOR%20PHP%20DEVELOPER"},
     walkinTime: "",
-    pinOrder: 186,
+    pinOrder: 194,
   },
   {
     id: "tpv-ignosi-enterprises-customer-relationship-support-officer-male-candidate-34252",
@@ -319386,7 +319722,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34252?job=Customer%20Relationship%20%26%20Support%20Officer-%20Male%20Candidate"},
     walkinTime: "",
-    pinOrder: 187,
+    pinOrder: 195,
   },
   {
     id: "tpv-klystron-technologies-junior-odoo-developer-34251",
@@ -319428,7 +319764,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34251?job=Junior%20Odoo%20Developer"},
     walkinTime: "",
-    pinOrder: 188,
+    pinOrder: 196,
   },
   {
     id: "tpv-klystron-technologies-dot-net-team-lead-34249",
@@ -319470,7 +319806,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34249?job=Dot%20Net%20Team%20Lead"},
     walkinTime: "",
-    pinOrder: 189,
+    pinOrder: 197,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-manager-34248",
@@ -319512,7 +319848,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34248?job=Business%20Development%20Manager"},
     walkinTime: "",
-    pinOrder: 190,
+    pinOrder: 198,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-executive-34247",
@@ -319554,7 +319890,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34247?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 191,
+    pinOrder: 199,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-executive-34246",
@@ -319596,7 +319932,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34246?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 192,
+    pinOrder: 200,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-accounts-executive-females-only-34245",
@@ -319638,7 +319974,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34245?job=Accounts%20Executive%20%28Females%20only%29"},
     walkinTime: "11:30 – 15:30",
-    pinOrder: 193,
+    pinOrder: 201,
   },
   {
     id: "tpv-acharya-panchakarma-traditional-kerala-ayurveda-p-ltd-growth-hacker-34244",
@@ -319680,7 +320016,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34244?job=Growth%20%20Hacker"},
     walkinTime: "",
-    pinOrder: 194,
+    pinOrder: 202,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-senior-hr-executive-34242",
@@ -319722,7 +320058,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34242?job=Senior%20HR%20Executive"},
     walkinTime: "",
-    pinOrder: 195,
+    pinOrder: 203,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-videographer-cum-editor-immediate-joiners-34241",
@@ -319764,7 +320100,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34241?job=Videographer%20cum%20Editor%20%28%20immediate%20joiners%29"},
     walkinTime: "",
-    pinOrder: 196,
+    pinOrder: 204,
   },
   {
     id: "tpv-scalgo-technologies-p-ltd-business-development-executive-field-sales-34240",
@@ -319806,7 +320142,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34240?job=Business%20Development%20Executive%20%E2%80%93%20Field%20Sales"},
     walkinTime: "",
-    pinOrder: 197,
+    pinOrder: 205,
   },
   {
     id: "tpv-reizend-p-ltd-full-stack-developer-ai-assisted-development-deployment-34239",
@@ -319848,7 +320184,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34239?job=Full%20Stack%20Developer%20%E2%80%93%20AI-Assisted%20Development%20%26%20Deployment%20%283%2B%20years%20experience%29"},
     walkinTime: "",
-    pinOrder: 198,
+    pinOrder: 206,
   },
   {
     id: "tpv-smarthms-solutions-p-ltd-technical-sales-specialist-kannada-fluency-required-34238",
@@ -319890,7 +320226,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34238?job=Technical%20Sales%20Specialist%20%E2%80%93%20%28Kannada%20Fluency%20required%29"},
     walkinTime: "",
-    pinOrder: 199,
+    pinOrder: 207,
   },
   {
     id: "tpv-smarthms-solutions-p-ltd-client-support-coordinator-freshers-can-apply-34237",
@@ -319932,7 +320268,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34237?job=Client%20Support%20Coordinator%20%28Freshers%20can%20Apply%29"},
     walkinTime: "",
-    pinOrder: 200,
+    pinOrder: 208,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-software-testing-trainee-34236",
@@ -319974,7 +320310,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34236?job=SOFTWARE%20TESTING%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 201,
+    pinOrder: 209,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-mern-stack-trainee-34235",
@@ -320016,7 +320352,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34235?job=MERN%20STACK%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 202,
+    pinOrder: 210,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-flutter-developer-trainee-34234",
@@ -320058,7 +320394,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34234?job=FLUTTER%20DEVELOPER%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 203,
+    pinOrder: 211,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-it-recruiter-2-to-5-years-34233",
@@ -320100,7 +320436,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34233?job=IT%20Recruiter%20-%202%20to%205%20years"},
     walkinTime: "",
-    pinOrder: 204,
+    pinOrder: 212,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-digital-marketing-executive-3-to-6-years-34232",
@@ -320142,7 +320478,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34232?job=Digital%20Marketing%20Executive%20-%203%20to%206%20years"},
     walkinTime: "",
-    pinOrder: 205,
+    pinOrder: 213,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-34231",
@@ -320184,7 +320520,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34231?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 206,
+    pinOrder: 214,
   },
   {
     id: "tpv-dcube-ai-systems-services-p-ltd-marketing-executive-34230",
@@ -320226,7 +320562,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34230?job=Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 207,
+    pinOrder: 215,
   },
   {
     id: "tpv-xilligence-vfx-artist-34229",
@@ -320268,7 +320604,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34229?job=VFX%20Artist"},
     walkinTime: "",
-    pinOrder: 208,
+    pinOrder: 216,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-business-analyst-ai-native-product-23082",
@@ -320351,7 +320687,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/492/26888"},
-    pinOrder: 209,
+    pinOrder: 217,
   },
   {
     id: "ipv-aceware-fintech-services-pvt-ltd-radiant-acemoney-telecalling-customer-support-executive-hindi-tamil-26885",
@@ -320393,7 +320729,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/237/26885"},
-    pinOrder: 210,
+    pinOrder: 218,
   },
   {
     id: "ipv-hashroot-technologies-pvt-ltd-server-administrator-intern-26883",
@@ -320435,7 +320771,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/61/26883"},
-    pinOrder: 211,
+    pinOrder: 219,
   },
   {
     id: "ipv-airpay-financial-technologies-pvt-ltd-project-coordinator-26882",
@@ -320477,7 +320813,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/267/26882"},
-    pinOrder: 212,
+    pinOrder: 220,
   },
   {
     id: "ipv-kl-koncepts-lab-media-and-it-park-project-coordinator-intern-26881",
@@ -320519,7 +320855,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/332/26881"},
-    pinOrder: 213,
+    pinOrder: 221,
   },
   {
     id: "ipv-kl-koncepts-lab-media-and-it-park-content-writer-26880",
@@ -320561,7 +320897,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/332/26880"},
-    pinOrder: 214,
+    pinOrder: 222,
   },
   {
     id: "ipv-cloudhouse-technologies-pvt-ltd-it-marketing-executive-26879",
@@ -320603,7 +320939,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/480/26879"},
-    pinOrder: 215,
+    pinOrder: 223,
   },
   {
     id: "ipv-feathersoft-info-solutions-private-ltd-junior-market-research-analyst-26878",
@@ -320645,7 +320981,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/269/26878"},
-    pinOrder: 216,
+    pinOrder: 224,
   },
   {
     id: "ipv-feathersoft-info-solutions-private-ltd-devops-engineer-26877",
@@ -320687,7 +321023,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/269/26877"},
-    pinOrder: 217,
+    pinOrder: 225,
   },
   {
     id: "ipv-technowave-id-systems-pvt-ltd-sales-associate-26741",
@@ -320729,7 +321065,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/160/26741"},
-    pinOrder: 218,
+    pinOrder: 226,
   },
   {
     logo: "",
@@ -320770,7 +321106,7 @@ var JOBS = [
     roles: ["Associate / Sr. Associate"],
     experience: "fresher",
     applyLink: "https://www.jobs.sutherlandglobal.com/job-details/associate-sr-associate-refferal-in-insurance-jobs-1639268",
-    pinOrder: 219,
+    pinOrder: 227,
   },
   {
     logo: "",
@@ -320811,7 +321147,7 @@ var JOBS = [
     roles: ["Campus Beginner (Python developer)"],
     experience: "fresher",
     applyLink: "https://careers.hcltech.com/job/Campus-Beginner/189023-en_US/",
-    pinOrder: 220,
+    pinOrder: 228,
   },
   {
     logo: "",
@@ -320852,7 +321188,7 @@ var JOBS = [
     roles: ["Administrator (Support & Operations)"],
     experience: "",
     applyLink: "https://careers.hcltech.com/job/Administrator-%28Support-%26-Operations%29/183226-en_US/",
-    pinOrder: 221,
+    pinOrder: 229,
   },
   {
     logo: "",
@@ -320893,7 +321229,7 @@ var JOBS = [
     roles: ["Helpdesk Associate – ITIL"],
     experience: "",
     applyLink: "https://careers-inc.nttdata.com/job/Bangalore-Helpdesk-Associate-ITIL-KA/1433812200/",
-    pinOrder: 222,
+    pinOrder: 230,
   },
   {
     logo: "",
@@ -320934,7 +321270,7 @@ var JOBS = [
     roles: ["Retail Associate – Nike (COCO), Dahisar"],
     experience: "both",
     applyLink: "https://careers.nike.com/retail-associate-nike-direct-dahisar-mumbai/job/R-91064",
-    pinOrder: 223,
+    pinOrder: 231,
   },
   {
     logo: "",
@@ -320975,7 +321311,7 @@ var JOBS = [
     roles: ["Data Engineer Intern – 2027"],
     experience: "fresher",
     applyLink: "https://www.amazon.jobs/en/jobs/10496769/data-engineer-intern-2027",
-    pinOrder: 224,
+    pinOrder: 232,
   },
   {
     logo: "",
@@ -321016,7 +321352,7 @@ var JOBS = [
     roles: ["Forward Deployed Engineer Intern, 2027"],
     experience: "fresher",
     applyLink: "https://www.google.com/about/careers/applications/jobs/results/96299220855595718-forward-deployed-engineer-intern-2027",
-    pinOrder: 225,
+    pinOrder: 233,
   },
   {
     logo: "",
@@ -321057,7 +321393,7 @@ var JOBS = [
     roles: ["AI Product Manager Intern"],
     experience: "fresher",
     applyLink: "https://forms.gle/BjnqcrHN2vMp4iHu6",
-    pinOrder: 226,
+    pinOrder: 234,
   },
   {
     logo: "",
@@ -321098,7 +321434,7 @@ var JOBS = [
     roles: ["AI Engineer Intern"],
     experience: "fresher",
     applyLink: "https://www.vahan.ai/careers/ai-engineer-intern/",
-    pinOrder: 227,
+    pinOrder: 235,
   },
   {
     logo: "",
@@ -321139,7 +321475,7 @@ var JOBS = [
     roles: ["Intern (Shell Assessed Internship)"],
     experience: "fresher",
     applyLink: "https://shell.wd3.myworkdayjobs.com/Proactive/job/Shell-Technology-Centre---Bangalore/Intern_R215247",
-    pinOrder: 228,
+    pinOrder: 236,
   },
   {
     logo: "",
@@ -321180,7 +321516,7 @@ var JOBS = [
     roles: ["Technical Support Engineer"],
     experience: "",
     applyLink: "https://careers.zohocorp.com/jobs/Careers/193779000024445975/Technical-Support-Engineers",
-    pinOrder: 229,
+    pinOrder: 237,
   },
   {
     logo: "",
@@ -321221,7 +321557,7 @@ var JOBS = [
     roles: ["Engineering Services Practitioner (French Language)"],
     experience: "both",
     applyLink: "https://www.accenture.com/in-en/careers/jobdetails?id=ATCI-5624491-S2029967_en",
-    pinOrder: 230,
+    pinOrder: 238,
   },
   {
     logo: "",
@@ -321262,7 +321598,7 @@ var JOBS = [
     roles: ["Senior Systems Engineer – IBM i / AIX"],
     experience: "experienced",
     applyLink: "mailto:remya.mv@nuventure.in?subject=Senior%20Systems%20Engineer%20%E2%80%93%20IBM%20i%20%2F%20AIX",
-    pinOrder: 231,
+    pinOrder: 239,
   },
   {
     logo: "",
@@ -321303,7 +321639,7 @@ var JOBS = [
     roles: ["Graphics Designer"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Graphics%20Designer",
-    pinOrder: 232,
+    pinOrder: 240,
   },
   {
     logo: "",
@@ -321344,7 +321680,7 @@ var JOBS = [
     roles: ["Sales"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Sales",
-    pinOrder: 233,
+    pinOrder: 241,
   },
   {
     logo: "",
@@ -321385,7 +321721,7 @@ var JOBS = [
     roles: ["Backend Developer"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Backend%20Developer",
-    pinOrder: 234,
+    pinOrder: 242,
   },
   {
     logo: "",
@@ -321426,7 +321762,7 @@ var JOBS = [
     roles: ["Product Designer (Architecture)"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Product%20Designer%20(Architecture)",
-    pinOrder: 235,
+    pinOrder: 243,
   },
   {
     logo: "",
@@ -321467,7 +321803,7 @@ var JOBS = [
     roles: ["Assembly & Prototyping Support"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Assembly%20%26%20Prototyping%20Support",
-    pinOrder: 236,
+    pinOrder: 244,
   },
   {
     logo: "",
@@ -321508,7 +321844,7 @@ var JOBS = [
     roles: ["Web Developer"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Web%20Developer",
-    pinOrder: 237,
+    pinOrder: 245,
   },
   {
     logo: "",
@@ -321549,7 +321885,7 @@ var JOBS = [
     roles: ["Digital Marketing"],
     experience: "fresher",
     applyLink: "mailto:careers@babylonia.ag?subject=Digital%20Marketing",
-    pinOrder: 238,
+    pinOrder: 246,
   },
   {
     logo: "",
@@ -321591,7 +321927,7 @@ var JOBS = [
     experience: "fresher",
     vacancies: 1,
     applyLink: "mailto:careers@aegeon.in?subject=Digital%20Marketing%20Intern",
-    pinOrder: 239,
+    pinOrder: 247,
   },
   {
     logo: "",
@@ -321633,7 +321969,7 @@ var JOBS = [
     experience: "fresher",
     vacancies: 1,
     applyLink: "mailto:careers@aegeon.in?subject=Creative%20Design%20Intern",
-    pinOrder: 240,
+    pinOrder: 248,
   },
   {
     logo: "",
@@ -321675,7 +322011,7 @@ var JOBS = [
     experience: "experienced",
     vacancies: 2,
     applyLink: "mailto:Shency@foxoneusa.com?subject=Oracle%20VBCS%20%26%20OIC%20Developer",
-    pinOrder: 241,
+    pinOrder: 249,
   },
   {
     logo: "",
@@ -321716,7 +322052,7 @@ var JOBS = [
     roles: ["Software Development (Apprentice) – 2026 Freshers"],
     experience: "fresher",
     applyLink: "https://cloudkaptan.keka.com/careers/jobdetails/125786",
-    pinOrder: 242,
+    pinOrder: 250,
   },
   {
     logo: "",
@@ -321757,7 +322093,7 @@ var JOBS = [
     roles: ["Software Engineer I"],
     experience: "experienced",
     applyLink: "https://egug.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1/job/26015127",
-    pinOrder: 243,
+    pinOrder: 251,
   },
   {
     logo: "",
@@ -321798,7 +322134,7 @@ var JOBS = [
     roles: ["Associate Software Engineer (L1 IT Service Desk)"],
     experience: "experienced",
     applyLink: "https://careers.capgemini.com/job/Noida-Associate-Software-Engineer/1454084433",
-    pinOrder: 244,
+    pinOrder: 252,
   },
   {
     logo: "",
@@ -321839,7 +322175,7 @@ var JOBS = [
     roles: ["Tech Intern"],
     experience: "fresher",
     applyLink: "https://mihup.keka.com/careers/jobdetails/168908",
-    pinOrder: 245,
+    pinOrder: 253,
   },
   {
     logo: "",
@@ -321880,7 +322216,7 @@ var JOBS = [
     roles: ["App Dev & Support Engineer I"],
     experience: "fresher",
     applyLink: "https://careers.conduent.com/us/en/job/26090/App-Dev-Support-Engineer-I",
-    pinOrder: 246,
+    pinOrder: 254,
   },
   {
     logo: "",
@@ -321921,7 +322257,7 @@ var JOBS = [
     roles: ["Dynamics 365 CRM Developer – 1 year","Dynamics 365 CRM Developer – 4–6 years"],
     experience: "experienced",
     applyLink: "mailto:neha.r@array.team?subject=Dynamics%20365%20CRM%20Developer",
-    pinOrder: 247,
+    pinOrder: 255,
   },
   {
     logo: "",
@@ -321962,7 +322298,7 @@ var JOBS = [
     roles: ["Pharmacist"],
     experience: "experienced",
     applyLink: "mailto:hr@smitahospital.com?subject=Pharmacist",
-    pinOrder: 248,
+    pinOrder: 256,
   },
   {
     logo: "",
@@ -322003,7 +322339,7 @@ var JOBS = [
     roles: ["Enrollment Coordinator"],
     experience: "",
     applyLink: "mailto:hr@tutorcomp.com?subject=Enrollment%20Coordinator",
-    pinOrder: 249,
+    pinOrder: 257,
   },
   {
     logo: "",
@@ -322044,7 +322380,7 @@ var JOBS = [
     roles: ["Assistant Professor – Computer Science"],
     experience: "",
     applyLink: "mailto:hr@depaul.edu.in?subject=Assistant%20Professor%20-%20Computer%20Science",
-    pinOrder: 250,
+    pinOrder: 258,
   },
   {
     logo: "",
@@ -322085,7 +322421,7 @@ var JOBS = [
     roles: ["Graphic Designer"],
     experience: "experienced",
     applyLink: "tel:+917510199712",
-    pinOrder: 251,
+    pinOrder: 259,
   },
   {
     logo: "",
@@ -322126,7 +322462,7 @@ var JOBS = [
     roles: ["Manager – Public Relations"],
     experience: "experienced",
     applyLink: "mailto:hr@st-thomashospital.com?subject=Manager%20-%20Public%20Relations",
-    pinOrder: 252,
+    pinOrder: 260,
   },
   {
     logo: "",
@@ -322167,7 +322503,7 @@ var JOBS = [
     roles: ["OT/AT Technician","Operation Theatre Nurse"],
     experience: "both",
     applyLink: "mailto:hr@sunrisehospitalepta.com?subject=OT%2FAT%20Technician%20%2F%20Nurse",
-    pinOrder: 253,
+    pinOrder: 261,
   },
   {
     logo: "",
@@ -322208,7 +322544,7 @@ var JOBS = [
     roles: ["AC Technician"],
     experience: "both",
     applyLink: "mailto:hr@sunrisehospitalepta.com?subject=AC%20Technician",
-    pinOrder: 254,
+    pinOrder: 262,
   },
   {
     logo: "",
@@ -322249,7 +322585,7 @@ var JOBS = [
     roles: ["Maintenance Electrician","Maintenance Supervisor"],
     experience: "both",
     applyLink: "mailto:hr@sunrisehospitalepta.com?subject=Maintenance%20-%20Electrician%20%2F%20Supervisor",
-    pinOrder: 255,
+    pinOrder: 263,
   },
   {
     logo: "",
@@ -322290,7 +322626,7 @@ var JOBS = [
     roles: ["Food & Beverage (F&B) Supervisor"],
     experience: "experienced",
     applyLink: "mailto:hr@sunrisehospitalepta.com?subject=F%26B%20Supervisor",
-    pinOrder: 256,
+    pinOrder: 264,
   },
   {
     logo: "",
@@ -322331,7 +322667,7 @@ var JOBS = [
     roles: ["Project Engineer"],
     experience: "experienced",
     applyLink: "mailto:hr@motherhospitalthrissur.org?subject=Project%20Engineer",
-    pinOrder: 257,
+    pinOrder: 265,
   },
   {
     logo: "",
@@ -322372,7 +322708,7 @@ var JOBS = [
     roles: ["Home Health Medical Coder"],
     experience: "",
     applyLink: "mailto:incareers@cliniqon.com?subject=Home%20Health%20Medical%20Coder",
-    pinOrder: 258,
+    pinOrder: 266,
   },
   {
     logo: "",
@@ -322413,7 +322749,7 @@ var JOBS = [
     roles: ["Junior Executive / Executive – International Patient Relations (IPR)"],
     experience: "experienced",
     applyLink: "mailto:hr_apolloadlux@apollohospitals.com?subject=Junior%20Executive%20%2F%20Executive%20-%20IPR",
-    pinOrder: 259,
+    pinOrder: 267,
   },
   {
     logo: "",
@@ -322455,7 +322791,7 @@ var JOBS = [
     roles: ["Sales Consultant (10)","Showroom Sales Consultant (1)","Customer Relation Executive (2)","Service Advisor (3)","Bodyshop Advisor (1)","Accessories Technician (1)","Used Car Evaluator (1)","Used Car Sales Executive (1)","Bodyshop Supervisor (1)"],
     experience: "experienced",
     applyLink: "mailto:hrdknr@apcohyundai.com?subject=Application%20-%20APCO%20Hyundai",
-    pinOrder: 260,
+    pinOrder: 268,
   },
   {
     logo: "",
@@ -322496,7 +322832,7 @@ var JOBS = [
     roles: ["Marketing Manager"],
     experience: "experienced",
     applyLink: "mailto:talent@globalsurf.ae?subject=Marketing%20Manager",
-    pinOrder: 261,
+    pinOrder: 269,
   },
   {
     logo: "",
@@ -322537,7 +322873,7 @@ var JOBS = [
     roles: ["Admin Executive","Referral Marketing Executive","Counselor","CSSD Technician","Staff Nurse","Insurance Executive"],
     experience: "both",
     applyLink: "mailto:eyecarehrd@ahalia.in?subject=Application%20-%20Ahalia%20Eye%20Hospital",
-    pinOrder: 262,
+    pinOrder: 270,
   },
   {
     logo: "",
@@ -322578,7 +322914,7 @@ var JOBS = [
     roles: ["Digital Marketing Executive"],
     experience: "experienced",
     applyLink: "mailto:hrtechhomes@gmail.com?subject=Digital%20Marketing%20Executive",
-    pinOrder: 263,
+    pinOrder: 271,
   },
   {
     logo: "",
@@ -322619,7 +322955,7 @@ var JOBS = [
     roles: ["Accounts Executive (Female candidates)"],
     experience: "experienced",
     applyLink: "mailto:hrtechhomes@gmail.com?subject=Accounts%20Executive",
-    pinOrder: 264,
+    pinOrder: 272,
   },
   {
     logo: "",
@@ -322660,7 +322996,7 @@ var JOBS = [
     roles: ["Hindi Teacher (Online)"],
     experience: "",
     applyLink: "https://wa.me/918589038018",
-    pinOrder: 265,
+    pinOrder: 273,
   },
   {
     logo: "",
@@ -322701,7 +323037,7 @@ var JOBS = [
     roles: ["Manager – Accounts & Finance (KSA)"],
     experience: "experienced",
     applyLink: "mailto:career@impexappliances.com?subject=Manager%20-%20Accounts%20%26%20Finance%20-%20KSA",
-    pinOrder: 266,
+    pinOrder: 274,
   },
   {
     logo: "",
@@ -322743,7 +323079,7 @@ var JOBS = [
     experience: "both",
     vacancies: 2,
     applyLink: "https://wa.me/918050578115",
-    pinOrder: 267,
+    pinOrder: 275,
   },
   {
     logo: "",
@@ -322786,7 +323122,7 @@ var JOBS = [
     applyLink: "tel:+917994343999",
     walkinTime: "10:00 AM",
     walkinLocation: "Manjeri",
-    pinOrder: 268,
+    pinOrder: 276,
   },
   {
     logo: "",
@@ -322827,7 +323163,7 @@ var JOBS = [
     roles: ["Sales Executive"],
     experience: "experienced",
     applyLink: "tel:+919249182775",
-    pinOrder: 269,
+    pinOrder: 277,
   },
   {
     logo: "",
@@ -322868,7 +323204,7 @@ var JOBS = [
     roles: ["Brand Purchaser"],
     experience: "experienced",
     applyLink: "mailto:hr@msicom.in?subject=Brand%20Purchaser",
-    pinOrder: 270,
+    pinOrder: 278,
   },
   {
     logo: "",
@@ -322909,7 +323245,7 @@ var JOBS = [
     roles: ["Warehouse Manager"],
     experience: "experienced",
     applyLink: "mailto:careers@mggroupin.com?subject=Warehouse%20Manager",
-    pinOrder: 271,
+    pinOrder: 279,
   },
   {
     logo: "",
@@ -322950,7 +323286,7 @@ var JOBS = [
     roles: ["BIM Trainer"],
     experience: "experienced",
     applyLink: "mailto:corehrmanager@gmail.com?subject=BIM%20Trainer",
-    pinOrder: 272,
+    pinOrder: 280,
   },
   {
     logo: "",
@@ -322992,7 +323328,7 @@ var JOBS = [
     experience: "fresher",
     vacancies: 10,
     applyLink: "tel:+919745333990",
-    pinOrder: 273,
+    pinOrder: 281,
   },
   {
     logo: "",
@@ -323033,7 +323369,7 @@ var JOBS = [
     roles: ["Academic Counselor"],
     experience: "experienced",
     applyLink: "mailto:hr@eduworldgroup.com?subject=Academic%20Counselor",
-    pinOrder: 274,
+    pinOrder: 282,
   },
   {
     logo: "",
@@ -323074,7 +323410,7 @@ var JOBS = [
     roles: ["Architect","Quantity Surveyor","Quality Controller (QC)","Draughtsman","Front Office Executive","Accounts & Sales Coordinator","Sales Manager","Sr. Sales Manager","Team Head – Sales"],
     experience: "both",
     applyLink: "mailto:career@capkon.in?subject=Application%20-%20Capkon",
-    pinOrder: 275,
+    pinOrder: 283,
   },
   {
     logo: "",
@@ -323115,7 +323451,7 @@ var JOBS = [
     roles: ["MEP Design Engineer"],
     experience: "experienced",
     applyLink: "mailto:hr@aandvglobal.com?subject=MEP%20Design%20Engineer",
-    pinOrder: 276,
+    pinOrder: 284,
   },
   {
     logo: "",
@@ -323156,7 +323492,7 @@ var JOBS = [
     roles: ["Trainee – Sales & Business Development"],
     experience: "fresher",
     applyLink: "mailto:career@lucidplus.com?subject=Trainee%20-%20Sales%20%26%20Business%20Development",
-    pinOrder: 277,
+    pinOrder: 285,
   },
   {
     id: "ipv-cseidc-technologies-pvt-ltd-technical-project-manager-immediate-joiner-24488",
@@ -323280,7 +323616,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/499/26876"},
-    pinOrder: 278,
+    pinOrder: 286,
   },
   {
     id: "ipv-dee-and-lee-services-servicenow-csdm-and-service-portfolio-administrator-26875",
@@ -323322,7 +323658,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/499/26875"},
-    pinOrder: 279,
+    pinOrder: 287,
   },
   {
     id: "ipv-dee-and-lee-services-servicenow-service-design-and-transition-specialist-26874",
@@ -323364,7 +323700,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/499/26874"},
-    pinOrder: 280,
+    pinOrder: 288,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-software-qa-engineer-26873",
@@ -323406,7 +323742,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26873"},
-    pinOrder: 281,
+    pinOrder: 289,
   },
   {
     id: "ipv-dynamed-healthcare-solutions-pvt-ltd-graphic-designer-consultant-contract-26872",
@@ -323448,7 +323784,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/132/26872"},
-    pinOrder: 282,
+    pinOrder: 290,
   },
   {
     id: "ipv-nuvento-systems-private-limited-marketing-trainee-paid-digital-marketing-and-branding-26871",
@@ -323490,7 +323826,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26871"},
-    pinOrder: 283,
+    pinOrder: 291,
   },
   {
     id: "ipv-nas-infosolutions-pvt-ltd-technical-consultant-erp-sap-business-one-26870",
@@ -323532,7 +323868,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/278/26870"},
-    pinOrder: 284,
+    pinOrder: 292,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-talent-acquisition-executive-26869",
@@ -323574,7 +323910,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26869"},
-    pinOrder: 285,
+    pinOrder: 293,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26868",
@@ -323616,7 +323952,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26868"},
-    pinOrder: 286,
+    pinOrder: 294,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26867",
@@ -323658,7 +323994,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26867"},
-    pinOrder: 287,
+    pinOrder: 295,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26866",
@@ -323700,7 +324036,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26866"},
-    pinOrder: 288,
+    pinOrder: 296,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26865",
@@ -323742,7 +324078,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26865"},
-    pinOrder: 289,
+    pinOrder: 297,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26864",
@@ -323784,7 +324120,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26864"},
-    pinOrder: 290,
+    pinOrder: 298,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26863",
@@ -323826,7 +324162,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26863"},
-    pinOrder: 291,
+    pinOrder: 299,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26862",
@@ -323868,7 +324204,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26862"},
-    pinOrder: 292,
+    pinOrder: 300,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26861",
@@ -323910,7 +324246,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26861"},
-    pinOrder: 293,
+    pinOrder: 301,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26860",
@@ -323952,7 +324288,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26860"},
-    pinOrder: 294,
+    pinOrder: 302,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26859",
@@ -323994,7 +324330,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26859"},
-    pinOrder: 295,
+    pinOrder: 303,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26858",
@@ -324036,7 +324372,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26858"},
-    pinOrder: 296,
+    pinOrder: 304,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26857",
@@ -324078,7 +324414,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26857"},
-    pinOrder: 297,
+    pinOrder: 305,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26856",
@@ -324120,7 +324456,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26856"},
-    pinOrder: 298,
+    pinOrder: 306,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-business-analyst-ai-enterprise-solutions-only-looking-fo-26855",
@@ -324162,7 +324498,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26855"},
-    pinOrder: 299,
+    pinOrder: 307,
   },
   {
     id: "ipv-experion-technologies-walk-in-drive-kochi-21st-november-26854",
@@ -324204,7 +324540,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/103/26854"},
-    pinOrder: 300,
+    pinOrder: 308,
   },
   {
     id: "ipv-newagesys-solutions-p-ltd-us-recruiter-2-6-years-26853",
@@ -324246,7 +324582,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/109/26853"},
-    pinOrder: 301,
+    pinOrder: 309,
   },
   {
     id: "ipv-bhooshan-s-junior-digital-marketing-intern-26852",
@@ -324289,7 +324625,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application – Digital Marketing Intern (YouTube & Social Media)",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/227/26852"},
-    pinOrder: 302,
+    pinOrder: 310,
   },
   {
     id: "ipv-worksent-technologies-pvt-ltd-senior-soc-engineer-incident-response-analyst-26851",
@@ -324331,7 +324667,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/164/26851"},
-    pinOrder: 303,
+    pinOrder: 311,
   },
   {
     id: "ipv-simelabs-an-astek-company-revenue-cloud-developer-26850",
@@ -324373,7 +324709,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26850"},
-    pinOrder: 304,
+    pinOrder: 312,
   },
   {
     id: "ipv-simelabs-an-astek-company-finops-analyst-26849",
@@ -324415,7 +324751,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26849"},
-    pinOrder: 305,
+    pinOrder: 313,
   },
   {
     id: "ipv-cloudhouse-technologies-pvt-ltd-full-stack-developer-intern-26848",
@@ -324457,7 +324793,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/480/26848"},
-    pinOrder: 306,
+    pinOrder: 314,
   },
   {
     id: "ipv-inerg-software-innovations-pvt-ltd-insurance-auditor-homeowners-insurance-26847",
@@ -324499,7 +324835,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/181/26847"},
-    pinOrder: 307,
+    pinOrder: 315,
   },
   {
     id: "ipv-millennium-infologic-accounts-associate-ar-ap-26846",
@@ -324541,7 +324877,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/263/26846"},
-    pinOrder: 308,
+    pinOrder: 316,
   },
   {
     id: "ipv-paoyaila-animation-studios-llp-casting-call-female-model-for-commercial-ad-shoot-26845",
@@ -324583,7 +324919,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/476/26845"},
-    pinOrder: 309,
+    pinOrder: 317,
   },
   {
     id: "ipv-ileaf-solutions-pvt-ltd-sales-development-representative-sdr-26837",
@@ -324625,7 +324961,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/59/26837"},
-    pinOrder: 310,
+    pinOrder: 318,
   },
   {
     id: "ipv-voyon-technology-pvt-ltd-business-development-intern-26830",
@@ -324667,7 +325003,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/372/26830"},
-    pinOrder: 311,
+    pinOrder: 319,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-digital-marketing-internship-live-projects-26829",
@@ -324709,7 +325045,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26829"},
-    pinOrder: 312,
+    pinOrder: 320,
   },
   {
     id: "ipv-aventus-informatics-customer-support-intern-26828",
@@ -324751,7 +325087,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/148/26828"},
-    pinOrder: 313,
+    pinOrder: 321,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-hr-intern-26827",
@@ -324793,7 +325129,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26827"},
-    pinOrder: 314,
+    pinOrder: 322,
   },
   {
     id: "ipv-viewy-digital-p-ltd-call-centre-business-development-executive-26826",
@@ -324835,7 +325171,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/232/26826"},
-    pinOrder: 315,
+    pinOrder: 323,
   },
   {
     id: "ipv-netlyft-technologies-pvt-ltd-digital-marketing-intern-26825",
@@ -324877,7 +325213,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/518/26825"},
-    pinOrder: 316,
+    pinOrder: 324,
   },
   {
     id: "ipv-armia-systems-pvt-ltd-linux-system-engineer-26824",
@@ -324919,7 +325255,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/3/26824"},
-    pinOrder: 317,
+    pinOrder: 325,
   },
   {
     logo: "",
@@ -324960,7 +325296,7 @@ var JOBS = [
     roles: ["Fresher – Data (DE / AI / BI)"],
     experience: "fresher",
     applyLink: "",
-    pinOrder: 318,
+    pinOrder: 326,
   },
   {
     logo: "",
@@ -325003,7 +325339,7 @@ var JOBS = [
     applyLink: "",
     walkinTime: "10:00 AM – 5:00 PM",
     walkinLocation: "SOTI India Private Ltd., Unit Number 1004, 10th floor, Lulu Cyber Tower 2, Infopark SEZ Phase I, Infopark PO, Kochi 682042, Kerala",
-    pinOrder: 319,
+    pinOrder: 327,
   },
   {
     logo: "",
@@ -325046,7 +325382,7 @@ var JOBS = [
     applyLink: "",
     walkinTime: "10:00 AM onwards",
     walkinLocation: "JAIN University, Kakkanad, Kochi",
-    pinOrder: 320,
+    pinOrder: 328,
   },
   {
     logo: "",
@@ -325087,7 +325423,7 @@ var JOBS = [
     roles: ["HR Intern"],
     experience: "fresher",
     applyLink: "mailto:jobs@manorama.com?subject=HR%20Intern",
-    pinOrder: 321,
+    pinOrder: 329,
   },
   {
     logo: "",
@@ -325128,7 +325464,7 @@ var JOBS = [
     roles: ["Content Producer"],
     experience: "experienced",
     applyLink: "mailto:careerstrd@mpp.co.in?subject=Content%20Producer%20for%20Mathrubhumi%20News%20Digital",
-    pinOrder: 322,
+    pinOrder: 330,
   },
   {
     logo: "",
@@ -325169,7 +325505,7 @@ var JOBS = [
     roles: ["Content Manager"],
     experience: "experienced",
     applyLink: "mailto:careerstrd@mpp.co.in?subject=Content%20Manager%20for%20Mathrubhumi%20News%20Digital",
-    pinOrder: 323,
+    pinOrder: 331,
   },
   {
     logo: "",
@@ -325210,7 +325546,7 @@ var JOBS = [
     roles: ["Media Sales Professional"],
     experience: "experienced",
     applyLink: "mailto:careerstrd@mpp.co.in?subject=Media%20Sales%20Professional%20for%20Club%20FM",
-    pinOrder: 324,
+    pinOrder: 332,
   },
   {
     logo: "",
@@ -325252,7 +325588,7 @@ var JOBS = [
     experience: "",
     vacancies: 2,
     applyLink: "https://wa.me/919995750054",
-    pinOrder: 325,
+    pinOrder: 333,
   },
   {
     logo: "",
@@ -325293,7 +325629,7 @@ var JOBS = [
     roles: ["Trainee Faculty – Spoken English"],
     experience: "",
     applyLink: "mailto:swaswizard@gmail.com?subject=Trainee%20Faculty%20-%20Spoken%20English",
-    pinOrder: 326,
+    pinOrder: 334,
   },
   {
     logo: "",
@@ -325334,7 +325670,7 @@ var JOBS = [
     roles: ["MERN Developer (React.js, Next.js & MongoDB)"],
     experience: "",
     applyLink: "mailto:hr@corpxcloud.com?subject=MERN%20Developer",
-    pinOrder: 327,
+    pinOrder: 335,
   },
   {
     logo: "",
@@ -325375,7 +325711,7 @@ var JOBS = [
     roles: ["Senior Performance Marketer"],
     experience: "experienced",
     applyLink: "tel:+917034000342",
-    pinOrder: 328,
+    pinOrder: 336,
   },
   {
     logo: "",
@@ -325416,7 +325752,7 @@ var JOBS = [
     roles: ["Business Development Manager"],
     experience: "both",
     applyLink: "mailto:athulyac6@gmail.com?subject=Business%20Development%20Manager%20-%20Calicut",
-    pinOrder: 329,
+    pinOrder: 337,
   },
   {
     logo: "",
@@ -325457,7 +325793,7 @@ var JOBS = [
     roles: ["AWS DevOps Engineer (Fresher)"],
     experience: "fresher",
     applyLink: "mailto:priyanshu.verma@i2k2.com?subject=AWS%20DevOps%20Engineer%20(Fresher)",
-    pinOrder: 330,
+    pinOrder: 338,
   },
   {
     logo: "",
@@ -325498,7 +325834,7 @@ var JOBS = [
     roles: ["Social Media Executive"],
     experience: "experienced",
     applyLink: "mailto:ayushi@clarigoinfotech.com?subject=Social%20Media%20Executive",
-    pinOrder: 331,
+    pinOrder: 339,
   },
   {
     logo: "",
@@ -325539,7 +325875,7 @@ var JOBS = [
     roles: ["SEO Intern"],
     experience: "fresher",
     applyLink: "mailto:hr@ioss.in?subject=SEO%20Intern",
-    pinOrder: 332,
+    pinOrder: 340,
   },
   {
     logo: "",
@@ -325580,7 +325916,7 @@ var JOBS = [
     roles: [".NET Developer"],
     experience: "experienced",
     applyLink: "mailto:incareers@cliniqon.com?subject=.NET%20Developer",
-    pinOrder: 333,
+    pinOrder: 341,
   },
   {
     logo: "",
@@ -325621,7 +325957,7 @@ var JOBS = [
     roles: ["Junior UI/UX Designer"],
     experience: "both",
     applyLink: "mailto:career@electrifex.com?subject=Junior%20UI%2FUX%20Designer",
-    pinOrder: 334,
+    pinOrder: 342,
   },
   {
     logo: "",
@@ -325662,7 +325998,7 @@ var JOBS = [
     roles: ["Flutter Developer"],
     experience: "experienced",
     applyLink: "mailto:hr@adamfinastra.tech?subject=Flutter%20Developer",
-    pinOrder: 335,
+    pinOrder: 343,
   },
   {
     logo: "",
@@ -325703,7 +326039,7 @@ var JOBS = [
     roles: ["Operations Executive Intern – Operations & Maintenance"],
     experience: "fresher",
     applyLink: "https://www.genrobotics.com",
-    pinOrder: 336,
+    pinOrder: 344,
   },
   {
     id: "ipv-elemment-fa-ade-pvt-ltd-r-d-engineer-24509",
@@ -326074,7 +326410,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/438/26823"},
-    pinOrder: 337,
+    pinOrder: 345,
   },
   {
     id: "ipv-qc-verify-private-limited-data-engineer-intern-26822",
@@ -326116,7 +326452,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/257/26822"},
-    pinOrder: 338,
+    pinOrder: 346,
   },
   {
     id: "ipv-dooth-internet-service-pvt-ltd-talent-acquisition-specialist-it-recruitment-26821",
@@ -326158,7 +326494,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/438/26821"},
-    pinOrder: 339,
+    pinOrder: 347,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-talent-acquisition-executive-26820",
@@ -326200,7 +326536,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26820"},
-    pinOrder: 340,
+    pinOrder: 348,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26819",
@@ -326242,7 +326578,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26819"},
-    pinOrder: 341,
+    pinOrder: 349,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26818",
@@ -326284,7 +326620,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26818"},
-    pinOrder: 342,
+    pinOrder: 350,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26817",
@@ -326326,7 +326662,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26817"},
-    pinOrder: 343,
+    pinOrder: 351,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26816",
@@ -326368,7 +326704,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26816"},
-    pinOrder: 344,
+    pinOrder: 352,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26815",
@@ -326410,7 +326746,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26815"},
-    pinOrder: 345,
+    pinOrder: 353,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26814",
@@ -326452,7 +326788,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26814"},
-    pinOrder: 346,
+    pinOrder: 354,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26813",
@@ -326494,7 +326830,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26813"},
-    pinOrder: 347,
+    pinOrder: 355,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26812",
@@ -326536,7 +326872,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26812"},
-    pinOrder: 348,
+    pinOrder: 356,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26811",
@@ -326578,7 +326914,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26811"},
-    pinOrder: 349,
+    pinOrder: 357,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26810",
@@ -326620,7 +326956,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26810"},
-    pinOrder: 350,
+    pinOrder: 358,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26809",
@@ -326662,7 +326998,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26809"},
-    pinOrder: 351,
+    pinOrder: 359,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26808",
@@ -326704,7 +327040,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26808"},
-    pinOrder: 352,
+    pinOrder: 360,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-devsecops-engineer-26807",
@@ -326746,7 +327082,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26807"},
-    pinOrder: 353,
+    pinOrder: 361,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-react-native-engineer-26806",
@@ -326788,7 +327124,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26806"},
-    pinOrder: 354,
+    pinOrder: 362,
   },
   {
     id: "ipv-simelabs-an-astek-company-devops-engineer-26805",
@@ -326830,7 +327166,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26805"},
-    pinOrder: 355,
+    pinOrder: 363,
   },
   {
     id: "ipv-simelabs-an-astek-company-react-js-web-engineer-26803",
@@ -326872,7 +327208,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26803"},
-    pinOrder: 356,
+    pinOrder: 364,
   },
   {
     id: "ipv-simelabs-an-astek-company-monitoring-l2-application-support-engineer-26802",
@@ -326914,7 +327250,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26802"},
-    pinOrder: 357,
+    pinOrder: 365,
   },
   {
     id: "ipv-simelabs-an-astek-company-java-springboot-application-support-engineer-26801",
@@ -326956,7 +327292,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26801"},
-    pinOrder: 358,
+    pinOrder: 366,
   },
   {
     id: "ipv-simelabs-an-astek-company-web-react-mobile-application-support-engineer-26800",
@@ -326998,7 +327334,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26800"},
-    pinOrder: 359,
+    pinOrder: 367,
   },
   {
     id: "ipv-simelabs-an-astek-company-devops-cloud-platform-support-engineer-26799",
@@ -327040,7 +327376,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26799"},
-    pinOrder: 360,
+    pinOrder: 368,
   },
   {
     id: "ipv-simelabs-an-astek-company-oracle-database-administrator-26798",
@@ -327082,7 +327418,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26798"},
-    pinOrder: 361,
+    pinOrder: 369,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-solution-architect-java-immediate-joiner-26784",
@@ -327124,7 +327460,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26784"},
-    pinOrder: 362,
+    pinOrder: 370,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-seo-content-writer-26783",
@@ -327166,7 +327502,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26783"},
-    pinOrder: 363,
+    pinOrder: 371,
   },
   {
     id: "ipv-amplitude-software-systems-pvt-ltd-software-functional-support-implementer-trainee-26782",
@@ -327208,7 +327544,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/326/26782"},
-    pinOrder: 364,
+    pinOrder: 372,
   },
   {
     id: "ipv-amplitude-software-systems-pvt-ltd-learning-and-development-manager-26781",
@@ -327250,7 +327586,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/326/26781"},
-    pinOrder: 365,
+    pinOrder: 373,
   },
   {
     id: "ipv-amplitude-software-systems-pvt-ltd-tele-sales-trainee-26780",
@@ -327292,7 +327628,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/326/26780"},
-    pinOrder: 366,
+    pinOrder: 374,
   },
   {
     id: "ipv-amplitude-software-systems-pvt-ltd-net-developer-26779",
@@ -327334,7 +327670,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/326/26779"},
-    pinOrder: 367,
+    pinOrder: 375,
   },
   {
     id: "ipv-marketbytes-webworks-private-limited-hr-intern-26778",
@@ -327377,7 +327713,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for HR Intern",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/460/26778"},
-    pinOrder: 368,
+    pinOrder: 376,
   },
   {
     id: "ipv-ileaf-solutions-pvt-ltd-business-development-representative-internship-26777",
@@ -327419,7 +327755,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/59/26777"},
-    pinOrder: 369,
+    pinOrder: 377,
   },
   {
     id: "ipv-cavli-wireless-planner-26776",
@@ -327461,7 +327797,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/277/26776"},
-    pinOrder: 370,
+    pinOrder: 378,
   },
   {
     id: "ipv-techversant-infotech-pvt-ltd-lead-ai-engineering-enablement-26775",
@@ -327503,7 +327839,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/85/26775"},
-    pinOrder: 371,
+    pinOrder: 379,
   },
   {
     id: "ipv-techversant-infotech-pvt-ltd-business-development-intern-26774",
@@ -327545,7 +327881,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/85/26774"},
-    pinOrder: 372,
+    pinOrder: 380,
   },
   {
     id: "ipv-cseidc-technologies-pvt-ltd-sr-oracle-pl-sql-developer-forms-and-reports-26766",
@@ -327587,7 +327923,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/481/26766"},
-    pinOrder: 373,
+    pinOrder: 381,
   },
   {
     id: "ipv-origent-technologies-qa-automation-performance-test-engineer-26765",
@@ -327629,7 +327965,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/506/26765"},
-    pinOrder: 374,
+    pinOrder: 382,
   },
   {
     id: "ipv-lucidplus-infotech-pvt-ltd-digital-marketing-intern-6-months-26763",
@@ -327671,7 +328007,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/41/26763"},
-    pinOrder: 375,
+    pinOrder: 383,
   },
   {
     id: "ipv-tranzmeo-data-science-team-lead-26762",
@@ -327713,7 +328049,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/157/26762"},
-    pinOrder: 376,
+    pinOrder: 384,
   },
   {
     id: "ipv-planet-media-india-pmin-agency-pvt-ltd-hr-operations-manager-26761",
@@ -327755,7 +328091,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/266/26761"},
-    pinOrder: 377,
+    pinOrder: 385,
   },
   {
     id: "ipv-infintor-solutions-llp-business-development-executive-odoo-26760",
@@ -327797,7 +328133,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26760"},
-    pinOrder: 378,
+    pinOrder: 386,
   },
   {
     id: "ipv-infintor-solutions-llp-business-development-trainee-odoo-26759",
@@ -327839,7 +328175,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26759"},
-    pinOrder: 379,
+    pinOrder: 387,
   },
   {
     id: "ipv-tranzmeo-inside-sales-executive-26616",
@@ -327881,7 +328217,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/157/26616"},
-    pinOrder: 380,
+    pinOrder: 388,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-digital-marketing-executive-intern-remote-34228",
@@ -327923,7 +328259,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34228?job=Digital%20Marketing%20Executive%20Intern%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 381,
+    pinOrder: 389,
   },
   {
     id: "tpv-tricta-technologies-p-ltd-full-stack-developer-34227",
@@ -327965,7 +328301,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34227?job=Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 382,
+    pinOrder: 390,
   },
   {
     id: "tpv-tiltlabs-consultancy-services-p-ltd-telesales-executive-hindi-telugu-34226",
@@ -328007,7 +328343,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34226?job=Telesales%20Executive%20%E2%80%93%20Hindi%20%26%20Telugu"},
     walkinTime: "",
-    pinOrder: 383,
+    pinOrder: 391,
   },
   {
     id: "tpv-international-virtual-assistance-p-ltd-tele-sales-executives-34225",
@@ -328049,7 +328385,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34225?job=Tele%20Sales%20Executives"},
     walkinTime: "",
-    pinOrder: 384,
+    pinOrder: 392,
   },
   {
     id: "tpv-g-d-innovative-solutions-p-ltd-customer-care-executive-34224",
@@ -328091,7 +328427,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34224?job=Customer%20Care%20Executive"},
     walkinTime: "",
-    pinOrder: 385,
+    pinOrder: 393,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-videographer-cum-editor-immediate-joiners-34223",
@@ -328133,7 +328469,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34223?job=Videographer%20cum%20Editor%20%28%20immediate%20joiners%29"},
     walkinTime: "",
-    pinOrder: 386,
+    pinOrder: 394,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-content-creator-intern-remote-34222",
@@ -328175,7 +328511,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34222?job=Content%20Creator%20Intern%20-%20Remote"},
     walkinTime: "",
-    pinOrder: 387,
+    pinOrder: 395,
   },
   {
     id: "tpv-alamy-images-india-p-ltd-senior-executive-uk-taxation-34221",
@@ -328217,7 +328553,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34221?job=Senior%20Executive%20-%20UK%20Taxation"},
     walkinTime: "",
-    pinOrder: 388,
+    pinOrder: 396,
   },
   {
     id: "tpv-alamy-images-india-p-ltd-senior-analyst-financial-reporting-r2r-34220",
@@ -328259,7 +328595,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34220?job=Senior%20Analyst%20-%20Financial%20Reporting%20%28R2R%29"},
     walkinTime: "",
-    pinOrder: 389,
+    pinOrder: 397,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-electrician-cum-office-assistant-electrical-facility-mai-34219",
@@ -328301,7 +328637,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34219?job=Electrician%20cum%20Office%20Assistant%20%E2%80%93%20Electrical%20%26%20Facility%20Maintenance"},
     walkinTime: "",
-    pinOrder: 390,
+    pinOrder: 398,
   },
   {
     id: "tpv-alamy-images-india-p-ltd-trainee-client-invoicing-services-34218",
@@ -328343,7 +328679,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34218?job=Trainee%20-%20Client%20Invoicing%20Services"},
     walkinTime: "",
-    pinOrder: 391,
+    pinOrder: 399,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-marketing-coordinator-feature-film-division-34217",
@@ -328385,7 +328721,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34217?job=Marketing%20Coordinator%20-%20Feature%20Film%20Division"},
     walkinTime: "",
-    pinOrder: 392,
+    pinOrder: 400,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-head-of-finance-34216",
@@ -328427,7 +328763,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34216?job=Head%20of%20Finance"},
     walkinTime: "",
-    pinOrder: 393,
+    pinOrder: 401,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-ai-agentic-platform-architect-est-time-zone-34215",
@@ -328469,7 +328805,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34215?job=Lead%20AI%20/%20Agentic%20Platform%20Architect%20-EST%20Time%20Zone"},
     walkinTime: "",
-    pinOrder: 394,
+    pinOrder: 402,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-fi-functional-analyst-retail-domain-mandatory-34214",
@@ -328511,7 +328847,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34214?job=SAP%20ECC%20FI%20Functional%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 395,
+    pinOrder: 403,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-itsm-manager-34213",
@@ -328553,7 +328889,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34213?job=ITSM%20Manager"},
     walkinTime: "",
-    pinOrder: 396,
+    pinOrder: 404,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-data-engineering-lead-34212",
@@ -328595,7 +328931,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34212?job=Data%20Engineering%20Lead"},
     walkinTime: "",
-    pinOrder: 397,
+    pinOrder: 405,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-snowflake-data-ai-engineer-34211",
@@ -328637,7 +328973,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34211?job=Snowflake%20Data%20%26%20AI%20Engineer"},
     walkinTime: "",
-    pinOrder: 398,
+    pinOrder: 406,
   },
   {
     id: "tpv-ainsurtech-p-ltd-consultant-it-risk-advisory-34210",
@@ -328679,7 +329015,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34210?job=Consultant%20%E2%80%93%20IT%20Risk%20Advisory"},
     walkinTime: "",
-    pinOrder: 399,
+    pinOrder: 407,
   },
   {
     id: "tpv-ainsurtech-p-ltd-consultant-aae-34209",
@@ -328721,7 +329057,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34209?job=Consultant%20-%20%28AAE%29"},
     walkinTime: "",
-    pinOrder: 400,
+    pinOrder: 408,
   },
   {
     id: "tpv-ainsurtech-p-ltd-consultant-tracs-34208",
@@ -328763,7 +329099,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34208?job=Consultant%20-%20%28TRACS%29"},
     walkinTime: "",
-    pinOrder: 401,
+    pinOrder: 409,
   },
   {
     id: "tpv-ainsurtech-p-ltd-assistant-manager-aae-34207",
@@ -328805,7 +329141,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34207?job=Assistant%20Manager%20-%20%28AAE%29"},
     walkinTime: "",
-    pinOrder: 402,
+    pinOrder: 410,
   },
   {
     id: "tpv-ainsurtech-p-ltd-assistant-manager-tracs-34206",
@@ -328847,7 +329183,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34206?job=Assistant%20Manager%20-%20%28TRACS%29"},
     walkinTime: "",
-    pinOrder: 403,
+    pinOrder: 411,
   },
   {
     id: "tpv-ainsurtech-p-ltd-ui-ux-designer-fintech-domain-34205",
@@ -328889,7 +329225,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34205?job=UI/UX%20Designer%20%28Fintech%20Domain%29"},
     walkinTime: "",
-    pinOrder: 404,
+    pinOrder: 412,
   },
   {
     id: "tpv-itwagon-p-ltd-finance-executive-34202",
@@ -328931,7 +329267,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34202?job=Finance%20Executive"},
     walkinTime: "",
-    pinOrder: 405,
+    pinOrder: 413,
   },
   {
     id: "tpv-itwagon-p-ltd-operations-executive-sales-order-processing-logistics-an-34201",
@@ -328973,7 +329309,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34201?job=Operations%20Executive%20%28Sales%20Order%20Processing%2C%20Logistics%20and%20eCommerce%29"},
     walkinTime: "",
-    pinOrder: 406,
+    pinOrder: 414,
   },
   {
     id: "tpv-hyz-ventures-intl-p-ltd-business-development-executive-it-sales-34200",
@@ -329015,7 +329351,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34200?job=Business%20Development%20Executive%20%28IT%20Sales%29"},
     walkinTime: "",
-    pinOrder: 407,
+    pinOrder: 415,
   },
   {
     id: "tpv-srishti-innovative-computer-systems-p-ltd-seo-specialist-34199",
@@ -329057,7 +329393,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34199?job=SEO%20Specialist"},
     walkinTime: "",
-    pinOrder: 408,
+    pinOrder: 416,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-junior-software-test-engineer-qa-engineer-34198",
@@ -329099,7 +329435,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34198?job=Junior%20Software%20Test%20Engineer%20/%20QA%20Engineer"},
     walkinTime: "10:00 – 16:00",
-    pinOrder: 409,
+    pinOrder: 417,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-accounts-executive-34197",
@@ -329141,7 +329477,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34197?job=Accounts%20Executive"},
     walkinTime: "11:30 – 15:30",
-    pinOrder: 410,
+    pinOrder: 418,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-academic-counsellor-student-mentor-females-only-34196",
@@ -329183,7 +329519,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34196?job=Academic%20Counsellor%20/%20Student%20Mentor%20%28Females%20Only%29"},
     walkinTime: "11:30 – 15:30",
-    pinOrder: 411,
+    pinOrder: 419,
   },
   {
     id: "tpv-rr-donnelley-india-outsource-p-ltd-financial-associate-opportunity-for-freshers-34195",
@@ -329225,7 +329561,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34195?job=Financial%20Associate%20%28Opportunity%20for%20Freshers%29"},
     walkinTime: "",
-    pinOrder: 412,
+    pinOrder: 420,
   },
   {
     id: "tpv-rr-donnelley-india-outsource-p-ltd-hiring-freshers-for-the-document-specialist-contract-34194",
@@ -329267,7 +329603,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34194?job=Hiring%20Freshers%20for%20the%20Document%20Specialist%20%28Contract%29"},
     walkinTime: "",
-    pinOrder: 413,
+    pinOrder: 421,
   },
   {
     id: "tpv-netwalk-technologies-india-p-ltd-software-engineer-trainee-34193",
@@ -329309,7 +329645,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34193?job=Software%20Engineer%20-%20Trainee"},
     walkinTime: "",
-    pinOrder: 414,
+    pinOrder: 422,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-sd-functional-analyst-afs-retail-domain-mandator-34192",
@@ -329351,7 +329687,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34192?job=SAP%20ECC%20SD%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 415,
+    pinOrder: 423,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-bw-analyst-retail-domain-mandatory-34191",
@@ -329393,7 +329729,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34191?job=SAP%20BW%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 416,
+    pinOrder: 424,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-34190",
@@ -329435,7 +329771,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34190?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 417,
+    pinOrder: 425,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-34189",
@@ -329477,7 +329813,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34189?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 418,
+    pinOrder: 426,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-34188",
@@ -329519,7 +329855,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34188?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 419,
+    pinOrder: 427,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-34187",
@@ -329561,7 +329897,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34187?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 420,
+    pinOrder: 428,
   },
   {
     id: "tpv-aptara-learning-p-ltd-trainee-document-specialist-34186",
@@ -329603,7 +329939,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34186?job=Trainee%20Document%20Specialist"},
     walkinTime: "",
-    pinOrder: 421,
+    pinOrder: 429,
   },
   {
     id: "tpv-polus-solutions-p-ltd-business-analyst-intern-34185",
@@ -329645,7 +329981,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34185?job=Business%20Analyst%20Intern"},
     walkinTime: "",
-    pinOrder: 422,
+    pinOrder: 430,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-lead-ai-engineering-enablement-34184",
@@ -329687,7 +330023,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34184?job=Lead%20%E2%80%93%20AI%20Engineering%20%26%20Enablement"},
     walkinTime: "",
-    pinOrder: 423,
+    pinOrder: 431,
   },
   {
     id: "tpv-scalgo-technologies-p-ltd-digital-marketing-internship-freshers-34183",
@@ -329729,7 +330065,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34183?job=Digital%20Marketing%20Internship%20%28Freshers%29"},
     walkinTime: "",
-    pinOrder: 424,
+    pinOrder: 432,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-business-development-associate-trainee-34182",
@@ -329771,7 +330107,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34182?job=Business%20Development%20Associate%20-%20Trainee"},
     walkinTime: "",
-    pinOrder: 425,
+    pinOrder: 433,
   },
   {
     id: "tpv-acharya-panchakarma-traditional-kerala-ayurveda-p-ltd-growth-hacker-34181",
@@ -329813,7 +330149,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34181?job=Growth%20Hacker"},
     walkinTime: "",
-    pinOrder: 426,
+    pinOrder: 434,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-wordpress-developer-34180",
@@ -329855,7 +330191,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34180?job=WordPress%20Developer"},
     walkinTime: "",
-    pinOrder: 427,
+    pinOrder: 435,
   },
   {
     id: "tpv-g-d-innovative-solutions-p-ltd-digital-marketing-expert-34179",
@@ -329897,7 +330233,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34179?job=Digital%20Marketing%20Expert"},
     walkinTime: "",
-    pinOrder: 428,
+    pinOrder: 436,
   },
   {
     id: "tpv-kameda-infologics-p-ltd-support-implementation-engineer-his-fresher-34178",
@@ -329939,7 +330275,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34178?job=Support%20%26%20Implementation%20Engineer%20%E2%80%93%20HIS%20%28Fresher%29"},
     walkinTime: "",
-    pinOrder: 429,
+    pinOrder: 437,
   },
   {
     id: "tpv-relaxplzz-technologies-react-js-training-freshers-welcome-34177",
@@ -329981,7 +330317,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34177?job=React%20JS%20Training%20Freshers%20Welcome"},
     walkinTime: "",
-    pinOrder: 430,
+    pinOrder: 438,
   },
   {
     id: "tpv-lean-transitions-solutions-business-analyst-intern-34176",
@@ -330023,7 +330359,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34176?job=Business%20Analyst%20Intern"},
     walkinTime: "",
-    pinOrder: 431,
+    pinOrder: 439,
   },
   {
     id: "tpv-eartheye-space-private-limited-gis-annotator-intern-34175",
@@ -330065,7 +330401,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34175?job=GIS%20Annotator%20Intern"},
     walkinTime: "",
-    pinOrder: 432,
+    pinOrder: 440,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-internship-opportunity-digital-marketing-34174",
@@ -330107,7 +330443,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34174?job=Internship%20Opportunity%20%E2%80%93%20Digital%20Marketing"},
     walkinTime: "",
-    pinOrder: 433,
+    pinOrder: 441,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-full-stack-developer-net-react-34173",
@@ -330149,7 +330485,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34173?job=Senior%20Full%20Stack%20Developer%20%28.NET%20%26%20React%29"},
     walkinTime: "",
-    pinOrder: 434,
+    pinOrder: 442,
   },
   {
     id: "tpv-prompttech-global-p-ltd-customer-relationship-executive-fresher-34172",
@@ -330191,7 +330527,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34172?job=Customer%20Relationship%20Executive%20%28Fresher%29"},
     walkinTime: "",
-    pinOrder: 435,
+    pinOrder: 443,
   },
   {
     id: "tpv-prompttech-global-p-ltd-paid-internship-opportunity-customer-relationship-execut-34171",
@@ -330233,7 +330569,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34171?job=Paid%20Internship%20Opportunity%20%E2%80%93%20Customer%20Relationship%20Executive%20%28InsurTech%29"},
     walkinTime: "",
-    pinOrder: 436,
+    pinOrder: 444,
   },
   {
     id: "tpv-prompttech-global-p-ltd-hardware-sales-consultant-34170",
@@ -330275,7 +330611,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34170?job=Hardware%20Sales%20Consultant"},
     walkinTime: "",
-    pinOrder: 437,
+    pinOrder: 445,
   },
   {
     id: "tpv-prompttech-global-p-ltd-pos-retail-solutions-executive-34169",
@@ -330317,7 +330653,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34169?job=POS%20%26%20Retail%20Solutions%20Executive"},
     walkinTime: "",
-    pinOrder: 438,
+    pinOrder: 446,
   },
   {
     id: "tpv-prompttech-global-p-ltd-medical-underwriter-34168",
@@ -330359,7 +330695,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34168?job=Medical%20Underwriter"},
     walkinTime: "",
-    pinOrder: 439,
+    pinOrder: 447,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-34167",
@@ -330401,7 +330737,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34167?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 440,
+    pinOrder: 448,
   },
   {
     id: "tpv-polus-solutions-p-ltd-business-development-associate-34166",
@@ -330443,7 +330779,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34166?job=Business%20Development%20Associate"},
     walkinTime: "",
-    pinOrder: 441,
+    pinOrder: 449,
   },
   {
     id: "tpv-iboson-innovations-p-ltd-seo-specialist-seo-aeo-geo-34165",
@@ -330485,7 +330821,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34165?job=SEO%20Specialist%20%E2%80%93%20SEO%20/%20AEO%20/%20GEO"},
     walkinTime: "",
-    pinOrder: 442,
+    pinOrder: 450,
   },
   {
     id: "ipv-rogersoft-hr-head-17815",
@@ -330568,7 +330904,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34162?job=Operations%20Trainee"},
     walkinTime: "",
-    pinOrder: 443,
+    pinOrder: 451,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-merchandising-officer-34161",
@@ -330610,7 +330946,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34161?job=Merchandising%20Officer"},
     walkinTime: "",
-    pinOrder: 444,
+    pinOrder: 452,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-senior-sales-marketing-officer-34160",
@@ -330652,7 +330988,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34160?job=Senior%20Sales%20%26%20Marketing%20Officer"},
     walkinTime: "",
-    pinOrder: 445,
+    pinOrder: 453,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-senior-accountant-34159",
@@ -330694,7 +331030,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34159?job=Senior%20Accountant"},
     walkinTime: "",
-    pinOrder: 446,
+    pinOrder: 454,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-trainee-revops-34158",
@@ -330736,7 +331072,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34158?job=INSIDE%20SALES%20TRAINEE%20%28RevOps%29"},
     walkinTime: "",
-    pinOrder: 447,
+    pinOrder: 455,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-revops-34157",
@@ -330778,7 +331114,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34157?job=Inside%20Sales%20%28%20RevOps%20%29"},
     walkinTime: "",
-    pinOrder: 448,
+    pinOrder: 456,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-videographer-cum-editor-immediate-joiners-34156",
@@ -330820,7 +331156,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34156?job=Videographer%20cum%20Editor%20%28%20immediate%20joiners%29"},
     walkinTime: "",
-    pinOrder: 449,
+    pinOrder: 457,
   },
   {
     id: "tpv-acharya-panchakarma-traditional-kerala-ayurveda-p-ltd-growth-hacker-34155",
@@ -330862,7 +331198,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34155?job=Growth%20Hacker"},
     walkinTime: "",
-    pinOrder: 450,
+    pinOrder: 458,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-business-development-associate-34154",
@@ -330904,7 +331240,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34154?job=Business%20Development%20Associate"},
     walkinTime: "",
-    pinOrder: 451,
+    pinOrder: 459,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-lead-generation-executive-marketing-34153",
@@ -330946,7 +331282,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34153?job=Lead%20Generation%20Executive%20%28Marketing%29"},
     walkinTime: "",
-    pinOrder: 452,
+    pinOrder: 460,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-business-analyst-34152",
@@ -330988,7 +331324,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34152?job=Business%20Analyst"},
     walkinTime: "",
-    pinOrder: 453,
+    pinOrder: 461,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-hr-generalist-34151",
@@ -331030,7 +331366,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34151?job=Senior%20HR%20Generalist"},
     walkinTime: "",
-    pinOrder: 454,
+    pinOrder: 462,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-dot-net-developer-34150",
@@ -331072,7 +331408,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34150?job=Senior%20Dot%20Net%20Developer"},
     walkinTime: "",
-    pinOrder: 455,
+    pinOrder: 463,
   },
   {
     id: "tpv-sequoiaat-india-p-ltd-product-evangelist-customer-experience-growth-34149",
@@ -331114,7 +331450,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34149?job=Product%20Evangelist%20-%20Customer%20Experience%20%26%20Growth"},
     walkinTime: "",
-    pinOrder: 456,
+    pinOrder: 464,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-digital-marketer-34148",
@@ -331156,7 +331492,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34148?job=Digital%20Marketer"},
     walkinTime: "",
-    pinOrder: 457,
+    pinOrder: 465,
   },
   {
     id: "tpv-stabilix-solutions-p-ltd-senior-devops-engineer-34146",
@@ -331198,7 +331534,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34146?job=Senior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 458,
+    pinOrder: 466,
   },
   {
     id: "tpv-experion-technologies-i-p-ltd-senior-salesforce-developer-34145",
@@ -331240,7 +331576,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34145?job=Senior%20Salesforce%20Developer"},
     walkinTime: "",
-    pinOrder: 459,
+    pinOrder: 467,
   },
   {
     id: "tpv-kameda-infologics-p-ltd-full-stack-developer-senior-34144",
@@ -331282,7 +331618,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34144?job=Full%20Stack%20Developer%20%28Senior%29"},
     walkinTime: "",
-    pinOrder: 460,
+    pinOrder: 468,
   },
   {
     id: "tpv-stabilix-solutions-p-ltd-ai-ml-lead-34143",
@@ -331324,7 +331660,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34143?job=AI%20/ML%20Lead"},
     walkinTime: "",
-    pinOrder: 461,
+    pinOrder: 469,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-operations-intern-34142",
@@ -331366,7 +331702,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34142?job=Operations%20Intern"},
     walkinTime: "",
-    pinOrder: 462,
+    pinOrder: 470,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-females-34141",
@@ -331408,7 +331744,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34141?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience%20%28Females%29"},
     walkinTime: "",
-    pinOrder: 463,
+    pinOrder: 471,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-34140",
@@ -331450,7 +331786,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34140?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "11:00 – 13:30",
-    pinOrder: 464,
+    pinOrder: 472,
   },
   {
     id: "tpv-foxdale-p-ltd-tele-sales-agents-34139",
@@ -331492,7 +331828,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34139?job=Tele%20Sales%20Agents"},
     walkinTime: "",
-    pinOrder: 465,
+    pinOrder: 473,
   },
   {
     id: "tpv-rm-education-solutions-india-p-ltd-senior-devops-engineer-34138",
@@ -331534,7 +331870,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34138?job=Senior%20Devops%20Engineer"},
     walkinTime: "",
-    pinOrder: 466,
+    pinOrder: 474,
   },
   {
     id: "tpv-nexomira-technologies-p-ltd-jr-linux-embedded-engineer-34137",
@@ -331576,7 +331912,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34137?job=Jr.%20Linux%20/%20Embedded%20Engineer"},
     walkinTime: "",
-    pinOrder: 467,
+    pinOrder: 475,
   },
   {
     id: "tpv-nexomira-technologies-p-ltd-lead-linux-engineer-34136",
@@ -331618,7 +331954,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34136?job=Lead%20Linux%20Engineer"},
     walkinTime: "",
-    pinOrder: 468,
+    pinOrder: 476,
   },
   {
     id: "tpv-gnx-digital-solutions-p-ltd-business-analyst-2-yrs-exp-34134",
@@ -331660,7 +331996,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34134?job=Business%20Analyst%20%282%2BYrs%20Exp.%29"},
     walkinTime: "",
-    pinOrder: 469,
+    pinOrder: 477,
   },
   {
     id: "tpv-kvaliteta-systems-and-solutions-p-ltd-qa-engineer-manual-testing-health-care-34133",
@@ -331702,7 +332038,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34133?job=QA%20Engineer%20%28Manual%20Testing%29%20-%20Health%20Care"},
     walkinTime: "",
-    pinOrder: 470,
+    pinOrder: 478,
   },
   {
     id: "tpv-kvaliteta-systems-and-solutions-p-ltd-database-developer-sql-database-design-immediate-joiners-34132",
@@ -331744,7 +332080,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34132?job=Database%20Developer%20%28SQL%20/%20Database%20Design%29%20-%20Immediate%20Joiners"},
     walkinTime: "",
-    pinOrder: 471,
+    pinOrder: 479,
   },
   {
     id: "tpv-kvaliteta-systems-and-solutions-p-ltd-presales-engineer-it-34131",
@@ -331786,7 +332122,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34131?job=Presales%20Engineer%20IT"},
     walkinTime: "",
-    pinOrder: 472,
+    pinOrder: 480,
   },
   {
     id: "tpv-zybo-tech-lab-p-ltd-pcb-designer-34130",
@@ -331828,7 +332164,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34130?job=PCB%20Designer"},
     walkinTime: "",
-    pinOrder: 473,
+    pinOrder: 481,
   },
   {
     id: "tpv-kvaliteta-systems-and-solutions-p-ltd-hr-recruiter-urgent-34129",
@@ -331870,7 +332206,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34129?job=HR%20Recruiter%20-%20Urgent"},
     walkinTime: "",
-    pinOrder: 474,
+    pinOrder: 482,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-senior-microsoft-dynamics-365-finance-operations-d365-f-34128",
@@ -331912,7 +332248,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34128?job=Senior%20Microsoft%20Dynamics%20365%20Finance%20%26%20Operations%20%28D365%20F%26O%29%20Functional%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 475,
+    pinOrder: 483,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-junior-microsoft-dynamics-365-finance-operations-d365-f-34127",
@@ -331954,7 +332290,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34127?job=Junior%20Microsoft%20Dynamics%20365%20Finance%20%26%20Operations%20%28D365%20F%26O%29%20Technical%20Developer"},
     walkinTime: "",
-    pinOrder: 476,
+    pinOrder: 484,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-senior-microsoft-dynamics-365-finance-operations-d365-f-34126",
@@ -331996,7 +332332,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34126?job=Senior%20Microsoft%20Dynamics%20365%20Finance%20%26%20Operations%20%28D365%20F%26O%29%20Technical%20Developer"},
     walkinTime: "",
-    pinOrder: 477,
+    pinOrder: 485,
   },
   {
     id: "tpv-kvaliteta-systems-and-solutions-p-ltd-senior-technical-lead-java-net-core-34125",
@@ -332038,7 +332374,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34125?job=Senior%20Technical%20Lead%20%28Java%20/%20.NET%20Core%29"},
     walkinTime: "",
-    pinOrder: 478,
+    pinOrder: 486,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26758",
@@ -332080,7 +332416,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26758"},
-    pinOrder: 479,
+    pinOrder: 487,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26757",
@@ -332122,7 +332458,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26757"},
-    pinOrder: 480,
+    pinOrder: 488,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26756",
@@ -332164,7 +332500,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26756"},
-    pinOrder: 481,
+    pinOrder: 489,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26755",
@@ -332206,7 +332542,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26755"},
-    pinOrder: 482,
+    pinOrder: 490,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26754",
@@ -332248,7 +332584,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26754"},
-    pinOrder: 483,
+    pinOrder: 491,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26753",
@@ -332290,7 +332626,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26753"},
-    pinOrder: 484,
+    pinOrder: 492,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26752",
@@ -332332,7 +332668,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26752"},
-    pinOrder: 485,
+    pinOrder: 493,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26751",
@@ -332374,7 +332710,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26751"},
-    pinOrder: 486,
+    pinOrder: 494,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26750",
@@ -332416,7 +332752,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26750"},
-    pinOrder: 487,
+    pinOrder: 495,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26749",
@@ -332458,7 +332794,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26749"},
-    pinOrder: 488,
+    pinOrder: 496,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26748",
@@ -332500,7 +332836,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26748"},
-    pinOrder: 489,
+    pinOrder: 497,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26747",
@@ -332542,7 +332878,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26747"},
-    pinOrder: 490,
+    pinOrder: 498,
   },
   {
     id: "ipv-empay-software-solutions-private-limited-it-business-analyst-4-years-experience-26746",
@@ -332584,7 +332920,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/251/26746"},
-    pinOrder: 491,
+    pinOrder: 499,
   },
   {
     id: "ipv-empay-software-solutions-private-limited-java-team-lead-5-years-of-experience-in-java-with-at-lea-26745",
@@ -332626,7 +332962,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/251/26745"},
-    pinOrder: 492,
+    pinOrder: 500,
   },
   {
     id: "ipv-empay-software-solutions-private-limited-react-js-developer-2-3-years-of-experience-26744",
@@ -332668,7 +333004,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/251/26744"},
-    pinOrder: 493,
+    pinOrder: 501,
   },
   {
     id: "ipv-cseidc-technologies-pvt-ltd-part-time-odoo-technical-consultant-freelance-hybrid-rem-26743",
@@ -332710,7 +333046,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/481/26743"},
-    pinOrder: 494,
+    pinOrder: 502,
   },
   {
     id: "ipv-in-tech-group-india-private-limited-occupational-health-and-safety-specialist-iso-45001-26742",
@@ -332752,7 +333088,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/397/26742"},
-    pinOrder: 495,
+    pinOrder: 503,
   },
   {
     id: "ipv-orthofx-private-limited-walk-in-drive-software-engineering-internship-26740",
@@ -332794,7 +333130,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/354/26740"},
-    pinOrder: 496,
+    pinOrder: 504,
   },
   {
     id: "ipv-experion-technologies-senior-salesforce-developer-26739",
@@ -332836,7 +333172,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/103/26739"},
-    pinOrder: 497,
+    pinOrder: 505,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26738",
@@ -332878,7 +333214,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26738"},
-    pinOrder: 498,
+    pinOrder: 506,
   },
   {
     id: "ipv-aceware-fintech-services-pvt-ltd-radiant-acemoney-hr-and-admin-executive-26737",
@@ -332920,7 +333256,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/237/26737"},
-    pinOrder: 499,
+    pinOrder: 507,
   },
   {
     id: "ipv-yellowfish-digital-innovations-pvt-ltd-hr-executive-26736",
@@ -332962,7 +333298,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/256/26736"},
-    pinOrder: 500,
+    pinOrder: 508,
   },
   {
     id: "ipv-cloudhouse-technologies-pvt-ltd-job-description-hr-executive-1-year-experience-26723",
@@ -333004,7 +333340,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/480/26723"},
-    pinOrder: 501,
+    pinOrder: 509,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-opentext-expert-34124",
@@ -333046,7 +333382,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34124?job=OpenText%20Expert"},
     walkinTime: "",
-    pinOrder: 502,
+    pinOrder: 510,
   },
   {
     id: "tpv-i-worxs-by-palnar-senior-angular-developer-34123",
@@ -333088,7 +333424,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34123?job=Senior%20Angular%20Developer"},
     walkinTime: "",
-    pinOrder: 503,
+    pinOrder: 511,
   },
   {
     id: "tpv-i-worxs-by-palnar-it-infrastructure-system-administrator-34122",
@@ -333130,7 +333466,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34122?job=IT%20Infrastructure%20%26%20System%20Administrator"},
     walkinTime: "",
-    pinOrder: 504,
+    pinOrder: 512,
   },
   {
     id: "tpv-medowa-global-p-ltd-seo-strategist-34121",
@@ -333172,7 +333508,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34121?job=SEO%20STRATEGIST"},
     walkinTime: "",
-    pinOrder: 505,
+    pinOrder: 513,
   },
   {
     id: "tpv-refined-it-solutions-and-marketing-p-ltd-inside-sales-executive-international-markets-34120",
@@ -333214,7 +333550,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34120?job=Inside%20Sales%20Executive%20%E2%80%93%20International%20Markets"},
     walkinTime: "",
-    pinOrder: 506,
+    pinOrder: 514,
   },
   {
     id: "tpv-minerva-special-purpose-vehicle-p-ltd-hr-cum-admin-executive-34119",
@@ -333256,7 +333592,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34119?job=HR%20Cum%20Admin%20Executive"},
     walkinTime: "",
-    pinOrder: 507,
+    pinOrder: 515,
   },
   {
     id: "tpv-revyrie-global-senior-node-js-developer-34118",
@@ -333298,7 +333634,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34118?job=Senior%20Node%20JS%20Developer"},
     walkinTime: "",
-    pinOrder: 508,
+    pinOrder: 516,
   },
   {
     id: "ipv-aventus-informatics-social-media-marketing-executive-18958",
@@ -333422,7 +333758,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/551/26722"},
-    pinOrder: 509,
+    pinOrder: 517,
   },
   {
     id: "ipv-neork-technologies-solution-architect-26721",
@@ -333464,7 +333800,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/494/26721"},
-    pinOrder: 510,
+    pinOrder: 518,
   },
   {
     id: "ipv-simelabs-an-astek-company-application-security-engineer-26720",
@@ -333506,7 +333842,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26720"},
-    pinOrder: 511,
+    pinOrder: 519,
   },
   {
     id: "ipv-vipoint-solutions-pvt-ltd-senior-system-administrator-ssa-26719",
@@ -333548,7 +333884,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/62/26719"},
-    pinOrder: 512,
+    pinOrder: 520,
   },
   {
     id: "ipv-airpay-financial-technologies-pvt-ltd-project-coordinator-26718",
@@ -333590,7 +333926,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/267/26718"},
-    pinOrder: 513,
+    pinOrder: 521,
   },
   {
     id: "ipv-gizmeon-technologies-private-limited-android-developer-0-2-years-26717",
@@ -333632,7 +333968,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/371/26717"},
-    pinOrder: 514,
+    pinOrder: 522,
   },
   {
     id: "ipv-lisbell-technologies-pvt-ltd-social-media-marketing-walk-in-interview-on-12th-novembe-26716",
@@ -333674,7 +334010,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/542/26716"},
-    pinOrder: 515,
+    pinOrder: 523,
   },
   {
     logo: "",
@@ -333715,7 +334051,7 @@ var JOBS = [
     roles: ["Clinical Nurse Educator"],
     experience: "experienced",
     applyLink: "mailto:careers@kinderkochi.com?subject=Clinical%20Nurse%20Educator",
-    pinOrder: 516,
+    pinOrder: 524,
   },
   {
     logo: "",
@@ -333756,7 +334092,7 @@ var JOBS = [
     roles: ["Accountant (Tally ERP)"],
     experience: "experienced",
     applyLink: "mailto:jeny@tattvatvm.com?subject=Accountant%20(Tally%20ERP)",
-    pinOrder: 517,
+    pinOrder: 525,
   },
   {
     logo: "",
@@ -333798,7 +334134,7 @@ var JOBS = [
     experience: "experienced",
     applyLink: "mailto:hr.khindia@gmail.com?subject=Scrub%20Nurse",
     vacancies: 1,
-    pinOrder: 518,
+    pinOrder: 526,
   },
   {
     logo: "",
@@ -333839,7 +334175,7 @@ var JOBS = [
     roles: ["Data Engineer (1–3 years)","QA Engineer (5+ years)","QA Manager (10+ years)","Integration Testing Engineer (5+ years)","Support Engineer – .NET (3+ years)","Senior .NET Engineer (5+ years)","Lead Fullstack AI Engineer (6+ years)"],
     experience: "experienced",
     applyLink: "mailto:careers@netweb.biz?subject=Vadodara%20opening",
-    pinOrder: 519,
+    pinOrder: 527,
   },
   {
     logo: "",
@@ -333880,7 +334216,7 @@ var JOBS = [
     roles: ["Enterprise Integration Lead (7+ years)","Senior Integration Engineer (3+ years)"],
     experience: "experienced",
     applyLink: "mailto:careers@netweb.biz?subject=Hyderabad%20opening",
-    pinOrder: 520,
+    pinOrder: 528,
   },
   {
     logo: "",
@@ -333921,7 +334257,7 @@ var JOBS = [
     roles: ["Accounts Assistant"],
     experience: "both",
     applyLink: "https://wa.me/918086662201",
-    pinOrder: 521,
+    pinOrder: 529,
   },
   {
     logo: "",
@@ -333964,7 +334300,7 @@ var JOBS = [
     applyLink: "mailto:sakshi.sao@sakon.com?subject=Analyst%20%2F%20Senior%20Analyst%20%E2%80%93%20Fulfillment",
     walkinTime: "11:00 AM – 2:00 PM",
     walkinLocation: "Sakon, 6th Floor and Mezzanine, Ag Trade Center, NDA Pashan Rd, Ram Nagar, Bavdhan, Pune, Maharashtra 411021",
-    pinOrder: 522,
+    pinOrder: 530,
   },
   {
     logo: "",
@@ -334005,7 +334341,7 @@ var JOBS = [
     roles: ["Neurotechnologist"],
     experience: "experienced",
     applyLink: "mailto:careers@pushpagiri.in?subject=Neurotechnologist",
-    pinOrder: 523,
+    pinOrder: 531,
   },
   {
     logo: "",
@@ -334046,7 +334382,7 @@ var JOBS = [
     roles: ["Senior Quality Executive"],
     experience: "experienced",
     applyLink: "mailto:Careerslifelinedr@gmail.com?subject=Senior%20Quality%20Executive",
-    pinOrder: 524,
+    pinOrder: 532,
   },
   {
     logo: "",
@@ -334087,7 +334423,7 @@ var JOBS = [
     roles: ["AI Full Stack Engineer"],
     experience: "both",
     applyLink: "mailto:hr@whitematrix.co.in?subject=AI%20Full%20Stack%20Engineer",
-    pinOrder: 525,
+    pinOrder: 533,
   },
   {
     logo: "",
@@ -334128,7 +334464,7 @@ var JOBS = [
     roles: ["Counter Staff"],
     experience: "fresher",
     applyLink: "mailto:perfectsp.hr@gmail.com?subject=Counter%20Staff",
-    pinOrder: 526,
+    pinOrder: 534,
   },
   {
     logo: "",
@@ -334169,7 +334505,7 @@ var JOBS = [
     roles: ["Assistant Operations Manager"],
     experience: "experienced",
     applyLink: "mailto:career@offensoacademy.com?subject=Asst%20Operations%20Manager",
-    pinOrder: 527,
+    pinOrder: 535,
   },
   {
     logo: "",
@@ -334210,7 +334546,7 @@ var JOBS = [
     roles: ["Endoscopy Technician"],
     experience: "experienced",
     applyLink: "mailto:ahrihrd@gmail.com?subject=Endoscopy%20Technician",
-    pinOrder: 528,
+    pinOrder: 536,
   },
   {
     logo: "",
@@ -334251,7 +334587,7 @@ var JOBS = [
     roles: ["Python Developer (Odoo)"],
     experience: "fresher",
     applyLink: "mailto:hr@primemindsconsulting.com?subject=Python%20Developer",
-    pinOrder: 529,
+    pinOrder: 537,
   },
   {
     id: "wipro-walkin-entry-level-processor-labeling-vizag-061126025793",
@@ -334297,7 +334633,7 @@ var JOBS = [
     description: "Wipro walk-in for any-graduate freshers · Entry Level Processor – Labeling · ₹1.75 LPA · permanent WFH · 150 openings · Visakhapatnam, 10–12 Nov 2026, 10 AM–12 PM.",
     startingDate: "",
     officialLinks: {"naukriJob": "https://www.naukri.com/job-listings-wipro-drive-for-freshers-at-vizag-campus-labeling-role-10-12th-nov-wipro-jaipur-0-to-0-years-061126025793"},
-    pinOrder: 530,
+    pinOrder: 538,
   },
   {
     id: "ipv-kl-koncepts-lab-media-and-it-park-influencer-marketing-executive-26715",
@@ -334339,7 +334675,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/332/26715"},
-    pinOrder: 531,
+    pinOrder: 539,
   },
   {
     id: "ipv-kl-koncepts-lab-media-and-it-park-digital-marketing-intern-26714",
@@ -334381,7 +334717,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/332/26714"},
-    pinOrder: 532,
+    pinOrder: 540,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26713",
@@ -334423,7 +334759,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26713"},
-    pinOrder: 533,
+    pinOrder: 541,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26712",
@@ -334465,7 +334801,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26712"},
-    pinOrder: 534,
+    pinOrder: 542,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26711",
@@ -334507,7 +334843,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26711"},
-    pinOrder: 535,
+    pinOrder: 543,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26710",
@@ -334549,7 +334885,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26710"},
-    pinOrder: 536,
+    pinOrder: 544,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26709",
@@ -334591,7 +334927,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26709"},
-    pinOrder: 537,
+    pinOrder: 545,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26708",
@@ -334633,7 +334969,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26708"},
-    pinOrder: 538,
+    pinOrder: 546,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-junior-social-media-analyst-26707",
@@ -334675,7 +335011,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26707"},
-    pinOrder: 539,
+    pinOrder: 547,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-operations-executive-fresher-26706",
@@ -334717,7 +335053,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26706"},
-    pinOrder: 540,
+    pinOrder: 548,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-lead-generation-executive-26639",
@@ -334759,7 +335095,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26639"},
-    pinOrder: 541,
+    pinOrder: 549,
   },
   {
     id: "nudge-software-engineering-intern-mobile-bangalore-94987",
@@ -334801,7 +335137,7 @@ var JOBS = [
     description: "Nudge mobile engineering intern · Android & iOS with Kotlin Multiplatform · Bangalore · final-year students / recent B.Tech, B.E., MCA grads · path to full time.",
     startingDate: "",
     officialLinks: {"kekaJob": "https://nudge.keka.com/careers/jobdetails/94987"},
-    pinOrder: 542,
+    pinOrder: 550,
   },
   {
     id: "consyst-walkin-purchase-logistics-assistant-kochi-21nov2026",
@@ -334845,7 +335181,7 @@ var JOBS = [
     description: "Consyst walk-in · Purchase Assistant & Logistics Assistant (intern-to-hire) · 2025/2026 passouts · B.Com, BBA, MBA, BBM or supply chain / logistics diploma · 21 Nov 2026, 10 AM, Kochi.",
     startingDate: "",
     officialLinks: {"whatsappRegister": "https://api.whatsapp.com/send/?phone=917025232223&text=DRIVE-WRD1126&type=phone_number&app_absent=0", "website": "https://www.consyst.biz"},
-    pinOrder: 543,
+    pinOrder: 551,
   },
   {
     id: "accenture-executive-support-associate-bengaluru-r00359247",
@@ -334887,7 +335223,7 @@ var JOBS = [
     description: "Accenture Executive Support Associate · Bengaluru · 0–2 years · calendar, travel and admin support for executives in a virtual setup · fluent English.",
     startingDate: "",
     officialLinks: {"accentureJob": "https://www.accenture.com/in-en/careers/jobdetails?id=R00359247_en"},
-    pinOrder: 544,
+    pinOrder: 552,
   },
   {
     id: "ey-associate-analyst-gtm-content-delivery-support-1681365",
@@ -334929,7 +335265,7 @@ var JOBS = [
     description: "EY Associate Analyst · GTM content delivery support · web publishing, simple web pages, Adobe CMS / SharePoint · HTML/CSS/JS basics and GenAI tools · India.",
     startingDate: "",
     officialLinks: {"eyJob": "https://eyglobal.yello.co/jobs/yZimmWg4kDLz6r3kMgWfWw?job_board_id=c1riT--B2O-KySgYWsZO1Q"},
-    pinOrder: 545,
+    pinOrder: 553,
   },
   {
     id: "amazon-customer-support-executive-hyderabad-job-in-0000007857",
@@ -334971,7 +335307,7 @@ var JOBS = [
     description: "Amazon Customer Support Executive · Hyderabad · B.E. / B.Tech freshers, all batches · Job ID JOB-IN-0000007857.",
     startingDate: "",
     officialLinks: {"amazonJob": "https://jobs.amazon.in/app#/jobDetail?jobId=JOB-IN-0000007857&locale=en-IN"},
-    pinOrder: 546,
+    pinOrder: 554,
   },
   {
     id: "ge-healthcare-software-engineering-specialist-bengaluru-r4048735",
@@ -335013,7 +335349,7 @@ var JOBS = [
     description: "GE HealthCare Software Engineering Specialist · Bengaluru · Master's in CS or equivalent with basic experience · Kubernetes, Linux, Agile/CI, web services.",
     startingDate: "",
     officialLinks: {"workdayJob": "https://gehc.wd5.myworkdayjobs.com/en-GB/GEHC_ExternalSite/job/IND19-01-Bengaluru-EPIP-122-Phase-II/Software-Engineering-Specialist_R4048735-1"},
-    pinOrder: 547,
+    pinOrder: 555,
   },
   {
     id: "cognizant-developer-embedded-c-opcenter-pune-00070906931",
@@ -335055,7 +335391,7 @@ var JOBS = [
     description: "Cognizant Developer · Embedded C with Opcenter Exec and Teamcenter for automotive clients · Pune, hybrid · Job ID 00070906931.",
     startingDate: "",
     officialLinks: {"cognizantJob": "https://careers.cognizant.com/india-en/jobs/00070906931/developer/"},
-    pinOrder: 548,
+    pinOrder: 556,
   },
   {
     id: "zema-global-software-engineer-junior-navi-mumbai-0c894bf6",
@@ -335097,7 +335433,7 @@ var JOBS = [
     description: "Zema Global Software Engineer (Junior) · Navi Mumbai, hybrid · 6 months–2 years · Java, Spring, Oracle SQL, Git · data pipelines and APIs.",
     startingDate: "",
     officialLinks: {"deelJob": "https://jobs.deel.com/zema.global/job-details/0c894bf6-a6fe-46dc-baef-6856b53363d4/overview"},
-    pinOrder: 549,
+    pinOrder: 557,
   },
   {
     id: "sutherland-kochi-multiple-roles-nov2026",
@@ -335139,7 +335475,7 @@ var JOBS = [
     description: "Sutherland Kochi · multiple roles (account management, customer support / voice, international process) · freshers & experienced · Plus Two / graduates.",
     startingDate: "",
     officialLinks: {"sutherlandKochiJobs": "https://www.jobs.sutherlandglobal.com/job-results#/kochi"},
-    pinOrder: 550,
+    pinOrder: 558,
   },
   {
     id: "deloitte-senior-consultant-data-analytics-ai-insights-59869044",
@@ -335181,7 +335517,7 @@ var JOBS = [
     description: "Deloitte Senior Consultant (AI & Data · AI Insights & Engagement) · Product Owner for merchant onboarding and digital payments · Bengaluru (title says Delhi) · B.Tech/BE, MBA, B.Com, MCA, BCA.",
     startingDate: "",
     officialLinks: {"deloitteJob": "https://southasiacareers.deloitte.com/job/Delhi-Senior-Consultant-Data-Analytics-Delhi-Artificial-Intelligence-&-Data-AI-Insights-&-Engageme/59869044/"},
-    pinOrder: 551,
+    pinOrder: 559,
   },
   {
     id: "sutherland-campus-associates-fy27-2026-passouts-744000151046829",
@@ -335221,7 +335557,7 @@ var JOBS = [
     description: "Sutherland Campus Associates FY'27 · customer support for 2026 graduates (any UG/PG) · Cochin, Mumbai, Hyderabad, Chennai, Bhopal · night shifts · cab facility.",
     startingDate: "",
     officialLinks: {"smartrecruitersJob": "https://jobs.smartrecruiters.com/Sutherland/744000151046829-campus-associates-fy-27-hyderabad-bengaluru"},
-    pinOrder: 552,
+    pinOrder: 560,
   },
   {
     id: "luxoft-intern-python-developer-remote-opentalent-wd7ckc",
@@ -335261,7 +335597,7 @@ var JOBS = [
     description: "Intern Python Developer (Luxoft, via OpenTalent) · Remote · under 1 year · Python, Pandas, Flask, SQL.",
     startingDate: "",
     officialLinks: {"opentalentJob": "https://www.opentalent.in/jobs/intern-python-developer-luxoft-wd7ckc", "announcement": "https://lnkd.in/dGp68NYc"},
-    pinOrder: 553,
+    pinOrder: 561,
   },
   {
     id: "amazon-programmer-analyst-intern-2027-hyderabad-10506542",
@@ -335301,7 +335637,7 @@ var JOBS = [
     description: "Amazon Programmer Analyst Intern – 2027 · Hyderabad / Amazon India locations · for CS/Engineering students · full-time internship with a mentor.",
     startingDate: "",
     officialLinks: {"amazonJob": "https://www.amazon.jobs/en/jobs/10506542/programmer-analyst-intern-2027"},
-    pinOrder: 554,
+    pinOrder: 562,
   },
   {
     id: "paypal-software-engineer-intern-2027-bangalore-chennai-r0138921",
@@ -335341,7 +335677,7 @@ var JOBS = [
     description: "PayPal Software Engineer Intern (2027) · Bangalore / Chennai · for CS students graduating in 2028.",
     startingDate: "",
     officialLinks: {"paypalJob": "https://paypal.eightfold.ai/careers/job/274923210258?domain=paypal.com"},
-    pinOrder: 555,
+    pinOrder: 563,
   },
   {
     id: "kpmg-associate-1-us-tax-compliance-hf-pe-kochi-30050370",
@@ -335381,7 +335717,7 @@ var JOBS = [
     description: "Associate 1 – US Tax Compliance (HF&PE) at KPMG · Kochi · 1 opening.",
     startingDate: "",
     officialLinks: {"kpmgJob": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30050370", "kpmgKochiSearch": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/jobs?location=Kochi%2C+Kerala%2C+India&locationId=300002240961870&locationLevel=city&mode=location&radius=25&radiusUnit=MI"},
-    pinOrder: 556,
+    pinOrder: 564,
   },
   {
     id: "kpmg-senior-associate-us-tax-compliance-strategic-corporate-kochi-30051701",
@@ -335421,7 +335757,7 @@ var JOBS = [
     description: "Senior Associate – US Tax Compliance (Strategic Corporate) at KPMG · Kochi · 3 openings.",
     startingDate: "",
     officialLinks: {"kpmgJob": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30051701", "kpmgKochiSearch": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/jobs?location=Kochi%2C+Kerala%2C+India&locationId=300002240961870&locationLevel=city&mode=location&radius=25&radiusUnit=MI"},
-    pinOrder: 557,
+    pinOrder: 565,
   },
   {
     id: "kpmg-associate-2-us-tax-compliance-strategic-corporate-kochi-30051702",
@@ -335461,7 +335797,7 @@ var JOBS = [
     description: "Associate 2 – US Tax Compliance (Strategic Corporate) at KPMG · Kochi · 2 openings.",
     startingDate: "",
     officialLinks: {"kpmgJob": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30051702", "kpmgKochiSearch": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/jobs?location=Kochi%2C+Kerala%2C+India&locationId=300002240961870&locationLevel=city&mode=location&radius=25&radiusUnit=MI"},
-    pinOrder: 558,
+    pinOrder: 566,
   },
   {
     id: "kpmg-manager-it-audit-gta-sox-soc-1-soc-2-kochi-30040885",
@@ -335501,7 +335837,7 @@ var JOBS = [
     description: "Manager – IT Audit (GTA: SOX, SOC 1/SOC 2) at KPMG · Kochi · 1 opening.",
     startingDate: "",
     officialLinks: {"kpmgJob": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30040885", "kpmgKochiSearch": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/jobs?location=Kochi%2C+Kerala%2C+India&locationId=300002240961870&locationLevel=city&mode=location&radius=25&radiusUnit=MI"},
-    pinOrder: 559,
+    pinOrder: 567,
   },
   {
     id: "kpmg-consultant-indirect-tax-technology-sap-oracle-vertex-onesour-kochi-30051382",
@@ -335541,7 +335877,7 @@ var JOBS = [
     description: "Consultant – Indirect Tax Technology (SAP/Oracle, Vertex/ONESOURCE) at KPMG · Kochi · 1 opening.",
     startingDate: "",
     officialLinks: {"kpmgJob": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/job/30051382", "kpmgKochiSearch": "https://ejgk.fa.em2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_3/jobs?location=Kochi%2C+Kerala%2C+India&locationId=300002240961870&locationLevel=city&mode=location&radius=25&radiusUnit=MI"},
-    pinOrder: 560,
+    pinOrder: 568,
   },
   {
     id: "qualcomm-interim-engineering-intern-2027-hw-3094027-nov2026",
@@ -335583,7 +335919,7 @@ var JOBS = [
     description: "Qualcomm Interim Engineering Intern (Hardware) · Bangalore / Hyderabad · EE, VLSI, Embedded or ECE students.",
     startingDate: "",
     officialLinks: {"qualcommJob": "https://careers.qualcomm.com/careers/job/446719784824?domain=qualcomm.com"},
-    pinOrder: 561,
+    pinOrder: 569,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-embedded-eng-127422-nov2026",
@@ -335625,7 +335961,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors Embedded Eng · Bengaluru / Madurai · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127422", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 562,
+    pinOrder: 570,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-software-eng-127641-nov2026",
@@ -335667,7 +336003,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors Software Eng · Bengaluru / Madurai · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127641", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 563,
+    pinOrder: 571,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-elect-eng-127626-nov2026",
@@ -335709,7 +336045,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors Elect Eng · Bengaluru · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127626", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 564,
+    pinOrder: 572,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-mech-eng-127644-nov2026",
@@ -335751,7 +336087,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors Mech Eng · Bengaluru · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127644", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 565,
+    pinOrder: 573,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-ai-127420-nov2026",
@@ -335793,7 +336129,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors AI · Bengaluru · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127420", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 566,
+    pinOrder: 574,
   },
   {
     id: "honeywell-aerospace-intern-bachelors-rnd-127472-nov2026",
@@ -335835,7 +336171,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Intern Bachelors R&D · Bengaluru · Internship.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127472", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 567,
+    pinOrder: 575,
   },
   {
     id: "honeywell-aerospace-mech-design-engr-i-combustion-126933-nov2026",
@@ -335877,7 +336213,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Mech Design Engr I · Bengaluru · 0–4 years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/126933", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 568,
+    pinOrder: 576,
   },
   {
     id: "honeywell-aerospace-software-engr-ii-cpp-dotnet-126989-nov2026",
@@ -335919,7 +336255,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Software Engr II · Bengaluru · 3–6 years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/126989", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 569,
+    pinOrder: 577,
   },
   {
     id: "honeywell-aerospace-advanced-software-engr-data-viz-ai-automation-126993-nov2026",
@@ -335961,7 +336297,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Advanced Software Engr – Data Visualization, AI & Automation · Bengaluru · Full-time.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/126993", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 570,
+    pinOrder: 578,
   },
   {
     id: "honeywell-aerospace-advanced-software-engr-fms-avionics-99123238-nov2026",
@@ -336003,7 +336339,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Advanced Software Engr – Flight Management Systems (NGA) · Bengaluru · 6–9 years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/99123238", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 571,
+    pinOrder: 579,
   },
   {
     id: "honeywell-aerospace-advanced-embedded-engr-avionics-vv-128106-nov2026",
@@ -336045,7 +336381,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Advanced Embedded Engr · Bengaluru · 5+ years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/128106", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 572,
+    pinOrder: 580,
   },
   {
     id: "honeywell-aerospace-sr-advanced-software-engr-solution-architect-127554-nov2026",
@@ -336087,7 +336423,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Sr Advanced Software Engr / Solution Architect · Bengaluru · 8–10 years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127554", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 573,
+    pinOrder: 581,
   },
   {
     id: "honeywell-aerospace-sr-advanced-systems-engr-mbse-engines-apu-126942-nov2026",
@@ -336129,7 +336465,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Senior Advanced System Engineer – MBSE, Engines/APU · Bengaluru · 10+ years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/126942", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 574,
+    pinOrder: 582,
   },
   {
     id: "honeywell-aerospace-advanced-mech-design-engr-materials-obsolescence-128094-nov2026",
@@ -336171,7 +336507,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Advanced Mech Design Engr – Materials Obsolescence · Bengaluru · 8–12 years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/128094", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 575,
+    pinOrder: 583,
   },
   {
     id: "honeywell-aerospace-sr-software-eng-manager-uam-uas-99123250-nov2026",
@@ -336213,7 +336549,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Senior Software Engineering Manager – UAM / UAS · Bengaluru · 15+ years.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/99123250", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 576,
+    pinOrder: 584,
   },
   {
     id: "honeywell-aerospace-systems-engr-ii-127577-nov2026",
@@ -336255,7 +336591,7 @@ var JOBS = [
     description: "Honeywell Aerospace · Systems Engr II · Bengaluru · Full-time.",
     startingDate: "",
     officialLinks: {"honeywellJob": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/job/127577", "honeywellIndiaJobs": "https://icfcjb.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/Aerospace/jobs"},
-    pinOrder: 577,
+    pinOrder: 585,
   },
   {
     id: "cognizant-digital-workplace-service-desk-freshers-2024-2026-nov2026",
@@ -336295,7 +336631,7 @@ var JOBS = [
     description: "Cognizant Digital Workplace (Service Desk) · freshers from any 3-year UG degree · 2024–2026 batches · apply by 30 Nov 2026.",
     startingDate: "",
     officialLinks: {"apply": "https://app.joinsuperset.com/join/#/signup/student/jobprofiles/a8af19f3-444e-43bd-8828-e8656f637a17"},
-    pinOrder: 578,
+    pinOrder: 586,
   },
   {
     id: "drivetrain-qae-intern-remote-india-edb8a8f7-nov2026",
@@ -336335,7 +336671,7 @@ var JOBS = [
     description: "Quality Assurance Engineering (QAE) Intern at Drivetrain · Remote (India) · 2023–2025 CS/CE graduates · manual and automated testing.",
     startingDate: "",
     officialLinks: {"leverJob": "https://jobs.lever.co/drivetrain/edb8a8f7-16ac-4177-bf2e-99c36ab47d5f"},
-    pinOrder: 579,
+    pinOrder: 587,
   },
   {
     id: "walmart-ca-industrial-trainee-finance-bengaluru-r-2557935-nov2026",
@@ -336375,7 +336711,7 @@ var JOBS = [
     description: "CA Industrial Trainee – Finance at Walmart Global Tech India · Bengaluru · for Chartered Accountancy students · 4 openings · Global Segments Finance and AI-led transformation.",
     startingDate: "",
     officialLinks: {"workdayJob": "https://walmart.wd504.myworkdayjobs.com/en-US/WalmartExternal/job/IN-KA-BANGALORE-Home-Office-Building-10/XMLNAME--IND--Grad-Intern---No-Work-Experience_R-2557935"},
-    pinOrder: 580,
+    pinOrder: 588,
   },
   {
     id: "drivetrain-engineering-intern-gen-ai-fpa-remote-india-bc1c17bc-nov2026",
@@ -336415,7 +336751,7 @@ var JOBS = [
     description: "Engineering Intern – Gen AI for FP&A Platform at Drivetrain · Remote (India) · Freshers · RAG, agentic AI and LLM projects.",
     startingDate: "",
     officialLinks: {"leverJob": "https://jobs.lever.co/drivetrain/bc1c17bc-86ac-4f00-a1e3-0eb85aae4fdc", "leverRemoteIndia": "https://jobs.lever.co/drivetrain?workplaceType=remote&location=India&commitment=Full%20Time"},
-    pinOrder: 581,
+    pinOrder: 589,
   },
   {
     id: "amazon-associate-ii-ml-data-operations-go-ai-10388366-nov2026",
@@ -336455,7 +336791,7 @@ var JOBS = [
     description: "Associate II, ML Data Operations at Amazon (GO-AI Operations) · Hyderabad · 0.6–5 years · contract with possible full-time conversion · rotational shifts.",
     startingDate: "",
     officialLinks: {"amazonJob": "https://www.amazon.jobs/en/jobs/10388366/associate-ii-ml-data-operations-go-ai-operations"},
-    pinOrder: 582,
+    pinOrder: 590,
   },
   {
     id: "advenxa-team-lead-bpo-inbound-voice-process-570021",
@@ -336496,7 +336832,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Up to ₹ 8 LPA",
-    pinOrder: 583,
+    pinOrder: 591,
   },
   {
     id: "advenxa-senior-support-worker-570040",
@@ -336536,7 +336872,7 @@ var JOBS = [
     description: "We are seeking experienced Senior Support Workers to provide person-centred care, guide frontline staff, and maintain high standards of safety, dignity, and support.",
     startingDate: "",
     qualification: "",
-    pinOrder: 584,
+    pinOrder: 592,
     salaryRange: "£28,080–£37,440",
   },
   {
@@ -336577,7 +336913,7 @@ var JOBS = [
     description: "Project Manager - L1 at ClaySys Technologies · Kerala, Tamil Nadu, Goa · 0–2 years · 5 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzg4", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 585,
+    pinOrder: 593,
   },
   {
     id: "claysys-system-administrator-all-locations-mzy3-nov2026",
@@ -336617,7 +336953,7 @@ var JOBS = [
     description: "System Administrator at ClaySys Technologies · All ClaySys locations (incl. Kochi) · Fresher · 15 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzY3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 586,
+    pinOrder: 594,
   },
   {
     id: "claysys-civil-engineer-all-locations-mzc0-nov2026",
@@ -336657,7 +336993,7 @@ var JOBS = [
     description: "Civil Engineer at ClaySys Technologies · All ClaySys locations (incl. Kochi) · 2–5 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzc0", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 587,
+    pinOrder: 595,
   },
   {
     id: "claysys-architect-kochi-mzm3-nov2026",
@@ -336697,7 +337033,7 @@ var JOBS = [
     description: "Architect at ClaySys Technologies · Kochi, Kerala · Fresher · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzM3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 588,
+    pinOrder: 596,
   },
   {
     id: "claysys-structural-designer-civil-kochi-mzix-nov2026",
@@ -336737,7 +337073,7 @@ var JOBS = [
     description: "Structural Designer-Civil at ClaySys Technologies · Kochi, Kerala · 0–5 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzIx", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 589,
+    pinOrder: 597,
   },
   {
     id: "claysys-civil-architectural-draftsman-kochi-mzq3-nov2026",
@@ -336777,7 +337113,7 @@ var JOBS = [
     description: "Civil / Architectural Draftsman at ClaySys Technologies · Kochi, Kerala · 0–2 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzQ3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 590,
+    pinOrder: 598,
   },
   {
     id: "claysys-architectural-draftsman-site-supervision-kochi-mzcx-nov2026",
@@ -336817,7 +337153,7 @@ var JOBS = [
     description: "Architectural Draftsman & Site Supervision at ClaySys Technologies · Kochi, Kerala · 0–5 years · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzcx", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 591,
+    pinOrder: 599,
   },
   {
     id: "claysys-technician-electrical-all-locations-mzkw-nov2026",
@@ -336857,7 +337193,7 @@ var JOBS = [
     description: "Technician(Electrical) at ClaySys Technologies · All ClaySys locations (incl. Kochi) · 0–2 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzkw", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 592,
+    pinOrder: 600,
   },
   {
     id: "claysys-appforms-developer-all-locations-mzgy-nov2026",
@@ -336897,7 +337233,7 @@ var JOBS = [
     description: "AppForms Developer at ClaySys Technologies · All ClaySys locations (incl. Kochi) · Fresher · 50 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzgy", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 593,
+    pinOrder: 601,
   },
   {
     id: "claysys-no-code-developer-non-it-cherthala-mzc5-nov2026",
@@ -336937,7 +337273,7 @@ var JOBS = [
     description: "No-code Developer-Non IT at ClaySys Technologies · Cherthala, Kerala · Fresher · 25 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzc5", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 594,
+    pinOrder: 602,
   },
   {
     id: "claysys-business-associate-wfo-kochi-mzi4-nov2026",
@@ -336977,7 +337313,7 @@ var JOBS = [
     description: "Business Associate-WFO at ClaySys Technologies · Kochi, Kerala · Fresher · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzI4", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 595,
+    pinOrder: 603,
   },
   {
     id: "claysys-business-associate-goa-goa-mzq0-nov2026",
@@ -337017,7 +337353,7 @@ var JOBS = [
     description: "Business Associate-Goa at ClaySys Technologies · Goa, India · Fresher · 4 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzQ0", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 596,
+    pinOrder: 604,
   },
   {
     id: "claysys-video-editor-kochi-mze0-nov2026",
@@ -337057,7 +337393,7 @@ var JOBS = [
     description: "Video Editor at ClaySys Technologies · Kochi, Kerala · 1–5 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzE0", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 597,
+    pinOrder: 605,
   },
   {
     id: "claysys-senior-marketing-manager-kochi-mzi1-nov2026",
@@ -337097,7 +337433,7 @@ var JOBS = [
     description: "Senior Marketing Manager at ClaySys Technologies · Kochi, Kerala · 10–15 years · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzI1", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 598,
+    pinOrder: 606,
   },
   {
     id: "claysys-product-technical-associate-all-locations-mzu3-nov2026",
@@ -337137,7 +337473,7 @@ var JOBS = [
     description: "Product Technical Associate at ClaySys Technologies · All ClaySys locations (incl. Kochi) · 0–2 years · 2 openings.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=MzU3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 599,
+    pinOrder: 607,
   },
   {
     id: "claysys-digital-marketing-manager-kochi-mzc3-nov2026",
@@ -337177,7 +337513,7 @@ var JOBS = [
     description: "Digital Marketing Manager at ClaySys Technologies · Kochi, Kerala · 3–5 years · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzc3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 600,
+    pinOrder: 608,
   },
   {
     id: "claysys-executive-administrative-assistant-all-locations-mzgw-nov2026",
@@ -337217,7 +337553,7 @@ var JOBS = [
     description: "Executive Administrative Assistant at ClaySys Technologies · All ClaySys locations (incl. Kochi) · Fresher · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzgw", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 601,
+    pinOrder: 609,
   },
   {
     id: "claysys-clinic-operations-and-research-coordinator-kochi-mzg1-nov2026",
@@ -337257,7 +337593,7 @@ var JOBS = [
     description: "Clinic Operations and Research Coordinator at ClaySys Technologies · Kochi, Kerala · Fresher · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzg1", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 602,
+    pinOrder: 610,
   },
   {
     id: "claysys-hospital-administrator-kochi-mzg5-nov2026",
@@ -337297,7 +337633,7 @@ var JOBS = [
     description: "Hospital Administrator at ClaySys Technologies · Kochi, Kerala · 1–3 years · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzg5", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 603,
+    pinOrder: 611,
   },
   {
     id: "claysys-technical-trainer-all-locations-mzg3-nov2026",
@@ -337337,7 +337673,7 @@ var JOBS = [
     description: "Technical Trainer at ClaySys Technologies · All ClaySys locations (incl. Kochi) · 3–5 years · 1 opening.",
     startingDate: "",
     officialLinks: {"claysysOpening": "https://www.claysys.com/openings/?id=Mzg3", "claysysCareers": "https://www.claysys.com/careers/#divOpenpositions"},
-    pinOrder: 604,
+    pinOrder: 612,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-sailpoint-identity-security-215875",
@@ -337378,7 +337714,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/215875-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "215875",
-    pinOrder: 605,
+    pinOrder: 613,
   },
   {
     id: "wipro-kochi-technical-lead-l1-printer-and-peripherals-216306",
@@ -337419,7 +337755,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNICAL-LEAD-L1/216306-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "216306",
-    pinOrder: 606,
+    pinOrder: 614,
   },
   {
     id: "wipro-kochi-application-architect-l1-servicenow-saas-216329",
@@ -337460,7 +337796,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/APPLICATION-ARCHITECT-L1/216329-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "216329",
-    pinOrder: 607,
+    pinOrder: 615,
   },
   {
     id: "wipro-kochi-administrator-l1-emm-intune-216570",
@@ -337501,7 +337837,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L1/216570-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "216570",
-    pinOrder: 608,
+    pinOrder: 616,
   },
   {
     id: "wipro-kochi-security-architect-l1-windows-defender-217158",
@@ -337542,7 +337878,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SECURITY-ARCHITECT-L1/217158-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "217158",
-    pinOrder: 609,
+    pinOrder: 617,
   },
   {
     id: "wipro-kochi-solution-architect-l1-sharepoint-online-217432",
@@ -337583,7 +337919,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SOLUTION-ARCHITECT-L1/217432-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "217432",
-    pinOrder: 610,
+    pinOrder: 618,
   },
   {
     id: "wipro-kochi-test-architect-l1-gen-ai-automation-testing-216112",
@@ -337624,7 +337960,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TEST-ARCHITECT-L1/216112-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "216112",
-    pinOrder: 611,
+    pinOrder: 619,
   },
   {
     id: "exl-manager-group-reporting-consolidation-ifrs-11958-kochi-open-nov2026",
@@ -339305,7 +339641,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22350", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 612,
+    pinOrder: 620,
   },
   {
     id: "exl-assistant-manager-accounts-payable-21866-kochi-nov09-2026",
@@ -339346,7 +339682,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21866", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 613,
+    pinOrder: 621,
   },
   {
     id: "exl-senior-executive-invoice-processing-p2p-21684-kochi-nov09-2026",
@@ -339387,7 +339723,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21684", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 614,
+    pinOrder: 622,
   },
   {
     id: "exl-associate-accounts-payable-20096-kochi-nov09-2026",
@@ -339467,7 +339803,7 @@ var JOBS = [
     description: "Manager for end-to-end Procure-to-Pay (PTP) operations covering invoice processing, vendor management, payments, T&E and helpdesk, in a global shared services environment.",
     startingDate: "",
     qualification: "Bachelor's / master's degree in Commerce, Finance, Accounting or Business Administration",
-    pinOrder: 615,
+    pinOrder: 623,
   },
   {
     id: "conduent-kochi-director-accounting-services-26965-nov2026",
@@ -339507,7 +339843,7 @@ var JOBS = [
     description: "Director leading global, multi-tower Finance & Accounting operations of 500+ FTEs, driving digital transformation (automation, AI, analytics, SAP modernisation), financial governance and client partnerships. Must be available to work UK hours.",
     startingDate: "",
     qualification: "",
-    pinOrder: 616,
+    pinOrder: 624,
   },
   {
     id: "conduent-kochi-accounting-services-associate-ii-27131-nov2026",
@@ -339547,7 +339883,7 @@ var JOBS = [
     description: "Accounts Payable (AP) associate for invoice processing, 2-way and 3-way matching, PO and non-PO invoices, exception handling, vendor queries, reconciliations and other Procure-to-Pay activities. Hands-on SAP experience is mandatory.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Accounting, Finance or a related discipline (preferred)",
-    pinOrder: 617,
+    pinOrder: 625,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-senior-talent-acquisition-specialist-34117",
@@ -339589,7 +339925,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34117?job=Senior%20Talent%20Acquisition%20Specialist"},
     walkinTime: "",
-    pinOrder: 618,
+    pinOrder: 626,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-sales-manager-retail-insurance-34116",
@@ -339631,7 +339967,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34116?job=Sales%20Manager%20%E2%80%93%20Retail%20Insurance"},
     walkinTime: "",
-    pinOrder: 619,
+    pinOrder: 627,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-hr-manager-34115",
@@ -339673,7 +340009,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34115?job=HR%20Manager"},
     walkinTime: "",
-    pinOrder: 620,
+    pinOrder: 628,
   },
   {
     id: "tpv-speridian-technologies-p-ltd-payroll-specialist-am-hr-operations-payroll-compliance-34114",
@@ -339715,7 +340051,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34114?job=Payroll%20Specialist%20/%20AM%20%E2%80%93%20HR%20Operations%20%28Payroll%20%26%20Compliance%29"},
     walkinTime: "",
-    pinOrder: 621,
+    pinOrder: 629,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-business-development-associate-bda-34113",
@@ -339757,7 +340093,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34113?job=Business%20Development%20Associate%20%28BDA%29"},
     walkinTime: "",
-    pinOrder: 622,
+    pinOrder: 630,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-capital-structuring-manager-qualified-34112",
@@ -339799,7 +340135,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34112?job=Capital%20%26%20Structuring%20Manager%20%28Qualified%29"},
     walkinTime: "",
-    pinOrder: 623,
+    pinOrder: 631,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-graphic-designer-34111",
@@ -339841,7 +340177,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34111?job=Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 624,
+    pinOrder: 632,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-females-34110",
@@ -339883,7 +340219,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34110?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience%20%28Females%29"},
     walkinTime: "",
-    pinOrder: 625,
+    pinOrder: 633,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-34109",
@@ -339925,7 +340261,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34109?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 626,
+    pinOrder: 634,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-digital-marketing-intern-34108",
@@ -339967,7 +340303,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34108?job=Digital%20Marketing%20Intern"},
     walkinTime: "",
-    pinOrder: 627,
+    pinOrder: 635,
   },
   {
     id: "tpv-dcube-ai-systems-services-p-ltd-marketing-executive-34107",
@@ -340009,7 +340345,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34107?job=Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 628,
+    pinOrder: 636,
   },
   {
     id: "ipv-orthofx-private-limited-customer-support-associate-24658",
@@ -340626,7 +340962,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/497/26705"},
-    pinOrder: 629,
+    pinOrder: 637,
   },
   {
     id: "ipv-fine-destination-seo-digital-growth-lead-26704",
@@ -340668,7 +341004,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/497/26704"},
-    pinOrder: 630,
+    pinOrder: 638,
   },
   {
     id: "ipv-fine-destination-seo-social-media-manager-26703",
@@ -340710,7 +341046,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/497/26703"},
-    pinOrder: 631,
+    pinOrder: 639,
   },
   {
     id: "ipv-ndimensionz-solutions-pvt-ltd-golang-developer-26702",
@@ -340752,7 +341088,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/209/26702"},
-    pinOrder: 632,
+    pinOrder: 640,
   },
   {
     id: "ipv-speridian-technologies-pvt-ltd-payroll-specialist-am-hr-operations-payroll-compliance-26701",
@@ -340794,7 +341130,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/142/26701"},
-    pinOrder: 633,
+    pinOrder: 641,
   },
   {
     id: "ipv-panashifzco-technology-solution-private-limited-sales-manager-26700",
@@ -340836,7 +341172,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/528/26700"},
-    pinOrder: 634,
+    pinOrder: 642,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-programme-operations-project-manager-26699",
@@ -340878,7 +341214,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26699"},
-    pinOrder: 635,
+    pinOrder: 643,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-principal-consultant-ai-engineering-26348",
@@ -340920,7 +341256,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26348"},
-    pinOrder: 636,
+    pinOrder: 644,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-digital-marketing-trainee-34106",
@@ -340962,7 +341298,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34106?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 637,
+    pinOrder: 645,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-sales-executive-34104",
@@ -341004,7 +341340,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34104?job=Sales%20Executive"},
     walkinTime: "",
-    pinOrder: 638,
+    pinOrder: 646,
   },
   {
     id: "tpv-numenor-enterprises-p-ltd-marketing-specialist-34103",
@@ -341046,7 +341382,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34103?job=Marketing%20Specialist"},
     walkinTime: "",
-    pinOrder: 639,
+    pinOrder: 647,
   },
   {
     id: "tpv-numenor-enterprises-p-ltd-marketing-associate-34102",
@@ -341088,7 +341424,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34102?job=Marketing%20Associate"},
     walkinTime: "",
-    pinOrder: 640,
+    pinOrder: 648,
   },
   {
     id: "tpv-numenor-enterprises-p-ltd-sales-executive-34101",
@@ -341130,7 +341466,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34101?job=Sales%20Executive"},
     walkinTime: "",
-    pinOrder: 641,
+    pinOrder: 649,
   },
   {
     id: "tpv-numenor-enterprises-p-ltd-business-development-executive-34100",
@@ -341172,7 +341508,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34100?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 642,
+    pinOrder: 650,
   },
   {
     id: "tpv-tricta-technologies-p-ltd-project-coordinator-it-software-development-34099",
@@ -341214,7 +341550,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34099?job=Project%20Coordinator%20%E2%80%93%20IT%20%26%20Software%20Development."},
     walkinTime: "",
-    pinOrder: 643,
+    pinOrder: 651,
   },
   {
     id: "tpv-g-d-innovative-solutions-p-ltd-customer-care-executive-34097",
@@ -341256,7 +341592,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34097?job=Customer%20Care%20Executive"},
     walkinTime: "",
-    pinOrder: 644,
+    pinOrder: 652,
   },
   {
     id: "tpv-upcommune-business-network-p-ltd-field-officer-female-34096",
@@ -341298,7 +341634,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34096?job=Field%20Officer%20-%20Female"},
     walkinTime: "",
-    pinOrder: 645,
+    pinOrder: 653,
   },
   {
     id: "tpv-upcommune-business-network-p-ltd-office-admin-cum-tele-caller-34095",
@@ -341340,7 +341676,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34095?job=Office%20Admin%20cum%20Tele%20caller"},
     walkinTime: "14:00 – 16:30",
-    pinOrder: 646,
+    pinOrder: 654,
   },
   {
     id: "tpv-upcommune-business-network-p-ltd-content-writer-trainee-malayalam-34094",
@@ -341382,7 +341718,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34094?job=Content%20Writer%20Trainee%20%28Malayalam%29"},
     walkinTime: "14:00 – 16:30",
-    pinOrder: 647,
+    pinOrder: 655,
   },
   {
     id: "ipv-scasys-software-solutions-private-limited-odoo-functional-consultant-26698",
@@ -341424,7 +341760,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/559/26698"},
-    pinOrder: 648,
+    pinOrder: 656,
   },
   {
     id: "ipv-hashroot-technologies-pvt-ltd-it-operations-assistant-26697",
@@ -341466,7 +341802,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/61/26697"},
-    pinOrder: 649,
+    pinOrder: 657,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-marketing-manager-26696",
@@ -341508,7 +341844,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26696"},
-    pinOrder: 650,
+    pinOrder: 658,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-social-media-coordinator-26695",
@@ -341550,7 +341886,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26695"},
-    pinOrder: 651,
+    pinOrder: 659,
   },
   {
     id: "ipv-kott-software-private-limited-system-administrator-26694",
@@ -341592,7 +341928,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/143/26694"},
-    pinOrder: 652,
+    pinOrder: 660,
   },
   {
     id: "ipv-woxro-seo-analyst-trainee-internship-26692",
@@ -341634,7 +341970,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/399/26692"},
-    pinOrder: 653,
+    pinOrder: 661,
   },
   {
     id: "ipv-pearlsoft-technologies-llp-project-manager-26691",
@@ -341676,7 +342012,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/401/26691"},
-    pinOrder: 654,
+    pinOrder: 662,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26690",
@@ -341718,7 +342054,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26690"},
-    pinOrder: 655,
+    pinOrder: 663,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26689",
@@ -341760,7 +342096,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26689"},
-    pinOrder: 656,
+    pinOrder: 664,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26688",
@@ -341802,7 +342138,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26688"},
-    pinOrder: 657,
+    pinOrder: 665,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26687",
@@ -341844,7 +342180,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26687"},
-    pinOrder: 658,
+    pinOrder: 666,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26686",
@@ -341886,7 +342222,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26686"},
-    pinOrder: 659,
+    pinOrder: 667,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26685",
@@ -341928,7 +342264,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26685"},
-    pinOrder: 660,
+    pinOrder: 668,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26684",
@@ -341970,7 +342306,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26684"},
-    pinOrder: 661,
+    pinOrder: 669,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26683",
@@ -342012,7 +342348,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26683"},
-    pinOrder: 662,
+    pinOrder: 670,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26682",
@@ -342054,7 +342390,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26682"},
-    pinOrder: 663,
+    pinOrder: 671,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26681",
@@ -342096,7 +342432,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26681"},
-    pinOrder: 664,
+    pinOrder: 672,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26680",
@@ -342138,7 +342474,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26680"},
-    pinOrder: 665,
+    pinOrder: 673,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26679",
@@ -342180,7 +342516,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26679"},
-    pinOrder: 666,
+    pinOrder: 674,
   },
   {
     id: "ipv-ynot-infosolutions-field-sales-executive-immediate-hiring-26678",
@@ -342222,7 +342558,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26678"},
-    pinOrder: 667,
+    pinOrder: 675,
   },
   {
     id: "ipv-ynot-infosolutions-digital-marketing-executive-immediate-hiring-26677",
@@ -342265,7 +342601,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "\"Digital Marketing Executive Application\"",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26677"},
-    pinOrder: 668,
+    pinOrder: 676,
   },
   {
     id: "ipv-ynot-infosolutions-seo-intern-immediate-hiring-26676",
@@ -342307,7 +342643,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26676"},
-    pinOrder: 669,
+    pinOrder: 677,
   },
   {
     id: "ipv-ynot-infosolutions-digital-marketing-intern-immediate-hiring-26675",
@@ -342349,7 +342685,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26675"},
-    pinOrder: 670,
+    pinOrder: 678,
   },
   {
     id: "ipv-ynot-infosolutions-telecalling-inside-sales-executive-26674",
@@ -342392,7 +342728,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Telecalling & Inside Sales Executive Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26674"},
-    pinOrder: 671,
+    pinOrder: 679,
   },
   {
     id: "ipv-ynot-infosolutions-seo-specialist-immediate-hiring-26673",
@@ -342435,7 +342771,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“SEO Specialist Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26673"},
-    pinOrder: 672,
+    pinOrder: 680,
   },
   {
     id: "tpv-joopium-technologies-p-ltd-accounts-support-executive-34093",
@@ -342477,7 +342813,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34093?job=Accounts%20Support%20Executive"},
     walkinTime: "",
-    pinOrder: 673,
+    pinOrder: 681,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-software-testing-intern-manual-remote-34092",
@@ -342519,7 +342855,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34092?job=Software%20Testing%20Intern%20-%20Manual%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 674,
+    pinOrder: 682,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-graphic-designer-intern-remote-34091",
@@ -342561,7 +342897,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34091?job=Graphic%20Designer%20Intern%20-%20Remote"},
     walkinTime: "",
-    pinOrder: 675,
+    pinOrder: 683,
   },
   {
     id: "tpv-onbyz-senior-web-developer-34090",
@@ -342603,7 +342939,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34090?job=Senior%20Web%20Developer"},
     walkinTime: "",
-    pinOrder: 676,
+    pinOrder: 684,
   },
   {
     id: "tpv-crayo-tech-business-solutions-p-ltd-business-development-executive-1-year-experienced-34089",
@@ -342645,7 +342981,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34089?job=Business%20Development%20Executive%20%281%2B%20Year%20Experienced%29"},
     walkinTime: "",
-    pinOrder: 677,
+    pinOrder: 685,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-itsm-manager-34088",
@@ -342687,7 +343023,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34088?job=ITSM%20Manager"},
     walkinTime: "",
-    pinOrder: 678,
+    pinOrder: 686,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-ai-agentic-platform-architect-est-time-zone-34087",
@@ -342729,7 +343065,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34087?job=Lead%20AI%20/%20Agentic%20Platform%20Architect%20-EST%20Time%20Zone"},
     walkinTime: "",
-    pinOrder: 679,
+    pinOrder: 687,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-fi-functional-analyst-retail-domain-mandatory-34086",
@@ -342771,7 +343107,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34086?job=SAP%20ECC%20FI%20Functional%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 680,
+    pinOrder: 688,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-mm-functional-analyst-afs-retail-domain-mandator-34085",
@@ -342813,7 +343149,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34085?job=SAP%20ECC%20MM%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 681,
+    pinOrder: 689,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-sd-functional-analyst-afs-retail-domain-mandator-34084",
@@ -342855,7 +343191,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34084?job=SAP%20ECC%20SD%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 682,
+    pinOrder: 690,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-bw-analyst-retail-domain-mandatory-34083",
@@ -342897,7 +343233,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34083?job=SAP%20BW%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 683,
+    pinOrder: 691,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-34082",
@@ -342939,7 +343275,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34082?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 684,
+    pinOrder: 692,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-delivery-manager-34081",
@@ -342981,7 +343317,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34081?job=Delivery%20Manager"},
     walkinTime: "",
-    pinOrder: 685,
+    pinOrder: 693,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-34080",
@@ -343023,7 +343359,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34080?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 686,
+    pinOrder: 694,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-34079",
@@ -343065,7 +343401,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34079?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 687,
+    pinOrder: 695,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-34078",
@@ -343107,7 +343443,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34078?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 688,
+    pinOrder: 696,
   },
   {
     id: "tpv-scalevel-technologies-business-development-trainee-34077",
@@ -343149,7 +343485,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34077?job=Business%20Development%20Trainee"},
     walkinTime: "11:00 – 14:00",
-    pinOrder: 689,
+    pinOrder: 697,
   },
   {
     id: "tpv-quasarix-p-ltd-graphic-designer-34076",
@@ -343191,7 +343527,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34076?job=Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 690,
+    pinOrder: 698,
   },
   {
     id: "tpv-quasarix-p-ltd-area-sales-manager-34075",
@@ -343233,7 +343569,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34075?job=Area%20Sales%20Manager"},
     walkinTime: "",
-    pinOrder: 691,
+    pinOrder: 699,
   },
   {
     id: "tpv-zenturiotech-pvt-ltd-lead-generation-internship-34074",
@@ -343275,7 +343611,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34074?job=Lead%20Generation%20%28Internship%29"},
     walkinTime: "",
-    pinOrder: 692,
+    pinOrder: 700,
   },
   {
     id: "tpv-spericorn-technology-p-ltd-client-relationship-executive-34073",
@@ -343317,7 +343653,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34073?job=Client%20Relationship%20Executive"},
     walkinTime: "",
-    pinOrder: 693,
+    pinOrder: 701,
   },
   {
     id: "tpv-nexomira-technologies-p-ltd-android-audio-framework-engineer-34072",
@@ -343359,7 +343695,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34072?job=Android%20Audio%20Framework%20Engineer"},
     walkinTime: "",
-    pinOrder: 694,
+    pinOrder: 702,
   },
   {
     id: "tpv-nexomira-technologies-p-ltd-android-hmi-and-framework-engineer-34071",
@@ -343401,7 +343737,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34071?job=Android%20HMI%20and%20Framework%20Engineer"},
     walkinTime: "",
-    pinOrder: 695,
+    pinOrder: 703,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-manager-34070",
@@ -343443,7 +343779,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34070?job=Business%20Development%20Manager"},
     walkinTime: "",
-    pinOrder: 696,
+    pinOrder: 704,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-executive-34069",
@@ -343485,7 +343821,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34069?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 697,
+    pinOrder: 705,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-34068",
@@ -343527,7 +343863,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34068?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience"},
     walkinTime: "",
-    pinOrder: 698,
+    pinOrder: 706,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-video-editor-34067",
@@ -343569,7 +343905,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34067?job=Video%20Editor"},
     walkinTime: "",
-    pinOrder: 699,
+    pinOrder: 707,
   },
   {
     id: "tpv-way-dot-com-p-ltd-junior-project-manager-agile-scrum-34066",
@@ -343611,7 +343947,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34066?job=Junior%20Project%20Manager%20%E2%80%93%20Agile%20/%20Scrum"},
     walkinTime: "",
-    pinOrder: 700,
+    pinOrder: 708,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-aosp-hardware-enablement-engineer-34065",
@@ -343653,7 +343989,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34065?job=Android%20AOSP%20Hardware%20Enablement%20Engineer"},
     walkinTime: "",
-    pinOrder: 701,
+    pinOrder: 709,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-android-automotive-engineer-34064",
@@ -343695,7 +344031,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34064?job=Senior%20Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 702,
+    pinOrder: 710,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-automotive-engineer-34063",
@@ -343737,7 +344073,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34063?job=Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 703,
+    pinOrder: 711,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-34062",
@@ -343779,7 +344115,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34062?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 704,
+    pinOrder: 712,
   },
   {
     id: "tpv-way-dot-com-p-ltd-job-posting-sales-operations-lead-research-analyst-34061",
@@ -343821,7 +344157,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34061?job=Job%20Posting%20Sales%20Operations%20%26%20Lead%20Research%20Analyst"},
     walkinTime: "",
-    pinOrder: 705,
+    pinOrder: 713,
   },
   {
     id: "ipv-infintor-solutions-llp-odoo-functional-consultant-26669",
@@ -343863,7 +344199,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26669"},
-    pinOrder: 706,
+    pinOrder: 714,
   },
   {
     id: "ipv-infintor-solutions-llp-business-development-trainee-odoo-26668",
@@ -343905,7 +344241,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26668"},
-    pinOrder: 707,
+    pinOrder: 715,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26667",
@@ -343947,7 +344283,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26667"},
-    pinOrder: 708,
+    pinOrder: 716,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26666",
@@ -343989,7 +344325,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26666"},
-    pinOrder: 709,
+    pinOrder: 717,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26665",
@@ -344031,7 +344367,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26665"},
-    pinOrder: 710,
+    pinOrder: 718,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26664",
@@ -344073,7 +344409,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26664"},
-    pinOrder: 711,
+    pinOrder: 719,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26663",
@@ -344115,7 +344451,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26663"},
-    pinOrder: 712,
+    pinOrder: 720,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26662",
@@ -344157,7 +344493,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26662"},
-    pinOrder: 713,
+    pinOrder: 721,
   },
   {
     id: "ipv-cybrosys-technologies-pvt-ltd-business-development-officer-bdo-freshers-26661",
@@ -344199,7 +344535,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/86/26661"},
-    pinOrder: 714,
+    pinOrder: 722,
   },
   {
     id: "ipv-galtech-technologies-pvt-ltd-hr-manager-2-26660",
@@ -344241,7 +344577,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/189/26660"},
-    pinOrder: 715,
+    pinOrder: 723,
   },
   {
     id: "ipv-eqsoft-business-solutions-pvt-ltd-tele-caller-executive-26659",
@@ -344283,7 +344619,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/286/26659"},
-    pinOrder: 716,
+    pinOrder: 724,
   },
   {
     id: "ipv-kott-software-private-limited-software-engineers-senior-software-developers-asp-net-co-26658",
@@ -344325,7 +344661,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/143/26658"},
-    pinOrder: 717,
+    pinOrder: 725,
   },
   {
     id: "ipv-newagesys-solutions-p-ltd-business-development-specialist-us-market-2-6-years-26651",
@@ -344367,7 +344703,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/109/26651"},
-    pinOrder: 718,
+    pinOrder: 726,
   },
   {
     id: "ipv-fingent-global-solutions-lead-devops-engineer-devops-engineer-26649",
@@ -344409,7 +344745,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26649"},
-    pinOrder: 719,
+    pinOrder: 727,
   },
   {
     id: "ipv-ynot-infosolutions-field-sales-executive-ernakulam-26648",
@@ -344452,7 +344788,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "\"Field Sales Executive – Ernakulam Application\"",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26648"},
-    pinOrder: 720,
+    pinOrder: 728,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-performance-marketer-26647",
@@ -344494,7 +344830,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26647"},
-    pinOrder: 721,
+    pinOrder: 729,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-senior-ai-engineer-4-yrs-26646",
@@ -344536,7 +344872,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26646"},
-    pinOrder: 722,
+    pinOrder: 730,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-process-associate-call-audit-0-2-yrs-26645",
@@ -344578,7 +344914,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26645"},
-    pinOrder: 723,
+    pinOrder: 731,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-solution-architect-java-immediate-joiner-26644",
@@ -344620,7 +344956,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26644"},
-    pinOrder: 724,
+    pinOrder: 732,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-senior-sharepoint-developer-immediate-joiner-26643",
@@ -344662,7 +344998,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26643"},
-    pinOrder: 725,
+    pinOrder: 733,
   },
   {
     id: "ipv-digiora-technologies-pvt-ltd-social-media-executive-internship-26642",
@@ -344704,7 +345040,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/250/26642"},
-    pinOrder: 726,
+    pinOrder: 734,
   },
   {
     id: "ipv-lanware-solutions-hr-generalist-26641",
@@ -344746,7 +345082,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/211/26641"},
-    pinOrder: 727,
+    pinOrder: 735,
   },
   {
     id: "ipv-airpay-financial-technologies-pvt-ltd-project-coordinator-26638",
@@ -344788,7 +345124,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/267/26638"},
-    pinOrder: 728,
+    pinOrder: 736,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-product-manager-26637",
@@ -344830,7 +345166,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26637"},
-    pinOrder: 729,
+    pinOrder: 737,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26636",
@@ -344872,7 +345208,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26636"},
-    pinOrder: 730,
+    pinOrder: 738,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26635",
@@ -344914,7 +345250,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26635"},
-    pinOrder: 731,
+    pinOrder: 739,
   },
   {
     id: "ipv-ileaf-solutions-pvt-ltd-internship-cum-hiring-26634",
@@ -344956,7 +345292,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/59/26634"},
-    pinOrder: 732,
+    pinOrder: 740,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26633",
@@ -344998,7 +345334,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26633"},
-    pinOrder: 733,
+    pinOrder: 741,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26632",
@@ -345040,7 +345376,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26632"},
-    pinOrder: 734,
+    pinOrder: 742,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26631",
@@ -345082,7 +345418,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26631"},
-    pinOrder: 735,
+    pinOrder: 743,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26630",
@@ -345124,7 +345460,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26630"},
-    pinOrder: 736,
+    pinOrder: 744,
   },
   {
     id: "ipv-ynot-infosolutions-digital-marketing-executive-26615",
@@ -345167,7 +345503,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "\"Digital Marketing Executive Application\"",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26615"},
-    pinOrder: 737,
+    pinOrder: 745,
   },
   {
     id: "accenture-senior-back-end-developer-r00369316-kochi-nov2026",
@@ -345206,7 +345542,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00369316 · Posted within last 24 hours · Kochi · Checked 6 Nov 2026",
     description: "Senior Back End Developer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 738,
+    pinOrder: 746,
   },
   {
     id: "accenture-senior-back-end-developer-r00369319-kochi-nov2026",
@@ -345245,7 +345581,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00369319 · Posted within last 24 hours · Kochi · Checked 6 Nov 2026",
     description: "Senior Back End Developer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 739,
+    pinOrder: 747,
   },
   {
     id: "tpv-globcom-solutions-p-ltd-project-coordinator-34060",
@@ -345287,7 +345623,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34060?job=PROJECT%20COORDINATOR"},
     walkinTime: "10:19 – 16:00",
-    pinOrder: 740,
+    pinOrder: 748,
   },
   {
     id: "tpv-globcom-solutions-p-ltd-performance-marketer-digital-marketing-34059",
@@ -345329,7 +345665,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34059?job=Performance%20Marketer%20%28Digital%20Marketing%29"},
     walkinTime: "",
-    pinOrder: 741,
+    pinOrder: 749,
   },
   {
     id: "tpv-way-dot-com-p-ltd-ai-ml-associate-architect-34058",
@@ -345371,7 +345707,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34058?job=AI/ML%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 742,
+    pinOrder: 750,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-lead-email-marketing-34057",
@@ -345413,7 +345749,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34057?job=Team%20Lead%20-%20Email%20Marketing"},
     walkinTime: "",
-    pinOrder: 743,
+    pinOrder: 751,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-magento-developer-34056",
@@ -345455,7 +345791,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34056?job=Senior%20Magento%20developer"},
     walkinTime: "",
-    pinOrder: 744,
+    pinOrder: 752,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-lead-generation-executive-marketing-34055",
@@ -345497,7 +345833,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34055?job=Lead%20Generation%20Executive%20%28Marketing%29"},
     walkinTime: "",
-    pinOrder: 745,
+    pinOrder: 753,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-dot-net-developer-34054",
@@ -345539,7 +345875,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34054?job=Senior%20Dot%20Net%20Developer"},
     walkinTime: "",
-    pinOrder: 746,
+    pinOrder: 754,
   },
   {
     id: "tpv-i-worxs-by-palnar-java-developer-34053",
@@ -345581,7 +345917,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34053?job=Java%20Developer"},
     walkinTime: "",
-    pinOrder: 747,
+    pinOrder: 755,
   },
   {
     id: "tpv-kameda-infologics-p-ltd-full-stack-developer-34052",
@@ -345623,7 +345959,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34052?job=Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 748,
+    pinOrder: 756,
   },
   {
     id: "tpv-qwy-software-p-ltd-junior-devops-engineer-34051",
@@ -345665,7 +346001,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34051?job=Junior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 749,
+    pinOrder: 757,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-34050",
@@ -345707,7 +346043,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34050?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 750,
+    pinOrder: 758,
   },
   {
     id: "tpv-iboson-innovations-p-ltd-seo-specialist-seo-aeo-geo-34049",
@@ -345749,7 +346085,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34049?job=SEO%20Specialist%20%20-%20SEO/AEO/GEO"},
     walkinTime: "",
-    pinOrder: 751,
+    pinOrder: 759,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-34048",
@@ -345791,7 +346127,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34048?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 752,
+    pinOrder: 760,
   },
   {
     id: "tpv-way-dot-com-p-ltd-content-writer-b2b-34047",
@@ -345833,7 +346169,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34047?job=Content%20Writer%20-%20B2B"},
     walkinTime: "",
-    pinOrder: 753,
+    pinOrder: 761,
   },
   {
     id: "tpv-way-dot-com-p-ltd-qa-automation-engineer-34046",
@@ -345875,7 +346211,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34046?job=QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 754,
+    pinOrder: 762,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-analyst-34045",
@@ -345917,7 +346253,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34045?job=Accounts%20Payable%20Analyst"},
     walkinTime: "",
-    pinOrder: 755,
+    pinOrder: 763,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-34044",
@@ -345959,7 +346295,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34044?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 756,
+    pinOrder: 764,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-head-of-finance-34043",
@@ -346001,7 +346337,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34043?job=Head%20of%20Finance"},
     walkinTime: "",
-    pinOrder: 757,
+    pinOrder: 765,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-marketing-coordinator-feature-film-division-34042",
@@ -346043,7 +346379,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34042?job=Marketing%20Coordinator%20-%20Feature%20Film%20Division"},
     walkinTime: "",
-    pinOrder: 758,
+    pinOrder: 766,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-manager-34041",
@@ -346085,7 +346421,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34041?job=Accounts%20Payable%20Manager"},
     walkinTime: "",
-    pinOrder: 759,
+    pinOrder: 767,
   },
   {
     id: "tpv-reizend-p-ltd-interior-architecture-spatial-design-consultant-34040",
@@ -346127,7 +346463,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34040?job=Interior%20Architecture%20%26%20Spatial%20Design%20Consultant"},
     walkinTime: "",
-    pinOrder: 760,
+    pinOrder: 768,
   },
   {
     id: "tpv-cybmirror-innovations-llp-digital-marketing-expert-34039",
@@ -346169,7 +346505,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34039?job=Digital%20Marketing%20Expert"},
     walkinTime: "",
-    pinOrder: 761,
+    pinOrder: 769,
   },
   {
     id: "tpv-reizend-p-ltd-product-design-consultant-objects-experiences-34038",
@@ -346211,7 +346547,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34038?job=Product%20Design%20Consultant%20%E2%80%93%20Objects%20%26%20Experiences"},
     walkinTime: "",
-    pinOrder: 762,
+    pinOrder: 770,
   },
   {
     id: "tpv-way-dot-com-p-ltd-digital-marketing-manager-34037",
@@ -346253,7 +346589,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34037?job=Digital%20Marketing%20Manager"},
     walkinTime: "",
-    pinOrder: 763,
+    pinOrder: 771,
   },
   {
     id: "tpv-indian-institute-of-information-technology-and-managemen-project-associate-maker-hub-satellite-centers-job-code-i-34036",
@@ -346295,7 +346631,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34036?job=Project%20Associate%20-%20Maker%20Hub%20Satellite%20Centers%20%28Job%20code%3A%20IIITMK/MH/07%29"},
     walkinTime: "",
-    pinOrder: 764,
+    pinOrder: 772,
   },
   {
     id: "tpv-indian-institute-of-information-technology-and-managemen-project-associate-maker-hub-job-code-iiitmk-mh-06-34035",
@@ -346337,7 +346673,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34035?job=Project%20Associate%20-%20Maker%20Hub%20%28Job%20code%3A%20IIITMK/MH/06%29"},
     walkinTime: "",
-    pinOrder: 765,
+    pinOrder: 773,
   },
   {
     id: "tpv-indian-institute-of-information-technology-and-managemen-scientific-officer-maker-hub-satellite-centers-job-code-34034",
@@ -346379,7 +346715,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34034?job=Scientific%20Officer%20-%20Maker%20Hub%20Satellite%20Centers%20%28Job%20code%3A%20IIITMK/MH/05%29"},
     walkinTime: "",
-    pinOrder: 766,
+    pinOrder: 774,
   },
   {
     id: "tpv-indian-institute-of-information-technology-and-managemen-program-manager-maker-hub-satellite-centers-job-code-iii-34033",
@@ -346421,7 +346757,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34033?job=Program%20Manager%20-%20Maker%20Hub%20Satellite%20Centers%20%28Job%20code%3A%20IIITMK/MH/03%29"},
     walkinTime: "",
-    pinOrder: 767,
+    pinOrder: 775,
   },
   {
     id: "tpv-indian-institute-of-information-technology-and-managemen-program-manager-maker-hub-job-code-iiitmk-mh-02-34032",
@@ -346463,7 +346799,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34032?job=Program%20Manager%20-%20Maker%20Hub%20%28Job%20code%3A%20IIITMK/MH/02%29"},
     walkinTime: "",
-    pinOrder: 768,
+    pinOrder: 776,
   },
   {
     id: "tpv-tigrid-technologies-p-ltd-flutter-developer-trainee-34031",
@@ -346505,7 +346841,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34031?job=Flutter%20Developer%20Trainee"},
     walkinTime: "",
-    pinOrder: 769,
+    pinOrder: 777,
   },
   {
     id: "tpv-polus-solutions-p-ltd-data-abuse-detection-engineer-34030",
@@ -346547,7 +346883,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34030?job=Data%20Abuse%20%26%20Detection%20Engineer"},
     walkinTime: "",
-    pinOrder: 770,
+    pinOrder: 778,
   },
   {
     id: "tpv-klystron-technologies-sales-and-marketing-executive-intern-34029",
@@ -346589,7 +346925,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34029?job=Sales%20and%20Marketing%20Executive%20Intern"},
     walkinTime: "",
-    pinOrder: 771,
+    pinOrder: 779,
   },
   {
     id: "tpv-klystron-technologies-junior-odoo-developer-34028",
@@ -346631,7 +346967,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34028?job=Junior%20Odoo%20Developer"},
     walkinTime: "",
-    pinOrder: 772,
+    pinOrder: 780,
   },
   {
     id: "tpv-klystron-technologies-dot-net-team-lead-34027",
@@ -346673,7 +347009,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34027?job=Dot%20Net%20Team%20Lead"},
     walkinTime: "",
-    pinOrder: 773,
+    pinOrder: 781,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-flutter-developer-trainee-34026",
@@ -346715,7 +347051,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34026?job=FLUTTER%20DEVELOPER%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 774,
+    pinOrder: 782,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-electrician-cum-office-assistant-electrical-facility-mai-34025",
@@ -346757,7 +347093,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34025?job=Electrician%20cum%20Office%20Assistant%20%E2%80%93%20Electrical%20%26%20Facility%20Maintenance"},
     walkinTime: "",
-    pinOrder: 775,
+    pinOrder: 783,
   },
   {
     id: "tpv-reizend-p-ltd-behavioural-cognitive-science-research-associate-ai-adop-34024",
@@ -346799,7 +347135,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34024?job=Behavioural%20%26%20Cognitive%20Science%20Research%20Associate%20%7C%7C%20AI-Adoption"},
     walkinTime: "",
-    pinOrder: 776,
+    pinOrder: 784,
   },
   {
     id: "tpv-reizend-p-ltd-junior-devops-engineer-0-2-yrs-exp-34023",
@@ -346841,7 +347177,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34023?job=Junior%20DevOps%20Engineer%20%7C%200-2%20YRS%20EXP"},
     walkinTime: "",
-    pinOrder: 777,
+    pinOrder: 785,
   },
   {
     id: "tpv-tkey-education-solutions-p-ltd-arbor-site-reliability-engineer-34022",
@@ -346883,7 +347219,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34022?job=Site%20Reliability%20Engineer"},
     walkinTime: "",
-    pinOrder: 778,
+    pinOrder: 786,
   },
   {
     id: "tpv-alamy-images-india-p-ltd-account-payables-executive-6-month-contract-34021",
@@ -346925,7 +347261,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34021?job=Account%20Payables%20Executive%20%286%20Month%20Contract%29"},
     walkinTime: "",
-    pinOrder: 779,
+    pinOrder: 787,
   },
   {
     id: "tpv-eartheye-space-private-limited-senior-full-stack-developer-angular-node-js-34020",
@@ -346967,7 +347303,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34020?job=Senior%20Full%20Stack%20Developer%20%28Angular%20%26%20Node.js%29"},
     walkinTime: "",
-    pinOrder: 780,
+    pinOrder: 788,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-digital-marketing-intern-34019",
@@ -347009,7 +347345,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34019?job=Digital%20Marketing%20Intern"},
     walkinTime: "",
-    pinOrder: 781,
+    pinOrder: 789,
   },
   {
     id: "tpv-tkey-education-solutions-p-ltd-arbor-technical-operations-engineer-34018",
@@ -347051,7 +347387,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34018?job=Technical%20Operations%20Engineer"},
     walkinTime: "",
-    pinOrder: 782,
+    pinOrder: 790,
   },
   {
     id: "tpv-muthoot-pappachan-technologies-ltd-head-ai-ml-generative-ai-34017",
@@ -347093,7 +347429,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34017?job=Head%20-%20AI%2C%20ML%20%26%20Generative%20AI"},
     walkinTime: "",
-    pinOrder: 783,
+    pinOrder: 791,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26623",
@@ -347135,7 +347471,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26623"},
-    pinOrder: 784,
+    pinOrder: 792,
   },
   {
     id: "ipv-violet-frames-accountant-26622",
@@ -347177,7 +347513,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/465/26622"},
-    pinOrder: 785,
+    pinOrder: 793,
   },
   {
     id: "ipv-violet-frames-business-development-executive-26621",
@@ -347219,7 +347555,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/465/26621"},
-    pinOrder: 786,
+    pinOrder: 794,
   },
   {
     id: "ipv-violet-frames-cameraman-video-editor-26620",
@@ -347261,7 +347597,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/465/26620"},
-    pinOrder: 787,
+    pinOrder: 795,
   },
   {
     id: "ipv-violet-frames-digital-marketing-specialist-26619",
@@ -347303,7 +347639,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/465/26619"},
-    pinOrder: 788,
+    pinOrder: 796,
   },
   {
     id: "ipv-violet-frames-video-editor-graphic-designer-26618",
@@ -347345,7 +347681,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/465/26618"},
-    pinOrder: 789,
+    pinOrder: 797,
   },
   {
     id: "ipv-airpay-financial-technologies-pvt-ltd-project-coordinator-26617",
@@ -347387,7 +347723,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/267/26617"},
-    pinOrder: 790,
+    pinOrder: 798,
   },
   {
     id: "ipv-beinex-consulting-pvt-ltd-devops-engineer-26614",
@@ -347429,7 +347765,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/260/26614"},
-    pinOrder: 791,
+    pinOrder: 799,
   },
   {
     id: "ipv-planet-media-india-pmin-agency-pvt-ltd-full-stack-tech-lead-26613",
@@ -347471,7 +347807,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/266/26613"},
-    pinOrder: 792,
+    pinOrder: 800,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26612",
@@ -347513,7 +347849,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26612"},
-    pinOrder: 793,
+    pinOrder: 801,
   },
   {
     id: "exl-senior-executive-accounts-payable-14183-kochi-nov06",
@@ -347554,7 +347890,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/14183", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 794,
+    pinOrder: 802,
   },
   {
     id: "exl-lead-assistant-manager-f-a-operations-22077-kochi-nov06",
@@ -347595,7 +347931,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22077", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 795,
+    pinOrder: 803,
   },
   {
     id: "exl-analyst-deduction-analyst-accounts-receivable-22217-kochi-nov06",
@@ -347636,7 +347972,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22217", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073", "exlJobDuplicate": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22216"},
     qualification: "",
-    pinOrder: 796,
+    pinOrder: 804,
   },
   {
     id: "exl-manager-accounts-receivable-insurance-21366-kochi-nov06",
@@ -347677,7 +348013,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21366", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 797,
+    pinOrder: 805,
   },
   {
     id: "exl-manager-accounts-payable-insurance-21373-kochi-nov06",
@@ -347718,7 +348054,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21373", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 798,
+    pinOrder: 806,
   },
   {
     id: "exl-senior-manager-record-to-report-insurance-21375-kochi-nov06",
@@ -347759,7 +348095,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21375", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 799,
+    pinOrder: 807,
   },
   {
     id: "exl-senior-manager-accounts-receivable-insurance-21378-kochi-nov06",
@@ -347800,7 +348136,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21378", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 800,
+    pinOrder: 808,
   },
   {
     id: "exl-senior-manager-accounts-payable-insurance-21379-kochi-nov06",
@@ -347841,7 +348177,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21379", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 801,
+    pinOrder: 809,
   },
   {
     id: "exl-senior-assistant-vice-president-finance-operations-21383-kochi-nov06",
@@ -347882,7 +348218,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21383", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 802,
+    pinOrder: 810,
   },
   {
     id: "exl-senior-executive-accounts-payable-bank-reconciliation-21646-kochi-nov06",
@@ -347923,7 +348259,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21646", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 803,
+    pinOrder: 811,
   },
   {
     id: "exl-manager-medical-coding-audit-21920-kochi-nov06",
@@ -347964,7 +348300,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21920", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 804,
+    pinOrder: 812,
   },
   {
     id: "exl-senior-executive-invoice-to-pay-21993-kochi-nov06",
@@ -348005,7 +348341,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21993", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 805,
+    pinOrder: 813,
   },
   {
     id: "exl-senior-executive-order-to-cash-cash-application-22022-kochi-nov06",
@@ -348046,7 +348382,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22022", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 806,
+    pinOrder: 814,
   },
   {
     id: "exl-assistant-manager-cash-application-22027-kochi-nov06",
@@ -348087,7 +348423,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22027", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 807,
+    pinOrder: 815,
   },
   {
     id: "wipro-kochi-test-architect-l1-gen-ai-automation-testing-216113",
@@ -348128,7 +348464,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TEST-ARCHITECT-L1/216113-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "216113",
-    pinOrder: 808,
+    pinOrder: 816,
   },
   {
     id: "sims-dialysis-technician-ponkunnam-nov04",
@@ -348209,7 +348545,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"cyberparkJob": "https://cyberparks.in/job/globit-business-solutions-private-limited-cyberpark-calicut-excelerpprocurementpurchase-procurement-specialist/"},
-    pinOrder: 809,
+    pinOrder: 817,
   },
   {
     id: "cpv-lithos-technosoft-pvt-ltd-digital-marketing-specialist-12219",
@@ -348251,7 +348587,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"cyberparkJob": "https://cyberparks.in/job/lithos-technosoft-pvt-ltd-cyberparkkozhikode-required-skills-core-marketing-skills-seo-on-page-off-page-technical-paid-advertising-google-ads-meta-facebook-ads-linkedin-ads-social-medi/"},
-    pinOrder: 810,
+    pinOrder: 818,
   },
   {
     id: "tpv-muthoot-pappachan-technologies-ltd-senior-engineer-ai-ml-34016",
@@ -348293,7 +348629,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34016?job=Senior%20Engineer-%20AI%20ML"},
     walkinTime: "",
-    pinOrder: 811,
+    pinOrder: 819,
   },
   {
     id: "tpv-muthoot-pappachan-technologies-ltd-technical-lead-java-34015",
@@ -348335,7 +348671,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34015?job=Technical%20Lead%20-Java"},
     walkinTime: "",
-    pinOrder: 812,
+    pinOrder: 820,
   },
   {
     id: "tpv-muthoot-pappachan-technologies-ltd-sr-software-engineer-java-34014",
@@ -348377,7 +348713,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34014?job=Sr.%20Software%20Engineer-Java"},
     walkinTime: "",
-    pinOrder: 813,
+    pinOrder: 821,
   },
   {
     id: "tpv-muthoot-pappachan-technologies-ltd-devops-engineer-34013",
@@ -348419,7 +348755,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34013?job=DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 814,
+    pinOrder: 822,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-technical-recruitment-lead-34012",
@@ -348461,7 +348797,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34012?job=Technical%20Recruitment%20Lead"},
     walkinTime: "",
-    pinOrder: 815,
+    pinOrder: 823,
   },
   {
     id: "tpv-integrated-order-automated-solutions-p-ltd-female-business-development-executive-kannada-34011",
@@ -348503,7 +348839,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34011?job=Female%20Business%20Development%20Executive%20%E2%80%93%20Kannada"},
     walkinTime: "",
-    pinOrder: 816,
+    pinOrder: 824,
   },
   {
     id: "tpv-integrated-order-automated-solutions-p-ltd-female-business-development-growth-associate-tamil-malay-34010",
@@ -348545,7 +348881,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34010?job=Female%20Business%20Development%20%26%20Growth%20Associate%20%E2%80%93%20Tamil%20%2B%20Malayalam"},
     walkinTime: "",
-    pinOrder: 817,
+    pinOrder: 825,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-servicenow-functional-consultant-34009",
@@ -348587,7 +348923,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34009?job=ServiceNow%20Functional%20Consultant"},
     walkinTime: "",
-    pinOrder: 818,
+    pinOrder: 826,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-salesforce-developer-technical-consultant-34008",
@@ -348629,7 +348965,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34008?job=Senior%20Salesforce%20Developer%20/%20Technical%20Consultant"},
     walkinTime: "",
-    pinOrder: 819,
+    pinOrder: 827,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-associate-architect-python-34007",
@@ -348671,7 +349007,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34007?job=Associate%20Architect%20-%20Python"},
     walkinTime: "",
-    pinOrder: 820,
+    pinOrder: 828,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-technical-lead-net-34006",
@@ -348713,7 +349049,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34006?job=Technical%20Lead%20-%20.NET"},
     walkinTime: "",
-    pinOrder: 821,
+    pinOrder: 829,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-coldfusion-developer-34005",
@@ -348755,7 +349091,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34005?job=ColdFusion%20Developer"},
     walkinTime: "",
-    pinOrder: 822,
+    pinOrder: 830,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-technical-program-manager-tpm-34004",
@@ -348797,7 +349133,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34004?job=Technical%20Program%20Manager%20%28TPM%29"},
     walkinTime: "",
-    pinOrder: 823,
+    pinOrder: 831,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-salesforce-functional-consultant-34003",
@@ -348839,7 +349175,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34003?job=Salesforce%20Functional%20Consultant"},
     walkinTime: "",
-    pinOrder: 824,
+    pinOrder: 832,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-salesforce-associate-solution-architect-34002",
@@ -348881,7 +349217,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34002?job=Salesforce%20Associate%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 825,
+    pinOrder: 833,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-it-recruiter-2-to-5-years-34001",
@@ -348923,7 +349259,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34001?job=IT%20Recruiter%20-%202%20to%205%20years"},
     walkinTime: "",
-    pinOrder: 826,
+    pinOrder: 834,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-technical-lead-python-34000",
@@ -348965,7 +349301,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/34000?job=Technical%20Lead%20-%20Python"},
     walkinTime: "",
-    pinOrder: 827,
+    pinOrder: 835,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-servicenow-architect-associate-architect-33999",
@@ -349007,7 +349343,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33999?job=ServiceNow%20Architect%20/%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 828,
+    pinOrder: 836,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-servicenow-developer-technical-consultant-33998",
@@ -349049,7 +349385,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33998?job=Senior%20ServiceNow%20Developer%20/%20Technical%20Consultant"},
     walkinTime: "",
-    pinOrder: 829,
+    pinOrder: 837,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-business-development-manager-33997",
@@ -349091,7 +349427,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33997?job=Business%20Development%20Manager"},
     walkinTime: "",
-    pinOrder: 830,
+    pinOrder: 838,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-technical-lead-architect-33996",
@@ -349133,7 +349469,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33996?job=Senior%20Technical%20Lead%20/%20Architect"},
     walkinTime: "",
-    pinOrder: 831,
+    pinOrder: 839,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-business-development-executive-33995",
@@ -349175,7 +349511,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33995?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 832,
+    pinOrder: 840,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-ai-ml-engineer-33994",
@@ -349217,7 +349553,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33994?job=Senior%20AI/ML%20Engineer"},
     walkinTime: "",
-    pinOrder: 833,
+    pinOrder: 841,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-team-lead-ai-ml-33993",
@@ -349259,7 +349595,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33993?job=Team%20Lead%20-%20AI/ML"},
     walkinTime: "",
-    pinOrder: 834,
+    pinOrder: 842,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-python-developer-33992",
@@ -349301,7 +349637,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33992?job=Senior%20Python%20Developer"},
     walkinTime: "",
-    pinOrder: 835,
+    pinOrder: 843,
   },
   {
     id: "tpv-futureblox-technologies-p-ltd-service-desk-analyst-33991",
@@ -349343,7 +349679,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33991?job=Service%20Desk%20Analyst"},
     walkinTime: "",
-    pinOrder: 836,
+    pinOrder: 844,
   },
   {
     id: "tpv-techversant-infotech-p-ltd-senior-software-engineer-java-full-stack-33990",
@@ -349385,7 +349721,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33990?job=Senior%20Software%20Engineer%20-%20Java%28Full-Stack%29"},
     walkinTime: "",
-    pinOrder: 837,
+    pinOrder: 845,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-software-testing-trainee-33989",
@@ -349427,7 +349763,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33989?job=Software%20Testing%20Trainee"},
     walkinTime: "",
-    pinOrder: 838,
+    pinOrder: 846,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-mern-stack-trainee-33988",
@@ -349469,7 +349805,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33988?job=MERN%20STACK%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 839,
+    pinOrder: 847,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-33987",
@@ -349511,7 +349847,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33987?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience"},
     walkinTime: "",
-    pinOrder: 840,
+    pinOrder: 848,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-33986",
@@ -349553,7 +349889,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33986?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "11:00 – 14:00",
-    pinOrder: 841,
+    pinOrder: 849,
   },
   {
     id: "tpv-prochant-india-p-ltd-human-resource-business-partner-technopark-tvm-33985",
@@ -349595,7 +349931,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33985?job=Human%20Resource%20Business%20Partner%20%40Technopark%2CTvm"},
     walkinTime: "",
-    pinOrder: 842,
+    pinOrder: 850,
   },
   {
     id: "tpv-dsi-technologies-p-ltd-trainee-engineer-cad-cae-33984",
@@ -349637,7 +349973,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33984?job=Trainee%20Engineer%20CAD/CAE"},
     walkinTime: "",
-    pinOrder: 843,
+    pinOrder: 851,
   },
   {
     id: "tpv-valoriz-digital-p-ltd-digital-marketing-intern-33983",
@@ -349679,7 +350015,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33983?job=Digital%20Marketing%20Intern"},
     walkinTime: "",
-    pinOrder: 844,
+    pinOrder: 852,
   },
   {
     id: "tpv-shellsquare-softwares-p-ltd-software-developer-c-33982",
@@ -349721,7 +350057,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33982?job=Software%20Developer%20-%20C%23"},
     walkinTime: "",
-    pinOrder: 845,
+    pinOrder: 853,
   },
   {
     id: "tpv-scalgo-technologies-p-ltd-qa-intern-freshers-33981",
@@ -349763,7 +350099,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33981?job=QA%20Intern%20%28Freshers%29"},
     walkinTime: "",
-    pinOrder: 846,
+    pinOrder: 854,
   },
   {
     id: "tpv-akira-software-solutions-p-ltd-academic-counsellor-33980",
@@ -349805,7 +350141,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33980?job=Academic%20Counsellor"},
     walkinTime: "",
-    pinOrder: 847,
+    pinOrder: 855,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-marketing-business-development-intern-33979",
@@ -349847,7 +350183,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33979?job=Marketing%20%26%20Business%20Development%20Intern"},
     walkinTime: "",
-    pinOrder: 848,
+    pinOrder: 856,
   },
   {
     id: "tpv-polus-solutions-p-ltd-business-development-associate-33978",
@@ -349889,7 +350225,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33978?job=Business%20Development%20Associate"},
     walkinTime: "",
-    pinOrder: 849,
+    pinOrder: 857,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-33977",
@@ -349931,7 +350267,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33977?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 850,
+    pinOrder: 858,
   },
   {
     id: "tpv-scalgo-technologies-p-ltd-project-coordinator-33976",
@@ -349973,7 +350309,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33976?job=Project%20Coordinator"},
     walkinTime: "",
-    pinOrder: 851,
+    pinOrder: 859,
   },
   {
     id: "tpv-acharya-panchakarma-traditional-kerala-ayurveda-p-ltd-ai-creative-designer-ui-ux-graphics-video-33975",
@@ -350015,7 +350351,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33975?job=AI%20Creative%20Designer%20%28UI/UX%2C%20Graphics%20%26%20Video%29"},
     walkinTime: "",
-    pinOrder: 852,
+    pinOrder: 860,
   },
   {
     id: "tpv-aptara-learning-p-ltd-pre-editor-latex-33974",
@@ -350057,7 +350393,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33974?job=Pre-Editor%20%28LaTex%29"},
     walkinTime: "11:00 – 16:30",
-    pinOrder: 853,
+    pinOrder: 861,
   },
   {
     id: "tpv-tiltlabs-consultancy-services-p-ltd-junior-unity-developer-intern-33973",
@@ -350099,7 +350435,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33973?job=Junior%20Unity%20Developer%20Intern"},
     walkinTime: "",
-    pinOrder: 854,
+    pinOrder: 862,
   },
   {
     id: "tpv-foxdale-p-ltd-python-developer-traine-33972",
@@ -350141,7 +350477,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33972?job=python%20developer%20traine"},
     walkinTime: "",
-    pinOrder: 855,
+    pinOrder: 863,
   },
   {
     id: "tpv-foxdale-p-ltd-voice-process-executive-33971",
@@ -350183,7 +350519,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33971?job=voice%20process%20executive"},
     walkinTime: "",
-    pinOrder: 856,
+    pinOrder: 864,
   },
   {
     id: "tpv-thinkpalm-technologies-p-ltd-wifi-developer-4-years-33970",
@@ -350225,7 +350561,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33970?job=WiFi%20Developer%20-%204%2B%20Years"},
     walkinTime: "",
-    pinOrder: 857,
+    pinOrder: 865,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-sales-manager-retail-insurance-33969",
@@ -350267,7 +350603,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33969?job=Sales%20Manager%20%E2%80%93%20Retail%20Insurance"},
     walkinTime: "",
-    pinOrder: 858,
+    pinOrder: 866,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-business-development-associate-bda-33968",
@@ -350309,7 +350645,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33968?job=Business%20Development%20Associate%20%28BDA%29"},
     walkinTime: "",
-    pinOrder: 859,
+    pinOrder: 867,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-capital-structuring-manager-qualified-33966",
@@ -350351,7 +350687,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33966?job=Capital%20%26%20Structuring%20Manager%20%28Qualified%29"},
     walkinTime: "",
-    pinOrder: 860,
+    pinOrder: 868,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-deputy-manager-audit-33965",
@@ -350393,7 +350729,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33965?job=Deputy%20Manager%20-%20Audit"},
     walkinTime: "",
-    pinOrder: 861,
+    pinOrder: 869,
   },
   {
     id: "tpv-shellsquare-softwares-p-ltd-fullstack-developer-33964",
@@ -350435,7 +350771,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33964?job=Fullstack%20Developer"},
     walkinTime: "",
-    pinOrder: 862,
+    pinOrder: 870,
   },
   {
     id: "tpv-marvelloux-apps-p-ltd-academic-counsellor-2-years-33963",
@@ -350477,7 +350813,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33963?job=Academic%20Counsellor%20%282%2B%20Years%29"},
     walkinTime: "",
-    pinOrder: 863,
+    pinOrder: 871,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-full-stack-developer-net-react-33962",
@@ -350519,7 +350855,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33962?job=Senior%20Full%20Stack%20Developer%20%28.NET%20%26%20React%29"},
     walkinTime: "09:30 – 15:00",
-    pinOrder: 864,
+    pinOrder: 872,
   },
   {
     id: "tpv-reizend-p-ltd-technical-sales-specialist-ai-0-3-yrs-33961",
@@ -350561,7 +350897,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33961?job=Technical%20Sales%20Specialist-%20AI%20%7C%7C%200-3%20Yrs"},
     walkinTime: "",
-    pinOrder: 865,
+    pinOrder: 873,
   },
   {
     id: "tpv-reizend-p-ltd-conceptual-designer-33960",
@@ -350603,7 +350939,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33960?job=Conceptual%20Designer"},
     walkinTime: "",
-    pinOrder: 866,
+    pinOrder: 874,
   },
   {
     id: "tpv-minerva-special-purpose-vehicle-p-ltd-accountant-exp-tally-erp-33959",
@@ -350645,7 +350981,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33959?job=Accountant%20%28Exp.%20Tally%20ERP%29"},
     walkinTime: "",
-    pinOrder: 867,
+    pinOrder: 875,
   },
   {
     id: "tpv-way-dot-com-p-ltd-business-development-manager-33958",
@@ -350687,7 +351023,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33958?job=Business%20Development%20Manager"},
     walkinTime: "",
-    pinOrder: 868,
+    pinOrder: 876,
   },
   {
     id: "tpv-way-dot-com-p-ltd-junior-project-manager-agile-scrum-33957",
@@ -350729,7 +351065,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33957?job=Junior%20Project%20Manager%20%E2%80%93%20Agile%20/%20Scrum"},
     walkinTime: "",
-    pinOrder: 869,
+    pinOrder: 877,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-aosp-hardware-enablement-engineer-33956",
@@ -350771,7 +351107,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33956?job=Android%20AOSP%20Hardware%20Enablement%20Engineer"},
     walkinTime: "",
-    pinOrder: 870,
+    pinOrder: 878,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-android-automotive-engineer-33955",
@@ -350813,7 +351149,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33955?job=Senior%20Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 871,
+    pinOrder: 879,
   },
   {
     id: "tpv-way-dot-com-p-ltd-android-automotive-engineer-33954",
@@ -350855,7 +351191,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33954?job=Android%20Automotive%20Engineer"},
     walkinTime: "",
-    pinOrder: 872,
+    pinOrder: 880,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-executive-assistant-to-the-founder-managing-director-33953",
@@ -350897,7 +351233,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33953?job=Executive%20Assistant%20to%20the%20Founder%20/%20Managing%20Director"},
     walkinTime: "",
-    pinOrder: 873,
+    pinOrder: 881,
   },
   {
     id: "tpv-iboson-innovations-p-ltd-seo-analyst-seo-aeo-geo-33952",
@@ -350939,7 +351275,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33952?job=SEO%20Analyst%20%E2%80%93%20SEO%20/%20AEO%20/%20GEO"},
     walkinTime: "",
-    pinOrder: 874,
+    pinOrder: 882,
   },
   {
     id: "tpv-nexomira-technologies-p-ltd-process-consultant-iso-9001-iso-iec-27001-33951",
@@ -350981,7 +351317,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33951?job=Process%20Consultant%20%E2%80%93%20ISO%209001%20%26%20ISO/IEC%2027001"},
     walkinTime: "",
-    pinOrder: 875,
+    pinOrder: 883,
   },
   {
     id: "tpv-ignosi-enterprises-graphic-designer-digital-marketing-officer-33950",
@@ -351023,7 +351359,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33950?job=GRAPHIC%20DESIGNER%20%26%20DIGITAL%20MARKETING%20OFFICER"},
     walkinTime: "",
-    pinOrder: 876,
+    pinOrder: 884,
   },
   {
     id: "ipv-empay-software-solutions-private-limited-react-js-developer-2-4-years-of-experience-26609",
@@ -351065,7 +351401,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/251/26609"},
-    pinOrder: 877,
+    pinOrder: 885,
   },
   {
     id: "ipv-oleovista-solutions-private-limited-business-analyst-treasury-ctrm-systems-26608",
@@ -351107,7 +351443,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/566/26608"},
-    pinOrder: 878,
+    pinOrder: 886,
   },
   {
     id: "ipv-planet-media-india-pmin-agency-pvt-ltd-seo-analyst-26607",
@@ -351149,7 +351485,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/266/26607"},
-    pinOrder: 879,
+    pinOrder: 887,
   },
   {
     id: "amber-operations-associate-us-sales-remote-oct27",
@@ -351189,7 +351525,7 @@ var JOBS = [
     description: "Operations Associate – US (Sales) at Amber — remote, full-time, rotational US shifts (3 PM–12 AM or 7 PM–4 AM).",
     startingDate: "",
     officialLinks: {"keka": "https://amberstudent.keka.com/careers/jobdetails/144346", "campusToDrive": "https://campustodrive.com/job/amber-operations-associate-us-sales-work-from-home-job/"},
-    pinOrder: 880,
+    pinOrder: 888,
     qualification: "Graduate · minimum 60% in academics",
   },
   {
@@ -351232,7 +351568,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/79/26606"},
-    pinOrder: 881,
+    pinOrder: 889,
   },
   {
     id: "ipv-oleovista-solutions-private-limited-lead-frontend-developer-treasury-etrm-26605",
@@ -351274,7 +351610,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/566/26605"},
-    pinOrder: 882,
+    pinOrder: 890,
   },
   {
     id: "ipv-thoughtminds-system-pvt-ltd-senior-backend-engineer-java-immediate-joiner-26604",
@@ -351316,7 +351652,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/485/26604"},
-    pinOrder: 883,
+    pinOrder: 891,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26603",
@@ -351358,7 +351694,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26603"},
-    pinOrder: 884,
+    pinOrder: 892,
   },
   {
     id: "ipv-simelabs-an-astek-company-application-security-engineer-26602",
@@ -351400,7 +351736,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26602"},
-    pinOrder: 885,
+    pinOrder: 893,
   },
   {
     id: "ipv-simelabs-an-astek-company-ux-designer-26601",
@@ -351442,7 +351778,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26601"},
-    pinOrder: 886,
+    pinOrder: 894,
   },
   {
     id: "ipv-simelabs-an-astek-company-frontend-software-engineer-payments-platform-26600",
@@ -351484,7 +351820,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26600"},
-    pinOrder: 887,
+    pinOrder: 895,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-dba-26599",
@@ -351526,7 +351862,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26599"},
-    pinOrder: 888,
+    pinOrder: 896,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26598",
@@ -351568,7 +351904,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26598"},
-    pinOrder: 889,
+    pinOrder: 897,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26597",
@@ -351610,7 +351946,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26597"},
-    pinOrder: 890,
+    pinOrder: 898,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26596",
@@ -351652,7 +351988,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26596"},
-    pinOrder: 891,
+    pinOrder: 899,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26595",
@@ -351694,7 +352030,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26595"},
-    pinOrder: 892,
+    pinOrder: 900,
   },
   {
     id: "ipv-simelabs-an-astek-company-sap-basis-administrator-26594",
@@ -351736,7 +352072,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26594"},
-    pinOrder: 893,
+    pinOrder: 901,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26593",
@@ -351778,7 +352114,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26593"},
-    pinOrder: 894,
+    pinOrder: 902,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26592",
@@ -351820,7 +352156,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26592"},
-    pinOrder: 895,
+    pinOrder: 903,
   },
   {
     id: "ipv-simelabs-an-astek-company-support-testing-26591",
@@ -351862,7 +352198,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26591"},
-    pinOrder: 896,
+    pinOrder: 904,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26590",
@@ -351904,7 +352240,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26590"},
-    pinOrder: 897,
+    pinOrder: 905,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26589",
@@ -351946,7 +352282,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26589"},
-    pinOrder: 898,
+    pinOrder: 906,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26588",
@@ -351988,7 +352324,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26588"},
-    pinOrder: 899,
+    pinOrder: 907,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26587",
@@ -352030,7 +352366,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26587"},
-    pinOrder: 900,
+    pinOrder: 908,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26586",
@@ -352072,7 +352408,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26586"},
-    pinOrder: 901,
+    pinOrder: 909,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26585",
@@ -352114,7 +352450,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26585"},
-    pinOrder: 902,
+    pinOrder: 910,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-sap-erp-consultant-26584",
@@ -352156,7 +352492,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26584"},
-    pinOrder: 903,
+    pinOrder: 911,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-sap-vistex-consultant-26583",
@@ -352198,7 +352534,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26583"},
-    pinOrder: 904,
+    pinOrder: 912,
   },
   {
     id: "ipv-simelabs-an-astek-company-mechanical-design-engineer-26582",
@@ -352240,7 +352576,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26582"},
-    pinOrder: 905,
+    pinOrder: 913,
   },
   {
     id: "ipv-simelabs-an-astek-company-sap-business-one-consultant-26581",
@@ -352282,7 +352618,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26581"},
-    pinOrder: 906,
+    pinOrder: 914,
   },
   {
     id: "ipv-alphasky-ventures-pvt-ltd-team-lead-sales-operations-26580",
@@ -352324,7 +352660,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/539/26580"},
-    pinOrder: 907,
+    pinOrder: 915,
   },
   {
     id: "ipv-alphasky-ventures-pvt-ltd-sales-purchase-associate-26579",
@@ -352366,7 +352702,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/539/26579"},
-    pinOrder: 908,
+    pinOrder: 916,
   },
   {
     id: "ipv-alphasky-ventures-pvt-ltd-hr-admin-executive-26578",
@@ -352408,7 +352744,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/539/26578"},
-    pinOrder: 909,
+    pinOrder: 917,
   },
   {
     id: "ipv-zoiteckh-informations-solutions-hr-and-admin-assistant-internship-6-months-26577",
@@ -352450,7 +352786,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/466/26577"},
-    pinOrder: 910,
+    pinOrder: 918,
   },
   {
     id: "ipv-ileaf-solutions-pvt-ltd-product-demo-executive-field-sales-software-products-26576",
@@ -352492,7 +352828,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/59/26576"},
-    pinOrder: 911,
+    pinOrder: 919,
   },
   {
     id: "ipv-al-tomouh-it-pvt-ltd-accounts-executive-payroll-accounts-26575",
@@ -352534,7 +352870,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/561/26575"},
-    pinOrder: 912,
+    pinOrder: 920,
   },
   {
     id: "ipv-ss-consulting-lead-dot-net-developer-26574",
@@ -352576,7 +352912,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/468/26574"},
-    pinOrder: 913,
+    pinOrder: 921,
   },
   {
     id: "ipv-ss-consulting-java-developer-with-rust-26573",
@@ -352618,7 +352954,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/468/26573"},
-    pinOrder: 914,
+    pinOrder: 922,
   },
   {
     id: "ipv-ss-consulting-java-fullstack-with-gcp-26572",
@@ -352660,7 +352996,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/468/26572"},
-    pinOrder: 915,
+    pinOrder: 923,
   },
   {
     id: "ipv-ss-consulting-sr-manager-people-operations-26571",
@@ -352702,7 +353038,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/468/26571"},
-    pinOrder: 916,
+    pinOrder: 924,
   },
   {
     id: "ipv-beinex-consulting-pvt-ltd-qa-engineer-26570",
@@ -352744,7 +353080,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/260/26570"},
-    pinOrder: 917,
+    pinOrder: 925,
   },
   {
     id: "ipv-lucidplus-infotech-pvt-ltd-trainee-sales-business-development-26569",
@@ -352786,7 +353122,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/41/26569"},
-    pinOrder: 918,
+    pinOrder: 926,
   },
   {
     id: "ipv-lucidplus-infotech-pvt-ltd-business-development-executive-it-software-exp-2-yrs-26568",
@@ -352828,7 +353164,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/41/26568"},
-    pinOrder: 919,
+    pinOrder: 927,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26567",
@@ -352870,7 +353206,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26567"},
-    pinOrder: 920,
+    pinOrder: 928,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-it-purchase-and-procurement-executive-in-it-industry-26566",
@@ -352912,7 +353248,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26566"},
-    pinOrder: 921,
+    pinOrder: 929,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-gen-ai-architect-26565",
@@ -352954,7 +353290,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26565"},
-    pinOrder: 922,
+    pinOrder: 930,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-technical-lead-26564",
@@ -352996,7 +353332,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26564"},
-    pinOrder: 923,
+    pinOrder: 931,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-mstr-technical-lead-26563",
@@ -353038,7 +353374,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26563"},
-    pinOrder: 924,
+    pinOrder: 932,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-data-scientist-26562",
@@ -353080,7 +353416,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26562"},
-    pinOrder: 925,
+    pinOrder: 933,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-data-engineer-26561",
@@ -353122,7 +353458,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26561"},
-    pinOrder: 926,
+    pinOrder: 934,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-client-account-manager-26560",
@@ -353164,7 +353500,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26560"},
-    pinOrder: 927,
+    pinOrder: 935,
   },
   {
     id: "ipv-sands-lab-internship-academic-project-program-for-college-students-26559",
@@ -353206,7 +353542,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/39/26559"},
-    pinOrder: 928,
+    pinOrder: 936,
   },
   {
     id: "ipv-dynamed-healthcare-solutions-pvt-ltd-senior-cybersecurity-architect-26558",
@@ -353248,7 +353584,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/132/26558"},
-    pinOrder: 929,
+    pinOrder: 937,
   },
   {
     id: "ipv-sands-lab-entry-to-live-it-industry-exposure-please-jon-with-our-t-26557",
@@ -353290,7 +353626,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/39/26557"},
-    pinOrder: 930,
+    pinOrder: 938,
   },
   {
     id: "ipv-hashroot-technologies-pvt-ltd-sales-and-marketing-interns-26556",
@@ -353332,7 +353668,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/61/26556"},
-    pinOrder: 931,
+    pinOrder: 939,
   },
   {
     id: "ipv-sands-lab-specially-designed-for-career-restart-empowering-women-r-26555",
@@ -353374,7 +353710,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/39/26555"},
-    pinOrder: 932,
+    pinOrder: 940,
   },
   {
     id: "ipv-lisbell-technologies-pvt-ltd-python-ai-academic-project-coordinator-26541",
@@ -353416,7 +353752,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/542/26541"},
-    pinOrder: 933,
+    pinOrder: 941,
   },
   {
     id: "ipv-aspire-systems-digital-private-limited-immediate-opening-for-data-engineer-module-lead-26142",
@@ -353458,7 +353794,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/36/26142"},
-    pinOrder: 934,
+    pinOrder: 942,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-oracle-technical-consultant-26537",
@@ -353500,7 +353836,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26537"},
-    pinOrder: 935,
+    pinOrder: 943,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-oracle-fusion-functional-consultant-ai-solutions-26536",
@@ -353542,7 +353878,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26536"},
-    pinOrder: 936,
+    pinOrder: 944,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-backend-developer-python-26535",
@@ -353584,7 +353920,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26535"},
-    pinOrder: 937,
+    pinOrder: 945,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-frontend-developer-react-js-26534",
@@ -353626,7 +353962,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26534"},
-    pinOrder: 938,
+    pinOrder: 946,
   },
   {
     id: "ipv-galtech-technologies-pvt-ltd-ai-data-science-full-stack-trainer-cum-developer-26533",
@@ -353668,7 +354004,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/189/26533"},
-    pinOrder: 939,
+    pinOrder: 947,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26532",
@@ -353710,7 +354046,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26532"},
-    pinOrder: 940,
+    pinOrder: 948,
   },
   {
     id: "nest-digital-java-struts-ejb-kochi-nov02",
@@ -353947,7 +354283,7 @@ var JOBS = [
     description: "Finance & Accounting Solution Architect designing end-to-end F&A outsourcing solutions for prospective clients across Source to Pay, Order to Cash and Record to Report. Leads solution design during pursuit and proposal phases, develops staffing and delivery models, and creates responses to RFPs, RFIs and client presentations.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting, Finance, Business Administration or a related field",
-    pinOrder: 941,
+    pinOrder: 949,
   },
   {
     id: "wipro-kochi-project-lead-l1-program-management-214218",
@@ -353988,7 +354324,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PROJECT-LEAD-L1/214218-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214218",
-    pinOrder: 942,
+    pinOrder: 950,
   },
   {
     id: "wipro-kochi-developer-l4-servicenow-saas-214281",
@@ -354029,7 +354365,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/214281-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214281",
-    pinOrder: 943,
+    pinOrder: 951,
   },
   {
     id: "wipro-kochi-configuration-manager-l1-servicenow-software-asset-managemen-214562",
@@ -354070,7 +354406,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/CONFIGURATION-MANAGER-L1/214562-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214562",
-    pinOrder: 944,
+    pinOrder: 952,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l2-servicenow-software-asset-ma-214564",
@@ -354111,7 +354447,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L2/214564-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214564",
-    pinOrder: 945,
+    pinOrder: 953,
   },
   {
     id: "wipro-kochi-production-agent-l1-retail-banking-ba-214182",
@@ -354152,7 +354488,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PRODUCTION-AGENT-L1/214182-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214182",
-    pinOrder: 946,
+    pinOrder: 954,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-tele-sales-executive-26531",
@@ -354194,7 +354530,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26531"},
-    pinOrder: 947,
+    pinOrder: 955,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26530",
@@ -354236,7 +354572,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26530"},
-    pinOrder: 948,
+    pinOrder: 956,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26529",
@@ -354278,7 +354614,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26529"},
-    pinOrder: 949,
+    pinOrder: 957,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26528",
@@ -354320,7 +354656,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26528"},
-    pinOrder: 950,
+    pinOrder: 958,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26527",
@@ -354362,7 +354698,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26527"},
-    pinOrder: 951,
+    pinOrder: 959,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26526",
@@ -354404,7 +354740,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26526"},
-    pinOrder: 952,
+    pinOrder: 960,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26525",
@@ -354446,7 +354782,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26525"},
-    pinOrder: 953,
+    pinOrder: 961,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26524",
@@ -354488,7 +354824,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26524"},
-    pinOrder: 954,
+    pinOrder: 962,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26523",
@@ -354530,7 +354866,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26523"},
-    pinOrder: 955,
+    pinOrder: 963,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26522",
@@ -354572,7 +354908,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26522"},
-    pinOrder: 956,
+    pinOrder: 964,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26521",
@@ -354614,7 +354950,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26521"},
-    pinOrder: 957,
+    pinOrder: 965,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26520",
@@ -354656,7 +354992,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26520"},
-    pinOrder: 958,
+    pinOrder: 966,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26519",
@@ -354698,7 +355034,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26519"},
-    pinOrder: 959,
+    pinOrder: 967,
   },
   {
     id: "cpv-nornux-solutions-private-limited-erpnext-developer-12210",
@@ -354740,7 +355076,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"cyberparkJob": "https://cyberparks.in/job/nornux-solutions-private-limited-kozhikode-kerala-erpnext-erpnext-developer/"},
-    pinOrder: 960,
+    pinOrder: 968,
   },
   {
     id: "exl-executive-accounts-payable-21975-kochi-nov2026",
@@ -354781,7 +355117,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21975", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 961,
+    pinOrder: 969,
   },
   {
     id: "exl-senior-executive-p2p-22131-kochi-nov2026",
@@ -354822,7 +355158,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22131", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 962,
+    pinOrder: 970,
   },
   {
     id: "exl-assistant-manager-p-l-analysis-22132-kochi-nov2026",
@@ -354863,7 +355199,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22132", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 963,
+    pinOrder: 971,
   },
   {
     id: "exl-senior-executive-invoice-to-pay-20948-kochi-nov2026",
@@ -354904,7 +355240,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20948", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 964,
+    pinOrder: 972,
   },
   {
     id: "exl-senior-executive-p2p-payment-processing-15686-kochi-nov2026",
@@ -354945,7 +355281,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/15686", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 965,
+    pinOrder: 973,
   },
   {
     id: "exl-assistant-manager-claims-19303-kochi-nov2026",
@@ -354986,7 +355322,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/19303", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 966,
+    pinOrder: 974,
   },
   {
     id: "exl-assistant-manager-accounts-receivable-19261-kochi-nov2026",
@@ -355546,7 +355882,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33949?job=Senior%20HR%20Generalist"},
     walkinTime: "",
-    pinOrder: 967,
+    pinOrder: 975,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26518",
@@ -355588,7 +355924,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26518"},
-    pinOrder: 968,
+    pinOrder: 976,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26517",
@@ -355630,7 +355966,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26517"},
-    pinOrder: 969,
+    pinOrder: 977,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26516",
@@ -355672,7 +356008,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26516"},
-    pinOrder: 970,
+    pinOrder: 978,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26515",
@@ -355714,7 +356050,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26515"},
-    pinOrder: 971,
+    pinOrder: 979,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26514",
@@ -355756,7 +356092,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26514"},
-    pinOrder: 972,
+    pinOrder: 980,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26513",
@@ -355798,7 +356134,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26513"},
-    pinOrder: 973,
+    pinOrder: 981,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-compliance-support-executive-26512",
@@ -355840,7 +356176,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26512"},
-    pinOrder: 974,
+    pinOrder: 982,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-content-writers-26511",
@@ -355882,7 +356218,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26511"},
-    pinOrder: 975,
+    pinOrder: 983,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-creative-designers-26510",
@@ -355924,7 +356260,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26510"},
-    pinOrder: 976,
+    pinOrder: 984,
   },
   {
     id: "ipv-infintor-solutions-llp-odoo-functional-consultant-26503",
@@ -355966,7 +356302,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/380/26503"},
-    pinOrder: 977,
+    pinOrder: 985,
   },
   {
     id: "wenoxo-flutter-operations-interns-nov01",
@@ -357142,7 +357478,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33948?job=SAP%20BW%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 978,
+    pinOrder: 986,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-sd-functional-analyst-afs-retail-domain-mandator-33947",
@@ -357184,7 +357520,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33947?job=SAP%20ECC%20SD%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 979,
+    pinOrder: 987,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-mm-functional-analyst-afs-retail-domain-mandator-33946",
@@ -357226,7 +357562,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33946?job=SAP%20ECC%20MM%20Functional%20Analyst%20%28AFS%2BRetail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 980,
+    pinOrder: 988,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-sap-ecc-fi-functional-analyst-retail-domain-mandatory-33945",
@@ -357268,7 +357604,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33945?job=SAP%20ECC%20FI%20Functional%20Analyst%20%28Retail%20Domain%20Mandatory%29"},
     walkinTime: "",
-    pinOrder: 981,
+    pinOrder: 989,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-ai-agentic-platform-architect-est-time-zone-33944",
@@ -357310,7 +357646,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33944?job=Lead%20AI%20/%20Agentic%20Platform%20Architect%20-EST%20Time%20Zone"},
     walkinTime: "",
-    pinOrder: 982,
+    pinOrder: 990,
   },
   {
     id: "tpv-azinova-technologies-p-ltd-digital-marketing-executive-33943",
@@ -357352,7 +357688,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33943?job=Digital%20Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 983,
+    pinOrder: 991,
   },
   {
     id: "tpv-kameda-infologics-p-ltd-sales-executive-business-development-33942",
@@ -357394,7 +357730,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33942?job=Sales%20Executive-%20Business%20Development"},
     walkinTime: "",
-    pinOrder: 984,
+    pinOrder: 992,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-to-hire-33941",
@@ -357436,7 +357772,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33941?job=Business%20Development%20%E2%80%93%20Intern-to-Hire"},
     walkinTime: "",
-    pinOrder: 985,
+    pinOrder: 993,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-senior-accountant-33940",
@@ -357478,7 +357814,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33940?job=Senior%20Accountant"},
     walkinTime: "",
-    pinOrder: 986,
+    pinOrder: 994,
   },
   {
     id: "tpv-prompttech-global-p-ltd-creative-designer-33939",
@@ -357520,7 +357856,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33939?job=Creative%20Designer"},
     walkinTime: "",
-    pinOrder: 987,
+    pinOrder: 995,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-33938",
@@ -357562,7 +357898,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33938?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 988,
+    pinOrder: 996,
   },
   {
     id: "tpv-prompttech-global-p-ltd-senior-odoo-techno-functional-developer-33937",
@@ -357604,7 +357940,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33937?job=Senior%20Odoo%20Techno-Functional%20Developer"},
     walkinTime: "",
-    pinOrder: 989,
+    pinOrder: 997,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-33936",
@@ -357646,7 +357982,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33936?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 990,
+    pinOrder: 998,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-delivery-manager-33935",
@@ -357688,7 +358024,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33935?job=Delivery%20Manager"},
     walkinTime: "",
-    pinOrder: 991,
+    pinOrder: 999,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-33934",
@@ -357730,7 +358066,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33934?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 992,
+    pinOrder: 1000,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-solution-architect-33933",
@@ -357772,7 +358108,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33933?job=Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 993,
+    pinOrder: 1001,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-33932",
@@ -357814,7 +358150,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33932?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 994,
+    pinOrder: 1002,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-internetworking-analyst-network-automation-33931",
@@ -357856,7 +358192,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33931?job=Internetworking%20Analyst%20%28Network%20%26%20Automation%29"},
     walkinTime: "",
-    pinOrder: 995,
+    pinOrder: 1003,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-infrastructure-support-specialist-33930",
@@ -357898,7 +358234,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33930?job=Infrastructure%20Support%20Specialist"},
     walkinTime: "",
-    pinOrder: 996,
+    pinOrder: 1004,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-33929",
@@ -357940,7 +358276,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33929?job=Business%20Development%20Intern"},
     walkinTime: "",
-    pinOrder: 997,
+    pinOrder: 1005,
   },
   {
     id: "tpv-haspaces-it-hospitality-p-ltd-full-stack-developer-java-angular-33928",
@@ -357982,7 +358318,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33928?job=Full%20Stack%20Developer%20%28Java%20%26%20Angular%29"},
     walkinTime: "",
-    pinOrder: 998,
+    pinOrder: 1006,
   },
   {
     id: "tpv-reizend-p-ltd-accounts-executive-ca-articleship-experience-33927",
@@ -358024,7 +358360,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33927?job=Accounts%20Executive%20%28CA%20Articleship%20Experience%29"},
     walkinTime: "",
-    pinOrder: 999,
+    pinOrder: 1007,
   },
   {
     id: "tpv-onbyz-business-development-executive-33926",
@@ -358066,7 +358402,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33926?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1000,
+    pinOrder: 1008,
   },
   {
     id: "tpv-onbyz-telemarketing-executive-33925",
@@ -358108,7 +358444,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33925?job=Telemarketing%20Executive"},
     walkinTime: "",
-    pinOrder: 1001,
+    pinOrder: 1009,
   },
   {
     id: "ipv-contactpoint-360-automation-manual-qa-tester-26502",
@@ -358150,7 +358486,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/306/26502"},
-    pinOrder: 1002,
+    pinOrder: 1010,
   },
   {
     id: "ipv-voyon-technology-pvt-ltd-associate-software-sales-engineer-26501",
@@ -358192,7 +358528,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/372/26501"},
-    pinOrder: 1003,
+    pinOrder: 1011,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26500",
@@ -358234,7 +358570,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26500"},
-    pinOrder: 1004,
+    pinOrder: 1012,
   },
   {
     id: "ipv-tecforz-innovations-senior-backend-developer-26499",
@@ -358276,7 +358612,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/426/26499"},
-    pinOrder: 1005,
+    pinOrder: 1013,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-research-and-development-flutter-development-intern-26498",
@@ -358319,7 +358655,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Flutter Internship",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26498"},
-    pinOrder: 1006,
+    pinOrder: 1014,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-quality-assurance-intern-26497",
@@ -358362,7 +358698,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Quality Testing Intern",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26497"},
-    pinOrder: 1007,
+    pinOrder: 1015,
   },
   {
     id: "tpv-zenturiotech-pvt-ltd-business-development-associate-33924",
@@ -358404,7 +358740,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33924?job=Business%20Development%20Associate"},
     walkinTime: "",
-    pinOrder: 1008,
+    pinOrder: 1016,
   },
   {
     id: "tpv-gnx-digital-solutions-p-ltd-rpa-developer-33923",
@@ -358446,7 +358782,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33923?job=RPA%20Developer"},
     walkinTime: "",
-    pinOrder: 1009,
+    pinOrder: 1017,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-senior-full-stack-dot-net-with-aws-ai-33922",
@@ -358488,7 +358824,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33922?job=Senior%20Full%20Stack%20-%20Dot%20Net%20with%20AWS%20%26%20AI"},
     walkinTime: "",
-    pinOrder: 1010,
+    pinOrder: 1018,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-digital-marketing-executive-3-to-6-years-33921",
@@ -358530,7 +358866,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33921?job=Digital%20Marketing%20Executive%20-%203%20to%206%20years"},
     walkinTime: "",
-    pinOrder: 1011,
+    pinOrder: 1019,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-intern-33920",
@@ -358572,7 +358908,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33920?job=Marketing%20%26%20Lead%20Generation%20Intern"},
     walkinTime: "",
-    pinOrder: 1012,
+    pinOrder: 1020,
   },
   {
     id: "tpv-genrobotic-innovations-p-ltd-travel-admin-1-2-years-33919",
@@ -358614,7 +358950,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33919?job=Travel%20Admin%20%28%201%20-%202%20Years%29"},
     walkinTime: "",
-    pinOrder: 1013,
+    pinOrder: 1021,
   },
   {
     id: "tpv-genrobotic-innovations-p-ltd-control-system-engineer-3-6-years-33918",
@@ -358656,7 +358992,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33918?job=Control%20System%20Engineer%20%28%203-6%20Years%29"},
     walkinTime: "",
-    pinOrder: 1014,
+    pinOrder: 1022,
   },
   {
     id: "tpv-ainsurtech-p-ltd-customer-support-specialist-33917",
@@ -358698,7 +359034,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33917?job=Customer%20Support%20Specialist"},
     walkinTime: "",
-    pinOrder: 1015,
+    pinOrder: 1023,
   },
   {
     id: "tpv-medowa-global-p-ltd-php-developer-trainee-33916",
@@ -358740,7 +359076,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33916?job=PHP%20Developer%20Trainee"},
     walkinTime: "",
-    pinOrder: 1016,
+    pinOrder: 1024,
   },
   {
     id: "tpv-trenser-technology-solutions-p-ltd-lead-senior-devops-engineer-33915",
@@ -358782,7 +359118,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33915?job=Lead/Senior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 1017,
+    pinOrder: 1025,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-bde-33914",
@@ -358824,7 +359160,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33914?job=Business%20Development%20Executive%20%28BDE%29"},
     walkinTime: "",
-    pinOrder: 1018,
+    pinOrder: 1026,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-academic-counsellor-1-2-year-experience-33913",
@@ -358866,7 +359202,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33913?job=Academic%20Counsellor%20%281-2%29%20Year%20Experience"},
     walkinTime: "",
-    pinOrder: 1019,
+    pinOrder: 1027,
   },
   {
     id: "ipv-kott-software-private-limited-software-implementation-support-specialist-engineer-26496",
@@ -358908,7 +359244,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/143/26496"},
-    pinOrder: 1020,
+    pinOrder: 1028,
   },
   {
     id: "ipv-titan-tech-emirates-pvt-ltd-digital-marketing-manager-26495",
@@ -358950,7 +359286,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/313/26495"},
-    pinOrder: 1021,
+    pinOrder: 1029,
   },
   {
     id: "ipv-oleovista-solutions-private-limited-lead-python-developer-senior-backend-technical-lead-26494",
@@ -358992,7 +359328,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/566/26494"},
-    pinOrder: 1022,
+    pinOrder: 1030,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-technical-lead-python-java-nodejs-26493",
@@ -359034,7 +359370,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26493"},
-    pinOrder: 1023,
+    pinOrder: 1031,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-admin-executive-office-assistant-26492",
@@ -359076,7 +359412,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26492"},
-    pinOrder: 1024,
+    pinOrder: 1032,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-business-development-intern-26491",
@@ -359118,7 +359454,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26491"},
-    pinOrder: 1025,
+    pinOrder: 1033,
   },
   {
     id: "ipv-estro-tech-robotics-and-innovations-pvt-ltd-research-and-development-production-intern-26490",
@@ -359161,7 +359497,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "Application for R&D Production Intern",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/486/26490"},
-    pinOrder: 1026,
+    pinOrder: 1034,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-financial-analyst-26489",
@@ -359203,7 +359539,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26489"},
-    pinOrder: 1027,
+    pinOrder: 1035,
   },
   {
     id: "ipv-linnk-outsource-solutions-india-pvt-ltd-talent-recruiter-it-recruitment-26488",
@@ -359245,7 +359581,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/484/26488"},
-    pinOrder: 1028,
+    pinOrder: 1036,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26487",
@@ -359287,7 +359623,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26487"},
-    pinOrder: 1029,
+    pinOrder: 1037,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26486",
@@ -359329,7 +359665,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26486"},
-    pinOrder: 1030,
+    pinOrder: 1038,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26485",
@@ -359371,7 +359707,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26485"},
-    pinOrder: 1031,
+    pinOrder: 1039,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26484",
@@ -359413,7 +359749,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26484"},
-    pinOrder: 1032,
+    pinOrder: 1040,
   },
   {
     id: "franciscan-solutions-outreach-specialist-noida-oct30",
@@ -359533,7 +359869,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's degree",
     salaryRange: "₹20,000 – ₹30,000 per month",
-    pinOrder: 1033,
+    pinOrder: 1041,
   },
   {
     id: "infocampus-cre-trainee-calicut-oct30",
@@ -361075,7 +361411,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26483"},
-    pinOrder: 1034,
+    pinOrder: 1042,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26482",
@@ -361117,7 +361453,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26482"},
-    pinOrder: 1035,
+    pinOrder: 1043,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26481",
@@ -361159,7 +361495,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26481"},
-    pinOrder: 1036,
+    pinOrder: 1044,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26480",
@@ -361201,7 +361537,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26480"},
-    pinOrder: 1037,
+    pinOrder: 1045,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26479",
@@ -361243,7 +361579,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26479"},
-    pinOrder: 1038,
+    pinOrder: 1046,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26478",
@@ -361285,7 +361621,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26478"},
-    pinOrder: 1039,
+    pinOrder: 1047,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26477",
@@ -361327,7 +361663,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26477"},
-    pinOrder: 1040,
+    pinOrder: 1048,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26476",
@@ -361369,7 +361705,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26476"},
-    pinOrder: 1041,
+    pinOrder: 1049,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26475",
@@ -361411,7 +361747,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26475"},
-    pinOrder: 1042,
+    pinOrder: 1050,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26474",
@@ -361453,7 +361789,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26474"},
-    pinOrder: 1043,
+    pinOrder: 1051,
   },
   {
     id: "kmrl-apprenticeship-2026-27-kochi-oct30",
@@ -362944,7 +363280,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's / Master's Degree",
     salaryRange: "₹25,000–₹30,000/month",
-    pinOrder: 1044,
+    pinOrder: 1052,
   },
   {
     id: "advenxa-backend-support-operations-502052",
@@ -362985,7 +363321,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Up to ₹30,000 per month",
-    pinOrder: 1045,
+    pinOrder: 1053,
   },
   {
     id: "advenxa-care-worker-deputy-lead-senior-support-worker-521133",
@@ -363025,7 +363361,7 @@ var JOBS = [
     description: "We are looking for experienced Senior Support Workers and Deputy Leads to support daily care operations, guide frontline staff, and ensure high standards of person-centred care, safeguarding, and service delivery.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1046,
+    pinOrder: 1054,
     salaryRange: "£28,080–£37,440 for Senior Support Worker roles",
   },
   {
@@ -363067,7 +363403,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹30,000.00 per month.",
-    pinOrder: 1047,
+    pinOrder: 1055,
   },
   {
     id: "advenxa-investment-sales-officer-495171",
@@ -363108,7 +363444,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹35,000.00 per month",
-    pinOrder: 1048,
+    pinOrder: 1056,
   },
   {
     id: "advenxa-investment-sales-officer-524065",
@@ -363149,7 +363485,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "Salary: ₹20,000.00 - ₹35,000.00 per month",
-    pinOrder: 1049,
+    pinOrder: 1057,
   },
   {
     id: "advenxa-workforce-management-analyst-524001",
@@ -363190,7 +363526,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
     salaryRange: "Up to ₹9 LPA",
-    pinOrder: 1050,
+    pinOrder: 1058,
   },
   {
     id: "advenxa-equity-dealer-495120",
@@ -363231,7 +363567,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Degree Certification ( Except B.Tech) is Mandatory",
     salaryRange: "₹20,000.00 - ₹30,000.00 per month + Incentives.",
-    pinOrder: 1051,
+    pinOrder: 1059,
   },
   {
     id: "advenxa-specialist-obstetrician-gynecologist-515092",
@@ -363271,7 +363607,7 @@ var JOBS = [
     description: "SPECIALIST OBSTETRICIAN & GYNECOLOGIST Location : Muscat, Sultanate of Oman Qualification : MBBS with MD/MS in Obstetrics & Gynecology or an equivalent recognized postgraduate qualification Experience : Relevant post-specialization clinical experience Preferred Nationalities : Jo",
     startingDate: "",
     qualification: "MBBS with MD/MS in Obstetrics & Gynecology or an equivalent recognized postgraduate qualification",
-    pinOrder: 1052,
+    pinOrder: 1060,
     salaryRange: "OMR 2,500 – 3,000 per month",
   },
   {
@@ -363312,7 +363648,7 @@ var JOBS = [
     description: "NURSING ASSISTANT – REHABILITATION CENTRE Location: Sultanate of Oman Experience: Minimum 3 years of relevant experience after qualification Nationality: All nationalities except African, Pakistani, Nepalese, and Bangladeshi Qualification: ANM or a one-year Diploma/Certificate in",
     startingDate: "",
     qualification: "ANM or a one-year Diploma/Certificate in Nursing Assistant from a recognised institution",
-    pinOrder: 1053,
+    pinOrder: 1061,
     salaryRange: "- OMR 250 per month for candidates with ANM qualification",
   },
   {
@@ -363353,7 +363689,7 @@ var JOBS = [
     description: "We are hiring a Senior Manager – Compliance & Ethics for a leading financial services company. The candidate will be responsible for ensuring regulatory compliance, monitoring exchange circulars, managing compliance reporting, and coordinating regulatory audits and inspections.",
     startingDate: "",
     qualification: "Bachelor's or Master's Degree",
-    pinOrder: 1054,
+    pinOrder: 1062,
   },
   {
     id: "advenxa-branch-support-executive-sales-operations-495101",
@@ -363394,7 +363730,7 @@ var JOBS = [
     startingDate: "",
     qualification: "",
     salaryRange: "20,000/- to 30,000/-",
-    pinOrder: 1055,
+    pinOrder: 1063,
   },
   {
     id: "exl-accounts-payable-i2p-22130-kochi-oct2026",
@@ -363435,7 +363771,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22130", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 1056,
+    pinOrder: 1064,
   },
   {
     id: "exl-accounts-payable-i2p-21761-kochi-oct2026",
@@ -363476,7 +363812,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21761", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 1057,
+    pinOrder: 1065,
   },
   {
     id: "exl-manager-procure-to-pay-22145-kochi-oct2026",
@@ -363517,7 +363853,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/22145", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 1058,
+    pinOrder: 1066,
   },
   {
     id: "exl-executive-order-to-cash-order-management-21770-kochi-oct2026",
@@ -363558,7 +363894,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21770", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1059,
+    pinOrder: 1067,
   },
   {
     id: "exl-executive-provider-data-management-us-healthcare-21703-kochi-oct2026",
@@ -363599,7 +363935,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21703", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate (non-technical) in any discipline",
-    pinOrder: 1060,
+    pinOrder: 1068,
   },
   {
     id: "exl-assistant-manager-general-ledger-17346-kochi-oct2026",
@@ -363640,7 +363976,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/17346", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "B.Com",
-    pinOrder: 1061,
+    pinOrder: 1069,
   },
   {
     id: "exl-manager-quality-excellence-21880-kochi-oct2026",
@@ -363681,7 +364017,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21880", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1062,
+    pinOrder: 1070,
   },
   {
     id: "exl-assistant-manager-accounts-receivable-collections-21529-kochi-oct2026",
@@ -363722,7 +364058,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21529", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate – Commerce",
-    pinOrder: 1063,
+    pinOrder: 1071,
   },
   {
     id: "exl-associate-subrogation-arbitration-contentions-21621-kochi-oct2026",
@@ -363763,7 +364099,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21621", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1064,
+    pinOrder: 1072,
   },
   {
     id: "exl-senior-executive-wfm-scheduler-21928-kochi-oct2026",
@@ -363804,7 +364140,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21928", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1065,
+    pinOrder: 1073,
   },
   {
     id: "exl-manager-fraud-disputes-operations-21658-kochi-oct2026",
@@ -363845,7 +364181,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21658", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1066,
+    pinOrder: 1074,
   },
   {
     id: "exl-lead-assistant-manager-fraud-disputes-operations-21660-kochi-oct2026",
@@ -363886,7 +364222,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21660", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1067,
+    pinOrder: 1075,
   },
   {
     id: "exl-senior-executive-healthcare-claims-21661-kochi-oct2026",
@@ -363927,7 +364263,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21661", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "",
-    pinOrder: 1068,
+    pinOrder: 1076,
   },
   {
     id: "exl-analyst-deduction-analyst-accounts-receivable-21314-kochi-oct2026",
@@ -363968,7 +364304,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21314", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Graduate – Commerce",
-    pinOrder: 1069,
+    pinOrder: 1077,
   },
   {
     id: "exl-assistant-vice-president-f-a-operations-insurance-l-a-21382-kochi-oct2026",
@@ -364009,7 +364345,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21382", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's in Finance, Accounting or related; MBA or CA preferred",
-    pinOrder: 1070,
+    pinOrder: 1078,
   },
   {
     id: "exl-manager-record-to-report-insurance-21357-kochi-oct2026",
@@ -364050,7 +364386,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/21357", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's in Finance, Accounting or related; CA/CPA preferred",
-    pinOrder: 1071,
+    pinOrder: 1079,
   },
   {
     id: "exl-associate-20770-kochi-oct2026",
@@ -364091,7 +364427,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"exlJob": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/job/20770", "exlKochiSearch": "https://fa-ewjt-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_2/jobs?lastSelectedFacet=LOCATIONS&locationId=300000000467203&mode=job-location&selectedLocationsFacet=100001217567073"},
     qualification: "Bachelor's degree",
-    pinOrder: 1072,
+    pinOrder: 1080,
   },
   {
     id: "ey-eyp-strategy-senior-manager-associate-director-ai-strategy-1451729533",
@@ -364132,7 +364468,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-EYP-Strategy-Senior-Manager-KL-682313/1451729533/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Bachelor's in Engineering, Computer Science, Mathematics, Economics, Data Science, Statistics, Business or related; MBA or relevant Master's preferred",
-    pinOrder: 1073,
+    pinOrder: 1081,
   },
   {
     id: "ey-senior-real-estate-hospitality-tourism-rht-valuation-1379281033",
@@ -364173,7 +364509,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-Senior-Real-Estate-Hospitality-And-Tourism-RHT-Valuation-KL-682313/1379281033/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Post graduate degree in Finance or Economics, or CA / ACCA / CFA, or MBA – Finance from a top-tier B-School",
-    pinOrder: 1074,
+    pinOrder: 1082,
   },
   {
     id: "ey-business-valuation-senior-contract-1428165833",
@@ -364214,7 +364550,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Kochi-Business-Valuation-Senior-Contract-KL-682313/1428165833/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "CA / ACCA / CFA or MBA – Finance (preferably from a premier institute)",
-    pinOrder: 1075,
+    pinOrder: 1083,
   },
   {
     id: "ey-eyp-dme-senior-assistant-associate-manager-decision-modellin-1424595233",
@@ -364255,7 +364591,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Trivandrum-EYP-DME-Senior-KL-695581/1424595233/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Bachelor's in Business, Finance, or Accounting (Masters preferred); CA / CFA / CPA preferred or MBA",
-    pinOrder: 1076,
+    pinOrder: 1084,
   },
   {
     id: "ey-eyp-s-and-e-oil-and-gas-manager-1422854833",
@@ -364296,7 +364632,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"eyJob": "https://careers.ey.com/ey/job/Trivandrum-EYP-S-and-E-Oil-and-Gas-Manager-KL-695581/1422854833/", "eySearch": "https://careers.ey.com/ey/search/?createNewAlert=false&q=&optionsFacetsDD_customfield1=Strategy+and+Transactions&optionsFacetsDD_country=IN&optionsFacetsDD_city=Kochi"},
     qualification: "Master's degree or MBA in Energy / Oil & Gas, Supply Chain, Logistics, Business Administration or related (MBA preferred); MBA in Petroleum & Energy studies",
-    pinOrder: 1077,
+    pinOrder: 1085,
   },
   {
     id: "conduent-kochi-supervisor-accounting-services-26158-oct2026",
@@ -364336,7 +364672,7 @@ var JOBS = [
     description: "Supervisor for an accounting services team at Conduent Kochi — daily direction, payment/expense report reviews, delivery to time and quality, and people management.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1078,
+    pinOrder: 1086,
   },
   {
     id: "conduent-kochi-hr-operations-and-delivery-associate-iv-26725-oct2026",
@@ -364376,7 +364712,7 @@ var JOBS = [
     description: "Technical sourcing role: end-to-end IT sourcing strategies with hiring managers and BU leaders, headhunting passive engineering, product and leadership talent. 4+ years of IT technical sourcing.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1079,
+    pinOrder: 1087,
   },
   {
     id: "wipro-kochi-senior-associate-retail-banking-ba-214184",
@@ -364417,7 +364753,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/Senior-Associate/214184-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214184",
-    pinOrder: 1080,
+    pinOrder: 1088,
   },
   {
     id: "wipro-kochi-project-lead-l1-contract-program-management-214220",
@@ -364458,7 +364794,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PROJECT-LEAD-L1%28CONTRACT%29/214220-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "214220",
-    pinOrder: 1081,
+    pinOrder: 1089,
   },
   {
     id: "cpv-lithos-technosoft-pvt-ltd-video-editor-ai-proficient-12209",
@@ -364500,7 +364836,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"cyberparkJob": "https://cyberparks.in/job/lithos-technosoft-pvt-ltd-traditional-editing-tools-adobe-premiere-pro-expert-level-adobe-after-effects-motion-graphics-vfx-adobe-photoshop-illustrator-basic-graphics-support-davinci/"},
-    pinOrder: 1082,
+    pinOrder: 1090,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-senior-salesforce-developer-33912",
@@ -364542,7 +364878,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33912?job=Senior%20Salesforce%20Developer"},
     walkinTime: "",
-    pinOrder: 1083,
+    pinOrder: 1091,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-senior-salesforce-administrator-33910",
@@ -364584,7 +364920,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33910?job=Senior%20Salesforce%20Administrator"},
     walkinTime: "",
-    pinOrder: 1084,
+    pinOrder: 1092,
   },
   {
     id: "tpv-bochdale-solutions-pvt-ltd-graphic-designer-cum-video-editor-exp-1-2-years-33909",
@@ -364626,7 +364962,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33909?job=Graphic%20Designer%20cum%20Video%20Editor%20%28Exp%201-2%20Years%29"},
     walkinTime: "",
-    pinOrder: 1085,
+    pinOrder: 1093,
   },
   {
     id: "tpv-azinova-technologies-p-ltd-network-programmer-engineer-33908",
@@ -364668,7 +365004,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33908?job=Network%20Programmer%20%26%20Engineer"},
     walkinTime: "",
-    pinOrder: 1086,
+    pinOrder: 1094,
   },
   {
     id: "tpv-way-dot-com-p-ltd-seo-content-writer-33907",
@@ -364710,7 +365046,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33907?job=SEO%20Content%20Writer"},
     walkinTime: "",
-    pinOrder: 1087,
+    pinOrder: 1095,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-leader-operations-event-parking-33906",
@@ -364752,7 +365088,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33906?job=Team%20Leader%20Operations%20-%20Event%20Parking"},
     walkinTime: "",
-    pinOrder: 1088,
+    pinOrder: 1096,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-33905",
@@ -364794,7 +365130,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33905?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 1089,
+    pinOrder: 1097,
   },
   {
     id: "tpv-way-dot-com-p-ltd-job-posting-sales-operations-lead-research-analyst-33904",
@@ -364836,7 +365172,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33904?job=Job%20Posting%20Sales%20Operations%20%26%20Lead%20Research%20Analyst"},
     walkinTime: "",
-    pinOrder: 1090,
+    pinOrder: 1098,
   },
   {
     id: "tpv-way-dot-com-p-ltd-ai-ml-associate-architect-33903",
@@ -364878,7 +365214,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33903?job=AI/ML%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 1091,
+    pinOrder: 1099,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-marketing-operations-manager-33902",
@@ -364920,7 +365256,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33902?job=Senior%20Marketing%20Operations%20Manager"},
     walkinTime: "",
-    pinOrder: 1092,
+    pinOrder: 1100,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-lead-email-marketing-33901",
@@ -364962,7 +365298,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33901?job=Team%20Lead%20-%20Email%20Marketing"},
     walkinTime: "",
-    pinOrder: 1093,
+    pinOrder: 1101,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-33900",
@@ -365004,7 +365340,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33900?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 1094,
+    pinOrder: 1102,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-33899",
@@ -365046,7 +365382,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33899?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 1095,
+    pinOrder: 1103,
   },
   {
     id: "tpv-way-dot-com-p-ltd-content-writer-b2b-33898",
@@ -365088,7 +365424,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33898?job=Content%20Writer%20-%20B2B"},
     walkinTime: "",
-    pinOrder: 1096,
+    pinOrder: 1104,
   },
   {
     id: "tpv-way-dot-com-p-ltd-qa-automation-engineer-33897",
@@ -365130,7 +365466,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33897?job=QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 1097,
+    pinOrder: 1105,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-analyst-33896",
@@ -365172,7 +365508,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33896?job=Accounts%20Payable%20Analyst"},
     walkinTime: "",
-    pinOrder: 1098,
+    pinOrder: 1106,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-33895",
@@ -365214,7 +365550,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33895?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 1099,
+    pinOrder: 1107,
   },
   {
     id: "tpv-way-dot-com-p-ltd-hr-administration-executive-33894",
@@ -365256,7 +365592,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33894?job=HR%20%26%20Administration%20Executive"},
     walkinTime: "",
-    pinOrder: 1100,
+    pinOrder: 1108,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-manager-33893",
@@ -365298,7 +365634,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33893?job=Accounts%20Payable%20Manager"},
     walkinTime: "",
-    pinOrder: 1101,
+    pinOrder: 1109,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-java-fullstack-developer-33892",
@@ -365340,7 +365676,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33892?job=Senior%20JAVA%20FullStack%20Developer"},
     walkinTime: "",
-    pinOrder: 1102,
+    pinOrder: 1110,
   },
   {
     id: "tpv-way-dot-com-p-ltd-digital-marketing-manager-33891",
@@ -365382,7 +365718,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33891?job=Digital%20Marketing%20Manager"},
     walkinTime: "",
-    pinOrder: 1103,
+    pinOrder: 1111,
   },
   {
     id: "tpv-simplogics-solutions-p-ltd-data-engineer-mid-level-33890",
@@ -365424,7 +365760,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33890?job=Data%20Engineer%20-%20Mid%20Level"},
     walkinTime: "",
-    pinOrder: 1104,
+    pinOrder: 1112,
   },
   {
     id: "tpv-way-dot-com-p-ltd-full-stack-production-support-engineer-33889",
@@ -365466,7 +365802,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33889?job=Full%20Stack%20Production%20Support%20Engineer"},
     walkinTime: "",
-    pinOrder: 1105,
+    pinOrder: 1113,
   },
   {
     id: "tpv-onbyz-telemarketing-executive-33888",
@@ -365508,7 +365844,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33888?job=Telemarketing%20Executive"},
     walkinTime: "",
-    pinOrder: 1106,
+    pinOrder: 1114,
   },
   {
     id: "tpv-onbyz-business-development-executive-33887",
@@ -365550,7 +365886,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33887?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1107,
+    pinOrder: 1115,
   },
   {
     id: "tpv-simplogics-solutions-p-ltd-power-bi-developer-mid-level-33886",
@@ -365592,7 +365928,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33886?job=Power%20BI%20Developer%20-%20Mid%20Level"},
     walkinTime: "",
-    pinOrder: 1108,
+    pinOrder: 1116,
   },
   {
     id: "tpv-foxdale-p-ltd-voice-process-trainee-33885",
@@ -365634,7 +365970,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33885?job=Voice%20Process%20Trainee"},
     walkinTime: "",
-    pinOrder: 1109,
+    pinOrder: 1117,
   },
   {
     id: "tpv-gnx-digital-solutions-p-ltd-business-analyst-2-yrs-exp-33884",
@@ -365676,7 +366012,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33884?job=Business%20Analyst%20%282%2BYrs%20Exp.%29"},
     walkinTime: "",
-    pinOrder: 1110,
+    pinOrder: 1118,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-junior-graphic-designer-33883",
@@ -365718,7 +366054,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33883?job=Junior%20Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 1111,
+    pinOrder: 1119,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-immediate-joiners-preffer-33882",
@@ -365760,7 +366096,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33882?job=Business%20Development%20Executive%20%28Immediate%20Joiners%20Preffered%29"},
     walkinTime: "10:30 – 14:00",
-    pinOrder: 1112,
+    pinOrder: 1120,
     walkInAddress: "TRAINONEX SOLUTIONS (P) Ltd\nGround Floor, Carnival Building, Technopark Campus, Karyavattom, Trivandrum, Kerala , 695581",
   },
   {
@@ -365803,7 +366139,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33881?job=Architectural%20Draftsman%20%28AutoCAD%29"},
     walkinTime: "",
-    pinOrder: 1113,
+    pinOrder: 1121,
   },
   {
     id: "tpv-inovace-digital-media-llp-business-development-executive-33880",
@@ -365845,7 +366181,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33880?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1114,
+    pinOrder: 1122,
   },
   {
     id: "tpv-shellsquare-softwares-p-ltd-business-development-executive-33879",
@@ -365887,7 +366223,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33879?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1115,
+    pinOrder: 1123,
   },
   {
     id: "tpv-scalevel-technologies-freelance-full-stack-ai-engineer-33878",
@@ -365929,7 +366265,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33878?job=Freelance%20Full-Stack%20AI%20Engineer"},
     walkinTime: "",
-    pinOrder: 1116,
+    pinOrder: 1124,
   },
   {
     id: "tpv-rologics-infolabs-private-limited-experienced-video-editor-davinci-resolve-specialist-33877",
@@ -365971,7 +366307,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33877?job=Experienced%20Video%20Editor%20%E2%80%93%20DaVinci%20Resolve%20Specialist"},
     walkinTime: "",
-    pinOrder: 1117,
+    pinOrder: 1125,
   },
   {
     id: "tpv-septa-milles-p-ltd-lifology-personal-secretary-33876",
@@ -366013,7 +366349,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33876?job=Personal%20Secretary"},
     walkinTime: "",
-    pinOrder: 1118,
+    pinOrder: 1126,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-trainee-revops-33875",
@@ -366055,7 +366391,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33875?job=INSIDE%20SALES%20TRAINEE%20%28RevOps%29"},
     walkinTime: "",
-    pinOrder: 1119,
+    pinOrder: 1127,
   },
   {
     id: "tpv-zoondia-software-p-ltd-jr-system-administrator-33874",
@@ -366097,7 +366433,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33874?job=Jr.System%20Administrator"},
     walkinTime: "",
-    pinOrder: 1120,
+    pinOrder: 1128,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-operations-trainee-33872",
@@ -366139,7 +366475,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33872?job=Operations%20Trainee"},
     walkinTime: "",
-    pinOrder: 1121,
+    pinOrder: 1129,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-digital-marketing-trainee-33871",
@@ -366181,7 +366517,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33871?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 1122,
+    pinOrder: 1130,
   },
   {
     id: "tpv-netwalk-technologies-india-p-ltd-technical-architect-33870",
@@ -366223,7 +366559,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33870?job=Technical%20Architect"},
     walkinTime: "",
-    pinOrder: 1123,
+    pinOrder: 1131,
   },
   {
     id: "tpv-srishti-innovative-educational-services-p-ltd-business-developement-executive-tele-33869",
@@ -366265,7 +366601,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33869?job=Business%20Developement%20Executive%20Tele"},
     walkinTime: "",
-    pinOrder: 1124,
+    pinOrder: 1132,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-flex-qa-tester-manual-3-6-years-remote-uk-shift-33868",
@@ -366307,7 +366643,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33868?job=Flex%20QA%20Tester%20%28Manual%29%20%7C%203%E2%80%936%20Years%20%7C%20Remote%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 1125,
+    pinOrder: 1133,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-flex-developer-net-4-7-years-remote-uk-shift-33867",
@@ -366349,7 +366685,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33867?job=Flex%20Developer%20%28.NET%29%20%7C%204%E2%80%937%20Years%20%7C%20Remote%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 1126,
+    pinOrder: 1134,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-squad-leader-net-remote-7-years-uk-shift-33866",
@@ -366391,7 +366727,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33866?job=Squad%20Leader%20%E2%80%93%20.NET%20%7C%20Remote%20%7C%207%2B%20Years%20%7C%20UK%20Shift"},
     walkinTime: "",
-    pinOrder: 1127,
+    pinOrder: 1135,
   },
   {
     id: "tpv-cloudq-it-services-p-ltd-zoho-sales-executive-saas-erp-product-sales-2-5-years-33865",
@@ -366433,7 +366769,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33865?job=Zoho%20Sales%20Executive%20%E2%80%93%20SaaS%20/%20ERP%20Product%20Sales%20%282-5%20Years%29"},
     walkinTime: "",
-    pinOrder: 1128,
+    pinOrder: 1136,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-business-development-engineer-33864",
@@ -366475,7 +366811,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33864?job=Business%20Development%20Engineer"},
     walkinTime: "",
-    pinOrder: 1129,
+    pinOrder: 1137,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-full-stack-developer-33863",
@@ -366517,7 +366853,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33863?job=Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 1130,
+    pinOrder: 1138,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-implementation-engineer-33862",
@@ -366559,7 +366895,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33862?job=Implementation%20Engineer"},
     walkinTime: "",
-    pinOrder: 1131,
+    pinOrder: 1139,
   },
   {
     id: "tpv-fakeeh-technologies-p-ltd-qa-clinical-his-emr-33861",
@@ -366601,7 +366937,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33861?job=QA%20Clinical%20%28HIS/EMR%29"},
     walkinTime: "",
-    pinOrder: 1132,
+    pinOrder: 1140,
   },
   {
     id: "tpv-ignosi-enterprises-marketing-r-d-coordinator-33860",
@@ -366643,7 +366979,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33860?job=Marketing%20%26%20R%26D%20Coordinator"},
     walkinTime: "",
-    pinOrder: 1133,
+    pinOrder: 1141,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-telecaller-telecounselor-33859",
@@ -366685,7 +367021,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33859?job=Telecaller%20/%20Telecounselor"},
     walkinTime: "",
-    pinOrder: 1134,
+    pinOrder: 1142,
   },
   {
     id: "tpv-exalans-hunar-corporate-solutions-p-ltd-senior-nurse-senior-cosmetology-technician-33858",
@@ -366727,7 +367063,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33858?job=Senior%20Nurse%20/%20Senior%20Cosmetology%20Technician"},
     walkinTime: "",
-    pinOrder: 1135,
+    pinOrder: 1143,
   },
   {
     id: "tpv-crayo-tech-business-solutions-p-ltd-digital-marketing-specialist-seo-preferred-immediate-joi-33857",
@@ -366769,7 +367105,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33857?job=Digital%20Marketing%20Specialist%20%28SEO%29%20Preferred%20immediate%20joiners"},
     walkinTime: "",
-    pinOrder: 1136,
+    pinOrder: 1144,
   },
   {
     id: "tpv-hodo-medical-informatic-solutions-p-ltd-sales-manager-ai-healthcare-technology-company-33856",
@@ -366811,7 +367147,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33856?job=Sales%20Manager%20%E2%80%93%20AI%20%26%20Healthcare%20Technology%20Company"},
     walkinTime: "",
-    pinOrder: 1137,
+    pinOrder: 1145,
   },
   {
     id: "tpv-ignosi-enterprises-technology-sales-marketing-trainer-kanyakumari-33855",
@@ -366853,7 +367189,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33855?job=Technology%20Sales%20%26%20Marketing%20Trainer%20%E2%80%93%20kanyakumari"},
     walkinTime: "",
-    pinOrder: 1138,
+    pinOrder: 1146,
   },
   {
     id: "tpv-ignosi-enterprises-customer-care-corporate-relationship-manager-tamilnadu-33854",
@@ -366895,7 +367231,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33854?job=Customer%20Care%20%26%20Corporate%20Relationship%20Manager%20-%20TAMILNADU"},
     walkinTime: "",
-    pinOrder: 1139,
+    pinOrder: 1147,
   },
   {
     id: "tpv-ignosi-enterprises-technology-sales-marketing-trainer-thrissur-ernakulam-33853",
@@ -366937,7 +367273,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33853?job=Technology%20Sales%20%26%20Marketing%20Trainer%20%E2%80%93%20Thrissur%20%2C%20Ernakulam"},
     walkinTime: "",
-    pinOrder: 1140,
+    pinOrder: 1148,
   },
   {
     id: "tpv-ignosi-enterprises-fintech-sales-corporate-manager-thrissur-ernakulam-33852",
@@ -366979,7 +367315,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33852?job=FinTech%20Sales%20%26%20Corporate%20Manager%20-%20THRISSUR%20%26%20ERNAKULAM"},
     walkinTime: "",
-    pinOrder: 1141,
+    pinOrder: 1149,
   },
   {
     id: "tpv-picky-assist-p-ltd-business-development-executive-33851",
@@ -367021,7 +367357,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33851?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1142,
+    pinOrder: 1150,
   },
   {
     id: "tpv-ospyn-technologies-ltd-junior-executive-finance-33850",
@@ -367063,7 +367399,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33850?job=Junior%20Executive%20-%20Finance"},
     walkinTime: "",
-    pinOrder: 1143,
+    pinOrder: 1151,
   },
   {
     id: "tpv-scalevel-technologies-full-stack-ai-engineer-33849",
@@ -367105,7 +367441,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33849?job=Full%20Stack%20AI%20Engineer"},
     walkinTime: "",
-    pinOrder: 1144,
+    pinOrder: 1152,
   },
   {
     id: "tpv-qwy-software-p-ltd-freshers-full-stack-developer-33848",
@@ -367147,7 +367483,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33848?job=Freshers-%20Full%20Stack%20Developer"},
     walkinTime: "",
-    pinOrder: 1145,
+    pinOrder: 1153,
   },
   {
     id: "tpv-ateam-infosoft-solutions-private-limited-senior-node-js-developer-33847",
@@ -367189,7 +367525,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33847?job=Senior%20Node.js%20Developer"},
     walkinTime: "",
-    pinOrder: 1146,
+    pinOrder: 1154,
   },
   {
     id: "tpv-qwy-software-p-ltd-freshers-ai-ml-33846",
@@ -367231,7 +367567,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33846?job=Freshers%20-%20AI/ML"},
     walkinTime: "",
-    pinOrder: 1147,
+    pinOrder: 1155,
   },
   {
     id: "tpv-polus-solutions-p-ltd-business-development-executive-33845",
@@ -367273,7 +367609,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33845?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1148,
+    pinOrder: 1156,
   },
   {
     id: "tpv-polus-solutions-p-ltd-data-abuse-detection-engineer-33844",
@@ -367315,7 +367651,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33844?job=Data%20Abuse%20%26%20Detection%20Engineer"},
     walkinTime: "",
-    pinOrder: 1149,
+    pinOrder: 1157,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-lead-generation-executive-marketing-33843",
@@ -367357,7 +367693,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33843?job=Lead%20Generation%20Executive%20%28Marketing%29"},
     walkinTime: "",
-    pinOrder: 1150,
+    pinOrder: 1158,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-business-analyst-33842",
@@ -367399,7 +367735,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33842?job=Business%20Analyst"},
     walkinTime: "",
-    pinOrder: 1151,
+    pinOrder: 1159,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-hr-generalist-33841",
@@ -367441,7 +367777,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33841?job=HR%20Generalist"},
     walkinTime: "",
-    pinOrder: 1152,
+    pinOrder: 1160,
   },
   {
     id: "tpv-kenland-it-solutions-p-ltd-senior-magento-developer-33840",
@@ -367483,7 +367819,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33840?job=Senior%20Magento%20developer"},
     walkinTime: "",
-    pinOrder: 1153,
+    pinOrder: 1161,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-em-ip-and-op-medical-coders-33839",
@@ -367525,7 +367861,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33839?job=EM%20IP%20AND%20OP%20MEDICAL%20CODERS"},
     walkinTime: "",
-    pinOrder: 1154,
+    pinOrder: 1162,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-surgery-auditors-33838",
@@ -367567,7 +367903,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33838?job=SURGERY%20AUDITORS"},
     walkinTime: "",
-    pinOrder: 1155,
+    pinOrder: 1163,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-team-lead-denial-manangement-medical-coding-33837",
@@ -367609,7 +367945,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33837?job=TEAM%20LEAD%20%E2%80%93%20DENIAL%20MANANGEMENT%20%28MEDICAL%20CODING%29"},
     walkinTime: "",
-    pinOrder: 1156,
+    pinOrder: 1164,
   },
   {
     id: "tpv-hiworth-solutions-p-ltd-graphic-designer-digital-content-creator-33836",
@@ -367651,7 +367987,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33836?job=Graphic%20Designer%20%26%20Digital%20Content%20Creator"},
     walkinTime: "",
-    pinOrder: 1157,
+    pinOrder: 1165,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-denial-management-medical-coders-denials-multispecialty-33835",
@@ -367693,7 +368029,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33835?job=Denial%20Management%20Medical%20Coders%20%E2%80%93%20Denials%20Multispecialty%20%284%2B%20Years%20Experience%29"},
     walkinTime: "",
-    pinOrder: 1158,
+    pinOrder: 1166,
   },
   {
     id: "tpv-life-and-opportunity-solutions-llp-surgery-specialty-medical-coding-team-leader-with-em-kno-33834",
@@ -367735,7 +368071,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33834?job=Surgery%20Specialty%20Medical%20Coding%20Team%20Leader%20with%20EM%20Knowledge%20%287%2B%20Years%20Experience%29"},
     walkinTime: "",
-    pinOrder: 1159,
+    pinOrder: 1167,
   },
   {
     id: "tpv-orisysindia-consultancy-services-p-ltd-ai-ml-chatbot-ai-voice-bot-intern-33833",
@@ -367777,7 +368113,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33833?job=AI/ML%20Chatbot%20%26%20AI%20Voice%20Bot%20Intern"},
     walkinTime: "",
-    pinOrder: 1160,
+    pinOrder: 1168,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-business-development-executive-immediate-joiners-preffer-33832",
@@ -367819,7 +368155,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33832?job=Business%20Development%20Executive%20%28Immediate%20Joiners%20Preffered%29"},
     walkinTime: "11:00 – 13:30",
-    pinOrder: 1161,
+    pinOrder: 1169,
     walkInAddress: "TRAINONEX SOLUTIONS (P) Ltd\nGround Floor, Carnival Building, Technopark Campus, Karyavattom, Trivandrum, Kerala , 695581",
   },
   {
@@ -367862,7 +368198,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33831?job=Video%20Editor"},
     walkinTime: "",
-    pinOrder: 1162,
+    pinOrder: 1170,
   },
   {
     id: "ipv-nuvento-systems-private-limited-web-developer-technical-seo-search-visibility-specialist-26473",
@@ -367904,7 +368240,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26473"},
-    pinOrder: 1163,
+    pinOrder: 1171,
   },
   {
     id: "ipv-nuvento-systems-private-limited-marketing-specialist-26472",
@@ -367946,7 +368282,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26472"},
-    pinOrder: 1164,
+    pinOrder: 1172,
   },
   {
     id: "ipv-nuvento-systems-private-limited-business-development-26471",
@@ -367988,7 +368324,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26471"},
-    pinOrder: 1165,
+    pinOrder: 1173,
   },
   {
     id: "ipv-icodebees-private-limited-data-engineer-26470",
@@ -368030,7 +368366,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26470"},
-    pinOrder: 1166,
+    pinOrder: 1174,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-full-stack-developer-26469",
@@ -368072,7 +368408,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26469"},
-    pinOrder: 1167,
+    pinOrder: 1175,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-qa-engineer-26468",
@@ -368114,7 +368450,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26468"},
-    pinOrder: 1168,
+    pinOrder: 1176,
   },
   {
     id: "ipv-newagesys-solutions-p-ltd-content-editor-copy-editing-visual-review-26467",
@@ -368156,7 +368492,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/109/26467"},
-    pinOrder: 1169,
+    pinOrder: 1177,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-ai-analytics-engineer-26466",
@@ -368198,7 +368534,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26466"},
-    pinOrder: 1170,
+    pinOrder: 1178,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-technical-project-manager-python-java-net-26465",
@@ -368240,7 +368576,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26465"},
-    pinOrder: 1171,
+    pinOrder: 1179,
   },
   {
     id: "ipv-innovature-software-labs-p-ltd-data-analytics-lead-26464",
@@ -368282,7 +368618,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/190/26464"},
-    pinOrder: 1172,
+    pinOrder: 1180,
   },
   {
     id: "ipv-zealogics-it-solutions-pvt-ltd-platform-system-specialist-github-admin-immediate-joiner-26463",
@@ -368324,7 +368660,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/565/26463"},
-    pinOrder: 1173,
+    pinOrder: 1181,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26462",
@@ -368366,7 +368702,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26462"},
-    pinOrder: 1174,
+    pinOrder: 1182,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26461",
@@ -368408,7 +368744,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26461"},
-    pinOrder: 1175,
+    pinOrder: 1183,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26460",
@@ -368450,7 +368786,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26460"},
-    pinOrder: 1176,
+    pinOrder: 1184,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26459",
@@ -368492,7 +368828,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26459"},
-    pinOrder: 1177,
+    pinOrder: 1185,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26458",
@@ -368534,7 +368870,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26458"},
-    pinOrder: 1178,
+    pinOrder: 1186,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26457",
@@ -368576,7 +368912,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26457"},
-    pinOrder: 1179,
+    pinOrder: 1187,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26456",
@@ -368618,7 +368954,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26456"},
-    pinOrder: 1180,
+    pinOrder: 1188,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26455",
@@ -368660,7 +368996,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26455"},
-    pinOrder: 1181,
+    pinOrder: 1189,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26454",
@@ -368702,7 +369038,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26454"},
-    pinOrder: 1182,
+    pinOrder: 1190,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26453",
@@ -368744,7 +369080,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26453"},
-    pinOrder: 1183,
+    pinOrder: 1191,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26452",
@@ -368786,7 +369122,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26452"},
-    pinOrder: 1184,
+    pinOrder: 1192,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26451",
@@ -368828,7 +369164,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26451"},
-    pinOrder: 1185,
+    pinOrder: 1193,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26450",
@@ -368870,7 +369206,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26450"},
-    pinOrder: 1186,
+    pinOrder: 1194,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26449",
@@ -368912,7 +369248,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26449"},
-    pinOrder: 1187,
+    pinOrder: 1195,
   },
   {
     id: "ipv-zealogics-it-solutions-pvt-ltd-software-engineer-ai-26447",
@@ -368954,7 +369290,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/565/26447"},
-    pinOrder: 1188,
+    pinOrder: 1196,
   },
   {
     id: "ipv-worksent-technologies-pvt-ltd-system-engineer-l2-bengaluru-26445",
@@ -368996,7 +369332,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/164/26445"},
-    pinOrder: 1189,
+    pinOrder: 1197,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-it-purchase-coordinator-26443",
@@ -369038,7 +369374,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26443"},
-    pinOrder: 1190,
+    pinOrder: 1198,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-associate-customer-support-26438",
@@ -369080,7 +369416,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26438"},
-    pinOrder: 1191,
+    pinOrder: 1199,
   },
   {
     id: "ipv-2hats-logic-solutions-pvt-ltd-content-writer-26437",
@@ -369122,7 +369458,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/182/26437"},
-    pinOrder: 1192,
+    pinOrder: 1200,
   },
   {
     id: "ipv-fingent-global-solutions-backend-data-infrastructure-engineer-26436",
@@ -369164,7 +369500,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26436"},
-    pinOrder: 1193,
+    pinOrder: 1201,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-ml-engineer-6-years-experience-26435",
@@ -369206,7 +369542,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26435"},
-    pinOrder: 1194,
+    pinOrder: 1202,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-devops-engineer-6-years-experience-26434",
@@ -369248,7 +369584,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26434"},
-    pinOrder: 1195,
+    pinOrder: 1203,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-operations-internship-26433",
@@ -369290,7 +369626,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26433"},
-    pinOrder: 1196,
+    pinOrder: 1204,
   },
   {
     id: "ipv-rextech-studios-unity-game-development-trainer-26432",
@@ -369332,7 +369668,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/522/26432"},
-    pinOrder: 1197,
+    pinOrder: 1205,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-content-writer-fresher-26431",
@@ -369374,7 +369710,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26431"},
-    pinOrder: 1198,
+    pinOrder: 1206,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-videographer-cum-video-editor-26430",
@@ -369416,7 +369752,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26430"},
-    pinOrder: 1199,
+    pinOrder: 1207,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-content-strategist-coordinator-26429",
@@ -369458,7 +369794,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26429"},
-    pinOrder: 1200,
+    pinOrder: 1208,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-social-media-executive-26428",
@@ -369500,7 +369836,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26428"},
-    pinOrder: 1201,
+    pinOrder: 1209,
   },
   {
     id: "ipv-icodebees-private-limited-mongodb-administrator-26421",
@@ -369542,7 +369878,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26421"},
-    pinOrder: 1202,
+    pinOrder: 1210,
   },
   {
     id: "ipv-contactpoint-360-mid-level-android-developer-2-4-years-experience-only-26413",
@@ -369584,7 +369920,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/306/26413"},
-    pinOrder: 1203,
+    pinOrder: 1211,
   },
   {
     id: "wipro-kochi-recruiter-l2-200842",
@@ -369625,7 +369961,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/RECRUITER-L2/200842-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "200842",
-    pinOrder: 1204,
+    pinOrder: 1212,
   },
   {
     id: "wipro-kochi-technical-lead-l1-contract-e-mobility-201445",
@@ -369666,7 +370002,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNICAL-LEAD-L1%28CONTRACT%29/201445-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "201445",
-    pinOrder: 1205,
+    pinOrder: 1213,
   },
   {
     id: "wipro-kochi-technical-lead-l1-jbpm-201752",
@@ -369707,7 +370043,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNICAL-LEAD-L1/201752-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "201752",
-    pinOrder: 1206,
+    pinOrder: 1214,
   },
   {
     id: "wipro-kochi-sailpoint-identity-security-cloud-isc-engineer-202470",
@@ -369748,7 +370084,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SailPoint-Identity-Security-Cloud-%28ISC%29-Engineer-6-to-12-years-Kochi/202470-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "202470",
-    pinOrder: 1207,
+    pinOrder: 1215,
   },
   {
     id: "wipro-kochi-project-manager-l1-program-management-203878",
@@ -369789,7 +370125,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/PROJECT-MANAGER-L1/203878-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "203878",
-    pinOrder: 1208,
+    pinOrder: 1216,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-payments-204577",
@@ -369830,7 +370166,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/204577-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "204577",
-    pinOrder: 1209,
+    pinOrder: 1217,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-sirion-clm-205122",
@@ -369871,7 +370207,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/205122-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "205122",
-    pinOrder: 1210,
+    pinOrder: 1218,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-cisco-routing-and-swi-207406",
@@ -369912,7 +370248,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207406-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207406",
-    pinOrder: 1211,
+    pinOrder: 1219,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-cisco-wireless-admin-207771",
@@ -369953,7 +370289,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207771-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207771",
-    pinOrder: 1212,
+    pinOrder: 1220,
   },
   {
     id: "wipro-kochi-sd-wan-cisco-wireless-network-engineer-sd-wan-admin-207772",
@@ -369994,7 +370330,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/SD-WAN-%28Cisco-Viptela%2C-Versa%2C-Silver-Peak%2C-or-equivalent%29-%2C-Cisco-Wireless/207772-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207772",
-    pinOrder: 1213,
+    pinOrder: 1221,
   },
   {
     id: "wipro-kochi-cloud-oracle-infrastructure-admin-208399",
@@ -370035,7 +370371,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/Cloud-Oracle-Infrastructure-Admin/208399-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "208399",
-    pinOrder: 1214,
+    pinOrder: 1222,
   },
   {
     id: "wipro-kochi-administrator-l3-hp-storage-210013",
@@ -370076,7 +370412,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/210013-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210013",
-    pinOrder: 1215,
+    pinOrder: 1223,
   },
   {
     id: "wipro-kochi-vlsi-lead-l1-vlsi-physical-place-and-route-210553",
@@ -370117,7 +370453,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/VLSI-LEAD-L1/210553-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210553",
-    pinOrder: 1216,
+    pinOrder: 1224,
   },
   {
     id: "wipro-kochi-developer-l4-salesforce-lightning-components-210861",
@@ -370158,7 +370494,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/210861-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210861",
-    pinOrder: 1217,
+    pinOrder: 1225,
   },
   {
     id: "wipro-kochi-developer-l4-servicenow-saas-211551",
@@ -370199,7 +370535,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/211551-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211551",
-    pinOrder: 1218,
+    pinOrder: 1226,
   },
   {
     id: "wipro-kochi-cyber-security-analyst-l3-211998",
@@ -370240,7 +370576,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/CYBER-SECURITY-ANALYST-L3/211998-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211998",
-    pinOrder: 1219,
+    pinOrder: 1227,
   },
   {
     id: "wipro-kochi-recruiter-l2-213515",
@@ -370281,7 +370617,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/RECRUITER-L2/213515-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "213515",
-    pinOrder: 1220,
+    pinOrder: 1228,
   },
   {
     id: "wipro-kochi-administrator-l3-servicenow-cmdb-administration-203590",
@@ -370322,7 +370658,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/203590-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "203590",
-    pinOrder: 1221,
+    pinOrder: 1229,
   },
   {
     id: "wipro-kochi-developer-l4-node-js-205557",
@@ -370363,7 +370699,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L4/205557-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "205557",
-    pinOrder: 1222,
+    pinOrder: 1230,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l2-payments-207070",
@@ -370404,7 +370740,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L2/207070-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "207070",
-    pinOrder: 1223,
+    pinOrder: 1231,
   },
   {
     id: "wipro-kochi-techno-functional-consultant-l1-sailpoint-identity-security-208675",
@@ -370445,7 +370781,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/TECHNO-FUNCTIONAL-CONSULTANT-L1/208675-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "208675",
-    pinOrder: 1224,
+    pinOrder: 1232,
   },
   {
     id: "wipro-kochi-domain-consultant-l4-promax-advanced-210142",
@@ -370486,7 +370822,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DOMAIN-CONSULTANT-L4/210142-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210142",
-    pinOrder: 1225,
+    pinOrder: 1233,
   },
   {
     id: "wipro-kochi-vlsi-engineer-l3-vlsi-physical-place-and-route-210557",
@@ -370527,7 +370863,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/VLSI-ENGINEER-L3/210557-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210557",
-    pinOrder: 1226,
+    pinOrder: 1234,
   },
   {
     id: "wipro-kochi-configurator-l3-sirion-clm-211100",
@@ -370568,7 +370904,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/CONFIGURATOR-L3/211100-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211100",
-    pinOrder: 1227,
+    pinOrder: 1235,
   },
   {
     id: "wipro-kochi-developer-l3-salesforce-lightning-components-210862",
@@ -370609,7 +370945,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/DEVELOPER-L3/210862-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "210862",
-    pinOrder: 1228,
+    pinOrder: 1236,
   },
   {
     id: "wipro-kochi-administrator-l3-servicenow-saas-211547",
@@ -370650,7 +370986,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"wiproJob": "https://careers.wipro.com/job/ADMINISTRATOR-L3/211547-en_US/", "wiproKochiSearch": "https://careers.wipro.com/search/?q=&locationsearch=kochi&searchResultView=LIST"},
     referenceId: "211547",
-    pinOrder: 1229,
+    pinOrder: 1237,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26411",
@@ -370692,7 +371028,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26411"},
-    pinOrder: 1230,
+    pinOrder: 1238,
   },
   {
     id: "ipv-thinkpalm-technologies-pvt-ltd-technical-project-manager-agentic-ai-26410",
@@ -370734,7 +371070,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/49/26410"},
-    pinOrder: 1231,
+    pinOrder: 1239,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-i-26737-oct2026",
@@ -370774,7 +371110,7 @@ var JOBS = [
     description: "Entry-level transaction processing role at Conduent Kochi (temporary). 0–1 year experience, rotational shift.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1232,
+    pinOrder: 1240,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-ii-26726-oct2026",
@@ -370814,7 +371150,7 @@ var JOBS = [
     description: "Transaction Processing Associate II at Conduent Kochi (full-time regular). Posting lists 0–1 year experience and rotational shift.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1233,
+    pinOrder: 1241,
   },
   {
     id: "conduent-kochi-transaction-processing-associate-i-26702-oct2026",
@@ -370854,7 +371190,7 @@ var JOBS = [
     description: "Entry-level, full-time regular document and data processing role at Conduent Kochi.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1234,
+    pinOrder: 1242,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26592-oct2026",
@@ -370894,7 +371230,7 @@ var JOBS = [
     description: "Accounts Associate supporting accounting and finance operations in a BPO environment at Conduent Kochi. B.Com / Accounting / Finance graduates with 0–1 year experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Accounting or Finance",
-    pinOrder: 1235,
+    pinOrder: 1243,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26685-oct2026",
@@ -370934,7 +371270,7 @@ var JOBS = [
     description: "Accounts Payable associate (vendor master, invoice processing, supplier payments) at Conduent Kochi. Freshers or up to 1 year experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Accounting, or Finance",
-    pinOrder: 1236,
+    pinOrder: 1244,
   },
   {
     id: "conduent-kochi-accounting-services-associate-i-26814-oct2026",
@@ -370974,7 +371310,7 @@ var JOBS = [
     description: "First-level accounting review and invoice verification at Conduent Kochi, working under defined standard operating procedures.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1237,
+    pinOrder: 1245,
   },
   {
     id: "conduent-kochi-accounting-services-associate-ii-26688-oct2026",
@@ -371014,7 +371350,7 @@ var JOBS = [
     description: "Order-to-Cash (OTC) associate at Conduent Kochi. 2–3 years of hands-on OTC experience; SAP mandatory.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1238,
+    pinOrder: 1246,
   },
   {
     id: "conduent-kochi-accounting-services-associate-ii-26684-oct2026",
@@ -371054,7 +371390,7 @@ var JOBS = [
     description: "Accounting Services Associate II at Conduent Kochi covering accounts payable/receivable, reconciliations, financial records, and reporting, with moderate supervision.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1239,
+    pinOrder: 1247,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iii-26557-oct2026",
@@ -371094,7 +371430,7 @@ var JOBS = [
     description: "Record-to-Report associate at Conduent Kochi: journal entries, ledger and intercompany reconciliations, and quality feedback to reviewers.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1240,
+    pinOrder: 1248,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iii-26555-oct2026",
@@ -371134,7 +371470,7 @@ var JOBS = [
     description: "Accounts Payable Analyst with strong SAP expertise for Conduent's Finance Operations team in Kochi. 3–6 years AP experience; night shift.",
     startingDate: "",
     qualification: "Bachelor's degree in Commerce, Finance, Accounting, or a related discipline",
-    pinOrder: 1241,
+    pinOrder: 1249,
   },
   {
     id: "conduent-kochi-accounting-services-associate-iv-25724-oct2026",
@@ -371174,7 +371510,7 @@ var JOBS = [
     description: "Accounting Services Associate IV at Conduent Kochi — acts as team lead (not a supervisor), reviewing journal entries and guiding the quality verifiers team.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1242,
+    pinOrder: 1250,
   },
   {
     id: "conduent-kochi-quality-assurance-associate-ii-25826-oct2026",
@@ -371214,7 +371550,7 @@ var JOBS = [
     description: "Quality Assurance Associate II at Conduent Kochi: reviews work for errors, audits SLA performance, and coaches Level 1 auditors.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1243,
+    pinOrder: 1251,
   },
   {
     id: "conduent-kochi-supervisor-transaction-processing-24793-oct2026",
@@ -371254,7 +371590,7 @@ var JOBS = [
     description: "Supervisor for a transaction processing team at Conduent Kochi — daily team supervision, TAT and quality, staffing, and performance reviews.",
     startingDate: "",
     qualification: "",
-    pinOrder: 1244,
+    pinOrder: 1252,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-tax-accounting-reporting-26292-oct2026",
@@ -371294,7 +371630,7 @@ var JOBS = [
     description: "Senior Tax Analyst for income tax provision, SOX compliance, and federal/international tax filings (GILTI, Subpart F). Minimum 4 years in corporate tax.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting or equivalent",
-    pinOrder: 1245,
+    pinOrder: 1253,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-sales-and-use-tax-compliance-and-reportin-26293-oct2026",
@@ -371334,7 +371670,7 @@ var JOBS = [
     description: "Senior Tax Analyst for US state sales and use tax returns, audits, registrations, and exemption certificates. Minimum 4 years in indirect tax.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting, Finance, Commerce, or equivalent",
-    pinOrder: 1246,
+    pinOrder: 1254,
   },
   {
     id: "conduent-kochi-senior-tax-analyst-property-tax-and-sales-use-tax-26294-oct2026",
@@ -371374,7 +371710,7 @@ var JOBS = [
     description: "Senior Tax Analyst for personal property tax, business licenses, and sales and use tax (Ariba exceptions, Vertex certificates). Minimum 4 years experience.",
     startingDate: "",
     qualification: "Bachelor's degree in Accounting, Finance, Commerce, or equivalent",
-    pinOrder: 1247,
+    pinOrder: 1255,
   },
   {
     id: "conduent-kochi-director-international-tax-accounting-reporting-26295-oct2026",
@@ -371414,7 +371750,7 @@ var JOBS = [
     description: "Director for international tax accounting: ASC 740 provisions, foreign entity returns, transfer pricing, and OECD/BEPS Pillar Two. CA/CPA/ACCA with 8+ years.",
     startingDate: "",
     qualification: "Bachelor's in Accounting, Finance, Commerce or equivalent; CA, CPA, ACCA or relevant certification",
-    pinOrder: 1248,
+    pinOrder: 1256,
   },
   {
     id: "conduent-kochi-business-solution-architect-25800-oct2026",
@@ -371454,7 +371790,7 @@ var JOBS = [
     description: "Business Solution Architect working across Conduent's commercial business to design and implement data-driven client solutions. Posting lists remote work.",
     startingDate: "",
     qualification: "Bachelor's in Business, Finance, Computer Science, Engineering, or related field, or equivalent experience",
-    pinOrder: 1249,
+    pinOrder: 1257,
   },
   {
     id: "aabasoft-bdm-cloud-solutions-kochi-calicut-oct27",
@@ -371691,7 +372027,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/164/26409"},
-    pinOrder: 1250,
+    pinOrder: 1258,
   },
   {
     id: "ipv-dooth-internet-service-pvt-ltd-program-manager-26408",
@@ -371733,7 +372069,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/438/26408"},
-    pinOrder: 1251,
+    pinOrder: 1259,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-business-development-manager-b2b-digital-26407",
@@ -371775,7 +372111,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26407"},
-    pinOrder: 1252,
+    pinOrder: 1260,
   },
   {
     id: "ipv-fingent-global-solutions-product-coordinator-analyst-26406",
@@ -371817,7 +372153,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/83/26406"},
-    pinOrder: 1253,
+    pinOrder: 1261,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-it-remote-support-26405",
@@ -371859,7 +372195,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26405"},
-    pinOrder: 1254,
+    pinOrder: 1262,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-performance-marketing-executive-26404",
@@ -371901,7 +372237,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26404"},
-    pinOrder: 1255,
+    pinOrder: 1263,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-graphic-designer-26403",
@@ -371943,7 +372279,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26403"},
-    pinOrder: 1256,
+    pinOrder: 1264,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-content-writer-26402",
@@ -371985,7 +372321,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26402"},
-    pinOrder: 1257,
+    pinOrder: 1265,
   },
   {
     id: "ipv-vtrio-solutions-private-limited-scientific-data-analyst-26401",
@@ -372027,7 +372363,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/119/26401"},
-    pinOrder: 1258,
+    pinOrder: 1266,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-videographer-cum-editor-immediate-joiners-33830",
@@ -372069,7 +372405,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33830?job=Videographer%20cum%20Editor%20%28%20immediate%20joiners%29"},
     walkinTime: "",
-    pinOrder: 1259,
+    pinOrder: 1267,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-tele-sales-executive-33829",
@@ -372111,7 +372447,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33829?job=Tele%20Sales%20Executive"},
     walkinTime: "",
-    pinOrder: 1260,
+    pinOrder: 1268,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-hr-intern-people-business-operations-33828",
@@ -372153,7 +372489,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33828?job=HR%20Intern%20%E2%80%93%20People%20%26%20Business%20Operations"},
     walkinTime: "",
-    pinOrder: 1261,
+    pinOrder: 1269,
   },
   {
     id: "tpv-lean-transitions-solutions-sales-and-marketing-coordinator-crm-and-sales-operations-33827",
@@ -372195,7 +372531,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33827?job=Sales%20and%20Marketing%20Coordinator%20-%20CRM%20and%20Sales%20Operations"},
     walkinTime: "",
-    pinOrder: 1262,
+    pinOrder: 1270,
   },
   {
     id: "tpv-icore-pioneer-business-solution-p-ltd-business-development-intern-33826",
@@ -372237,7 +372573,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33826?job=Business%20Development%20Intern"},
     walkinTime: "",
-    pinOrder: 1263,
+    pinOrder: 1271,
   },
   {
     id: "digitrell-video-editor-kochi-oct27",
@@ -374043,7 +374379,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1214350/CX-Strategy-and-Business-Ops-OPEX"},
     qualification: "",
-    pinOrder: 1264,
+    pinOrder: 1272,
   },
   {
     id: "hpe-regulatory-reporting-governance-specialist-1215990-oct2026",
@@ -374084,7 +374420,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1215990/Regulatory-Reporting-Governance-Specialist"},
     qualification: "",
-    pinOrder: 1265,
+    pinOrder: 1273,
   },
   {
     id: "hpe-cx-strategy-and-business-ops-opex-1214351-oct2026",
@@ -374125,7 +374461,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1214351/CX-Strategy-and-Business-Ops-OPEX"},
     qualification: "",
-    pinOrder: 1266,
+    pinOrder: 1274,
   },
   {
     id: "hpe-contract-negotiator-1217592-oct2026",
@@ -374166,7 +374502,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/legal-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1217592/Contract-Negotiator"},
     qualification: "",
-    pinOrder: 1267,
+    pinOrder: 1275,
   },
   {
     id: "hpe-college-intern-1211843-oct2026",
@@ -385206,7 +385542,7 @@ var JOBS = [
     description: "We are looking for a Supplier Onboarding Functional Analyst to drive seamless B2B integration and supplier onboarding within HPE's global supply chain network. You will execute onboarding activities, configure integration solutions, and support data validation using SAP S/4HANA and AI-driven tools. Ideal for candidates with strong supply chain and SAP expertise.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212284/Supply-Chain-Supplier-Onboarding-Functional-Analyst"},
-    pinOrder: 1268,
+    pinOrder: 1276,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385247,7 +385583,7 @@ var JOBS = [
     description: "We are looking for a Functional Analyst to drive order scheduling and backlog management within our supply chain. You will design and implement SAP S/4HANA AATP solutions, optimise order fulfilment processes, and collaborate with cross-functional teams. Ideal candidates have strong SAP S/4HANA expertise and experience in high-tech manufacturing environments.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212295/Supply-Chain-Order-Scheduling-Backlog-Management-Functional-Analyst"},
-    pinOrder: 1269,
+    pinOrder: 1277,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385288,7 +385624,7 @@ var JOBS = [
     description: "We are seeking a Supply Chain: Logistics Partner Onboarding Functional Analyst to drive partner onboarding and RMA process implementation across HPE’s spares supply chain. Lead integration of B2B logistics platforms and collaborate with business leaders. Ideal for experienced professionals with deep supply chain and logistics expertise.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212296/Supply-Chain-Logistics-Partner-Onboarding-Functional-Analyst"},
-    pinOrder: 1270,
+    pinOrder: 1278,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385329,7 +385665,7 @@ var JOBS = [
     description: "We are expanding our team: As a Supplier Onboarding Expert, you will design and implement supply chain planning solutions, focusing on Oracle Fusion Supply Chain Planning. You will lead functional analysis and technical solution development. Ideal candidates have significant experience in supply chain planning and Oracle Fusion applications.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212299/Supply-Chain-Supplier-Onboarding-Expert-Procurement-and-Planning-Collab"},
-    pinOrder: 1271,
+    pinOrder: 1279,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385370,7 +385706,7 @@ var JOBS = [
     description: "Join our team as a SAP CI/FI-CA Solution Architect, leading the design and integration of SAP Convergent Invoicing and Contract Accounts Receivable and Payable across HPE and Juniper platforms. Drive end-to-end solution architecture and collaborate with business leaders to deliver seamless billing and revenue management. Ideal for experienced SAP professionals with a strong background in large-scale transformation programmes.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212305/SAP-CI-FI-CA-Solution-Architect"},
-    pinOrder: 1272,
+    pinOrder: 1280,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385411,7 +385747,7 @@ var JOBS = [
     description: "We are recruiting a skilled IT Business Analyst EDI/Integration to lead the design and implementation of EDI and system integrations for Order-to-Cash processes. The role involves collaborating with business leaders and IT architects, requiring deep expertise in SAP S/4HANA Order Management and EDI. Ideal for experienced professionals with strong stakeholder management skills.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212356/IT-Business-Analyst-EDI-Integration"},
-    pinOrder: 1273,
+    pinOrder: 1281,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385452,7 +385788,7 @@ var JOBS = [
     description: "We are looking for a Services & Software Subscription Solution Architect to lead the end-to-end architecture of subscription and software solutions across HPE and Juniper platforms. Drive integration, design platform-level solutions, and collaborate with business leaders. Ideal for experienced professionals with deep expertise in enterprise solution architecture and subscription commercial models.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212306/Services-Software-Subscription-Solution-Architect"},
-    pinOrder: 1274,
+    pinOrder: 1282,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385493,7 +385829,7 @@ var JOBS = [
     description: "We are currently hiring a SAP BRIM Convergent Charging (CC) / Convergent Mediation (CM) Solution Architect to lead the end-to-end architecture for SAP BRIM CC and CM within the L2C programme. You will design and govern integration solutions, translate business requirements into charge plans, and collaborate with global stakeholders. Ideal candidates have extensive SAP BRIM experience and expertise in platform integration.",
     startingDate: "",
     officialLinks: {"hpeCategory": "https://careers.hpe.com/us/en/c/it-cybersecurity-jobs", "hpeJob": "https://careers.hpe.com/us/en/job/1212302/SAP-BRIM-Convergent-Charging-CC-Convergent-Mediation-CM-Solution-Architect"},
-    pinOrder: 1275,
+    pinOrder: 1283,
     qualification: "See official HPE posting for education and experience requirements",
   },
   {
@@ -385533,7 +385869,7 @@ var JOBS = [
     hiringNotes: "HPE job ID 1211844 · Added 27 Oct 2026. Official careers page reports this job has been filled. Verify on careers.hpe.com.",
     description: "HPE Intern, Software Engineer - I — Bengaluru, hybrid (avg 2 days/week in office). Batch 2027/2028/2029. Official page reports filled.",
     startingDate: "",
-    pinOrder: 1276,
+    pinOrder: 1284,
     qualification: "Currently pursuing a Bachelor’s degree in Engineering, Computer Science, Information Technology, or a related technical field",
   },
   {
@@ -385573,7 +385909,7 @@ var JOBS = [
     hiringNotes: "Amazon job ID 10541345 · Added 27 Oct 2026 · 6-month in-person internship, start January–June 2027. Verify on the official posting.",
     description: "Amazon SDE I Intern (6 months, 2027) — India locations including Bengaluru, Chennai, Hyderabad, Delhi, Mumbai, and Pune. Graduation year 2027.",
     startingDate: "January – June 2027",
-    pinOrder: 1277,
+    pinOrder: 1285,
     qualification: "Currently enrolled Bachelor’s or Master’s in Computer Science, Computer Engineering, or related field · Year of Graduation 2027",
   },
   {
@@ -385613,7 +385949,7 @@ var JOBS = [
     hiringNotes: "Checked 27 Oct 2026. The Virtusa careers page says this job has been filled. Requisition CREQ261742.",
     description: "Virtusa Associate, Hyderabad (CREQ261742). The official page reports the role as filled.",
     startingDate: "",
-    pinOrder: 1278,
+    pinOrder: 1286,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-marketing-growth-lead-26400",
@@ -385655,7 +385991,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26400"},
-    pinOrder: 1279,
+    pinOrder: 1287,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-b2b-content-specialist-26399",
@@ -385697,7 +386033,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26399"},
-    pinOrder: 1280,
+    pinOrder: 1288,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-visual-designer-26398",
@@ -385739,7 +386075,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26398"},
-    pinOrder: 1281,
+    pinOrder: 1289,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-associate-system-engineer-26397",
@@ -385781,7 +386117,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26397"},
-    pinOrder: 1282,
+    pinOrder: 1290,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-business-development-manager-26396",
@@ -385823,7 +386159,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26396"},
-    pinOrder: 1283,
+    pinOrder: 1291,
   },
   {
     id: "ipv-2base-technologies-pvt-ltd-sr-devsecops-engineer-26395",
@@ -385865,7 +386201,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/312/26395"},
-    pinOrder: 1284,
+    pinOrder: 1292,
   },
   {
     id: "ipv-difinity-digital-business-development-executive-26394",
@@ -385907,7 +386243,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/495/26394"},
-    pinOrder: 1285,
+    pinOrder: 1293,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-legal-content-specialist-llb-26393",
@@ -385949,7 +386285,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26393"},
-    pinOrder: 1286,
+    pinOrder: 1294,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-meta-ads-specialist-26392",
@@ -385991,7 +386327,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26392"},
-    pinOrder: 1287,
+    pinOrder: 1295,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ai-search-agentic-growth-specialist-llm-seo-26391",
@@ -386033,7 +386369,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26391"},
-    pinOrder: 1288,
+    pinOrder: 1296,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-affiliate-marketing-manager-26390",
@@ -386075,7 +386411,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26390"},
-    pinOrder: 1289,
+    pinOrder: 1297,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-global-partnerships-manager-26389",
@@ -386117,7 +386453,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26389"},
-    pinOrder: 1290,
+    pinOrder: 1298,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-growth-lead-26388",
@@ -386159,7 +386495,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26388"},
-    pinOrder: 1291,
+    pinOrder: 1299,
   },
   {
     id: "ipv-mozilor-technologies-pvt-ltd-ux-writer-growth-26387",
@@ -386201,7 +386537,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/333/26387"},
-    pinOrder: 1292,
+    pinOrder: 1300,
   },
   {
     id: "ipv-grapelime-innovations-private-limited-senior-business-development-specialist-it-services-26386",
@@ -386243,7 +386579,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/296/26386"},
-    pinOrder: 1293,
+    pinOrder: 1301,
   },
   {
     id: "ipv-urolime-sales-development-representative-sdr-26385",
@@ -386285,7 +386621,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/118/26385"},
-    pinOrder: 1294,
+    pinOrder: 1302,
   },
   {
     id: "ipv-calpine-group-embedded-software-engineer-ese-2-26384",
@@ -386327,7 +386663,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/1/26384"},
-    pinOrder: 1295,
+    pinOrder: 1303,
   },
   {
     id: "ipv-gapblue-software-labs-pvt-ltd-business-presentation-specialist-26383",
@@ -386369,7 +386705,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/428/26383"},
-    pinOrder: 1296,
+    pinOrder: 1304,
   },
   {
     id: "ipv-datapmi-technologies-llp-senior-technical-recruiter-26382",
@@ -386411,7 +386747,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/555/26382"},
-    pinOrder: 1297,
+    pinOrder: 1305,
   },
   {
     id: "ipv-white-rabbit-group-test-engineer-26381",
@@ -386453,7 +386789,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/149/26381"},
-    pinOrder: 1298,
+    pinOrder: 1306,
   },
   {
     id: "ipv-armia-systems-pvt-ltd-jr-business-developement-trainee-exp-6months-26380",
@@ -386495,7 +386831,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/3/26380"},
-    pinOrder: 1299,
+    pinOrder: 1307,
   },
   {
     id: "ipv-ynot-infosolutions-field-sales-executive-malappuram-district-26365",
@@ -386538,7 +386874,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Field Sales Executive – Malappuram District Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26365"},
-    pinOrder: 1300,
+    pinOrder: 1308,
   },
   {
     id: "ipv-ynot-infosolutions-telecalling-inside-sales-executive-26364",
@@ -386581,7 +386917,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Telecalling & Inside Sales Executive Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26364"},
-    pinOrder: 1301,
+    pinOrder: 1309,
   },
   {
     id: "ipv-ynot-infosolutions-digital-marketing-executive-26363",
@@ -386624,7 +386960,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“Digital Marketing Executive Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26363"},
-    pinOrder: 1302,
+    pinOrder: 1310,
   },
   {
     id: "ipv-ynot-infosolutions-seo-specialist-immediate-hiring-26362",
@@ -386667,7 +387003,7 @@ var JOBS = [
     alertBucket: "upcoming",
     emailSubject: "“SEO Specialist Application”",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26362"},
-    pinOrder: 1303,
+    pinOrder: 1311,
   },
   {
     id: "ipv-ynot-infosolutions-junior-laravel-developer-immediate-hiring-26361",
@@ -386709,7 +387045,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/262/26361"},
-    pinOrder: 1304,
+    pinOrder: 1312,
   },
   {
     id: "ipv-spiralcode-innovates-llp-flutter-developer-experienced-26360",
@@ -386751,7 +387087,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/507/26360"},
-    pinOrder: 1305,
+    pinOrder: 1313,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-marketing-strategy-manager-26359",
@@ -386793,7 +387129,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26359"},
-    pinOrder: 1306,
+    pinOrder: 1314,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-google-ads-expert-26358",
@@ -386835,7 +387171,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26358"},
-    pinOrder: 1307,
+    pinOrder: 1315,
   },
   {
     id: "ipv-simelabs-an-astek-company-ai-data-annotation-specialist-26342",
@@ -386877,7 +387213,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26342"},
-    pinOrder: 1308,
+    pinOrder: 1316,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-devops-engineer-26341",
@@ -386919,7 +387255,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26341"},
-    pinOrder: 1309,
+    pinOrder: 1317,
   },
   {
     id: "ipv-simelabs-an-astek-company-junior-data-engineer-26340",
@@ -386961,7 +387297,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26340"},
-    pinOrder: 1310,
+    pinOrder: 1318,
   },
   {
     id: "ipv-simelabs-an-astek-company-business-analyst-ii-26339",
@@ -387003,7 +387339,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26339"},
-    pinOrder: 1311,
+    pinOrder: 1319,
   },
   {
     id: "ipv-simelabs-an-astek-company-backend-engineer-billing-account-management-26338",
@@ -387045,7 +387381,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26338"},
-    pinOrder: 1312,
+    pinOrder: 1320,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-backend-engineer-payment-platform-26337",
@@ -387087,7 +387423,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26337"},
-    pinOrder: 1313,
+    pinOrder: 1321,
   },
   {
     id: "ipv-jtsi-technologies-india-private-limited-sap-technical-evaluator-part-time-required-for-jtsi-tech-26336",
@@ -387129,7 +387465,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/55/26336"},
-    pinOrder: 1314,
+    pinOrder: 1322,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-data-engineer-apache-airflow-26335",
@@ -387171,7 +387507,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26335"},
-    pinOrder: 1315,
+    pinOrder: 1323,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-data-engineer-databricks-26334",
@@ -387213,7 +387549,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26334"},
-    pinOrder: 1316,
+    pinOrder: 1324,
   },
   {
     id: "ipv-icodebees-private-limited-senior-confluent-kafka-migration-engineer-26333",
@@ -387255,7 +387591,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26333"},
-    pinOrder: 1317,
+    pinOrder: 1325,
   },
   {
     id: "ipv-icodebees-private-limited-3d-designers-26332",
@@ -387297,7 +387633,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/450/26332"},
-    pinOrder: 1318,
+    pinOrder: 1326,
   },
   {
     id: "ipv-nuvento-systems-private-limited-hr-trainee-payroll-and-statutory-26331",
@@ -387339,7 +387675,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/58/26331"},
-    pinOrder: 1319,
+    pinOrder: 1327,
   },
   {
     id: "ipv-penguin-data-centre-pvt-ltd-hr-internship-26330",
@@ -387381,7 +387717,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/171/26330"},
-    pinOrder: 1320,
+    pinOrder: 1328,
   },
   {
     id: "ipv-valoriz-digital-pvt-ltd-graphic-designer-video-editor-intern-26329",
@@ -387423,7 +387759,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/410/26329"},
-    pinOrder: 1321,
+    pinOrder: 1329,
   },
   {
     id: "ipv-apps-team-technologies-pvt-ltd-senior-net-developer-26328",
@@ -387465,7 +387801,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/272/26328"},
-    pinOrder: 1322,
+    pinOrder: 1330,
   },
   {
     id: "ipv-vipoint-solutions-pvt-ltd-technical-writer-i-26327",
@@ -387507,7 +387843,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/62/26327"},
-    pinOrder: 1323,
+    pinOrder: 1331,
   },
   {
     id: "ipv-orestes-technologies-pvt-ltd-qa-engineer-26326",
@@ -387549,7 +387885,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/390/26326"},
-    pinOrder: 1324,
+    pinOrder: 1332,
   },
   {
     id: "ipv-inapp-information-technologies-india-pvt-ltd-dbt-analytics-engineer-data-modeling-dbt-26312",
@@ -387591,7 +387927,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/329/26312"},
-    pinOrder: 1325,
+    pinOrder: 1333,
   },
   {
     id: "ipv-zoiteckh-informations-solutions-looking-for-freelancers-26311",
@@ -387633,7 +387969,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/466/26311"},
-    pinOrder: 1326,
+    pinOrder: 1334,
   },
   {
     id: "ipv-ndimensionz-solutions-pvt-ltd-software-engineer-python-developer-26308",
@@ -387675,7 +388011,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/209/26308"},
-    pinOrder: 1327,
+    pinOrder: 1335,
   },
   {
     id: "ipv-ndimensionz-solutions-pvt-ltd-project-program-manager-26307",
@@ -387717,7 +388053,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/209/26307"},
-    pinOrder: 1328,
+    pinOrder: 1336,
   },
   {
     id: "ipv-aabasoft-technologies-india-private-limited-video-editor-26306",
@@ -387759,7 +388095,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/95/26306"},
-    pinOrder: 1329,
+    pinOrder: 1337,
   },
   {
     id: "ipv-simelabs-an-astek-company-senior-cloud-architect-26305",
@@ -387801,7 +388137,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26305"},
-    pinOrder: 1330,
+    pinOrder: 1338,
   },
   {
     id: "ipv-simelabs-an-astek-company-lead-observability-architect-26304",
@@ -387843,7 +388179,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26304"},
-    pinOrder: 1331,
+    pinOrder: 1339,
   },
   {
     id: "ipv-advenser-engineering-services-private-limited-junior-engineer-bim-consulting-26303",
@@ -387885,7 +388221,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/107/26303"},
-    pinOrder: 1332,
+    pinOrder: 1340,
   },
   {
     id: "ipv-simelabs-an-astek-company-observability-engineer-26302",
@@ -387927,7 +388263,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/378/26302"},
-    pinOrder: 1333,
+    pinOrder: 1341,
   },
   {
     id: "ipv-difinity-digital-business-central-consultant-26301",
@@ -387969,7 +388305,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/495/26301"},
-    pinOrder: 1334,
+    pinOrder: 1342,
   },
   {
     id: "ipv-jachoos-technologies-private-limited-google-ads-specialist-26300",
@@ -388011,7 +388347,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/363/26300"},
-    pinOrder: 1335,
+    pinOrder: 1343,
   },
   {
     id: "ipv-advenser-engineering-services-private-limited-quality-analyst-steel-detailing-26299",
@@ -388053,7 +388389,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/107/26299"},
-    pinOrder: 1336,
+    pinOrder: 1344,
   },
   {
     id: "ipv-global-surf-it-pvt-ltd-content-writer-26298",
@@ -388095,7 +388431,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/421/26298"},
-    pinOrder: 1337,
+    pinOrder: 1345,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-legal-compliance-trainee-26297",
@@ -388137,7 +388473,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26297"},
-    pinOrder: 1338,
+    pinOrder: 1346,
   },
   {
     id: "ipv-alb-technologies-pvt-ltd-associate-appeals-26296",
@@ -388179,7 +388515,7 @@ var JOBS = [
     startingDate: "",
     alertBucket: "upcoming",
     officialLinks: {"infoparkJob": "https://infopark.in/company-jobs/details/519/26296"},
-    pinOrder: 1339,
+    pinOrder: 1347,
   },
   {
     id: "tpv-rr-donnelley-india-outsource-p-ltd-hiring-freshers-for-the-document-specialist-contract-33825",
@@ -388221,7 +388557,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33825?job=Hiring%20Freshers%20for%20the%20Document%20Specialist%20%28Contract%29"},
     walkinTime: "",
-    pinOrder: 1340,
+    pinOrder: 1348,
   },
   {
     id: "tpv-valoriz-digital-p-ltd-graphic-designer-video-editor-intern-33824",
@@ -388263,7 +388599,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33824?job=Graphic%20Designer%20%26%20Video%20Editor%20Intern"},
     walkinTime: "",
-    pinOrder: 1341,
+    pinOrder: 1349,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-business-development-associate-bda-33823",
@@ -388305,7 +388641,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33823?job=Business%20Development%20Associate%20%28BDA%29"},
     walkinTime: "",
-    pinOrder: 1342,
+    pinOrder: 1350,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-sales-manager-retail-insurance-33822",
@@ -388347,7 +388683,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33822?job=Sales%20Manager%20%E2%80%93%20Retail%20Insurance"},
     walkinTime: "",
-    pinOrder: 1343,
+    pinOrder: 1351,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-deputy-manager-audit-33821",
@@ -388389,7 +388725,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33821?job=Deputy%20Manager%20-%20Audit"},
     walkinTime: "",
-    pinOrder: 1344,
+    pinOrder: 1352,
   },
   {
     id: "tpv-yarab-technologies-p-ltd-capital-structuring-manager-qualified-33820",
@@ -388431,7 +388767,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33820?job=Capital%20%26%20Structuring%20Manager%20%28Qualified%29"},
     walkinTime: "",
-    pinOrder: 1345,
+    pinOrder: 1353,
   },
   {
     id: "tpv-phykon-solutions-p-ltd-customer-support-executive-voice-process-33819",
@@ -388473,7 +388809,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33819?job=Customer%20Support%20Executive%20-%20Voice%20Process"},
     walkinTime: "10:00 – 15:30",
-    pinOrder: 1346,
+    pinOrder: 1354,
   },
   {
     id: "tpv-telcotech-solutions-hub-p-ltd-sales-support-associate-1-to-3-years-33818",
@@ -388515,7 +388851,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33818?job=Sales%20Support%20Associate%20-%201%20to%203%20years"},
     walkinTime: "",
-    pinOrder: 1347,
+    pinOrder: 1355,
   },
   {
     id: "tpv-way-dot-com-p-ltd-hr-administration-executive-33817",
@@ -388557,7 +388893,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33817?job=HR%20%26%20Administration%20Executive"},
     walkinTime: "",
-    pinOrder: 1348,
+    pinOrder: 1356,
   },
   {
     id: "tpv-way-dot-com-p-ltd-seo-content-writer-33816",
@@ -388599,7 +388935,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33816?job=SEO%20Content%20Writer"},
     walkinTime: "",
-    pinOrder: 1349,
+    pinOrder: 1357,
   },
   {
     id: "tpv-refined-it-solutions-and-marketing-p-ltd-business-development-executive-33815",
@@ -388641,7 +388977,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33815?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1350,
+    pinOrder: 1358,
   },
   {
     id: "tpv-neonicz-software-solutions-p-ltd-telecalling-executives-33814",
@@ -388683,7 +389019,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33814?job=TELECALLING%20EXECUTIVES"},
     walkinTime: "",
-    pinOrder: 1351,
+    pinOrder: 1359,
   },
   {
     id: "tpv-innovation-incubator-advisory-p-ltd-secops-cloud-security-engineer-33813",
@@ -388725,7 +389061,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33813?job=SecOps%20/%20Cloud%20Security%20Engineer"},
     walkinTime: "",
-    pinOrder: 1352,
+    pinOrder: 1360,
   },
   {
     id: "tpv-elementz-engineers-guild-p-ltd-digital-marketing-specialist-33812",
@@ -388767,7 +389103,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33812?job=Digital%20Marketing%20Specialist"},
     walkinTime: "",
-    pinOrder: 1353,
+    pinOrder: 1361,
   },
   {
     id: "tpv-marvelloux-apps-p-ltd-team-lead-sales-3-years-33811",
@@ -388809,7 +389145,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33811?job=Team%20Lead%20%E2%80%93%20Sales%20%283%2B%20Years%29"},
     walkinTime: "",
-    pinOrder: 1354,
+    pinOrder: 1362,
   },
   {
     id: "tpv-trainonex-solutions-p-ltd-digital-marketer-33810",
@@ -388851,7 +389187,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33810?job=DIGITAL%20MARKETER"},
     walkinTime: "",
-    pinOrder: 1355,
+    pinOrder: 1363,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-faculty-animation-design-33809",
@@ -388893,7 +389229,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33809?job=Faculty%20%E2%80%93%20Animation%20%26%20Design"},
     walkinTime: "",
-    pinOrder: 1356,
+    pinOrder: 1364,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-junior-copywriter-design-marketing-team-33808",
@@ -388935,7 +389271,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33808?job=Junior%20Copywriter%20%E2%80%93%20Design%20%26%20Marketing%20Team"},
     walkinTime: "",
-    pinOrder: 1357,
+    pinOrder: 1365,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-marketing-coordinator-feature-film-division-33807",
@@ -388977,7 +389313,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33807?job=Marketing%20Coordinator%20-%20Feature%20Film%20Division"},
     walkinTime: "",
-    pinOrder: 1358,
+    pinOrder: 1366,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-head-of-finance-33806",
@@ -389019,7 +389355,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33806?job=Head%20of%20Finance"},
     walkinTime: "",
-    pinOrder: 1359,
+    pinOrder: 1367,
   },
   {
     id: "tpv-toonz-animation-india-p-ltd-senior-graphic-designer-33805",
@@ -389061,7 +389397,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33805?job=Senior%20Graphic%20Designer"},
     walkinTime: "",
-    pinOrder: 1360,
+    pinOrder: 1368,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-market-research-analyst-intern-remote-33804",
@@ -389103,7 +389439,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33804?job=Market%20Research%20Analyst%20Intern%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 1361,
+    pinOrder: 1369,
   },
   {
     id: "tpv-appsaas-ai-technologies-pvt-ltd-digital-marketing-executive-intern-remote-33803",
@@ -389145,7 +389481,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33803?job=Digital%20Marketing%20Executive%20Intern%20%28Remote%29"},
     walkinTime: "",
-    pinOrder: 1362,
+    pinOrder: 1370,
   },
   {
     id: "tpv-devicedriven-india-pvt-ltd-devops-lead-engineer-33802",
@@ -389187,7 +389523,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33802?job=DevOps%20Lead%20Engineer"},
     walkinTime: "",
-    pinOrder: 1363,
+    pinOrder: 1371,
   },
   {
     id: "tpv-devicedriven-india-pvt-ltd-senior-security-analyst-33801",
@@ -389229,7 +389565,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33801?job=Senior%20Security%20Analyst"},
     walkinTime: "",
-    pinOrder: 1364,
+    pinOrder: 1372,
   },
   {
     id: "tpv-waybeo-technology-solutions-p-ltd-customer-success-associate-33800",
@@ -389271,7 +389607,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33800?job=Customer%20Success%20Associate"},
     walkinTime: "",
-    pinOrder: 1365,
+    pinOrder: 1373,
   },
   {
     id: "tpv-innovation-incubator-advisory-p-ltd-junior-data-engineer-33799",
@@ -389313,7 +389649,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33799?job=Junior%20Data%20Engineer"},
     walkinTime: "",
-    pinOrder: 1366,
+    pinOrder: 1374,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-senior-net-developer-ai-33798",
@@ -389355,7 +389691,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33798?job=Senior%20.NET%20Developer%20-%20AI"},
     walkinTime: "",
-    pinOrder: 1367,
+    pinOrder: 1375,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-qa-automation-engineer-33797",
@@ -389397,7 +389733,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33797?job=Senior%20QA%20Automation%20Engineer"},
     walkinTime: "09:30 – 16:00",
-    pinOrder: 1368,
+    pinOrder: 1376,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-solution-architect-net-33794",
@@ -389439,7 +389775,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33794?job=Solution%20Architect%20-%20.Net"},
     walkinTime: "",
-    pinOrder: 1369,
+    pinOrder: 1377,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-engagement-manager-senior-delivery-manager-shift-6-pm-to-33793",
@@ -389481,7 +389817,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33793?job=Engagement%20Manager%20/%20Senior%20Delivery%20Manager%20-%20Shift%206%20PM%20to%204%20AM%20IST"},
     walkinTime: "",
-    pinOrder: 1370,
+    pinOrder: 1378,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-delivery-head-33792",
@@ -389523,7 +389859,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33792?job=Delivery%20Head"},
     walkinTime: "",
-    pinOrder: 1371,
+    pinOrder: 1379,
   },
   {
     id: "tpv-ars-traffic-transport-technology-india-p-ltd-senior-project-manager-33791",
@@ -389565,7 +389901,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33791?job=Senior%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 1372,
+    pinOrder: 1380,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-technical-project-manager-33789",
@@ -389607,7 +389943,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33789?job=Technical%20Project%20Manager"},
     walkinTime: "",
-    pinOrder: 1373,
+    pinOrder: 1381,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-delivery-manager-33788",
@@ -389649,7 +389985,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33788?job=Delivery%20Manager"},
     walkinTime: "",
-    pinOrder: 1374,
+    pinOrder: 1382,
   },
   {
     id: "tpv-zyxware-technologies-p-ltd-associate-business-development-33787",
@@ -389691,7 +390027,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33787?job=Associate%2C%20Business%20Development"},
     walkinTime: "",
-    pinOrder: 1375,
+    pinOrder: 1383,
   },
   {
     id: "tpv-atticube-technology-solutions-pvt-ltd-finance-executive-33786",
@@ -389733,7 +390069,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33786?job=Finance%20Executive"},
     walkinTime: "",
-    pinOrder: 1376,
+    pinOrder: 1384,
   },
   {
     id: "tpv-doubtbox-edutainment-p-ltd-academic-counsellor-student-mentor-females-only-33785",
@@ -389775,7 +390111,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33785?job=Academic%20Counsellor%20/%20Student%20Mentor%20%28Females%20Only%29"},
     walkinTime: "11:30 – 15:30",
-    pinOrder: 1377,
+    pinOrder: 1385,
   },
   {
     id: "tpv-sequoiaat-india-p-ltd-junior-customer-success-executive-33784",
@@ -389817,7 +390153,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33784?job=Junior%20Customer%20Success%20Executive"},
     walkinTime: "",
-    pinOrder: 1378,
+    pinOrder: 1386,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-lead-senior-performance-engineer-33783",
@@ -389859,7 +390195,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33783?job=Lead/Senior%20Performance%20Engineer"},
     walkinTime: "",
-    pinOrder: 1379,
+    pinOrder: 1387,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-solution-architect-33782",
@@ -389901,7 +390237,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33782?job=Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 1380,
+    pinOrder: 1388,
   },
   {
     id: "tpv-reflections-info-systems-p-ltd-enterprise-architect-33781",
@@ -389943,7 +390279,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33781?job=Enterprise%20Architect"},
     walkinTime: "",
-    pinOrder: 1381,
+    pinOrder: 1389,
   },
   {
     id: "tpv-klystron-technologies-odoo-trainee-33780",
@@ -389985,7 +390321,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33780?job=Odoo%20Trainee"},
     walkinTime: "",
-    pinOrder: 1382,
+    pinOrder: 1390,
   },
   {
     id: "tpv-smarthms-solutions-p-ltd-technical-sales-specialist-freshers-btech-non-it-mba-33779",
@@ -390027,7 +390363,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33779?job=Technical%20Sales%20Specialist%20%7C%20Freshers%20%3A%20Btech%3A%20non-IT/MBA"},
     walkinTime: "",
-    pinOrder: 1383,
+    pinOrder: 1391,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-inside-sales-revenue-operations-33778",
@@ -390069,7 +390405,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33778?job=Inside%20Sales%20%28%20Revenue%20Operations%20%29"},
     walkinTime: "",
-    pinOrder: 1384,
+    pinOrder: 1392,
   },
   {
     id: "tpv-relaxplzz-technologies-react-js-training-freshers-welcome-33777",
@@ -390111,7 +390447,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33777?job=React%20JS%20Training%20Freshers%20Welcome"},
     walkinTime: "",
-    pinOrder: 1385,
+    pinOrder: 1393,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-senior-marketing-executive-33776",
@@ -390153,7 +390489,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33776?job=Senior%20Marketing%20Executive"},
     walkinTime: "",
-    pinOrder: 1386,
+    pinOrder: 1394,
   },
   {
     id: "tpv-prayan-animation-studio-p-ltd-background-colouring-artist-33775",
@@ -390195,7 +390531,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33775?job=BackGround%20Colouring%20Artist"},
     walkinTime: "",
-    pinOrder: 1387,
+    pinOrder: 1395,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-senior-full-stack-dot-net-with-aws-ai-33774",
@@ -390237,7 +390573,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33774?job=Senior%20Full%20Stack%20-%20Dot%20Net%20with%20AWS%20%26%20AI"},
     walkinTime: "",
-    pinOrder: 1388,
+    pinOrder: 1396,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-internship-33773",
@@ -390279,7 +390615,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33773?job=Marketing%20Lead%20Generation_%20Internship"},
     walkinTime: "",
-    pinOrder: 1389,
+    pinOrder: 1397,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-marketing-lead-generation-intern-33772",
@@ -390321,7 +390657,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33772?job=Marketing%20%26%20Lead%20Generation%20Intern"},
     walkinTime: "",
-    pinOrder: 1390,
+    pinOrder: 1398,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-it-recruiter-2-to-5-years-33771",
@@ -390363,7 +390699,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33771?job=IT%20Recruiter%20-%202%20to%205%20years"},
     walkinTime: "",
-    pinOrder: 1391,
+    pinOrder: 1399,
   },
   {
     id: "tpv-enfin-technologies-india-p-ltd-digital-marketing-executive-3-to-6-years-33770",
@@ -390405,7 +390741,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33770?job=Digital%20Marketing%20Executive%20-%203%20to%206%20years"},
     walkinTime: "",
-    pinOrder: 1392,
+    pinOrder: 1400,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-business-development-executive-33769",
@@ -390447,7 +390783,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33769?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1393,
+    pinOrder: 1401,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-netscaler-engineer-l3-33768",
@@ -390489,7 +390825,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33768?job=NetScaler%20Engineer%20L3"},
     walkinTime: "",
-    pinOrder: 1394,
+    pinOrder: 1402,
   },
   {
     id: "tpv-naga-info-solutions-p-ltd-junior-seo-aeo-geo-specialist-33767",
@@ -390531,7 +390867,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33767?job=Junior%20SEO%2C%20AEO%20%26%20GEO%20Specialist"},
     walkinTime: "",
-    pinOrder: 1395,
+    pinOrder: 1403,
   },
   {
     id: "tpv-naga-info-solutions-p-ltd-junior-gtm-engineer-33766",
@@ -390573,7 +390909,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33766?job=Junior%20GTM%20Engineer"},
     walkinTime: "",
-    pinOrder: 1396,
+    pinOrder: 1404,
   },
   {
     id: "tpv-crayo-tech-business-solutions-p-ltd-digital-marketing-specialist-dms-33765",
@@ -390615,7 +390951,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33765?job=Digital%20Marketing%20Specialist%20%28DMS%29"},
     walkinTime: "",
-    pinOrder: 1397,
+    pinOrder: 1405,
   },
   {
     id: "tpv-zybo-tech-lab-p-ltd-digital-marketing-trainee-33764",
@@ -390657,7 +390993,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33764?job=Digital%20Marketing%20Trainee"},
     walkinTime: "",
-    pinOrder: 1398,
+    pinOrder: 1406,
   },
   {
     id: "tpv-4labs-technologies-p-ltd-peoplesoft-functional-lead-financials-fscm-33762",
@@ -390699,7 +391035,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33762?job=PeopleSoft%20Functional%20Lead%20%E2%80%93%20Financials%20%28FSCM%29"},
     walkinTime: "",
-    pinOrder: 1399,
+    pinOrder: 1407,
   },
   {
     id: "tpv-appfabs-innovation-p-ltd-senior-qa-automation-engineer-33761",
@@ -390741,7 +391077,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33761?job=Senior%20QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 1400,
+    pinOrder: 1408,
   },
   {
     id: "tpv-way-dot-com-p-ltd-manager-social-media-marketing-33760",
@@ -390783,7 +391119,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33760?job=Manager%20-%20Social%20Media%20Marketing"},
     walkinTime: "",
-    pinOrder: 1401,
+    pinOrder: 1409,
   },
   {
     id: "tpv-way-dot-com-p-ltd-job-posting-sales-operations-lead-research-analyst-33759",
@@ -390825,7 +391161,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33759?job=Job%20Posting%20Sales%20Operations%20%26%20Lead%20Research%20Analyst"},
     walkinTime: "",
-    pinOrder: 1402,
+    pinOrder: 1410,
   },
   {
     id: "tpv-way-dot-com-p-ltd-ai-ml-associate-architect-33758",
@@ -390867,7 +391203,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33758?job=AI/ML%20Associate%20Architect"},
     walkinTime: "",
-    pinOrder: 1403,
+    pinOrder: 1411,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-marketing-operations-manager-33757",
@@ -390909,7 +391245,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33757?job=Senior%20Marketing%20Operations%20Manager"},
     walkinTime: "",
-    pinOrder: 1404,
+    pinOrder: 1412,
   },
   {
     id: "tpv-gruppozenit-india-p-ltd-microsoft-365-security-solution-specialist-33756",
@@ -390951,7 +391287,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33756?job=Microsoft%20365-Security%20Solution%20Specialist"},
     walkinTime: "",
-    pinOrder: 1405,
+    pinOrder: 1413,
   },
   {
     id: "tpv-akira-software-solutions-p-ltd-hr-sales-administrator-33755",
@@ -390993,7 +391329,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33755?job=HR%20%26%20Sales%20Administrator"},
     walkinTime: "",
-    pinOrder: 1406,
+    pinOrder: 1414,
   },
   {
     id: "tpv-way-dot-com-p-ltd-team-lead-email-marketing-33754",
@@ -391035,7 +391371,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33754?job=Team%20Lead%20-%20Email%20Marketing"},
     walkinTime: "",
-    pinOrder: 1407,
+    pinOrder: 1415,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-database-administrator-mysql-mongodb-33753",
@@ -391077,7 +391413,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33753?job=Senior%20Database%20Administrator%20%28MySQL%20%26%20MongoDB%29"},
     walkinTime: "",
-    pinOrder: 1408,
+    pinOrder: 1416,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-operations-executive-airport-parking-33752",
@@ -391119,7 +391455,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33752?job=Senior%20Operations%20Executive%20-%20Airport%20Parking"},
     walkinTime: "",
-    pinOrder: 1409,
+    pinOrder: 1417,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-solution-architect-33751",
@@ -391161,7 +391497,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33751?job=JAVA%20Solution%20Architect"},
     walkinTime: "",
-    pinOrder: 1410,
+    pinOrder: 1418,
   },
   {
     id: "tpv-way-dot-com-p-ltd-content-writer-b2b-33750",
@@ -391203,7 +391539,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33750?job=Content%20Writer%20-%20B2B"},
     walkinTime: "",
-    pinOrder: 1411,
+    pinOrder: 1419,
   },
   {
     id: "tpv-way-dot-com-p-ltd-qa-automation-engineer-33749",
@@ -391245,7 +391581,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33749?job=QA%20Automation%20Engineer"},
     walkinTime: "",
-    pinOrder: 1412,
+    pinOrder: 1420,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-manager-33748",
@@ -391287,7 +391623,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33748?job=Accounts%20Payable%20Manager"},
     walkinTime: "",
-    pinOrder: 1413,
+    pinOrder: 1421,
   },
   {
     id: "tpv-way-dot-com-p-ltd-product-manager-33747",
@@ -391329,7 +391665,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33747?job=Product%20Manager"},
     walkinTime: "",
-    pinOrder: 1414,
+    pinOrder: 1422,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-director-marketing-33746",
@@ -391371,7 +391707,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33746?job=Senior%20Director-Marketing"},
     walkinTime: "",
-    pinOrder: 1415,
+    pinOrder: 1423,
   },
   {
     id: "tpv-way-dot-com-p-ltd-node-js-technical-architect-33745",
@@ -391413,7 +391749,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33745?job=Node%20JS%20Technical%20Architect"},
     walkinTime: "",
-    pinOrder: 1416,
+    pinOrder: 1424,
   },
   {
     id: "tpv-way-dot-com-p-ltd-accounts-payable-analyst-33744",
@@ -391455,7 +391791,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33744?job=Accounts%20Payable%20Analyst"},
     walkinTime: "",
-    pinOrder: 1417,
+    pinOrder: 1425,
   },
   {
     id: "tpv-way-dot-com-p-ltd-digital-marketing-manager-33743",
@@ -391497,7 +391833,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33743?job=Digital%20Marketing%20Manager"},
     walkinTime: "",
-    pinOrder: 1418,
+    pinOrder: 1426,
   },
   {
     id: "tpv-way-dot-com-p-ltd-senior-devops-engineer-33742",
@@ -391539,7 +391875,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33742?job=Senior%20DevOps%20Engineer"},
     walkinTime: "",
-    pinOrder: 1419,
+    pinOrder: 1427,
   },
   {
     id: "tpv-way-dot-com-p-ltd-full-stack-production-support-engineer-33741",
@@ -391581,7 +391917,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33741?job=Full%20Stack%20Production%20Support%20Engineer"},
     walkinTime: "",
-    pinOrder: 1420,
+    pinOrder: 1428,
   },
   {
     id: "tpv-way-dot-com-p-ltd-business-development-executive-33740",
@@ -391623,7 +391959,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33740?job=Business%20Development%20Executive"},
     walkinTime: "",
-    pinOrder: 1421,
+    pinOrder: 1429,
   },
   {
     id: "tpv-softnotions-technologies-p-ltd-mern-stack-trainee-33739",
@@ -391665,7 +392001,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33739?job=MERN%20STACK%20TRAINEE"},
     walkinTime: "",
-    pinOrder: 1422,
+    pinOrder: 1430,
   },
   {
     id: "tpv-way-dot-com-p-ltd-java-fullstack-developer-33738",
@@ -391707,7 +392043,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33738?job=JAVA%20FullStack%20Developer"},
     walkinTime: "",
-    pinOrder: 1423,
+    pinOrder: 1431,
   },
   {
     id: "tpv-ibil-solutions-p-ltd-junior-hr-admin-executive-33737",
@@ -391749,7 +392085,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33737?job=Junior%20HR%20%26%20Admin%20Executive"},
     walkinTime: "",
-    pinOrder: 1424,
+    pinOrder: 1432,
   },
   {
     id: "tpv-zybo-tech-lab-p-ltd-pcb-designer-33735",
@@ -391791,7 +392127,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33735?job=PCB%20Designer"},
     walkinTime: "",
-    pinOrder: 1425,
+    pinOrder: 1433,
   },
   {
     id: "tpv-integrated-order-automated-solutions-p-ltd-female-customer-enablement-associate-33734",
@@ -391833,7 +392169,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33734?job=Female%20Customer%20Enablement%20Associate"},
     walkinTime: "",
-    pinOrder: 1426,
+    pinOrder: 1434,
   },
   {
     id: "tpv-ainsurtech-p-ltd-junior-financial-analyst-33733",
@@ -391875,7 +392211,7 @@ var JOBS = [
     startingDate: "",
     officialLinks: {"technoparkJob": "https://technopark.in/job-details/33733?job=Junior%20Financial%20Analyst"},
     walkinTime: "",
-    pinOrder: 1427,
+    pinOrder: 1435,
   },
   {
     id: "advenxa-operations-executive-domestic-490044",
@@ -391916,7 +392252,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Any Graduate",
     salaryRange: "Up to ₹35,000 per month",
-    pinOrder: 1428,
+    pinOrder: 1436,
   },
   {
     id: "advenxa-manager-kyc-fraud-dispute-472049",
@@ -391956,7 +392292,7 @@ var JOBS = [
     description: "Manager - KYC (Fraud &Dispute) Location : Infopark,Kochi, Kerala Experience : Minimum 8+ years in KYC, Fraud & Dispute Process (BPO Domain Mandatory) Managerial Experience : Minimum 3+ years as Assistant Manager / Manager in the BPO KYC domain (Mandatory) Qualification : Bachelor",
     startingDate: "",
     qualification: "Bachelor's Degree Mandatory",
-    pinOrder: 1429,
+    pinOrder: 1437,
     salaryRange: "Up to ₹12 LPA",
   },
   {
@@ -391998,7 +392334,7 @@ var JOBS = [
     startingDate: "",
     qualification: "Bachelor's Degree (Mandatory)",
     salaryRange: "₹25,000–₹30,000 per month",
-    pinOrder: 1430,
+    pinOrder: 1438,
   },
   {
     id: "little-lourdes-hr-executive-kottayam-oct2026",
@@ -392039,7 +392375,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1431,
+    pinOrder: 1439,
     qualification: "MBA / MHA / PGDM",
   },
   {
@@ -392079,7 +392415,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1432,
+    pinOrder: 1440,
     qualification: "B.Sc / GNM Nursing",
   },
   {
@@ -392120,7 +392456,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1433,
+    pinOrder: 1441,
   },
   {
     id: "ahalia-women-children-facilities-thrissur-oct2026",
@@ -392160,7 +392496,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1434,
+    pinOrder: 1442,
   },
   {
     id: "vidal-health-insurance-coordinator-kochi-oct2026",
@@ -392199,7 +392535,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1435,
+    pinOrder: 1443,
   },
   {
     id: "sabine-staff-nurses-kasaragod-oct2026",
@@ -392239,7 +392575,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1436,
+    pinOrder: 1444,
     qualification: "B.Sc / Post B.Sc / GNM",
   },
   {
@@ -392281,7 +392617,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1437,
+    pinOrder: 1445,
     qualification: "B.Sc Nursing / Post Basic B.Sc Nursing with KNC registration",
   },
   {
@@ -392323,7 +392659,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1438,
+    pinOrder: 1446,
     qualification: "Diploma or graduation in Biomedical Engineering",
   },
   {
@@ -392365,7 +392701,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1439,
+    pinOrder: 1447,
     qualification: "MSW",
   },
   {
@@ -392407,7 +392743,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1440,
+    pinOrder: 1448,
   },
   {
     id: "sims-it-executive-ponkunnam-oct2026",
@@ -392448,7 +392784,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1441,
+    pinOrder: 1449,
     qualification: "Diploma in Computer Hardware and Network Maintenance with E-Gadgets Technologies",
   },
   {
@@ -392489,7 +392825,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1442,
+    pinOrder: 1450,
     qualification: "MBA / MHA, preferably in Hospital Administration, Healthcare Management, or Finance",
   },
   {
@@ -392529,7 +392865,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1443,
+    pinOrder: 1451,
   },
   {
     id: "vps-lakeshore-hr-sr-executive-kochi-oct2026",
@@ -392570,7 +392906,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1444,
+    pinOrder: 1452,
     qualification: "MBA in HR",
   },
   {
@@ -392612,7 +392948,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1445,
+    pinOrder: 1453,
     qualification: "Diploma or B.Tech in Biomedical Engineering",
   },
   {
@@ -392654,7 +392990,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1446,
+    pinOrder: 1454,
     qualification: "Degree or diploma in Fire & Safety Engineering, NEBOSH, or an equivalent certification",
   },
   {
@@ -392693,7 +393029,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1447,
+    pinOrder: 1455,
     qualification: "Graduation and above",
   },
   {
@@ -392735,7 +393071,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1448,
+    pinOrder: 1456,
     qualification: "BPT / MPT",
   },
   {
@@ -392776,7 +393112,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1449,
+    pinOrder: 1457,
   },
   {
     id: "bb-memorial-hospital-admin-intern-thrikkakara-oct2026",
@@ -392816,7 +393152,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1450,
+    pinOrder: 1458,
     qualification: "Diploma, BBA, or MHA in Hospital Administration, or equivalent",
   },
   {
@@ -392858,7 +393194,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "09:30 AM",
     walkinLocation: "HRD, 5th Floor, Welcare Hospital, Vyttila, Ernakulam",
-    pinOrder: 1451,
+    pinOrder: 1459,
     qualification: "B.Pharm, M.Pharm, BBA, or MBA for the purchase and in-charge roles",
   },
   {
@@ -392900,7 +393236,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM",
     walkinLocation: "Mundakayam Medical Trust Hospital, Mundakayam",
-    pinOrder: 1452,
+    pinOrder: 1460,
     qualification: "B.Com / M.Com",
   },
   {
@@ -392939,7 +393275,7 @@ var JOBS = [
     hiringNotes: "Hiring notice, 22 Oct 2026. Coimbatore. Full-time.",
     description: "PHP Laravel Developer at Codepluse Gen Private Limited, Coimbatore. 1–3 years. PHP, Laravel, MySQL, REST APIs, and Git.",
     startingDate: "",
-    pinOrder: 1453,
+    pinOrder: 1461,
     companyLegalName: "Codepluse Gen Private Limited",
     qualification: "",
   },
@@ -392980,7 +393316,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357529 · Posted 2 days ago · Kochi",
     description: "Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1473,
+    pinOrder: 1481,
   },
   {
     id: "accenture-business-analyst-2-r00356957-kochi-oct2026",
@@ -393019,7 +393355,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356957 · Posted 2 days ago · Kochi",
     description: "Business Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1474,
+    pinOrder: 1482,
   },
   {
     id: "accenture-technical-test-engineer-r00357321-kochi-oct2026",
@@ -393058,7 +393394,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357321 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1475,
+    pinOrder: 1483,
   },
   {
     id: "accenture-technical-test-lead-3-r00357342-kochi-oct2026",
@@ -393097,7 +393433,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357342 · Posted 2 days ago · Kochi",
     description: "Technical Test Lead 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1476,
+    pinOrder: 1484,
   },
   {
     id: "accenture-technical-test-engineer-r00356318-kochi-oct2026",
@@ -393136,7 +393472,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356318 · Posted 2 days ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1477,
+    pinOrder: 1485,
   },
   {
     id: "accenture-cloud-administrator-r00358575-kochi-oct2026",
@@ -393175,7 +393511,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358575 · Posted 2 days ago · Kochi",
     description: "Cloud Administrator at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1478,
+    pinOrder: 1486,
   },
   {
     id: "accenture-cloud-platform-engineer-gcp-r00306127-kochi-oct2026",
@@ -393214,7 +393550,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306127 · Posted 5 days ago · Kochi",
     description: "Cloud Platform Engineer -GCP at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1479,
+    pinOrder: 1487,
   },
   {
     id: "accenture-data-visualization-sr-analyst-r00337012-kochi-oct2026",
@@ -393253,7 +393589,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00337012 · Posted 5 days ago · Kochi",
     description: "Data Visualization Sr. Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1480,
+    pinOrder: 1488,
   },
   {
     id: "accenture-sr-lead-frontend-2-r00357404-kochi-oct2026",
@@ -393292,7 +393628,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357404 · Posted 5 days ago · Kochi",
     description: "Sr. Lead FrontEnd 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1481,
+    pinOrder: 1489,
   },
   {
     id: "accenture-sr-backend-developer-node-js-r00363193-kochi-oct2026",
@@ -393331,7 +393667,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363193 · Posted 6 days ago · Kochi",
     description: "Sr. Backend Developer - Node.js at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1482,
+    pinOrder: 1490,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-2-r00363199-kochi-oct2026",
@@ -393370,7 +393706,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363199 · Posted 6 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1483,
+    pinOrder: 1491,
   },
   {
     id: "accenture-senior-business-analyst-r00356959-kochi-oct2026",
@@ -393409,7 +393745,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356959 · Posted 6 days ago · Kochi",
     description: "Senior Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1484,
+    pinOrder: 1492,
   },
   {
     id: "accenture-lead-data-engineer-r00361025-kochi-oct2026",
@@ -393448,7 +393784,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361025 · Posted 8 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1485,
+    pinOrder: 1493,
   },
   {
     id: "accenture-senior-lead-full-stack-ai-engineer-r00363197-kochi-oct2026",
@@ -393487,7 +393823,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363197 · Posted 8 days ago · Kochi",
     description: "Senior Lead Full Stack AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1486,
+    pinOrder: 1494,
   },
   {
     id: "accenture-senior-lead-frontend-associate-manager-acs-song-r00357405-kochi-oct2026",
@@ -393526,7 +393862,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357405 · Posted 8 days ago · Kochi",
     description: "Senior Lead FrontEnd– Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1487,
+    pinOrder: 1495,
   },
   {
     id: "accenture-manager-business-analysis-r00356982-kochi-oct2026",
@@ -393565,7 +393901,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356982 · Posted 9 days ago · Kochi",
     description: "Manager - Business Analysis at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1488,
+    pinOrder: 1496,
   },
   {
     id: "accenture-solution-architect-ai-r00363200-kochi-oct2026",
@@ -393604,7 +393940,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363200 · Posted 9 days ago · Kochi",
     description: "Solution Architect - AI at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1489,
+    pinOrder: 1497,
   },
   {
     id: "accenture-functional-test-engineer-r00354490-kochi-oct2026",
@@ -393643,7 +393979,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354490 · Posted 9 days ago · Kochi",
     description: "Functional Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1490,
+    pinOrder: 1498,
   },
   {
     id: "accenture-lead-backend-developer-node-js-r00363188-kochi-oct2026",
@@ -393682,7 +394018,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00363188 · Posted 9 days ago · Kochi",
     description: "Lead Backend Developer - Node.js at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1491,
+    pinOrder: 1499,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-2-r00361038-kochi-oct2026",
@@ -393721,7 +394057,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361038 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1492,
+    pinOrder: 1500,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00361033-kochi-oct2026",
@@ -393760,7 +394096,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361033 · Posted 12 days ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1493,
+    pinOrder: 1501,
   },
   {
     id: "accenture-o2c-offering-advisor-r00352050-india-oct2026",
@@ -393799,7 +394135,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352050 · Posted 12 days ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "O2C Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 1494,
+    pinOrder: 1502,
   },
   {
     id: "accenture-lead-frontend-r00357372-kochi-oct2026",
@@ -393838,7 +394174,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357372 · Posted 13 days ago · Kochi",
     description: "Lead FrontEnd at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1495,
+    pinOrder: 1503,
   },
   {
     id: "accenture-lead-backend-java-5-r00357546-kochi-oct2026",
@@ -393877,7 +394213,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357546 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 5 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1496,
+    pinOrder: 1504,
   },
   {
     id: "accenture-lead-backend-java-3-r00357543-kochi-oct2026",
@@ -393916,7 +394252,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357543 · Posted 14 days ago · Kochi",
     description: "Lead Backend - Java 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1497,
+    pinOrder: 1505,
   },
   {
     id: "accenture-sr-lead-backend-java-r00357547-kochi-oct2026",
@@ -393955,7 +394291,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357547 · Posted 14 days ago · Kochi",
     description: "Sr. Lead Backend - Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1498,
+    pinOrder: 1506,
   },
   {
     id: "accenture-lead-data-engineer-2-r00361029-kochi-oct2026",
@@ -393994,7 +394330,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00361029 · Posted 15 days ago · Kochi",
     description: "Lead Data Engineer 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1499,
+    pinOrder: 1507,
   },
   {
     id: "accenture-lead-business-analyst-2-r00356975-kochi-oct2026",
@@ -394033,7 +394369,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356975 · Posted 15 days ago · Kochi",
     description: "Lead Business Analyst 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1500,
+    pinOrder: 1508,
   },
   {
     id: "accenture-lead-backend-java-2-r00357542-kochi-oct2026",
@@ -394072,7 +394408,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357542 · Posted 21 days ago · Kochi",
     description: "Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1501,
+    pinOrder: 1509,
   },
   {
     id: "accenture-business-analyst-r00356956-kochi-oct2026",
@@ -394111,7 +394447,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356956 · Posted 21 days ago · Kochi",
     description: "Business Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1502,
+    pinOrder: 1510,
   },
   {
     id: "accenture-project-management-specialist-r00356302-kochi-oct2026",
@@ -394150,7 +394486,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356302 · Posted 21 days ago · Kochi",
     description: "Project Management - Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1503,
+    pinOrder: 1511,
   },
   {
     id: "accenture-project-management-specialist-r00347506-kochi-oct2026",
@@ -394189,7 +394525,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347506 · Posted 21 days ago · Kochi",
     description: "Project Management Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1504,
+    pinOrder: 1512,
   },
   {
     id: "accenture-pricing-cpq-analyst-2-r00356989-kochi-oct2026",
@@ -394228,7 +394564,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356989 · Posted 21 days ago · Kochi",
     description: "Pricing & CPQ - Analyst 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1505,
+    pinOrder: 1513,
   },
   {
     id: "accenture-sr-lead-backend-java-2-r00357548-kochi-oct2026",
@@ -394267,7 +394603,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357548 · Posted 22 days ago · Kochi",
     description: "Sr. Lead Backend - Java 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1506,
+    pinOrder: 1514,
   },
   {
     id: "accenture-associate-manager-business-analyst-r00356977-kochi-oct2026",
@@ -394306,7 +394642,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356977 · Posted 22 days ago · Kochi",
     description: "Associate Manager Business Analyst at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1507,
+    pinOrder: 1515,
   },
   {
     id: "accenture-cloud-platform-manager-r00340217-kochi-oct2026",
@@ -394345,7 +394681,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340217 · Posted 22 days ago · Kochi",
     description: "Cloud Platform Manager at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1508,
+    pinOrder: 1516,
   },
   {
     id: "accenture-lead-cloud-devops-r00358583-kochi-oct2026",
@@ -394384,7 +394720,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358583 · Posted 22 days ago · Kochi",
     description: "Lead - Cloud DevOps at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1509,
+    pinOrder: 1517,
   },
   {
     id: "accenture-lead-backend-java-4-r00357545-kochi-oct2026",
@@ -394423,7 +394759,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357545 · Posted 23 days ago · Kochi",
     description: "Lead Backend - Java 4 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1510,
+    pinOrder: 1518,
   },
   {
     id: "accenture-pricing-cpq-analyst-r00356985-kochi-oct2026",
@@ -394462,7 +394798,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356985 · Posted 23 days ago · Kochi",
     description: "Pricing & CPQ - Analyst at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1511,
+    pinOrder: 1519,
   },
   {
     id: "accenture-technical-test-engineer-2-r00357323-kochi-oct2026",
@@ -394501,7 +394837,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357323 · Posted 26 days ago · Kochi",
     description: "Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1512,
+    pinOrder: 1520,
   },
   {
     id: "accenture-lead-data-engineer-r00335398-kochi-oct2026",
@@ -394540,7 +394876,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335398 · Posted 26 days ago · Kochi",
     description: "Lead Data Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1513,
+    pinOrder: 1521,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-r00354263-kochi-oct2026",
@@ -394579,7 +394915,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354263 · Posted 26 days ago · Kochi",
     description: "Associate Manager - Pricing & CPQ at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1514,
+    pinOrder: 1522,
   },
   {
     id: "accenture-cloud-devops-engineer-r00358581-kochi-oct2026",
@@ -394618,7 +394954,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358581 · Posted 27 days ago · Kochi",
     description: "Cloud DevOps Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1515,
+    pinOrder: 1523,
   },
   {
     id: "accenture-sr-backend-developer-java-2-r00357534-kochi-oct2026",
@@ -394657,7 +394993,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357534 · Posted 27 days ago · Kochi",
     description: "Sr.Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1516,
+    pinOrder: 1524,
   },
   {
     id: "accenture-architect-frontend-2-r00357413-kochi-oct2026",
@@ -394696,7 +395032,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357413 · Posted 27 days ago · Kochi",
     description: "Architect FrontEnd 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1517,
+    pinOrder: 1525,
   },
   {
     id: "accenture-cloud-architect-r00358590-kochi-oct2026",
@@ -394735,7 +395071,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358590 · Posted 27 days ago · Kochi",
     description: "Cloud Architect at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1518,
+    pinOrder: 1526,
   },
   {
     id: "accenture-sr-technical-test-engineer-4-r00357331-kochi-oct2026",
@@ -394774,7 +395110,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357331 · Posted 27 days ago · Kochi",
     description: "Sr. Technical Test Engineer 4 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1519,
+    pinOrder: 1527,
   },
   {
     id: "accenture-technical-test-lead-2-r00357338-kochi-oct2026",
@@ -394813,7 +395149,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357338 · Posted 27 days ago · Kochi",
     description: "Technical Test Lead 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1520,
+    pinOrder: 1528,
   },
   {
     id: "accenture-sr-backend-developer-java-r00357532-kochi-oct2026",
@@ -394852,7 +395188,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357532 · Posted 28 days ago · Kochi",
     description: "Sr.Backend Developer - Java at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1521,
+    pinOrder: 1529,
   },
   {
     id: "accenture-lead-java-developer-r00352493-kochi-oct2026",
@@ -394891,7 +395227,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352493 · Posted 28 days ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1522,
+    pinOrder: 1530,
   },
   {
     id: "accenture-lead-cloud-devops-3-r00358587-kochi-oct2026",
@@ -394930,7 +395266,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358587 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 3 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1523,
+    pinOrder: 1531,
   },
   {
     id: "accenture-lead-cloud-devops-2-r00358586-kochi-oct2026",
@@ -394969,7 +395305,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00358586 · Posted 28 days ago · Kochi",
     description: "Lead - Cloud DevOps 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1524,
+    pinOrder: 1532,
   },
   {
     id: "accenture-backend-developer-java-2-r00357530-kochi-oct2026",
@@ -395008,7 +395344,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357530 · Posted 29 days ago · Kochi",
     description: "Backend Developer - Java 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1525,
+    pinOrder: 1533,
   },
   {
     id: "accenture-associate-project-manager-r00356296-kochi-oct2026",
@@ -395047,7 +395383,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356296 · Posted 29 days ago · Kochi",
     description: "Associate Project Manager at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1526,
+    pinOrder: 1534,
   },
   {
     id: "accenture-sr-technical-test-engineer-2-r00357325-kochi-oct2026",
@@ -395086,7 +395422,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357325 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer 2 at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1527,
+    pinOrder: 1535,
   },
   {
     id: "accenture-sr-technical-test-engineer-r00357324-kochi-oct2026",
@@ -395125,7 +395461,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357324 · Posted 29 days ago · Kochi",
     description: "Sr. Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1528,
+    pinOrder: 1536,
   },
   {
     id: "accenture-associate-manager-pricing-cpq-2-r00354268-kochi-oct2026",
@@ -395164,7 +395500,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354268 · Posted 1 month ago · Kochi",
     description: "Associate Manager - Pricing & CPQ 2 at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1529,
+    pinOrder: 1537,
   },
   {
     id: "accenture-senior-manager-testing-r00357346-kochi-oct2026",
@@ -395203,7 +395539,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00357346 · Posted more than 1 month ago · Kochi",
     description: "Senior Manager - Testing at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 1530,
+    pinOrder: 1538,
   },
   {
     id: "accenture-manager-test-automation-2-r00354506-kochi-oct2026",
@@ -395242,7 +395578,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00354506 · Posted more than 1 month ago · Kochi",
     description: "Manager - Test Automation 2 at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1531,
+    pinOrder: 1539,
   },
   {
     id: "accenture-salesforce-b2b-commerce-lead-r00356997-kochi-oct2026",
@@ -395281,7 +395617,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356997 · Posted more than 1 month ago · Kochi",
     description: "Salesforce B2B Commerce Lead at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1532,
+    pinOrder: 1540,
   },
   {
     id: "accenture-ux-manager-r00356304-kochi-oct2026",
@@ -395320,7 +395656,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00356304 · Posted more than 1 month ago · Kochi",
     description: "UX Manager at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 1533,
+    pinOrder: 1541,
   },
   {
     id: "accenture-technical-test-engineer-r00347491-kochi-oct2026",
@@ -395359,7 +395695,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347491 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1534,
+    pinOrder: 1542,
   },
   {
     id: "accenture-technical-test-engineer-r00347484-kochi-oct2026",
@@ -395398,7 +395734,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00347484 · Posted more than 1 month ago · Kochi",
     description: "Technical Test Engineer at Accenture · Kochi, Kerala · 2–5 years.",
     startingDate: "",
-    pinOrder: 1535,
+    pinOrder: 1543,
   },
   {
     id: "accenture-front-end-architect-associate-manager-acs-song-r00340116-kochi-oct2026",
@@ -395437,7 +395773,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340116 · Posted more than 1 month ago · Kochi",
     description: "Front End Architect – Associate Manager - ACS SONG at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1536,
+    pinOrder: 1544,
   },
   {
     id: "accenture-senior-architect-front-end-r00340068-kochi-oct2026",
@@ -395476,7 +395812,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00340068 · Posted more than 1 month ago · Kochi",
     description: "Senior Architect - Front End at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1537,
+    pinOrder: 1545,
   },
   {
     id: "accenture-i2p-offering-advisor-r00352054-india-oct2026",
@@ -395515,7 +395851,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352054 · Posted more than 1 month ago · Bengaluru, Ahmedabad, Bhubaneswar, Chennai, Coimbatore, Gandhinagar, Gurugram, Hyderabad, Indore, Jaipur, Kochi, Kolkata, Mumbai, Nagpur, Navi Mumbai, New Delhi, Noida, Pune, Thane, Thiruvananthapuram, Tiruchirappalli",
     description: "I2P Offering Advisor at Accenture · India (includes Kochi and Thiruvananthapuram) · 12–14 years.",
     startingDate: "",
-    pinOrder: 1538,
+    pinOrder: 1546,
   },
   {
     id: "accenture-lead-java-developer-r00352502-kochi-oct2026",
@@ -395554,7 +395890,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352502 · Posted more than 1 month ago · Kochi",
     description: "Lead Java Developer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1539,
+    pinOrder: 1547,
   },
   {
     id: "accenture-sr-architect-java-r00352506-kochi-oct2026",
@@ -395593,7 +395929,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352506 · Posted more than 1 month ago · Kochi",
     description: "Sr. Architect - Java at Accenture · Kochi, Kerala · 10–12 years.",
     startingDate: "",
-    pinOrder: 1540,
+    pinOrder: 1548,
   },
   {
     id: "accenture-senior-technical-architect-r00343682-kochi-oct2026",
@@ -395632,7 +395968,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00343682 · Posted more than 1 month ago · Kochi",
     description: "Senior Technical Architect at Accenture · Kochi, Kerala · 12–14 years.",
     startingDate: "",
-    pinOrder: 1541,
+    pinOrder: 1549,
   },
   {
     id: "accenture-song-lead-application-maintenance-and-support-r00326956-kochi-oct2026",
@@ -395671,7 +396007,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00326956 · Posted more than 1 month ago · Kochi",
     description: "SONG > Lead - Application Maintenance and Support at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1542,
+    pinOrder: 1550,
   },
   {
     id: "accenture-senior-lead-java-r00352503-kochi-oct2026",
@@ -395710,7 +396046,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00352503 · Posted more than 1 month ago · Kochi",
     description: "Senior Lead- Java at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1543,
+    pinOrder: 1551,
   },
   {
     id: "accenture-cloud-platform-engineer-aws-r00306125-kochi-oct2026",
@@ -395749,7 +396085,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306125 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer -AWS at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1544,
+    pinOrder: 1552,
   },
   {
     id: "accenture-lead-agentic-ai-engineer-r00335391-kochi-oct2026",
@@ -395788,7 +396124,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335391 · Posted more than 1 month ago · Kochi",
     description: "Lead Agentic AI Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1545,
+    pinOrder: 1553,
   },
   {
     id: "accenture-lead-data-scientist-r00335399-kochi-oct2026",
@@ -395827,7 +396163,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00335399 · Posted more than 1 month ago · Kochi",
     description: "Lead Data Scientist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1546,
+    pinOrder: 1554,
   },
   {
     id: "accenture-site-reliability-engineer-specialist-r00267066-kochi-oct2026",
@@ -395866,7 +396202,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00267066 · Posted more than 1 month ago · Kochi",
     description: "Site Reliability Engineer Specialist at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1547,
+    pinOrder: 1555,
   },
   {
     id: "accenture-cloud-platform-engineer-r00306121-kochi-oct2026",
@@ -395905,7 +396241,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00306121 · Posted more than 1 month ago · Kochi",
     description: "Cloud Platform Engineer at Accenture · Kochi, Kerala · 5–10 years.",
     startingDate: "",
-    pinOrder: 1548,
+    pinOrder: 1556,
   },
   {
     id: "accenture-packaged-app-development-associate-manager-r00260113-thiruvananthapuram-oct2026",
@@ -395944,7 +396280,7 @@ var JOBS = [
     hiringNotes: "Source: https://www.accenture.com/in-en/careers/jobsearch · Job R00260113 · Posted more than 1 month ago · Chennai, Coimbatore, Thiruvananthapuram",
     description: "Packaged App Development Associate Manager at Accenture · Thiruvananthapuram, Chennai, Coimbatore · 5–10 years.",
     startingDate: "",
-    pinOrder: 1549,
+    pinOrder: 1557,
   },
   {
     id: "technomak-walk-in-kochi-oct2026",
@@ -395984,7 +396320,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "10:00 AM – 5:00 PM",
     walkinLocation: "1st and 3rd floor, NAJ Arcade, Near Muttom Metro Station, Thaikattukara P.O., Aluva, Ernakulam",
-    pinOrder: 1454,
+    pinOrder: 1462,
     qualification: "Engineering / Diploma / ITI",
   },
   {
@@ -396026,7 +396362,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1455,
+    pinOrder: 1463,
   },
   {
     id: "kowju-airport-hotel-hr-executive-oct2026",
@@ -396066,7 +396402,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1456,
+    pinOrder: 1464,
     qualification: "Not stated on the poster",
   },
   {
@@ -396106,7 +396442,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1457,
+    pinOrder: 1465,
   },
   {
     id: "cube-innovators-project-administrator-oct2026",
@@ -396147,7 +396483,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1458,
+    pinOrder: 1466,
   },
   {
     id: "caritas-hospital-hiring-oct2026",
@@ -396187,7 +396523,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1459,
+    pinOrder: 1467,
     qualification: "MSW / MHA / MBA, any graduation, B.Sc Nursing / MHA, or B.Sc MLT / DMLT — role-wise",
   },
   {
@@ -396226,7 +396562,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "AccioJob Skill Centre, Pune",
-    pinOrder: 1460,
+    pinOrder: 1468,
     salaryRange: "CTC up to 5 LPA",
   },
   {
@@ -396266,7 +396602,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1461,
+    pinOrder: 1469,
   },
   {
     id: "mar-sleeva-medicity-cathlab-technician-oct2026",
@@ -396306,7 +396642,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1462,
+    pinOrder: 1470,
     qualification: "B.Sc. / M.Sc. in Cardiac Care Technology",
   },
   {
@@ -396346,7 +396682,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1463,
+    pinOrder: 1471,
     salaryRange: "Pharmacist: negotiable",
     qualification: "D.Pharm / B.Pharm for Pharmacist; relevant qualification for Gastroenterology Technician",
   },
@@ -396388,7 +396724,7 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1464,
+    pinOrder: 1472,
     qualification: "MBA in HR or a related discipline",
   },
   {
@@ -396430,13 +396766,13 @@ var JOBS = [
     startingDate: "",
     walkinTime: "",
     walkinLocation: "",
-    pinOrder: 1465,
+    pinOrder: 1473,
     qualification: "MHA / MBA",
     salaryRange: "Negotiable",
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01653904-bengaluru-oct2026",
-    pinOrder: 1471,
+    pinOrder: 1479,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Bengaluru · AIOC-S01653904",
@@ -396476,7 +396812,7 @@ var JOBS = [
   },
   {
     id: "accenture-learning-operations-new-associate-aioc-s01664425-mumbai-oct2026",
-    pinOrder: 1472,
+    pinOrder: 1480,
     company: "Accenture",
     logo: "",
     companyBlurb: "Accenture · Learning Operations New Associate · Mumbai · AIOC-S01664425",
@@ -396556,7 +396892,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Tele Collection Specialist\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-tele-collection-specialist-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 1466,
+    pinOrder: 1474,
     qualification: "Any Degree / Diploma",
   },
   {
@@ -396601,7 +396937,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Service Desk Coordinator\nLocation: Infopark, Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-service-desk-coordinator-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 1467,
+    pinOrder: 1475,
     qualification: "Any degree / Diploma",
   },
   {
@@ -396646,7 +396982,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Business Development Executive (BDE)\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-bde-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 1468,
+    pinOrder: 1476,
     qualification: "Any degree / Diploma",
   },
   {
@@ -396691,7 +397027,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Banking Executive — Centralised Collections\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-banking-executive-centralised-collections-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 1469,
+    pinOrder: 1477,
     qualification: "Any degree / Diploma",
   },
   {
@@ -396736,7 +397072,7 @@ var JOBS = [
     referralLabel: "Refer",
     referralPhone: "918891454290",
     referralMessage: "Hi InfoparkDaily,\n\nThis is a referral for the following positions at Aabasoft.\n\nRole: Technical Support Executive\nLocation: Kakkanad, Kochi\n\n🔗 Job Details: https://infoparkdaily.online/job/aabasoft-technical-support-executive-oct2026\n\nFor the Business Development Executive and Technical Support Executive positions, please send your updated resume along with a cover letter via WhatsApp to +91 97446 65199.\n\nPlease mention “InfoparkDaily” in your cover letter as the referral source.\n\nIf you are facing any struggle with the cover letter: https://infoparkdaily.online/resume-builder/email-examples/",
-    pinOrder: 1470,
+    pinOrder: 1478,
     qualification: "Good communication in Malayalam",
   },
   {
