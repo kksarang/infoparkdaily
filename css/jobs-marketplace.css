@@ -3178,3 +3178,94 @@ body.jobs-discovery .ej-hero-park-btn[data-hero-park="technopark"].is-active { b
 html.theme-dark body.jobs-marketplace .ej-hero-park-btn[data-hero-park="cyberpark"].is-active,
 body.jobs-marketplace.dark .ej-hero-park-btn[data-hero-park="cyberpark"].is-active,
 body.jobs-discovery .ej-hero-park-btn[data-hero-park="cyberpark"].is-active { background: #0891b2; border-color: #0891b2; }
+
+/* ---------- Mobile filter sheet (≤980px): always above the site header, pinned header with close ---------- */
+.ej-filter-close { display: none; }
+
+@media (max-width: 980px) {
+  .ej-filter-overlay { z-index: 1090; }
+
+  body.jobs-marketplace .ej-filters,
+  .ej-filters {
+    z-index: 1100;
+    max-height: min(88svh, 760px);
+    padding: 0 1rem calc(1.2rem + env(safe-area-inset-bottom, 0px));
+    overscroll-behavior: contain;
+    background: var(--ej-card);
+  }
+
+  html.theme-dark body.jobs-marketplace .ej-filters,
+  body.jobs-marketplace.dark .ej-filters,
+  html.theme-dark body.jobs-marketplace .ej-filters-head,
+  body.jobs-marketplace.dark .ej-filters-head {
+    background: #0f172a;
+  }
+
+  .ej-filters-head,
+  body.jobs-marketplace .ej-filters-head {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    align-items: center;
+    margin: 0 -1rem 0.5rem;
+    padding: 1.35rem 1rem 0.8rem;
+    background: var(--ej-card);
+    border-bottom: 1px solid var(--ej-line);
+  }
+
+  /* grab handle */
+  .ej-filters-head::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    width: 40px;
+    height: 4px;
+    margin-left: -20px;
+    border-radius: 999px;
+    background: var(--ej-line);
+  }
+
+  .ej-filters-head-actions { gap: 0.5rem; }
+
+  body.jobs-marketplace .ej-filters-head .ej-filter-done {
+    min-height: 38px;
+    padding: 0 1.05rem;
+    border-radius: 999px;
+    background: var(--ej-blue-mid);
+    color: #fff;
+  }
+
+  body.jobs-marketplace .ej-filters-head .ej-clear-btn {
+    min-height: 38px;
+    padding: 0 0.85rem;
+    color: var(--ej-muted);
+  }
+
+  body.jobs-marketplace .ej-filters-head .ej-filter-close {
+    display: inline-grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--ej-line);
+    background: transparent;
+    color: var(--ej-ink);
+  }
+
+  .ej-filter-close svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+  }
+
+  body.jobs-marketplace .ej-filters-head .ej-filter-close:hover,
+  body.jobs-marketplace .ej-filters-head .ej-filter-close:focus-visible {
+    border-color: var(--ej-blue-mid);
+    color: var(--ej-blue-mid);
+  }
+}

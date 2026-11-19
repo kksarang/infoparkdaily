@@ -2479,9 +2479,27 @@
       if (openBtn) openBtn.setAttribute("aria-expanded", on ? "true" : "false");
       document.body.style.overflow = on ? "hidden" : "";
     }
-    if (openBtn) openBtn.addEventListener("click", () => setOpen(true));
-    if (doneBtn) doneBtn.addEventListener("click", () => setOpen(false));
-    if (overlay) overlay.addEventListener("click", () => setOpen(false));
+    const closeBtn = document.getElementById("jobs-filter-close");
+    const sheet = document.getElementById("jobs-filters-sheet");
+    if (openBtn)
+      openBtn.addEventListener("click", () => {
+        setOpen(true);
+        if (sheet) sheet.scrollTop = 0;
+        closeBtn?.focus({ preventScroll: true });
+      });
+    const close = () => {
+      if (!document.body.classList.contains("ej-filters-open")) return;
+      setOpen(false);
+      openBtn?.focus({ preventScroll: true });
+    };
+    if (doneBtn) doneBtn.addEventListener("click", close);
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    if (overlay) overlay.addEventListener("click", close);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+    /* Rotating / resizing to desktop must not leave the page scroll-locked. */
+    window.matchMedia("(min-width: 981px)").addEventListener?.("change", (e) => e.matches && setOpen(false));
   })();
 
   if (loadMoreBtn) {
