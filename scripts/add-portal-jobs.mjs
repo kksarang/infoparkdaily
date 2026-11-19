@@ -6,6 +6,9 @@
  *     thanal.json          – jobs array embedded in https://thanal.zohorecruit.in/jobs/Careers (HTML-escaped JSON on the page)
  *     keka-<sub>.json      – GET https://<sub>.keka.com/careers/api/embedjobs/default/active/<orgGuid>  (orgGuid is on /careers/)
  *     niveus.json          – POST https://public.zwayam.com/jobs/search (companyId=MTU3MTk=, domain=career.niveussolutions.com)
+ *     niveus-d/<id>.json   – POST https://public.zwayam.com/jobs-service/v1/jobs/careersite {jobUrl, externalSource:"CAREERSITE", campusUrl:"empty", companyId:"15719"}
+ *                            (full description; the search result only has a shortened one)
+ *     thanal-d/<id>.json   – optional single-job rows from a Thanal job page, used to fill fields the list leaves out (e.g. salary)
  *   [checkedOn] is the check date as YYYY-MM-DD (defaults to today).
  *
  * Only India openings are imported, and only details the listing states; anything not stated stays empty.
@@ -35,6 +38,7 @@ const unescape1 = (s) => s
   .replace(/&([a-z]+);/gi, (m, n) => ENT[n.toLowerCase()] ?? m);
 const unescape = (s) => unescape1(unescape1(String(s || "")));
 const trim = (l) => (l.length > MAX_LEN ? l.slice(0, MAX_LEN - 1).replace(/\s+\S*$/, "") + "…" : l);
+const HEADING_ONLY = /^(key )?(responsibilities|qualifications?|requirements|experience|skills|education|eligibility)\.?$/i;
 const clean = (l) => trim(l.replace(/[ \t]/g, " ").replace(/^[\s•▪◦·*\-–→✅✔️🔹🔸📍📈💶🎯🎓💡👀]+(?=\S)/u, "").replace(/^\d{1,2}[.)]\s+/, "").replace(/\s+/g, " ").trim());
 const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 const short = (s, max = 300) => (s.length > max ? s.slice(0, max - 1).replace(/\s+\S*$/, "") + "…" : s);
@@ -61,7 +65,7 @@ const htmlSections = (htmlText) => {
       continue;
     }
     const l = clean(raw);
-    if (l.length < 3 || BOILER.test(l)) continue;
+    if (l.length < 3 || BOILER.test(l) || HEADING_ONLY.test(l)) continue;
     out[cur].push(l);
   }
   const uniq = (a) => [...new Set(a)].slice(0, MAX_ITEMS);
@@ -79,7 +83,7 @@ const plainSections = (text) => {
     if (p.startsWith("§")) { const h = p.slice(1); cur = /summary|purpose/i.test(h) ? "summary" : RESP.test(h) || /duties/i.test(h) ? "resp" : "req"; continue; }
     for (const s of p.split(/(?<=[.!?])\s+(?=[A-Z])/)) {
       const l = clean(s);
-      if (l.length >= 3) out[cur].push(l);
+      if (l.length >= 3 && !HEADING_ONLY.test(l)) out[cur].push(l);
     }
   }
   const uniq = (a) => [...new Set(a)].slice(0, MAX_ITEMS);
@@ -115,7 +119,7 @@ const fromThanal = (rows) => rows.filter((r) => (r.Country || "India") === "Indi
   const { resp, req, summary } = plainSections(r.Job_Description);
   const exp = expInfo(r.Work_Experience);
   const applyLink = `https://thanal.zohorecruit.in/jobs/Careers/${r.id}/${encodeURIComponent(String(r.Posting_Title).trim().replace(/\s+/g, "-"))}`;
-  const salary = r.Salary && !/^None$/i.test(r.Salary) ? String(r.Salary).replace(/^INR\s*/, "₹").replace(/\s*-\s*INR\s*/, " – ₹") + (/month/i.test(r.Salary) ? "" : " per month") : "";
+  const salary = r.Salary && !/^None$/i.test(r.Salary) ? String(r.Salary).replace(/^INR\s*/, "₹").replace(/\s*-\s*INR\s*/, " – ₹") : "";
   const intro = summary.find((l) => l.length > 50) || "";
   return base({
     id: `thanal-${slug(title)}-${slug(city || "india")}-${String(r.id).slice(-8)}`,
@@ -134,7 +138,7 @@ const fromThanal = (rows) => rows.filter((r) => (r.Country || "India") === "Indi
 });
 
 /* ---------- Keka ---------- */
-const KEKA_NAMES = { dropxcelllp: { name: "DropXcel", industry: "Accounting, tax & audit services" }, discoverdollar: { name: "Discover Dollar", industry: "AI for finance (spend & revenue recovery)" } };
+const KEKA_NAMES = { dropxcelllp: { name: "Finanshels", industry: "Accounting, tax & audit services" }, discoverdollar: { name: "Discover Dollar", industry: "AI for finance (spend & revenue recovery)" } };
 const fromKeka = (sub, rows) => rows.flatMap((r) => {
   const meta = KEKA_NAMES[sub] || { name: sub, industry: "" };
   const cities = [...new Set((r.jobLocations || []).map((l) => String(l.city || "").trim()).filter(Boolean))];
@@ -166,7 +170,9 @@ const fromKeka = (sub, rows) => rows.flatMap((r) => {
 const fromNiveus = (rows) => rows.map((x) => x._source).filter(Boolean).flatMap((s) => {
   const places = String(s.locationSeparatedbySlash || "").split(/\s*\/\s*/).map((p) => p.replace(/,\s*India$/, "").trim()).filter((p) => p && p !== "India");
   const location = places.length === 1 ? places[0] : places.length ? `${places.map((p) => p.split(",")[0]).join(", ")} (India)` : "India";
-  const { resp, req, summary } = htmlSections(s.mediumDescription);
+  const detailFile = join(dir, "niveus-d", `${s.id}.json`);
+  const detail = existsSync(detailFile) ? (({ reponseObject, ...rest }) => reponseObject || rest)(JSON.parse(readFileSync(detailFile, "utf8"))) : null;
+  const { resp, req, summary } = htmlSections(detail?.longDescription || s.mediumDescription);
   const range = s.experienceUIField || (s.minYearOfExperience != null ? `${s.minYearOfExperience}-${s.maxYearOfExperience} years` : "");
   const exp = expInfo(range);
   const applyLink = `https://career.niveussolutions.com/niveussolutions/jobview/${s.jobUrl}`;
@@ -190,7 +196,11 @@ const fromNiveus = (rows) => rows.map((x) => x._source).filter(Boolean).flatMap(
 /* ---------- run ---------- */
 const read = (f) => JSON.parse(readFileSync(join(dir, f), "utf8"));
 const candidates = [];
-if (existsSync(join(dir, "thanal.json"))) candidates.push(...fromThanal(read("thanal.json")));
+if (existsSync(join(dir, "thanal.json"))) {
+  const extra = existsSync(join(dir, "thanal-d")) ? readdirSync(join(dir, "thanal-d")).flatMap((f) => read(join("thanal-d", f))) : [];
+  const byId = new Map(extra.map((r) => [String(r.id), r]));
+  candidates.push(...fromThanal(read("thanal.json").map((r) => ({ ...r, ...Object.fromEntries(Object.entries(byId.get(String(r.id)) || {}).filter(([k, v]) => k !== "Job_Description" && v != null && v !== "")) }))));
+}
 for (const f of readdirSync(dir).filter((n) => /^keka-[a-z0-9-]+\.json$/.test(n))) candidates.push(...fromKeka(f.slice(5, -5), read(f)));
 if (existsSync(join(dir, "niveus.json"))) candidates.push(...fromNiveus(read("niveus.json").data?.data || []));
 
