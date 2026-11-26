@@ -144,7 +144,7 @@ var JOBS = [
     experienceRange: "1–4 years",
     employmentType: "Full-time",
     applyDeadline: "Rolling",
-    postedDate: "2026-10-06",
+    postedDate: "2026-11-26",
     source: "Direct",
     verified: true,
     verificationNote: "Job details can change after publishing. Always verify the opening on the employer's official channel before applying. InfoparkDaily is not a recruiter and never collects money for jobs. Never pay anyone for an application or interview.",

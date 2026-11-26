@@ -40,7 +40,7 @@ const JOBS_NEW = [
   job({ id: "clickhouse-full-stack-software-engineer-postgres-remote-india-8d7ef0a5", company: "ClickHouse",
     companyBlurb: "ClickHouse · Full Stack Software Engineer – Managed Postgres · Remote (India / Bengaluru listed) · 1–4 years · React, TypeScript",
     location: "Remote (India – Bengaluru listed; also US, Canada, UK, Australia, Netherlands)", roles: ["Full Stack Software Engineer – Postgres"],
-    experience: "experienced", experienceRange: "1–4 years", employmentType: "Full-time", workMode: "Remote", postedDate: "2026-10-06",
+    experience: "experienced", experienceRange: "1–4 years", employmentType: "Full-time", workMode: "Remote",
     hiringNotes: seen("6 Oct 2026") + " The listing publishes pay ranges only for US locations, so no India salary is shown here.",
     applyLink: "https://jobs.ashbyhq.com/clickhouse/8d7ef0a5-5a0a-4598-b39d-c4c0ac011547",
     tags: ["ClickHouse", "React", "TypeScript", "Full Stack", "Postgres", "Remote"],
